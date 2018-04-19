@@ -1,0 +1,822 @@
+﻿@model ITR.Models.TemplateModel
+@{
+    ViewBag.Title = "Dashboard";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<div class="container-fluid">
+    <div class="panel">
+        <div class="row">
+            <div class="col-md-12 text-right">
+                @*<a href="~/Templates/DataTemplate.xlsx" id="downloadData" class="btn btn-primary downloadData" style="padding:20px; font-weight:normal; font-size: 10px;">Download Dataset Template</a>*@
+                <a href="~/Home/AddDatasets" id="uploadData" class="btn btn-primary" style="padding:20px; font-weight:normal; font-size: 10px;">Upload Datasets</a>
+            </div>
+        </div>
+    </div>
+
+
+    <div class="panel" style="border: 1px solid #dedede; padding-top: 10px; padding-bottom: 12px;">
+        <div class="row">
+            <div class="col-md-12">
+                <div class=" col-md-3">
+                    <label>Company </label>
+                    <br />
+                    <label id="lblCompanyName"></label>
+                </div>
+                <div class="col-md-3">
+                    <label>Division</label>
+                    <br />
+                    <label id="lblDivisionName"></label>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="panel">
+        <div class="row">
+            <div class="col-md-12" align="left">
+                <a href="~/Home/CreateFavouriteList" id="btnCreateFavouriteList" class="btn btn-primary" style="padding:15px; font-weight:normal; font-size: 8px;">Create Favorite List</a>
+            </div>
+
+        </div>
+
+    </div>
+        <div class="panel">
+
+            <div class="row ">
+                
+                <div class="col-md-3">
+                    <label>Indicators</label>
+                    @Html.DropDownListFor(Model => Model.Indicators, new SelectList(ViewBag.Indicators as System.Collections.IEnumerable, "RServerParam", "DrpDwnName"), new { @class = "form-control", id = "ddlIndicators" })
+                </div>
+                <div class="col-md-3" id="favdiv">
+                    <div>
+                        <label>Favorite List</label>
+                        <select class="form-control" id="ddlFavourites"></select>
+                    </div>
+                </div>
+                <div class="col-md-3">
+                  <label style="height:39px"></label>
+                    <button  class="btn btn-success" id="btnrunanalysis">Run Analysis</button>
+                </div>
+
+            </div>
+        </div>
+
+        @*<div class="panel">
+            <div class="row ">
+               
+                <div class="col-md-9">
+                    &nbsp;
+                </div>
+                <div class="col-md-3">
+                    <button class="btn btn-success" id="btnrunanalysis">Run Analysis</button>
+                </div>
+            </div>
+        </div>*@
+        <div class="row">
+            <div class="col-md-12">
+                <div class="panel panel-default">
+                    <div class="panel-heading">
+                        <h5>Datasets</h5>
+                        <div class="panel-ctrls">
+                        </div>
+                    </div>
+                    <div class="panel-body">
+                        <table class="table table-striped table-bordered" id="dtDataSetList">
+                            <thead class="the-box dark full">
+                                <tr>
+                                    <th>
+                                        <input id="chkHeader" type="checkbox" title="Check All" />
+                                    </th>
+                                    <th>Dataset ID</th>
+                                    <th>Dataset Name</th>
+                                    <th>Description</th>
+                                    <th>Date</th>
+                                    <th>View</th>
+                                    <th>Replace</th>
+                                    @*<th>Push</th>*@
+                                    <th>Delete</th>
+                                    <th>ViewStatus</th>
+                                </tr>
+                            </thead>
+                            <tbody></tbody>
+                        </table>
+
+                    </div>
+                </div>
+            </div>
+        </div>
+
+
+    </div> <!-- .container-fluid -->
+<!-- Modal Delete -->
+<a id="DelModelPopUp" class="" style="display: none;" href="#DeleteModal" data-toggle="modal">Delete Popup</a>
+<div class="modal fade" id="DeleteModal" tabindex="-1" role="dialog" aria-hidden="true">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <div class="modal-header">
+                <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
+                <h4 class="modal-title">Delete</h4>
+            </div>
+            <div class="modal-body">
+                <label id="lblDelMsg">Are you sure you want to delete this dataset?</label>
+            </div>
+            <div class="modal-footer">
+                <button type="button" id="btnDeleteOk" class="btn btn-default btn-danger" data-dismiss="modal">Ok</button>
+                <button type="button" id="btnDeleteCancel" class="btn btn-warning" data-dismiss="modal">Cancel</button>
+            </div>
+            <!-- /.modal-footer -->
+        </div>
+        <!-- /.modal-content -->
+    </div>
+    <!-- /.modal-doalog -->
+</div>
+<!-- /end Modal Delete-->
+@if (Session.Count > 0)
+{
+    <input type="hidden" id="hdnCompanyID" title="" value="@Session["CompanyID"].ToString()" />
+    <input type="hidden" id="hdnDivisionID" title="" value="@Session["DivisonID"].ToString()" />
+    <input type="hidden" id="hdnUserID" title="" value="@Session["UserID"].ToString()" />
+    <input type="hidden" id="hdnIsDataPortalAdmin" title="" value="@Session["IsDataPortalAdmin"].ToString()" />
+    <input type="hidden" id="hdnEmailID" title="" value="@Session["EmailID"].ToString()" />
+}
+else
+{
+    <input type="hidden" id="hdnCompanyID" title="" value="" />
+    <input type="hidden" id="hdnDivisionID" title="" value="" />
+    <input type="hidden" id="hdnUserID" title="" value="" />
+    <input type="hidden" id="hdnIsDataPortalAdmin" title="" value="" />
+    <input type="hidden" id="hdnEmailID" title="" value="" />
+    <script src="~/js/jquery.min.js"></script>
+    <script type="text/javascript" src="//ajax.googleapis.com/ajax/libs/jquery/1.8.1/jquery.min.js"></script>
+    <script type="text/javascript" lang="javascript">
+        console.log("else case");
+        var elseCaseCompanyId = window.localStorage.getItem('ECompanyID');
+        $("#hdnCompanyID").val(elseCaseCompanyId);
+        var elseCaseDivisionID = window.localStorage.getItem('EDivisionID');
+        $("#hdnDivisionID").val(elseCaseDivisionID);
+        var elseCaseisDataPortalAdmin = window.localStorage.getItem('EisDataPortalAdmin');
+        $("#hdnIsDataPortalAdmin").val(elseCaseisDataPortalAdmin);
+
+        var sessionObj = {
+            CompanyID: window.localStorage.getItem('ECompanyID'),
+            DivisonID: window.localStorage.getItem('EDivisionID'),
+            UserID: window.localStorage.getItem('EUserID'),
+            IsDataPortalAdmin: window.localStorage.getItem('EisDataPortalAdmin'),
+            Value1: window.localStorage.getItem('EUserName'),
+            EmailID :  window.localStorage.getItem('EmailID')
+        }
+        var itrIISURL = "http://datacast.itreconomics.com/Home/ITRSessionRequest";
+        $.ajax({
+            type: "POST",
+            async: false,
+            url: itrIISURL,
+            crossDomain: true,
+            dataType: "json",
+            data: sessionObj,
+            success: function (res) {
+                console.log("Step 4");
+                // console.log(res);
+            },
+            error: function (error) {
+                console.log(error)
+            }
+        });
+
+    </script>
+}
+
+
+
+
+
+
+@section PagespecificCss
+{
+    <link type="text/css" href="../assets/plugins/datatables/dataTables.css" rel="stylesheet">
+    <link type="text/css" href="../assets/plugins/datatables/ColReorder/css/dataTables.colReorder.css" rel="stylesheet"> 	<!-- ColReorder -->
+    <link type="text/css" href="../assets/plugins/datatables/KeyTable/css/dataTables.keyTable.css" rel="stylesheet"> 		<!-- KeyTable -->
+    <link type="text/css" href="../assets/plugins/datatables/dataTables.bootstrap.css" rel="stylesheet"> 					<!-- Bootstrap Support for Datatables -->
+    <link type="text/css" href="../assets/plugins/datatables/dataTables.fontAwesome.css" rel="stylesheet"> 					<!-- FontAwesome Support for Datatables -->
+
+    <link href="~/css/jqueryui.css" rel="stylesheet" />
+    <link type="text/css" href="../assets/fonts/font-awesome/css/font-awesome.min.css" rel="stylesheet">        <!-- Font Awesome -->
+}
+@section PageSpecificScript
+ {
+
+    <script type="text/javascript" src="../assets/plugins/datatables/jquery.dataTables.js"></script>
+    <script type="text/javascript" src="../assets/plugins/datatables/dataTables.bootstrap.js"></script>
+    <script type="text/javascript" lang="javascript">
+
+        function ajaxindicatorstart() {
+            if ($('body').find('#loadingDiv').attr('id') != 'loadingDiv') {
+                var loadingString = '<div id="loadingDiv" class="modal1"><div id="loading-image" class="center"><img src="../img/home/loader.gif" alt="Loading..." /></div></div>';
+                $('body').append(loadingString);
+                $('#loadingDiv .bg').height('100%');
+                $('#loadingDiv').fadeIn(300);
+                $('body').css('cursor', 'wait');
+            }
+        };
+        var oTable = "";
+        var divisionID = "";
+        var isDataPortalAdmin = "";
+        var _CompanyId = 0;
+        var FavListStringNameForDataSet = "";
+       // $("#hdnUserID").val(1);
+        $(document).ready(function () {
+
+
+            $("#favdiv").hide();
+            //Added By: Vishnu to Get the Company and divisionids from local storage and set the dropdown value and disable them
+            // var companyID = $("#hdnCompanyID").val();//window.localStorage.getItem('CompanyID'); //5916//
+            _CompanyId =  $("#hdnCompanyID").val();//window.localStorage.getItem('CompanyID'); //5916//
+            divisionID =  $("#hdnDivisionID").val();//window.localStorage.getItem('DivisionID'); //41//
+            var userID =  $("#hdnUserID").val();//$("#hdnUserID").val();//window.localStorage.getItem('UserID');
+            isDataPortalAdmin = $("#hdnIsDataPortalAdmin").val(); //true;//
+            $("#btnHideFavourites").hide();
+
+           // $("#hdnUserID").val(1);
+            //To Bind the selected values of AddDataset Page if the uer is dataportal admin
+            if ((isDataPortalAdmin == true || isDataPortalAdmin == "true" || isDataPortalAdmin == "TRUE") && window.localStorage.getItem('CompanyID') != null) {
+                _CompanyId = window.localStorage.getItem('ECompanyID');
+               //  _CompanyId = 2301;
+               //  _CompanyId = 8224;
+                $("#lblCompanyName").html(_CompanyId);
+                LoadDivisions();
+            }
+                // else if (companyID != "" && companyID != "null" && companyID != null) {
+            else if (_CompanyId != "" && _CompanyId != "null" && _CompanyId != null) {
+                $("#lblCompanyName").html(_CompanyId);
+                LoadDivisions();
+            }
+
+
+            //Block Started Added by Raghuveer on 6 March 2017
+            var accountsAvailable = @Html.Raw(ViewBag.Accounts);
+            for(var i=0;i<accountsAvailable.length;i++)
+            {
+                if(_CompanyId==accountsAvailable[i].RecordId)
+                {
+                    $("#lblCompanyName").html(accountsAvailable[i].AccountName);
+                }
+            }
+            //Block  Ended Added by Raghuveer on 6 March 2017
+
+
+           
+
+
+          
+            if (divisionID != "" && divisionID != "null" && divisionID != null) {
+
+                //     $("#ddlDivision").val(divisionID);  // 03/27/2017
+               // alert('inside division');
+
+                if (isDataPortalAdmin == true || isDataPortalAdmin == "true" || isDataPortalAdmin == "TRUE") { //enable the dropdowns
+                    //$("#ddlAccounts").attr('disabled', false);
+                    //   $("#ddlDivision").attr('disabled', false);  // 03/27/2017
+
+                }
+                else if (divisionID != "0" && divisionID != "") {
+                    //   $("#ddlAccounts").attr('disabled', false);
+                    //    $("#ddlDivision").attr('disabled', false);  // 03/27/2017
+                }
+                else {
+                    //  $("#ddlAccounts").attr('disabled', true);
+                    //  $("#ddlDivision").attr('disabled', true);  // 03/27/2017
+                }
+               
+               
+            }
+            else if (divisionID == null) {
+                //  $("#ddlAccounts").attr('disabled', true);
+                //  $("#ddlDivision").attr('disabled', true);
+
+            }
+
+            setTimeout(function () {
+                LoadDatasetDetails();
+            }, 1500)
+
+
+            $("#btnrunanalysis").click(function () {
+                var rowCount = $('#dtDataSetList >tbody >tr').length;
+                if (rowCount > 0) {
+                    ajaxindicatorstart();
+                    var dataSetName = "";
+                    var viewstatuses="";
+                    var rowcollection = oTable.$(".chkChild:checked", {
+                        "page": "all"
+                    });
+                    var count = 0;
+                    rowcollection.each(function (index, elem) {
+                        var $tr = $(this).closest('tr');
+                        var $td = $tr.children('td')
+                        if (dataSetName == "") {
+                            dataSetName = $td.eq(2).text();
+                            viewstatuses = $td.eq(8).text();
+                        }
+                        else {
+                            dataSetName = dataSetName + "|" + $td.eq(2).text();
+                            viewstatuses = viewstatuses + "|" +  $td.eq(8).text();
+                        }
+                        count = count + 1;
+                    });
+
+                    if (count > 0) {
+                        var url = "/Home/RunAnalysis/";
+                        var modelObj = {
+                            // AccountID: accountID,
+                            //  DivisionID: divisionID,
+                            DatasetName: encodeURI(dataSetName),
+                            Indicator: $("#ddlIndicators").val(),
+                            UserID : $("#hdnUserID").val(),
+                            FavouriteListName : $("#ddlFavourites").val(),
+                            ViewStatuses : encodeURI(viewstatuses)
+                        };
+                        //  console.log(modelObj)
+                        var response = SendRequestJSON(url, modelObj); //call the post method and Catch the result sent from Post Back call
+                        if (response == 1) {
+                            document.getElementById("displayMessage").innerHTML = 'Your request for analysis has been submitted to the queue for processing. <br /> Depending on the number of indicators in the category you selected, <br /> it may take from 10 minutes to one hour to process and see the results in the “Analysis” window.';
+                            $('#displayMessage').prepend('<span class="button b-close"><span>X</span></span>');//Prepending Close button to popup
+                            $('#displayMessage').bPopup({
+                                autoClose: 30000
+                            });
+                            ajaxindicatorstop();
+                        }
+                    }
+                    else {
+                        ajaxindicatorstop();
+                        document.getElementById("displayMessage").innerHTML = 'Please select at least one dataset and try again...!';
+                        ShowPopup();
+                    }
+                }
+            });
+            function LoadDivisions() {
+                var accountid = _CompanyId;//$('#ddlAccounts').val();
+                if (accountid != '' && accountid != '0') {
+                    var url = '/Home/GetDivisionsByAccountID/';
+                    var modelobj = {
+                        id: accountid
+                    }
+                    $.getJSON(url, modelobj,
+                                  function (optionsData) {
+
+                                      $.each(optionsData, function (index, itemData) {
+                                          if(itemData.Value== divisionID)
+                                          {
+                                              $("#lblDivisionName").html(itemData.Text);
+                                          }
+
+                                      });
+                                  });
+
+
+                }
+                if (isDataPortalAdmin == true || isDataPortalAdmin == "true" || isDataPortalAdmin == "TRUE") {
+                    // window.localStorage.setItem('CompanyID', $("#ddlAccounts").val());
+                    window.localStorage.setItem('CompanyID', _CompanyId);
+                  //  window.localStorage.setItem('DivisionID', 0);
+                    window.localStorage.setItem('DivisionID', window.localStorage.getItem('DivisionID'));
+                }
+                else {
+                    //   localStorage.clear();
+                }
+            }
+        });
+
+
+        //Loading Dataset Details by Company and Division ID
+        function LoadDatasetDetails() {
+            var vcompanyid = _CompanyId;//$('#ddlAccounts option:selected').val();
+
+            if (vcompanyid == "" || vcompanyid == null || vcompanyid == "null" || vcompanyid == 0 || vcompanyid == undefined) {
+                vcompanyid = 0;
+            }
+
+
+            var vdivisionid = $("#hdnDivisionID").val();  //  $('#ddlDivision option:selected').val();
+
+            if (vdivisionid == "" || vdivisionid == null || vdivisionid == "null" || vdivisionid == 0 || vdivisionid == undefined) {
+                vdivisionid = 0;
+            }
+
+
+          
+            oTable = $('#dtDataSetList').dataTable({
+                "aLengthMenu": [[5, 10, 25, 50, -1], [5, 10, 25, 50, "All"]],
+                "bAutoWidth": true,
+                "bScrollCollapse": true,
+                "iDisplayLength": 10,
+                "sDom": '<fl><t><ip>',
+                "bJQueryUI": false,
+                "bDestroy": true,
+                "sPaginationType": "bootstrap",
+                "oLanguage": {
+                    "sProcessing": ajaxindicatorstart(),
+                    "sLengthMenu": "_MENU_ records per page",
+                    "oPaginate": {
+                        "sPrevious": "Prev",
+                        "sNext": "Next"
+                    }
+                },
+                "bServerSide": true,
+                "sAjaxSource": "FillDataSetsDataTable",
+                "fnServerParams": function (aoData) {
+                    aoData.push({ "name": "comapnyId", "value": vcompanyid }, 
+                                { "name": "divisionId", "value": vdivisionid },
+                                { "name": "FavouriteListName", "value": FavListStringNameForDataSet  },
+                                { "name": "UserID", "value": $("#hdnUserID").val() });
+                },
+                "bProcessing": false,
+                "fnDrawCallback": function (oSettings) {
+                    $('#dtDataSetList tbody tr').each(function () {
+                        var sTitle;
+                        var _this = this;
+                        var aData = "";
+                        var nRow = _this;
+                        var aData = oTable.fnGetData(nRow); //Get data of current row
+                    
+                        if (aData == null) {
+                            var tempDataSetID = 0;
+                        }
+                        else { var tempDataSetID = aData[0]; }
+
+                        var tableString = ""
+
+                        if (aData != null) {
+
+                            var url = '/Home/GetHoverRowsByDataSetID/';
+                            var modelobj = {
+                                DSID: aData[0],
+                                Table : aData[8]==1?'CustomerDataSets':'Company'
+                            };
+
+                            var myjson = $.getJSON(url, modelobj, function (optionsData) {
+
+                                tableString = optionsData;
+                                _this.setAttribute('title', tableString);
+
+                                /* Apply the tooltips */
+                                oTable.$(_this).tooltip({
+                                    placement: 'bottom',
+                                    //top: 0,
+                                    //left: 15,
+                                    fade: false,
+                                    html: true
+                                });
+                            });
+                        }
+
+                    })
+                },
+                "aoColumns": [
+                               {
+                                   "sName": "CustomerDataSetID",
+                                   "bSearchable": false,
+                                   "bSortable": false,
+                                   "mRender": function (oObj) {
+                                       return '<input  class="chkChild" type="checkbox" title="select" />';
+                                       //  return chkString;
+                                   }
+                               },
+                               {
+                                   "sName": "CustomerDataSetID",
+
+                               },
+                                {
+                                    "sName": "Dataset Name"
+
+                                },
+                                {
+                                    "sName": "Dataset Description"
+                                },
+                                 {
+                                     "sName": "Date"
+
+                                 },
+                                {
+
+                                    //"sName": "Dataset ID",
+                                    //"bSearchable": false,
+                                    //"bSortable": false,
+                                    //"mRender": function (oObj) {
+                                    //    var vdsid = oObj;
+                                    //    return "<a class='view' href='../Home/ViewDataSet?DSID=" + vdsid + "'>View Dataset</a>";
+                                    //}
+                                    "mRender":  function ( data, type, row ) {
+                                        var vdsid = row[0];
+                                       
+                                        if(row[8]==1) {
+                                            return "<a class='view' href='../Home/ViewDataSet?DSID=" + vdsid + "&VS=1'>View Dataset</a>";
+                                            }
+                                        else{
+                                            return  "<a class='view' href='../Home/ViewDataSet?DSID=" + vdsid + "&VS=0'>View Dataset</a>";
+                                         }
+                                    }
+                                },
+                                {
+
+                                    "sName": "Dataset ID",
+                                    "bSearchable": false,
+                                    "bSortable": false,
+
+                                    "mRender":  function ( data, type, row ) {
+                                        var vdsid = row[0];
+                                       
+                                        if(row[8]==1) {
+                                            return "<a class='view' href='../Home/ReplaceDataSet?DSID=" + vdsid + "&VS=1'>Replace Datasett</a>";
+                                        }
+                                        else{
+                                            return  "<a class='view' href='#'>Replace Dataset</a>";
+                                        }
+                                    }
+
+
+                                    //"mRender": function (oObj) {
+                                    //    var vdsid = oObj;
+                                    //    return "<a class='replace' href='../Home/ReplaceDataSet?DSID=" + vdsid + "'>Replace Dataset</a>";
+                                    //}
+                                },
+                                 //{
+
+                                 //    "sName": "Dataset ID",
+                                 //    "bSearchable": false,
+                                 //    "bSortable": false,
+                                 //    "mRender": function (oObj) {
+                                 //        return '<a class="push" href="javascript:;">Push</a>';
+                                 //    }
+                                 //},
+                                {
+
+                                    "sName": "Dataset ID",
+                                    "bSearchable": false,
+                                    "bSortable": false,
+                                    "mRender":  function ( data, type, row ) {
+                                        var vdsid = row[0];
+                                       
+                                        if(row[8]==1) {
+                                            return '<a class="delete" href="javascript:;">Delete</a>';
+                                        }
+                                        else{
+                                            return  "<a class='' href='#'>Delete</a>";
+                                        }
+                                    }
+                                   
+                                },
+                                {
+                                    "sName": "ViewStatus",
+                                    "sClass": "hide_column"   ,
+                                    "bSearchable": false,
+                                    "bSortable": false
+                                }
+
+                ]
+            });
+
+            oTable.fnAdjustColumnSizing();
+            oTable.fnFilter("");
+
+        }
+
+        var vdatasetid = 0;
+
+        //Deleting the dataset details
+        $('#dtDataSetList').on('click', 'a.delete', function (e) {
+            e.preventDefault();
+            var _this = this;
+            var aData = "";
+            var nRow = $(_this).parents('tr')[0];
+            var aData = oTable.fnGetData(nRow); //Get data of current row
+            vdatasetid = aData[0];
+            //$("#lblDelMsg").text("Are you sure you want to delete this record?");
+            //$(".modal-title").text("Delete");
+            $("#DelModelPopUp").click();
+
+        });
+
+
+        $("#btnShowFavourites").click(function(){
+
+            LoadFavourtieDatasetDetails();
+            $("#btnHideFavourites").show();
+            $("#btnShowFavourites").hide();
+        });
+
+        $("#btnHideFavourites").click(function(){
+            LoadDatasetDetails();
+            $("#btnShowFavourites").show();
+            $("#btnHideFavourites").hide();
+        });
+              
+
+
+        ////Deleting the dataset details
+        //$('#dtDataSetList').on('click', 'a.analysis', function (e) {
+        //    e.preventDefault();
+        //    var _this = this;
+        //    var aData = "";
+        //    var nRow = $(_this).parents('tr')[0];
+        //    var aData = oTable.fnGetData(nRow); //Get data of current row
+        //    vdatasetid = aData[0];
+        //    alert(vdatasetid);
+
+        //});
+
+
+        $("#btnDeleteOk").click(function () {
+            ajaxindicatorstart();
+            var url = "/Home/DatasetDelete/";
+            var modelObj = {
+                DatasetID: vdatasetid //aData[0]
+            };
+
+            var response = SendRequestJSON(url, modelObj); //call the post method and Catch the result sent from Post Back call
+
+            if (response == 1) {
+                document.getElementById("displayMessage").innerHTML = 'Dataset is deleted successfully.';
+                ShowPopup();
+                LoadDatasetDetails();
+                ajaxindicatorstop();
+            }
+            else if (response == 0) {
+                // $("#btnDeleteCancel").click();
+                ajaxindicatorstop();
+                document.getElementById("displayMessage").innerHTML = 'Unable to delete the dataset.';
+                ShowPopup();
+                return false;
+            }
+            else if (response == 'Error') {
+                // $("#btnDeleteCancel").click();
+                ajaxindicatorstop();
+                document.getElementById("displayMessage").innerHTML = 'Error Occured.';
+                ShowPopup();
+                return false;
+            }
+        });
+        //End of Deleting the dataset details
+
+
+
+        // Added by Raghuveer
+        // Added on 22 June 2017
+        // For Display Customer DataSets based on Favourites List
+        function LoadFavourtieDatasetDetails() {
+            var vcompanyid = _CompanyId;//$('#ddlAccounts option:selected').val();
+
+            if (vcompanyid == "" || vcompanyid == null || vcompanyid == "null" || vcompanyid == 0 || vcompanyid == undefined) {
+                vcompanyid = 0;
+            }
+
+
+            var vdivisionid = $("#hdnDivisionID").val();  //  $('#ddlDivision option:selected').val();
+
+            if (vdivisionid == "" || vdivisionid == null || vdivisionid == "null" || vdivisionid == 0 || vdivisionid == undefined) {
+                vdivisionid = 0;
+            }
+
+           
+
+        }
+
+        //Push Operation
+        //$('#dtDataSetList').on('click', 'a.push', function (e) {
+        //    e.preventDefault();
+        //    var _this = this;
+        //    var aData = "";
+        //    var nRow = $(_this).parents('tr')[0];
+        //    var aData = oTable.fnGetData(nRow); //Get data of current row
+        //    vdatasetid = aData[0];
+        //    $("#lblDelMsg").text("Are you sure you want to push this record?");
+        //    $(".modal-title").text("Push");
+        //    $("#DelModelPopUp").click();
+
+        //});
+
+
+        //$("#btnDeleteOk").click(function () {
+
+        //    //loader starts
+        //    ajaxindicatorstart();
+
+        //    var url = "/Home/DatasetPush/";
+
+        //    var modelObj = {
+        //        DatasetID: vdatasetid //aData[0]
+        //    };
+
+        //    var response = SendRequestJSON(url, modelObj); //call the post method and Catch the result sent from Post Back call
+
+        //    if (response == 1) {
+        //        document.getElementById("displayMessage").innerHTML = 'Dataset is pushed successfully.';
+        //        ShowPopup();
+        //        LoadDatasetDetails();
+        //        //loader stops
+        //        ajaxindicatorstop();
+        //    }
+        //    else if (response == 0) {
+        //        ajaxindicatorstop();
+        //        document.getElementById("displayMessage").innerHTML = 'Unable to push the dataset.';
+        //        ShowPopup();
+        //        return false;
+        //    }
+        //    else if (response == 'Error') {
+        //        ajaxindicatorstop();
+        //        document.getElementById("displayMessage").innerHTML = 'Error Occured.';
+        //        ShowPopup();
+        //        return false;
+        //    }
+        //});
+        //end of push operation
+
+
+        //Loader Implementation stop function
+        function ajaxindicatorstop() {
+            $('#loadingDiv .bg').height('100%');
+            $('#loadingDiv').remove();
+            $('body').css('cursor', 'default');
+            // modal-backdrop fade in
+        }
+
+
+        //Check all option
+        $('#chkHeader').click(function (e) {
+
+            if ($('#chkHeader').prop("checked")) {
+                $('.chkChild').each(function () {
+                    //$(this).attr('checked', 'checked');
+                    $(this).prop('checked', true);
+                });
+            }
+            else {
+                $('input', oTable.fnGetNodes()).removeAttr('checked');
+            }
+
+        });
+
+        // Code added by Raghuveer on July 20 2017
+        $("#ddlIndicators").change(function(e){
+            if($(this).val()=='Favorites')
+            {
+                $("#favdiv").show();
+                var url = 'GetAllFavouritesListByUserID/';
+                var modelobj = {
+                    UserID: $("#hdnUserID").val()
+                }
+                $.getJSON(url, modelobj,
+                              function (optionsData) {
+                                  var select = $("#ddlFavourites");
+                                  select.empty();
+                                  if(optionsData.length>0)
+                                      {
+                                      $.each(optionsData, function (index, itemData) {
+                                          select.append($('<option/>', {
+                                              value: itemData.Text,
+                                              text: itemData.Text
+                                          }));
+                                     
+                                      });
+                                  }
+                                  else
+                                  {
+                                      select.append($('<option/>', {
+                                          value: '',
+                                          text: 'No Favorites'
+                                      }));
+                                  }
+                                  FavListStringNameForDataSet= $("#ddlFavourites").val();
+                                  //var oTableFavorites1 = $('#dtDataSetList').dataTable();
+                                  //oTableFavorites1.fnDraw(); 
+                                         
+                              });
+       
+            }
+            else
+            {
+                $("#favdiv").hide();
+                FavListStringNameForDataSet="";
+                var oTableFavorites2 = $('#dtDataSetList').dataTable();
+                oTableFavorites2.fnDraw(); 
+            }
+          
+        });
+
+        // Code added by Raghuveer on July 21 2017
+        $("#ddlFavourites").change(function(e){
+            FavListStringNameForDataSet= $("#ddlFavourites").val();
+            //var oTableFavorites3 = $('#dtDataSetList').dataTable();
+            //oTableFavorites3.fnDraw(); 
+        });
+
+
+
+
+       
+
+
+
+
+    </script>
+}

@@ -1,0 +1,10 @@
+Below are the steps that I followed to Resolve SSIS issue.
+1.Creating a new AppPool in IIS for application.
+2. Creating Windows Authentication Logins in the SQL Server.
+3.Craeting User for above Login in SSMS.
+4. Granting the db_ssisoperator Database Role for above Users.
+
+By using above steps we can connect DB server for Script task. 
+After that we faced excel file permission issue (the files are located in fs002 server) , to fix this issue we modified file security by adding EVERYONE user with full control.
+
+Then the magic worked and we are able to execute SSIS package successfully through IIS application.

@@ -1,0 +1,48 @@
+﻿<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Sample</title>
+    <!--<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>-->
+    <script type="text/javascript" src="//ajax.googleapis.com/ajax/libs/jquery/1.8.1/jquery.min.js"></script>
+    <script type="text/javascript">
+
+        $(document).ready(function () {
+            $("#btnITRUploadDataSet").click(function () {
+
+                //your code to be executed after 1 second
+
+                var sessionObj = {
+                    CompanyID: $("#txtComapnyID").val(),
+                    DivisonID: $("#txtDivisionID").val()
+                }
+                // Every two seconds....
+                // Send the message  to the child window
+                // ...if the domain is http://itr.verudix.net
+                // parent.postMessage("Hello", "http://itr.verudix.net");
+                var targetFrame = document.getElementById("iframeITR").contentWindow;
+                //  targetFrame.postMessage(sessionObj, "http://itr.verudix.net");
+
+                $('#iframeITR').show();
+                $('#iframeITR').attr('src', "http://itr.verudix.net/Home/ITRSession");
+                //targetFrame.postMessage(sessionObj, "http://itr.verudix.net");
+                $("#btnITRUploadDataSet").hide();
+                setTimeout(function () {
+                    targetFrame.postMessage(sessionObj, "http://itr.verudix.net");
+                }, 500)
+            });
+        })
+    </script>
+</head>
+<body>
+    Company ID : <input type="text" id="txtComapnyID" />
+    Division ID : <input type="text" id="txtDivisionID" />
+    <button id="btnITRUploadDataSet">ITR Data Cast</button>
+    <iframe id="iframeITR" src="" style="display:none;" height="600" width="1200"></iframe>
+
+</body>
+
+
+</html>

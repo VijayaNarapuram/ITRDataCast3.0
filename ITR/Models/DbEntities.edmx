@@ -1,0 +1,1182 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="3.0" xmlns:edmx="http://schemas.microsoft.com/ado/2009/11/edmx">
+  <!-- EF Runtime content -->
+  <edmx:Runtime>
+    <!-- SSDL content -->
+    <edmx:StorageModels>
+    <Schema Namespace="ITRDevModel.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2008" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+        <!--Errors Found During Generation:
+warning 6002: The table/view 'ITRDev.dbo.CustomerDataSets' does not have a primary key defined. The key has been inferred and the definition was created as a read-only table/view.-->
+        <EntityType Name="CustomerDataSets">
+          <Key>
+            <PropertyRef Name="CustomerDataSetID" />
+          </Key>
+          <Property Name="CustomerDataSetID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="AccountID" Type="int" />
+          <Property Name="DivisionID" Type="int" />
+          <Property Name="DataSetName" Type="varchar" MaxLength="128" />
+          <Property Name="DataSetDescription" Type="varchar" MaxLength="1024" />
+          <Property Name="CustomerID" Type="varchar" MaxLength="128" />
+          <Property Name="CreatedBy" Type="varchar" MaxLength="64" />
+          <Property Name="CreatedDate" Type="datetime" />
+          <Property Name="ModifiedBy" Type="varchar" MaxLength="64" />
+          <Property Name="ModifiedDate" Type="datetime" />
+          <Property Name="CompanyName" Type="varchar" MaxLength="128" />
+          <Property Name="DataType" Type="varchar" MaxLength="64" />
+          <Property Name="Base" Type="varchar" MaxLength="64" />
+          <Property Name="Units" Type="varchar" MaxLength="64" />
+          <Property Name="CompanyWebsite" Type="varchar" MaxLength="256" />
+          <Property Name="IsITREmployee" Type="bit" />
+          <Property Name="UserName" Type="varchar(max)" />
+        </EntityType>
+        <!--Errors Found During Generation:
+warning 6002: The table/view 'ITRDev.dbo.ExceptionLog' does not have a primary key defined. The key has been inferred and the definition was created as a read-only table/view.-->
+        <EntityType Name="ExceptionLog">
+          <Key>
+            <PropertyRef Name="ExceptionID" />
+          </Key>
+          <Property Name="ExceptionID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="CustomerID" Type="varchar" MaxLength="128" />
+          <Property Name="ExceptionMessage" Type="varchar" MaxLength="2048" />
+          <Property Name="PageName" Type="varchar" MaxLength="128" />
+          <Property Name="CreatedBY" Type="varchar" MaxLength="128" />
+          <Property Name="CreatedDate" Type="datetime" />
+        </EntityType>
+        <!--Errors Found During Generation:
+warning 6002: The table/view 'ITRDev.dbo.StagingCompanyData' does not have a primary key defined. The key has been inferred and the definition was created as a read-only table/view.-->
+        <EntityType Name="StagingCompanyData">
+          <Key>
+            <PropertyRef Name="ProdID" />
+          </Key>
+          <Property Name="ProdID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="MonthYear" Type="date" />
+          <Property Name="AdjValue" Type="decimal" Precision="32" Scale="16" />
+          <Property Name="CustomerDataSetID" Type="int" />
+          <Property Name="CreatedBy" Type="varchar" MaxLength="64" />
+          <Property Name="CreatedDate" Type="datetime" />
+          <Property Name="ModifiedBy" Type="varchar" MaxLength="64" />
+          <Property Name="ModifiedDate" Type="datetime" />
+        </EntityType>
+        <Function Name="uspClearDataSetAnalysis" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+          <Parameter Name="CustomerDataSetID" Type="int" Mode="In" />
+        </Function>
+        <Function Name="uspDeleteCustomerDataSet" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+          <Parameter Name="CustomerDataSetID" Type="int" Mode="In" />
+        </Function>
+        <Function Name="uspDeleteFavoriteListByCompanyAndUserID" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+          <Parameter Name="CompanyShortCode" Type="varchar" Mode="In" />
+          <Parameter Name="UserID" Type="int" Mode="In" />
+          <Parameter Name="FavoriteListName" Type="varchar" Mode="In" />
+        </Function>
+        <Function Name="uspDeleteRowFromDataSet" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+          <Parameter Name="ProdID" Type="int" Mode="In" />
+        </Function>
+        <Function Name="uspInsertCustomerDataSet" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+          <Parameter Name="AccountID" Type="int" Mode="In" />
+          <Parameter Name="DivisionID" Type="int" Mode="In" />
+          <Parameter Name="DatasetName" Type="varchar" Mode="In" />
+          <Parameter Name="DatasetDescription" Type="varchar" Mode="In" />
+          <Parameter Name="CustomerID" Type="varchar" Mode="In" />
+          <Parameter Name="CompanyName" Type="varchar" Mode="In" />
+          <Parameter Name="DataType" Type="varchar" Mode="In" />
+          <Parameter Name="Base" Type="varchar" Mode="In" />
+          <Parameter Name="Units" Type="varchar" Mode="In" />
+          <Parameter Name="CompanyWebsite" Type="varchar" Mode="In" />
+          <Parameter Name="MonthYears" Type="varchar(max)" Mode="In" />
+          <Parameter Name="AdjValues" Type="varchar(max)" Mode="In" />
+          <Parameter Name="UserName" Type="varchar(max)" Mode="In" />
+          <Parameter Name="IsitrEmployee" Type="bit" Mode="In" />
+          <Parameter Name="CreatedBy" Type="varchar" Mode="In" />
+          <Parameter Name="CreatedDate" Type="datetime" Mode="In" />
+          <Parameter Name="AccountName" Type="varchar" Mode="In" />
+        </Function>
+        <Function Name="uspInsertExceptionLog" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+          <Parameter Name="CustomerID" Type="varchar" Mode="In" />
+          <Parameter Name="ExceptionMessage" Type="varchar" Mode="In" />
+          <Parameter Name="PageName" Type="varchar" Mode="In" />
+          <Parameter Name="CreatedBy" Type="varchar" Mode="In" />
+          <Parameter Name="CreatedDate" Type="datetime" Mode="In" />
+        </Function>
+        <Function Name="uspInsertFavouriteList" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+          <Parameter Name="CompanyShortCode" Type="varchar" Mode="In" />
+          <Parameter Name="IndicatorShortCodes" Type="varchar(max)" Mode="In" />
+          <Parameter Name="UserID" Type="int" Mode="In" />
+          <Parameter Name="FavouriteListName" Type="varchar" Mode="In" />
+          <Parameter Name="CreatedBY" Type="varchar" Mode="In" />
+          <Parameter Name="CreatedDate" Type="datetime" Mode="In" />
+        </Function>
+        <Function Name="uspInsertFavouriteListForDatacast" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+          <Parameter Name="CompanyShortCode" Type="varchar" Mode="In" />
+          <Parameter Name="IndicatorShortCodes" Type="varchar(max)" Mode="In" />
+          <Parameter Name="UserID" Type="int" Mode="In" />
+          <Parameter Name="FavouriteListName" Type="varchar" Mode="In" />
+          <Parameter Name="CreatedBY" Type="varchar" Mode="In" />
+          <Parameter Name="CreatedDate" Type="datetime" Mode="In" />
+        </Function>
+        <Function Name="uspPushDataSetToProd" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+          <Parameter Name="CustomerDataSetID" Type="int" Mode="In" />
+        </Function>
+        <Function Name="uspReplaceCustomerDataSet" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+          <Parameter Name="CustomerDataSetID" Type="int" Mode="In" />
+          <Parameter Name="CompanyName" Type="varchar" Mode="In" />
+          <Parameter Name="DataType" Type="varchar" Mode="In" />
+          <Parameter Name="Base" Type="varchar" Mode="In" />
+          <Parameter Name="Units" Type="varchar" Mode="In" />
+          <Parameter Name="CompanyWebsite" Type="varchar" Mode="In" />
+          <Parameter Name="MonthYears" Type="varchar(max)" Mode="In" />
+          <Parameter Name="AdjValues" Type="varchar(max)" Mode="In" />
+          <Parameter Name="UserName" Type="varchar(max)" Mode="In" />
+          <Parameter Name="IsitrEmployee" Type="bit" Mode="In" />
+          <Parameter Name="CreatedBy" Type="varchar" Mode="In" />
+          <Parameter Name="CreatedDate" Type="datetime" Mode="In" />
+        </Function>
+        <Function Name="uspSelectAccounts" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo" />
+        <Function Name="uspSelectAllFavouriteListByUserIDForDatacast" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+          <Parameter Name="CompanyShortCode" Type="varchar" Mode="In" />
+          <Parameter Name="UserID" Type="int" Mode="In" />
+          <Parameter Name="FavListName" Type="varchar" Mode="In" />
+        </Function>
+        <Function Name="uspSelectAllFavouritesListByUserID" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+          <Parameter Name="UserID" Type="int" Mode="In" />
+        </Function>
+        <Function Name="uspSelectAllResultsCountByDataSetID" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+          <Parameter Name="CustomerDataSetID" Type="int" Mode="In" />
+        </Function>
+        <Function Name="uspSelectCompanySalesPortal" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo" />
+        <Function Name="uspSelectCompanySalesPortalByCustomerDataSetID" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo" />
+        <Function Name="uspSelectDatacastCategoriesPortal" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo" />
+        <Function Name="uspSelectDatacastSubCategoriesByCategoryPortal" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+          <Parameter Name="Industry" Type="varchar" Mode="In" />
+        </Function>
+        <Function Name="uspSelectDatacastSubSector2BySubSector1Portal" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+          <Parameter Name="Industry" Type="varchar" Mode="In" />
+          <Parameter Name="Sector" Type="varchar" Mode="In" />
+          <Parameter Name="SubSector1" Type="varchar" Mode="In" />
+        </Function>
+        <Function Name="uspSelectDatacastSubSector3BySubSector2Portal" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+          <Parameter Name="Industry" Type="varchar" Mode="In" />
+          <Parameter Name="Sector" Type="varchar" Mode="In" />
+          <Parameter Name="SubSector1" Type="varchar" Mode="In" />
+          <Parameter Name="SubSector2" Type="varchar" Mode="In" />
+        </Function>
+        <Function Name="uspSelectDatacastSubSectorsBySectorPortal" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+          <Parameter Name="Industry" Type="varchar" Mode="In" />
+          <Parameter Name="Sector" Type="varchar" Mode="In" />
+        </Function>
+        <Function Name="uspSelectDataSetsByCompanyDivision" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+          <Parameter Name="AccountID" Type="int" Mode="In" />
+          <Parameter Name="DivisionID" Type="int" Mode="In" />
+          <Parameter Name="CustomerID" Type="varchar" Mode="In" />
+        </Function>
+        <Function Name="uspSelectDataSetsByCompanyDivisionForAlliance" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+          <Parameter Name="AccountID" Type="int" Mode="In" />
+          <Parameter Name="DivisionID" Type="int" Mode="In" />
+          <Parameter Name="CustomerID" Type="varchar" Mode="In" />
+        </Function>
+        <Function Name="uspSelectDataSetsByFavouriteListsOfUserID" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+          <Parameter Name="AccountID" Type="int" Mode="In" />
+          <Parameter Name="DivisionID" Type="int" Mode="In" />
+          <Parameter Name="UserID" Type="int" Mode="In" />
+        </Function>
+        <Function Name="uspSelectDataSetsByQBaseAccountIDForDatacast" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+          <Parameter Name="QBaseAccountID" Type="int" Mode="In" />
+          <Parameter Name="QBaseDivID" Type="int" Mode="In" />
+        </Function>
+        <Function Name="uspSelectDataSetsByUserFavouriteList" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+          <Parameter Name="AccountID" Type="int" Mode="In" />
+          <Parameter Name="DivisionID" Type="int" Mode="In" />
+          <Parameter Name="UserID" Type="int" Mode="In" />
+          <Parameter Name="FavouriteListName" Type="varchar" Mode="In" />
+        </Function>
+        <Function Name="uspSelectDataSetsDetailsByDataSetID" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+          <Parameter Name="CustomerDataSetID" Type="int" Mode="In" />
+          <Parameter Name="Table" Type="varchar" Mode="In" />
+        </Function>
+        <Function Name="uspSelectDataSetsDetailsByDataSetID03242017" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+          <Parameter Name="CustomerDataSetID" Type="int" Mode="In" />
+        </Function>
+        <Function Name="uspSelectDataSetsDetailsByDataSetIDForBanner" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+          <Parameter Name="CustomerDataSetID" Type="int" Mode="In" />
+          <Parameter Name="Table" Type="varchar" Mode="In" />
+        </Function>
+        <Function Name="uspSelectDivisionsByAccountID" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+          <Parameter Name="AccountID" Type="int" Mode="In" />
+        </Function>
+        <Function Name="uspSelectFavouriteListByUserID" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+          <Parameter Name="CompanyShortCode" Type="varchar" Mode="In" />
+          <Parameter Name="UserID" Type="int" Mode="In" />
+          <Parameter Name="FavListName" Type="varchar" Mode="In" />
+          <Parameter Name="DisplayLength" Type="int" Mode="In" />
+          <Parameter Name="DisplayStart" Type="int" Mode="In" />
+          <Parameter Name="Search" Type="varchar(max)" Mode="In" />
+          <Parameter Name="SortCol" Type="int" Mode="In" />
+          <Parameter Name="SortDir" Type="varchar" Mode="In" />
+        </Function>
+        <Function Name="uspSelectFavouriteListByUserIDForDatacast" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+          <Parameter Name="CompanyShortCode" Type="varchar" Mode="In" />
+          <Parameter Name="UserID" Type="int" Mode="In" />
+          <Parameter Name="FavListName" Type="varchar" Mode="In" />
+          <Parameter Name="DisplayLength" Type="int" Mode="In" />
+          <Parameter Name="DisplayStart" Type="int" Mode="In" />
+          <Parameter Name="Search" Type="varchar(max)" Mode="In" />
+          <Parameter Name="SortCol" Type="int" Mode="In" />
+          <Parameter Name="SortDir" Type="varchar" Mode="In" />
+        </Function>
+        <Function Name="uspSelectFavouritesListByUserID" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+          <Parameter Name="UserID" Type="int" Mode="In" />
+          <Parameter Name="CompanyShortCode" Type="varchar" Mode="In" />
+        </Function>
+        <Function Name="uspSelectFavouritesListByUserIDAndCompanyShortCode" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+          <Parameter Name="UserID" Type="int" Mode="In" />
+          <Parameter Name="CompanyShortCode" Type="varchar" Mode="In" />
+        </Function>
+        <Function Name="uspSelectIndicatorCategoryDropdown" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo" />
+        <Function Name="uspSelectIndicatorListByCategorySearchPortal" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+          <Parameter Name="CompanyShortCode" Type="varchar" Mode="In" />
+          <Parameter Name="UserID" Type="int" Mode="In" />
+          <Parameter Name="Industry" Type="varchar" Mode="In" />
+          <Parameter Name="Sector" Type="varchar" Mode="In" />
+          <Parameter Name="SubSector1" Type="varchar" Mode="In" />
+          <Parameter Name="SubSector2" Type="varchar" Mode="In" />
+          <Parameter Name="SubSector3" Type="varchar" Mode="In" />
+          <Parameter Name="DisplayLength" Type="int" Mode="In" />
+          <Parameter Name="DisplayStart" Type="int" Mode="In" />
+          <Parameter Name="Search" Type="varchar(max)" Mode="In" />
+          <Parameter Name="SortCol" Type="int" Mode="In" />
+          <Parameter Name="SortDir" Type="varchar" Mode="In" />
+        </Function>
+        <Function Name="uspSelectLoadCorelationLeadLagByDataSetID" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+          <Parameter Name="ShortCode" Type="varchar" Mode="In" />
+          <Parameter Name="DisplayLength" Type="int" Mode="In" />
+          <Parameter Name="DisplayStart" Type="int" Mode="In" />
+          <Parameter Name="Search" Type="varchar(max)" Mode="In" />
+          <Parameter Name="SortCol" Type="int" Mode="In" />
+          <Parameter Name="SortDir" Type="varchar" Mode="In" />
+          <Parameter Name="UserID" Type="int" Mode="In" />
+        </Function>
+        <Function Name="uspSelectLoadCorelationLeadLagByDataSetIDForDatacast" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+          <Parameter Name="ShortCode" Type="varchar" Mode="In" />
+          <Parameter Name="DisplayLength" Type="int" Mode="In" />
+          <Parameter Name="DisplayStart" Type="int" Mode="In" />
+          <Parameter Name="Search" Type="varchar(max)" Mode="In" />
+          <Parameter Name="SortCol" Type="int" Mode="In" />
+          <Parameter Name="SortDir" Type="varchar" Mode="In" />
+          <Parameter Name="UserID" Type="int" Mode="In" />
+        </Function>
+        <Function Name="uspSelectRowsByDataSetID" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+          <Parameter Name="CustomerDataSetID" Type="int" Mode="In" />
+          <Parameter Name="Table" Type="varchar" Mode="In" />
+        </Function>
+        <Function Name="uspUpdateCustomerDataSet" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+          <Parameter Name="ProdIDs" Type="varchar(max)" Mode="In" />
+          <Parameter Name="MonthYears" Type="varchar(max)" Mode="In" />
+          <Parameter Name="AdjValues" Type="varchar(max)" Mode="In" />
+          <Parameter Name="DataSetDescription" Type="varchar" Mode="In" />
+          <Parameter Name="ModifiedBy" Type="varchar" Mode="In" />
+          <Parameter Name="ModifiedDate" Type="datetime" Mode="In" />
+        </Function>
+        <Function Name="uspUpdateFavouriteList" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+          <Parameter Name="CompanyShortCode" Type="varchar" Mode="In" />
+          <Parameter Name="IndicatorShortCodes" Type="varchar(max)" Mode="In" />
+          <Parameter Name="UserID" Type="int" Mode="In" />
+          <Parameter Name="FavouriteListName" Type="varchar" Mode="In" />
+          <Parameter Name="CreatedBY" Type="varchar" Mode="In" />
+          <Parameter Name="CreatedDate" Type="datetime" Mode="In" />
+        </Function>
+        <EntityContainer Name="ITRDevModelStoreContainer">
+          <EntitySet Name="CustomerDataSets" EntityType="Self.CustomerDataSets" store:Type="Tables" store:Schema="dbo">
+            <DefiningQuery>SELECT 
+[CustomerDataSets].[CustomerDataSetID] AS [CustomerDataSetID], 
+[CustomerDataSets].[AccountID] AS [AccountID], 
+[CustomerDataSets].[DivisionID] AS [DivisionID], 
+[CustomerDataSets].[DataSetName] AS [DataSetName], 
+[CustomerDataSets].[DataSetDescription] AS [DataSetDescription], 
+[CustomerDataSets].[CustomerID] AS [CustomerID], 
+[CustomerDataSets].[CreatedBy] AS [CreatedBy], 
+[CustomerDataSets].[CreatedDate] AS [CreatedDate], 
+[CustomerDataSets].[ModifiedBy] AS [ModifiedBy], 
+[CustomerDataSets].[ModifiedDate] AS [ModifiedDate], 
+[CustomerDataSets].[CompanyName] AS [CompanyName], 
+[CustomerDataSets].[DataType] AS [DataType], 
+[CustomerDataSets].[Base] AS [Base], 
+[CustomerDataSets].[Units] AS [Units], 
+[CustomerDataSets].[CompanyWebsite] AS [CompanyWebsite], 
+[CustomerDataSets].[IsITREmployee] AS [IsITREmployee], 
+[CustomerDataSets].[UserName] AS [UserName]
+FROM [dbo].[CustomerDataSets] AS [CustomerDataSets]</DefiningQuery>
+          </EntitySet>
+          <EntitySet Name="ExceptionLog" EntityType="Self.ExceptionLog" store:Type="Tables" store:Schema="dbo">
+            <DefiningQuery>SELECT 
+[ExceptionLog].[ExceptionID] AS [ExceptionID], 
+[ExceptionLog].[CustomerID] AS [CustomerID], 
+[ExceptionLog].[ExceptionMessage] AS [ExceptionMessage], 
+[ExceptionLog].[PageName] AS [PageName], 
+[ExceptionLog].[CreatedBY] AS [CreatedBY], 
+[ExceptionLog].[CreatedDate] AS [CreatedDate]
+FROM [dbo].[ExceptionLog] AS [ExceptionLog]</DefiningQuery>
+          </EntitySet>
+          <EntitySet Name="StagingCompanyData" EntityType="Self.StagingCompanyData" store:Type="Tables" store:Schema="dbo">
+            <DefiningQuery>SELECT 
+[StagingCompanyData].[ProdID] AS [ProdID], 
+[StagingCompanyData].[MonthYear] AS [MonthYear], 
+[StagingCompanyData].[AdjValue] AS [AdjValue], 
+[StagingCompanyData].[CustomerDataSetID] AS [CustomerDataSetID], 
+[StagingCompanyData].[CreatedBy] AS [CreatedBy], 
+[StagingCompanyData].[CreatedDate] AS [CreatedDate], 
+[StagingCompanyData].[ModifiedBy] AS [ModifiedBy], 
+[StagingCompanyData].[ModifiedDate] AS [ModifiedDate]
+FROM [dbo].[StagingCompanyData] AS [StagingCompanyData]</DefiningQuery>
+          </EntitySet>
+        </EntityContainer>
+      </Schema></edmx:StorageModels>
+    <!-- CSDL content -->
+    <edmx:ConceptualModels>
+      <Schema Namespace="ITRDevModel" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
+        <EntityType Name="CustomerDataSet">
+          <Key>
+            <PropertyRef Name="CustomerDataSetID" />
+          </Key>
+          <Property Name="CustomerDataSetID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="AccountID" Type="Int32" />
+          <Property Name="DivisionID" Type="Int32" />
+          <Property Name="DataSetName" Type="String" MaxLength="128" FixedLength="false" Unicode="false" />
+          <Property Name="DataSetDescription" Type="String" MaxLength="1024" FixedLength="false" Unicode="false" />
+          <Property Name="CustomerID" Type="String" MaxLength="128" FixedLength="false" Unicode="false" />
+          <Property Name="CreatedBy" Type="String" MaxLength="64" FixedLength="false" Unicode="false" />
+          <Property Name="CreatedDate" Type="DateTime" Precision="3" />
+          <Property Name="ModifiedBy" Type="String" MaxLength="64" FixedLength="false" Unicode="false" />
+          <Property Name="ModifiedDate" Type="DateTime" Precision="3" />
+          <Property Name="CompanyName" Type="String" MaxLength="128" FixedLength="false" Unicode="false" />
+          <Property Name="DataType" Type="String" MaxLength="64" FixedLength="false" Unicode="false" />
+          <Property Name="Base" Type="String" MaxLength="64" FixedLength="false" Unicode="false" />
+          <Property Name="Units" Type="String" MaxLength="64" FixedLength="false" Unicode="false" />
+          <Property Name="CompanyWebsite" Type="String" MaxLength="256" FixedLength="false" Unicode="false" />
+          <Property Name="IsITREmployee" Type="Boolean" />
+          <Property Name="UserName" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
+        </EntityType>
+        <EntityType Name="ExceptionLog">
+          <Key>
+            <PropertyRef Name="ExceptionID" />
+          </Key>
+          <Property Name="ExceptionID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="CustomerID" Type="String" MaxLength="128" FixedLength="false" Unicode="false" />
+          <Property Name="ExceptionMessage" Type="String" MaxLength="2048" FixedLength="false" Unicode="false" />
+          <Property Name="PageName" Type="String" MaxLength="128" FixedLength="false" Unicode="false" />
+          <Property Name="CreatedBY" Type="String" MaxLength="128" FixedLength="false" Unicode="false" />
+          <Property Name="CreatedDate" Type="DateTime" Precision="3" />
+        </EntityType>
+        <EntityType Name="StagingCompanyData">
+          <Key>
+            <PropertyRef Name="ProdID" />
+          </Key>
+          <Property Name="ProdID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="MonthYear" Type="DateTime" Precision="0" />
+          <Property Name="AdjValue" Type="Decimal" Precision="32" Scale="16" />
+          <Property Name="CustomerDataSetID" Type="Int32" />
+          <Property Name="CreatedBy" Type="String" MaxLength="64" FixedLength="false" Unicode="false" />
+          <Property Name="CreatedDate" Type="DateTime" Precision="3" />
+          <Property Name="ModifiedBy" Type="String" MaxLength="64" FixedLength="false" Unicode="false" />
+          <Property Name="ModifiedDate" Type="DateTime" Precision="3" />
+        </EntityType>
+        <EntityContainer Name="ITRDevEntities" annotation:LazyLoadingEnabled="true">
+          <EntitySet Name="CustomerDataSets" EntityType="Self.CustomerDataSet" />
+          <EntitySet Name="ExceptionLogs" EntityType="Self.ExceptionLog" />
+          <EntitySet Name="StagingCompanyDatas" EntityType="Self.StagingCompanyData" />
+          <FunctionImport Name="uspDeleteCustomerDataSet" ReturnType="Collection(Int32)">
+          <Parameter Name="CustomerDataSetID" Mode="In" Type="Int32" />
+          </FunctionImport>
+          <FunctionImport Name="uspDeleteFavoriteListByCompanyAndUserID" ReturnType="Collection(Int32)">
+            <Parameter Name="CompanyShortCode" Mode="In" Type="String" />
+            <Parameter Name="UserID" Mode="In" Type="Int32" />
+            <Parameter Name="FavoriteListName" Mode="In" Type="String" />
+          </FunctionImport>
+          <FunctionImport Name="uspDeleteRowFromDataSet" ReturnType="Collection(Int32)">
+          <Parameter Name="ProdID" Mode="In" Type="Int32" />
+          </FunctionImport>
+          <FunctionImport Name="uspInsertCustomerDataSet" ReturnType="Collection(Int32)">
+            <Parameter Name="AccountID" Mode="In" Type="Int32" />
+            <Parameter Name="DivisionID" Mode="In" Type="Int32" />
+            <Parameter Name="DatasetName" Mode="In" Type="String" />
+            <Parameter Name="DatasetDescription" Mode="In" Type="String" />
+            <Parameter Name="CustomerID" Mode="In" Type="String" />
+            <Parameter Name="CompanyName" Mode="In" Type="String" />
+            <Parameter Name="DataType" Mode="In" Type="String" />
+            <Parameter Name="Base" Mode="In" Type="String" />
+            <Parameter Name="Units" Mode="In" Type="String" />
+            <Parameter Name="CompanyWebsite" Mode="In" Type="String" />
+            <Parameter Name="MonthYears" Mode="In" Type="String" />
+            <Parameter Name="AdjValues" Mode="In" Type="String" />
+            <Parameter Name="UserName" Mode="In" Type="String" />
+            <Parameter Name="IsitrEmployee" Mode="In" Type="Boolean" />
+            <Parameter Name="CreatedBy" Mode="In" Type="String" />
+            <Parameter Name="CreatedDate" Mode="In" Type="DateTime" />
+            <Parameter Name="AccountName" Mode="In" Type="String" />
+          </FunctionImport>
+          <FunctionImport Name="uspInsertExceptionLog" ReturnType="Collection(Int32)">
+            <Parameter Name="CustomerID" Mode="In" Type="String" />
+            <Parameter Name="ExceptionMessage" Mode="In" Type="String" />
+            <Parameter Name="PageName" Mode="In" Type="String" />
+            <Parameter Name="CreatedBy" Mode="In" Type="String" />
+            <Parameter Name="CreatedDate" Mode="In" Type="DateTime" />
+          </FunctionImport>
+          <FunctionImport Name="uspInsertFavouriteList" ReturnType="Collection(Int32)">
+            <Parameter Name="CompanyShortCode" Mode="In" Type="String" />
+            <Parameter Name="IndicatorShortCodes" Mode="In" Type="String" />
+            <Parameter Name="UserID" Mode="In" Type="Int32" />
+            <Parameter Name="FavouriteListName" Mode="In" Type="String" />
+            <Parameter Name="CreatedBY" Mode="In" Type="String" />
+            <Parameter Name="CreatedDate" Mode="In" Type="DateTime" />
+          </FunctionImport>
+          <FunctionImport Name="uspInsertFavouriteListForDatacast" ReturnType="Collection(Int32)">
+            <Parameter Name="CompanyShortCode" Mode="In" Type="String" />
+            <Parameter Name="IndicatorShortCodes" Mode="In" Type="String" />
+            <Parameter Name="UserID" Mode="In" Type="Int32" />
+            <Parameter Name="FavouriteListName" Mode="In" Type="String" />
+            <Parameter Name="CreatedBY" Mode="In" Type="String" />
+            <Parameter Name="CreatedDate" Mode="In" Type="DateTime" />
+          </FunctionImport>
+          <FunctionImport Name="uspPushDataSetToProd" ReturnType="Collection(Int32)">
+          <Parameter Name="CustomerDataSetID" Mode="In" Type="Int32" />
+          </FunctionImport>
+          <FunctionImport Name="uspReplaceCustomerDataSet" ReturnType="Collection(Int32)">
+            <Parameter Name="CustomerDataSetID" Mode="In" Type="Int32" />
+            <Parameter Name="CompanyName" Mode="In" Type="String" />
+            <Parameter Name="DataType" Mode="In" Type="String" />
+            <Parameter Name="Base" Mode="In" Type="String" />
+            <Parameter Name="Units" Mode="In" Type="String" />
+            <Parameter Name="CompanyWebsite" Mode="In" Type="String" />
+            <Parameter Name="MonthYears" Mode="In" Type="String" />
+            <Parameter Name="AdjValues" Mode="In" Type="String" />
+            <Parameter Name="UserName" Mode="In" Type="String" />
+            <Parameter Name="IsitrEmployee" Mode="In" Type="Boolean" />
+            <Parameter Name="CreatedBy" Mode="In" Type="String" />
+            <Parameter Name="CreatedDate" Mode="In" Type="DateTime" />
+          </FunctionImport>
+          <FunctionImport Name="uspSelectAccounts" ReturnType="Collection(ITRDevModel.uspSelectAccounts_Result)" />
+          <FunctionImport Name="uspSelectAllFavouriteListByUserIDForDatacast" ReturnType="Collection(ITRDevModel.uspSelectAllFavouriteListByUserIDForDatacast_Result)">
+            <Parameter Name="CompanyShortCode" Mode="In" Type="String" />
+            <Parameter Name="UserID" Mode="In" Type="Int32" />
+            <Parameter Name="FavListName" Mode="In" Type="String" />
+          </FunctionImport>
+          <FunctionImport Name="uspSelectAllFavouritesListByUserID" ReturnType="Collection(ITRDevModel.uspSelectAllFavouritesListByUserID_Result)">
+          <Parameter Name="UserID" Mode="In" Type="Int32" />
+          </FunctionImport>
+          <FunctionImport Name="uspSelectAllResultsCountByDataSetID" ReturnType="Collection(Int32)">
+          <Parameter Name="CustomerDataSetID" Mode="In" Type="Int32" />
+          </FunctionImport>
+          <FunctionImport Name="uspSelectCompanySalesPortal" />
+          <FunctionImport Name="uspSelectCompanySalesPortalByCustomerDataSetID" />
+          <FunctionImport Name="uspSelectDatacastCategoriesPortal" ReturnType="Collection(ITRDevModel.uspSelectDatacastCategoriesPortal_Result)" />
+          <FunctionImport Name="uspSelectDatacastSubCategoriesByCategoryPortal" ReturnType="Collection(ITRDevModel.uspSelectDatacastSubCategoriesByCategoryPortal_Result)">
+          <Parameter Name="Industry" Mode="In" Type="String" />
+          </FunctionImport>
+          <FunctionImport Name="uspSelectDatacastSubSector2BySubSector1Portal" ReturnType="Collection(ITRDevModel.uspSelectDatacastSubSector2BySubSector1Portal_Result)">
+            <Parameter Name="Industry" Mode="In" Type="String" />
+            <Parameter Name="Sector" Mode="In" Type="String" />
+            <Parameter Name="SubSector1" Mode="In" Type="String" />
+          </FunctionImport>
+          <FunctionImport Name="uspSelectDatacastSubSector3BySubSector2Portal" ReturnType="Collection(ITRDevModel.uspSelectDatacastSubSector3BySubSector2Portal_Result)">
+            <Parameter Name="Industry" Mode="In" Type="String" />
+            <Parameter Name="Sector" Mode="In" Type="String" />
+            <Parameter Name="SubSector1" Mode="In" Type="String" />
+            <Parameter Name="SubSector2" Mode="In" Type="String" />
+          </FunctionImport>
+          <FunctionImport Name="uspSelectDatacastSubSectorsBySectorPortal" ReturnType="Collection(ITRDevModel.uspSelectDatacastSubSectorsBySectorPortal_Result)">
+            <Parameter Name="Industry" Mode="In" Type="String" />
+            <Parameter Name="Sector" Mode="In" Type="String" />
+          </FunctionImport>
+          <FunctionImport Name="uspSelectDataSetsByCompanyDivision" ReturnType="Collection(ITRDevModel.uspSelectDataSetsByCompanyDivision_Result)">
+            <Parameter Name="AccountID" Mode="In" Type="Int32" />
+            <Parameter Name="DivisionID" Mode="In" Type="Int32" />
+            <Parameter Name="CustomerID" Mode="In" Type="String" />
+          </FunctionImport>
+          <FunctionImport Name="uspSelectDataSetsByCompanyDivisionForAlliance" ReturnType="Collection(ITRDevModel.uspSelectDataSetsByCompanyDivisionForAlliance_Result)">
+            <Parameter Name="AccountID" Mode="In" Type="Int32" />
+            <Parameter Name="DivisionID" Mode="In" Type="Int32" />
+            <Parameter Name="CustomerID" Mode="In" Type="String" />
+          </FunctionImport>
+          <FunctionImport Name="uspSelectDataSetsByFavouriteListsOfUserID" ReturnType="Collection(ITRDevModel.uspSelectDataSetsByFavouriteListsOfUserID_Result)">
+            <Parameter Name="AccountID" Mode="In" Type="Int32" />
+            <Parameter Name="DivisionID" Mode="In" Type="Int32" />
+            <Parameter Name="UserID" Mode="In" Type="Int32" />
+          </FunctionImport>
+          <FunctionImport Name="uspSelectDataSetsByQBaseAccountIDForDatacast" ReturnType="Collection(ITRDevModel.uspSelectDataSetsByQBaseAccountIDForDatacast_Result)">
+            <Parameter Name="QBaseAccountID" Mode="In" Type="Int32" />
+            <Parameter Name="QBaseDivID" Mode="In" Type="Int32" />
+          </FunctionImport>
+          <FunctionImport Name="uspSelectDataSetsByUserFavouriteList" ReturnType="Collection(ITRDevModel.uspSelectDataSetsByUserFavouriteList_Result)">
+            <Parameter Name="AccountID" Mode="In" Type="Int32" />
+            <Parameter Name="DivisionID" Mode="In" Type="Int32" />
+            <Parameter Name="UserID" Mode="In" Type="Int32" />
+            <Parameter Name="FavouriteListName" Mode="In" Type="String" />
+          </FunctionImport>
+          <FunctionImport Name="uspSelectDataSetsDetailsByDataSetID" ReturnType="Collection(ITRDevModel.uspSelectDataSetsDetailsByDataSetID_Result)">
+            <Parameter Name="CustomerDataSetID" Mode="In" Type="Int32" />
+            <Parameter Name="Table" Mode="In" Type="String" />
+          </FunctionImport>
+          <FunctionImport Name="uspSelectDataSetsDetailsByDataSetID03242017">
+          <Parameter Name="CustomerDataSetID" Mode="In" Type="Int32" />
+          </FunctionImport>
+          <FunctionImport Name="uspSelectDataSetsDetailsByDataSetIDForBanner" ReturnType="Collection(ITRDevModel.uspSelectDataSetsDetailsByDataSetIDForBanner_Result)">
+            <Parameter Name="CustomerDataSetID" Mode="In" Type="Int32" />
+            <Parameter Name="Table" Mode="In" Type="String" />
+          </FunctionImport>
+          <FunctionImport Name="uspSelectDivisionsByAccountID" ReturnType="Collection(ITRDevModel.uspSelectDivisionsByAccountID_Result)">
+          <Parameter Name="AccountID" Mode="In" Type="Int32" />
+          </FunctionImport>
+          <FunctionImport Name="uspSelectFavouriteListByUserID" ReturnType="Collection(ITRDevModel.uspSelectFavouriteListByUserID_Result)">
+            <Parameter Name="CompanyShortCode" Mode="In" Type="String" />
+            <Parameter Name="UserID" Mode="In" Type="Int32" />
+            <Parameter Name="FavListName" Mode="In" Type="String" />
+            <Parameter Name="DisplayLength" Mode="In" Type="Int32" />
+            <Parameter Name="DisplayStart" Mode="In" Type="Int32" />
+            <Parameter Name="Search" Mode="In" Type="String" />
+            <Parameter Name="SortCol" Mode="In" Type="Int32" />
+            <Parameter Name="SortDir" Mode="In" Type="String" />
+          </FunctionImport>
+          <FunctionImport Name="uspSelectFavouriteListByUserIDForDatacast" ReturnType="Collection(ITRDevModel.uspSelectFavouriteListByUserIDForDatacast_Result)">
+            <Parameter Name="CompanyShortCode" Mode="In" Type="String" />
+            <Parameter Name="UserID" Mode="In" Type="Int32" />
+            <Parameter Name="FavListName" Mode="In" Type="String" />
+            <Parameter Name="DisplayLength" Mode="In" Type="Int32" />
+            <Parameter Name="DisplayStart" Mode="In" Type="Int32" />
+            <Parameter Name="Search" Mode="In" Type="String" />
+            <Parameter Name="SortCol" Mode="In" Type="Int32" />
+            <Parameter Name="SortDir" Mode="In" Type="String" />
+          </FunctionImport>
+          <FunctionImport Name="uspSelectFavouritesListByUserID" ReturnType="Collection(ITRDevModel.uspSelectFavouritesListByUserID_Result)">
+            <Parameter Name="UserID" Mode="In" Type="Int32" />
+            <Parameter Name="CompanyShortCode" Mode="In" Type="String" />
+          </FunctionImport>
+          <FunctionImport Name="uspSelectFavouritesListByUserIDAndCompanyShortCode" ReturnType="Collection(ITRDevModel.uspSelectFavouritesListByUserIDAndCompanyShortCode_Result)">
+            <Parameter Name="UserID" Mode="In" Type="Int32" />
+            <Parameter Name="CompanyShortCode" Mode="In" Type="String" />
+          </FunctionImport>
+          <FunctionImport Name="uspSelectIndicatorCategoryDropdown" ReturnType="Collection(ITRDevModel.uspSelectIndicatorCategoryDropdown_Result)" />
+          <FunctionImport Name="uspSelectIndicatorListByCategorySearchPortal" ReturnType="Collection(ITRDevModel.uspSelectIndicatorListByCategorySearchPortal_Result)">
+            <Parameter Name="CompanyShortCode" Mode="In" Type="String" />
+            <Parameter Name="UserID" Mode="In" Type="Int32" />
+            <Parameter Name="Industry" Mode="In" Type="String" />
+            <Parameter Name="Sector" Mode="In" Type="String" />
+            <Parameter Name="SubSector1" Mode="In" Type="String" />
+            <Parameter Name="SubSector2" Mode="In" Type="String" />
+            <Parameter Name="SubSector3" Mode="In" Type="String" />
+            <Parameter Name="DisplayLength" Mode="In" Type="Int32" />
+            <Parameter Name="DisplayStart" Mode="In" Type="Int32" />
+            <Parameter Name="Search" Mode="In" Type="String" />
+            <Parameter Name="SortCol" Mode="In" Type="Int32" />
+            <Parameter Name="SortDir" Mode="In" Type="String" />
+          </FunctionImport>
+          <FunctionImport Name="uspSelectLoadCorelationLeadLagByDataSetID" ReturnType="Collection(ITRDevModel.uspSelectLoadCorelationLeadLagByDataSetID_Result)">
+            <Parameter Name="ShortCode" Mode="In" Type="String" />
+            <Parameter Name="DisplayLength" Mode="In" Type="Int32" />
+            <Parameter Name="DisplayStart" Mode="In" Type="Int32" />
+            <Parameter Name="Search" Mode="In" Type="String" />
+            <Parameter Name="SortCol" Mode="In" Type="Int32" />
+            <Parameter Name="SortDir" Mode="In" Type="String" />
+            <Parameter Name="UserID" Mode="In" Type="Int32" />
+          </FunctionImport>
+          <FunctionImport Name="uspSelectLoadCorelationLeadLagByDataSetIDForDatacast" ReturnType="Collection(ITRDevModel.uspSelectLoadCorelationLeadLagByDataSetIDForDatacast_Result)">
+            <Parameter Name="ShortCode" Mode="In" Type="String" />
+            <Parameter Name="DisplayLength" Mode="In" Type="Int32" />
+            <Parameter Name="DisplayStart" Mode="In" Type="Int32" />
+            <Parameter Name="Search" Mode="In" Type="String" />
+            <Parameter Name="SortCol" Mode="In" Type="Int32" />
+            <Parameter Name="SortDir" Mode="In" Type="String" />
+            <Parameter Name="UserID" Mode="In" Type="Int32" />
+          </FunctionImport>
+          <FunctionImport Name="uspSelectRowsByDataSetID" ReturnType="Collection(ITRDevModel.uspSelectRowsByDataSetID_Result)">
+            <Parameter Name="CustomerDataSetID" Mode="In" Type="Int32" />
+            <Parameter Name="Table" Mode="In" Type="String" />
+          </FunctionImport>
+          <FunctionImport Name="uspUpdateCustomerDataSet" ReturnType="Collection(Int32)">
+            <Parameter Name="ProdIDs" Mode="In" Type="String" />
+            <Parameter Name="MonthYears" Mode="In" Type="String" />
+            <Parameter Name="AdjValues" Mode="In" Type="String" />
+            <Parameter Name="DataSetDescription" Mode="In" Type="String" />
+            <Parameter Name="ModifiedBy" Mode="In" Type="String" />
+            <Parameter Name="ModifiedDate" Mode="In" Type="DateTime" />
+          </FunctionImport>
+          <FunctionImport Name="uspUpdateFavouriteList" ReturnType="Collection(Int32)">
+            <Parameter Name="CompanyShortCode" Mode="In" Type="String" />
+            <Parameter Name="IndicatorShortCodes" Mode="In" Type="String" />
+            <Parameter Name="UserID" Mode="In" Type="Int32" />
+            <Parameter Name="FavouriteListName" Mode="In" Type="String" />
+            <Parameter Name="CreatedBY" Mode="In" Type="String" />
+            <Parameter Name="CreatedDate" Mode="In" Type="DateTime" />
+          </FunctionImport>
+          <FunctionImport Name="uspClearDataSetAnalysis" ReturnType="Collection(Int32)">
+            <Parameter Name="CustomerDataSetID" Mode="In" Type="Int32" />
+          </FunctionImport>
+        </EntityContainer>
+        <ComplexType Name="uspSelectAccounts_Result">
+          <Property Type="String" Name="AccountName" Nullable="true" MaxLength="255" />
+          <Property Type="Int32" Name="AccountID" Nullable="true" />
+        </ComplexType>
+        <ComplexType Name="uspSelectAllFavouriteListByUserIDForDatacast_Result">
+          <Property Type="String" Name="CompanyShortCode" Nullable="false" MaxLength="128" />
+          <Property Type="String" Name="IndicatorShortCode" Nullable="false" MaxLength="128" />
+          <Property Type="Int32" Name="UserID" Nullable="false" />
+          <Property Type="String" Name="FavouriteListName" Nullable="true" MaxLength="128" />
+          <Property Type="String" Name="CreatedBy" Nullable="true" MaxLength="128" />
+          <Property Type="DateTime" Name="CreatedDate" Nullable="true" Precision="23" />
+          <Property Type="String" Name="ModifiedBy" Nullable="true" MaxLength="128" />
+          <Property Type="DateTime" Name="ModifiedDate" Nullable="true" Precision="23" />
+        </ComplexType>
+        <ComplexType Name="uspSelectAllFavouritesListByUserID_Result">
+          <Property Type="String" Name="FavouriteListName" Nullable="true" MaxLength="128" />
+          <Property Type="String" Name="CompanyShortCode" Nullable="false" MaxLength="128" />
+        </ComplexType>
+        <ComplexType Name="uspSelectDatacastCategoriesPortal_Result">
+          <Property Type="String" Name="Industry" Nullable="true" MaxLength="128" />
+          <Property Type="String" Name="IndustryID" Nullable="true" MaxLength="128" />
+        </ComplexType>
+        <ComplexType Name="uspSelectDatacastSubCategoriesByCategoryPortal_Result">
+          <Property Type="String" Name="Sector" Nullable="true" MaxLength="64" />
+          <Property Type="String" Name="SectorID" Nullable="true" MaxLength="64" />
+        </ComplexType>
+        <ComplexType Name="uspSelectDatacastSubSector2BySubSector1Portal_Result">
+          <Property Type="String" Name="SubSector2" Nullable="true" MaxLength="64" />
+          <Property Type="String" Name="SubSector2ID" Nullable="true" MaxLength="64" />
+        </ComplexType>
+        <ComplexType Name="uspSelectDatacastSubSector3BySubSector2Portal_Result">
+          <Property Type="String" Name="SubSector3" Nullable="true" MaxLength="64" />
+          <Property Type="String" Name="SubSector3ID" Nullable="true" MaxLength="64" />
+        </ComplexType>
+        <ComplexType Name="uspSelectDatacastSubSectorsBySectorPortal_Result">
+          <Property Type="String" Name="SubSector1" Nullable="true" MaxLength="64" />
+          <Property Type="String" Name="SubSector1ID" Nullable="true" MaxLength="64" />
+        </ComplexType>
+        <ComplexType Name="uspSelectDataSetsByCompanyDivision_Result">
+          <Property Type="Int32" Name="CustomerDataSetID" Nullable="false" />
+          <Property Type="String" Name="DataSetName" Nullable="true" MaxLength="500" />
+          <Property Type="String" Name="DataSetDescription" Nullable="true" MaxLength="1024" />
+          <Property Type="DateTime" Name="CreatedDate" Nullable="true" Precision="23" />
+          <Property Type="Int32" Name="ViewStatus" Nullable="false" />
+        </ComplexType>
+        <ComplexType Name="uspSelectDataSetsByCompanyDivisionForAlliance_Result">
+          <Property Type="Int32" Name="CustomerDataSetID" Nullable="false" />
+          <Property Type="String" Name="DataSetName" Nullable="true" MaxLength="500" />
+          <Property Type="String" Name="DataSetDescription" Nullable="true" MaxLength="1024" />
+          <Property Type="DateTime" Name="CreatedDate" Nullable="true" Precision="23" />
+          <Property Type="Int32" Name="ViewStatus" Nullable="false" />
+        </ComplexType>
+        <ComplexType Name="uspSelectDataSetsByFavouriteListsOfUserID_Result">
+          <Property Type="Int32" Name="CustomerDataSetID" Nullable="false" />
+          <Property Type="Int32" Name="AccountID" Nullable="true" />
+          <Property Type="Int32" Name="DivisionID" Nullable="true" />
+          <Property Type="String" Name="DataSetName" Nullable="true" MaxLength="128" />
+          <Property Type="String" Name="DataSetDescription" Nullable="true" MaxLength="1024" />
+          <Property Type="String" Name="CustomerID" Nullable="true" MaxLength="128" />
+          <Property Type="String" Name="CreatedBy" Nullable="true" MaxLength="64" />
+          <Property Type="DateTime" Name="CreatedDate" Nullable="true" Precision="23" />
+          <Property Type="String" Name="ModifiedBy" Nullable="true" MaxLength="64" />
+          <Property Type="DateTime" Name="ModifiedDate" Nullable="true" Precision="23" />
+          <Property Type="String" Name="CompanyName" Nullable="true" MaxLength="128" />
+          <Property Type="String" Name="DataType" Nullable="true" MaxLength="64" />
+          <Property Type="String" Name="Base" Nullable="true" MaxLength="64" />
+          <Property Type="String" Name="Units" Nullable="true" MaxLength="64" />
+          <Property Type="String" Name="CompanyWebsite" Nullable="true" MaxLength="256" />
+          <Property Type="Boolean" Name="IsITREmployee" Nullable="true" />
+          <Property Type="String" Name="UserName" Nullable="true" />
+        </ComplexType>
+        <ComplexType Name="uspSelectDataSetsByQBaseAccountIDForDatacast_Result">
+          <Property Type="String" Name="ShortCode" Nullable="true" MaxLength="500" />
+          <Property Type="Int32" Name="MasterMetaDataID" Nullable="false" />
+          <Property Type="String" Name="SeriesName" Nullable="true" MaxLength="500" />
+        </ComplexType>
+        <ComplexType Name="uspSelectDataSetsByUserFavouriteList_Result">
+          <Property Type="Int32" Name="CustomerDataSetID" Nullable="false" />
+          <Property Type="Int32" Name="AccountID" Nullable="true" />
+          <Property Type="Int32" Name="DivisionID" Nullable="true" />
+          <Property Type="String" Name="DataSetName" Nullable="true" MaxLength="128" />
+          <Property Type="String" Name="DataSetDescription" Nullable="true" MaxLength="1024" />
+          <Property Type="DateTime" Name="CreatedDate" Nullable="true" Precision="23" />
+          <Property Type="Int32" Name="ViewStatus" Nullable="false" />
+        </ComplexType>
+        <ComplexType Name="uspSelectDataSetsDetailsByDataSetID_Result">
+          <Property Type="Int32" Name="ProdID" Nullable="false" />
+          <Property Type="String" Name="MonthYear" Nullable="true" MaxLength="30" />
+          <Property Type="Decimal" Name="AdjValue" Nullable="true" Precision="32" Scale="16" />
+          <Property Type="Int32" Name="CustomerDataSetID" Nullable="true" />
+          <Property Type="String" Name="CreatedBy" Nullable="true" MaxLength="64" />
+          <Property Type="DateTime" Name="CreatedDate" Nullable="true" Precision="23" />
+          <Property Type="String" Name="ModifiedBy" Nullable="true" MaxLength="64" />
+          <Property Type="DateTime" Name="ModifiedDate" Nullable="true" Precision="23" />
+        </ComplexType>
+        <ComplexType Name="uspSelectDataSetsDetailsByDataSetIDForBanner_Result">
+          <Property Type="String" Name="CompanyName" Nullable="true" MaxLength="128" />
+          <Property Type="String" Name="DataSetName" Nullable="true" MaxLength="128" />
+          <Property Type="String" Name="DataSetDescription" Nullable="true" MaxLength="1024" />
+          <Property Type="DateTime" Name="CreatedDate" Nullable="true" Precision="23" />
+          <Property Type="DateTime" Name="ModifiedDate" Nullable="true" Precision="23" />
+        </ComplexType>
+        <ComplexType Name="uspSelectDivisionsByAccountID_Result">
+          <Property Type="Int32" Name="DivisionID" Nullable="true" />
+          <Property Type="String" Name="DivisionName" Nullable="true" MaxLength="255" />
+        </ComplexType>
+        <ComplexType Name="uspSelectFavouriteListByUserID_Result">
+          <Property Type="String" Name="RowNum" Nullable="true" MaxLength="8" />
+          <Property Type="Int32" Name="TotalCount" Nullable="true" />
+          <Property Type="Int32" Name="iTotalRecords" Nullable="true" />
+          <Property Type="String" Name="ASeriesName" Nullable="true" MaxLength="500" />
+          <Property Type="Double" Name="CorrValue" Nullable="true" />
+          <Property Type="Double" Name="lagValue" Nullable="true" />
+          <Property Type="String" Name="Company" Nullable="false" MaxLength="6" />
+          <Property Type="String" Name="Indicator" Nullable="true" MaxLength="500" />
+          <Property Type="String" Name="FavouriteListName" Nullable="true" MaxLength="128" />
+          <Property Type="String" Name="Description" Nullable="true" MaxLength="1024" />
+        </ComplexType>
+        <ComplexType Name="uspSelectFavouriteListByUserIDForDatacast_Result">
+          <Property Type="String" Name="RowNum" Nullable="true" MaxLength="8" />
+          <Property Type="Int32" Name="TotalCount" Nullable="true" />
+          <Property Type="Int32" Name="iTotalRecords" Nullable="true" />
+          <Property Type="String" Name="ASeriesName" Nullable="true" MaxLength="500" />
+          <Property Type="Double" Name="CorrValue" Nullable="true" />
+          <Property Type="Double" Name="lagValue" Nullable="true" />
+          <Property Type="String" Name="Company" Nullable="true" />
+          <Property Type="String" Name="Indicator" Nullable="true" />
+          <Property Type="String" Name="FavouriteListName" Nullable="true" MaxLength="128" />
+          <Property Type="String" Name="Description" Nullable="true" MaxLength="500" />
+        </ComplexType>
+        <ComplexType Name="uspSelectFavouritesListByUserID_Result">
+          <Property Type="String" Name="FavouriteListName" Nullable="true" MaxLength="128" />
+          <Property Type="String" Name="CompanyShortCode" Nullable="false" MaxLength="128" />
+        </ComplexType>
+        <ComplexType Name="uspSelectFavouritesListByUserIDAndCompanyShortCode_Result">
+          <Property Type="String" Name="FavouriteListName" Nullable="true" MaxLength="128" />
+          <Property Type="String" Name="ID" Nullable="true" MaxLength="128" />
+        </ComplexType>
+        <ComplexType Name="uspSelectIndicatorCategoryDropdown_Result">
+          <Property Type="Int16" Name="CatDrpDnID" Nullable="false" />
+          <Property Type="String" Name="DrpDwnName" Nullable="false" MaxLength="50" />
+          <Property Type="String" Name="DrpDwnDesc" Nullable="true" MaxLength="50" />
+          <Property Type="String" Name="IndicatorTable" Nullable="false" MaxLength="50" />
+          <Property Type="String" Name="RServerParam" Nullable="false" MaxLength="50" />
+          <Property Type="Int16" Name="DrpDwnOrder" Nullable="true" />
+          <Property Type="Boolean" Name="DrpDnDisplay" Nullable="true" />
+        </ComplexType>
+        <ComplexType Name="uspSelectIndicatorListByCategorySearchPortal_Result">
+          <Property Type="String" Name="RowNum" Nullable="true" MaxLength="8" />
+          <Property Type="Int32" Name="TotalCount" Nullable="true" />
+          <Property Type="Int32" Name="iTotalRecords" Nullable="true" />
+          <Property Type="String" Name="ASeriesName" Nullable="true" MaxLength="500" />
+          <Property Type="Double" Name="CorrValue" Nullable="true" />
+          <Property Type="Double" Name="lagValue" Nullable="true" />
+          <Property Type="String" Name="Company" Nullable="false" MaxLength="6" />
+          <Property Type="String" Name="Indicator" Nullable="true" MaxLength="500" />
+          <Property Type="String" Name="Description" Nullable="true" MaxLength="1024" />
+          <Property Type="String" Name="FavouriteListName" Nullable="true" MaxLength="256" />
+        </ComplexType>
+        <ComplexType Name="uspSelectLoadCorelationLeadLagByDataSetID_Result">
+          <Property Type="String" Name="RowNum" Nullable="true" MaxLength="8" />
+          <Property Type="Int32" Name="TotalCount" Nullable="true" />
+          <Property Type="Int32" Name="iTotalRecords" Nullable="true" />
+          <Property Type="String" Name="ASeriesName" Nullable="true" MaxLength="500" />
+          <Property Type="Double" Name="CorrValue" Nullable="true" />
+          <Property Type="Double" Name="lagValue" Nullable="true" />
+          <Property Type="String" Name="Company" Nullable="false" MaxLength="6" />
+          <Property Type="String" Name="Indicator" Nullable="true" MaxLength="500" />
+          <Property Type="String" Name="Description" Nullable="true" MaxLength="1024" />
+          <Property Type="String" Name="FavouriteListName" Nullable="true" MaxLength="256" />
+        </ComplexType>
+        <ComplexType Name="uspSelectLoadCorelationLeadLagByDataSetIDForDatacast_Result">
+          <Property Type="String" Name="RowNum" Nullable="true" MaxLength="8" />
+          <Property Type="Int32" Name="TotalCount" Nullable="true" />
+          <Property Type="Int32" Name="iTotalRecords" Nullable="true" />
+          <Property Type="String" Name="ASeriesName" Nullable="true" MaxLength="500" />
+          <Property Type="Double" Name="CorrValue" Nullable="true" />
+          <Property Type="Double" Name="lagValue" Nullable="true" />
+          <Property Type="String" Name="Company" Nullable="true" />
+          <Property Type="String" Name="Indicator" Nullable="true" />
+          <Property Type="String" Name="Description" Nullable="true" MaxLength="500" />
+          <Property Type="String" Name="FavouriteListName" Nullable="true" MaxLength="256" />
+        </ComplexType>
+        <ComplexType Name="uspSelectRowsByDataSetID_Result">
+          <Property Type="Int32" Name="ProdID" Nullable="false" />
+          <Property Type="DateTime" Name="MonthYear" Nullable="true" />
+          <Property Type="Decimal" Name="AdjValue" Nullable="true" Precision="32" Scale="16" />
+        </ComplexType>
+      </Schema>
+    </edmx:ConceptualModels>
+    <!-- C-S mapping content -->
+    <edmx:Mappings>
+      <Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
+        <EntityContainerMapping StorageEntityContainer="ITRDevModelStoreContainer" CdmEntityContainer="ITRDevEntities">
+          <EntitySetMapping Name="CustomerDataSets">
+            <EntityTypeMapping TypeName="ITRDevModel.CustomerDataSet">
+              <MappingFragment StoreEntitySet="CustomerDataSets">
+                <ScalarProperty Name="CustomerDataSetID" ColumnName="CustomerDataSetID" />
+                <ScalarProperty Name="AccountID" ColumnName="AccountID" />
+                <ScalarProperty Name="DivisionID" ColumnName="DivisionID" />
+                <ScalarProperty Name="DataSetName" ColumnName="DataSetName" />
+                <ScalarProperty Name="DataSetDescription" ColumnName="DataSetDescription" />
+                <ScalarProperty Name="CustomerID" ColumnName="CustomerID" />
+                <ScalarProperty Name="CreatedBy" ColumnName="CreatedBy" />
+                <ScalarProperty Name="CreatedDate" ColumnName="CreatedDate" />
+                <ScalarProperty Name="ModifiedBy" ColumnName="ModifiedBy" />
+                <ScalarProperty Name="ModifiedDate" ColumnName="ModifiedDate" />
+                <ScalarProperty Name="CompanyName" ColumnName="CompanyName" />
+                <ScalarProperty Name="DataType" ColumnName="DataType" />
+                <ScalarProperty Name="Base" ColumnName="Base" />
+                <ScalarProperty Name="Units" ColumnName="Units" />
+                <ScalarProperty Name="CompanyWebsite" ColumnName="CompanyWebsite" />
+                <ScalarProperty Name="IsITREmployee" ColumnName="IsITREmployee" />
+                <ScalarProperty Name="UserName" ColumnName="UserName" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="ExceptionLogs">
+            <EntityTypeMapping TypeName="ITRDevModel.ExceptionLog">
+              <MappingFragment StoreEntitySet="ExceptionLog">
+                <ScalarProperty Name="ExceptionID" ColumnName="ExceptionID" />
+                <ScalarProperty Name="CustomerID" ColumnName="CustomerID" />
+                <ScalarProperty Name="ExceptionMessage" ColumnName="ExceptionMessage" />
+                <ScalarProperty Name="PageName" ColumnName="PageName" />
+                <ScalarProperty Name="CreatedBY" ColumnName="CreatedBY" />
+                <ScalarProperty Name="CreatedDate" ColumnName="CreatedDate" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="StagingCompanyDatas">
+            <EntityTypeMapping TypeName="ITRDevModel.StagingCompanyData">
+              <MappingFragment StoreEntitySet="StagingCompanyData">
+                <ScalarProperty Name="ProdID" ColumnName="ProdID" />
+                <ScalarProperty Name="MonthYear" ColumnName="MonthYear" />
+                <ScalarProperty Name="AdjValue" ColumnName="AdjValue" />
+                <ScalarProperty Name="CustomerDataSetID" ColumnName="CustomerDataSetID" />
+                <ScalarProperty Name="CreatedBy" ColumnName="CreatedBy" />
+                <ScalarProperty Name="CreatedDate" ColumnName="CreatedDate" />
+                <ScalarProperty Name="ModifiedBy" ColumnName="ModifiedBy" />
+                <ScalarProperty Name="ModifiedDate" ColumnName="ModifiedDate" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <FunctionImportMapping FunctionImportName="uspDeleteCustomerDataSet" FunctionName="ITRDevModel.Store.uspDeleteCustomerDataSet" />
+          <FunctionImportMapping FunctionImportName="uspDeleteFavoriteListByCompanyAndUserID" FunctionName="ITRDevModel.Store.uspDeleteFavoriteListByCompanyAndUserID" />
+          <FunctionImportMapping FunctionImportName="uspDeleteRowFromDataSet" FunctionName="ITRDevModel.Store.uspDeleteRowFromDataSet" />
+          <FunctionImportMapping FunctionImportName="uspInsertCustomerDataSet" FunctionName="ITRDevModel.Store.uspInsertCustomerDataSet" />
+          <FunctionImportMapping FunctionImportName="uspInsertExceptionLog" FunctionName="ITRDevModel.Store.uspInsertExceptionLog" />
+          <FunctionImportMapping FunctionImportName="uspInsertFavouriteList" FunctionName="ITRDevModel.Store.uspInsertFavouriteList" />
+          <FunctionImportMapping FunctionImportName="uspInsertFavouriteListForDatacast" FunctionName="ITRDevModel.Store.uspInsertFavouriteListForDatacast" />
+          <FunctionImportMapping FunctionImportName="uspPushDataSetToProd" FunctionName="ITRDevModel.Store.uspPushDataSetToProd" />
+          <FunctionImportMapping FunctionImportName="uspReplaceCustomerDataSet" FunctionName="ITRDevModel.Store.uspReplaceCustomerDataSet" />
+          <FunctionImportMapping FunctionImportName="uspSelectAccounts" FunctionName="ITRDevModel.Store.uspSelectAccounts">
+            <ResultMapping>
+              <ComplexTypeMapping TypeName="ITRDevModel.uspSelectAccounts_Result">
+                <ScalarProperty Name="AccountName" ColumnName="AccountName" />
+                <ScalarProperty Name="AccountID" ColumnName="AccountID" />
+              </ComplexTypeMapping>
+            </ResultMapping>
+          </FunctionImportMapping>
+          <FunctionImportMapping FunctionImportName="uspSelectAllFavouriteListByUserIDForDatacast" FunctionName="ITRDevModel.Store.uspSelectAllFavouriteListByUserIDForDatacast">
+            <ResultMapping>
+              <ComplexTypeMapping TypeName="ITRDevModel.uspSelectAllFavouriteListByUserIDForDatacast_Result">
+                <ScalarProperty Name="CompanyShortCode" ColumnName="CompanyShortCode" />
+                <ScalarProperty Name="IndicatorShortCode" ColumnName="IndicatorShortCode" />
+                <ScalarProperty Name="UserID" ColumnName="UserID" />
+                <ScalarProperty Name="FavouriteListName" ColumnName="FavouriteListName" />
+                <ScalarProperty Name="CreatedBy" ColumnName="CreatedBy" />
+                <ScalarProperty Name="CreatedDate" ColumnName="CreatedDate" />
+                <ScalarProperty Name="ModifiedBy" ColumnName="ModifiedBy" />
+                <ScalarProperty Name="ModifiedDate" ColumnName="ModifiedDate" />
+              </ComplexTypeMapping>
+            </ResultMapping>
+          </FunctionImportMapping>
+          <FunctionImportMapping FunctionImportName="uspSelectAllFavouritesListByUserID" FunctionName="ITRDevModel.Store.uspSelectAllFavouritesListByUserID">
+            <ResultMapping>
+              <ComplexTypeMapping TypeName="ITRDevModel.uspSelectAllFavouritesListByUserID_Result">
+                <ScalarProperty Name="FavouriteListName" ColumnName="FavouriteListName" />
+                <ScalarProperty Name="CompanyShortCode" ColumnName="CompanyShortCode" />
+              </ComplexTypeMapping>
+            </ResultMapping>
+          </FunctionImportMapping>
+          <FunctionImportMapping FunctionImportName="uspSelectAllResultsCountByDataSetID" FunctionName="ITRDevModel.Store.uspSelectAllResultsCountByDataSetID" />
+          <FunctionImportMapping FunctionImportName="uspSelectCompanySalesPortal" FunctionName="ITRDevModel.Store.uspSelectCompanySalesPortal" />
+          <FunctionImportMapping FunctionImportName="uspSelectCompanySalesPortalByCustomerDataSetID" FunctionName="ITRDevModel.Store.uspSelectCompanySalesPortalByCustomerDataSetID" />
+          <FunctionImportMapping FunctionImportName="uspSelectDatacastCategoriesPortal" FunctionName="ITRDevModel.Store.uspSelectDatacastCategoriesPortal">
+            <ResultMapping>
+              <ComplexTypeMapping TypeName="ITRDevModel.uspSelectDatacastCategoriesPortal_Result">
+                <ScalarProperty Name="Industry" ColumnName="Industry" />
+                <ScalarProperty Name="IndustryID" ColumnName="IndustryID" />
+              </ComplexTypeMapping>
+            </ResultMapping>
+          </FunctionImportMapping>
+          <FunctionImportMapping FunctionImportName="uspSelectDatacastSubCategoriesByCategoryPortal" FunctionName="ITRDevModel.Store.uspSelectDatacastSubCategoriesByCategoryPortal">
+            <ResultMapping>
+              <ComplexTypeMapping TypeName="ITRDevModel.uspSelectDatacastSubCategoriesByCategoryPortal_Result">
+                <ScalarProperty Name="Sector" ColumnName="Sector" />
+                <ScalarProperty Name="SectorID" ColumnName="SectorID" />
+              </ComplexTypeMapping>
+            </ResultMapping>
+          </FunctionImportMapping>
+          <FunctionImportMapping FunctionImportName="uspSelectDatacastSubSector2BySubSector1Portal" FunctionName="ITRDevModel.Store.uspSelectDatacastSubSector2BySubSector1Portal">
+            <ResultMapping>
+              <ComplexTypeMapping TypeName="ITRDevModel.uspSelectDatacastSubSector2BySubSector1Portal_Result">
+                <ScalarProperty Name="SubSector2" ColumnName="SubSector2" />
+                <ScalarProperty Name="SubSector2ID" ColumnName="SubSector2ID" />
+              </ComplexTypeMapping>
+            </ResultMapping>
+          </FunctionImportMapping>
+          <FunctionImportMapping FunctionImportName="uspSelectDatacastSubSector3BySubSector2Portal" FunctionName="ITRDevModel.Store.uspSelectDatacastSubSector3BySubSector2Portal">
+            <ResultMapping>
+              <ComplexTypeMapping TypeName="ITRDevModel.uspSelectDatacastSubSector3BySubSector2Portal_Result">
+                <ScalarProperty Name="SubSector3" ColumnName="SubSector3" />
+                <ScalarProperty Name="SubSector3ID" ColumnName="SubSector3ID" />
+              </ComplexTypeMapping>
+            </ResultMapping>
+          </FunctionImportMapping>
+          <FunctionImportMapping FunctionImportName="uspSelectDatacastSubSectorsBySectorPortal" FunctionName="ITRDevModel.Store.uspSelectDatacastSubSectorsBySectorPortal">
+            <ResultMapping>
+              <ComplexTypeMapping TypeName="ITRDevModel.uspSelectDatacastSubSectorsBySectorPortal_Result">
+                <ScalarProperty Name="SubSector1" ColumnName="SubSector1" />
+                <ScalarProperty Name="SubSector1ID" ColumnName="SubSector1ID" />
+              </ComplexTypeMapping>
+            </ResultMapping>
+          </FunctionImportMapping>
+          <FunctionImportMapping FunctionImportName="uspSelectDataSetsByCompanyDivision" FunctionName="ITRDevModel.Store.uspSelectDataSetsByCompanyDivision">
+            <ResultMapping>
+              <ComplexTypeMapping TypeName="ITRDevModel.uspSelectDataSetsByCompanyDivision_Result">
+                <ScalarProperty Name="CustomerDataSetID" ColumnName="CustomerDataSetID" />
+                <ScalarProperty Name="DataSetName" ColumnName="DataSetName" />
+                <ScalarProperty Name="DataSetDescription" ColumnName="DataSetDescription" />
+                <ScalarProperty Name="CreatedDate" ColumnName="CreatedDate" />
+                <ScalarProperty Name="ViewStatus" ColumnName="ViewStatus" />
+              </ComplexTypeMapping>
+            </ResultMapping>
+          </FunctionImportMapping>
+          <FunctionImportMapping FunctionImportName="uspSelectDataSetsByCompanyDivisionForAlliance" FunctionName="ITRDevModel.Store.uspSelectDataSetsByCompanyDivisionForAlliance">
+            <ResultMapping>
+              <ComplexTypeMapping TypeName="ITRDevModel.uspSelectDataSetsByCompanyDivisionForAlliance_Result">
+                <ScalarProperty Name="CustomerDataSetID" ColumnName="CustomerDataSetID" />
+                <ScalarProperty Name="DataSetName" ColumnName="DataSetName" />
+                <ScalarProperty Name="DataSetDescription" ColumnName="DataSetDescription" />
+                <ScalarProperty Name="CreatedDate" ColumnName="CreatedDate" />
+                <ScalarProperty Name="ViewStatus" ColumnName="ViewStatus" />
+              </ComplexTypeMapping>
+            </ResultMapping>
+          </FunctionImportMapping>
+          <FunctionImportMapping FunctionImportName="uspSelectDataSetsByFavouriteListsOfUserID" FunctionName="ITRDevModel.Store.uspSelectDataSetsByFavouriteListsOfUserID">
+            <ResultMapping>
+              <ComplexTypeMapping TypeName="ITRDevModel.uspSelectDataSetsByFavouriteListsOfUserID_Result">
+                <ScalarProperty Name="CustomerDataSetID" ColumnName="CustomerDataSetID" />
+                <ScalarProperty Name="AccountID" ColumnName="AccountID" />
+                <ScalarProperty Name="DivisionID" ColumnName="DivisionID" />
+                <ScalarProperty Name="DataSetName" ColumnName="DataSetName" />
+                <ScalarProperty Name="DataSetDescription" ColumnName="DataSetDescription" />
+                <ScalarProperty Name="CustomerID" ColumnName="CustomerID" />
+                <ScalarProperty Name="CreatedBy" ColumnName="CreatedBy" />
+                <ScalarProperty Name="CreatedDate" ColumnName="CreatedDate" />
+                <ScalarProperty Name="ModifiedBy" ColumnName="ModifiedBy" />
+                <ScalarProperty Name="ModifiedDate" ColumnName="ModifiedDate" />
+                <ScalarProperty Name="CompanyName" ColumnName="CompanyName" />
+                <ScalarProperty Name="DataType" ColumnName="DataType" />
+                <ScalarProperty Name="Base" ColumnName="Base" />
+                <ScalarProperty Name="Units" ColumnName="Units" />
+                <ScalarProperty Name="CompanyWebsite" ColumnName="CompanyWebsite" />
+                <ScalarProperty Name="IsITREmployee" ColumnName="IsITREmployee" />
+                <ScalarProperty Name="UserName" ColumnName="UserName" />
+              </ComplexTypeMapping>
+            </ResultMapping>
+          </FunctionImportMapping>
+          <FunctionImportMapping FunctionImportName="uspSelectDataSetsByQBaseAccountIDForDatacast" FunctionName="ITRDevModel.Store.uspSelectDataSetsByQBaseAccountIDForDatacast">
+            <ResultMapping>
+              <ComplexTypeMapping TypeName="ITRDevModel.uspSelectDataSetsByQBaseAccountIDForDatacast_Result">
+                <ScalarProperty Name="ShortCode" ColumnName="ShortCode" />
+                <ScalarProperty Name="MasterMetaDataID" ColumnName="MasterMetaDataID" />
+                <ScalarProperty Name="SeriesName" ColumnName="SeriesName" />
+              </ComplexTypeMapping>
+            </ResultMapping>
+          </FunctionImportMapping>
+          <FunctionImportMapping FunctionImportName="uspSelectDataSetsByUserFavouriteList" FunctionName="ITRDevModel.Store.uspSelectDataSetsByUserFavouriteList">
+            <ResultMapping>
+              <ComplexTypeMapping TypeName="ITRDevModel.uspSelectDataSetsByUserFavouriteList_Result">
+                <ScalarProperty Name="CustomerDataSetID" ColumnName="CustomerDataSetID" />
+                <ScalarProperty Name="AccountID" ColumnName="AccountID" />
+                <ScalarProperty Name="DivisionID" ColumnName="DivisionID" />
+                <ScalarProperty Name="DataSetName" ColumnName="DataSetName" />
+                <ScalarProperty Name="DataSetDescription" ColumnName="DataSetDescription" />
+                <ScalarProperty Name="CreatedDate" ColumnName="CreatedDate" />
+                <ScalarProperty Name="ViewStatus" ColumnName="ViewStatus" />
+              </ComplexTypeMapping>
+            </ResultMapping>
+          </FunctionImportMapping>
+          <FunctionImportMapping FunctionImportName="uspSelectDataSetsDetailsByDataSetID" FunctionName="ITRDevModel.Store.uspSelectDataSetsDetailsByDataSetID">
+            <ResultMapping>
+              <ComplexTypeMapping TypeName="ITRDevModel.uspSelectDataSetsDetailsByDataSetID_Result">
+                <ScalarProperty Name="ProdID" ColumnName="ProdID" />
+                <ScalarProperty Name="MonthYear" ColumnName="MonthYear" />
+                <ScalarProperty Name="AdjValue" ColumnName="AdjValue" />
+                <ScalarProperty Name="CustomerDataSetID" ColumnName="CustomerDataSetID" />
+                <ScalarProperty Name="CreatedBy" ColumnName="CreatedBy" />
+                <ScalarProperty Name="CreatedDate" ColumnName="CreatedDate" />
+                <ScalarProperty Name="ModifiedBy" ColumnName="ModifiedBy" />
+                <ScalarProperty Name="ModifiedDate" ColumnName="ModifiedDate" />
+              </ComplexTypeMapping>
+            </ResultMapping>
+          </FunctionImportMapping>
+          <FunctionImportMapping FunctionImportName="uspSelectDataSetsDetailsByDataSetID03242017" FunctionName="ITRDevModel.Store.uspSelectDataSetsDetailsByDataSetID03242017" />
+          <FunctionImportMapping FunctionImportName="uspSelectDataSetsDetailsByDataSetIDForBanner" FunctionName="ITRDevModel.Store.uspSelectDataSetsDetailsByDataSetIDForBanner">
+            <ResultMapping>
+              <ComplexTypeMapping TypeName="ITRDevModel.uspSelectDataSetsDetailsByDataSetIDForBanner_Result">
+                <ScalarProperty Name="CompanyName" ColumnName="CompanyName" />
+                <ScalarProperty Name="DataSetName" ColumnName="DataSetName" />
+                <ScalarProperty Name="DataSetDescription" ColumnName="DataSetDescription" />
+                <ScalarProperty Name="CreatedDate" ColumnName="CreatedDate" />
+                <ScalarProperty Name="ModifiedDate" ColumnName="ModifiedDate" />
+              </ComplexTypeMapping>
+            </ResultMapping>
+          </FunctionImportMapping>
+          <FunctionImportMapping FunctionImportName="uspSelectDivisionsByAccountID" FunctionName="ITRDevModel.Store.uspSelectDivisionsByAccountID">
+            <ResultMapping>
+              <ComplexTypeMapping TypeName="ITRDevModel.uspSelectDivisionsByAccountID_Result">
+                <ScalarProperty Name="DivisionID" ColumnName="DivisionID" />
+                <ScalarProperty Name="DivisionName" ColumnName="DivisionName" />
+              </ComplexTypeMapping>
+            </ResultMapping>
+          </FunctionImportMapping>
+          <FunctionImportMapping FunctionImportName="uspSelectFavouriteListByUserID" FunctionName="ITRDevModel.Store.uspSelectFavouriteListByUserID">
+            <ResultMapping>
+              <ComplexTypeMapping TypeName="ITRDevModel.uspSelectFavouriteListByUserID_Result">
+                <ScalarProperty Name="RowNum" ColumnName="RowNum" />
+                <ScalarProperty Name="TotalCount" ColumnName="TotalCount" />
+                <ScalarProperty Name="iTotalRecords" ColumnName="iTotalRecords" />
+                <ScalarProperty Name="ASeriesName" ColumnName="ASeriesName" />
+                <ScalarProperty Name="CorrValue" ColumnName="CorrValue" />
+                <ScalarProperty Name="lagValue" ColumnName="lagValue" />
+                <ScalarProperty Name="Company" ColumnName="Company" />
+                <ScalarProperty Name="Indicator" ColumnName="Indicator" />
+                <ScalarProperty Name="FavouriteListName" ColumnName="FavouriteListName" />
+                <ScalarProperty Name="Description" ColumnName="Description" />
+              </ComplexTypeMapping>
+            </ResultMapping>
+          </FunctionImportMapping>
+          <FunctionImportMapping FunctionImportName="uspSelectFavouriteListByUserIDForDatacast" FunctionName="ITRDevModel.Store.uspSelectFavouriteListByUserIDForDatacast">
+            <ResultMapping>
+              <ComplexTypeMapping TypeName="ITRDevModel.uspSelectFavouriteListByUserIDForDatacast_Result">
+                <ScalarProperty Name="RowNum" ColumnName="RowNum" />
+                <ScalarProperty Name="TotalCount" ColumnName="TotalCount" />
+                <ScalarProperty Name="iTotalRecords" ColumnName="iTotalRecords" />
+                <ScalarProperty Name="ASeriesName" ColumnName="ASeriesName" />
+                <ScalarProperty Name="CorrValue" ColumnName="CorrValue" />
+                <ScalarProperty Name="lagValue" ColumnName="lagValue" />
+                <ScalarProperty Name="Company" ColumnName="Company" />
+                <ScalarProperty Name="Indicator" ColumnName="Indicator" />
+                <ScalarProperty Name="FavouriteListName" ColumnName="FavouriteListName" />
+                <ScalarProperty Name="Description" ColumnName="Description" />
+              </ComplexTypeMapping>
+            </ResultMapping>
+          </FunctionImportMapping>
+          <FunctionImportMapping FunctionImportName="uspSelectFavouritesListByUserID" FunctionName="ITRDevModel.Store.uspSelectFavouritesListByUserID">
+            <ResultMapping>
+              <ComplexTypeMapping TypeName="ITRDevModel.uspSelectFavouritesListByUserID_Result">
+                <ScalarProperty Name="FavouriteListName" ColumnName="FavouriteListName" />
+                <ScalarProperty Name="CompanyShortCode" ColumnName="CompanyShortCode" />
+              </ComplexTypeMapping>
+            </ResultMapping>
+          </FunctionImportMapping>
+          <FunctionImportMapping FunctionImportName="uspSelectFavouritesListByUserIDAndCompanyShortCode" FunctionName="ITRDevModel.Store.uspSelectFavouritesListByUserIDAndCompanyShortCode">
+            <ResultMapping>
+              <ComplexTypeMapping TypeName="ITRDevModel.uspSelectFavouritesListByUserIDAndCompanyShortCode_Result">
+                <ScalarProperty Name="FavouriteListName" ColumnName="FavouriteListName" />
+                <ScalarProperty Name="ID" ColumnName="ID" />
+              </ComplexTypeMapping>
+            </ResultMapping>
+          </FunctionImportMapping>
+          <FunctionImportMapping FunctionImportName="uspSelectIndicatorCategoryDropdown" FunctionName="ITRDevModel.Store.uspSelectIndicatorCategoryDropdown">
+            <ResultMapping>
+              <ComplexTypeMapping TypeName="ITRDevModel.uspSelectIndicatorCategoryDropdown_Result">
+                <ScalarProperty Name="CatDrpDnID" ColumnName="CatDrpDnID" />
+                <ScalarProperty Name="DrpDwnName" ColumnName="DrpDwnName" />
+                <ScalarProperty Name="DrpDwnDesc" ColumnName="DrpDwnDesc" />
+                <ScalarProperty Name="IndicatorTable" ColumnName="IndicatorTable" />
+                <ScalarProperty Name="RServerParam" ColumnName="RServerParam" />
+                <ScalarProperty Name="DrpDwnOrder" ColumnName="DrpDwnOrder" />
+                <ScalarProperty Name="DrpDnDisplay" ColumnName="DrpDnDisplay" />
+              </ComplexTypeMapping>
+            </ResultMapping>
+          </FunctionImportMapping>
+          <FunctionImportMapping FunctionImportName="uspSelectIndicatorListByCategorySearchPortal" FunctionName="ITRDevModel.Store.uspSelectIndicatorListByCategorySearchPortal">
+            <ResultMapping>
+              <ComplexTypeMapping TypeName="ITRDevModel.uspSelectIndicatorListByCategorySearchPortal_Result">
+                <ScalarProperty Name="RowNum" ColumnName="RowNum" />
+                <ScalarProperty Name="TotalCount" ColumnName="TotalCount" />
+                <ScalarProperty Name="iTotalRecords" ColumnName="iTotalRecords" />
+                <ScalarProperty Name="ASeriesName" ColumnName="ASeriesName" />
+                <ScalarProperty Name="CorrValue" ColumnName="CorrValue" />
+                <ScalarProperty Name="lagValue" ColumnName="lagValue" />
+                <ScalarProperty Name="Company" ColumnName="Company" />
+                <ScalarProperty Name="Indicator" ColumnName="Indicator" />
+                <ScalarProperty Name="Description" ColumnName="Description" />
+                <ScalarProperty Name="FavouriteListName" ColumnName="FavouriteListName" />
+              </ComplexTypeMapping>
+            </ResultMapping>
+          </FunctionImportMapping>
+          <FunctionImportMapping FunctionImportName="uspSelectLoadCorelationLeadLagByDataSetID" FunctionName="ITRDevModel.Store.uspSelectLoadCorelationLeadLagByDataSetID">
+            <ResultMapping>
+              <ComplexTypeMapping TypeName="ITRDevModel.uspSelectLoadCorelationLeadLagByDataSetID_Result">
+                <ScalarProperty Name="RowNum" ColumnName="RowNum" />
+                <ScalarProperty Name="TotalCount" ColumnName="TotalCount" />
+                <ScalarProperty Name="iTotalRecords" ColumnName="iTotalRecords" />
+                <ScalarProperty Name="ASeriesName" ColumnName="ASeriesName" />
+                <ScalarProperty Name="CorrValue" ColumnName="CorrValue" />
+                <ScalarProperty Name="lagValue" ColumnName="lagValue" />
+                <ScalarProperty Name="Company" ColumnName="Company" />
+                <ScalarProperty Name="Indicator" ColumnName="Indicator" />
+                <ScalarProperty Name="Description" ColumnName="Description" />
+                <ScalarProperty Name="FavouriteListName" ColumnName="FavouriteListName" />
+              </ComplexTypeMapping>
+            </ResultMapping>
+          </FunctionImportMapping>
+          <FunctionImportMapping FunctionImportName="uspSelectLoadCorelationLeadLagByDataSetIDForDatacast" FunctionName="ITRDevModel.Store.uspSelectLoadCorelationLeadLagByDataSetIDForDatacast">
+            <ResultMapping>
+              <ComplexTypeMapping TypeName="ITRDevModel.uspSelectLoadCorelationLeadLagByDataSetIDForDatacast_Result">
+                <ScalarProperty Name="RowNum" ColumnName="RowNum" />
+                <ScalarProperty Name="TotalCount" ColumnName="TotalCount" />
+                <ScalarProperty Name="iTotalRecords" ColumnName="iTotalRecords" />
+                <ScalarProperty Name="ASeriesName" ColumnName="ASeriesName" />
+                <ScalarProperty Name="CorrValue" ColumnName="CorrValue" />
+                <ScalarProperty Name="lagValue" ColumnName="lagValue" />
+                <ScalarProperty Name="Company" ColumnName="Company" />
+                <ScalarProperty Name="Indicator" ColumnName="Indicator" />
+                <ScalarProperty Name="Description" ColumnName="Description" />
+                <ScalarProperty Name="FavouriteListName" ColumnName="FavouriteListName" />
+              </ComplexTypeMapping>
+            </ResultMapping>
+          </FunctionImportMapping>
+          <FunctionImportMapping FunctionImportName="uspSelectRowsByDataSetID" FunctionName="ITRDevModel.Store.uspSelectRowsByDataSetID">
+            <ResultMapping>
+              <ComplexTypeMapping TypeName="ITRDevModel.uspSelectRowsByDataSetID_Result">
+                <ScalarProperty Name="ProdID" ColumnName="ProdID" />
+                <ScalarProperty Name="MonthYear" ColumnName="MonthYear" />
+                <ScalarProperty Name="AdjValue" ColumnName="AdjValue" />
+              </ComplexTypeMapping>
+            </ResultMapping>
+          </FunctionImportMapping>
+          <FunctionImportMapping FunctionImportName="uspUpdateCustomerDataSet" FunctionName="ITRDevModel.Store.uspUpdateCustomerDataSet" />
+          <FunctionImportMapping FunctionImportName="uspUpdateFavouriteList" FunctionName="ITRDevModel.Store.uspUpdateFavouriteList" />
+          <FunctionImportMapping FunctionImportName="uspClearDataSetAnalysis" FunctionName="ITRDevModel.Store.uspClearDataSetAnalysis" />
+        </EntityContainerMapping>
+      </Mapping>
+    </edmx:Mappings>
+  </edmx:Runtime>
+  <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
+    <Connection>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="MetadataArtifactProcessing" Value="EmbedInOutputAssembly" />
+      </DesignerInfoPropertySet>
+    </Connection>
+    <Options>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="ValidateOnBuild" Value="true" />
+        <DesignerProperty Name="EnablePluralization" Value="true" />
+        <DesignerProperty Name="IncludeForeignKeysInModel" Value="true" />
+        <DesignerProperty Name="UseLegacyProvider" Value="true" />
+        <DesignerProperty Name="CodeGenerationStrategy" Value="None" />
+      </DesignerInfoPropertySet>
+    </Options>
+    <!-- Diagram content (shape and connector positions) -->
+    <Diagrams></Diagrams>
+  </Designer>
+</edmx:Edmx>

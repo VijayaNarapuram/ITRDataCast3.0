@@ -1,0 +1,358 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
+  <EntityContainerMapping StorageEntityContainer="ITRDevModelStoreContainer" CdmEntityContainer="ITRDevEntities">
+    <EntitySetMapping Name="CustomerDataSets">
+      <EntityTypeMapping TypeName="ITRDevModel.CustomerDataSet">
+        <MappingFragment StoreEntitySet="CustomerDataSets">
+          <ScalarProperty Name="CustomerDataSetID" ColumnName="CustomerDataSetID" />
+          <ScalarProperty Name="AccountID" ColumnName="AccountID" />
+          <ScalarProperty Name="DivisionID" ColumnName="DivisionID" />
+          <ScalarProperty Name="DataSetName" ColumnName="DataSetName" />
+          <ScalarProperty Name="DataSetDescription" ColumnName="DataSetDescription" />
+          <ScalarProperty Name="CustomerID" ColumnName="CustomerID" />
+          <ScalarProperty Name="CreatedBy" ColumnName="CreatedBy" />
+          <ScalarProperty Name="CreatedDate" ColumnName="CreatedDate" />
+          <ScalarProperty Name="ModifiedBy" ColumnName="ModifiedBy" />
+          <ScalarProperty Name="ModifiedDate" ColumnName="ModifiedDate" />
+          <ScalarProperty Name="CompanyName" ColumnName="CompanyName" />
+          <ScalarProperty Name="DataType" ColumnName="DataType" />
+          <ScalarProperty Name="Base" ColumnName="Base" />
+          <ScalarProperty Name="Units" ColumnName="Units" />
+          <ScalarProperty Name="CompanyWebsite" ColumnName="CompanyWebsite" />
+          <ScalarProperty Name="IsITREmployee" ColumnName="IsITREmployee" />
+          <ScalarProperty Name="UserName" ColumnName="UserName" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="ExceptionLogs">
+      <EntityTypeMapping TypeName="ITRDevModel.ExceptionLog">
+        <MappingFragment StoreEntitySet="ExceptionLog">
+          <ScalarProperty Name="ExceptionID" ColumnName="ExceptionID" />
+          <ScalarProperty Name="CustomerID" ColumnName="CustomerID" />
+          <ScalarProperty Name="ExceptionMessage" ColumnName="ExceptionMessage" />
+          <ScalarProperty Name="PageName" ColumnName="PageName" />
+          <ScalarProperty Name="CreatedBY" ColumnName="CreatedBY" />
+          <ScalarProperty Name="CreatedDate" ColumnName="CreatedDate" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="StagingCompanyDatas">
+      <EntityTypeMapping TypeName="ITRDevModel.StagingCompanyData">
+        <MappingFragment StoreEntitySet="StagingCompanyData">
+          <ScalarProperty Name="ProdID" ColumnName="ProdID" />
+          <ScalarProperty Name="MonthYear" ColumnName="MonthYear" />
+          <ScalarProperty Name="AdjValue" ColumnName="AdjValue" />
+          <ScalarProperty Name="CustomerDataSetID" ColumnName="CustomerDataSetID" />
+          <ScalarProperty Name="CreatedBy" ColumnName="CreatedBy" />
+          <ScalarProperty Name="CreatedDate" ColumnName="CreatedDate" />
+          <ScalarProperty Name="ModifiedBy" ColumnName="ModifiedBy" />
+          <ScalarProperty Name="ModifiedDate" ColumnName="ModifiedDate" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <FunctionImportMapping FunctionImportName="uspDeleteCustomerDataSet" FunctionName="ITRDevModel.Store.uspDeleteCustomerDataSet" />
+    <FunctionImportMapping FunctionImportName="uspDeleteFavoriteListByCompanyAndUserID" FunctionName="ITRDevModel.Store.uspDeleteFavoriteListByCompanyAndUserID" />
+    <FunctionImportMapping FunctionImportName="uspDeleteRowFromDataSet" FunctionName="ITRDevModel.Store.uspDeleteRowFromDataSet" />
+    <FunctionImportMapping FunctionImportName="uspInsertCustomerDataSet" FunctionName="ITRDevModel.Store.uspInsertCustomerDataSet" />
+    <FunctionImportMapping FunctionImportName="uspInsertExceptionLog" FunctionName="ITRDevModel.Store.uspInsertExceptionLog" />
+    <FunctionImportMapping FunctionImportName="uspInsertFavouriteList" FunctionName="ITRDevModel.Store.uspInsertFavouriteList" />
+    <FunctionImportMapping FunctionImportName="uspInsertFavouriteListForDatacast" FunctionName="ITRDevModel.Store.uspInsertFavouriteListForDatacast" />
+    <FunctionImportMapping FunctionImportName="uspPushDataSetToProd" FunctionName="ITRDevModel.Store.uspPushDataSetToProd" />
+    <FunctionImportMapping FunctionImportName="uspReplaceCustomerDataSet" FunctionName="ITRDevModel.Store.uspReplaceCustomerDataSet" />
+    <FunctionImportMapping FunctionImportName="uspSelectAccounts" FunctionName="ITRDevModel.Store.uspSelectAccounts">
+      <ResultMapping>
+        <ComplexTypeMapping TypeName="ITRDevModel.uspSelectAccounts_Result">
+          <ScalarProperty Name="AccountName" ColumnName="AccountName" />
+          <ScalarProperty Name="AccountID" ColumnName="AccountID" />
+        </ComplexTypeMapping>
+      </ResultMapping>
+    </FunctionImportMapping>
+    <FunctionImportMapping FunctionImportName="uspSelectAllFavouriteListByUserIDForDatacast" FunctionName="ITRDevModel.Store.uspSelectAllFavouriteListByUserIDForDatacast">
+      <ResultMapping>
+        <ComplexTypeMapping TypeName="ITRDevModel.uspSelectAllFavouriteListByUserIDForDatacast_Result">
+          <ScalarProperty Name="CompanyShortCode" ColumnName="CompanyShortCode" />
+          <ScalarProperty Name="IndicatorShortCode" ColumnName="IndicatorShortCode" />
+          <ScalarProperty Name="UserID" ColumnName="UserID" />
+          <ScalarProperty Name="FavouriteListName" ColumnName="FavouriteListName" />
+          <ScalarProperty Name="CreatedBy" ColumnName="CreatedBy" />
+          <ScalarProperty Name="CreatedDate" ColumnName="CreatedDate" />
+          <ScalarProperty Name="ModifiedBy" ColumnName="ModifiedBy" />
+          <ScalarProperty Name="ModifiedDate" ColumnName="ModifiedDate" />
+        </ComplexTypeMapping>
+      </ResultMapping>
+    </FunctionImportMapping>
+    <FunctionImportMapping FunctionImportName="uspSelectAllFavouritesListByUserID" FunctionName="ITRDevModel.Store.uspSelectAllFavouritesListByUserID">
+      <ResultMapping>
+        <ComplexTypeMapping TypeName="ITRDevModel.uspSelectAllFavouritesListByUserID_Result">
+          <ScalarProperty Name="FavouriteListName" ColumnName="FavouriteListName" />
+          <ScalarProperty Name="CompanyShortCode" ColumnName="CompanyShortCode" />
+        </ComplexTypeMapping>
+      </ResultMapping>
+    </FunctionImportMapping>
+    <FunctionImportMapping FunctionImportName="uspSelectAllResultsCountByDataSetID" FunctionName="ITRDevModel.Store.uspSelectAllResultsCountByDataSetID" />
+    <FunctionImportMapping FunctionImportName="uspSelectCompanySalesPortal" FunctionName="ITRDevModel.Store.uspSelectCompanySalesPortal" />
+    <FunctionImportMapping FunctionImportName="uspSelectCompanySalesPortalByCustomerDataSetID" FunctionName="ITRDevModel.Store.uspSelectCompanySalesPortalByCustomerDataSetID" />
+    <FunctionImportMapping FunctionImportName="uspSelectDatacastCategoriesPortal" FunctionName="ITRDevModel.Store.uspSelectDatacastCategoriesPortal">
+      <ResultMapping>
+        <ComplexTypeMapping TypeName="ITRDevModel.uspSelectDatacastCategoriesPortal_Result">
+          <ScalarProperty Name="Industry" ColumnName="Industry" />
+          <ScalarProperty Name="IndustryID" ColumnName="IndustryID" />
+        </ComplexTypeMapping>
+      </ResultMapping>
+    </FunctionImportMapping>
+    <FunctionImportMapping FunctionImportName="uspSelectDatacastSubCategoriesByCategoryPortal" FunctionName="ITRDevModel.Store.uspSelectDatacastSubCategoriesByCategoryPortal">
+      <ResultMapping>
+        <ComplexTypeMapping TypeName="ITRDevModel.uspSelectDatacastSubCategoriesByCategoryPortal_Result">
+          <ScalarProperty Name="Sector" ColumnName="Sector" />
+          <ScalarProperty Name="SectorID" ColumnName="SectorID" />
+        </ComplexTypeMapping>
+      </ResultMapping>
+    </FunctionImportMapping>
+    <FunctionImportMapping FunctionImportName="uspSelectDatacastSubSector2BySubSector1Portal" FunctionName="ITRDevModel.Store.uspSelectDatacastSubSector2BySubSector1Portal">
+      <ResultMapping>
+        <ComplexTypeMapping TypeName="ITRDevModel.uspSelectDatacastSubSector2BySubSector1Portal_Result">
+          <ScalarProperty Name="SubSector2" ColumnName="SubSector2" />
+          <ScalarProperty Name="SubSector2ID" ColumnName="SubSector2ID" />
+        </ComplexTypeMapping>
+      </ResultMapping>
+    </FunctionImportMapping>
+    <FunctionImportMapping FunctionImportName="uspSelectDatacastSubSector3BySubSector2Portal" FunctionName="ITRDevModel.Store.uspSelectDatacastSubSector3BySubSector2Portal">
+      <ResultMapping>
+        <ComplexTypeMapping TypeName="ITRDevModel.uspSelectDatacastSubSector3BySubSector2Portal_Result">
+          <ScalarProperty Name="SubSector3" ColumnName="SubSector3" />
+          <ScalarProperty Name="SubSector3ID" ColumnName="SubSector3ID" />
+        </ComplexTypeMapping>
+      </ResultMapping>
+    </FunctionImportMapping>
+    <FunctionImportMapping FunctionImportName="uspSelectDatacastSubSectorsBySectorPortal" FunctionName="ITRDevModel.Store.uspSelectDatacastSubSectorsBySectorPortal">
+      <ResultMapping>
+        <ComplexTypeMapping TypeName="ITRDevModel.uspSelectDatacastSubSectorsBySectorPortal_Result">
+          <ScalarProperty Name="SubSector1" ColumnName="SubSector1" />
+          <ScalarProperty Name="SubSector1ID" ColumnName="SubSector1ID" />
+        </ComplexTypeMapping>
+      </ResultMapping>
+    </FunctionImportMapping>
+    <FunctionImportMapping FunctionImportName="uspSelectDataSetsByCompanyDivision" FunctionName="ITRDevModel.Store.uspSelectDataSetsByCompanyDivision">
+      <ResultMapping>
+        <ComplexTypeMapping TypeName="ITRDevModel.uspSelectDataSetsByCompanyDivision_Result">
+          <ScalarProperty Name="CustomerDataSetID" ColumnName="CustomerDataSetID" />
+          <ScalarProperty Name="DataSetName" ColumnName="DataSetName" />
+          <ScalarProperty Name="DataSetDescription" ColumnName="DataSetDescription" />
+          <ScalarProperty Name="CreatedDate" ColumnName="CreatedDate" />
+          <ScalarProperty Name="ViewStatus" ColumnName="ViewStatus" />
+        </ComplexTypeMapping>
+      </ResultMapping>
+    </FunctionImportMapping>
+    <FunctionImportMapping FunctionImportName="uspSelectDataSetsByCompanyDivisionForAlliance" FunctionName="ITRDevModel.Store.uspSelectDataSetsByCompanyDivisionForAlliance">
+      <ResultMapping>
+        <ComplexTypeMapping TypeName="ITRDevModel.uspSelectDataSetsByCompanyDivisionForAlliance_Result">
+          <ScalarProperty Name="CustomerDataSetID" ColumnName="CustomerDataSetID" />
+          <ScalarProperty Name="DataSetName" ColumnName="DataSetName" />
+          <ScalarProperty Name="DataSetDescription" ColumnName="DataSetDescription" />
+          <ScalarProperty Name="CreatedDate" ColumnName="CreatedDate" />
+          <ScalarProperty Name="ViewStatus" ColumnName="ViewStatus" />
+        </ComplexTypeMapping>
+      </ResultMapping>
+    </FunctionImportMapping>
+    <FunctionImportMapping FunctionImportName="uspSelectDataSetsByFavouriteListsOfUserID" FunctionName="ITRDevModel.Store.uspSelectDataSetsByFavouriteListsOfUserID">
+      <ResultMapping>
+        <ComplexTypeMapping TypeName="ITRDevModel.uspSelectDataSetsByFavouriteListsOfUserID_Result">
+          <ScalarProperty Name="CustomerDataSetID" ColumnName="CustomerDataSetID" />
+          <ScalarProperty Name="AccountID" ColumnName="AccountID" />
+          <ScalarProperty Name="DivisionID" ColumnName="DivisionID" />
+          <ScalarProperty Name="DataSetName" ColumnName="DataSetName" />
+          <ScalarProperty Name="DataSetDescription" ColumnName="DataSetDescription" />
+          <ScalarProperty Name="CustomerID" ColumnName="CustomerID" />
+          <ScalarProperty Name="CreatedBy" ColumnName="CreatedBy" />
+          <ScalarProperty Name="CreatedDate" ColumnName="CreatedDate" />
+          <ScalarProperty Name="ModifiedBy" ColumnName="ModifiedBy" />
+          <ScalarProperty Name="ModifiedDate" ColumnName="ModifiedDate" />
+          <ScalarProperty Name="CompanyName" ColumnName="CompanyName" />
+          <ScalarProperty Name="DataType" ColumnName="DataType" />
+          <ScalarProperty Name="Base" ColumnName="Base" />
+          <ScalarProperty Name="Units" ColumnName="Units" />
+          <ScalarProperty Name="CompanyWebsite" ColumnName="CompanyWebsite" />
+          <ScalarProperty Name="IsITREmployee" ColumnName="IsITREmployee" />
+          <ScalarProperty Name="UserName" ColumnName="UserName" />
+        </ComplexTypeMapping>
+      </ResultMapping>
+    </FunctionImportMapping>
+    <FunctionImportMapping FunctionImportName="uspSelectDataSetsByQBaseAccountIDForDatacast" FunctionName="ITRDevModel.Store.uspSelectDataSetsByQBaseAccountIDForDatacast">
+      <ResultMapping>
+        <ComplexTypeMapping TypeName="ITRDevModel.uspSelectDataSetsByQBaseAccountIDForDatacast_Result">
+          <ScalarProperty Name="ShortCode" ColumnName="ShortCode" />
+          <ScalarProperty Name="MasterMetaDataID" ColumnName="MasterMetaDataID" />
+          <ScalarProperty Name="SeriesName" ColumnName="SeriesName" />
+        </ComplexTypeMapping>
+      </ResultMapping>
+    </FunctionImportMapping>
+    <FunctionImportMapping FunctionImportName="uspSelectDataSetsByUserFavouriteList" FunctionName="ITRDevModel.Store.uspSelectDataSetsByUserFavouriteList">
+      <ResultMapping>
+        <ComplexTypeMapping TypeName="ITRDevModel.uspSelectDataSetsByUserFavouriteList_Result">
+          <ScalarProperty Name="CustomerDataSetID" ColumnName="CustomerDataSetID" />
+          <ScalarProperty Name="AccountID" ColumnName="AccountID" />
+          <ScalarProperty Name="DivisionID" ColumnName="DivisionID" />
+          <ScalarProperty Name="DataSetName" ColumnName="DataSetName" />
+          <ScalarProperty Name="DataSetDescription" ColumnName="DataSetDescription" />
+          <ScalarProperty Name="CreatedDate" ColumnName="CreatedDate" />
+          <ScalarProperty Name="ViewStatus" ColumnName="ViewStatus" />
+        </ComplexTypeMapping>
+      </ResultMapping>
+    </FunctionImportMapping>
+    <FunctionImportMapping FunctionImportName="uspSelectDataSetsDetailsByDataSetID" FunctionName="ITRDevModel.Store.uspSelectDataSetsDetailsByDataSetID">
+      <ResultMapping>
+        <ComplexTypeMapping TypeName="ITRDevModel.uspSelectDataSetsDetailsByDataSetID_Result">
+          <ScalarProperty Name="ProdID" ColumnName="ProdID" />
+          <ScalarProperty Name="MonthYear" ColumnName="MonthYear" />
+          <ScalarProperty Name="AdjValue" ColumnName="AdjValue" />
+          <ScalarProperty Name="CustomerDataSetID" ColumnName="CustomerDataSetID" />
+          <ScalarProperty Name="CreatedBy" ColumnName="CreatedBy" />
+          <ScalarProperty Name="CreatedDate" ColumnName="CreatedDate" />
+          <ScalarProperty Name="ModifiedBy" ColumnName="ModifiedBy" />
+          <ScalarProperty Name="ModifiedDate" ColumnName="ModifiedDate" />
+        </ComplexTypeMapping>
+      </ResultMapping>
+    </FunctionImportMapping>
+    <FunctionImportMapping FunctionImportName="uspSelectDataSetsDetailsByDataSetID03242017" FunctionName="ITRDevModel.Store.uspSelectDataSetsDetailsByDataSetID03242017" />
+    <FunctionImportMapping FunctionImportName="uspSelectDataSetsDetailsByDataSetIDForBanner" FunctionName="ITRDevModel.Store.uspSelectDataSetsDetailsByDataSetIDForBanner">
+      <ResultMapping>
+        <ComplexTypeMapping TypeName="ITRDevModel.uspSelectDataSetsDetailsByDataSetIDForBanner_Result">
+          <ScalarProperty Name="CompanyName" ColumnName="CompanyName" />
+          <ScalarProperty Name="DataSetName" ColumnName="DataSetName" />
+          <ScalarProperty Name="DataSetDescription" ColumnName="DataSetDescription" />
+          <ScalarProperty Name="CreatedDate" ColumnName="CreatedDate" />
+          <ScalarProperty Name="ModifiedDate" ColumnName="ModifiedDate" />
+        </ComplexTypeMapping>
+      </ResultMapping>
+    </FunctionImportMapping>
+    <FunctionImportMapping FunctionImportName="uspSelectDivisionsByAccountID" FunctionName="ITRDevModel.Store.uspSelectDivisionsByAccountID">
+      <ResultMapping>
+        <ComplexTypeMapping TypeName="ITRDevModel.uspSelectDivisionsByAccountID_Result">
+          <ScalarProperty Name="DivisionID" ColumnName="DivisionID" />
+          <ScalarProperty Name="DivisionName" ColumnName="DivisionName" />
+        </ComplexTypeMapping>
+      </ResultMapping>
+    </FunctionImportMapping>
+    <FunctionImportMapping FunctionImportName="uspSelectFavouriteListByUserID" FunctionName="ITRDevModel.Store.uspSelectFavouriteListByUserID">
+      <ResultMapping>
+        <ComplexTypeMapping TypeName="ITRDevModel.uspSelectFavouriteListByUserID_Result">
+          <ScalarProperty Name="RowNum" ColumnName="RowNum" />
+          <ScalarProperty Name="TotalCount" ColumnName="TotalCount" />
+          <ScalarProperty Name="iTotalRecords" ColumnName="iTotalRecords" />
+          <ScalarProperty Name="ASeriesName" ColumnName="ASeriesName" />
+          <ScalarProperty Name="CorrValue" ColumnName="CorrValue" />
+          <ScalarProperty Name="lagValue" ColumnName="lagValue" />
+          <ScalarProperty Name="Company" ColumnName="Company" />
+          <ScalarProperty Name="Indicator" ColumnName="Indicator" />
+          <ScalarProperty Name="FavouriteListName" ColumnName="FavouriteListName" />
+          <ScalarProperty Name="Description" ColumnName="Description" />
+        </ComplexTypeMapping>
+      </ResultMapping>
+    </FunctionImportMapping>
+    <FunctionImportMapping FunctionImportName="uspSelectFavouriteListByUserIDForDatacast" FunctionName="ITRDevModel.Store.uspSelectFavouriteListByUserIDForDatacast">
+      <ResultMapping>
+        <ComplexTypeMapping TypeName="ITRDevModel.uspSelectFavouriteListByUserIDForDatacast_Result">
+          <ScalarProperty Name="RowNum" ColumnName="RowNum" />
+          <ScalarProperty Name="TotalCount" ColumnName="TotalCount" />
+          <ScalarProperty Name="iTotalRecords" ColumnName="iTotalRecords" />
+          <ScalarProperty Name="ASeriesName" ColumnName="ASeriesName" />
+          <ScalarProperty Name="CorrValue" ColumnName="CorrValue" />
+          <ScalarProperty Name="lagValue" ColumnName="lagValue" />
+          <ScalarProperty Name="Company" ColumnName="Company" />
+          <ScalarProperty Name="Indicator" ColumnName="Indicator" />
+          <ScalarProperty Name="FavouriteListName" ColumnName="FavouriteListName" />
+          <ScalarProperty Name="Description" ColumnName="Description" />
+        </ComplexTypeMapping>
+      </ResultMapping>
+    </FunctionImportMapping>
+    <FunctionImportMapping FunctionImportName="uspSelectFavouritesListByUserID" FunctionName="ITRDevModel.Store.uspSelectFavouritesListByUserID">
+      <ResultMapping>
+        <ComplexTypeMapping TypeName="ITRDevModel.uspSelectFavouritesListByUserID_Result">
+          <ScalarProperty Name="FavouriteListName" ColumnName="FavouriteListName" />
+          <ScalarProperty Name="CompanyShortCode" ColumnName="CompanyShortCode" />
+        </ComplexTypeMapping>
+      </ResultMapping>
+    </FunctionImportMapping>
+    <FunctionImportMapping FunctionImportName="uspSelectFavouritesListByUserIDAndCompanyShortCode" FunctionName="ITRDevModel.Store.uspSelectFavouritesListByUserIDAndCompanyShortCode">
+      <ResultMapping>
+        <ComplexTypeMapping TypeName="ITRDevModel.uspSelectFavouritesListByUserIDAndCompanyShortCode_Result">
+          <ScalarProperty Name="FavouriteListName" ColumnName="FavouriteListName" />
+          <ScalarProperty Name="ID" ColumnName="ID" />
+        </ComplexTypeMapping>
+      </ResultMapping>
+    </FunctionImportMapping>
+    <FunctionImportMapping FunctionImportName="uspSelectIndicatorCategoryDropdown" FunctionName="ITRDevModel.Store.uspSelectIndicatorCategoryDropdown">
+      <ResultMapping>
+        <ComplexTypeMapping TypeName="ITRDevModel.uspSelectIndicatorCategoryDropdown_Result">
+          <ScalarProperty Name="CatDrpDnID" ColumnName="CatDrpDnID" />
+          <ScalarProperty Name="DrpDwnName" ColumnName="DrpDwnName" />
+          <ScalarProperty Name="DrpDwnDesc" ColumnName="DrpDwnDesc" />
+          <ScalarProperty Name="IndicatorTable" ColumnName="IndicatorTable" />
+          <ScalarProperty Name="RServerParam" ColumnName="RServerParam" />
+          <ScalarProperty Name="DrpDwnOrder" ColumnName="DrpDwnOrder" />
+          <ScalarProperty Name="DrpDnDisplay" ColumnName="DrpDnDisplay" />
+        </ComplexTypeMapping>
+      </ResultMapping>
+    </FunctionImportMapping>
+    <FunctionImportMapping FunctionImportName="uspSelectIndicatorListByCategorySearchPortal" FunctionName="ITRDevModel.Store.uspSelectIndicatorListByCategorySearchPortal">
+      <ResultMapping>
+        <ComplexTypeMapping TypeName="ITRDevModel.uspSelectIndicatorListByCategorySearchPortal_Result">
+          <ScalarProperty Name="RowNum" ColumnName="RowNum" />
+          <ScalarProperty Name="TotalCount" ColumnName="TotalCount" />
+          <ScalarProperty Name="iTotalRecords" ColumnName="iTotalRecords" />
+          <ScalarProperty Name="ASeriesName" ColumnName="ASeriesName" />
+          <ScalarProperty Name="CorrValue" ColumnName="CorrValue" />
+          <ScalarProperty Name="lagValue" ColumnName="lagValue" />
+          <ScalarProperty Name="Company" ColumnName="Company" />
+          <ScalarProperty Name="Indicator" ColumnName="Indicator" />
+          <ScalarProperty Name="Description" ColumnName="Description" />
+          <ScalarProperty Name="FavouriteListName" ColumnName="FavouriteListName" />
+        </ComplexTypeMapping>
+      </ResultMapping>
+    </FunctionImportMapping>
+    <FunctionImportMapping FunctionImportName="uspSelectLoadCorelationLeadLagByDataSetID" FunctionName="ITRDevModel.Store.uspSelectLoadCorelationLeadLagByDataSetID">
+      <ResultMapping>
+        <ComplexTypeMapping TypeName="ITRDevModel.uspSelectLoadCorelationLeadLagByDataSetID_Result">
+          <ScalarProperty Name="RowNum" ColumnName="RowNum" />
+          <ScalarProperty Name="TotalCount" ColumnName="TotalCount" />
+          <ScalarProperty Name="iTotalRecords" ColumnName="iTotalRecords" />
+          <ScalarProperty Name="ASeriesName" ColumnName="ASeriesName" />
+          <ScalarProperty Name="CorrValue" ColumnName="CorrValue" />
+          <ScalarProperty Name="lagValue" ColumnName="lagValue" />
+          <ScalarProperty Name="Company" ColumnName="Company" />
+          <ScalarProperty Name="Indicator" ColumnName="Indicator" />
+          <ScalarProperty Name="Description" ColumnName="Description" />
+          <ScalarProperty Name="FavouriteListName" ColumnName="FavouriteListName" />
+        </ComplexTypeMapping>
+      </ResultMapping>
+    </FunctionImportMapping>
+    <FunctionImportMapping FunctionImportName="uspSelectLoadCorelationLeadLagByDataSetIDForDatacast" FunctionName="ITRDevModel.Store.uspSelectLoadCorelationLeadLagByDataSetIDForDatacast">
+      <ResultMapping>
+        <ComplexTypeMapping TypeName="ITRDevModel.uspSelectLoadCorelationLeadLagByDataSetIDForDatacast_Result">
+          <ScalarProperty Name="RowNum" ColumnName="RowNum" />
+          <ScalarProperty Name="TotalCount" ColumnName="TotalCount" />
+          <ScalarProperty Name="iTotalRecords" ColumnName="iTotalRecords" />
+          <ScalarProperty Name="ASeriesName" ColumnName="ASeriesName" />
+          <ScalarProperty Name="CorrValue" ColumnName="CorrValue" />
+          <ScalarProperty Name="lagValue" ColumnName="lagValue" />
+          <ScalarProperty Name="Company" ColumnName="Company" />
+          <ScalarProperty Name="Indicator" ColumnName="Indicator" />
+          <ScalarProperty Name="Description" ColumnName="Description" />
+          <ScalarProperty Name="FavouriteListName" ColumnName="FavouriteListName" />
+        </ComplexTypeMapping>
+      </ResultMapping>
+    </FunctionImportMapping>
+    <FunctionImportMapping FunctionImportName="uspSelectRowsByDataSetID" FunctionName="ITRDevModel.Store.uspSelectRowsByDataSetID">
+      <ResultMapping>
+        <ComplexTypeMapping TypeName="ITRDevModel.uspSelectRowsByDataSetID_Result">
+          <ScalarProperty Name="ProdID" ColumnName="ProdID" />
+          <ScalarProperty Name="MonthYear" ColumnName="MonthYear" />
+          <ScalarProperty Name="AdjValue" ColumnName="AdjValue" />
+        </ComplexTypeMapping>
+      </ResultMapping>
+    </FunctionImportMapping>
+    <FunctionImportMapping FunctionImportName="uspUpdateCustomerDataSet" FunctionName="ITRDevModel.Store.uspUpdateCustomerDataSet" />
+    <FunctionImportMapping FunctionImportName="uspUpdateFavouriteList" FunctionName="ITRDevModel.Store.uspUpdateFavouriteList" />
+    <FunctionImportMapping FunctionImportName="uspClearDataSetAnalysis" FunctionName="ITRDevModel.Store.uspClearDataSetAnalysis" />
+  </EntityContainerMapping>
+</Mapping>

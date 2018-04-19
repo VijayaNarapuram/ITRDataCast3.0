@@ -1,0 +1,241 @@
+﻿@{
+    Layout = null;
+}
+
+<!DOCTYPE html>
+
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>ITR</title>
+
+    <link href="~/css/plugins.css" rel="stylesheet" type="text/css">
+    <link href="~/css/theme.css" rel="stylesheet" type="text/css">
+    <link href="~/css/retina.css" rel="stylesheet" type="text/css">
+    @*<link href="~/css/ionicons.min.css" rel="stylesheet" type="text/css">
+        <link href="~/css/et-line-icons.css" rel="stylesheet" type="text/css">
+        <link href="~/css/themify-icons.css" rel="stylesheet" type="text/css">
+        <link href="~/fonts/brandon/stylesheet.css" rel="stylesheet" type="text/css">*@
+
+    <link href="~/css/colors/blue.css" rel="stylesheet" />
+    <link href="~/dashboard/css/inside.css" rel="stylesheet" />
+
+    @*<link href="~/dashboard/fonts/brandon/stylesheet.css" rel="stylesheet" type="text/css" />*@
+    <script src="~/dashboard/js/modernizr.js"></script> <!-- Modernizr -->
+    <script type="text/javascript" src="//ajax.googleapis.com/ajax/libs/jquery/1.8.1/jquery.min.js"></script>
+    <script type="text/javascript" lang="javascript">
+
+        //Loader Implementation start function
+        function ajaxindicatorstart() {
+            if ($('body').find('#loadingDiv').attr('id') != 'loadingDiv') {
+                var loadingString = '<div id="loadingDiv" class="modal1"><div id="loading-image" class="center"><img src="../img/home/loader.gif" alt="Loading..." /></div></div>';
+                $('body').append(loadingString);
+                $('#loadingDiv .bg').height('100%');
+                $('#loadingDiv').fadeIn(300);
+                $('body').css('cursor', 'wait');
+            }
+        };
+        //Loader Implementation stop function
+        function ajaxindicatorstop() {
+            $('#loadingDiv .bg').height('100%');
+            $('#loadingDiv').remove();
+            $('body').css('cursor', 'default');
+            // modal-backdrop fade in
+        }
+        $(document).ready(function () {
+            ajaxindicatorstart();
+            {
+                //Added By:vishnu for Postmessage concept for Cross domain browser communication
+                //Create IE + others compatible event handler
+                var eventMethod = window.addEventListener ? "addEventListener" : "attachEvent";
+                var eventer = window[eventMethod];
+                var messageEvent = eventMethod == "attachEvent" ? "onmessage" : "message";
+
+                // Listen to message from child window
+                eventer(messageEvent, function (e) {
+                    // console.log('child received message!:  ', e.data);
+                    var obj = e.data;
+                    // console.log(obj);
+                    var sessionObj = {
+                        CompanyID: obj.CompanyID,
+                        DivisonID: obj.DivisonID,
+                        UserID: obj.UserID,
+                        IsDataPortalAdmin: obj.IsDataPortalAdmin,
+                        Value1: obj.Value1,
+                        EmailID : obj.Mail
+                    }                   
+                    var itrIISURL = "https://datacast.itreconomics.com/Home/ITRSessionRequest";
+                    // console.log("Step 2");
+                    $.ajax({
+                        type: "POST",
+                        async: false,
+                        url: itrIISURL,
+                        crossDomain: true,
+                        dataType: "json",
+                        data: obj,
+                        success: function (res) {
+                            console.log("Step 3");
+                            //   console.log(res);
+                            window.localStorage.setItem('ECompanyID', res.ComapnyId);
+                            window.localStorage.setItem('EDivisionID', res.DivisonID);
+                            window.localStorage.setItem('EisDataPortalAdmin', res.IsDataPortalAdmin);
+                            window.localStorage.setItem('EUserID', res.UserID);
+                            window.localStorage.setItem('EUserName', res.UserName);
+                            window.localStorage.setItem('EmailID', res.Mail);
+                            setTimeout(function () {
+                                window.location = "https://datacast.itreconomics.com/Home/Dashboard";
+                            }, 1000)
+
+                            //if (res != "" && res != undefined && res.result == "Success") {
+                            //    //ajaxindicatorstop();
+                            //    //window.location ="http://itr.verudix.net/Home/Dashboard";
+                            //}
+                            //else {
+                            //  //  alert("does not received the responce")
+                            //}
+                        },
+                        error: function (error) {
+                            console.log(error)
+                        }
+                    });
+                }, false);
+
+            }
+
+        });
+    </script>
+
+    <style type="text/css">
+        /*Added by Vishnu For bPopup*/
+        #displayMessage {
+            background-color: #fff !important;
+            border-radius: 15px !important;
+            color: #000 !important;
+            box-shadow: 0 0 25px 5px #999;
+            padding: 20px !important;
+            min-width: 200px !important;
+            min-height: 100px !important;
+        }
+
+        #displayMessageRed {
+            background-color: #fff !important;
+            border-radius: 15px !important;
+            /*color:#000 !important;*/
+            box-shadow: 0 0 25px 5px #999;
+            padding: 20px !important;
+            min-width: 200px !important;
+            min-height: 100px !important;
+        }
+
+        .button.b-close, .button.bClose {
+            color: #fff !important;
+            background-color: #64a9d1 !important;
+            border-radius: 7px !important;
+            box-shadow: none !important;
+            font: bold 131% sans-serif !important;
+            padding: 0 6px 2px !important;
+            position: absolute !important;
+            right: -7px !important;
+            top: -7px !important;
+            cursor: pointer;
+        }
+
+        .hide_column {
+            display: none;
+        }
+
+        .modal1 {
+            position: fixed;
+            z-index: 999;
+            height: 100%;
+            width: 100%;
+            top: 0;
+            background-color: Black;
+            filter: alpha(opacity=60);
+            opacity: 0.6;
+            -moz-opacity: 0.8;
+        }
+
+        .center {
+            z-index: 1000;
+            margin: 300px auto;
+            padding: 10px;
+            width: 130px;
+            background-color: White;
+            border-radius: 10px;
+            filter: alpha(opacity=100);
+            opacity: 1;
+            -moz-opacity: 1;
+        }
+
+            .center img {
+                height: 110px;
+                width: 110px;
+            }
+
+        .form-control {
+            padding: 2px 5px;
+        }
+    </style>
+</head>
+<body>
+
+
+
+    <main class="cd-main-content">
+        <nav class="cd-side-nav">
+            <div id='cssmenu'>
+                <ul>
+                    <li>
+                        <a href="~/Home/Dashboard">
+                            <img src="~/dashboard/img/icon-grid.png" width="45" /><br />
+                            <span>Dashboard</span>
+                        </a>
+                    </li>
+                    @*<li>
+                            <a href="#">
+                                <img src="~/dashboard/img/icon-left-upload.png" width="45" /><br />
+                                <span>Upload</span>
+                            </a>
+                        </li>
+                        <li>
+                            <a href="#">
+                                <img src="~/dashboard/img/icon-left-file-manager.png" width="40" /><br />
+                                <span>Files Manager</span>
+                            </a>
+                        </li>*@
+                </ul>
+            </div>
+        </nav>
+
+        <div class="content-wrapper">
+            <section class="bg-white"></section>
+
+            <!--Dispaly Error details/ Alert Message start-->
+            <div id="displayMessage" style="display: none">
+                <!--Add the InnerText at runtime -->
+            </div>
+            <div id="displayMessageRed" style="display: none; color: red;">
+                <!--Add the InnerText at runtime -->
+            </div>
+            <!--Dispaly Error details/ Alert Message end-->
+
+        </div> <!-- .content-wrapper -->
+        
+    </main>
+
+    <a id="back-to-top" title="Top"><i class="fa fa-chevron-up"></i></a>
+    <!-- End Back To Top -->
+    <!-- Scripts -->
+    <script src="~/js/jquery.min.js"></script>
+    <script src="~/js/plugins.js"></script>
+    <script src="~/js/scripts.js"></script>
+    <script src="~/js/common-scripts-dev.js"></script>
+
+</body>
+</html>
+
+
+

@@ -1,0 +1,455 @@
+﻿@{
+    ViewBag.Title = "DashboardWidgets";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<div class="container-fluid">
+    <div id="page-wrap" ng-app="">
+        <div class="row">
+            <!--Second Div Start-->
+            <div class="col-sm-5">
+                <div class="row">
+                    <div class="col-sm-10"><strong>Company DataSet</strong></div>
+                </div>
+                <div class="row">
+                    <select class="col-sm-10" id="ddlDataSets"></select>
+                </div>
+            </div>
+
+            <div class="col-sm-1 pull-right">
+                <button id="linkPrintIRC" class="shield-chart-button" type="button" title="Print the chart">
+                    <div class="sui-sprite shield-print-button-img"></div>
+                </button>
+                <input type="image" id="linkPrintPDFIRC" src="~/img/home/pdf_2.png" title="Download pdf document">
+
+                <input type="image" id="linkPrintPNGIRC" src="~/img/home/image_icon.png" title="Download Image">
+            </div>
+            <!--Second Div End-->
+        </div>
+
+        <br />
+        @*<div class="row">
+            <div class="col-sm-12">
+                <label id="lblTableHeading" style="background-color:blue">Indicator Phase Signals for Company A</label>
+            </div>
+        </div>
+
+        <div class="row">
+            <table class="table table-th-block table-dark link_cursor" id="tblData">
+                <thead>
+                    <tr>
+                        <th>Indicator</th>
+                        <th>Mar-18</th>
+                        <th>Jun-18</th>
+                        <th>Sep-18</th>
+                        <th>Dec-18</th>
+                        <th>Year-End 2019</th>
+                        <th>Year-End 2020</th>
+                        <th>Timing</th>
+                    </tr>
+                </thead>
+                <tbody></tbody>
+            </table>
+        </div>*@
+
+        <div class="mainCnt">
+            <div class="auctionCnt">
+                <h5 class="heading-small"><strong><span style="margin: 0 0 0 21px;" id="tblHeading"></span></strong></h5>
+                <div class="col-sm-12" id="ACQNINACQS"></div>              
+            </div>
+        </div>
+    </div>
+</div>
+
+@section PagespecificCss
+{
+    <link href="~/css/light/all.min.css" rel="stylesheet" />
+    <link href="~/datacastdashboard/css/bootstrap.min.css" rel="stylesheet" />
+    <link href="~/datacastassets/plugins/datatables/dataTables.min.css" rel="stylesheet" />
+    <link href="~/css/style.css" rel="stylesheet" />
+
+    <style>
+        .bold {
+            font-weight: bold;
+        }
+
+        .FIText {
+            color: black;
+            padding-left: 6px;
+        }
+
+        .cursor {
+            cursor: pointer;
+        }
+
+        .active {
+            background-color: blue;
+            color: white;
+            font-weight: bold;
+        }
+
+        .modal1 {
+            position: fixed;
+            z-index: 999;
+            height: 100%;
+            width: 100%;
+            top: 0;
+            background-color: Black;
+            filter: alpha(opacity=60);
+            opacity: 0.6;
+            -moz-opacity: 0.8;
+        }
+
+        .modal2 {
+            position: absolute;
+            z-index: 999;
+            width: 100%;
+            top: 50%;
+            background-color: transparent;
+            /*filter: alpha(opacity=60);
+                opacity: 2;
+                -moz-opacity: 0.8;*/
+        }
+
+        .center {
+            z-index: 1000;
+            margin: 300px auto;
+            padding: 10px;
+            width: 130px;
+            background-color: White;
+            border-radius: 10px;
+            filter: alpha(opacity=100);
+            opacity: 1;
+            -moz-opacity: 1;
+        }
+
+            .center img {
+                height: 110px;
+                width: 110px;
+            }
+
+        hr {
+            -moz-border-bottom-colors: none;
+            -moz-border-image: none;
+            -moz-border-left-colors: none;
+            -moz-border-right-colors: none;
+            -moz-border-top-colors: none;
+            border-color: #acacac -moz-use-text-color #FFFFFF;
+            border-style: solid none;
+            border-width: 3px 0;
+            margin-left: 10%;
+            margin-right: 10%;
+            margin-top: 2%;
+            margin-bottom: 0%;
+        }
+
+        /*Added by Vishnu For bPopup*/
+        #displayMessage {
+            background-color: #fff !important;
+            border-radius: 15px !important;
+            color: #000 !important;
+            box-shadow: 0 0 25px 5px #999;
+            padding: 20px !important;
+            min-width: 200px !important;
+            min-height: 100px !important;
+        }
+
+        .button.b-close, .button.bClose {
+            color: #fff !important;
+            background-color: #2b91af !important;
+            border-radius: 7px !important;
+            box-shadow: none !important;
+            font: bold 131% sans-serif !important;
+            padding: 0 6px 2px !important;
+            position: absolute !important;
+            right: -7px !important;
+            top: -7px !important;
+            cursor: pointer;
+        }
+
+        .button.ok-close {
+            box-shadow: none !important;
+            cursor: pointer;
+        }
+
+
+
+        /*To disable the events of active row, so we can avoid clicking on already selected rows*/
+        .blocked {
+            position: relative;
+            pointer-events: none;
+        }
+
+        .hide_column {
+            display: none;
+        }
+
+        .highlight {
+            background-color: green !important;
+        }
+
+        #linkPrintPDF {
+            vertical-align: middle;
+        }
+
+        #linkPrintPNG {
+            vertical-align: middle;
+        }
+
+
+        #linkPrintPDFIDT {
+            vertical-align: middle;
+        }
+
+        #linkPrintPNGIDT {
+            vertical-align: middle;
+        }
+
+        #linkPrintPDFIRC {
+            vertical-align: middle;
+        }
+
+        #linkPrintPNGIRC {
+            vertical-align: middle;
+        }
+
+        .link_cursor {
+            cursor: pointer;
+        }
+
+        table.dataTable thead th {
+            padding: 3px 18px 3px 10px;
+        }
+
+        .testpopup {
+            z-index: 9999999 !important;
+        }
+
+        .modal-header {
+            padding: 7px !important;
+        }
+
+        .modal-body {
+            padding: 7px !important;
+        }
+
+        .activ {
+            background-color: #08c;
+            color: white;
+            font-weight: bold;
+        }
+    </style>
+}
+
+@section PageSpecificScript
+{
+    <script type="text/javascript" src="~/datacastassets/plugins/datatables/jquery.dataTables.js"></script>
+    <script type="text/javascript" src="~/datacastassets/plugins/datatables/dataTables.bootstrap.js"></script>
+
+    <script src="~/datacastjs/shieldui-all.min.js"></script>
+    <script src="~/datacastjs/angular-1.4.8.min.js"></script>
+    <script src="~/datacastjs/jspdf.debug.js"></script>
+    <script src="~/datacastjs/html2canvas.js"></script>
+
+    <script type="text/javascript">
+
+        //LOADING DATASETS DROPDOWN...
+        function LoadDataSets() {
+            // alert(1);
+
+            var accountid = 2301; // _CompanyId;//2301;// $('#ddlAccounts option:selected').val();//2857;2857;//
+            var divisionId = 0; //divisionID;//0;// divisionID;  //$('#ddlDivision option:selected').val(); //247;//$("#ddlDivision").val();//247;247;//
+
+            if (divisionId == "" || divisionId == null || divisionId == "null") {
+                divisionId = 0;
+            }
+            if (accountid != '' && accountid != '0') {
+                var url = 'GetDataSetsByQBaseAccountIDAndDivisionID/';
+                var modelobj = {
+                    accountID: accountid,
+                    divisionID: divisionId
+                }
+                $.getJSON(url, modelobj,
+                              function (optionsData) {
+                                  var select = $("#ddlDataSets");
+
+                                  select.empty();
+
+                                  $.each(optionsData, function (index, itemData) {
+                                      select.append($('<option/>', {
+                                          value: itemData.Text,
+                                          text: itemData.Text
+                                      }));
+                                  });
+                                  // alert("before datasetid");
+                                  dataSetID = $("#ddlDataSets").val();
+                                  dataSetIDLocal = $("#ddlDataSets").val();
+                                  IDTdataSetName = $("#ddlDataSets option:selected").text();
+                                  $(".spnDataSetName").text($("#ddlDataSets option:selected").text());
+                                  $(".spnIDTDataSetName").text($("#ddlDataSets option:selected").text());
+                                  //  $(".spnIRCDataSet1Name").text($("#ddlIRCDataSet1 option:selected").text());
+                                  $(".spnIRCDataSet1Name").text($("#ddlIRCDataSet1 option:selected").text() + " for " + $("#ddl1stCaluculation option:selected").text());
+                                  IRCdataSetName1 = $("#ddlIRCDataSet1 option:selected").text();
+                                  //  $(".spnIRCDataSet2Name").text($("#ddlIRCDataSet2 option:selected").text());
+                                  $(".spnIRCDataSet2Name").text($("#ddlIRCDataSet2 option:selected").text() + " for " + $("#ddl2ndCaluculation option:selected").text());
+                                  IRCdataSetName2 = $("#ddlIRCDataSet2 option:selected").text();
+                                  // alert(dataSetID);
+                                  if (dataSetID != "" && dataSetID != "null" && dataSetID != null) {
+
+                                      $('#tblHeading').text('Indicator Phase Signals for ' + $("#ddlDataSets").val());
+                                      //TO LOAD PHASE VALUES OF DB WIDGETS IN DATATABLE...
+                                      LoadPhaseValuesOfDBWidgets();
+
+                                      LoadIndicatorsList();
+                                      LoadIDTChartData();
+                                      LoadIRCChartData();
+                                      //For download data tab
+                                      $('#ddlDataSetsDD option:nth(0)').attr("selected", "selected");
+                                      $("#divIndicatorSection1").html('');//To clear Previos content if any
+                                      LoadIndicatorsListDownloadDataForMultipleCompanyDataSetsSection1();//For download data Company Data Part Indicator list Loading
+                                      $('#ddlDataSetsIndList option:nth(0)').attr("selected", "selected");
+                                      $("#divIndicatorDD").html('');//To clear Previos content if any
+                                      LoadIndicatorsListDownloadDataForMultipleCompanyDataSets();
+                                      $('.shield-chart-button').show();
+                                  }
+                                  else {
+                                      // alert("Else CAse");//To clear Previous content if any.
+                                      // LoadIndicatorsList();
+                                      // LoadIDTChartData();
+                                      // LoadIRCChartData();
+                                      //For download data tab
+                                      $('#ddlDataSetsDD').empty();
+                                      $("#divIndicatorSectsion1").html('');//To clear Previos content if any
+                                      $("#divIndicatorSection1").html('');
+                                      $('#ddlDataSetsIndList').empty();
+                                      $("#divIndicatorDD").html('');//To clear Previos content if any
+                                      $('#divIndicatorDDShortCodes').html('');
+                                      $('#divIndicator').empty();
+                                      $('.divIndicator').empty();
+                                      $(".divIndicatorSectsion1").empty();
+                                      $("#chart").html('');
+                                      $("#chartIRC").html('');
+                                      $("#chartIDT").html('');
+                                      $('.shield-chart-button').hide();
+                                      // LoadIndicatorsListDownloadDataForMultipleCompanyDataSets();
+                                  }
+                              });
+
+            }
+        }
+
+        $("#linkPrintIRC").on("click", function () {//Created By: Vsihnu,Prints page contents with CSS
+            //$("#divLables").show();
+            var left = ($(window).width() / 2) - (900 / 2), top = ($(window).height() / 2) - (600 / 2);
+            var divContents = $("#divPrintIRC").html();
+            var printWindow = window.open("", "print", "width=" + $(window).width() + ", height=" + $(window).height() + ", top=" + top + ", left=" + left);
+            printWindow.document.write('<html><head><title> ITR Economics</title>');
+            var myStyle = document.styleSheets;
+            for (var i = 0; i < myStyle.length; i++) {
+                if (myStyle[i].href != null && myStyle[i].href != "" && myStyle[i].href != 'null')
+                    printWindow.document.write('<link rel="stylesheet" href="' + myStyle[i].href + '" type="text/css" />');
+            }
+            printWindow.document.write('</head><body >');
+
+            printWindow.document.write(divContents);
+            printWindow.document.write('</body></html>');
+            printWindow.document.close();
+            setTimeout(function () {
+                printWindow.print();
+            }, 2500);//To Avoid Blank page printing in Google Chrome
+            //  $("#divLables").hide();
+        });
+
+        //Created by Nishanth for downloading Pdf
+        $("#linkPrintPDFIRC").on("click", function () {
+            //   $("#divLables").show();
+            var name = "";
+            //alert($("#spnDataSetName").text());
+            var D1 = $("#ddlIRCDataSet1").val();
+            var D2 = $("#ddlIRCDataSet2").val();
+            if (D1 == D2) {
+                name = "IRC_" + D1;
+            }
+            else {
+                name = "IRC_" + D1 + " " + D2;
+            }
+
+
+            // var name = $("#spnIndicatorName").text();
+
+            //var divContents = $("#divPrint").html();
+            div_content = document.querySelectorAll("#divPrintIRC");
+            div_content[0].style.backgroundColor = "white";
+            //make it as html5 canvasotab
+            html2canvas(div_content).then(function (canvas) {
+                //change the canvas to jpeg image
+
+                var image = canvas.toDataURL('image/jpeg');
+                //  alert(image);
+                // window.open(image);
+                var doc = new jsPDF("l", "pt", "a4");
+
+                // var width = 980;
+                //  var height = 500;
+                //   var pdf = new jsPDF("2", "pt", "letter");
+
+                doc.addImage(image, 'JPEG', 0, 50, 850, 500);
+                doc.save(name + ".pdf");
+                // $("#divLables").hide();
+            });
+        });
+
+        //Created by Nishnth for downloading .png
+        $("#linkPrintPNGIRC").on("click", function () {
+            //  $("#divLables").show();
+            div_content = document.querySelectorAll("#divPrintIRC");
+            div_content[0].style.backgroundColor = "white";
+            //  var name = $("#spnDataSetName").text();
+            var name = "";
+            //alert($("#spnDataSetName").text());
+            var D1 = $("#ddlIRCDataSet1").val();
+            var D2 = $("#ddlIRCDataSet2").val();
+            if (D1 == D2) {
+                name = "IRC_" + D1;
+            }
+            else {
+                name = "IRC_" + D1 + " " + D2;
+            }
+            // var name = $("#spnIndicatorName").text();
+            //make it as html5 canvas
+            html2canvas(div_content).then(function (canvas) {
+                //change the canvas to jpeg image
+
+                var image = canvas.toDataURL('image/jpeg');
+                //    image = image.append('<html><head><title> ITR Economics</title>');
+
+                // window.open(image);
+                var uri = 'data:application/octet-stream;' + decodeURIComponent(image);
+                var downloadLink = document.createElement("a");
+                downloadLink.href = uri;
+                downloadLink.download = name + ".png";
+                document.body.appendChild(downloadLink);
+                downloadLink.click();
+                document.body.removeChild(downloadLink);
+                $("#divLables").hide();
+            });
+        });
+       
+        //TO LOAD PHASE VALUES OF DB WIDGETS IN DATATABLE...
+        function LoadPhaseValuesOfDBWidgets() {
+            url = '/DatacastDBWidget/SelectPhaseValuesOfDBWidgetsList/';
+            var modelObj = {
+                CompanyShortCode: $("#ddlDataSets").val()
+            };
+            responseData = SendRequestJSON(url, modelObj);
+            if (responseData.length > 0) {
+                $("#ACQNINACQS").html(responseData);
+            }
+        }
+
+        $(document).ready(function (e) {
+            LoadDataSets();              
+        });
+
+    </script>
+}

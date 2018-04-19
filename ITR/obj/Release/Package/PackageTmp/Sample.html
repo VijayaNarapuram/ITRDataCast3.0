@@ -1,0 +1,53 @@
+﻿<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Sample</title>
+    <!--<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>-->
+    <script type="text/javascript" src="//ajax.googleapis.com/ajax/libs/jquery/1.8.1/jquery.min.js"></script>
+    <script type="text/javascript">
+
+        $(document).ready(function () {
+            $("#btnITRUploadDataSet").click(function () {
+                var itrIISURL = "http://itr.verudix.net/Home/ITRSessionRequest";
+                var sessionObj = {
+                    CompanyID: "1111",
+                    DivisonID: "12"
+                }
+                $.ajax({
+                    type: "POST",
+                    async: false,
+                    url: itrIISURL,
+                    crossDomain: true,
+                    dataType: "json",
+                    data: sessionObj,
+                    success: function (res) {
+                        if (res != "" && res != undefined && res.result == "Success") {
+                            $('#iframeITR').show();
+                            $('#iframeITR').attr('src', res.url);
+                            $("#btnITRUploadDataSet").hide();
+                        }
+                        else {
+                            alert("does not received the responce")
+                        }
+                    },
+                    error: function (error) {
+                        console.log(error)
+                        //throw new Error
+                    }
+                });
+            });
+
+        })
+    </script>
+</head>
+<body>
+    <button id="btnITRUploadDataSet">ITR Data Cast</button>
+    <iframe id="iframeITR" src="" style="display:none;" height="600" width="1200"></iframe>
+
+</body>
+
+
+</html>

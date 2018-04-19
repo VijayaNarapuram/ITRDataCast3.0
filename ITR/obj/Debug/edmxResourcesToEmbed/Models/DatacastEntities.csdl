@@ -1,0 +1,2697 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Schema Namespace="LDBTESTModel" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
+  <ComplexType Name="f_split_Result">
+    <Property Name="val" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="seq" Type="Int32" />
+  </ComplexType>
+  <ComplexType Name="Split_Result">
+    <Property Name="Id" Type="Int32" Nullable="false" />
+    <Property Name="Data" Type="String" MaxLength="100" FixedLength="false" Unicode="true" Nullable="false" />
+  </ComplexType>
+  <EntityType Name="Company">
+    <Key>
+      <PropertyRef Name="PRODCompanyID" />
+    </Key>
+    <Property Name="PRODCompanyID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="MonthYear" Type="DateTime" Precision="3" />
+    <Property Name="RawValue" Type="Decimal" Precision="32" Scale="16" />
+    <Property Name="AdjValue" Type="Decimal" Precision="32" Scale="16" />
+    <Property Name="UpdateReason" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
+    <Property Name="ValueStartDate" Type="DateTime" Precision="3" />
+    <Property Name="ValueEndDate" Type="DateTime" Precision="3" />
+    <Property Name="CurrentFlag" Type="String" MaxLength="1" FixedLength="false" Unicode="false" />
+    <Property Name="CreatedBy" Type="String" MaxLength="150" FixedLength="false" Unicode="false" />
+    <Property Name="CreatedDate" Type="DateTime" Precision="3" />
+    <Property Name="ModifiedBy" Type="String" MaxLength="150" FixedLength="false" Unicode="false" />
+    <Property Name="ModifiedDate" Type="DateTime" Precision="3" />
+    <Property Name="MasterMetadataID" Type="Int32" />
+  </EntityType>
+  <EntityType Name="CompanyWeb">
+    <Key>
+      <PropertyRef Name="PRODCompanyID" />
+    </Key>
+    <Property Name="PRODCompanyID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="MonthYear" Type="DateTime" Precision="3" />
+    <Property Name="RawValue" Type="Decimal" Precision="32" Scale="16" />
+    <Property Name="AdjValue" Type="Decimal" Precision="32" Scale="16" />
+    <Property Name="UpdateReason" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
+    <Property Name="ValueStartDate" Type="DateTime" Precision="3" />
+    <Property Name="ValueEndDate" Type="DateTime" Precision="3" />
+    <Property Name="CurrentFlag" Type="String" MaxLength="1" FixedLength="false" Unicode="false" />
+    <Property Name="CreatedBy" Type="String" MaxLength="150" FixedLength="false" Unicode="false" />
+    <Property Name="CreatedDate" Type="DateTime" Precision="3" />
+    <Property Name="ModifiedBy" Type="String" MaxLength="150" FixedLength="false" Unicode="false" />
+    <Property Name="ModifiedDate" Type="DateTime" Precision="3" />
+    <Property Name="MasterMetadataID" Type="Int32" />
+  </EntityType>
+  <EntityType Name="CompanyWebForNew">
+    <Key>
+      <PropertyRef Name="ProdIndicatorId" />
+    </Key>
+    <Property Name="ProdIndicatorId" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="MonthYear" Type="DateTime" Precision="3" />
+    <Property Name="RawValue" Type="Decimal" Precision="24" Scale="15" />
+    <Property Name="AdjValue" Type="Decimal" Precision="24" Scale="15" />
+    <Property Name="UpdateReason" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
+    <Property Name="ValueStartDate" Type="DateTime" Precision="3" />
+    <Property Name="ValueEndDate" Type="DateTime" Precision="3" />
+    <Property Name="CurrentFlag" Type="String" MaxLength="1" FixedLength="false" Unicode="false" />
+    <Property Name="CreatedBy" Type="String" MaxLength="500" FixedLength="false" Unicode="false" />
+    <Property Name="CreatedDate" Type="DateTime" Precision="3" />
+    <Property Name="ModifiedBy" Type="String" MaxLength="500" FixedLength="false" Unicode="false" />
+    <Property Name="ModifiedDate" Type="DateTime" Precision="3" />
+    <Property Name="CompanyMasterMetadataID" Type="Int32" />
+  </EntityType>
+  <EntityType Name="CustomerDataSet">
+    <Key>
+      <PropertyRef Name="CustomerDataSetID" />
+    </Key>
+    <Property Name="CustomerDataSetID" Type="Int32" Nullable="false" />
+    <Property Name="AccountID" Type="Int32" />
+    <Property Name="DivisionID" Type="Int32" />
+    <Property Name="DataSetName" Type="String" MaxLength="128" FixedLength="false" Unicode="false" />
+    <Property Name="DataSetDescription" Type="String" MaxLength="1024" FixedLength="false" Unicode="false" />
+    <Property Name="CustomerID" Type="String" MaxLength="128" FixedLength="false" Unicode="false" />
+    <Property Name="CreatedBy" Type="String" MaxLength="64" FixedLength="false" Unicode="false" />
+    <Property Name="CreatedDate" Type="DateTime" Precision="3" />
+    <Property Name="ModifiedBy" Type="String" MaxLength="64" FixedLength="false" Unicode="false" />
+    <Property Name="ModifiedDate" Type="DateTime" Precision="3" />
+    <Property Name="CompanyName" Type="String" MaxLength="128" FixedLength="false" Unicode="false" />
+    <Property Name="DataType" Type="String" MaxLength="64" FixedLength="false" Unicode="false" />
+    <Property Name="Base" Type="String" MaxLength="64" FixedLength="false" Unicode="false" />
+    <Property Name="Units" Type="String" MaxLength="64" FixedLength="false" Unicode="false" />
+    <Property Name="CompanyWebsite" Type="String" MaxLength="256" FixedLength="false" Unicode="false" />
+    <Property Name="IsITREmployee" Type="Boolean" />
+    <Property Name="UserName" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
+  </EntityType>
+  <EntityType Name="DateRanx">
+    <Key>
+      <PropertyRef Name="DateID" />
+    </Key>
+    <Property Name="DateID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="DateValue" Type="DateTime" Precision="3" />
+  </EntityType>
+  <EntityType Name="ForeCastData">
+    <Key>
+      <PropertyRef Name="ForeCastDataID" />
+    </Key>
+    <Property Name="ForeCastDataID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="ForeCastMetaDataID" Type="Int32" />
+    <Property Name="ShortCode" Type="String" MaxLength="64" FixedLength="false" Unicode="false" />
+    <Property Name="ForeCastDate" Type="DateTime" Precision="0" />
+    <Property Name="MonthYear" Type="DateTime" Precision="0" />
+    <Property Name="LFR12MMA" Type="Decimal" Precision="32" Scale="16" />
+    <Property Name="Avg12MMA" Type="Decimal" Precision="32" Scale="16" />
+    <Property Name="UFR12MMA" Type="Decimal" Precision="32" Scale="16" />
+    <Property Name="LFR3MMA" Type="Decimal" Precision="32" Scale="16" />
+    <Property Name="Avg3MMA" Type="Decimal" Precision="32" Scale="16" />
+    <Property Name="UFR3MMA" Type="Decimal" Precision="32" Scale="16" />
+    <Property Name="LFR12by12" Type="Decimal" Precision="32" Scale="16" />
+    <Property Name="Avg12by12" Type="Decimal" Precision="32" Scale="16" />
+    <Property Name="UFR12by12" Type="Decimal" Precision="32" Scale="16" />
+    <Property Name="LFR3by12" Type="Decimal" Precision="32" Scale="16" />
+    <Property Name="Avg3by12" Type="Decimal" Precision="32" Scale="16" />
+    <Property Name="UFR3by12" Type="Decimal" Precision="32" Scale="16" />
+    <Property Name="CreatedBy" Type="String" MaxLength="128" FixedLength="false" Unicode="false" />
+    <Property Name="CreatedDate" Type="DateTime" Precision="3" />
+  </EntityType>
+  <EntityType Name="ForeCastMetaData">
+    <Key>
+      <PropertyRef Name="ForeCastMetaDataID" />
+    </Key>
+    <Property Name="ForeCastMetaDataID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="ShortCode" Type="String" MaxLength="64" FixedLength="false" Unicode="false" />
+    <Property Name="ForeCastDate" Type="DateTime" Precision="0" />
+    <Property Name="ForeCaster" Type="String" MaxLength="128" FixedLength="false" Unicode="false" />
+    <Property Name="ProofedBy" Type="String" MaxLength="128" FixedLength="false" Unicode="false" />
+    <Property Name="CreatedBy" Type="String" MaxLength="128" FixedLength="false" Unicode="false" />
+    <Property Name="CreatedDate" Type="DateTime" Precision="3" />
+    <Property Name="DataThruDate" Type="DateTime" Precision="0" />
+  </EntityType>
+  <EntityType Name="Indicator">
+    <Key>
+      <PropertyRef Name="ProdIndicatorId" />
+    </Key>
+    <Property Name="ProdIndicatorId" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="MonthYear" Type="DateTime" Precision="3" />
+    <Property Name="RawValue" Type="Decimal" Precision="32" Scale="16" />
+    <Property Name="AdjValue" Type="Decimal" Precision="32" Scale="16" />
+    <Property Name="UpdateReason" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
+    <Property Name="ValueStartDate" Type="DateTime" Precision="3" />
+    <Property Name="ValueEndDate" Type="DateTime" Precision="3" />
+    <Property Name="CurrentFlag" Type="String" MaxLength="1" FixedLength="false" Unicode="false" />
+    <Property Name="CreatedBy" Type="String" MaxLength="500" FixedLength="false" Unicode="false" />
+    <Property Name="CreatedDate" Type="DateTime" Precision="3" />
+    <Property Name="ModifiedBy" Type="String" MaxLength="500" FixedLength="false" Unicode="false" />
+    <Property Name="ModifiedDate" Type="DateTime" Precision="3" />
+    <Property Name="MasterMetadataID" Type="Int32" />
+  </EntityType>
+  <EntityType Name="IndicatorWeb">
+    <Key>
+      <PropertyRef Name="ProdIndicatorId" />
+    </Key>
+    <Property Name="ProdIndicatorId" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="MonthYear" Type="DateTime" Precision="3" />
+    <Property Name="RawValue" Type="Decimal" Precision="32" Scale="16" />
+    <Property Name="AdjValue" Type="Decimal" Precision="32" Scale="16" />
+    <Property Name="UpdateReason" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
+    <Property Name="ValueStartDate" Type="DateTime" Precision="3" />
+    <Property Name="ValueEndDate" Type="DateTime" Precision="3" />
+    <Property Name="CurrentFlag" Type="String" MaxLength="1" FixedLength="false" Unicode="false" />
+    <Property Name="CreatedBy" Type="String" MaxLength="500" FixedLength="false" Unicode="false" />
+    <Property Name="CreatedDate" Type="DateTime" Precision="3" />
+    <Property Name="ModifiedBy" Type="String" MaxLength="500" FixedLength="false" Unicode="false" />
+    <Property Name="ModifiedDate" Type="DateTime" Precision="3" />
+    <Property Name="MasterMetadataID" Type="Int32" />
+  </EntityType>
+  <EntityType Name="IndicatorWebForNew">
+    <Key>
+      <PropertyRef Name="ProdIndicatorId" />
+    </Key>
+    <Property Name="ProdIndicatorId" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="MonthYear" Type="DateTime" Precision="3" />
+    <Property Name="RawValue" Type="Decimal" Precision="32" Scale="16" />
+    <Property Name="AdjValue" Type="Decimal" Precision="32" Scale="16" />
+    <Property Name="UpdateReason" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
+    <Property Name="ValueStartDate" Type="DateTime" Precision="3" />
+    <Property Name="ValueEndDate" Type="DateTime" Precision="3" />
+    <Property Name="CurrentFlag" Type="String" MaxLength="1" FixedLength="false" Unicode="false" />
+    <Property Name="CreatedBy" Type="String" MaxLength="500" FixedLength="false" Unicode="false" />
+    <Property Name="CreatedDate" Type="DateTime" Precision="3" />
+    <Property Name="ModifiedBy" Type="String" MaxLength="500" FixedLength="false" Unicode="false" />
+    <Property Name="ModifiedDate" Type="DateTime" Precision="3" />
+    <Property Name="MasterMetadataID" Type="Int32" />
+  </EntityType>
+  <EntityType Name="MasterMetaData">
+    <Key>
+      <PropertyRef Name="MasterMetadataID" />
+    </Key>
+    <Property Name="MasterMetadataID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="WorkBook" Type="String" MaxLength="500" FixedLength="false" Unicode="false" />
+    <Property Name="FileName" Type="String" MaxLength="500" FixedLength="false" Unicode="false" />
+    <Property Name="NAICSCode" Type="String" MaxLength="500" FixedLength="false" Unicode="false" />
+    <Property Name="SeriesName" Type="String" MaxLength="500" FixedLength="false" Unicode="false" />
+    <Property Name="NSA" Type="String" MaxLength="500" FixedLength="false" Unicode="false" />
+    <Property Name="Continent" Type="String" MaxLength="500" FixedLength="false" Unicode="false" />
+    <Property Name="Country" Type="String" MaxLength="500" FixedLength="false" Unicode="false" />
+    <Property Name="Region" Type="String" MaxLength="500" FixedLength="false" Unicode="false" />
+    <Property Name="State" Type="String" MaxLength="500" FixedLength="false" Unicode="false" />
+    <Property Name="MSA" Type="String" MaxLength="500" FixedLength="false" Unicode="false" />
+    <Property Name="Category" Type="String" MaxLength="500" FixedLength="false" Unicode="false" />
+    <Property Name="Subcategory" Type="String" MaxLength="500" FixedLength="false" Unicode="false" />
+    <Property Name="Units" Type="String" MaxLength="500" FixedLength="false" Unicode="false" />
+    <Property Name="BASE" Type="String" MaxLength="500" FixedLength="false" Unicode="false" />
+    <Property Name="Source" Type="String" MaxLength="256" FixedLength="false" Unicode="false" />
+    <Property Name="Link" Type="String" MaxLength="512" FixedLength="false" Unicode="false" />
+    <Property Name="Definition" Type="String" MaxLength="1024" FixedLength="false" Unicode="false" />
+    <Property Name="UpdateFrequency" Type="String" MaxLength="32" FixedLength="false" Unicode="false" />
+    <Property Name="ProprietaryData" Type="String" MaxLength="32" FixedLength="false" Unicode="false" />
+    <Property Name="UpdateType" Type="String" MaxLength="32" FixedLength="false" Unicode="false" />
+    <Property Name="Discontinued" Type="String" MaxLength="32" FixedLength="false" Unicode="false" />
+    <Property Name="DiscontinuedDate" Type="String" MaxLength="16" FixedLength="false" Unicode="false" />
+    <Property Name="StatPref1" Type="String" MaxLength="128" FixedLength="false" Unicode="false" />
+    <Property Name="StatPref2" Type="String" MaxLength="128" FixedLength="false" Unicode="false" />
+    <Property Name="AccountID" Type="Int32" />
+    <Property Name="DivisionID" Type="Int32" />
+    <Property Name="AccountName" Type="String" MaxLength="512" FixedLength="false" Unicode="false" />
+    <Property Name="DivisionName" Type="String" MaxLength="512" FixedLength="false" Unicode="false" />
+    <Property Name="CreatedBy" Type="String" MaxLength="128" FixedLength="false" Unicode="false" />
+    <Property Name="CreatedDate" Type="DateTime" Precision="3" />
+    <Property Name="ModifiedBy" Type="String" MaxLength="128" FixedLength="false" Unicode="false" />
+    <Property Name="ModifiedDate" Type="DateTime" Precision="3" />
+    <Property Name="GEO" Type="String" MaxLength="500" FixedLength="false" Unicode="false" />
+    <Property Name="Publication" Type="String" MaxLength="500" FixedLength="false" Unicode="false" />
+    <Property Name="CEICCode" Type="String" MaxLength="500" FixedLength="false" Unicode="false" />
+    <Property Name="WORKBOOKPATH" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
+    <Property Name="Type" Type="String" MaxLength="64" FixedLength="false" Unicode="false" />
+    <Property Name="SourceWorkBook" Type="String" MaxLength="512" FixedLength="false" Unicode="false" />
+    <Property Name="PriorName" Type="String" MaxLength="128" FixedLength="false" Unicode="false" />
+    <Property Name="MMAMMT" Type="String" MaxLength="16" FixedLength="false" Unicode="false" />
+    <Property Name="DataType" Type="String" MaxLength="32" FixedLength="false" Unicode="false" />
+    <Property Name="Industry" Type="String" MaxLength="128" FixedLength="false" Unicode="false" />
+    <Property Name="Sector" Type="String" MaxLength="64" FixedLength="false" Unicode="false" />
+    <Property Name="SubSector1" Type="String" MaxLength="64" FixedLength="false" Unicode="false" />
+    <Property Name="SubSector2" Type="String" MaxLength="64" FixedLength="false" Unicode="false" />
+    <Property Name="SubSector3" Type="String" MaxLength="64" FixedLength="false" Unicode="false" />
+    <Property Name="Description" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
+  </EntityType>
+  <EntityType Name="Month">
+    <Key>
+      <PropertyRef Name="Month1" />
+    </Key>
+    <Property Name="Month1" Type="DateTime" Nullable="false" Precision="0" />
+  </EntityType>
+  <EntityType Name="ShortCode">
+    <Key>
+      <PropertyRef Name="ShortCodesID" />
+    </Key>
+    <Property Name="ShortCodesID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="WorkBook" Type="String" MaxLength="500" FixedLength="false" Unicode="false" />
+    <Property Name="ShortCode1" Type="String" MaxLength="500" FixedLength="false" Unicode="false" />
+    <Property Name="ShortCodeDescription" Type="String" MaxLength="800" FixedLength="false" Unicode="false" />
+  </EntityType>
+  <EntityType Name="TEMP_CompanyReporting_Logic">
+    <Key>
+      <PropertyRef Name="ID" />
+    </Key>
+    <Property Name="ID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="SourceID" Type="Int32" />
+    <Property Name="DateMonth" Type="DateTime" Precision="0" />
+    <Property Name="Sales" Type="Decimal" Precision="32" Scale="16" />
+    <Property Name="MonthlyValue" Type="Decimal" Precision="32" Scale="16" />
+    <Property Name="OneByTwelveMMA" Type="Decimal" Precision="32" Scale="16" />
+    <Property Name="OneByTwelveMMT" Type="Decimal" Precision="32" Scale="16" />
+    <Property Name="ThreeMMA" Type="Decimal" Precision="32" Scale="16" />
+    <Property Name="ThreeByTwelveMMA" Type="Decimal" Precision="32" Scale="16" />
+    <Property Name="ThreeByTwelveMMT" Type="Decimal" Precision="32" Scale="16" />
+    <Property Name="TwelveMMA" Type="Decimal" Precision="32" Scale="16" />
+    <Property Name="TwelveByTwelveMMA" Type="Decimal" Precision="32" Scale="16" />
+    <Property Name="TwelveByTwelveMMT" Type="Decimal" Precision="32" Scale="16" />
+    <Property Name="ThreeMMT" Type="Decimal" Precision="32" Scale="16" />
+    <Property Name="TwelveMMT" Type="Decimal" Precision="32" Scale="16" />
+    <Property Name="CompanyID" Type="Int32" />
+    <Property Name="ProductCategoryID" Type="Int32" />
+    <Property Name="IsProcessed" Type="Boolean" Nullable="false" />
+    <Property Name="AdjValue" Type="Decimal" Precision="32" Scale="16" />
+    <Property Name="ShortCode" Type="String" MaxLength="64" FixedLength="false" Unicode="false" />
+    <Property Name="FLAG" Type="Boolean" />
+  </EntityType>
+  <EntityType Name="TEMP_CompanyReporting_Logic_Portal">
+    <Key>
+      <PropertyRef Name="ID" />
+    </Key>
+    <Property Name="ID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="SourceID" Type="Int32" />
+    <Property Name="DateMonth" Type="DateTime" Precision="0" />
+    <Property Name="Sales" Type="Decimal" Precision="24" Scale="15" />
+    <Property Name="MonthlyValue" Type="Decimal" Precision="24" Scale="15" />
+    <Property Name="OneByTwelveMMA" Type="Decimal" Precision="24" Scale="15" />
+    <Property Name="OneByTwelveMMT" Type="Decimal" Precision="24" Scale="15" />
+    <Property Name="ThreeMMA" Type="Decimal" Precision="24" Scale="15" />
+    <Property Name="ThreeByTwelveMMA" Type="Decimal" Precision="24" Scale="15" />
+    <Property Name="ThreeByTwelveMMT" Type="Decimal" Precision="24" Scale="15" />
+    <Property Name="TwelveMMA" Type="Decimal" Precision="24" Scale="15" />
+    <Property Name="TwelveByTwelveMMA" Type="Decimal" Precision="24" Scale="15" />
+    <Property Name="TwelveByTwelveMMT" Type="Decimal" Precision="24" Scale="15" />
+    <Property Name="ThreeMMT" Type="Decimal" Precision="24" Scale="15" />
+    <Property Name="TwelveMMT" Type="Decimal" Precision="24" Scale="15" />
+    <Property Name="CompanyID" Type="Int32" />
+    <Property Name="ProductCategoryID" Type="Int32" />
+    <Property Name="AdjValue" Type="Decimal" Precision="24" Scale="15" />
+    <Property Name="CustomerDataSetID" Type="Int32" />
+    <Property Name="FLAG" Type="Boolean" />
+  </EntityType>
+  <EntityType Name="UI_ForeCastData">
+    <Key>
+      <PropertyRef Name="ForeCastDataID" />
+    </Key>
+    <Property Name="ForeCastDataID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="ForeCastMetaDataID" Type="Int32" />
+    <Property Name="ShortCode" Type="String" MaxLength="64" FixedLength="false" Unicode="false" />
+    <Property Name="ForeCastDate" Type="DateTime" Precision="0" />
+    <Property Name="MonthYear" Type="DateTime" Precision="0" />
+    <Property Name="LFR12MMA" Type="Decimal" Precision="32" Scale="16" />
+    <Property Name="Avg12MMA" Type="Decimal" Precision="32" Scale="16" />
+    <Property Name="UFR12MMA" Type="Decimal" Precision="32" Scale="16" />
+    <Property Name="LFR3MMA" Type="Decimal" Precision="32" Scale="16" />
+    <Property Name="Avg3MMA" Type="Decimal" Precision="32" Scale="16" />
+    <Property Name="UFR3MMA" Type="Decimal" Precision="32" Scale="16" />
+    <Property Name="LFR12by12" Type="Decimal" Precision="32" Scale="16" />
+    <Property Name="Avg12by12" Type="Decimal" Precision="32" Scale="16" />
+    <Property Name="UFR12by12" Type="Decimal" Precision="32" Scale="16" />
+    <Property Name="LFR3by12" Type="Decimal" Precision="32" Scale="16" />
+    <Property Name="Avg3by12" Type="Decimal" Precision="32" Scale="16" />
+    <Property Name="UFR3by12" Type="Decimal" Precision="32" Scale="16" />
+    <Property Name="CreatedBy" Type="String" MaxLength="128" FixedLength="false" Unicode="false" />
+    <Property Name="CreatedDate" Type="DateTime" Precision="3" />
+  </EntityType>
+  <EntityType Name="UI_ForeCastMetaData">
+    <Key>
+      <PropertyRef Name="ForeCastMetaDataID" />
+    </Key>
+    <Property Name="ForeCastMetaDataID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="ShortCode" Type="String" MaxLength="64" FixedLength="false" Unicode="false" />
+    <Property Name="ForeCastDate" Type="DateTime" Precision="0" />
+    <Property Name="ForeCaster" Type="String" MaxLength="128" FixedLength="false" Unicode="false" />
+    <Property Name="ProofedBy" Type="String" MaxLength="128" FixedLength="false" Unicode="false" />
+    <Property Name="CreatedBy" Type="String" MaxLength="128" FixedLength="false" Unicode="false" />
+    <Property Name="CreatedDate" Type="DateTime" Precision="3" />
+    <Property Name="DataThruDate" Type="DateTime" Precision="0" />
+  </EntityType>
+  <EntityType Name="VWTBL_COMPANY">
+    <Key>
+      <PropertyRef Name="VwTblCompanyID" />
+    </Key>
+    <Property Name="MonthYear" Type="DateTime" Precision="3" />
+    <Property Name="Sales" Type="Decimal" Precision="32" Scale="16" />
+    <Property Name="C1By12" Type="Decimal" Precision="32" Scale="16" />
+    <Property Name="C3MMT" Type="Decimal" Precision="32" Scale="16" />
+    <Property Name="C3BY12" Type="Decimal" Precision="32" Scale="16" />
+    <Property Name="C3MMA" Type="Decimal" Precision="32" Scale="16" />
+    <Property Name="C12MMT" Type="Decimal" Precision="32" Scale="16" />
+    <Property Name="C12BY12" Type="Decimal" Precision="32" Scale="16" />
+    <Property Name="C12MMA" Type="Decimal" Precision="32" Scale="16" />
+    <Property Name="SHORTCODE" Type="String" MaxLength="64" FixedLength="false" Unicode="false" />
+    <Property Name="Monthly" Type="Decimal" Precision="32" Scale="16" />
+    <Property Name="VwTblCompanyID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+  </EntityType>
+  <EntityType Name="VWTBL_COMPANY_PORTAL">
+    <Key>
+      <PropertyRef Name="ID" />
+    </Key>
+    <Property Name="ID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="MonthYear" Type="DateTime" Precision="3" />
+    <Property Name="Sales" Type="Decimal" Precision="24" Scale="15" />
+    <Property Name="C1By12" Type="Decimal" Precision="24" Scale="15" />
+    <Property Name="C3MMT" Type="Decimal" Precision="24" Scale="15" />
+    <Property Name="C3BY12" Type="Decimal" Precision="24" Scale="15" />
+    <Property Name="C3MMA" Type="Decimal" Precision="24" Scale="15" />
+    <Property Name="C12MMT" Type="Decimal" Precision="24" Scale="15" />
+    <Property Name="C12BY12" Type="Decimal" Precision="24" Scale="15" />
+    <Property Name="C12MMA" Type="Decimal" Precision="24" Scale="15" />
+    <Property Name="CustomerDataSetID" Type="Int32" />
+    <Property Name="Monthly" Type="Decimal" Precision="24" Scale="15" />
+  </EntityType>
+  <EntityType Name="VWTBL_INDICATOR">
+    <Key>
+      <PropertyRef Name="VwTblIndicatorID" />
+    </Key>
+    <Property Name="MonthYear" Type="DateTime" Precision="3" />
+    <Property Name="C1By12" Type="Decimal" Precision="32" Scale="16" />
+    <Property Name="C3MMT" Type="Decimal" Precision="32" Scale="16" />
+    <Property Name="C3BY12" Type="Decimal" Precision="32" Scale="16" />
+    <Property Name="C3MMA" Type="Decimal" Precision="32" Scale="16" />
+    <Property Name="C12MMT" Type="Decimal" Precision="32" Scale="16" />
+    <Property Name="C12BY12" Type="Decimal" Precision="32" Scale="16" />
+    <Property Name="C12MMA" Type="Decimal" Precision="32" Scale="16" />
+    <Property Name="Sales" Type="Decimal" Precision="32" Scale="16" />
+    <Property Name="SHORTCODE" Type="String" MaxLength="64" FixedLength="false" Unicode="false" />
+    <Property Name="Monthly" Type="Decimal" Precision="32" Scale="16" />
+    <Property Name="VwTblIndicatorID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="Phases" Type="String" MaxLength="8" FixedLength="false" Unicode="false" />
+    <Property Name="Violencing" Type="Int32" />
+    <Property Name="HighLow" Type="String" MaxLength="8" FixedLength="false" Unicode="false" />
+    <Property Name="LastUpdated" Type="DateTime" Precision="3" />
+  </EntityType>
+  <EntityType Name="Category">
+    <Key>
+      <PropertyRef Name="CategoryID" />
+    </Key>
+    <Property Name="CategoryID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="CategoryName" Type="String" MaxLength="32" FixedLength="false" Unicode="false" />
+    <Property Name="CategoryDescription" Type="String" MaxLength="32" FixedLength="false" Unicode="false" />
+  </EntityType>
+  <EntityType Name="CategoryDropDown">
+    <Key>
+      <PropertyRef Name="CatDrpDnID" />
+      <PropertyRef Name="DrpDwnName" />
+      <PropertyRef Name="IndicatorTable" />
+      <PropertyRef Name="RServerParam" />
+    </Key>
+    <Property Name="CatDrpDnID" Type="Int16" Nullable="false" />
+    <Property Name="DrpDwnName" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="DrpDwnDesc" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="IndicatorTable" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="RServerParam" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="DrpDwnOrder" Type="Int16" />
+    <Property Name="DrpDnDisplay" Type="Boolean" />
+  </EntityType>
+  <EntityType Name="CompaniesList">
+    <Key>
+      <PropertyRef Name="Sysid" />
+    </Key>
+    <Property Name="Sysid" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="F2" Type="String" MaxLength="255" FixedLength="false" Unicode="true" />
+    <Property Name="F3" Type="String" MaxLength="255" FixedLength="false" Unicode="true" />
+    <Property Name="F4" Type="String" MaxLength="255" FixedLength="false" Unicode="true" />
+    <Property Name="F5" Type="String" MaxLength="255" FixedLength="false" Unicode="true" />
+    <Property Name="F6" Type="String" MaxLength="255" FixedLength="false" Unicode="true" />
+    <Property Name="F7" Type="String" MaxLength="255" FixedLength="false" Unicode="true" />
+    <Property Name="F8" Type="String" MaxLength="255" FixedLength="false" Unicode="true" />
+    <Property Name="F9" Type="String" MaxLength="255" FixedLength="false" Unicode="true" />
+    <Property Name="F10" Type="String" MaxLength="255" FixedLength="false" Unicode="true" />
+    <Property Name="F11" Type="String" MaxLength="255" FixedLength="false" Unicode="true" />
+    <Property Name="F12" Type="String" MaxLength="255" FixedLength="false" Unicode="true" />
+    <Property Name="F13" Type="String" MaxLength="255" FixedLength="false" Unicode="true" />
+    <Property Name="F14" Type="String" MaxLength="255" FixedLength="false" Unicode="true" />
+    <Property Name="F15" Type="String" MaxLength="255" FixedLength="false" Unicode="true" />
+  </EntityType>
+  <EntityType Name="CompanyList">
+    <Key>
+      <PropertyRef Name="Sysid" />
+    </Key>
+    <Property Name="F2" Type="String" MaxLength="255" FixedLength="false" Unicode="true" />
+    <Property Name="F3" Type="String" MaxLength="255" FixedLength="false" Unicode="true" />
+    <Property Name="F4" Type="String" MaxLength="255" FixedLength="false" Unicode="true" />
+    <Property Name="F5" Type="String" MaxLength="255" FixedLength="false" Unicode="true" />
+    <Property Name="F6" Type="String" MaxLength="255" FixedLength="false" Unicode="true" />
+    <Property Name="F7" Type="String" MaxLength="255" FixedLength="false" Unicode="true" />
+    <Property Name="F8" Type="String" MaxLength="255" FixedLength="false" Unicode="true" />
+    <Property Name="F9" Type="String" MaxLength="255" FixedLength="false" Unicode="true" />
+    <Property Name="F10" Type="String" MaxLength="255" FixedLength="false" Unicode="true" />
+    <Property Name="F11" Type="String" MaxLength="255" FixedLength="false" Unicode="true" />
+    <Property Name="F12" Type="String" MaxLength="255" FixedLength="false" Unicode="true" />
+    <Property Name="F13" Type="String" MaxLength="255" FixedLength="false" Unicode="true" />
+    <Property Name="F14" Type="String" MaxLength="255" FixedLength="false" Unicode="true" />
+    <Property Name="F15" Type="String" MaxLength="255" FixedLength="false" Unicode="true" />
+    <Property Name="F16" Type="String" MaxLength="255" FixedLength="false" Unicode="true" />
+    <Property Name="F17" Type="String" MaxLength="255" FixedLength="false" Unicode="true" />
+    <Property Name="F18" Type="String" MaxLength="255" FixedLength="false" Unicode="true" />
+    <Property Name="F19" Type="String" MaxLength="255" FixedLength="false" Unicode="true" />
+    <Property Name="F20" Type="String" MaxLength="255" FixedLength="false" Unicode="true" />
+    <Property Name="Sysid" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+  </EntityType>
+  <EntityType Name="CompanyMasterMetaData">
+    <Key>
+      <PropertyRef Name="CompanyMasterMetadataID" />
+    </Key>
+    <Property Name="CompanyMasterMetadataID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="WorkBook" Type="String" MaxLength="500" FixedLength="false" Unicode="false" />
+    <Property Name="FileName" Type="String" MaxLength="500" FixedLength="false" Unicode="false" />
+    <Property Name="NAICSCode" Type="String" MaxLength="500" FixedLength="false" Unicode="false" />
+    <Property Name="SeriesName" Type="String" MaxLength="500" FixedLength="false" Unicode="false" />
+    <Property Name="NSA" Type="String" MaxLength="500" FixedLength="false" Unicode="false" />
+    <Property Name="Continent" Type="String" MaxLength="500" FixedLength="false" Unicode="false" />
+    <Property Name="Country" Type="String" MaxLength="500" FixedLength="false" Unicode="false" />
+    <Property Name="Region" Type="String" MaxLength="500" FixedLength="false" Unicode="false" />
+    <Property Name="State" Type="String" MaxLength="500" FixedLength="false" Unicode="false" />
+    <Property Name="MSA" Type="String" MaxLength="500" FixedLength="false" Unicode="false" />
+    <Property Name="Category" Type="String" MaxLength="500" FixedLength="false" Unicode="false" />
+    <Property Name="Subcategory" Type="String" MaxLength="500" FixedLength="false" Unicode="false" />
+    <Property Name="Units" Type="String" MaxLength="500" FixedLength="false" Unicode="false" />
+    <Property Name="BASE" Type="String" MaxLength="500" FixedLength="false" Unicode="false" />
+    <Property Name="Source" Type="String" MaxLength="256" FixedLength="false" Unicode="false" />
+    <Property Name="Link" Type="String" MaxLength="512" FixedLength="false" Unicode="false" />
+    <Property Name="Definition" Type="String" MaxLength="1024" FixedLength="false" Unicode="false" />
+  </EntityType>
+  <EntityType Name="CompanyShortCode">
+    <Key>
+      <PropertyRef Name="ShortCodesID" />
+    </Key>
+    <Property Name="ShortCodesID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="WorkBook" Type="String" MaxLength="500" FixedLength="false" Unicode="false" />
+    <Property Name="ShortCode" Type="String" MaxLength="500" FixedLength="false" Unicode="false" />
+    <Property Name="ShortCodeDescription" Type="String" MaxLength="800" FixedLength="false" Unicode="false" />
+  </EntityType>
+  <EntityType Name="CompanyStagingLoadInfo">
+    <Key>
+      <PropertyRef Name="StagingLoadInfoID" />
+    </Key>
+    <Property Name="StagingLoadInfoID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="LoadDate" Type="DateTime" Precision="3" />
+    <Property Name="LoadSource" Type="String" MaxLength="256" FixedLength="false" Unicode="false" />
+    <Property Name="LoadType" Type="Int32" />
+    <Property Name="Update" Type="String" MaxLength="1" FixedLength="false" Unicode="false" />
+    <Property Name="Insert" Type="String" MaxLength="1" FixedLength="false" Unicode="false" />
+    <Property Name="NumberOfRecords" Type="Int32" />
+    <Property Name="ReleaseNotes" Type="String" MaxLength="18" FixedLength="true" Unicode="false" />
+    <Property Name="ShortCodesID" Type="Int32" />
+  </EntityType>
+  <EntityType Name="Continent">
+    <Key>
+      <PropertyRef Name="ContinentID" />
+    </Key>
+    <Property Name="ContinentID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="ContinentName" Type="String" MaxLength="20" FixedLength="false" Unicode="false" />
+  </EntityType>
+  <EntityType Name="Country">
+    <Key>
+      <PropertyRef Name="CountryID" />
+    </Key>
+    <Property Name="CountryID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="CountryName" Type="String" MaxLength="64" FixedLength="false" Unicode="false" />
+    <Property Name="CountryShortCode" Type="String" MaxLength="4" FixedLength="false" Unicode="false" />
+    <Property Name="ContinentID" Type="Int32" />
+  </EntityType>
+  <EntityType Name="Customer">
+    <Key>
+      <PropertyRef Name="CustomerProdId" />
+    </Key>
+    <Property Name="CustomerProdId" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="CustomerName" Type="String" MaxLength="256" FixedLength="false" Unicode="false" />
+    <Property Name="CompanyName" Type="String" MaxLength="512" FixedLength="false" Unicode="false" />
+    <Property Name="DataType" Type="String" MaxLength="32" FixedLength="false" Unicode="false" />
+    <Property Name="Base" Type="String" MaxLength="32" FixedLength="false" Unicode="false" />
+    <Property Name="Units" Type="String" MaxLength="32" FixedLength="false" Unicode="false" />
+    <Property Name="CompanyWebsite" Type="String" MaxLength="1024" FixedLength="false" Unicode="false" />
+    <Property Name="MonthYear" Type="DateTime" Precision="0" />
+    <Property Name="Value" Type="Decimal" Precision="32" Scale="16" />
+    <Property Name="UploadedBy" Type="String" MaxLength="128" FixedLength="false" Unicode="false" />
+    <Property Name="UploadedDate" Type="DateTime" Precision="3" />
+  </EntityType>
+  <EntityType Name="CustomerDatasetsProcess">
+    <Key>
+      <PropertyRef Name="ProcessID" />
+    </Key>
+    <Property Name="ProcessID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="CustomerDatasetID" Type="Int32" />
+    <Property Name="CreatedDate" Type="DateTime" Precision="3" />
+    <Property Name="IsProcessed" Type="Int32" />
+  </EntityType>
+  <EntityType Name="CustomerDatasetsProcess_Schedule">
+    <Key>
+      <PropertyRef Name="ProcessID" />
+    </Key>
+    <Property Name="ProcessID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="CustomerDatasetID" Type="Int32" />
+    <Property Name="CreatedDate" Type="DateTime" Precision="3" />
+    <Property Name="IsProcessed" Type="Int32" />
+  </EntityType>
+  <EntityType Name="Dumped">
+    <Key>
+      <PropertyRef Name="ID" />
+    </Key>
+    <Property Name="ID" Type="Int32" Nullable="false" />
+  </EntityType>
+  <EntityType Name="ExceptionLog">
+    <Key>
+      <PropertyRef Name="ExceptionID" />
+    </Key>
+    <Property Name="ExceptionID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="CustomerID" Type="String" MaxLength="128" FixedLength="false" Unicode="false" />
+    <Property Name="ExceptionMessage" Type="String" MaxLength="2048" FixedLength="false" Unicode="false" />
+    <Property Name="PageName" Type="String" MaxLength="128" FixedLength="false" Unicode="false" />
+    <Property Name="CreatedBY" Type="String" MaxLength="128" FixedLength="false" Unicode="false" />
+    <Property Name="CreatedDate" Type="DateTime" Precision="3" />
+  </EntityType>
+  <EntityType Name="FavouriteList">
+    <Key>
+      <PropertyRef Name="CompanyShortCode" />
+      <PropertyRef Name="IndicatorShortCode" />
+      <PropertyRef Name="UserID" />
+    </Key>
+    <Property Name="CompanyShortCode" Type="String" MaxLength="128" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="IndicatorShortCode" Type="String" MaxLength="128" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="UserID" Type="Int32" Nullable="false" />
+    <Property Name="FavouriteListName" Type="String" MaxLength="128" FixedLength="false" Unicode="false" />
+    <Property Name="CreatedBy" Type="String" MaxLength="128" FixedLength="false" Unicode="false" />
+    <Property Name="CreatedDate" Type="DateTime" Precision="3" />
+    <Property Name="ModifiedBy" Type="String" MaxLength="128" FixedLength="false" Unicode="false" />
+    <Property Name="ModifiedDate" Type="DateTime" Precision="3" />
+  </EntityType>
+  <EntityType Name="ForeCastCheckData">
+    <Key>
+      <PropertyRef Name="ForeCastCheckDataID" />
+    </Key>
+    <Property Name="ForeCastCheckDataID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="ForeCastMetaDataID" Type="Int32" />
+    <Property Name="CheckedBy" Type="String" MaxLength="128" FixedLength="false" Unicode="false" />
+    <Property Name="CheckedDate" Type="DateTime" Precision="0" />
+    <Property Name="CreatedBy" Type="String" MaxLength="128" FixedLength="false" Unicode="false" />
+    <Property Name="CreatedDate" Type="DateTime" Precision="3" />
+  </EntityType>
+  <EntityType Name="ForecastData_08282017">
+    <Key>
+      <PropertyRef Name="ForeCastDataID" />
+    </Key>
+    <Property Name="ForeCastDataID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="ForeCastMetaDataID" Type="Int32" />
+    <Property Name="ShortCode" Type="String" MaxLength="64" FixedLength="false" Unicode="false" />
+    <Property Name="ForeCastDate" Type="DateTime" Precision="0" />
+    <Property Name="MonthYear" Type="DateTime" Precision="0" />
+    <Property Name="LFR12MMA" Type="Decimal" Precision="32" Scale="16" />
+    <Property Name="Avg12MMA" Type="Decimal" Precision="32" Scale="16" />
+    <Property Name="UFR12MMA" Type="Decimal" Precision="32" Scale="16" />
+    <Property Name="LFR3MMA" Type="Decimal" Precision="32" Scale="16" />
+    <Property Name="Avg3MMA" Type="Decimal" Precision="32" Scale="16" />
+    <Property Name="UFR3MMA" Type="Decimal" Precision="32" Scale="16" />
+    <Property Name="LFR12by12" Type="Decimal" Precision="32" Scale="16" />
+    <Property Name="Avg12by12" Type="Decimal" Precision="32" Scale="16" />
+    <Property Name="UFR12by12" Type="Decimal" Precision="32" Scale="16" />
+    <Property Name="LFR3by12" Type="Decimal" Precision="32" Scale="16" />
+    <Property Name="Avg3by12" Type="Decimal" Precision="32" Scale="16" />
+    <Property Name="UFR3by12" Type="Decimal" Precision="32" Scale="16" />
+    <Property Name="CreatedBy" Type="String" MaxLength="128" FixedLength="false" Unicode="false" />
+    <Property Name="CreatedDate" Type="DateTime" Precision="3" />
+  </EntityType>
+  <EntityType Name="Indicator20170110">
+    <Key>
+      <PropertyRef Name="ProdIndicatorId" />
+    </Key>
+    <Property Name="ProdIndicatorId" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="MonthYear" Type="DateTime" Precision="3" />
+    <Property Name="RawValue" Type="Decimal" Precision="32" Scale="16" />
+    <Property Name="AdjValue" Type="Decimal" Precision="32" Scale="16" />
+    <Property Name="UpdateReason" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
+    <Property Name="ValueStartDate" Type="DateTime" Precision="3" />
+    <Property Name="ValueEndDate" Type="DateTime" Precision="3" />
+    <Property Name="CurrentFlag" Type="String" MaxLength="1" FixedLength="false" Unicode="false" />
+    <Property Name="CreatedBy" Type="String" MaxLength="500" FixedLength="false" Unicode="false" />
+    <Property Name="CreatedDate" Type="DateTime" Precision="3" />
+    <Property Name="ModifiedBy" Type="String" MaxLength="500" FixedLength="false" Unicode="false" />
+    <Property Name="ModifiedDate" Type="DateTime" Precision="3" />
+    <Property Name="MasterMetadataID" Type="Int32" />
+  </EntityType>
+  <EntityType Name="IndicatorList">
+    <Key>
+      <PropertyRef Name="Sysid" />
+    </Key>
+    <Property Name="F2" Type="String" MaxLength="255" FixedLength="false" Unicode="true" />
+    <Property Name="F3" Type="String" MaxLength="255" FixedLength="false" Unicode="true" />
+    <Property Name="F4" Type="String" MaxLength="255" FixedLength="false" Unicode="true" />
+    <Property Name="F5" Type="String" MaxLength="255" FixedLength="false" Unicode="true" />
+    <Property Name="F6" Type="String" MaxLength="255" FixedLength="false" Unicode="true" />
+    <Property Name="F7" Type="String" MaxLength="255" FixedLength="false" Unicode="true" />
+    <Property Name="F8" Type="String" MaxLength="255" FixedLength="false" Unicode="true" />
+    <Property Name="F9" Type="String" MaxLength="255" FixedLength="false" Unicode="true" />
+    <Property Name="F10" Type="String" MaxLength="255" FixedLength="false" Unicode="true" />
+    <Property Name="F11" Type="String" MaxLength="255" FixedLength="false" Unicode="true" />
+    <Property Name="F12" Type="String" MaxLength="255" FixedLength="false" Unicode="true" />
+    <Property Name="F13" Type="String" MaxLength="255" FixedLength="false" Unicode="true" />
+    <Property Name="F14" Type="String" MaxLength="255" FixedLength="false" Unicode="true" />
+    <Property Name="F15" Type="String" MaxLength="255" FixedLength="false" Unicode="true" />
+    <Property Name="F16" Type="String" MaxLength="255" FixedLength="false" Unicode="true" />
+    <Property Name="F17" Type="String" MaxLength="255" FixedLength="false" Unicode="true" />
+    <Property Name="F18" Type="String" MaxLength="255" FixedLength="false" Unicode="true" />
+    <Property Name="F19" Type="String" MaxLength="255" FixedLength="false" Unicode="true" />
+    <Property Name="F20" Type="String" MaxLength="255" FixedLength="false" Unicode="true" />
+    <Property Name="Sysid" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+  </EntityType>
+  <EntityType Name="Industry">
+    <Key>
+      <PropertyRef Name="PRODIndicatorID" />
+    </Key>
+    <Property Name="PRODIndicatorID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="MonthYear" Type="DateTime" Precision="3" />
+    <Property Name="Value" Type="Decimal" Precision="18" Scale="10" />
+    <Property Name="UpdateReason" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
+    <Property Name="ValueStartDate" Type="DateTime" Precision="3" />
+    <Property Name="ValueEndDate" Type="DateTime" Precision="3" />
+    <Property Name="CurrentFlag" Type="String" MaxLength="1" FixedLength="false" Unicode="false" />
+    <Property Name="CreatedBy" Type="String" MaxLength="500" FixedLength="false" Unicode="false" />
+    <Property Name="CreatedDate" Type="DateTime" Precision="3" />
+    <Property Name="ModifiedBy" Type="String" MaxLength="500" FixedLength="false" Unicode="false" />
+    <Property Name="ModifiedDate" Type="DateTime" Precision="3" />
+    <Property Name="MasterMetadataID" Type="Int32" />
+  </EntityType>
+  <EntityType Name="MasterMetaData_Backup">
+    <Key>
+      <PropertyRef Name="MasterMetadataID" />
+    </Key>
+    <Property Name="MasterMetadataID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="WorkBook" Type="String" MaxLength="500" FixedLength="false" Unicode="false" />
+    <Property Name="FileName" Type="String" MaxLength="500" FixedLength="false" Unicode="false" />
+    <Property Name="NAICSCode" Type="String" MaxLength="500" FixedLength="false" Unicode="false" />
+    <Property Name="SeriesName" Type="String" MaxLength="500" FixedLength="false" Unicode="false" />
+    <Property Name="NSA" Type="String" MaxLength="500" FixedLength="false" Unicode="false" />
+    <Property Name="Continent" Type="String" MaxLength="500" FixedLength="false" Unicode="false" />
+    <Property Name="Country" Type="String" MaxLength="500" FixedLength="false" Unicode="false" />
+    <Property Name="Region" Type="String" MaxLength="500" FixedLength="false" Unicode="false" />
+    <Property Name="State" Type="String" MaxLength="500" FixedLength="false" Unicode="false" />
+    <Property Name="MSA" Type="String" MaxLength="500" FixedLength="false" Unicode="false" />
+    <Property Name="Category" Type="String" MaxLength="500" FixedLength="false" Unicode="false" />
+    <Property Name="Subcategory" Type="String" MaxLength="500" FixedLength="false" Unicode="false" />
+    <Property Name="Units" Type="String" MaxLength="500" FixedLength="false" Unicode="false" />
+    <Property Name="BASE" Type="String" MaxLength="500" FixedLength="false" Unicode="false" />
+    <Property Name="Source" Type="String" MaxLength="256" FixedLength="false" Unicode="false" />
+    <Property Name="Link" Type="String" MaxLength="512" FixedLength="false" Unicode="false" />
+    <Property Name="Definition" Type="String" MaxLength="1024" FixedLength="false" Unicode="false" />
+    <Property Name="UpdateFrequency" Type="String" MaxLength="32" FixedLength="false" Unicode="false" />
+    <Property Name="ProprietaryData" Type="String" MaxLength="32" FixedLength="false" Unicode="false" />
+    <Property Name="UpdateType" Type="String" MaxLength="32" FixedLength="false" Unicode="false" />
+    <Property Name="Discontinued" Type="String" MaxLength="32" FixedLength="false" Unicode="false" />
+    <Property Name="DiscontinuedDate" Type="String" MaxLength="16" FixedLength="false" Unicode="false" />
+    <Property Name="StatPref1" Type="String" MaxLength="128" FixedLength="false" Unicode="false" />
+    <Property Name="StatPref2" Type="String" MaxLength="128" FixedLength="false" Unicode="false" />
+    <Property Name="AccountID" Type="Int32" />
+    <Property Name="DivisionID" Type="Int32" />
+    <Property Name="AccountName" Type="String" MaxLength="512" FixedLength="false" Unicode="false" />
+    <Property Name="DivisionName" Type="String" MaxLength="512" FixedLength="false" Unicode="false" />
+    <Property Name="CreatedBy" Type="String" MaxLength="128" FixedLength="false" Unicode="false" />
+    <Property Name="CreatedDate" Type="DateTime" Precision="3" />
+    <Property Name="ModifiedBy" Type="String" MaxLength="128" FixedLength="false" Unicode="false" />
+    <Property Name="ModifiedDate" Type="DateTime" Precision="3" />
+    <Property Name="GEO" Type="String" MaxLength="500" FixedLength="false" Unicode="false" />
+    <Property Name="Publication" Type="String" MaxLength="500" FixedLength="false" Unicode="false" />
+    <Property Name="CEICCode" Type="String" MaxLength="500" FixedLength="false" Unicode="false" />
+  </EntityType>
+  <EntityType Name="Notify">
+    <Key>
+      <PropertyRef Name="NotifyID" />
+      <PropertyRef Name="IsActive" />
+    </Key>
+    <Property Name="NotifyID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="UserEMail" Type="String" MaxLength="256" FixedLength="false" Unicode="false" />
+    <Property Name="DataSeries" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
+    <Property Name="SentNotice" Type="Boolean" />
+    <Property Name="TimeCompleted" Type="DateTime" Precision="0" />
+    <Property Name="NumSuccessfulIndicators" Type="Int16" />
+    <Property Name="NumMissedIndicators" Type="Int16" />
+    <Property Name="IsActive" Type="Boolean" Nullable="false" />
+  </EntityType>
+  <EntityType Name="NotifyDev">
+    <Key>
+      <PropertyRef Name="NotifyID" />
+    </Key>
+    <Property Name="NotifyID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="UserEMail" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="DataSeries" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
+    <Property Name="SentNotice" Type="Boolean" />
+    <Property Name="TimeCompleted" Type="DateTime" Precision="0" />
+    <Property Name="NumSuccessfulIndicators" Type="Int16" />
+    <Property Name="NumMissedIndicators" Type="Int16" />
+    <Property Name="IsActive" Type="Boolean" />
+  </EntityType>
+  <EntityType Name="PaidForecast">
+    <Key>
+      <PropertyRef Name="PaidForecastID" />
+      <PropertyRef Name="CustomerID" />
+    </Key>
+    <Property Name="PaidForecastID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="CustomerID" Type="Int32" Nullable="false" />
+    <Property Name="IndicatorShortCode" Type="String" MaxLength="128" FixedLength="false" Unicode="false" />
+    <Property Name="CreatedBy" Type="String" MaxLength="64" FixedLength="false" Unicode="false" />
+    <Property Name="CreatedDate" Type="DateTime" Precision="3" />
+    <Property Name="ModifiedBy" Type="String" MaxLength="64" FixedLength="false" Unicode="false" />
+    <Property Name="ModifiedDate" Type="DateTime" Precision="3" />
+    <Property Name="ShowForecast" Type="Int32" />
+  </EntityType>
+  <EntityType Name="PopupAccess">
+    <Key>
+      <PropertyRef Name="UserID" />
+    </Key>
+    <Property Name="UserID" Type="Int32" Nullable="false" />
+    <Property Name="CompanyDataSet" Type="String" MaxLength="128" FixedLength="false" Unicode="false" />
+    <Property Name="LastAccessedDate" Type="DateTime" Precision="3" />
+    <Property Name="CreatedBy" Type="Int32" />
+    <Property Name="CreatedDate" Type="DateTime" Precision="3" />
+  </EntityType>
+  <EntityType Name="Product">
+    <Key>
+      <PropertyRef Name="ProductID" />
+    </Key>
+    <Property Name="ProductID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="ProductName" Type="String" MaxLength="32" FixedLength="false" Unicode="false" />
+    <Property Name="ProductDescription" Type="String" MaxLength="128" FixedLength="false" Unicode="false" />
+    <Property Name="SubCategoryID" Type="Int32" />
+  </EntityType>
+  <EntityType Name="Region">
+    <Key>
+      <PropertyRef Name="RegionID" />
+    </Key>
+    <Property Name="RegionID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="RegionName" Type="String" MaxLength="32" FixedLength="false" Unicode="false" />
+    <Property Name="CompanyID" Type="Int32" />
+  </EntityType>
+  <EntityType Name="ReleaseSchedule">
+    <Key>
+      <PropertyRef Name="ReleaseScheduleID" />
+    </Key>
+    <Property Name="ReleaseScheduleID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="ReleaseNotes" Type="String" MaxLength="256" FixedLength="false" Unicode="false" />
+    <Property Name="ReleaseDate" Type="DateTime" Precision="3" />
+  </EntityType>
+  <EntityType Name="StagingCompany">
+    <Key>
+      <PropertyRef Name="STAGCompanyID" />
+      <PropertyRef Name="CreatedBy" />
+      <PropertyRef Name="ModifiedBy" />
+    </Key>
+    <Property Name="STAGCompanyID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="MonthYear" Type="DateTime" Precision="3" />
+    <Property Name="RawValue" Type="Decimal" Precision="32" Scale="16" />
+    <Property Name="AdjValue" Type="Decimal" Precision="32" Scale="16" />
+    <Property Name="UpdateReason" Type="String" MaxLength="32" FixedLength="false" Unicode="false" />
+    <Property Name="ValueStartDate" Type="DateTime" Precision="3" />
+    <Property Name="ValueEndDate" Type="DateTime" Precision="3" />
+    <Property Name="CurrentFlag" Type="String" MaxLength="1" FixedLength="false" Unicode="false" />
+    <Property Name="CreatedBy" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="CreatedDate" Type="DateTime" Precision="3" />
+    <Property Name="ModifiedBy" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="ModifiedDate" Type="DateTime" Precision="3" />
+    <Property Name="StagingLoadInfoID" Type="Int32" />
+    <Property Name="MasterMetadataID" Type="Int32" />
+  </EntityType>
+  <EntityType Name="StagingCompanyData">
+    <Key>
+      <PropertyRef Name="ProdID" />
+    </Key>
+    <Property Name="ProdID" Type="Int32" Nullable="false" />
+    <Property Name="MonthYear" Type="DateTime" Precision="0" />
+    <Property Name="AdjValue" Type="Decimal" Precision="32" Scale="16" />
+    <Property Name="CustomerDataSetID" Type="Int32" />
+    <Property Name="CreatedBy" Type="String" MaxLength="64" FixedLength="false" Unicode="false" />
+    <Property Name="CreatedDate" Type="DateTime" Precision="3" />
+    <Property Name="ModifiedBy" Type="String" MaxLength="64" FixedLength="false" Unicode="false" />
+    <Property Name="ModifiedDate" Type="DateTime" Precision="3" />
+  </EntityType>
+  <EntityType Name="StagingCompanyWeb">
+    <Key>
+      <PropertyRef Name="STAGCompanyID" />
+      <PropertyRef Name="CreatedBy" />
+      <PropertyRef Name="ModifiedBy" />
+    </Key>
+    <Property Name="STAGCompanyID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="MonthYear" Type="DateTime" Precision="3" />
+    <Property Name="RawValue" Type="Decimal" Precision="32" Scale="16" />
+    <Property Name="AdjValue" Type="Decimal" Precision="32" Scale="16" />
+    <Property Name="UpdateReason" Type="String" MaxLength="32" FixedLength="false" Unicode="false" />
+    <Property Name="ValueStartDate" Type="DateTime" Precision="3" />
+    <Property Name="ValueEndDate" Type="DateTime" Precision="3" />
+    <Property Name="CurrentFlag" Type="String" MaxLength="1" FixedLength="false" Unicode="false" />
+    <Property Name="CreatedBy" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="CreatedDate" Type="DateTime" Precision="3" />
+    <Property Name="ModifiedBy" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="ModifiedDate" Type="DateTime" Precision="3" />
+    <Property Name="StagingLoadInfoID" Type="Int32" />
+    <Property Name="MasterMetadataID" Type="Int32" />
+  </EntityType>
+  <EntityType Name="StagingForeCast">
+    <Key>
+      <PropertyRef Name="STAGForecastID" />
+    </Key>
+    <Property Name="STAGForecastID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="MonthYear" Type="DateTime" Precision="3" />
+    <Property Name="Value" Type="Decimal" Precision="18" Scale="7" />
+    <Property Name="UpdateReason" Type="String" MaxLength="32" FixedLength="false" Unicode="false" />
+    <Property Name="ValueStartDate" Type="DateTime" Precision="3" />
+    <Property Name="ValueEndDate" Type="DateTime" Precision="3" />
+    <Property Name="CurrentFlag" Type="String" MaxLength="1" FixedLength="false" Unicode="false" />
+    <Property Name="CreatedBy" Type="Int32" />
+    <Property Name="CreatedDate" Type="DateTime" Precision="3" />
+    <Property Name="ModifiedBy" Type="Int32" />
+    <Property Name="ModifiedDate" Type="DateTime" Precision="3" />
+    <Property Name="StagingLoadInfoID" Type="Int32" />
+    <Property Name="MasterMetadataID" Type="Int32" />
+    <Property Name="ShortCodesId" Type="Int32" />
+  </EntityType>
+  <EntityType Name="StagingForecastTest">
+    <Key>
+      <PropertyRef Name="Sysid" />
+    </Key>
+    <Property Name="Sysid" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="MonthYear" Type="String" MaxLength="255" FixedLength="false" Unicode="true" />
+    <Property Name="ForeCastType" Type="String" MaxLength="255" FixedLength="false" Unicode="true" />
+    <Property Name="C12MMTLFR" Type="String" MaxLength="255" FixedLength="false" Unicode="true" />
+    <Property Name="C12MMTAverage" Type="String" MaxLength="255" FixedLength="false" Unicode="true" />
+    <Property Name="C12MMTUFR" Type="String" MaxLength="255" FixedLength="false" Unicode="true" />
+    <Property Name="C3MMTLFR" Type="String" MaxLength="255" FixedLength="false" Unicode="true" />
+    <Property Name="C3MMTAverage" Type="String" MaxLength="255" FixedLength="false" Unicode="true" />
+    <Property Name="C3MMTUFR" Type="String" MaxLength="255" FixedLength="false" Unicode="true" />
+    <Property Name="C1212MMTLFR" Type="String" MaxLength="255" FixedLength="false" Unicode="true" />
+    <Property Name="C1212MMTAverage" Type="String" MaxLength="255" FixedLength="false" Unicode="true" />
+    <Property Name="C1212MMTUFR" Type="String" MaxLength="255" FixedLength="false" Unicode="true" />
+    <Property Name="C312MMTLFR" Type="String" MaxLength="255" FixedLength="false" Unicode="true" />
+    <Property Name="C312MMTAverage" Type="String" MaxLength="255" FixedLength="false" Unicode="true" />
+    <Property Name="C312MMTUFR" Type="String" MaxLength="255" FixedLength="false" Unicode="true" />
+    <Property Name="Q_To_Q" Type="String" MaxLength="255" FixedLength="false" Unicode="true" />
+    <Property Name="Spread" Type="String" MaxLength="255" FixedLength="false" Unicode="true" />
+    <Property Name="C1212MMTVarianceL1" Type="String" MaxLength="255" FixedLength="false" Unicode="true" />
+    <Property Name="C1212MMTVarianceL2" Type="String" MaxLength="255" FixedLength="false" Unicode="true" />
+    <Property Name="C1212MMTVarianceL3" Type="String" MaxLength="255" FixedLength="false" Unicode="true" />
+    <Property Name="C1212MMTActualL1" Type="String" MaxLength="255" FixedLength="false" Unicode="true" />
+    <Property Name="C1212MMTActualL2" Type="String" MaxLength="255" FixedLength="false" Unicode="true" />
+    <Property Name="C1212MMTActualL3" Type="String" MaxLength="255" FixedLength="false" Unicode="true" />
+    <Property Name="ShortCodesId" Type="Int32" />
+  </EntityType>
+  <EntityType Name="StagingIndicatorTest">
+    <Key>
+      <PropertyRef Name="STAGIndicatorID" />
+    </Key>
+    <Property Name="STAGIndicatorID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="MonthYear" Type="DateTime" Precision="3" />
+    <Property Name="RawValue" Type="Decimal" Precision="32" Scale="16" />
+    <Property Name="AdjValue" Type="Decimal" Precision="32" Scale="16" />
+    <Property Name="UpdateReason" Type="String" MaxLength="32" FixedLength="false" Unicode="false" />
+    <Property Name="ValueStartDate" Type="DateTime" Precision="3" />
+    <Property Name="ValueEndDate" Type="DateTime" Precision="3" />
+    <Property Name="CurrentFlag" Type="String" MaxLength="1" FixedLength="false" Unicode="false" />
+    <Property Name="SeriesName" Type="String" MaxLength="512" FixedLength="false" Unicode="false" />
+    <Property Name="SourceFIle" Type="String" MaxLength="256" FixedLength="false" Unicode="true" />
+    <Property Name="SourceSheet" Type="String" MaxLength="256" FixedLength="false" Unicode="true" />
+    <Property Name="MasterMetadataID" Type="Int32" />
+    <Property Name="CreatedBy" Type="Int32" />
+    <Property Name="CreatedDate" Type="DateTime" Precision="3" />
+    <Property Name="ModifiedBy" Type="Int32" />
+    <Property Name="ModifiedDate" Type="DateTime" Precision="3" />
+    <Property Name="Source" Type="String" MaxLength="256" FixedLength="false" Unicode="true" />
+    <Property Name="Link" Type="String" MaxLength="512" FixedLength="false" Unicode="true" />
+    <Property Name="Definition" Type="String" MaxLength="1024" FixedLength="false" Unicode="true" />
+  </EntityType>
+  <EntityType Name="StagingIndicatorWeb">
+    <Key>
+      <PropertyRef Name="STAGIndicatorID" />
+    </Key>
+    <Property Name="STAGIndicatorID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="MonthYear" Type="DateTime" Precision="3" />
+    <Property Name="RawValue" Type="Decimal" Precision="32" Scale="16" />
+    <Property Name="AdjValue" Type="Decimal" Precision="32" Scale="16" />
+    <Property Name="UpdateReason" Type="String" MaxLength="32" FixedLength="false" Unicode="false" />
+    <Property Name="ValueStartDate" Type="DateTime" Precision="3" />
+    <Property Name="ValueEndDate" Type="DateTime" Precision="3" />
+    <Property Name="CurrentFlag" Type="String" MaxLength="1" FixedLength="false" Unicode="false" />
+    <Property Name="SeriesName" Type="String" MaxLength="512" FixedLength="false" Unicode="false" />
+    <Property Name="SourceFIle" Type="String" MaxLength="256" FixedLength="false" Unicode="true" />
+    <Property Name="SourceSheet" Type="String" MaxLength="256" FixedLength="false" Unicode="true" />
+    <Property Name="MasterMetadataID" Type="Int32" />
+    <Property Name="CreatedBy" Type="Int32" />
+    <Property Name="CreatedDate" Type="DateTime" Precision="3" />
+    <Property Name="ModifiedBy" Type="Int32" />
+    <Property Name="ModifiedDate" Type="DateTime" Precision="3" />
+    <Property Name="Source" Type="String" MaxLength="256" FixedLength="false" Unicode="true" />
+    <Property Name="Link" Type="String" MaxLength="512" FixedLength="false" Unicode="true" />
+    <Property Name="Definition" Type="String" MaxLength="1024" FixedLength="false" Unicode="true" />
+  </EntityType>
+  <EntityType Name="StagingIndicatorWebForNewIndicator">
+    <Key>
+      <PropertyRef Name="STAGIndicatorID" />
+    </Key>
+    <Property Name="STAGIndicatorID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="MonthYear" Type="DateTime" Precision="3" />
+    <Property Name="RawValue" Type="Decimal" Precision="24" Scale="15" />
+    <Property Name="AdjValue" Type="Decimal" Precision="24" Scale="15" />
+    <Property Name="UpdateReason" Type="String" MaxLength="32" FixedLength="false" Unicode="false" />
+    <Property Name="ValueStartDate" Type="DateTime" Precision="3" />
+    <Property Name="ValueEndDate" Type="DateTime" Precision="3" />
+    <Property Name="CurrentFlag" Type="String" MaxLength="1" FixedLength="false" Unicode="false" />
+    <Property Name="SeriesName" Type="String" MaxLength="512" FixedLength="false" Unicode="false" />
+    <Property Name="SourceFIle" Type="String" MaxLength="256" FixedLength="false" Unicode="true" />
+    <Property Name="SourceSheet" Type="String" MaxLength="256" FixedLength="false" Unicode="true" />
+    <Property Name="MasterMetadataID" Type="Int32" />
+    <Property Name="CreatedBy" Type="Int32" />
+    <Property Name="CreatedDate" Type="DateTime" Precision="3" />
+    <Property Name="ModifiedBy" Type="Int32" />
+    <Property Name="ModifiedDate" Type="DateTime" Precision="3" />
+    <Property Name="Source" Type="String" MaxLength="256" FixedLength="false" Unicode="true" />
+    <Property Name="Link" Type="String" MaxLength="512" FixedLength="false" Unicode="true" />
+    <Property Name="Definition" Type="String" MaxLength="1024" FixedLength="false" Unicode="true" />
+  </EntityType>
+  <EntityType Name="StagingLoadInfo">
+    <Key>
+      <PropertyRef Name="StagingLoadInfoID" />
+    </Key>
+    <Property Name="StagingLoadInfoID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="LoadDate" Type="DateTime" Precision="3" />
+    <Property Name="LoadSource" Type="String" MaxLength="256" FixedLength="false" Unicode="false" />
+    <Property Name="LoadType" Type="Int32" />
+    <Property Name="Update" Type="String" MaxLength="1" FixedLength="false" Unicode="false" />
+    <Property Name="Insert" Type="String" MaxLength="1" FixedLength="false" Unicode="false" />
+    <Property Name="NumberOfRecords" Type="Int32" />
+    <Property Name="ReleaseNotes" Type="String" MaxLength="18" FixedLength="true" Unicode="false" />
+    <Property Name="ShortCodesID" Type="Int32" />
+  </EntityType>
+  <EntityType Name="StateProvince">
+    <Key>
+      <PropertyRef Name="StateProvinceID" />
+    </Key>
+    <Property Name="StateProvinceID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="Name" Type="String" MaxLength="32" FixedLength="false" Unicode="false" />
+    <Property Name="ShortCode" Type="String" MaxLength="4" FixedLength="false" Unicode="false" />
+    <Property Name="CountryID" Type="Int32" />
+    <Property Name="IsState" Type="String" MaxLength="1" FixedLength="false" Unicode="false" />
+    <Property Name="IsProvince" Type="String" MaxLength="1" FixedLength="false" Unicode="false" />
+  </EntityType>
+  <EntityType Name="SubCategory">
+    <Key>
+      <PropertyRef Name="SubCategoryID" />
+    </Key>
+    <Property Name="SubCategoryID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="SubCategoryDescription" Type="String" MaxLength="32" FixedLength="false" Unicode="false" />
+    <Property Name="SubCategoryName" Type="String" MaxLength="32" FixedLength="false" Unicode="false" />
+    <Property Name="CategoryID" Type="Int32" />
+  </EntityType>
+  <EntityType Name="SubProduct">
+    <Key>
+      <PropertyRef Name="SubProductID" />
+    </Key>
+    <Property Name="SubProductID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="SubProductName" Type="String" MaxLength="32" FixedLength="false" Unicode="false" />
+    <Property Name="SubProductDescription" Type="String" MaxLength="128" FixedLength="false" Unicode="false" />
+    <Property Name="ProductID" Type="Int32" />
+  </EntityType>
+  <EntityType Name="TEMP_IndicatorReporting_Logic">
+    <Key>
+      <PropertyRef Name="ID" />
+      <PropertyRef Name="IsProcessed" />
+    </Key>
+    <Property Name="ID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="SourceID" Type="Int32" />
+    <Property Name="DateMonth" Type="DateTime" Precision="0" />
+    <Property Name="Sales" Type="Decimal" Precision="32" Scale="16" />
+    <Property Name="MonthlyValue" Type="Decimal" Precision="32" Scale="16" />
+    <Property Name="OneByTwelveMMA" Type="Decimal" Precision="32" Scale="16" />
+    <Property Name="OneByTwelveMMT" Type="Decimal" Precision="32" Scale="16" />
+    <Property Name="ThreeMMA" Type="Decimal" Precision="32" Scale="16" />
+    <Property Name="ThreeByTwelveMMA" Type="Decimal" Precision="32" Scale="16" />
+    <Property Name="ThreeByTwelveMMT" Type="Decimal" Precision="32" Scale="16" />
+    <Property Name="TwelveMMA" Type="Decimal" Precision="32" Scale="16" />
+    <Property Name="TwelveByTwelveMMA" Type="Decimal" Precision="32" Scale="16" />
+    <Property Name="TwelveByTwelveMMT" Type="Decimal" Precision="32" Scale="16" />
+    <Property Name="ThreeMMT" Type="Decimal" Precision="32" Scale="16" />
+    <Property Name="TwelveMMT" Type="Decimal" Precision="32" Scale="16" />
+    <Property Name="CompanyID" Type="Int32" />
+    <Property Name="ProductCategoryID" Type="Int32" />
+    <Property Name="IsProcessed" Type="Boolean" Nullable="false" />
+    <Property Name="AdjValue" Type="Decimal" Precision="32" Scale="16" />
+    <Property Name="ShortCode" Type="String" MaxLength="64" FixedLength="false" Unicode="false" />
+    <Property Name="FLAG" Type="Boolean" />
+  </EntityType>
+  <EntityType Name="TempTable">
+    <Key>
+      <PropertyRef Name="TempTableID" />
+    </Key>
+    <Property Name="TempTableID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="ShortCode" Type="String" MaxLength="128" FixedLength="false" Unicode="false" />
+    <Property Name="MonthYear" Type="DateTime" Precision="0" />
+    <Property Name="C3BY12" Type="Decimal" Precision="32" Scale="16" />
+    <Property Name="C12BY12" Type="Decimal" Precision="32" Scale="16" />
+    <Property Name="HighLow" Type="String" MaxLength="8" FixedLength="false" Unicode="false" />
+    <Property Name="VoilenceLength" Type="Int32" />
+    <Property Name="BusniessPhase" Type="String" MaxLength="8" FixedLength="false" Unicode="false" />
+  </EntityType>
+  <EntityType Name="TempTableForRawData">
+    <Key>
+      <PropertyRef Name="TempTableID" />
+    </Key>
+    <Property Name="TempTableID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="ShortCode" Type="String" MaxLength="128" FixedLength="false" Unicode="false" />
+    <Property Name="MonthYear" Type="DateTime" Precision="0" />
+    <Property Name="C3BY12" Type="Decimal" Precision="32" Scale="16" />
+    <Property Name="C12BY12" Type="Decimal" Precision="32" Scale="16" />
+    <Property Name="HIghLow" Type="String" MaxLength="8" FixedLength="false" Unicode="false" />
+  </EntityType>
+  <EntityType Name="TestSP">
+    <Key>
+      <PropertyRef Name="a" />
+    </Key>
+    <Property Name="a" Type="Int32" Nullable="false" />
+  </EntityType>
+  <EntityType Name="User">
+    <Key>
+      <PropertyRef Name="UserId" />
+      <PropertyRef Name="UserName" />
+      <PropertyRef Name="Password" />
+    </Key>
+    <Property Name="UserId" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="UserName" Type="String" MaxLength="64" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="Password" Type="String" MaxLength="64" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="CreatedBy" Type="String" MaxLength="64" FixedLength="false" Unicode="false" />
+    <Property Name="CreatedDate" Type="DateTime" Precision="3" />
+  </EntityType>
+  <EntityType Name="VWTBL_COMPANY_PORTAL_Backup">
+    <Key>
+      <PropertyRef Name="ID" />
+    </Key>
+    <Property Name="ID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="MonthYear" Type="DateTime" Precision="3" />
+    <Property Name="Sales" Type="Decimal" Precision="24" Scale="15" />
+    <Property Name="C1By12" Type="Decimal" Precision="24" Scale="15" />
+    <Property Name="C3MMT" Type="Decimal" Precision="24" Scale="15" />
+    <Property Name="C3BY12" Type="Decimal" Precision="24" Scale="15" />
+    <Property Name="C3MMA" Type="Decimal" Precision="24" Scale="15" />
+    <Property Name="C12MMT" Type="Decimal" Precision="24" Scale="15" />
+    <Property Name="C12BY12" Type="Decimal" Precision="24" Scale="15" />
+    <Property Name="C12MMA" Type="Decimal" Precision="24" Scale="15" />
+    <Property Name="CustomerDataSetID" Type="Int32" />
+    <Property Name="Monthly" Type="Decimal" Precision="24" Scale="15" />
+  </EntityType>
+  <EntityType Name="vwCompanyAVG">
+    <Key>
+      <PropertyRef Name="Range" />
+    </Key>
+    <Property Name="MonthYear" Type="DateTime" Precision="3" />
+    <Property Name="Sales" Type="Decimal" Precision="24" Scale="15" />
+    <Property Name="C1By12" Type="Decimal" Precision="24" Scale="15" />
+    <Property Name="C3MMT" Type="Decimal" Precision="27" Scale="15" />
+    <Property Name="C3BY12" Type="Decimal" Precision="27" Scale="15" />
+    <Property Name="C3MMA" Type="Decimal" Precision="24" Scale="15" />
+    <Property Name="C12MMT" Type="Decimal" Precision="27" Scale="15" />
+    <Property Name="C12BY12" Type="Decimal" Precision="27" Scale="15" />
+    <Property Name="C12MMA" Type="Decimal" Precision="24" Scale="15" />
+    <Property Name="SHORTCODE" Type="String" MaxLength="64" FixedLength="false" Unicode="false" />
+    <Property Name="CompanyName" Type="String" MaxLength="500" FixedLength="false" Unicode="false" />
+    <Property Name="Monthly" Type="Decimal" Precision="24" Scale="15" />
+    <Property Name="Forecast" Type="Boolean" />
+    <Property Name="Range" Type="String" MaxLength="3" FixedLength="false" Unicode="false" Nullable="false" />
+  </EntityType>
+  <EntityType Name="vwCompanyForecast">
+    <Key>
+      <PropertyRef Name="Range" />
+    </Key>
+    <Property Name="MetaDataID" Type="Int32" />
+    <Property Name="MonthYear" Type="DateTime" Precision="3" />
+    <Property Name="Sales" Type="Decimal" Precision="32" Scale="16" />
+    <Property Name="C1By12" Type="Decimal" Precision="32" Scale="16" />
+    <Property Name="C3MMT" Type="Decimal" Precision="32" Scale="16" />
+    <Property Name="C3BY12" Type="Decimal" Precision="32" Scale="16" />
+    <Property Name="C3MMA" Type="Decimal" Precision="32" Scale="16" />
+    <Property Name="C12MMT" Type="Decimal" Precision="32" Scale="16" />
+    <Property Name="C12BY12" Type="Decimal" Precision="32" Scale="16" />
+    <Property Name="C12MMA" Type="Decimal" Precision="32" Scale="16" />
+    <Property Name="SHORTCODE" Type="String" MaxLength="64" FixedLength="false" Unicode="false" />
+    <Property Name="CompanyName" Type="String" MaxLength="500" FixedLength="false" Unicode="false" />
+    <Property Name="Monthly" Type="Decimal" Precision="32" Scale="16" />
+    <Property Name="Forecast" Type="Boolean" />
+    <Property Name="Range" Type="String" MaxLength="3" FixedLength="false" Unicode="false" Nullable="false" />
+  </EntityType>
+  <EntityType Name="vwCustomer">
+    <Key>
+      <PropertyRef Name="DatasetID" />
+    </Key>
+    <Property Name="DatasetID" Type="Int32" Nullable="false" />
+    <Property Name="DatasetShortcode" Type="String" MaxLength="500" FixedLength="false" Unicode="false" />
+    <Property Name="AccountID" Type="Int32" />
+    <Property Name="AccountName" Type="String" MaxLength="512" FixedLength="false" Unicode="false" />
+    <Property Name="DivisionId" Type="Int32" />
+    <Property Name="DivisionName" Type="String" MaxLength="512" FixedLength="false" Unicode="false" />
+  </EntityType>
+  <EntityType Name="vwDataSet">
+    <Key>
+      <PropertyRef Name="DatasetID" />
+    </Key>
+    <Property Name="DatasetID" Type="Int32" Nullable="false" />
+    <Property Name="DatasetShortcode" Type="String" MaxLength="128" FixedLength="false" Unicode="false" />
+    <Property Name="AccountID" Type="Int32" />
+    <Property Name="AccountName" Type="String" MaxLength="255" FixedLength="false" Unicode="false" />
+    <Property Name="DivisionId" Type="Int32" />
+    <Property Name="DivisionName" Type="String" MaxLength="255" FixedLength="false" Unicode="false" />
+  </EntityType>
+  <EntityType Name="vwIndicatorAVG">
+    <Key>
+      <PropertyRef Name="Range" />
+    </Key>
+    <Property Name="MonthYear" Type="DateTime" Precision="3" />
+    <Property Name="Sales" Type="Decimal" Precision="32" Scale="16" />
+    <Property Name="C1By12" Type="Decimal" Precision="32" Scale="16" />
+    <Property Name="C3MMT" Type="Decimal" Precision="32" Scale="16" />
+    <Property Name="C3BY12" Type="Decimal" Precision="32" Scale="16" />
+    <Property Name="C3MMA" Type="Decimal" Precision="32" Scale="16" />
+    <Property Name="C12MMT" Type="Decimal" Precision="32" Scale="16" />
+    <Property Name="C12BY12" Type="Decimal" Precision="32" Scale="16" />
+    <Property Name="C12MMA" Type="Decimal" Precision="32" Scale="16" />
+    <Property Name="SHORTCODE" Type="String" MaxLength="64" FixedLength="false" Unicode="false" />
+    <Property Name="IndicatorName" Type="String" MaxLength="500" FixedLength="false" Unicode="false" />
+    <Property Name="Monthly" Type="Decimal" Precision="32" Scale="16" />
+    <Property Name="Forecast" Type="Boolean" />
+    <Property Name="Range" Type="String" MaxLength="3" FixedLength="false" Unicode="false" Nullable="false" />
+  </EntityType>
+  <EntityType Name="vwIndicatorForecast">
+    <Key>
+      <PropertyRef Name="Range" />
+    </Key>
+    <Property Name="MetaDataID" Type="Int32" />
+    <Property Name="MonthYear" Type="DateTime" Precision="3" />
+    <Property Name="Sales" Type="Decimal" Precision="32" Scale="16" />
+    <Property Name="C1By12" Type="Decimal" Precision="32" Scale="16" />
+    <Property Name="C3MMT" Type="Decimal" Precision="32" Scale="16" />
+    <Property Name="C3BY12" Type="Decimal" Precision="32" Scale="16" />
+    <Property Name="C3MMA" Type="Decimal" Precision="32" Scale="16" />
+    <Property Name="C12MMT" Type="Decimal" Precision="32" Scale="16" />
+    <Property Name="C12BY12" Type="Decimal" Precision="32" Scale="16" />
+    <Property Name="C12MMA" Type="Decimal" Precision="32" Scale="16" />
+    <Property Name="SHORTCODE" Type="String" MaxLength="64" FixedLength="false" Unicode="false" />
+    <Property Name="IndicatorName" Type="String" MaxLength="500" FixedLength="false" Unicode="false" />
+    <Property Name="Monthly" Type="Decimal" Precision="32" Scale="16" />
+    <Property Name="Forecast" Type="Boolean" />
+    <Property Name="Range" Type="String" MaxLength="3" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="Phases" Type="String" MaxLength="8" FixedLength="false" Unicode="false" />
+  </EntityType>
+  <EntityType Name="vwSelectIndicator">
+    <Key>
+      <PropertyRef Name="ProdIndicatorId" />
+    </Key>
+    <Property Name="ProdIndicatorId" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="MonthYear" Type="DateTime" Precision="3" />
+    <Property Name="RawValue" Type="Decimal" Precision="18" Scale="10" />
+    <Property Name="AdjValue" Type="Decimal" Precision="18" Scale="10" />
+    <Property Name="UpdateReason" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
+    <Property Name="ValueStartDate" Type="DateTime" Precision="3" />
+    <Property Name="ValueEndDate" Type="DateTime" Precision="3" />
+    <Property Name="CurrentFlag" Type="String" MaxLength="1" FixedLength="false" Unicode="false" />
+    <Property Name="CreatedBy" Type="String" MaxLength="500" FixedLength="false" Unicode="false" />
+    <Property Name="CreatedDate" Type="DateTime" Precision="3" />
+    <Property Name="ModifiedBy" Type="String" MaxLength="500" FixedLength="false" Unicode="false" />
+    <Property Name="ModifiedDate" Type="DateTime" Precision="3" />
+    <Property Name="MasterMetadataID" Type="Int32" />
+  </EntityType>
+  <EntityType Name="vwTableau">
+    <Key>
+      <PropertyRef Name="DataType" />
+    </Key>
+    <Property Name="DataType" Type="String" MaxLength="9" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="Company_Name" Type="String" MaxLength="500" FixedLength="false" Unicode="false" />
+    <Property Name="DB_AccountID" Type="Int32" />
+    <Property Name="AccountName" Type="String" MaxLength="512" FixedLength="false" Unicode="false" />
+    <Property Name="DB_DivisionID" Type="Int32" />
+    <Property Name="DivisionName" Type="String" MaxLength="512" FixedLength="false" Unicode="false" />
+    <Property Name="Indicator" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
+    <Property Name="Indicator_Name" Type="String" MaxLength="500" FixedLength="false" Unicode="false" />
+    <Property Name="lagValue" Type="Double" />
+    <Property Name="CorrValue" Type="Double" />
+    <Property Name="Date" Type="DateTime" Precision="3" />
+    <Property Name="Sales" Type="Decimal" Precision="32" Scale="16" />
+    <Property Name="C1BY12_Indicator" Type="Decimal" Precision="32" Scale="16" />
+    <Property Name="C3MMT_Indicator" Type="Decimal" Precision="32" Scale="16" />
+    <Property Name="C3BY12_Indicator" Type="Decimal" Precision="32" Scale="16" />
+    <Property Name="C3MMA_Indicator" Type="Decimal" Precision="32" Scale="16" />
+    <Property Name="C12MMT_Indicator" Type="Decimal" Precision="32" Scale="16" />
+    <Property Name="C12BY12_Indicator" Type="Decimal" Precision="32" Scale="16" />
+    <Property Name="C12MMA_Indicator" Type="Decimal" Precision="32" Scale="16" />
+    <Property Name="Monthly_Indicator" Type="Decimal" Precision="32" Scale="16" />
+    <Property Name="C1BY12_Company" Type="Decimal" Precision="32" Scale="16" />
+    <Property Name="C3MMT_Company" Type="Decimal" Precision="32" Scale="16" />
+    <Property Name="C3BY12_Company" Type="Decimal" Precision="32" Scale="16" />
+    <Property Name="C3MMA_Company" Type="Decimal" Precision="32" Scale="16" />
+    <Property Name="C12MMT_Company" Type="Decimal" Precision="32" Scale="16" />
+    <Property Name="C12BY12_Company" Type="Decimal" Precision="32" Scale="16" />
+    <Property Name="C12MMA_Company" Type="Decimal" Precision="32" Scale="16" />
+    <Property Name="Monthly_Company" Type="Decimal" Precision="32" Scale="16" />
+    <Property Name="Forecast" Type="Int32" />
+    <Property Name="Range" Type="String" MaxLength="3" FixedLength="false" Unicode="false" />
+  </EntityType>
+  <EntityContainer Name="DatacastEntities" annotation:LazyLoadingEnabled="true">
+    <EntitySet Name="Companies" EntityType="Self.Company" />
+    <EntitySet Name="CompanyWebs" EntityType="Self.CompanyWeb" />
+    <EntitySet Name="CompanyWebForNews" EntityType="Self.CompanyWebForNew" />
+    <EntitySet Name="CustomerDataSets" EntityType="Self.CustomerDataSet" />
+    <EntitySet Name="DateRanges" EntityType="Self.DateRanx" />
+    <EntitySet Name="ForeCastDatas" EntityType="Self.ForeCastData" />
+    <EntitySet Name="ForeCastMetaDatas" EntityType="Self.ForeCastMetaData" />
+    <EntitySet Name="Indicators" EntityType="Self.Indicator" />
+    <EntitySet Name="IndicatorWebs" EntityType="Self.IndicatorWeb" />
+    <EntitySet Name="IndicatorWebForNews" EntityType="Self.IndicatorWebForNew" />
+    <EntitySet Name="MasterMetaDatas" EntityType="Self.MasterMetaData" />
+    <EntitySet Name="Months" EntityType="Self.Month" />
+    <EntitySet Name="ShortCodes" EntityType="Self.ShortCode" />
+    <EntitySet Name="TEMP_CompanyReporting_Logic" EntityType="Self.TEMP_CompanyReporting_Logic" />
+    <EntitySet Name="TEMP_CompanyReporting_Logic_Portal" EntityType="Self.TEMP_CompanyReporting_Logic_Portal" />
+    <EntitySet Name="UI_ForeCastData" EntityType="Self.UI_ForeCastData" />
+    <EntitySet Name="UI_ForeCastMetaData" EntityType="Self.UI_ForeCastMetaData" />
+    <EntitySet Name="VWTBL_COMPANY" EntityType="Self.VWTBL_COMPANY" />
+    <EntitySet Name="VWTBL_COMPANY_PORTAL" EntityType="Self.VWTBL_COMPANY_PORTAL" />
+    <EntitySet Name="VWTBL_INDICATOR" EntityType="Self.VWTBL_INDICATOR" />
+    <EntitySet Name="Categories" EntityType="Self.Category" />
+    <EntitySet Name="CategoryDropDowns" EntityType="Self.CategoryDropDown" />
+    <EntitySet Name="CompaniesLists" EntityType="Self.CompaniesList" />
+    <EntitySet Name="CompanyLists" EntityType="Self.CompanyList" />
+    <EntitySet Name="CompanyMasterMetaDatas" EntityType="Self.CompanyMasterMetaData" />
+    <EntitySet Name="CompanyShortCodes" EntityType="Self.CompanyShortCode" />
+    <EntitySet Name="CompanyStagingLoadInfoes" EntityType="Self.CompanyStagingLoadInfo" />
+    <EntitySet Name="Continents" EntityType="Self.Continent" />
+    <EntitySet Name="Countries" EntityType="Self.Country" />
+    <EntitySet Name="Customers" EntityType="Self.Customer" />
+    <EntitySet Name="CustomerDatasetsProcesses" EntityType="Self.CustomerDatasetsProcess" />
+    <EntitySet Name="CustomerDatasetsProcess_Schedule" EntityType="Self.CustomerDatasetsProcess_Schedule" />
+    <EntitySet Name="Dumpeds" EntityType="Self.Dumped" />
+    <EntitySet Name="ExceptionLogs" EntityType="Self.ExceptionLog" />
+    <EntitySet Name="FavouriteLists" EntityType="Self.FavouriteList" />
+    <EntitySet Name="ForeCastCheckDatas" EntityType="Self.ForeCastCheckData" />
+    <EntitySet Name="ForecastData_08282017" EntityType="Self.ForecastData_08282017" />
+    <EntitySet Name="Indicator20170110" EntityType="Self.Indicator20170110" />
+    <EntitySet Name="IndicatorLists" EntityType="Self.IndicatorList" />
+    <EntitySet Name="Industries" EntityType="Self.Industry" />
+    <EntitySet Name="MasterMetaData_Backup" EntityType="Self.MasterMetaData_Backup" />
+    <EntitySet Name="Notifies" EntityType="Self.Notify" />
+    <EntitySet Name="NotifyDevs" EntityType="Self.NotifyDev" />
+    <EntitySet Name="PaidForecasts" EntityType="Self.PaidForecast" />
+    <EntitySet Name="PopupAccesses" EntityType="Self.PopupAccess" />
+    <EntitySet Name="Products" EntityType="Self.Product" />
+    <EntitySet Name="Regions" EntityType="Self.Region" />
+    <EntitySet Name="ReleaseSchedules" EntityType="Self.ReleaseSchedule" />
+    <EntitySet Name="StagingCompanies" EntityType="Self.StagingCompany" />
+    <EntitySet Name="StagingCompanyDatas" EntityType="Self.StagingCompanyData" />
+    <EntitySet Name="StagingCompanyWebs" EntityType="Self.StagingCompanyWeb" />
+    <EntitySet Name="StagingForeCasts" EntityType="Self.StagingForeCast" />
+    <EntitySet Name="StagingForecastTests" EntityType="Self.StagingForecastTest" />
+    <EntitySet Name="StagingIndicatorTests" EntityType="Self.StagingIndicatorTest" />
+    <EntitySet Name="StagingIndicatorWebs" EntityType="Self.StagingIndicatorWeb" />
+    <EntitySet Name="StagingIndicatorWebForNewIndicators" EntityType="Self.StagingIndicatorWebForNewIndicator" />
+    <EntitySet Name="StagingLoadInfoes" EntityType="Self.StagingLoadInfo" />
+    <EntitySet Name="StateProvinces" EntityType="Self.StateProvince" />
+    <EntitySet Name="SubCategories" EntityType="Self.SubCategory" />
+    <EntitySet Name="SubProducts" EntityType="Self.SubProduct" />
+    <EntitySet Name="TEMP_IndicatorReporting_Logic" EntityType="Self.TEMP_IndicatorReporting_Logic" />
+    <EntitySet Name="TempTables" EntityType="Self.TempTable" />
+    <EntitySet Name="TempTableForRawDatas" EntityType="Self.TempTableForRawData" />
+    <EntitySet Name="TestSPs" EntityType="Self.TestSP" />
+    <EntitySet Name="Users" EntityType="Self.User" />
+    <EntitySet Name="VWTBL_COMPANY_PORTAL_Backup" EntityType="Self.VWTBL_COMPANY_PORTAL_Backup" />
+    <EntitySet Name="vwCompanyAVGs" EntityType="Self.vwCompanyAVG" />
+    <EntitySet Name="vwCompanyForecasts" EntityType="Self.vwCompanyForecast" />
+    <EntitySet Name="vwCustomers" EntityType="Self.vwCustomer" />
+    <EntitySet Name="vwDataSets" EntityType="Self.vwDataSet" />
+    <EntitySet Name="vwIndicatorAVGs" EntityType="Self.vwIndicatorAVG" />
+    <EntitySet Name="vwIndicatorForecasts" EntityType="Self.vwIndicatorForecast" />
+    <EntitySet Name="vwSelectIndicators" EntityType="Self.vwSelectIndicator" />
+    <EntitySet Name="vwTableaux" EntityType="Self.vwTableau" />
+    <FunctionImport Name="f_split" IsComposable="true" ReturnType="Collection(LDBTESTModel.f_split_Result)">
+      <Parameter Name="param" Mode="In" Type="String" />
+      <Parameter Name="delimiter" Mode="In" Type="String" />
+    </FunctionImport>
+    <FunctionImport Name="Split" IsComposable="true" ReturnType="Collection(LDBTESTModel.Split_Result)">
+      <Parameter Name="Line" Mode="In" Type="String" />
+      <Parameter Name="SplitOn" Mode="In" Type="String" />
+    </FunctionImport>
+    <FunctionImport Name="GetCompany">
+      <Parameter Name="CompanyName" Mode="In" Type="String" />
+      <Parameter Name="startDate" Mode="In" Type="DateTime" />
+      <Parameter Name="endDate" Mode="In" Type="DateTime" />
+      <Parameter Name="showMonthYear" Mode="In" Type="String" />
+      <Parameter Name="showRawValue" Mode="In" Type="String" />
+      <Parameter Name="showAdjValue" Mode="In" Type="String" />
+      <Parameter Name="show1By12" Mode="In" Type="String" />
+      <Parameter Name="show3MMA" Mode="In" Type="String" />
+      <Parameter Name="show3MMT" Mode="In" Type="String" />
+      <Parameter Name="show3BY12" Mode="In" Type="String" />
+      <Parameter Name="show12BY12" Mode="In" Type="String" />
+      <Parameter Name="show12MMA" Mode="In" Type="String" />
+      <Parameter Name="show12MMT" Mode="In" Type="String" />
+    </FunctionImport>
+    <FunctionImport Name="GetIndicator">
+      <Parameter Name="IndicatorName" Mode="In" Type="String" />
+      <Parameter Name="startDate" Mode="In" Type="DateTime" />
+      <Parameter Name="endDate" Mode="In" Type="DateTime" />
+      <Parameter Name="showMonthYear" Mode="In" Type="String" />
+      <Parameter Name="showRawValue" Mode="In" Type="String" />
+      <Parameter Name="showAdjValue" Mode="In" Type="String" />
+      <Parameter Name="show1By12" Mode="In" Type="String" />
+      <Parameter Name="show3MMA" Mode="In" Type="String" />
+      <Parameter Name="show3MMT" Mode="In" Type="String" />
+      <Parameter Name="show3BY12" Mode="In" Type="String" />
+      <Parameter Name="show12BY12" Mode="In" Type="String" />
+      <Parameter Name="show12MMA" Mode="In" Type="String" />
+      <Parameter Name="show12MMT" Mode="In" Type="String" />
+    </FunctionImport>
+    <FunctionImport Name="sp_CheckLogin" ReturnType="Collection(LDBTESTModel.sp_CheckLogin_Result)">
+      <Parameter Name="UserName" Mode="In" Type="String" />
+      <Parameter Name="Password" Mode="In" Type="String" />
+    </FunctionImport>
+    <FunctionImport Name="sp_InsertCompanyShortCodes">
+      <Parameter Name="WorkBook" Mode="In" Type="String" />
+      <Parameter Name="ShortCode" Mode="In" Type="String" />
+      <Parameter Name="ShortCodeDesc" Mode="In" Type="String" />
+      <Parameter Name="ShortCodesId" Mode="InOut" Type="Int32" />
+    </FunctionImport>
+    <FunctionImport Name="SP_InsertCompanyStagingLoadInfo">
+      <Parameter Name="LoadSource" Mode="In" Type="String" />
+      <Parameter Name="LoadType" Mode="In" Type="String" />
+      <Parameter Name="Update" Mode="In" Type="Int32" />
+      <Parameter Name="Insert" Mode="In" Type="Int32" />
+      <Parameter Name="NumberOfRecords" Mode="In" Type="Int32" />
+      <Parameter Name="ReleaseNotes" Mode="In" Type="String" />
+      <Parameter Name="ShortCodesId" Mode="In" Type="Int32" />
+    </FunctionImport>
+    <FunctionImport Name="sp_InsertMasterMetadata">
+      <Parameter Name="WorkBook" Mode="In" Type="String" />
+      <Parameter Name="FileName" Mode="In" Type="String" />
+      <Parameter Name="NAICSCode" Mode="In" Type="String" />
+      <Parameter Name="SeriesName" Mode="In" Type="String" />
+      <Parameter Name="NSA" Mode="In" Type="String" />
+      <Parameter Name="Continent" Mode="In" Type="String" />
+      <Parameter Name="Country" Mode="In" Type="String" />
+      <Parameter Name="Region" Mode="In" Type="String" />
+      <Parameter Name="State" Mode="In" Type="String" />
+      <Parameter Name="MSA" Mode="In" Type="String" />
+      <Parameter Name="Category" Mode="In" Type="String" />
+      <Parameter Name="SubCategory" Mode="In" Type="String" />
+      <Parameter Name="Units" Mode="In" Type="String" />
+      <Parameter Name="Base" Mode="In" Type="String" />
+      <Parameter Name="MasterMetadataId" Mode="InOut" Type="Int32" />
+    </FunctionImport>
+    <FunctionImport Name="sp_InsertMasterMetadataDailyLoad">
+      <Parameter Name="WorkBook" Mode="In" Type="String" />
+      <Parameter Name="FileName" Mode="In" Type="String" />
+      <Parameter Name="NAICSCode" Mode="In" Type="String" />
+      <Parameter Name="SeriesName" Mode="In" Type="String" />
+      <Parameter Name="NSA" Mode="In" Type="String" />
+      <Parameter Name="Continent" Mode="In" Type="String" />
+      <Parameter Name="Country" Mode="In" Type="String" />
+      <Parameter Name="Region" Mode="In" Type="String" />
+      <Parameter Name="State" Mode="In" Type="String" />
+      <Parameter Name="MSA" Mode="In" Type="String" />
+      <Parameter Name="Category" Mode="In" Type="String" />
+      <Parameter Name="SubCategory" Mode="In" Type="String" />
+      <Parameter Name="Units" Mode="In" Type="String" />
+      <Parameter Name="Base" Mode="In" Type="String" />
+      <Parameter Name="MasterMetadataId" Mode="InOut" Type="Int32" />
+    </FunctionImport>
+    <FunctionImport Name="sp_InsertMasterMetadataForCompany">
+      <Parameter Name="WorkBook" Mode="In" Type="String" />
+      <Parameter Name="FileName" Mode="In" Type="String" />
+      <Parameter Name="NAICSCode" Mode="In" Type="String" />
+      <Parameter Name="SeriesName" Mode="In" Type="String" />
+      <Parameter Name="NSA" Mode="In" Type="String" />
+      <Parameter Name="Continent" Mode="In" Type="String" />
+      <Parameter Name="Country" Mode="In" Type="String" />
+      <Parameter Name="Region" Mode="In" Type="String" />
+      <Parameter Name="State" Mode="In" Type="String" />
+      <Parameter Name="MSA" Mode="In" Type="String" />
+      <Parameter Name="Category" Mode="In" Type="String" />
+      <Parameter Name="SubCategory" Mode="In" Type="String" />
+      <Parameter Name="Units" Mode="In" Type="String" />
+      <Parameter Name="Base" Mode="In" Type="String" />
+      <Parameter Name="MasterMetadataId" Mode="InOut" Type="Int32" />
+    </FunctionImport>
+    <FunctionImport Name="sp_InsertMasterMetadataNewCompany">
+      <Parameter Name="WorkBook" Mode="In" Type="String" />
+      <Parameter Name="FileName" Mode="In" Type="String" />
+      <Parameter Name="NAICSCode" Mode="In" Type="String" />
+      <Parameter Name="SeriesName" Mode="In" Type="String" />
+      <Parameter Name="NSA" Mode="In" Type="String" />
+      <Parameter Name="Continent" Mode="In" Type="String" />
+      <Parameter Name="Country" Mode="In" Type="String" />
+      <Parameter Name="Region" Mode="In" Type="String" />
+      <Parameter Name="State" Mode="In" Type="String" />
+      <Parameter Name="MSA" Mode="In" Type="String" />
+      <Parameter Name="Category" Mode="In" Type="String" />
+      <Parameter Name="SubCategory" Mode="In" Type="String" />
+      <Parameter Name="Units" Mode="In" Type="String" />
+      <Parameter Name="Base" Mode="In" Type="String" />
+      <Parameter Name="MasterMetadataId" Mode="InOut" Type="Int32" />
+    </FunctionImport>
+    <FunctionImport Name="sp_InsertMasterMetadataNewIndicator">
+      <Parameter Name="WorkBook" Mode="In" Type="String" />
+      <Parameter Name="FileName" Mode="In" Type="String" />
+      <Parameter Name="NAICSCode" Mode="In" Type="String" />
+      <Parameter Name="SeriesName" Mode="In" Type="String" />
+      <Parameter Name="NSA" Mode="In" Type="String" />
+      <Parameter Name="Continent" Mode="In" Type="String" />
+      <Parameter Name="Country" Mode="In" Type="String" />
+      <Parameter Name="Region" Mode="In" Type="String" />
+      <Parameter Name="State" Mode="In" Type="String" />
+      <Parameter Name="MSA" Mode="In" Type="String" />
+      <Parameter Name="Category" Mode="In" Type="String" />
+      <Parameter Name="SubCategory" Mode="In" Type="String" />
+      <Parameter Name="Units" Mode="In" Type="String" />
+      <Parameter Name="Base" Mode="In" Type="String" />
+      <Parameter Name="MasterMetadataId" Mode="InOut" Type="Int32" />
+    </FunctionImport>
+    <FunctionImport Name="sp_InsertShortCodes">
+      <Parameter Name="WorkBook" Mode="In" Type="String" />
+      <Parameter Name="ShortCode" Mode="In" Type="String" />
+      <Parameter Name="ShortCodeDesc" Mode="In" Type="String" />
+      <Parameter Name="ShortCodesId" Mode="InOut" Type="Int32" />
+    </FunctionImport>
+    <FunctionImport Name="SP_InsertStagingLoadInfo">
+      <Parameter Name="LoadSource" Mode="In" Type="String" />
+      <Parameter Name="LoadType" Mode="In" Type="String" />
+      <Parameter Name="Update" Mode="In" Type="Int32" />
+      <Parameter Name="Insert" Mode="In" Type="Int32" />
+      <Parameter Name="NumberOfRecords" Mode="In" Type="Int32" />
+      <Parameter Name="ReleaseNotes" Mode="In" Type="String" />
+      <Parameter Name="ShortCodesId" Mode="In" Type="Int32" />
+    </FunctionImport>
+    <FunctionImport Name="SP_InsertUpateForecast" />
+    <FunctionImport Name="SP_InsertUpdateCompany" />
+    <FunctionImport Name="SP_InsertUpdateIndicator" />
+    <FunctionImport Name="SP_InsertUpdateIndicatorForNewIndicator" />
+    <FunctionImport Name="SP_InsertUpdateIndustry" />
+    <FunctionImport Name="SP_InsertUpdateIndustry_backup" />
+    <FunctionImport Name="SP_MoveCompanyLoadData" />
+    <FunctionImport Name="SP_MoveDailyLoadData" />
+    <FunctionImport Name="SP_MoveDailyLoadDataForNewCompanies" />
+    <FunctionImport Name="SP_MoveDailyLoadDataForNewIndicators" />
+    <FunctionImport Name="sp_MoveDataFromCompanyWeb" ReturnType="Collection(Int32)" />
+    <FunctionImport Name="sp_MoveDataFromCompanyWebForNewCOmpany" ReturnType="Collection(Int32)" />
+    <FunctionImport Name="sp_MoveDataFromForecastWeb" ReturnType="Collection(Int32)" />
+    <FunctionImport Name="sp_MoveDataFromIndicatorWeb" ReturnType="Collection(Int32)" />
+    <FunctionImport Name="sp_MoveDataFromIndicatorWebForNew" ReturnType="Collection(Int32)" />
+    <FunctionImport Name="SP_SelectAllCompanies" ReturnType="Collection(LDBTESTModel.SP_SelectAllCompanies_Result)" />
+    <FunctionImport Name="SP_SelectAllIndicators" ReturnType="Collection(LDBTESTModel.SP_SelectAllIndicators_Result)" />
+    <FunctionImport Name="SP_SelectCompanyData" ReturnType="Collection(LDBTESTModel.SP_SelectCompanyData_Result)">
+      <Parameter Name="ShortCode" Mode="In" Type="String" />
+      <Parameter Name="StartDate" Mode="In" Type="DateTime" />
+      <Parameter Name="EndDate" Mode="In" Type="DateTime" />
+    </FunctionImport>
+    <FunctionImport Name="SP_SelectCompanyData_TestSP" ReturnType="Collection(LDBTESTModel.SP_SelectCompanyData_TestSP_Result)">
+      <Parameter Name="ShortCode" Mode="In" Type="String" />
+      <Parameter Name="StartDate" Mode="In" Type="DateTime" />
+      <Parameter Name="EndDate" Mode="In" Type="DateTime" />
+    </FunctionImport>
+    <FunctionImport Name="SP_SelectCompanyDataForWeb" ReturnType="Collection(LDBTESTModel.SP_SelectCompanyDataForWeb_Result)">
+      <Parameter Name="ShortCode" Mode="In" Type="String" />
+      <Parameter Name="StartDate" Mode="In" Type="DateTime" />
+      <Parameter Name="EndDate" Mode="In" Type="DateTime" />
+    </FunctionImport>
+    <FunctionImport Name="sp_SelectCompanyDataInclusive" ReturnType="Collection(LDBTESTModel.sp_SelectCompanyDataInclusive_Result)">
+      <Parameter Name="ShortCode" Mode="In" Type="String" />
+      <Parameter Name="StartDate" Mode="In" Type="DateTime" />
+      <Parameter Name="EndDate" Mode="In" Type="DateTime" />
+    </FunctionImport>
+    <FunctionImport Name="sp_SelectCompanyDataInclusive_New" ReturnType="Collection(LDBTESTModel.sp_SelectCompanyDataInclusive_New_Result)">
+      <Parameter Name="ShortCode" Mode="In" Type="String" />
+      <Parameter Name="StartDate" Mode="In" Type="DateTime" />
+      <Parameter Name="EndDate" Mode="In" Type="DateTime" />
+    </FunctionImport>
+    <FunctionImport Name="SP_SelectCompanyMetaData" ReturnType="Collection(LDBTESTModel.SP_SelectCompanyMetaData_Result)">
+      <Parameter Name="ShortCode" Mode="In" Type="String" />
+      <Parameter Name="StartDate" Mode="In" Type="DateTime" />
+      <Parameter Name="EndDate" Mode="In" Type="DateTime" />
+    </FunctionImport>
+    <FunctionImport Name="SP_SelectCompanyShortCodes" ReturnType="Collection(LDBTESTModel.SP_SelectCompanyShortCodes_Result)" />
+    <FunctionImport Name="SP_SelectCompanyUpdateLoadResult" ReturnType="Collection(LDBTESTModel.SP_SelectCompanyUpdateLoadResult_Result)" />
+    <FunctionImport Name="SP_SelectCompanyWebShortCodes" ReturnType="Collection(LDBTESTModel.SP_SelectCompanyWebShortCodes_Result)" />
+    <FunctionImport Name="SP_SelectCompanyWebShortCodesFOrNewCompany" ReturnType="Collection(LDBTESTModel.SP_SelectCompanyWebShortCodesFOrNewCompany_Result)" />
+    <FunctionImport Name="SP_SelectCustomerData" ReturnType="Collection(LDBTESTModel.SP_SelectCustomerData_Result)">
+      <Parameter Name="ShortCode" Mode="In" Type="String" />
+      <Parameter Name="StartDate" Mode="In" Type="DateTime" />
+      <Parameter Name="EndDate" Mode="In" Type="DateTime" />
+    </FunctionImport>
+    <FunctionImport Name="SP_SelectForecastDatabyForecastMetadataID" ReturnType="Collection(LDBTESTModel.SP_SelectForecastDatabyForecastMetadataID_Result)">
+      <Parameter Name="ForecastMetaDataID" Mode="In" Type="Int32" />
+    </FunctionImport>
+    <FunctionImport Name="SP_SelectForecastDosCodes" ReturnType="Collection(LDBTESTModel.SP_SelectForecastDosCodes_Result)" />
+    <FunctionImport Name="sp_SelectForecastStagingWebData" ReturnType="Collection(LDBTESTModel.sp_SelectForecastStagingWebData_Result)">
+      <Parameter Name="ForecastMetaDataID" Mode="In" Type="Int32" />
+    </FunctionImport>
+    <FunctionImport Name="SP_SelectForecastWebShortCodes" ReturnType="Collection(LDBTESTModel.SP_SelectForecastWebShortCodes_Result)" />
+    <FunctionImport Name="SP_SelectIndicatorData" ReturnType="Collection(LDBTESTModel.SP_SelectIndicatorData_Result)">
+      <Parameter Name="ShortCode" Mode="In" Type="String" />
+      <Parameter Name="StartDate" Mode="In" Type="DateTime" />
+      <Parameter Name="EndDate" Mode="In" Type="DateTime" />
+    </FunctionImport>
+    <FunctionImport Name="SP_SelectIndicatorData_TestSp" ReturnType="Collection(LDBTESTModel.SP_SelectIndicatorData_TestSp_Result)">
+      <Parameter Name="ShortCode" Mode="In" Type="String" />
+      <Parameter Name="StartDate" Mode="In" Type="DateTime" />
+      <Parameter Name="EndDate" Mode="In" Type="DateTime" />
+    </FunctionImport>
+    <FunctionImport Name="SP_SelectIndicatorDataForWeb" ReturnType="Collection(LDBTESTModel.SP_SelectIndicatorDataForWeb_Result)">
+      <Parameter Name="ShortCode" Mode="In" Type="String" />
+      <Parameter Name="StartDate" Mode="In" Type="DateTime" />
+      <Parameter Name="EndDate" Mode="In" Type="DateTime" />
+    </FunctionImport>
+    <FunctionImport Name="SP_SelectIndicatorsNonUpdateLoadResult" ReturnType="Collection(LDBTESTModel.SP_SelectIndicatorsNonUpdateLoadResult_Result)" />
+    <FunctionImport Name="SP_SelectIndicatorsUpdateLoadResult" ReturnType="Collection(LDBTESTModel.SP_SelectIndicatorsUpdateLoadResult_Result)" />
+    <FunctionImport Name="SP_SelectIndicatorWebShortCodes" ReturnType="Collection(LDBTESTModel.SP_SelectIndicatorWebShortCodes_Result)" />
+    <FunctionImport Name="SP_SelectIndicatorWebShortCodesFOrNewIndicators" ReturnType="Collection(LDBTESTModel.SP_SelectIndicatorWebShortCodesFOrNewIndicators_Result)" />
+    <FunctionImport Name="SP_SelectIndustryMetaData" ReturnType="Collection(LDBTESTModel.SP_SelectIndustryMetaData_Result)">
+      <Parameter Name="ShortCode" Mode="In" Type="String" />
+      <Parameter Name="StartDate" Mode="In" Type="DateTime" />
+      <Parameter Name="EndDate" Mode="In" Type="DateTime" />
+    </FunctionImport>
+    <FunctionImport Name="SP_SelectShortCodes" ReturnType="Collection(LDBTESTModel.SP_SelectShortCodes_Result)" />
+    <FunctionImport Name="sp_SelectStagingWebData" ReturnType="Collection(LDBTESTModel.sp_SelectStagingWebData_Result)">
+      <Parameter Name="MasterMetaDataID" Mode="In" Type="Int32" />
+    </FunctionImport>
+    <FunctionImport Name="sp_SelectStagingWebDataForCompany" ReturnType="Collection(LDBTESTModel.sp_SelectStagingWebDataForCompany_Result)">
+      <Parameter Name="MasterMetaDataID" Mode="In" Type="Int32" />
+    </FunctionImport>
+    <FunctionImport Name="sp_SelectStagingWebDataForNewCompany" ReturnType="Collection(LDBTESTModel.sp_SelectStagingWebDataForNewCompany_Result)">
+      <Parameter Name="MasterMetaDataID" Mode="In" Type="Int32" />
+    </FunctionImport>
+    <FunctionImport Name="sp_SelectStagingWebDataForNewIndicators" ReturnType="Collection(LDBTESTModel.sp_SelectStagingWebDataForNewIndicators_Result)">
+      <Parameter Name="MasterMetaDataID" Mode="In" Type="Int32" />
+    </FunctionImport>
+    <FunctionImport Name="sp_UpdateStagingForecastInfo" />
+    <FunctionImport Name="SP_UpdateStagingInfo">
+      <Parameter Name="LoadSource" Mode="In" Type="String" />
+      <Parameter Name="Insert" Mode="In" Type="Int32" />
+      <Parameter Name="Update" Mode="In" Type="Int32" />
+      <Parameter Name="NumberOfRecords" Mode="In" Type="Int32" />
+      <Parameter Name="ShortCodesId" Mode="In" Type="Int32" />
+    </FunctionImport>
+    <FunctionImport Name="TestLocal" />
+    <FunctionImport Name="uspBusinessPhaseLogicImplementation" />
+    <FunctionImport Name="uspBusinessPhaseLogicImplementationForSingleShortCode">
+      <Parameter Name="shortcodevalue" Mode="In" Type="String" />
+    </FunctionImport>
+    <FunctionImport Name="uspDeleteCompanyDataSet" ReturnType="Collection(Int32)">
+      <Parameter Name="MasterMetaDataID" Mode="In" Type="Int32" />
+    </FunctionImport>
+    <FunctionImport Name="uspDeleteDuplicateData" ReturnType="Collection(Int32)" />
+    <FunctionImport Name="uspDeleteFavoriteListByCompanyAndUserID" ReturnType="Collection(Int32)">
+      <Parameter Name="CompanyShortCode" Mode="In" Type="String" />
+      <Parameter Name="UserID" Mode="In" Type="Int32" />
+      <Parameter Name="FavoriteListName" Mode="In" Type="String" />
+    </FunctionImport>
+    <FunctionImport Name="uspDeleteIndicatorDataSet" ReturnType="Collection(Int32)">
+      <Parameter Name="MasterMetaDataID" Mode="In" Type="Int32" />
+    </FunctionImport>
+    <FunctionImport Name="uspInsertExceptionLog" ReturnType="Collection(Int32)">
+      <Parameter Name="CustomerID" Mode="In" Type="String" />
+      <Parameter Name="ExceptionMessage" Mode="In" Type="String" />
+      <Parameter Name="PageName" Mode="In" Type="String" />
+      <Parameter Name="CreatedBy" Mode="In" Type="String" />
+      <Parameter Name="CreatedDate" Mode="In" Type="DateTime" />
+    </FunctionImport>
+    <FunctionImport Name="uspInsertFavouriteList" ReturnType="Collection(Int32)">
+      <Parameter Name="CompanyShortCode" Mode="In" Type="String" />
+      <Parameter Name="IndicatorShortCodes" Mode="In" Type="String" />
+      <Parameter Name="UserID" Mode="In" Type="Int32" />
+      <Parameter Name="FavouriteListName" Mode="In" Type="String" />
+      <Parameter Name="CreatedBY" Mode="In" Type="String" />
+      <Parameter Name="CreatedDate" Mode="In" Type="DateTime" />
+    </FunctionImport>
+    <FunctionImport Name="uspInsertPopupAccessingDate" ReturnType="Collection(Int32)">
+      <Parameter Name="UserID" Mode="In" Type="Int32" />
+      <Parameter Name="ComapanyShortCode" Mode="In" Type="String" />
+      <Parameter Name="LastAccessDate" Mode="In" Type="DateTime" />
+      <Parameter Name="CreatedBy" Mode="In" Type="Int32" />
+      <Parameter Name="CreatedDate" Mode="In" Type="DateTime" />
+    </FunctionImport>
+    <FunctionImport Name="uspMonthlyYearlyQuarterlyCalculation" />
+    <FunctionImport Name="uspMonthlyYearlyQuarterlyCalculationForAll" />
+    <FunctionImport Name="uspMonthlyYearlyQuarterlyCalculationUpdate" />
+    <FunctionImport Name="uspSelectAccounts" ReturnType="Collection(LDBTESTModel.uspSelectAccounts_Result)" />
+    <FunctionImport Name="uspSelectAllFavouriteListByUserID" ReturnType="Collection(LDBTESTModel.uspSelectAllFavouriteListByUserID_Result)">
+      <Parameter Name="CompanyShortCode" Mode="In" Type="String" />
+      <Parameter Name="UserID" Mode="In" Type="Int32" />
+      <Parameter Name="FavListName" Mode="In" Type="String" />
+    </FunctionImport>
+    <FunctionImport Name="uspSelectCompanyAndIndicatorDateByShordCodes" ReturnType="Collection(LDBTESTModel.uspSelectCompanyAndIndicatorDateByShordCodes_Result)">
+      <Parameter Name="CompanyShortCode" Mode="In" Type="String" />
+      <Parameter Name="IndicatorShortCode" Mode="In" Type="String" />
+      <Parameter Name="InverseOrder" Mode="In" Type="Boolean" />
+      <Parameter Name="MoveMonths" Mode="In" Type="Int32" />
+      <Parameter Name="CustomerCompanyID" Mode="In" Type="Int32" />
+    </FunctionImport>
+    <FunctionImport Name="uspSelectCompanyAndIndicatorDateByShordCodes_08282017" ReturnType="Collection(LDBTESTModel.uspSelectCompanyAndIndicatorDateByShordCodes_08282017_Result)">
+      <Parameter Name="CompanyShortCode" Mode="In" Type="String" />
+      <Parameter Name="IndicatorShortCode" Mode="In" Type="String" />
+      <Parameter Name="InverseOrder" Mode="In" Type="Boolean" />
+      <Parameter Name="MoveMonths" Mode="In" Type="Int32" />
+      <Parameter Name="CustomerCompanyID" Mode="In" Type="Int32" />
+    </FunctionImport>
+    <FunctionImport Name="uspSelectCompanyAndIndicatorDateByShordCodes_new" ReturnType="Collection(LDBTESTModel.uspSelectCompanyAndIndicatorDateByShordCodes_new_Result)">
+      <Parameter Name="CompanyShortCode" Mode="In" Type="String" />
+      <Parameter Name="IndicatorShortCode" Mode="In" Type="String" />
+      <Parameter Name="InverseOrder" Mode="In" Type="Boolean" />
+      <Parameter Name="MoveMonths" Mode="In" Type="Int32" />
+    </FunctionImport>
+    <FunctionImport Name="uspSelectCompanyAndIndicatorDateByShordCodes_old" ReturnType="Collection(LDBTESTModel.uspSelectCompanyAndIndicatorDateByShordCodes_old_Result)">
+      <Parameter Name="CompanyShortCode" Mode="In" Type="String" />
+      <Parameter Name="IndicatorShortCode" Mode="In" Type="String" />
+      <Parameter Name="InverseOrder" Mode="In" Type="Boolean" />
+      <Parameter Name="MoveMonths" Mode="In" Type="Int32" />
+    </FunctionImport>
+    <FunctionImport Name="uspSelectCompanyAndIndicatorDateByShordCodes03312017" ReturnType="Collection(LDBTESTModel.uspSelectCompanyAndIndicatorDateByShordCodes03312017_Result)">
+      <Parameter Name="CompanyShortCode" Mode="In" Type="String" />
+      <Parameter Name="IndicatorShortCode" Mode="In" Type="String" />
+      <Parameter Name="InverseOrder" Mode="In" Type="Boolean" />
+      <Parameter Name="MoveMonths" Mode="In" Type="Int32" />
+    </FunctionImport>
+    <FunctionImport Name="uspSelectCompanyAndIndicatorDateByShordCodesForAlliance" ReturnType="Collection(LDBTESTModel.uspSelectCompanyAndIndicatorDateByShordCodesForAlliance_Result)">
+      <Parameter Name="CompanyShortCode" Mode="In" Type="String" />
+      <Parameter Name="IndicatorShortCode" Mode="In" Type="String" />
+      <Parameter Name="InverseOrder" Mode="In" Type="Boolean" />
+      <Parameter Name="MoveMonths" Mode="In" Type="Int32" />
+      <Parameter Name="CustomerCompanyID" Mode="In" Type="Int32" />
+    </FunctionImport>
+    <FunctionImport Name="uspSelectCompanyDataForDataTrends" ReturnType="Collection(LDBTESTModel.uspSelectCompanyDataForDataTrends_Result)">
+      <Parameter Name="CompanyShortCode" Mode="In" Type="String" />
+      <Parameter Name="CalucaltionType" Mode="In" Type="Int32" />
+    </FunctionImport>
+    <FunctionImport Name="uspSelectCompanyDatasetsForInternalRatesOfChange" ReturnType="Collection(LDBTESTModel.uspSelectCompanyDatasetsForInternalRatesOfChange_Result)">
+      <Parameter Name="FirstCompanyDataSetName" Mode="In" Type="String" />
+      <Parameter Name="FirstCompanyCaluclationType" Mode="In" Type="String" />
+      <Parameter Name="SecondCompanyDataSetName" Mode="In" Type="String" />
+      <Parameter Name="SecondCompanyCaluclationType" Mode="In" Type="String" />
+    </FunctionImport>
+    <FunctionImport Name="uspSelectCompanyDataSetsInfoDownloadSection1" ReturnType="Collection(LDBTESTModel.uspSelectCompanyDataSetsInfoDownloadSection1_Result)">
+      <Parameter Name="MasterMetaDataIDS" Mode="In" Type="String" />
+    </FunctionImport>
+    <FunctionImport Name="uspSelectCompanyForecastDataByCompanyShortCode" ReturnType="Collection(LDBTESTModel.uspSelectCompanyForecastDataByCompanyShortCode_Result)">
+      <Parameter Name="CompanyShortcode" Mode="In" Type="String" />
+    </FunctionImport>
+    <FunctionImport Name="uspSelectCompanySales" />
+    <FunctionImport Name="uspSelectCompanySalesByShortCode">
+      <Parameter Name="CompanyShortCode" Mode="In" Type="String" />
+    </FunctionImport>
+    <FunctionImport Name="uspSelectCompanySalesForNewCompany" ReturnType="Collection(Int32)" />
+    <FunctionImport Name="uspSelectCompanySalesForUpdatedCompanies" ReturnType="Collection(Int32)" />
+    <FunctionImport Name="uspSelectCompanySalesPortal" />
+    <FunctionImport Name="uspSelectCompanySalesPortalByCustomerDataSetID">
+      <Parameter Name="CustomerDataSetID" Mode="In" Type="Int32" />
+    </FunctionImport>
+    <FunctionImport Name="uspSelectCompanySalesPortalByCustomerDataSetID_Scheduler" />
+    <FunctionImport Name="uspSelectDatacastCategories" ReturnType="Collection(LDBTESTModel.uspSelectDatacastCategories_Result)" />
+    <FunctionImport Name="uspSelectDatacastSubCategoriesByCategory" ReturnType="Collection(LDBTESTModel.uspSelectDatacastSubCategoriesByCategory_Result)">
+      <Parameter Name="Industry" Mode="In" Type="String" />
+    </FunctionImport>
+    <FunctionImport Name="uspSelectDatacastSubSector2BySubSector1" ReturnType="Collection(LDBTESTModel.uspSelectDatacastSubSector2BySubSector1_Result)">
+      <Parameter Name="Industry" Mode="In" Type="String" />
+      <Parameter Name="Sector" Mode="In" Type="String" />
+      <Parameter Name="SubSector1" Mode="In" Type="String" />
+    </FunctionImport>
+    <FunctionImport Name="uspSelectDatacastSubSector3BySubSector2" ReturnType="Collection(LDBTESTModel.uspSelectDatacastSubSector3BySubSector2_Result)">
+      <Parameter Name="Industry" Mode="In" Type="String" />
+      <Parameter Name="Sector" Mode="In" Type="String" />
+      <Parameter Name="SubSector1" Mode="In" Type="String" />
+      <Parameter Name="SubSector2" Mode="In" Type="String" />
+    </FunctionImport>
+    <FunctionImport Name="uspSelectDatacastSubSectorsBySector" ReturnType="Collection(LDBTESTModel.uspSelectDatacastSubSectorsBySector_Result)">
+      <Parameter Name="Industry" Mode="In" Type="String" />
+      <Parameter Name="Sector" Mode="In" Type="String" />
+    </FunctionImport>
+    <FunctionImport Name="uspSelectDataSetsByQBaseAccountID" ReturnType="Collection(LDBTESTModel.uspSelectDataSetsByQBaseAccountID_Result)">
+      <Parameter Name="QBaseAccountID" Mode="In" Type="Int32" />
+      <Parameter Name="QBaseDivID" Mode="In" Type="Int32" />
+    </FunctionImport>
+    <FunctionImport Name="uspSelectDivisionsByAccountID" ReturnType="Collection(LDBTESTModel.uspSelectDivisionsByAccountID_Result)">
+      <Parameter Name="AccountName" Mode="In" Type="String" />
+    </FunctionImport>
+    <FunctionImport Name="uspSelectFavouriteListByUserID" ReturnType="Collection(LDBTESTModel.uspSelectFavouriteListByUserID_Result)">
+      <Parameter Name="CompanyShortCode" Mode="In" Type="String" />
+      <Parameter Name="UserID" Mode="In" Type="Int32" />
+      <Parameter Name="FavListName" Mode="In" Type="String" />
+      <Parameter Name="DisplayLength" Mode="In" Type="Int32" />
+      <Parameter Name="DisplayStart" Mode="In" Type="Int32" />
+      <Parameter Name="Search" Mode="In" Type="String" />
+      <Parameter Name="SortCol" Mode="In" Type="Int32" />
+      <Parameter Name="SortDir" Mode="In" Type="String" />
+    </FunctionImport>
+    <FunctionImport Name="uspSelectFavouritesListByUserID" ReturnType="Collection(LDBTESTModel.uspSelectFavouritesListByUserID_Result)">
+      <Parameter Name="UserID" Mode="In" Type="Int32" />
+      <Parameter Name="CompanyShortCode" Mode="In" Type="String" />
+    </FunctionImport>
+    <FunctionImport Name="uspSelectIndicatorDataByIndicatorShortCodes" ReturnType="Collection(LDBTESTModel.uspSelectIndicatorDataByIndicatorShortCodes_Result)">
+      <Parameter Name="IndicatorShortCodes" Mode="In" Type="String" />
+      <Parameter Name="CompanyShortCode" Mode="In" Type="String" />
+    </FunctionImport>
+    <FunctionImport Name="uspSelectIndicatorForecastDataByIndicatorShortCode" ReturnType="Collection(LDBTESTModel.uspSelectIndicatorForecastDataByIndicatorShortCode_Result)">
+      <Parameter Name="IndicatorShortCode" Mode="In" Type="String" />
+    </FunctionImport>
+    <FunctionImport Name="uspSelectIndicatorListByCategorySearch" ReturnType="Collection(LDBTESTModel.uspSelectIndicatorListByCategorySearch_Result)">
+      <Parameter Name="CompanyShortCode" Mode="In" Type="String" />
+      <Parameter Name="UserID" Mode="In" Type="Int32" />
+      <Parameter Name="Industry" Mode="In" Type="String" />
+      <Parameter Name="Sector" Mode="In" Type="String" />
+      <Parameter Name="SubSector1" Mode="In" Type="String" />
+      <Parameter Name="SubSector2" Mode="In" Type="String" />
+      <Parameter Name="SubSector3" Mode="In" Type="String" />
+      <Parameter Name="DisplayLength" Mode="In" Type="Int32" />
+      <Parameter Name="DisplayStart" Mode="In" Type="Int32" />
+      <Parameter Name="Search" Mode="In" Type="String" />
+      <Parameter Name="SortCol" Mode="In" Type="Int32" />
+      <Parameter Name="SortDir" Mode="In" Type="String" />
+    </FunctionImport>
+    <FunctionImport Name="uspSelectIndicatorSales" />
+    <FunctionImport Name="uspSelectIndicatorSales_ByShortCodes" />
+    <FunctionImport Name="uspSelectIndicatorSales_ShortCodes" />
+    <FunctionImport Name="uspSelectIndicatorSales_TEST" />
+    <FunctionImport Name="uspSelectIndicatorSalesForNewIndicators" />
+    <FunctionImport Name="uspSelectIndicatorSalesForUpdatedIndicators" ReturnType="Collection(Int32)" />
+    <FunctionImport Name="uspSelectIndicatorSeriesItemsForDownloadData" ReturnType="Collection(LDBTESTModel.uspSelectIndicatorSeriesItemsForDownloadData_Result)">
+      <Parameter Name="ShortCode" Mode="In" Type="String" />
+    </FunctionImport>
+    <FunctionImport Name="uspSelectLoadCorelationLeadLagByDataSetID" ReturnType="Collection(LDBTESTModel.uspSelectLoadCorelationLeadLagByDataSetID_Result)">
+      <Parameter Name="ShortCode" Mode="In" Type="String" />
+      <Parameter Name="DisplayLength" Mode="In" Type="Int32" />
+      <Parameter Name="DisplayStart" Mode="In" Type="Int32" />
+      <Parameter Name="Search" Mode="In" Type="String" />
+      <Parameter Name="SortCol" Mode="In" Type="Int32" />
+      <Parameter Name="SortDir" Mode="In" Type="String" />
+      <Parameter Name="UserID" Mode="In" Type="Int32" />
+    </FunctionImport>
+    <FunctionImport Name="uspSelectLoadCorelationLeadLagByDataSetID_04282017" ReturnType="Collection(LDBTESTModel.uspSelectLoadCorelationLeadLagByDataSetID_04282017_Result)">
+      <Parameter Name="ShortCode" Mode="In" Type="String" />
+    </FunctionImport>
+    <FunctionImport Name="uspSelectLoadCorelationLeadLagByDataSetIDForAlliance" ReturnType="Collection(LDBTESTModel.uspSelectLoadCorelationLeadLagByDataSetIDForAlliance_Result)">
+      <Parameter Name="ShortCode" Mode="In" Type="String" />
+      <Parameter Name="DisplayLength" Mode="In" Type="Int32" />
+      <Parameter Name="DisplayStart" Mode="In" Type="Int32" />
+      <Parameter Name="Search" Mode="In" Type="String" />
+      <Parameter Name="SortCol" Mode="In" Type="Int32" />
+      <Parameter Name="SortDir" Mode="In" Type="String" />
+      <Parameter Name="UserID" Mode="In" Type="Int32" />
+      <Parameter Name="QBaseAccountID" Mode="In" Type="Int32" />
+      <Parameter Name="QBDivID" Mode="In" Type="Int32" />
+    </FunctionImport>
+    <FunctionImport Name="uspSelectLoadCorelationLeadLagByMultipleDatasetIDS" ReturnType="Collection(LDBTESTModel.uspSelectLoadCorelationLeadLagByMultipleDatasetIDS_Result)">
+      <Parameter Name="MasterMetaDataIDS" Mode="In" Type="String" />
+      <Parameter Name="DisplayLength" Mode="In" Type="Int32" />
+      <Parameter Name="DisplayStart" Mode="In" Type="Int32" />
+    </FunctionImport>
+    <FunctionImport Name="uspSelectLoadCorelationLeadLagByMultipleDatasetIDS_04282017" ReturnType="Collection(LDBTESTModel.uspSelectLoadCorelationLeadLagByMultipleDatasetIDS_04282017_Result)">
+      <Parameter Name="MasterMetaDataIDS" Mode="In" Type="String" />
+    </FunctionImport>
+    <FunctionImport Name="UspSelectMasterMetaData" ReturnType="Collection(LDBTESTModel.UspSelectMasterMetaData_Result)">
+      <Parameter Name="ShortCode" Mode="In" Type="String" />
+    </FunctionImport>
+    <FunctionImport Name="uspSelectMasterMetaDataByMetaDataID" ReturnType="Collection(LDBTESTModel.uspSelectMasterMetaDataByMetaDataID_Result)">
+      <Parameter Name="MasterMetaDataID" Mode="In" Type="Int32" />
+    </FunctionImport>
+    <FunctionImport Name="UspSelectMasterMetaDataByWorkBook" ReturnType="Collection(LDBTESTModel.UspSelectMasterMetaDataByWorkBook_Result)">
+      <Parameter Name="WorkBook" Mode="In" Type="String" />
+    </FunctionImport>
+    <FunctionImport Name="uspSelectMasterMetaDataFields" ReturnType="Collection(LDBTESTModel.uspSelectMasterMetaDataFields_Result)" />
+    <FunctionImport Name="uspTest" ReturnType="Collection(Decimal)">
+      <Parameter Name="A" Mode="In" Type="Decimal" />
+      <Parameter Name="B" Mode="In" Type="Decimal" />
+    </FunctionImport>
+    <FunctionImport Name="uspUpdateFavouriteList" ReturnType="Collection(Int32)">
+      <Parameter Name="CompanyShortCode" Mode="In" Type="String" />
+      <Parameter Name="IndicatorShortCodes" Mode="In" Type="String" />
+      <Parameter Name="UserID" Mode="In" Type="Int32" />
+      <Parameter Name="FavouriteListName" Mode="In" Type="String" />
+      <Parameter Name="CreatedBY" Mode="In" Type="String" />
+      <Parameter Name="CreatedDate" Mode="In" Type="DateTime" />
+    </FunctionImport>
+    <FunctionImport Name="uspUpdateFeatureDates" ReturnType="Collection(Int32)" />
+    <FunctionImport Name="uspUpdateFilePathCompanyWeb" />
+    <FunctionImport Name="uspUpdateFilePathIndicatorList" />
+    <FunctionImport Name="uspUpdateFilePathIndicatorWeb" />
+    <FunctionImport Name="uspUpdateMasterMetaData" ReturnType="Collection(Int32)">
+      <Parameter Name="FileName" Mode="In" Type="String" />
+      <Parameter Name="WorkBook" Mode="In" Type="String" />
+      <Parameter Name="NAICSCode" Mode="In" Type="String" />
+      <Parameter Name="SeriesName" Mode="In" Type="String" />
+      <Parameter Name="NSA" Mode="In" Type="String" />
+      <Parameter Name="Continent" Mode="In" Type="String" />
+      <Parameter Name="Country" Mode="In" Type="String" />
+      <Parameter Name="Region" Mode="In" Type="String" />
+      <Parameter Name="State" Mode="In" Type="String" />
+      <Parameter Name="MSA" Mode="In" Type="String" />
+      <Parameter Name="Category" Mode="In" Type="String" />
+      <Parameter Name="Subcategory" Mode="In" Type="String" />
+      <Parameter Name="Units" Mode="In" Type="String" />
+      <Parameter Name="BASE" Mode="In" Type="String" />
+      <Parameter Name="Source" Mode="In" Type="String" />
+      <Parameter Name="Link" Mode="In" Type="String" />
+      <Parameter Name="Definition" Mode="In" Type="String" />
+      <Parameter Name="UpdateFrequency" Mode="In" Type="String" />
+      <Parameter Name="ProprietaryData" Mode="In" Type="String" />
+      <Parameter Name="UpdateType" Mode="In" Type="String" />
+      <Parameter Name="Discontinued" Mode="In" Type="String" />
+      <Parameter Name="DiscontinuedDate" Mode="In" Type="String" />
+      <Parameter Name="StatPref1" Mode="In" Type="String" />
+      <Parameter Name="StatPref2" Mode="In" Type="String" />
+      <Parameter Name="AccountID" Mode="In" Type="Int32" />
+      <Parameter Name="DivisionID" Mode="In" Type="Int32" />
+      <Parameter Name="AccountName" Mode="In" Type="String" />
+      <Parameter Name="DivisionName" Mode="In" Type="String" />
+      <Parameter Name="ModifiedBy" Mode="In" Type="String" />
+      <Parameter Name="ModifiedDate" Mode="In" Type="DateTime" />
+    </FunctionImport>
+    <FunctionImport Name="uspUpdateMasterMetaDataByMasterMetaDataID" ReturnType="Collection(Int32)">
+      <Parameter Name="MasterMetaDataID" Mode="In" Type="Int32" />
+      <Parameter Name="UpdateFrequency" Mode="In" Type="String" />
+      <Parameter Name="ProprietaryData" Mode="In" Type="String" />
+      <Parameter Name="UpdateType" Mode="In" Type="String" />
+      <Parameter Name="Discontinued" Mode="In" Type="String" />
+      <Parameter Name="DiscontinuedDate" Mode="In" Type="String" />
+      <Parameter Name="StatPref1" Mode="In" Type="String" />
+      <Parameter Name="StatPref2" Mode="In" Type="String" />
+      <Parameter Name="AccountName" Mode="In" Type="String" />
+      <Parameter Name="DivisionName" Mode="In" Type="String" />
+      <Parameter Name="DivisionID" Mode="In" Type="String" />
+      <Parameter Name="ModifiedBy" Mode="In" Type="String" />
+      <Parameter Name="ModifiedDate" Mode="In" Type="DateTime" />
+    </FunctionImport>
+    <FunctionImport Name="uspUpdateMetaDataFRomIndicatorList" />
+    <FunctionImport Name="uspUpdateUIForecastListPath" />
+    <FunctionImport Name="uspInsertDashboardWidgetsList" ReturnType="Collection(Int32)">
+      <Parameter Name="CompanyShortCode" Mode="In" Type="String" />
+      <Parameter Name="IndicatorShortCodes" Mode="In" Type="String" />
+      <Parameter Name="UserID" Mode="In" Type="Int32" />
+      <Parameter Name="FavouriteListName" Mode="In" Type="String" />
+      <Parameter Name="CreatedBY" Mode="In" Type="String" />
+      <Parameter Name="CreatedDate" Mode="In" Type="DateTime" />
+    </FunctionImport>
+    <FunctionImport Name="uspUpdateDashboardWidgetsList" ReturnType="Collection(Int32)">
+      <Parameter Name="CompanyShortCode" Mode="In" Type="String" />
+      <Parameter Name="IndicatorShortCodes" Mode="In" Type="String" />
+      <Parameter Name="UserID" Mode="In" Type="Int32" />
+      <Parameter Name="FavouriteListName" Mode="In" Type="String" />
+      <Parameter Name="CreatedBY" Mode="In" Type="String" />
+      <Parameter Name="CreatedDate" Mode="In" Type="DateTime" />
+    </FunctionImport>
+    <FunctionImport Name="uspSelectDBWidgetsListByCompanyID" ReturnType="Collection(LDBTESTModel.uspSelectDBWidgetsListByCompanyID_Result)">
+      <Parameter Name="UserID" Mode="In" Type="Int32" />
+      <Parameter Name="CompanyShortCode" Mode="In" Type="String" />
+    </FunctionImport>
+    <FunctionImport Name="uspDeleteDBWidgetsListByCompanyAndUserID" ReturnType="Collection(Int32)">
+      <Parameter Name="DashboardWidgetsListId" Mode="In" Type="Int32" />
+      <Parameter Name="CompanyShortCode" Mode="In" Type="String" />
+      <Parameter Name="UserID" Mode="In" Type="Int32" />
+    </FunctionImport>
+    <FunctionImport Name="uspSelectAllDBWidgetsListByCompanyID" ReturnType="Collection(LDBTESTModel.uspSelectAllDBWidgetsListByCompanyID_Result)">
+      <Parameter Name="CompanyShortCode" Mode="In" Type="String" />
+      <Parameter Name="UserID" Mode="In" Type="Int32" />
+    </FunctionImport>
+    <FunctionImport Name="uspSelectDBWidgetsCorrelationListByCompanyID" ReturnType="Collection(LDBTESTModel.uspSelectDBWidgetsCorrelationListByCompanyID_Result)">
+      <Parameter Name="CompanyShortCode" Mode="In" Type="String" />
+      <Parameter Name="UserID" Mode="In" Type="Int32" />
+      <Parameter Name="DisplayLength" Mode="In" Type="Int32" />
+      <Parameter Name="DisplayStart" Mode="In" Type="Int32" />
+      <Parameter Name="Search" Mode="In" Type="String" />
+      <Parameter Name="SortCol" Mode="In" Type="Int32" />
+      <Parameter Name="SortDir" Mode="In" Type="String" />
+    </FunctionImport>
+    <FunctionImport Name="uspSelectPhaseValuesOfDBWidgetsByCompanyId" ReturnType="Collection(LDBTESTModel.uspSelectPhaseValuesOfDBWidgetsByCompanyId_Result)">
+      <Parameter Name="CompanyShortCode" Mode="In" Type="String" />
+    </FunctionImport>
+  </EntityContainer>
+  <ComplexType Name="sp_CheckLogin_Result">
+    <Property Type="String" Name="UserName" Nullable="false" MaxLength="64" />
+    <Property Type="String" Name="Password" Nullable="false" MaxLength="64" />
+  </ComplexType>
+  <ComplexType Name="SP_SelectAllCompanies_Result">
+    <Property Type="String" Name="CompanyName" Nullable="true" MaxLength="500" />
+    <Property Type="Int32" Name="MasterMetadataID" Nullable="false" />
+    <Property Type="String" Name="WorkBook" Nullable="true" MaxLength="500" />
+  </ComplexType>
+  <ComplexType Name="SP_SelectAllIndicators_Result">
+    <Property Type="String" Name="IndicatodName" Nullable="true" MaxLength="500" />
+    <Property Type="Int32" Name="MasterMetadataID" Nullable="false" />
+  </ComplexType>
+  <ComplexType Name="SP_SelectCompanyData_Result">
+    <Property Type="String" Name="MonthYear" Nullable="true" MaxLength="10" />
+    <Property Type="Decimal" Name="RawValue" Nullable="true" Precision="32" Scale="16" />
+    <Property Type="Decimal" Name="AdjValue" Nullable="true" Precision="32" Scale="16" />
+    <Property Type="Decimal" Name="C1By12" Nullable="true" Precision="32" Scale="16" />
+    <Property Type="Decimal" Name="C3MMA" Nullable="true" Precision="32" Scale="16" />
+    <Property Type="Decimal" Name="C3MMT" Nullable="true" Precision="32" Scale="16" />
+    <Property Type="Decimal" Name="C3BY12" Nullable="true" Precision="32" Scale="16" />
+    <Property Type="Decimal" Name="C12MMA" Nullable="true" Precision="32" Scale="16" />
+    <Property Type="Decimal" Name="C12MMT" Nullable="true" Precision="32" Scale="16" />
+    <Property Type="Decimal" Name="C12BY12" Nullable="true" Precision="32" Scale="16" />
+    <Property Type="DateTime" Name="MonthYearDate" Nullable="true" Precision="23" />
+  </ComplexType>
+  <ComplexType Name="SP_SelectCompanyData_TestSP_Result">
+    <Property Type="String" Name="MonthYear" Nullable="true" MaxLength="10" />
+    <Property Type="Decimal" Name="RawValue" Nullable="true" Precision="32" Scale="16" />
+    <Property Type="Decimal" Name="AdjValue" Nullable="true" Precision="32" Scale="16" />
+    <Property Type="Decimal" Name="C1By12" Nullable="true" Precision="32" Scale="16" />
+    <Property Type="Decimal" Name="C3MMA" Nullable="true" Precision="32" Scale="16" />
+    <Property Type="Decimal" Name="C3MMT" Nullable="true" Precision="32" Scale="16" />
+    <Property Type="Decimal" Name="C3BY12" Nullable="true" Precision="32" Scale="16" />
+    <Property Type="Decimal" Name="C12MMA" Nullable="true" Precision="32" Scale="16" />
+    <Property Type="Decimal" Name="C12MMT" Nullable="true" Precision="32" Scale="16" />
+    <Property Type="Decimal" Name="C12BY12" Nullable="true" Precision="32" Scale="16" />
+    <Property Type="DateTime" Name="MonthYearDate" Nullable="true" Precision="23" />
+  </ComplexType>
+  <ComplexType Name="SP_SelectCompanyDataForWeb_Result">
+    <Property Type="String" Name="MonthYear" Nullable="true" MaxLength="10" />
+    <Property Type="Decimal" Name="RawValue" Nullable="true" Precision="32" Scale="16" />
+    <Property Type="Decimal" Name="AdjValue" Nullable="true" Precision="32" Scale="16" />
+    <Property Type="Decimal" Name="C1By12" Nullable="true" Precision="32" Scale="16" />
+    <Property Type="Decimal" Name="C3MMA" Nullable="true" Precision="32" Scale="16" />
+    <Property Type="Decimal" Name="C3MMT" Nullable="true" Precision="32" Scale="16" />
+    <Property Type="Decimal" Name="C3BY12" Nullable="true" Precision="32" Scale="16" />
+    <Property Type="Decimal" Name="C12MMA" Nullable="true" Precision="32" Scale="16" />
+    <Property Type="Decimal" Name="C12MMT" Nullable="true" Precision="32" Scale="16" />
+    <Property Type="Decimal" Name="C12BY12" Nullable="true" Precision="32" Scale="16" />
+  </ComplexType>
+  <ComplexType Name="sp_SelectCompanyDataInclusive_Result">
+    <Property Type="String" Name="MonthYear" Nullable="true" MaxLength="10" />
+    <Property Type="Decimal" Name="RawValue" Nullable="true" Precision="32" Scale="16" />
+    <Property Type="Decimal" Name="AdjValue" Nullable="true" Precision="32" Scale="16" />
+    <Property Type="Decimal" Name="C1By12" Nullable="true" Precision="32" Scale="16" />
+    <Property Type="Decimal" Name="C3MMA" Nullable="true" Precision="32" Scale="16" />
+    <Property Type="Decimal" Name="C3MMT" Nullable="true" Precision="32" Scale="16" />
+    <Property Type="Decimal" Name="C3BY12" Nullable="true" Precision="32" Scale="16" />
+    <Property Type="Decimal" Name="C12MMA" Nullable="true" Precision="32" Scale="16" />
+    <Property Type="Decimal" Name="C12MMT" Nullable="true" Precision="32" Scale="16" />
+    <Property Type="Decimal" Name="C12BY12" Nullable="true" Precision="32" Scale="16" />
+    <Property Type="DateTime" Name="MonthYearDate" Nullable="true" Precision="23" />
+    <Property Type="String" Name="Source" Nullable="false" MaxLength="6" />
+  </ComplexType>
+  <ComplexType Name="sp_SelectCompanyDataInclusive_New_Result">
+    <Property Type="String" Name="MonthYear" Nullable="true" MaxLength="10" />
+    <Property Type="Decimal" Name="RawValue" Nullable="true" Precision="32" Scale="16" />
+    <Property Type="Decimal" Name="AdjValue" Nullable="true" Precision="32" Scale="16" />
+    <Property Type="Decimal" Name="C1By12" Nullable="true" Precision="32" Scale="16" />
+    <Property Type="Decimal" Name="C3MMA" Nullable="true" Precision="32" Scale="16" />
+    <Property Type="Decimal" Name="C3MMT" Nullable="true" Precision="32" Scale="16" />
+    <Property Type="Decimal" Name="C3BY12" Nullable="true" Precision="32" Scale="16" />
+    <Property Type="Decimal" Name="C12MMA" Nullable="true" Precision="32" Scale="16" />
+    <Property Type="Decimal" Name="C12MMT" Nullable="true" Precision="32" Scale="16" />
+    <Property Type="Decimal" Name="C12BY12" Nullable="true" Precision="32" Scale="16" />
+    <Property Type="DateTime" Name="MonthYearDate" Nullable="true" Precision="23" />
+    <Property Type="String" Name="Source" Nullable="false" MaxLength="6" />
+  </ComplexType>
+  <ComplexType Name="SP_SelectCompanyMetaData_Result">
+    <Property Type="DateTime" Name="MonthYear" Nullable="true" Precision="23" />
+    <Property Type="Decimal" Name="Value" Nullable="true" Precision="32" Scale="16" />
+  </ComplexType>
+  <ComplexType Name="SP_SelectCompanyShortCodes_Result">
+    <Property Type="String" Name="FileName" Nullable="true" MaxLength="500" />
+    <Property Type="Int32" Name="MasterMetadataID" Nullable="false" />
+  </ComplexType>
+  <ComplexType Name="SP_SelectCompanyUpdateLoadResult_Result">
+    <Property Type="String" Name="Company" Nullable="true" MaxLength="255" />
+    <Property Type="String" Name="ExcelPath" Nullable="true" MaxLength="4000" />
+    <Property Type="Int32" Name="LoadedRows" Nullable="true" />
+  </ComplexType>
+  <ComplexType Name="SP_SelectCompanyWebShortCodes_Result">
+    <Property Type="Int32" Name="MasterMetaDataID" Nullable="false" />
+    <Property Type="String" Name="ShortCode" Nullable="true" MaxLength="500" />
+  </ComplexType>
+  <ComplexType Name="SP_SelectCompanyWebShortCodesFOrNewCompany_Result">
+    <Property Type="Int32" Name="MasterMetaDataID" Nullable="false" />
+    <Property Type="String" Name="ShortCode" Nullable="true" MaxLength="500" />
+  </ComplexType>
+  <ComplexType Name="SP_SelectCustomerData_Result">
+    <Property Type="String" Name="MonthYear" Nullable="true" MaxLength="10" />
+    <Property Type="Int32" Name="RawValue" Nullable="true" />
+    <Property Type="Decimal" Name="AdjValue" Nullable="true" Precision="32" Scale="16" />
+    <Property Type="Decimal" Name="C1By12" Nullable="true" Precision="24" Scale="15" />
+    <Property Type="Decimal" Name="C3MMA" Nullable="true" Precision="24" Scale="15" />
+    <Property Type="Decimal" Name="C3MMT" Nullable="true" Precision="24" Scale="15" />
+    <Property Type="Decimal" Name="C3BY12" Nullable="true" Precision="24" Scale="15" />
+    <Property Type="Decimal" Name="C12MMA" Nullable="true" Precision="24" Scale="15" />
+    <Property Type="Decimal" Name="C12MMT" Nullable="true" Precision="24" Scale="15" />
+    <Property Type="Decimal" Name="C12BY12" Nullable="true" Precision="24" Scale="15" />
+    <Property Type="DateTime" Name="MonthYearDate" Nullable="true" Precision="23" />
+  </ComplexType>
+  <ComplexType Name="SP_SelectForecastDatabyForecastMetadataID_Result">
+    <Property Type="DateTime" Name="MonthYear" Nullable="true" />
+    <Property Type="Decimal" Name="LFR12MMA" Nullable="true" Precision="32" Scale="16" />
+    <Property Type="Decimal" Name="Avg12MMA" Nullable="true" Precision="32" Scale="16" />
+    <Property Type="Decimal" Name="UFR12MMA" Nullable="true" Precision="32" Scale="16" />
+    <Property Type="Decimal" Name="LFR3MMA" Nullable="true" Precision="32" Scale="16" />
+    <Property Type="Decimal" Name="Avg3MMA" Nullable="true" Precision="32" Scale="16" />
+    <Property Type="Decimal" Name="UFR3MMA" Nullable="true" Precision="32" Scale="16" />
+    <Property Type="Decimal" Name="LFR12by12" Nullable="true" Precision="32" Scale="16" />
+    <Property Type="Decimal" Name="Avg12by12" Nullable="true" Precision="32" Scale="16" />
+    <Property Type="Decimal" Name="UFR12by12" Nullable="true" Precision="32" Scale="16" />
+    <Property Type="Decimal" Name="LFR3by12" Nullable="true" Precision="32" Scale="16" />
+    <Property Type="Decimal" Name="Avg3by12" Nullable="true" Precision="32" Scale="16" />
+    <Property Type="Decimal" Name="UFR3by12" Nullable="true" Precision="32" Scale="16" />
+  </ComplexType>
+  <ComplexType Name="SP_SelectForecastDosCodes_Result">
+    <Property Type="Int32" Name="ForecastMetaDataID" Nullable="false" />
+    <Property Type="String" Name="DosCode" Nullable="true" MaxLength="4000" />
+  </ComplexType>
+  <ComplexType Name="sp_SelectForecastStagingWebData_Result">
+    <Property Type="Int32" Name="ForeCastDataID" Nullable="false" />
+    <Property Type="Int32" Name="ForeCastMetaDataID" Nullable="true" />
+    <Property Type="String" Name="ShortCode" Nullable="true" MaxLength="64" />
+    <Property Type="DateTime" Name="ForeCastDate" Nullable="true" />
+    <Property Type="DateTime" Name="MonthYear" Nullable="true" />
+    <Property Type="Decimal" Name="LFR12MMA" Nullable="true" Precision="32" Scale="16" />
+    <Property Type="Decimal" Name="Avg12MMA" Nullable="true" Precision="32" Scale="16" />
+    <Property Type="Decimal" Name="UFR12MMA" Nullable="true" Precision="32" Scale="16" />
+    <Property Type="Decimal" Name="LFR3MMA" Nullable="true" Precision="32" Scale="16" />
+    <Property Type="Decimal" Name="Avg3MMA" Nullable="true" Precision="32" Scale="16" />
+    <Property Type="Decimal" Name="UFR3MMA" Nullable="true" Precision="32" Scale="16" />
+    <Property Type="Decimal" Name="LFR12by12" Nullable="true" Precision="32" Scale="16" />
+    <Property Type="Decimal" Name="Avg12by12" Nullable="true" Precision="32" Scale="16" />
+    <Property Type="Decimal" Name="UFR12by12" Nullable="true" Precision="32" Scale="16" />
+    <Property Type="Decimal" Name="LFR3by12" Nullable="true" Precision="32" Scale="16" />
+    <Property Type="Decimal" Name="Avg3by12" Nullable="true" Precision="32" Scale="16" />
+    <Property Type="Decimal" Name="UFR3by12" Nullable="true" Precision="32" Scale="16" />
+    <Property Type="String" Name="CreatedBy" Nullable="true" MaxLength="128" />
+    <Property Type="DateTime" Name="CreatedDate" Nullable="true" Precision="23" />
+  </ComplexType>
+  <ComplexType Name="SP_SelectForecastWebShortCodes_Result">
+    <Property Type="Int32" Name="ForeCastMetaDataID" Nullable="false" />
+    <Property Type="String" Name="ShortCode" Nullable="true" MaxLength="64" />
+  </ComplexType>
+  <ComplexType Name="SP_SelectIndicatorData_Result">
+    <Property Type="String" Name="MonthYear" Nullable="true" MaxLength="10" />
+    <Property Type="Decimal" Name="RawValue" Nullable="true" Precision="32" Scale="16" />
+    <Property Type="Decimal" Name="AdjValue" Nullable="true" Precision="32" Scale="16" />
+    <Property Type="Decimal" Name="C1By12" Nullable="true" Precision="32" Scale="16" />
+    <Property Type="Decimal" Name="C3MMA" Nullable="true" Precision="32" Scale="16" />
+    <Property Type="Decimal" Name="C3MMT" Nullable="true" Precision="32" Scale="16" />
+    <Property Type="Decimal" Name="C3BY12" Nullable="true" Precision="32" Scale="16" />
+    <Property Type="Decimal" Name="C12MMA" Nullable="true" Precision="32" Scale="16" />
+    <Property Type="Decimal" Name="C12MMT" Nullable="true" Precision="32" Scale="16" />
+    <Property Type="Decimal" Name="C12BY12" Nullable="true" Precision="32" Scale="16" />
+    <Property Type="DateTime" Name="MonthYearDate" Nullable="true" Precision="23" />
+  </ComplexType>
+  <ComplexType Name="SP_SelectIndicatorData_TestSp_Result">
+    <Property Type="String" Name="MonthYear" Nullable="true" MaxLength="10" />
+    <Property Type="Decimal" Name="RawValue" Nullable="true" Precision="32" Scale="16" />
+    <Property Type="Decimal" Name="AdjValue" Nullable="true" Precision="32" Scale="16" />
+    <Property Type="Decimal" Name="C1By12" Nullable="true" Precision="32" Scale="16" />
+    <Property Type="Decimal" Name="C3MMA" Nullable="true" Precision="32" Scale="16" />
+    <Property Type="Decimal" Name="C3MMT" Nullable="true" Precision="32" Scale="16" />
+    <Property Type="Decimal" Name="C3BY12" Nullable="true" Precision="32" Scale="16" />
+    <Property Type="Decimal" Name="C12MMA" Nullable="true" Precision="32" Scale="16" />
+    <Property Type="Decimal" Name="C12MMT" Nullable="true" Precision="32" Scale="16" />
+    <Property Type="Decimal" Name="C12BY12" Nullable="true" Precision="32" Scale="16" />
+    <Property Type="DateTime" Name="MonthYearDate" Nullable="true" Precision="23" />
+  </ComplexType>
+  <ComplexType Name="SP_SelectIndicatorDataForWeb_Result">
+    <Property Type="String" Name="MonthYear" Nullable="true" MaxLength="10" />
+    <Property Type="Decimal" Name="RawValue" Nullable="true" Precision="32" Scale="16" />
+    <Property Type="Decimal" Name="AdjValue" Nullable="true" Precision="32" Scale="16" />
+    <Property Type="Decimal" Name="C1By12" Nullable="true" Precision="32" Scale="16" />
+    <Property Type="Decimal" Name="C3MMA" Nullable="true" Precision="32" Scale="16" />
+    <Property Type="Decimal" Name="C3MMT" Nullable="true" Precision="32" Scale="16" />
+    <Property Type="Decimal" Name="C3BY12" Nullable="true" Precision="32" Scale="16" />
+    <Property Type="Decimal" Name="C12MMA" Nullable="true" Precision="32" Scale="16" />
+    <Property Type="Decimal" Name="C12MMT" Nullable="true" Precision="32" Scale="16" />
+    <Property Type="Decimal" Name="C12BY12" Nullable="true" Precision="32" Scale="16" />
+  </ComplexType>
+  <ComplexType Name="SP_SelectIndicatorsNonUpdateLoadResult_Result">
+    <Property Type="String" Name="Indicator" Nullable="true" MaxLength="255" />
+    <Property Type="String" Name="ExcelPath" Nullable="true" MaxLength="4000" />
+    <Property Type="Int32" Name="NonLoadedRows" Nullable="true" />
+  </ComplexType>
+  <ComplexType Name="SP_SelectIndicatorsUpdateLoadResult_Result">
+    <Property Type="String" Name="Indicator" Nullable="true" MaxLength="255" />
+    <Property Type="String" Name="ExcelPath" Nullable="true" MaxLength="4000" />
+    <Property Type="Int32" Name="LoadedRows" Nullable="true" />
+  </ComplexType>
+  <ComplexType Name="SP_SelectIndicatorWebShortCodes_Result">
+    <Property Type="Int32" Name="MasterMetaDataID" Nullable="false" />
+    <Property Type="String" Name="ShortCode" Nullable="true" MaxLength="500" />
+  </ComplexType>
+  <ComplexType Name="SP_SelectIndicatorWebShortCodesFOrNewIndicators_Result">
+    <Property Type="Int32" Name="MasterMetaDataID" Nullable="false" />
+    <Property Type="String" Name="ShortCode" Nullable="true" MaxLength="500" />
+  </ComplexType>
+  <ComplexType Name="SP_SelectIndustryMetaData_Result">
+    <Property Type="DateTime" Name="MonthYear" Nullable="true" Precision="23" />
+    <Property Type="Decimal" Name="Value" Nullable="true" Precision="18" Scale="10" />
+  </ComplexType>
+  <ComplexType Name="SP_SelectShortCodes_Result">
+    <Property Type="Int32" Name="MasterMetadataID" Nullable="false" />
+    <Property Type="String" Name="WorkBook" Nullable="true" MaxLength="500" />
+    <Property Type="String" Name="FileName" Nullable="true" MaxLength="500" />
+    <Property Type="String" Name="NAICSCode" Nullable="true" MaxLength="500" />
+    <Property Type="String" Name="SeriesName" Nullable="true" MaxLength="500" />
+    <Property Type="String" Name="NSA" Nullable="true" MaxLength="500" />
+    <Property Type="String" Name="Continent" Nullable="true" MaxLength="500" />
+    <Property Type="String" Name="Country" Nullable="true" MaxLength="500" />
+    <Property Type="String" Name="Region" Nullable="true" MaxLength="500" />
+    <Property Type="String" Name="State" Nullable="true" MaxLength="500" />
+    <Property Type="String" Name="MSA" Nullable="true" MaxLength="500" />
+    <Property Type="String" Name="Category" Nullable="true" MaxLength="500" />
+    <Property Type="String" Name="Subcategory" Nullable="true" MaxLength="500" />
+    <Property Type="String" Name="Units" Nullable="true" MaxLength="500" />
+    <Property Type="String" Name="BASE" Nullable="true" MaxLength="500" />
+    <Property Type="String" Name="Source" Nullable="true" MaxLength="256" />
+    <Property Type="String" Name="Link" Nullable="true" MaxLength="512" />
+    <Property Type="String" Name="Definition" Nullable="true" MaxLength="1024" />
+    <Property Type="String" Name="UpdateFrequency" Nullable="true" MaxLength="32" />
+    <Property Type="String" Name="ProprietaryData" Nullable="true" MaxLength="32" />
+    <Property Type="String" Name="UpdateType" Nullable="true" MaxLength="32" />
+    <Property Type="String" Name="Discontinued" Nullable="true" MaxLength="32" />
+    <Property Type="String" Name="DiscontinuedDate" Nullable="true" MaxLength="16" />
+    <Property Type="String" Name="StatPref1" Nullable="true" MaxLength="128" />
+    <Property Type="String" Name="StatPref2" Nullable="true" MaxLength="128" />
+    <Property Type="Int32" Name="AccountID" Nullable="true" />
+    <Property Type="Int32" Name="DivisionID" Nullable="true" />
+    <Property Type="String" Name="AccountName" Nullable="true" MaxLength="512" />
+    <Property Type="String" Name="DivisionName" Nullable="true" MaxLength="512" />
+    <Property Type="String" Name="CreatedBy" Nullable="true" MaxLength="128" />
+    <Property Type="DateTime" Name="CreatedDate" Nullable="true" Precision="23" />
+    <Property Type="String" Name="ModifiedBy" Nullable="true" MaxLength="128" />
+    <Property Type="DateTime" Name="ModifiedDate" Nullable="true" Precision="23" />
+    <Property Type="String" Name="GEO" Nullable="true" MaxLength="500" />
+    <Property Type="String" Name="Publication" Nullable="true" MaxLength="500" />
+    <Property Type="String" Name="CEICCode" Nullable="true" MaxLength="500" />
+    <Property Type="String" Name="WORKBOOKPATH" Nullable="true" />
+    <Property Type="String" Name="Type" Nullable="true" MaxLength="64" />
+    <Property Type="String" Name="SourceWorkBook" Nullable="true" MaxLength="512" />
+    <Property Type="String" Name="PriorName" Nullable="true" MaxLength="128" />
+    <Property Type="String" Name="MMAMMT" Nullable="true" MaxLength="16" />
+    <Property Type="String" Name="DataType" Nullable="true" MaxLength="32" />
+    <Property Type="String" Name="Industry" Nullable="true" MaxLength="128" />
+    <Property Type="String" Name="Sector" Nullable="true" MaxLength="64" />
+    <Property Type="String" Name="SubSector1" Nullable="true" MaxLength="64" />
+    <Property Type="String" Name="SubSector2" Nullable="true" MaxLength="64" />
+    <Property Type="String" Name="SubSector3" Nullable="true" MaxLength="64" />
+    <Property Type="String" Name="Description" Nullable="true" />
+  </ComplexType>
+  <ComplexType Name="sp_SelectStagingWebData_Result">
+    <Property Type="String" Name="ShortCode" Nullable="true" MaxLength="500" />
+    <Property Type="String" Name="MonthYear" Nullable="true" MaxLength="10" />
+    <Property Type="Decimal" Name="RawValue" Nullable="true" Precision="32" Scale="16" />
+    <Property Type="Decimal" Name="AdjValue" Nullable="true" Precision="32" Scale="16" />
+    <Property Type="DateTime" Name="CreatedDate" Nullable="true" Precision="23" />
+  </ComplexType>
+  <ComplexType Name="sp_SelectStagingWebDataForCompany_Result">
+    <Property Type="String" Name="ShortCode" Nullable="true" MaxLength="500" />
+    <Property Type="String" Name="MonthYear" Nullable="true" MaxLength="10" />
+    <Property Type="Decimal" Name="RawValue" Nullable="true" Precision="32" Scale="16" />
+    <Property Type="Decimal" Name="AdjValue" Nullable="true" Precision="32" Scale="16" />
+    <Property Type="DateTime" Name="CreatedDate" Nullable="true" Precision="23" />
+  </ComplexType>
+  <ComplexType Name="sp_SelectStagingWebDataForNewCompany_Result">
+    <Property Type="String" Name="ShortCode" Nullable="true" MaxLength="500" />
+    <Property Type="String" Name="MonthYear" Nullable="true" MaxLength="10" />
+    <Property Type="Decimal" Name="RawValue" Nullable="true" Precision="24" Scale="15" />
+    <Property Type="Decimal" Name="AdjValue" Nullable="true" Precision="24" Scale="15" />
+    <Property Type="String" Name="CreatedBy" Nullable="true" MaxLength="500" />
+    <Property Type="DateTime" Name="CreatedDate" Nullable="true" Precision="23" />
+  </ComplexType>
+  <ComplexType Name="sp_SelectStagingWebDataForNewIndicators_Result">
+    <Property Type="String" Name="ShortCode" Nullable="true" MaxLength="500" />
+    <Property Type="String" Name="MonthYear" Nullable="true" MaxLength="10" />
+    <Property Type="Decimal" Name="RawValue" Nullable="true" Precision="32" Scale="16" />
+    <Property Type="Decimal" Name="AdjValue" Nullable="true" Precision="32" Scale="16" />
+    <Property Type="String" Name="CreatedBy" Nullable="true" MaxLength="500" />
+    <Property Type="DateTime" Name="CreatedDate" Nullable="true" Precision="23" />
+  </ComplexType>
+  <ComplexType Name="uspSelectAccounts_Result">
+    <Property Type="Double" Name="AccountID" Nullable="true" />
+    <Property Type="String" Name="AccountName" Nullable="true" MaxLength="255" />
+    <Property Type="String" Name="Company_Name" Nullable="true" MaxLength="255" />
+    <Property Type="String" Name="ckfield" Nullable="true" MaxLength="255" />
+  </ComplexType>
+  <ComplexType Name="uspSelectAllFavouriteListByUserID_Result">
+    <Property Type="String" Name="CompanyShortCode" Nullable="false" MaxLength="128" />
+    <Property Type="String" Name="IndicatorShortCode" Nullable="false" MaxLength="128" />
+    <Property Type="Int32" Name="UserID" Nullable="false" />
+    <Property Type="String" Name="FavouriteListName" Nullable="true" MaxLength="128" />
+    <Property Type="String" Name="CreatedBy" Nullable="true" MaxLength="128" />
+    <Property Type="DateTime" Name="CreatedDate" Nullable="true" Precision="23" />
+    <Property Type="String" Name="ModifiedBy" Nullable="true" MaxLength="128" />
+    <Property Type="DateTime" Name="ModifiedDate" Nullable="true" Precision="23" />
+  </ComplexType>
+  <ComplexType Name="uspSelectCompanyAndIndicatorDateByShordCodes_Result">
+    <Property Type="DateTime" Name="MonthYear" Nullable="true" Precision="23" />
+    <Property Type="Decimal" Name="Sales" Nullable="true" Precision="32" Scale="16" />
+    <Property Type="Decimal" Name="C1By12" Nullable="true" Precision="32" Scale="16" />
+    <Property Type="Decimal" Name="C3MMT" Nullable="true" Precision="32" Scale="16" />
+    <Property Type="Decimal" Name="C3BY12" Nullable="true" Precision="32" Scale="16" />
+    <Property Type="Decimal" Name="C3MMA" Nullable="true" Precision="32" Scale="16" />
+    <Property Type="Decimal" Name="C12MMT" Nullable="true" Precision="32" Scale="16" />
+    <Property Type="Decimal" Name="C12BY12" Nullable="true" Precision="32" Scale="16" />
+    <Property Type="Decimal" Name="C12MMA" Nullable="true" Precision="32" Scale="16" />
+    <Property Type="String" Name="SHORTCODE" Nullable="true" MaxLength="128" />
+    <Property Type="String" Name="IndicatorName" Nullable="true" MaxLength="500" />
+    <Property Type="Decimal" Name="Monthly" Nullable="true" Precision="32" Scale="16" />
+    <Property Type="Boolean" Name="Forecast" Nullable="true" />
+    <Property Type="String" Name="Range" Nullable="false" MaxLength="1" />
+    <Property Type="Decimal" Name="MinValue" Nullable="true" Precision="32" Scale="16" />
+    <Property Type="Decimal" Name="MaxValue" Nullable="true" Precision="32" Scale="16" />
+    <Property Type="String" Name="Code" Nullable="false" MaxLength="9" />
+    <Property Type="String" Name="ColorCode" Nullable="true" MaxLength="8" />
+    <Property Type="String" Name="StatPref1" Nullable="false" MaxLength="5" />
+    <Property Type="Int32" Name="Duration" Nullable="true" />
+    <Property Type="Int32" Name="AccessDuration" Nullable="true" />
+  </ComplexType>
+  <ComplexType Name="uspSelectCompanyAndIndicatorDateByShordCodes_08282017_Result">
+    <Property Type="DateTime" Name="MonthYear" Nullable="true" Precision="23" />
+    <Property Type="Decimal" Name="Sales" Nullable="true" Precision="32" Scale="16" />
+    <Property Type="Decimal" Name="C1By12" Nullable="true" Precision="32" Scale="16" />
+    <Property Type="Decimal" Name="C3MMT" Nullable="true" Precision="32" Scale="16" />
+    <Property Type="Decimal" Name="C3BY12" Nullable="true" Precision="32" Scale="16" />
+    <Property Type="Decimal" Name="C3MMA" Nullable="true" Precision="32" Scale="16" />
+    <Property Type="Decimal" Name="C12MMT" Nullable="true" Precision="32" Scale="16" />
+    <Property Type="Decimal" Name="C12BY12" Nullable="true" Precision="32" Scale="16" />
+    <Property Type="Decimal" Name="C12MMA" Nullable="true" Precision="32" Scale="16" />
+    <Property Type="String" Name="SHORTCODE" Nullable="true" MaxLength="128" />
+    <Property Type="String" Name="IndicatorName" Nullable="true" MaxLength="500" />
+    <Property Type="Decimal" Name="Monthly" Nullable="true" Precision="32" Scale="16" />
+    <Property Type="Boolean" Name="Forecast" Nullable="true" />
+    <Property Type="String" Name="Range" Nullable="false" MaxLength="1" />
+    <Property Type="Decimal" Name="MinValue" Nullable="true" Precision="32" Scale="16" />
+    <Property Type="Decimal" Name="MaxValue" Nullable="true" Precision="32" Scale="16" />
+    <Property Type="String" Name="Code" Nullable="false" MaxLength="9" />
+    <Property Type="String" Name="ColorCode" Nullable="true" MaxLength="8" />
+  </ComplexType>
+  <ComplexType Name="uspSelectCompanyAndIndicatorDateByShordCodes_new_Result">
+    <Property Type="DateTime" Name="MonthYear" Nullable="true" Precision="23" />
+    <Property Type="Decimal" Name="Sales" Nullable="true" Precision="32" Scale="16" />
+    <Property Type="Decimal" Name="C1By12" Nullable="true" Precision="32" Scale="16" />
+    <Property Type="Decimal" Name="C3MMT" Nullable="true" Precision="32" Scale="16" />
+    <Property Type="Decimal" Name="C3BY12" Nullable="true" Precision="32" Scale="16" />
+    <Property Type="Decimal" Name="C3MMA" Nullable="true" Precision="32" Scale="16" />
+    <Property Type="Decimal" Name="C12MMT" Nullable="true" Precision="32" Scale="16" />
+    <Property Type="Decimal" Name="C12BY12" Nullable="true" Precision="32" Scale="16" />
+    <Property Type="Decimal" Name="C12MMA" Nullable="true" Precision="32" Scale="16" />
+    <Property Type="String" Name="SHORTCODE" Nullable="true" MaxLength="128" />
+    <Property Type="String" Name="IndicatorName" Nullable="true" MaxLength="500" />
+    <Property Type="Decimal" Name="Monthly" Nullable="true" Precision="32" Scale="16" />
+    <Property Type="Boolean" Name="Forecast" Nullable="true" />
+    <Property Type="String" Name="Range" Nullable="false" MaxLength="1" />
+    <Property Type="Decimal" Name="MINVALUE" Nullable="true" Precision="32" Scale="16" />
+    <Property Type="Decimal" Name="MAXVALUE" Nullable="true" Precision="32" Scale="16" />
+    <Property Type="String" Name="Code" Nullable="false" MaxLength="9" />
+  </ComplexType>
+  <ComplexType Name="uspSelectCompanyAndIndicatorDateByShordCodes_old_Result">
+    <Property Type="DateTime" Name="MonthYear" Nullable="true" Precision="23" />
+    <Property Type="Decimal" Name="Sales" Nullable="true" Precision="32" Scale="16" />
+    <Property Type="Decimal" Name="C1By12" Nullable="true" Precision="32" Scale="16" />
+    <Property Type="Decimal" Name="C3MMT" Nullable="true" Precision="32" Scale="16" />
+    <Property Type="Decimal" Name="C3BY12" Nullable="true" Precision="32" Scale="16" />
+    <Property Type="Decimal" Name="C3MMA" Nullable="true" Precision="32" Scale="16" />
+    <Property Type="Decimal" Name="C12MMT" Nullable="true" Precision="32" Scale="16" />
+    <Property Type="Decimal" Name="C12BY12" Nullable="true" Precision="32" Scale="16" />
+    <Property Type="Decimal" Name="C12MMA" Nullable="true" Precision="32" Scale="16" />
+    <Property Type="String" Name="SHORTCODE" Nullable="true" MaxLength="128" />
+    <Property Type="String" Name="IndicatorName" Nullable="true" MaxLength="500" />
+    <Property Type="Decimal" Name="Monthly" Nullable="true" Precision="32" Scale="16" />
+    <Property Type="Boolean" Name="Forecast" Nullable="true" />
+    <Property Type="String" Name="Range" Nullable="false" MaxLength="1" />
+    <Property Type="Decimal" Name="MinValue" Nullable="true" Precision="32" Scale="16" />
+    <Property Type="Decimal" Name="MaxValue" Nullable="true" Precision="32" Scale="16" />
+    <Property Type="String" Name="Code" Nullable="false" MaxLength="9" />
+  </ComplexType>
+  <ComplexType Name="uspSelectCompanyAndIndicatorDateByShordCodes03312017_Result">
+    <Property Type="DateTime" Name="MonthYear" Nullable="true" Precision="23" />
+    <Property Type="Decimal" Name="Sales" Nullable="true" Precision="32" Scale="16" />
+    <Property Type="Decimal" Name="C1By12" Nullable="true" Precision="32" Scale="16" />
+    <Property Type="Decimal" Name="C3MMT" Nullable="true" Precision="32" Scale="16" />
+    <Property Type="Decimal" Name="C3BY12" Nullable="true" Precision="32" Scale="16" />
+    <Property Type="Decimal" Name="C3MMA" Nullable="true" Precision="32" Scale="16" />
+    <Property Type="Decimal" Name="C12MMT" Nullable="true" Precision="32" Scale="16" />
+    <Property Type="Decimal" Name="C12BY12" Nullable="true" Precision="32" Scale="16" />
+    <Property Type="Decimal" Name="C12MMA" Nullable="true" Precision="32" Scale="16" />
+    <Property Type="String" Name="SHORTCODE" Nullable="true" MaxLength="128" />
+    <Property Type="String" Name="IndicatorName" Nullable="true" MaxLength="500" />
+    <Property Type="Decimal" Name="Monthly" Nullable="true" Precision="32" Scale="16" />
+    <Property Type="Boolean" Name="Forecast" Nullable="true" />
+    <Property Type="String" Name="Range" Nullable="false" MaxLength="1" />
+    <Property Type="Decimal" Name="MinValue" Nullable="true" Precision="32" Scale="0" />
+    <Property Type="Decimal" Name="MaxValue" Nullable="true" Precision="32" Scale="0" />
+    <Property Type="String" Name="Code" Nullable="false" MaxLength="9" />
+  </ComplexType>
+  <ComplexType Name="uspSelectCompanyAndIndicatorDateByShordCodesForAlliance_Result">
+    <Property Type="DateTime" Name="MonthYear" Nullable="true" Precision="23" />
+    <Property Type="Decimal" Name="Sales" Nullable="true" Precision="32" Scale="16" />
+    <Property Type="Decimal" Name="C1By12" Nullable="true" Precision="32" Scale="16" />
+    <Property Type="Decimal" Name="C3MMT" Nullable="true" Precision="32" Scale="16" />
+    <Property Type="Decimal" Name="C3BY12" Nullable="true" Precision="32" Scale="16" />
+    <Property Type="Decimal" Name="C3MMA" Nullable="true" Precision="32" Scale="16" />
+    <Property Type="Decimal" Name="C12MMT" Nullable="true" Precision="32" Scale="16" />
+    <Property Type="Decimal" Name="C12BY12" Nullable="true" Precision="32" Scale="16" />
+    <Property Type="Decimal" Name="C12MMA" Nullable="true" Precision="32" Scale="16" />
+    <Property Type="String" Name="SHORTCODE" Nullable="true" MaxLength="128" />
+    <Property Type="String" Name="IndicatorName" Nullable="true" MaxLength="500" />
+    <Property Type="Decimal" Name="Monthly" Nullable="true" Precision="32" Scale="16" />
+    <Property Type="Boolean" Name="Forecast" Nullable="true" />
+    <Property Type="String" Name="Range" Nullable="false" MaxLength="1" />
+    <Property Type="Decimal" Name="MinValue" Nullable="true" Precision="32" Scale="16" />
+    <Property Type="Decimal" Name="MaxValue" Nullable="true" Precision="32" Scale="16" />
+    <Property Type="String" Name="Code" Nullable="false" MaxLength="9" />
+    <Property Type="String" Name="ColorCode" Nullable="true" MaxLength="8" />
+    <Property Type="String" Name="StatPref1" Nullable="false" MaxLength="5" />
+    <Property Type="Int32" Name="Duration" Nullable="true" />
+    <Property Type="Int32" Name="AccessDuration" Nullable="true" />
+  </ComplexType>
+  <ComplexType Name="uspSelectCompanyDataForDataTrends_Result">
+    <Property Type="DateTime" Name="MonthYear" Nullable="true" Precision="23" />
+    <Property Type="Decimal" Name="Sales" Nullable="true" Precision="24" Scale="15" />
+    <Property Type="Decimal" Name="C1By12" Nullable="true" Precision="24" Scale="15" />
+    <Property Type="Decimal" Name="C3MMT" Nullable="true" Precision="24" Scale="15" />
+    <Property Type="Decimal" Name="C3BY12" Nullable="true" Precision="24" Scale="15" />
+    <Property Type="Decimal" Name="C3MMA" Nullable="true" Precision="24" Scale="15" />
+    <Property Type="Decimal" Name="C12MMT" Nullable="true" Precision="24" Scale="15" />
+    <Property Type="Decimal" Name="C12BY12" Nullable="true" Precision="24" Scale="15" />
+    <Property Type="Decimal" Name="C12MMA" Nullable="true" Precision="24" Scale="15" />
+    <Property Type="String" Name="SHORTCODE" Nullable="true" MaxLength="256" />
+    <Property Type="Decimal" Name="Monthly" Nullable="true" Precision="24" Scale="15" />
+    <Property Type="Decimal" Name="Min3MM" Nullable="true" Precision="32" Scale="16" />
+    <Property Type="Decimal" Name="Max3MM" Nullable="true" Precision="32" Scale="16" />
+    <Property Type="Decimal" Name="Min12MM" Nullable="true" Precision="32" Scale="16" />
+    <Property Type="Decimal" Name="Max12MM" Nullable="true" Precision="32" Scale="16" />
+  </ComplexType>
+  <ComplexType Name="uspSelectCompanyDatasetsForInternalRatesOfChange_Result">
+    <Property Type="DateTime" Name="MOnthYear" Nullable="true" Precision="23" />
+    <Property Type="Decimal" Name="Y1Value" Nullable="true" Precision="32" Scale="16" />
+    <Property Type="Decimal" Name="Y2Value" Nullable="true" Precision="32" Scale="16" />
+    <Property Type="Decimal" Name="FirstMinCompany" Nullable="true" Precision="32" Scale="16" />
+    <Property Type="Decimal" Name="FirstMaxCompany" Nullable="true" Precision="32" Scale="16" />
+    <Property Type="Decimal" Name="SecondMinCompany" Nullable="true" Precision="32" Scale="16" />
+    <Property Type="Decimal" Name="SecondMaxCompany" Nullable="true" Precision="32" Scale="16" />
+  </ComplexType>
+  <ComplexType Name="uspSelectCompanyDataSetsInfoDownloadSection1_Result">
+    <Property Type="DateTime" Name="MonthYear" Nullable="true" Precision="23" />
+    <Property Type="Decimal" Name="C1By12" Nullable="true" Precision="32" Scale="16" />
+    <Property Type="Decimal" Name="C3MMA" Nullable="true" Precision="32" Scale="16" />
+    <Property Type="Decimal" Name="C3MMT" Nullable="true" Precision="32" Scale="16" />
+    <Property Type="Decimal" Name="C3BY12" Nullable="true" Precision="32" Scale="16" />
+    <Property Type="Decimal" Name="C12MMA" Nullable="true" Precision="32" Scale="16" />
+    <Property Type="Decimal" Name="C12MMT" Nullable="true" Precision="32" Scale="16" />
+    <Property Type="Decimal" Name="C12BY12" Nullable="true" Precision="32" Scale="16" />
+    <Property Type="String" Name="ShortCode" Nullable="true" MaxLength="128" />
+  </ComplexType>
+  <ComplexType Name="uspSelectCompanyForecastDataByCompanyShortCode_Result">
+    <Property Type="Int32" Name="MetaDataID" Nullable="true" />
+    <Property Type="DateTime" Name="MonthYear" Nullable="true" Precision="23" />
+    <Property Type="Decimal" Name="Sales" Nullable="true" Precision="32" Scale="16" />
+    <Property Type="Decimal" Name="C1By12" Nullable="true" Precision="32" Scale="16" />
+    <Property Type="Decimal" Name="C3MMT" Nullable="true" Precision="32" Scale="16" />
+    <Property Type="Decimal" Name="C3BY12" Nullable="true" Precision="32" Scale="16" />
+    <Property Type="Decimal" Name="C3MMA" Nullable="true" Precision="32" Scale="16" />
+    <Property Type="Decimal" Name="C12MMT" Nullable="true" Precision="32" Scale="16" />
+    <Property Type="Decimal" Name="C12BY12" Nullable="true" Precision="32" Scale="16" />
+    <Property Type="Decimal" Name="C12MMA" Nullable="true" Precision="32" Scale="16" />
+    <Property Type="String" Name="SHORTCODE" Nullable="true" MaxLength="64" />
+    <Property Type="String" Name="CompanyName" Nullable="true" MaxLength="500" />
+    <Property Type="Decimal" Name="Monthly" Nullable="true" Precision="32" Scale="16" />
+    <Property Type="Boolean" Name="Forecast" Nullable="true" />
+    <Property Type="String" Name="Range" Nullable="false" MaxLength="3" />
+  </ComplexType>
+  <ComplexType Name="uspSelectDatacastCategories_Result">
+    <Property Type="String" Name="Industry" Nullable="true" MaxLength="128" />
+    <Property Type="String" Name="IndustryID" Nullable="true" MaxLength="128" />
+  </ComplexType>
+  <ComplexType Name="uspSelectDatacastSubCategoriesByCategory_Result">
+    <Property Type="String" Name="Sector" Nullable="true" MaxLength="64" />
+    <Property Type="String" Name="SectorID" Nullable="true" MaxLength="64" />
+  </ComplexType>
+  <ComplexType Name="uspSelectDatacastSubSector2BySubSector1_Result">
+    <Property Type="String" Name="SubSector2" Nullable="true" MaxLength="64" />
+    <Property Type="String" Name="SubSector2ID" Nullable="true" MaxLength="64" />
+  </ComplexType>
+  <ComplexType Name="uspSelectDatacastSubSector3BySubSector2_Result">
+    <Property Type="String" Name="SubSector3" Nullable="true" MaxLength="64" />
+    <Property Type="String" Name="SubSector3ID" Nullable="true" MaxLength="64" />
+  </ComplexType>
+  <ComplexType Name="uspSelectDatacastSubSectorsBySector_Result">
+    <Property Type="String" Name="SubSector1" Nullable="true" MaxLength="64" />
+    <Property Type="String" Name="SubSector1ID" Nullable="true" MaxLength="64" />
+  </ComplexType>
+  <ComplexType Name="uspSelectDataSetsByQBaseAccountID_Result">
+    <Property Type="String" Name="ShortCode" Nullable="true" MaxLength="500" />
+    <Property Type="Int32" Name="MasterMetaDataID" Nullable="false" />
+    <Property Type="String" Name="SeriesName" Nullable="true" MaxLength="500" />
+  </ComplexType>
+  <ComplexType Name="uspSelectDivisionsByAccountID_Result">
+    <Property Type="Double" Name="AccountID" Nullable="true" />
+    <Property Type="String" Name="AccountName" Nullable="true" MaxLength="255" />
+    <Property Type="Double" Name="DivisionID" Nullable="true" />
+    <Property Type="String" Name="DivisionName" Nullable="true" MaxLength="255" />
+  </ComplexType>
+  <ComplexType Name="uspSelectFavouriteListByUserID_Result">
+    <Property Type="String" Name="RowNum" Nullable="true" MaxLength="8" />
+    <Property Type="Int32" Name="TotalCount" Nullable="true" />
+    <Property Type="Int32" Name="iTotalRecords" Nullable="true" />
+    <Property Type="String" Name="ASeriesName" Nullable="true" MaxLength="500" />
+    <Property Type="Double" Name="CorrValue" Nullable="true" />
+    <Property Type="Double" Name="lagValue" Nullable="true" />
+    <Property Type="String" Name="Company" Nullable="true" />
+    <Property Type="String" Name="Indicator" Nullable="true" />
+    <Property Type="String" Name="FavouriteListName" Nullable="true" MaxLength="128" />
+    <Property Type="String" Name="Description" Nullable="true" MaxLength="1024" />
+  </ComplexType>
+  <ComplexType Name="uspSelectFavouritesListByUserID_Result">
+    <Property Type="String" Name="FavouriteListName" Nullable="true" MaxLength="128" />
+    <Property Type="String" Name="CompanyShortCode" Nullable="false" MaxLength="128" />
+  </ComplexType>
+  <ComplexType Name="uspSelectIndicatorDataByIndicatorShortCodes_Result">
+    <Property Type="DateTime" Name="MonthYear" Nullable="true" Precision="23" />
+    <Property Type="String" Name="Indicator" Nullable="true" />
+    <Property Type="String" Name="Company" Nullable="true" />
+    <Property Type="String" Name="IndicatorFullName" Nullable="true" MaxLength="64" />
+    <Property Type="Decimal" Name="C12BY12" Nullable="true" Precision="32" Scale="16" />
+  </ComplexType>
+  <ComplexType Name="uspSelectIndicatorForecastDataByIndicatorShortCode_Result">
+    <Property Type="Int32" Name="MetaDataID" Nullable="true" />
+    <Property Type="DateTime" Name="MonthYear" Nullable="true" Precision="23" />
+    <Property Type="Decimal" Name="Sales" Nullable="true" Precision="32" Scale="16" />
+    <Property Type="Decimal" Name="C1By12" Nullable="true" Precision="32" Scale="16" />
+    <Property Type="Decimal" Name="C3MMT" Nullable="true" Precision="32" Scale="16" />
+    <Property Type="Decimal" Name="C3BY12" Nullable="true" Precision="32" Scale="16" />
+    <Property Type="Decimal" Name="C3MMA" Nullable="true" Precision="32" Scale="16" />
+    <Property Type="Decimal" Name="C12MMT" Nullable="true" Precision="32" Scale="16" />
+    <Property Type="Decimal" Name="C12BY12" Nullable="true" Precision="32" Scale="16" />
+    <Property Type="Decimal" Name="C12MMA" Nullable="true" Precision="32" Scale="16" />
+    <Property Type="String" Name="SHORTCODE" Nullable="true" MaxLength="64" />
+    <Property Type="String" Name="IndicatorName" Nullable="true" MaxLength="500" />
+    <Property Type="Decimal" Name="Monthly" Nullable="true" Precision="32" Scale="16" />
+    <Property Type="Boolean" Name="Forecast" Nullable="true" />
+    <Property Type="String" Name="Range" Nullable="false" MaxLength="3" />
+    <Property Type="String" Name="Phases" Nullable="true" MaxLength="8" />
+  </ComplexType>
+  <ComplexType Name="uspSelectIndicatorListByCategorySearch_Result">
+    <Property Type="String" Name="RowNum" Nullable="true" MaxLength="8" />
+    <Property Type="Int32" Name="TotalCount" Nullable="true" />
+    <Property Type="Int32" Name="iTotalRecords" Nullable="true" />
+    <Property Type="String" Name="ASeriesName" Nullable="true" MaxLength="500" />
+    <Property Type="Double" Name="CorrValue" Nullable="true" />
+    <Property Type="Double" Name="lagValue" Nullable="true" />
+    <Property Type="String" Name="Company" Nullable="true" />
+    <Property Type="String" Name="Indicator" Nullable="true" />
+    <Property Type="String" Name="FavouriteListName" Nullable="false" MaxLength="1" />
+    <Property Type="String" Name="Description" Nullable="true" MaxLength="1024" />
+  </ComplexType>
+  <ComplexType Name="uspSelectIndicatorSeriesItemsForDownloadData_Result">
+    <Property Type="String" Name="ASeriesName" Nullable="true" MaxLength="500" />
+    <Property Type="Double" Name="CorrValue" Nullable="true" />
+    <Property Type="Double" Name="lagValue" Nullable="true" />
+    <Property Type="String" Name="Company" Nullable="true" />
+    <Property Type="String" Name="Indicator" Nullable="true" />
+  </ComplexType>
+  <ComplexType Name="uspSelectLoadCorelationLeadLagByDataSetID_Result">
+    <Property Type="String" Name="RowNum" Nullable="true" MaxLength="8" />
+    <Property Type="Int32" Name="TotalCount" Nullable="true" />
+    <Property Type="Int32" Name="iTotalRecords" Nullable="true" />
+    <Property Type="String" Name="ASeriesName" Nullable="true" MaxLength="500" />
+    <Property Type="Double" Name="CorrValue" Nullable="true" />
+    <Property Type="Double" Name="lagValue" Nullable="true" />
+    <Property Type="String" Name="Company" Nullable="true" />
+    <Property Type="String" Name="Indicator" Nullable="true" />
+    <Property Type="String" Name="Description" Nullable="true" MaxLength="1024" />
+    <Property Type="String" Name="FavouriteListName" Nullable="true" MaxLength="256" />
+  </ComplexType>
+  <ComplexType Name="uspSelectLoadCorelationLeadLagByDataSetID_04282017_Result">
+    <Property Type="String" Name="ASeriesName" Nullable="true" MaxLength="500" />
+    <Property Type="Double" Name="CorrValue" Nullable="true" />
+    <Property Type="Double" Name="lagValue" Nullable="true" />
+    <Property Type="String" Name="Company" Nullable="true" />
+    <Property Type="String" Name="Indicator" Nullable="true" />
+  </ComplexType>
+  <ComplexType Name="uspSelectLoadCorelationLeadLagByDataSetIDForAlliance_Result">
+    <Property Type="String" Name="RowNum" Nullable="true" MaxLength="8" />
+    <Property Type="Int32" Name="TotalCount" Nullable="true" />
+    <Property Type="Int32" Name="iTotalRecords" Nullable="true" />
+    <Property Type="String" Name="ASeriesName" Nullable="true" MaxLength="500" />
+    <Property Type="Double" Name="CorrValue" Nullable="true" />
+    <Property Type="Double" Name="lagValue" Nullable="true" />
+    <Property Type="String" Name="Company" Nullable="true" />
+    <Property Type="String" Name="Indicator" Nullable="true" />
+    <Property Type="String" Name="Description" Nullable="true" MaxLength="1024" />
+    <Property Type="String" Name="FavouriteListName" Nullable="true" MaxLength="256" />
+  </ComplexType>
+  <ComplexType Name="uspSelectLoadCorelationLeadLagByMultipleDatasetIDS_Result">
+    <Property Type="Int32" Name="RowNum" Nullable="true" />
+    <Property Type="Int32" Name="TotalCount" Nullable="true" />
+    <Property Type="Int32" Name="iTotalRecords" Nullable="true" />
+    <Property Type="String" Name="ASeriesName" Nullable="true" MaxLength="500" />
+    <Property Type="Double" Name="CorrValue" Nullable="true" />
+    <Property Type="Double" Name="lagValue" Nullable="true" />
+    <Property Type="String" Name="Company" Nullable="true" />
+    <Property Type="String" Name="Indicator" Nullable="true" />
+  </ComplexType>
+  <ComplexType Name="uspSelectLoadCorelationLeadLagByMultipleDatasetIDS_04282017_Result">
+    <Property Type="String" Name="ASeriesName" Nullable="true" MaxLength="500" />
+    <Property Type="Double" Name="CorrValue" Nullable="true" />
+    <Property Type="Double" Name="lagValue" Nullable="true" />
+    <Property Type="String" Name="Company" Nullable="true" />
+    <Property Type="String" Name="Indicator" Nullable="true" />
+  </ComplexType>
+  <ComplexType Name="UspSelectMasterMetaData_Result">
+    <Property Type="Int32" Name="MasterMetadataID" Nullable="false" />
+    <Property Type="String" Name="WorkBook" Nullable="true" MaxLength="500" />
+    <Property Type="String" Name="FileName" Nullable="true" MaxLength="500" />
+    <Property Type="String" Name="NAICSCode" Nullable="true" MaxLength="500" />
+    <Property Type="String" Name="SeriesName" Nullable="true" MaxLength="500" />
+    <Property Type="String" Name="NSA" Nullable="true" MaxLength="500" />
+    <Property Type="String" Name="Continent" Nullable="true" MaxLength="500" />
+    <Property Type="String" Name="Country" Nullable="true" MaxLength="500" />
+    <Property Type="String" Name="Region" Nullable="true" MaxLength="500" />
+    <Property Type="String" Name="State" Nullable="true" MaxLength="500" />
+    <Property Type="String" Name="MSA" Nullable="true" MaxLength="500" />
+    <Property Type="String" Name="Category" Nullable="true" MaxLength="500" />
+    <Property Type="String" Name="Subcategory" Nullable="true" MaxLength="500" />
+    <Property Type="String" Name="Units" Nullable="true" MaxLength="500" />
+    <Property Type="String" Name="BASE" Nullable="true" MaxLength="500" />
+    <Property Type="String" Name="Source" Nullable="true" MaxLength="256" />
+    <Property Type="String" Name="Link" Nullable="true" MaxLength="512" />
+    <Property Type="String" Name="Definition" Nullable="true" MaxLength="1024" />
+    <Property Type="String" Name="UpdateFrequency" Nullable="true" MaxLength="32" />
+    <Property Type="String" Name="ProprietaryData" Nullable="true" MaxLength="32" />
+    <Property Type="String" Name="UpdateType" Nullable="true" MaxLength="32" />
+    <Property Type="String" Name="Discontinued" Nullable="true" MaxLength="32" />
+    <Property Type="String" Name="DiscontinuedDate" Nullable="true" MaxLength="16" />
+    <Property Type="String" Name="StatPref1" Nullable="true" MaxLength="128" />
+    <Property Type="String" Name="StatPref2" Nullable="true" MaxLength="128" />
+    <Property Type="Int32" Name="AccountID" Nullable="true" />
+    <Property Type="Int32" Name="DivisionID" Nullable="true" />
+    <Property Type="String" Name="AccountName" Nullable="true" MaxLength="512" />
+    <Property Type="String" Name="DivisionName" Nullable="true" MaxLength="512" />
+    <Property Type="String" Name="CreatedBy" Nullable="true" MaxLength="128" />
+    <Property Type="DateTime" Name="CreatedDate" Nullable="true" Precision="23" />
+    <Property Type="String" Name="ModifiedBy" Nullable="true" MaxLength="128" />
+    <Property Type="DateTime" Name="ModifiedDate" Nullable="true" Precision="23" />
+    <Property Type="String" Name="GEO" Nullable="true" MaxLength="500" />
+    <Property Type="String" Name="Publication" Nullable="true" MaxLength="500" />
+    <Property Type="String" Name="CEICCode" Nullable="true" MaxLength="500" />
+    <Property Type="String" Name="WORKBOOKPATH" Nullable="true" />
+    <Property Type="String" Name="Type" Nullable="true" MaxLength="64" />
+    <Property Type="String" Name="SourceWorkBook" Nullable="true" MaxLength="512" />
+    <Property Type="String" Name="PriorName" Nullable="true" MaxLength="128" />
+    <Property Type="String" Name="MMAMMT" Nullable="true" MaxLength="16" />
+    <Property Type="String" Name="DataType" Nullable="true" MaxLength="32" />
+    <Property Type="String" Name="Industry" Nullable="true" MaxLength="128" />
+    <Property Type="String" Name="Sector" Nullable="true" MaxLength="64" />
+    <Property Type="String" Name="SubSector1" Nullable="true" MaxLength="64" />
+    <Property Type="String" Name="SubSector2" Nullable="true" MaxLength="64" />
+    <Property Type="String" Name="SubSector3" Nullable="true" MaxLength="64" />
+    <Property Type="String" Name="Description" Nullable="true" />
+  </ComplexType>
+  <ComplexType Name="uspSelectMasterMetaDataByMetaDataID_Result">
+    <Property Type="Int32" Name="MasterMetaDataID" Nullable="false" />
+    <Property Type="String" Name="ShortCode" Nullable="true" MaxLength="500" />
+    <Property Type="String" Name="UpdateFrequency" Nullable="true" MaxLength="32" />
+    <Property Type="String" Name="ProprietaryData" Nullable="true" MaxLength="32" />
+    <Property Type="String" Name="UpdateType" Nullable="true" MaxLength="32" />
+    <Property Type="String" Name="Discontinued" Nullable="true" MaxLength="32" />
+    <Property Type="String" Name="DiscontinuedDate" Nullable="true" MaxLength="16" />
+    <Property Type="String" Name="StatPref1" Nullable="true" MaxLength="128" />
+    <Property Type="String" Name="StatPref2" Nullable="true" MaxLength="128" />
+    <Property Type="String" Name="AccountName" Nullable="true" MaxLength="512" />
+    <Property Type="String" Name="DivisionName" Nullable="true" MaxLength="512" />
+    <Property Type="Int32" Name="AccountID" Nullable="true" />
+    <Property Type="Int32" Name="DivisionID" Nullable="true" />
+  </ComplexType>
+  <ComplexType Name="UspSelectMasterMetaDataByWorkBook_Result">
+    <Property Type="DateTime" Name="MonthYear" Nullable="true" Precision="23" />
+    <Property Type="Decimal" Name="C1By12" Nullable="true" Precision="32" Scale="16" />
+    <Property Type="Decimal" Name="C3MMT" Nullable="true" Precision="32" Scale="16" />
+    <Property Type="Decimal" Name="C3BY12" Nullable="true" Precision="32" Scale="16" />
+    <Property Type="Decimal" Name="C3MMA" Nullable="true" Precision="32" Scale="16" />
+    <Property Type="Decimal" Name="C12MMT" Nullable="true" Precision="32" Scale="16" />
+    <Property Type="Decimal" Name="C12BY12" Nullable="true" Precision="32" Scale="16" />
+    <Property Type="Decimal" Name="C12MMA" Nullable="true" Precision="32" Scale="16" />
+    <Property Type="Decimal" Name="Sales" Nullable="true" Precision="32" Scale="16" />
+    <Property Type="String" Name="SHORTCODE" Nullable="true" MaxLength="64" />
+    <Property Type="Decimal" Name="Monthly" Nullable="true" Precision="32" Scale="16" />
+    <Property Type="Int32" Name="VwTblIndicatorID" Nullable="false" />
+    <Property Type="String" Name="Phases" Nullable="true" MaxLength="8" />
+    <Property Type="Int32" Name="Violencing" Nullable="true" />
+    <Property Type="String" Name="HighLow" Nullable="true" MaxLength="8" />
+  </ComplexType>
+  <ComplexType Name="uspSelectMasterMetaDataFields_Result">
+    <Property Type="Int32" Name="MasterMetaDataID" Nullable="false" />
+    <Property Type="String" Name="ShortCode" Nullable="true" MaxLength="500" />
+    <Property Type="String" Name="UpdateFrequency" Nullable="true" MaxLength="32" />
+    <Property Type="String" Name="ProprietaryData" Nullable="true" MaxLength="32" />
+    <Property Type="String" Name="UpdateType" Nullable="true" MaxLength="32" />
+    <Property Type="String" Name="Discontinued" Nullable="true" MaxLength="32" />
+    <Property Type="String" Name="DiscontinuedDate" Nullable="true" MaxLength="16" />
+    <Property Type="String" Name="StatPref1" Nullable="true" MaxLength="128" />
+    <Property Type="String" Name="StatPref2" Nullable="true" MaxLength="128" />
+    <Property Type="String" Name="AccountName" Nullable="true" MaxLength="512" />
+    <Property Type="String" Name="DivisionName" Nullable="true" MaxLength="512" />
+  </ComplexType>
+  <ComplexType Name="uspSelectDBWidgetsListByCompanyID_Result">
+    <Property Type="Int32" Name="DashboardWidgetsListId" Nullable="false" />
+    <Property Type="String" Name="DashboardWidgetsListName" Nullable="true" MaxLength="128" />
+    <Property Type="String" Name="CompanyShortCode" Nullable="false" MaxLength="128" />
+    <Property Type="String" Name="IndicatorShortCode" Nullable="false" MaxLength="128" />
+    <Property Type="String" Name="Indicator" Nullable="true" MaxLength="500" />
+  </ComplexType>
+  <ComplexType Name="uspSelectAllDBWidgetsListByCompanyID_Result">
+    <Property Type="Int32" Name="DashboardWidgetsListId" Nullable="false" />
+    <Property Type="String" Name="CompanyShortCode" Nullable="false" MaxLength="128" />
+    <Property Type="String" Name="IndicatorShortCode" Nullable="false" MaxLength="128" />
+    <Property Type="Int32" Name="UserID" Nullable="false" />
+    <Property Type="String" Name="DashboardWidgetsListName" Nullable="true" MaxLength="128" />
+    <Property Type="String" Name="CreatedBy" Nullable="true" MaxLength="128" />
+    <Property Type="DateTime" Name="CreatedDate" Nullable="true" Precision="23" />
+    <Property Type="String" Name="ModifiedBy" Nullable="true" MaxLength="128" />
+    <Property Type="DateTime" Name="ModifiedDate" Nullable="true" Precision="23" />
+  </ComplexType>
+  <ComplexType Name="uspSelectDBWidgetsCorrelationListByCompanyID_Result">
+    <Property Type="String" Name="RowNum" Nullable="true" MaxLength="8" />
+    <Property Type="Int32" Name="TotalCount" Nullable="true" />
+    <Property Type="Int32" Name="iTotalRecords" Nullable="true" />
+    <Property Type="String" Name="ASeriesName" Nullable="true" MaxLength="500" />
+    <Property Type="Double" Name="CorrValue" Nullable="true" />
+    <Property Type="Double" Name="lagValue" Nullable="true" />
+    <Property Type="String" Name="Company" Nullable="true" />
+    <Property Type="String" Name="Indicator" Nullable="true" />
+    <Property Type="String" Name="Description" Nullable="true" MaxLength="1024" />
+  </ComplexType>
+  <ComplexType Name="uspSelectPhaseValuesOfDBWidgetsByCompanyId_Result">
+    <Property Type="Int32" Name="DashboardWidgetsListId" Nullable="false" />
+    <Property Type="String" Name="Indicator" Nullable="true" MaxLength="500" />
+    <Property Type="DateTime" Name="MonthYear" Nullable="true" Precision="23" />
+    <Property Type="String" Name="Phases" Nullable="true" MaxLength="8" />
+    <Property Type="String" Name="SHORTCODE" Nullable="true" MaxLength="64" />
+    <Property Type="String" Name="MY" Nullable="true" MaxLength="64" />
+    <Property Type="Int32" Name="Timing" Nullable="true" />
+  </ComplexType>
+</Schema>

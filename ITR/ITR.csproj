@@ -1,0 +1,1400 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="12.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <Import Project="$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props" Condition="Exists('$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props')" />
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProductVersion>
+    </ProductVersion>
+    <SchemaVersion>2.0</SchemaVersion>
+    <ProjectGuid>{45C21930-42D5-4424-86EF-6E9571D2ECFB}</ProjectGuid>
+    <ProjectTypeGuids>{349c5851-65df-11da-9384-00065b846f21};{fae04ec0-301f-11d3-bf4b-00c04f79efbc}</ProjectTypeGuids>
+    <OutputType>Library</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>ITR</RootNamespace>
+    <AssemblyName>ITR</AssemblyName>
+    <TargetFrameworkVersion>v4.5</TargetFrameworkVersion>
+    <UseIISExpress>true</UseIISExpress>
+    <IISExpressSSLPort />
+    <IISExpressAnonymousAuthentication />
+    <IISExpressWindowsAuthentication />
+    <IISExpressUseClassicPipelineMode />
+    <UseGlobalApplicationHostFile />
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="DocumentFormat.OpenXml, Version=2.5.5631.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>bin\DocumentFormat.OpenXml.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="EntityFramework">
+      <HintPath>..\packages\EntityFramework.5.0.0\lib\net45\EntityFramework.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.CSharp" />
+    <Reference Include="Microsoft.Practices.ServiceLocation, Version=1.3.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <HintPath>..\packages\CommonServiceLocator.1.3\lib\portable-net4+sl5+netcore45+wpa81+wp8\Microsoft.Practices.ServiceLocation.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="Microsoft.Practices.Unity, Version=4.0.0.0, Culture=neutral, PublicKeyToken=6d32ff45e0ccc69f, processorArchitecture=MSIL">
+      <HintPath>..\packages\Unity.4.0.1\lib\net45\Microsoft.Practices.Unity.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="Microsoft.Practices.Unity.Configuration, Version=4.0.0.0, Culture=neutral, PublicKeyToken=6d32ff45e0ccc69f, processorArchitecture=MSIL">
+      <HintPath>..\packages\Unity.4.0.1\lib\net45\Microsoft.Practices.Unity.Configuration.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="Microsoft.Practices.Unity.Mvc, Version=4.0.0.0, Culture=neutral, PublicKeyToken=6d32ff45e0ccc69f, processorArchitecture=MSIL">
+      <HintPath>..\packages\Unity.Mvc.4.0.1\lib\net45\Microsoft.Practices.Unity.Mvc.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="Microsoft.Practices.Unity.RegistrationByConvention, Version=4.0.0.0, Culture=neutral, PublicKeyToken=6d32ff45e0ccc69f, processorArchitecture=MSIL">
+      <HintPath>..\packages\Unity.4.0.1\lib\net45\Microsoft.Practices.Unity.RegistrationByConvention.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="Microsoft.Web.Infrastructure, Version=1.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <Private>True</Private>
+      <HintPath>..\packages\Microsoft.Web.Infrastructure.1.0.0.0\lib\net40\Microsoft.Web.Infrastructure.dll</HintPath>
+    </Reference>
+    <Reference Include="Newtonsoft.Json, Version=6.0.0.0, Culture=neutral, PublicKeyToken=30ad4fe6b2a6aeed, processorArchitecture=MSIL">
+      <HintPath>..\packages\Newtonsoft.Json.6.0.4\lib\net45\Newtonsoft.Json.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="System.Data.Entity" />
+    <Reference Include="System.Net.Http" />
+    <Reference Include="System.Net.Http.Formatting, Version=5.2.3.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.AspNet.WebApi.Client.5.2.3\lib\net45\System.Net.Http.Formatting.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="System.Runtime.Serialization" />
+    <Reference Include="System.Security" />
+    <Reference Include="System.Web.Cors, Version=5.2.3.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.AspNet.Cors.5.2.3\lib\net45\System.Web.Cors.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="System.Web.DynamicData" />
+    <Reference Include="System.Web.Entity" />
+    <Reference Include="System.Web.ApplicationServices" />
+    <Reference Include="System.ComponentModel.DataAnnotations" />
+    <Reference Include="System" />
+    <Reference Include="System.Data" />
+    <Reference Include="System.Core" />
+    <Reference Include="System.Data.DataSetExtensions" />
+    <Reference Include="System.Web.Extensions" />
+    <Reference Include="System.Web.Helpers, Version=3.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\packages\Microsoft.AspNet.WebPages.3.2.3\lib\net45\System.Web.Helpers.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Web.Http, Version=5.2.3.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.AspNet.WebApi.Core.5.2.3\lib\net45\System.Web.Http.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="System.Web.Http.Cors, Version=5.2.3.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.AspNet.WebApi.Cors.5.2.3\lib\net45\System.Web.Http.Cors.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="System.Web.Mvc, Version=5.2.3.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\packages\Microsoft.AspNet.Mvc.5.2.3\lib\net45\System.Web.Mvc.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Web.Razor, Version=3.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\packages\Microsoft.AspNet.Razor.3.2.3\lib\net45\System.Web.Razor.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Web.WebPages, Version=3.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\packages\Microsoft.AspNet.WebPages.3.2.3\lib\net45\System.Web.WebPages.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Web.WebPages.Deployment, Version=3.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\packages\Microsoft.AspNet.WebPages.3.2.3\lib\net45\System.Web.WebPages.Deployment.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Web.WebPages.Razor, Version=3.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\packages\Microsoft.AspNet.WebPages.3.2.3\lib\net45\System.Web.WebPages.Razor.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Xml.Linq" />
+    <Reference Include="System.Drawing" />
+    <Reference Include="System.Web" />
+    <Reference Include="System.Xml" />
+    <Reference Include="System.Configuration" />
+    <Reference Include="System.Web.Services" />
+    <Reference Include="System.EnterpriseServices" />
+    <Reference Include="WebActivatorEx, Version=2.0.0.0, Culture=neutral, PublicKeyToken=7b26dc2a43f6a0d4, processorArchitecture=MSIL">
+      <HintPath>..\packages\WebActivatorEx.2.0\lib\net40\WebActivatorEx.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="WindowsBase" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="assets\css\bootstrap.min.css" />
+    <Content Include="assets\fonts\artill\list.jpg" />
+    <Content Include="assets\fonts\artill\preview.jpg" />
+    <Content Include="assets\fonts\artill\readme.txt" />
+    <Content Include="assets\fonts\font-awesome\css\font-awesome.css" />
+    <Content Include="assets\fonts\font-awesome\css\font-awesome.min.css" />
+    <Content Include="assets\fonts\font-awesome\fonts\fontawesome-webfont.svg" />
+    <Content Include="assets\fonts\glyphicons\css\glyphicons.css" />
+    <Content Include="assets\fonts\glyphicons\css\glyphicons.min.css" />
+    <Content Include="assets\fonts\glyphicons\font\glyphicons-halflings-regular.svg" />
+    <Content Include="assets\img\loader.gif" />
+    <Content Include="assets\js\bootstrap.min.js" />
+    <Content Include="assets\plugins\datatables\ColReorder\css\dataTables.colReorder.css" />
+    <Content Include="assets\plugins\datatables\ColReorder\css\dataTables.colReorder.min.css" />
+    <Content Include="assets\plugins\datatables\ColReorder\examples\alt_insert.html" />
+    <Content Include="assets\plugins\datatables\ColReorder\examples\colvis.html" />
+    <Content Include="assets\plugins\datatables\ColReorder\examples\col_filter.html" />
+    <Content Include="assets\plugins\datatables\ColReorder\examples\fixedcolumns.html" />
+    <Content Include="assets\plugins\datatables\ColReorder\examples\fixedheader.html" />
+    <Content Include="assets\plugins\datatables\ColReorder\examples\index.html" />
+    <Content Include="assets\plugins\datatables\ColReorder\examples\jqueryui.html" />
+    <Content Include="assets\plugins\datatables\ColReorder\examples\new_init.html" />
+    <Content Include="assets\plugins\datatables\ColReorder\examples\predefined.html" />
+    <Content Include="assets\plugins\datatables\ColReorder\examples\realtime.html" />
+    <Content Include="assets\plugins\datatables\ColReorder\examples\reset.html" />
+    <Content Include="assets\plugins\datatables\ColReorder\examples\scrolling.html" />
+    <Content Include="assets\plugins\datatables\ColReorder\examples\server_side.html" />
+    <Content Include="assets\plugins\datatables\ColReorder\examples\simple.html" />
+    <Content Include="assets\plugins\datatables\ColReorder\examples\state_save.html" />
+    <Content Include="assets\plugins\datatables\ColReorder\images\insert.png" />
+    <Content Include="assets\plugins\datatables\ColReorder\js\dataTables.colReorder.js" />
+    <Content Include="assets\plugins\datatables\ColReorder\js\dataTables.colReorder.min.js" />
+    <Content Include="assets\plugins\datatables\ColReorder\Readme.txt" />
+    <Content Include="assets\plugins\datatables\dataTables.bootstrap.css" />
+    <Content Include="assets\plugins\datatables\dataTables.bootstrap.js" />
+    <Content Include="assets\plugins\datatables\dataTables.css" />
+    <Content Include="assets\plugins\datatables\dataTables.editor.bootstrap.js" />
+    <Content Include="assets\plugins\datatables\dataTables.editor.js" />
+    <Content Include="assets\plugins\datatables\dataTables.fontAwesome.css" />
+    <Content Include="assets\plugins\datatables\dataTables.min.css" />
+    <Content Include="assets\plugins\datatables\images\sort_asc.png" />
+    <Content Include="assets\plugins\datatables\images\sort_asc_disabled.png" />
+    <Content Include="assets\plugins\datatables\images\sort_both.png" />
+    <Content Include="assets\plugins\datatables\images\sort_desc.png" />
+    <Content Include="assets\plugins\datatables\images\sort_desc_disabled.png" />
+    <Content Include="assets\plugins\datatables\jquery.dataTables.js" />
+    <Content Include="assets\plugins\datatables\jquery.dataTables.min.js" />
+    <Content Include="assets\plugins\datatables\KeyTable\css\dataTables.keyTable.css" />
+    <Content Include="assets\plugins\datatables\KeyTable\examples\events.html" />
+    <Content Include="assets\plugins\datatables\KeyTable\examples\html.html" />
+    <Content Include="assets\plugins\datatables\KeyTable\examples\index.html" />
+    <Content Include="assets\plugins\datatables\KeyTable\examples\scrolling.html" />
+    <Content Include="assets\plugins\datatables\KeyTable\examples\simple.html" />
+    <Content Include="assets\plugins\datatables\KeyTable\js\dataTables.keyTable.js" />
+    <Content Include="assets\plugins\datatables\KeyTable\js\dataTables.keyTable.min.js" />
+    <Content Include="assets\plugins\datatables\KeyTable\Readme.txt" />
+    <Content Include="assets\plugins\datatables\TableTools.js" />
+    <Content Include="assets\plugins\datatables\TableTools\css\dataTables.tableTools.css" />
+    <Content Include="assets\plugins\datatables\TableTools\css\dataTables.tableTools.min.css" />
+    <Content Include="assets\plugins\datatables\TableTools\examples\alter_buttons.html" />
+    <Content Include="assets\plugins\datatables\TableTools\examples\bootstrap.html" />
+    <Content Include="assets\plugins\datatables\TableTools\examples\button_text.html" />
+    <Content Include="assets\plugins\datatables\TableTools\examples\collection.html" />
+    <Content Include="assets\plugins\datatables\TableTools\examples\defaults.html" />
+    <Content Include="assets\plugins\datatables\TableTools\examples\index.html" />
+    <Content Include="assets\plugins\datatables\TableTools\examples\multiple_tables.html" />
+    <Content Include="assets\plugins\datatables\TableTools\examples\multi_instance.html" />
+    <Content Include="assets\plugins\datatables\TableTools\examples\new_init.html" />
+    <Content Include="assets\plugins\datatables\TableTools\examples\pdf_message.html" />
+    <Content Include="assets\plugins\datatables\TableTools\examples\plug-in.html" />
+    <Content Include="assets\plugins\datatables\TableTools\examples\select_column.html" />
+    <Content Include="assets\plugins\datatables\TableTools\examples\select_multi.html" />
+    <Content Include="assets\plugins\datatables\TableTools\examples\select_os.html" />
+    <Content Include="assets\plugins\datatables\TableTools\examples\select_single.html" />
+    <Content Include="assets\plugins\datatables\TableTools\examples\simple.html" />
+    <Content Include="assets\plugins\datatables\TableTools\examples\swf_path.html" />
+    <Content Include="assets\plugins\datatables\TableTools\images\background.png" />
+    <Content Include="assets\plugins\datatables\TableTools\images\collection.png" />
+    <Content Include="assets\plugins\datatables\TableTools\images\collection_hover.png" />
+    <Content Include="assets\plugins\datatables\TableTools\images\copy.png" />
+    <Content Include="assets\plugins\datatables\TableTools\images\copy_hover.png" />
+    <Content Include="assets\plugins\datatables\TableTools\images\csv.png" />
+    <Content Include="assets\plugins\datatables\TableTools\images\csv_hover.png" />
+    <Content Include="assets\plugins\datatables\TableTools\images\pdf.png" />
+    <Content Include="assets\plugins\datatables\TableTools\images\pdf_hover.png" />
+    <Content Include="assets\plugins\datatables\TableTools\images\print.png" />
+    <Content Include="assets\plugins\datatables\TableTools\images\print_hover.png" />
+    <Content Include="assets\plugins\datatables\TableTools\images\xls.png" />
+    <Content Include="assets\plugins\datatables\TableTools\images\xls_hover.png" />
+    <Content Include="assets\plugins\datatables\TableTools\js\dataTables.tableTools.js" />
+    <Content Include="assets\plugins\datatables\TableTools\js\dataTables.tableTools.min.js" />
+    <Content Include="assets\plugins\datatables\TableTools\Readme.txt" />
+    <Content Include="assets\plugins\datatables\TableTools\swf\copy_csv_xls.swf" />
+    <Content Include="assets\plugins\datatables\TableTools\swf\copy_csv_xls_pdf.swf" />
+    <Content Include="css\colors\blue.css" />
+    <Content Include="css\custom.css" />
+    <Content Include="css\et-line-icons.css" />
+    <Content Include="css\img\editor.png" />
+    <Content Include="css\img\loading-dark-bootstrap-gradient-small.gif" />
+    <Content Include="css\img\loading-dark-bootstrap-gradient.gif" />
+    <Content Include="css\img\loading-dark-bootstrap-small.gif" />
+    <Content Include="css\img\loading-dark-bootstrap.gif" />
+    <Content Include="css\img\loading-dark-glow-gradient-small.gif" />
+    <Content Include="css\img\loading-dark-glow-gradient.gif" />
+    <Content Include="css\img\loading-dark-glow-small.gif" />
+    <Content Include="css\img\loading-dark-glow.gif" />
+    <Content Include="css\img\loading-dark-gradient-small.gif" />
+    <Content Include="css\img\loading-dark-gradient.gif" />
+    <Content Include="css\img\loading-dark-mint-gradient-small.gif" />
+    <Content Include="css\img\loading-dark-mint-gradient.gif" />
+    <Content Include="css\img\loading-dark-mint-small.gif" />
+    <Content Include="css\img\loading-dark-mint.gif" />
+    <Content Include="css\img\loading-dark-small.gif" />
+    <Content Include="css\img\loading-dark.gif" />
+    <Content Include="css\img\loading-light-bootstrap-gradient-small.gif" />
+    <Content Include="css\img\loading-light-bootstrap-gradient.gif" />
+    <Content Include="css\img\loading-light-bootstrap-small.gif" />
+    <Content Include="css\img\loading-light-bootstrap.gif" />
+    <Content Include="css\img\loading-light-glow-gradient-small.gif" />
+    <Content Include="css\img\loading-light-glow-gradient.gif" />
+    <Content Include="css\img\loading-light-glow-small.gif" />
+    <Content Include="css\img\loading-light-glow.gif" />
+    <Content Include="css\img\loading-light-gradient-small.gif" />
+    <Content Include="css\img\loading-light-gradient.gif" />
+    <Content Include="css\img\loading-light-mint-gradient-small.gif" />
+    <Content Include="css\img\loading-light-mint-gradient.gif" />
+    <Content Include="css\img\loading-light-mint-small.gif" />
+    <Content Include="css\img\loading-light-mint.gif" />
+    <Content Include="css\img\loading-light-small.gif" />
+    <Content Include="css\img\loading-light.gif" />
+    <Content Include="css\img\shieldui-sprite.png" />
+    <Content Include="css\img\stars.png" />
+    <Content Include="css\ionicons.min.css" />
+    <Content Include="css\jqueryui.css" />
+    <Content Include="css\light\all.min.css" />
+    <Content Include="css\light\calendar.min.css" />
+    <Content Include="css\light\chart.min.css" />
+    <Content Include="css\light\colorpicker.min.css" />
+    <Content Include="css\light\core.min.css" />
+    <Content Include="css\light\editor.min.css" />
+    <Content Include="css\light\grid.min.css" />
+    <Content Include="css\light\input.min.css" />
+    <Content Include="css\light\layout.min.css" />
+    <Content Include="css\light\loadingpanel.min.css" />
+    <Content Include="css\light\menu.min.css" />
+    <Content Include="css\light\pager.min.css" />
+    <Content Include="css\light\progressbar.min.css" />
+    <Content Include="css\light\rating.min.css" />
+    <Content Include="css\light\rtl.min.css" />
+    <Content Include="css\light\slider.min.css" />
+    <Content Include="css\light\tagcloud.min.css" />
+    <Content Include="css\light\timeline.min.css" />
+    <Content Include="css\light\treemap.min.css" />
+    <Content Include="css\light\treeview.min.css" />
+    <Content Include="css\light\upload.min.css" />
+    <Content Include="css\light\window.min.css" />
+    <Content Include="css\plugins.css" />
+    <Content Include="css\retina.css" />
+    <Content Include="css\style.css" />
+    <Content Include="css\styles.css" />
+    <Content Include="css\theme.css" />
+    <Content Include="css\themify-icons.css" />
+    <Content Include="dashboard\css\bootstrap.min.css" />
+    <Content Include="dashboard\css\dataTables.bootstrap.min.css" />
+    <Content Include="dashboard\css\inside.css" />
+    <Content Include="dashboard\css\reset.css" />
+    <Content Include="dashboard\css\style.css" />
+    <Content Include="dashboard\fonts\brandon\brandontext-black-demo.html" />
+    <Content Include="dashboard\fonts\brandon\brandontext-blackitalic-demo.html" />
+    <Content Include="dashboard\fonts\brandon\brandontext-bold-demo.html" />
+    <Content Include="dashboard\fonts\brandon\brandontext-bolditalic-demo.html" />
+    <Content Include="dashboard\fonts\brandon\brandontext-light-demo.html" />
+    <Content Include="dashboard\fonts\brandon\brandontext-lightitalic-demo.html" />
+    <Content Include="dashboard\fonts\brandon\brandontext-medium-demo.html" />
+    <Content Include="dashboard\fonts\brandon\brandontext-mediumitalic-demo.html" />
+    <Content Include="dashboard\fonts\brandon\brandontext-regular-demo.html" />
+    <Content Include="dashboard\fonts\brandon\brandontext-regularitalic-demo.html" />
+    <Content Include="dashboard\fonts\brandon\brandontext-thin-demo.html" />
+    <Content Include="dashboard\fonts\brandon\brandontext-thinitalic-demo.html" />
+    <Content Include="dashboard\fonts\brandon\generator_config.txt" />
+    <Content Include="dashboard\fonts\brandon\specimen_files\grid_12-825-55-15.css" />
+    <Content Include="dashboard\fonts\brandon\specimen_files\specimen_stylesheet.css" />
+    <Content Include="dashboard\fonts\brandon\stylesheet.css" />
+    <Content Include="dashboard\fonts\et-icons\et-line.svg" />
+    <Content Include="dashboard\fonts\ion-icons\ionicons-v=2.0.0.svg" />
+    <Content Include="dashboard\fonts\lovelo\lovelo_black-webfont.svg" />
+    <Content Include="dashboard\fonts\lovelo\stylesheet.css" />
+    <Content Include="dashboard\fonts\themify-icons\Flaticon.svg" />
+    <Content Include="dashboard\fonts\themify-icons\themify--fvbane.svg" />
+    <Content Include="dashboard\img\avatar.png" />
+    <Content Include="dashboard\img\cd-arrow.svg" />
+    <Content Include="dashboard\img\cd-logo.svg" />
+    <Content Include="dashboard\img\cd-nav-icons.svg" />
+    <Content Include="dashboard\img\cd-search.svg" />
+    <Content Include="dashboard\img\down-arrow.png" />
+    <Content Include="dashboard\img\icon-back.png" />
+    <Content Include="dashboard\img\icon-close-h.png" />
+    <Content Include="dashboard\img\icon-close.png" />
+    <Content Include="dashboard\img\icon-co-files.png" />
+    <Content Include="dashboard\img\icon-dowload-h.png" />
+    <Content Include="dashboard\img\icon-download.png" />
+    <Content Include="dashboard\img\icon-file-settings.png" />
+    <Content Include="dashboard\img\icon-files.png" />
+    <Content Include="dashboard\img\icon-folder.png" />
+    <Content Include="dashboard\img\icon-folders-h.png" />
+    <Content Include="dashboard\img\icon-folders.png" />
+    <Content Include="dashboard\img\icon-grid.png" />
+    <Content Include="dashboard\img\icon-left-file-manager.png" />
+    <Content Include="dashboard\img\icon-left-support.png" />
+    <Content Include="dashboard\img\icon-left-upgrade.png" />
+    <Content Include="dashboard\img\icon-left-upload.png" />
+    <Content Include="dashboard\img\icon-left-video-manager.png" />
+    <Content Include="dashboard\img\icon-link-h.png" />
+    <Content Include="dashboard\img\icon-link.png" />
+    <Content Include="dashboard\img\icon-list.png" />
+    <Content Include="dashboard\img\icon-logout.png" />
+    <Content Include="dashboard\img\icon-pic.png" />
+    <Content Include="dashboard\img\icon-search.png" />
+    <Content Include="dashboard\img\icon-settings.png" />
+    <Content Include="dashboard\img\icon-share-h.png" />
+    <Content Include="dashboard\img\icon-share.png" />
+    <Content Include="dashboard\img\icon-upload.png" />
+    <Content Include="dashboard\img\icon-video.png" />
+    <Content Include="dashboard\img\icon-wallpaper.png" />
+    <Content Include="dashboard\img\icon-zip.png" />
+    <Content Include="dashboard\img\icons-manage-a.svg" />
+    <Content Include="dashboard\img\icons-manage.png" />
+    <Content Include="dashboard\img\icons-manage.svg" />
+    <Content Include="dashboard\img\img1.png" />
+    <Content Include="dashboard\index.html" />
+    <Content Include="dashboard\js\dataTables.bootstrap.min.js" />
+    <Content Include="dashboard\js\filedrag.js" />
+    <Content Include="dashboard\js\jquery-1.12.3.js" />
+    <Content Include="dashboard\js\jquery-2.1.4.js" />
+    <Content Include="dashboard\js\jquery.dataTables.min.js" />
+    <Content Include="dashboard\js\jquery.menu-aim.js" />
+    <Content Include="dashboard\js\main.js" />
+    <Content Include="dashboard\js\modernizr.js" />
+    <Content Include="dashboard\my-account.html" />
+    <Content Include="datacastassets\plugins\datatables\ColReorder\css\dataTables.colReorder.css" />
+    <Content Include="datacastassets\plugins\datatables\ColReorder\css\dataTables.colReorder.min.css" />
+    <Content Include="datacastassets\plugins\datatables\ColReorder\examples\alt_insert.html" />
+    <Content Include="datacastassets\plugins\datatables\ColReorder\examples\colvis.html" />
+    <Content Include="datacastassets\plugins\datatables\ColReorder\examples\col_filter.html" />
+    <Content Include="datacastassets\plugins\datatables\ColReorder\examples\fixedcolumns.html" />
+    <Content Include="datacastassets\plugins\datatables\ColReorder\examples\fixedheader.html" />
+    <Content Include="datacastassets\plugins\datatables\ColReorder\examples\index.html" />
+    <Content Include="datacastassets\plugins\datatables\ColReorder\examples\jqueryui.html" />
+    <Content Include="datacastassets\plugins\datatables\ColReorder\examples\new_init.html" />
+    <Content Include="datacastassets\plugins\datatables\ColReorder\examples\predefined.html" />
+    <Content Include="datacastassets\plugins\datatables\ColReorder\examples\realtime.html" />
+    <Content Include="datacastassets\plugins\datatables\ColReorder\examples\reset.html" />
+    <Content Include="datacastassets\plugins\datatables\ColReorder\examples\scrolling.html" />
+    <Content Include="datacastassets\plugins\datatables\ColReorder\examples\server_side.html" />
+    <Content Include="datacastassets\plugins\datatables\ColReorder\examples\simple.html" />
+    <Content Include="datacastassets\plugins\datatables\ColReorder\examples\state_save.html" />
+    <Content Include="datacastassets\plugins\datatables\ColReorder\images\insert.png" />
+    <Content Include="datacastassets\plugins\datatables\ColReorder\js\dataTables.colReorder.js" />
+    <Content Include="datacastassets\plugins\datatables\ColReorder\js\dataTables.colReorder.min.js" />
+    <Content Include="datacastassets\plugins\datatables\ColReorder\Readme.txt" />
+    <Content Include="datacastassets\plugins\datatables\dataTables.bootstrap.css" />
+    <Content Include="datacastassets\plugins\datatables\dataTables.bootstrap.js" />
+    <Content Include="datacastassets\plugins\datatables\dataTables.css" />
+    <Content Include="datacastassets\plugins\datatables\dataTables.editor.bootstrap.js" />
+    <Content Include="datacastassets\plugins\datatables\dataTables.editor.js" />
+    <Content Include="datacastassets\plugins\datatables\dataTables.fontAwesome.css" />
+    <Content Include="datacastassets\plugins\datatables\dataTables.min.css" />
+    <Content Include="datacastassets\plugins\datatables\images\sort_asc.png" />
+    <Content Include="datacastassets\plugins\datatables\images\sort_asc_disabled.png" />
+    <Content Include="datacastassets\plugins\datatables\images\sort_both.png" />
+    <Content Include="datacastassets\plugins\datatables\images\sort_desc.png" />
+    <Content Include="datacastassets\plugins\datatables\images\sort_desc_disabled.png" />
+    <Content Include="datacastassets\plugins\datatables\jquery.dataTables.js" />
+    <Content Include="datacastassets\plugins\datatables\jquery.dataTables.min.js" />
+    <Content Include="datacastassets\plugins\datatables\KeyTable\css\dataTables.keyTable.css" />
+    <Content Include="datacastassets\plugins\datatables\KeyTable\examples\events.html" />
+    <Content Include="datacastassets\plugins\datatables\KeyTable\examples\html.html" />
+    <Content Include="datacastassets\plugins\datatables\KeyTable\examples\index.html" />
+    <Content Include="datacastassets\plugins\datatables\KeyTable\examples\scrolling.html" />
+    <Content Include="datacastassets\plugins\datatables\KeyTable\examples\simple.html" />
+    <Content Include="datacastassets\plugins\datatables\KeyTable\js\dataTables.keyTable.js" />
+    <Content Include="datacastassets\plugins\datatables\KeyTable\js\dataTables.keyTable.min.js" />
+    <Content Include="datacastassets\plugins\datatables\KeyTable\Readme.txt" />
+    <Content Include="datacastassets\plugins\datatables\TableTools.js" />
+    <Content Include="datacastassets\plugins\datatables\TableTools\css\dataTables.tableTools.css" />
+    <Content Include="datacastassets\plugins\datatables\TableTools\css\dataTables.tableTools.min.css" />
+    <Content Include="datacastassets\plugins\datatables\TableTools\examples\alter_buttons.html" />
+    <Content Include="datacastassets\plugins\datatables\TableTools\examples\bootstrap.html" />
+    <Content Include="datacastassets\plugins\datatables\TableTools\examples\button_text.html" />
+    <Content Include="datacastassets\plugins\datatables\TableTools\examples\collection.html" />
+    <Content Include="datacastassets\plugins\datatables\TableTools\examples\defaults.html" />
+    <Content Include="datacastassets\plugins\datatables\TableTools\examples\index.html" />
+    <Content Include="datacastassets\plugins\datatables\TableTools\examples\multiple_tables.html" />
+    <Content Include="datacastassets\plugins\datatables\TableTools\examples\multi_instance.html" />
+    <Content Include="datacastassets\plugins\datatables\TableTools\examples\new_init.html" />
+    <Content Include="datacastassets\plugins\datatables\TableTools\examples\pdf_message.html" />
+    <Content Include="datacastassets\plugins\datatables\TableTools\examples\plug-in.html" />
+    <Content Include="datacastassets\plugins\datatables\TableTools\examples\select_column.html" />
+    <Content Include="datacastassets\plugins\datatables\TableTools\examples\select_multi.html" />
+    <Content Include="datacastassets\plugins\datatables\TableTools\examples\select_os.html" />
+    <Content Include="datacastassets\plugins\datatables\TableTools\examples\select_single.html" />
+    <Content Include="datacastassets\plugins\datatables\TableTools\examples\simple.html" />
+    <Content Include="datacastassets\plugins\datatables\TableTools\examples\swf_path.html" />
+    <Content Include="datacastassets\plugins\datatables\TableTools\images\background.png" />
+    <Content Include="datacastassets\plugins\datatables\TableTools\images\collection.png" />
+    <Content Include="datacastassets\plugins\datatables\TableTools\images\collection_hover.png" />
+    <Content Include="datacastassets\plugins\datatables\TableTools\images\copy.png" />
+    <Content Include="datacastassets\plugins\datatables\TableTools\images\copy_hover.png" />
+    <Content Include="datacastassets\plugins\datatables\TableTools\images\csv.png" />
+    <Content Include="datacastassets\plugins\datatables\TableTools\images\csv_hover.png" />
+    <Content Include="datacastassets\plugins\datatables\TableTools\images\pdf.png" />
+    <Content Include="datacastassets\plugins\datatables\TableTools\images\pdf_hover.png" />
+    <Content Include="datacastassets\plugins\datatables\TableTools\images\print.png" />
+    <Content Include="datacastassets\plugins\datatables\TableTools\images\print_hover.png" />
+    <Content Include="datacastassets\plugins\datatables\TableTools\images\xls.png" />
+    <Content Include="datacastassets\plugins\datatables\TableTools\images\xls_hover.png" />
+    <Content Include="datacastassets\plugins\datatables\TableTools\js\dataTables.tableTools.js" />
+    <Content Include="datacastassets\plugins\datatables\TableTools\js\dataTables.tableTools.min.js" />
+    <Content Include="datacastassets\plugins\datatables\TableTools\Readme.txt" />
+    <Content Include="datacastassets\plugins\datatables\TableTools\swf\copy_csv_xls.swf" />
+    <Content Include="datacastassets\plugins\datatables\TableTools\swf\copy_csv_xls_pdf.swf" />
+    <Content Include="datacastdashboard\css\bootstrap.min.css" />
+    <Content Include="datacastdashboard\css\dataTables.bootstrap.min.css" />
+    <Content Include="datacastdashboard\css\inside.css" />
+    <Content Include="datacastdashboard\css\reset.css" />
+    <Content Include="datacastdashboard\css\style.css" />
+    <Content Include="datacastdashboard\img\avatar.png" />
+    <Content Include="datacastdashboard\img\cd-arrow.svg" />
+    <Content Include="datacastdashboard\img\cd-logo.svg" />
+    <Content Include="datacastdashboard\img\cd-nav-icons.svg" />
+    <Content Include="datacastdashboard\img\cd-search.svg" />
+    <Content Include="datacastdashboard\img\down-arrow.png" />
+    <Content Include="datacastdashboard\img\icon-back.png" />
+    <Content Include="datacastdashboard\img\icon-close-h.png" />
+    <Content Include="datacastdashboard\img\icon-close.png" />
+    <Content Include="datacastdashboard\img\icon-co-files.png" />
+    <Content Include="datacastdashboard\img\icon-dowload-h.png" />
+    <Content Include="datacastdashboard\img\icon-download.png" />
+    <Content Include="datacastdashboard\img\icon-file-settings.png" />
+    <Content Include="datacastdashboard\img\icon-files.png" />
+    <Content Include="datacastdashboard\img\icon-folder.png" />
+    <Content Include="datacastdashboard\img\icon-folders-h.png" />
+    <Content Include="datacastdashboard\img\icon-folders.png" />
+    <Content Include="datacastdashboard\img\icon-grid.png" />
+    <Content Include="datacastdashboard\img\icon-left-file-manager.png" />
+    <Content Include="datacastdashboard\img\icon-left-support.png" />
+    <Content Include="datacastdashboard\img\icon-left-upgrade.png" />
+    <Content Include="datacastdashboard\img\icon-left-upload.png" />
+    <Content Include="datacastdashboard\img\icon-left-video-manager.png" />
+    <Content Include="datacastdashboard\img\icon-link-h.png" />
+    <Content Include="datacastdashboard\img\icon-link.png" />
+    <Content Include="datacastdashboard\img\icon-list.png" />
+    <Content Include="datacastdashboard\img\icon-logout.png" />
+    <Content Include="datacastdashboard\img\icon-pic.png" />
+    <Content Include="datacastdashboard\img\icon-search.png" />
+    <Content Include="datacastdashboard\img\icon-settings.png" />
+    <Content Include="datacastdashboard\img\icon-share-h.png" />
+    <Content Include="datacastdashboard\img\icon-share.png" />
+    <Content Include="datacastdashboard\img\icon-upload.png" />
+    <Content Include="datacastdashboard\img\icon-video.png" />
+    <Content Include="datacastdashboard\img\icon-wallpaper.png" />
+    <Content Include="datacastdashboard\img\icon-zip.png" />
+    <Content Include="datacastdashboard\img\icons-manage-a.svg" />
+    <Content Include="datacastdashboard\img\icons-manage.png" />
+    <Content Include="datacastdashboard\img\icons-manage.svg" />
+    <Content Include="datacastdashboard\img\img1.png" />
+    <Content Include="datacastdashboard\index.html" />
+    <Content Include="datacastdashboard\js\dataTables.bootstrap.min.js" />
+    <Content Include="datacastdashboard\js\filedrag.js" />
+    <Content Include="datacastdashboard\js\jquery-1.12.3.js" />
+    <Content Include="datacastdashboard\js\jquery-2.1.4.js" />
+    <Content Include="datacastdashboard\js\jquery.dataTables.min.js" />
+    <Content Include="datacastdashboard\js\jquery.menu-aim.js" />
+    <Content Include="datacastdashboard\js\main.js" />
+    <Content Include="datacastdashboard\js\modernizr.js" />
+    <Content Include="datacastdashboard\my-account.html" />
+    <Content Include="datacastjs\angular-1.4.8.min.js" />
+    <Content Include="datacastjs\common-scripts-dev.js" />
+    <Content Include="datacastjs\html2canvas.js" />
+    <Content Include="datacastjs\jquery-1.11.1.min.js" />
+    <Content Include="datacastjs\jquery.min.js" />
+    <Content Include="datacastjs\jquery.multiselect.filter.js" />
+    <Content Include="datacastjs\jquery.multiselect.js" />
+    <Content Include="datacastjs\jspdf.debug.js" />
+    <Content Include="datacastjs\plugins.js" />
+    <Content Include="datacastjs\scripts.js" />
+    <Content Include="datacastjs\shieldui-all.min.js" />
+    <Content Include="Documentfonts\AdobeFnt17.lst" />
+    <Content Include="fonts\brandon\brandontext-black-demo.html" />
+    <Content Include="fonts\brandon\brandontext-blackitalic-demo.html" />
+    <Content Include="fonts\brandon\brandontext-bold-demo.html" />
+    <Content Include="fonts\brandon\brandontext-bolditalic-demo.html" />
+    <Content Include="fonts\brandon\brandontext-light-demo.html" />
+    <Content Include="fonts\brandon\brandontext-lightitalic-demo.html" />
+    <Content Include="fonts\brandon\brandontext-medium-demo.html" />
+    <Content Include="fonts\brandon\brandontext-mediumitalic-demo.html" />
+    <Content Include="fonts\brandon\brandontext-regular-demo.html" />
+    <Content Include="fonts\brandon\brandontext-regularitalic-demo.html" />
+    <Content Include="fonts\brandon\brandontext-thin-demo.html" />
+    <Content Include="fonts\brandon\brandontext-thinitalic-demo.html" />
+    <Content Include="fonts\brandon\generator_config.txt" />
+    <Content Include="fonts\brandon\specimen_files\grid_12-825-55-15.css" />
+    <Content Include="fonts\brandon\specimen_files\specimen_stylesheet.css" />
+    <Content Include="fonts\brandon\stylesheet.css" />
+    <Content Include="fonts\et-icons\et-line.svg" />
+    <Content Include="fonts\ion-icons\ionicons-v=2.0.0.svg" />
+    <Content Include="fonts\lovelo\lovelo_black-webfont.svg" />
+    <Content Include="fonts\lovelo\stylesheet.css" />
+    <Content Include="fonts\themify-icons\Flaticon.svg" />
+    <Content Include="fonts\themify-icons\themify--fvbane.svg" />
+    <Content Include="Global.asax" />
+    <Content Include="img\home\blue-twitter%402x.png" />
+    <Content Include="img\home\blue-twitter.png" />
+    <Content Include="img\home\dot-pattern.png" />
+    <Content Include="img\home\getting-started%402x.png" />
+    <Content Include="img\home\getting-started.png" />
+    <Content Include="img\home\icon-facebook%402x.png" />
+    <Content Include="img\home\icon-facebook.png" />
+    <Content Include="img\home\icon-twitter%402x.png" />
+    <Content Include="img\home\icon-twitter.png" />
+    <Content Include="img\home\icon-youtube%402x.png" />
+    <Content Include="img\home\icon-youtube.png" />
+    <Content Include="img\home\image_icon.png" />
+    <Content Include="img\home\loader.gif" />
+    <Content Include="img\home\login-bg%402x.png" />
+    <Content Include="img\home\login-bg.png" />
+    <Content Include="img\home\login-with-gole.png" />
+    <Content Include="img\home\logo-header.png" />
+    <Content Include="img\home\logo-header2.png" />
+    <Content Include="img\home\menu_toggle_icon.png" />
+    <Content Include="img\home\pdf_2.png" />
+    <Content Include="js\angular-1.4.8.min.js" />
+    <Content Include="js\common-scripts-dev.js" />
+    <Content Include="js\jquery.min.js" />
+    <Content Include="js\plugins.js" />
+    <Content Include="js\scripts.js" />
+    <Content Include="login.html" />
+    <Content Include="assets\plugins\datatables\dataTables.bootstrap.js_bak" />
+    <Content Include="assets\plugins\datatables\TableTools\images\psd\collection.psd" />
+    <Content Include="assets\plugins\datatables\TableTools\images\psd\copy document.psd" />
+    <Content Include="assets\plugins\datatables\TableTools\images\psd\file_types.psd" />
+    <Content Include="assets\plugins\datatables\TableTools\images\psd\printer.psd" />
+    <Content Include="assets\fonts\artill\artill_clean_icons-webfont.eot" />
+    <Content Include="assets\fonts\artill\artill_clean_icons-webfont.ttf" />
+    <Content Include="assets\fonts\artill\artill_clean_icons-webfont.woff" />
+    <Content Include="assets\fonts\artill\artill_clean_icons.otf" />
+    <Content Include="assets\fonts\font-awesome\fonts\fontawesome-webfont.eot" />
+    <Content Include="assets\fonts\font-awesome\fonts\fontawesome-webfont.ttf" />
+    <Content Include="assets\fonts\font-awesome\fonts\fontawesome-webfont.woff" />
+    <Content Include="assets\fonts\font-awesome\fonts\FontAwesome.otf" />
+    <Content Include="assets\fonts\font-awesome\less\bordered-pulled.less" />
+    <Content Include="assets\fonts\font-awesome\less\core.less" />
+    <Content Include="assets\fonts\font-awesome\less\extras.less" />
+    <Content Include="assets\fonts\font-awesome\less\fixed-width.less" />
+    <Content Include="assets\fonts\font-awesome\less\font-awesome.less" />
+    <Content Include="assets\fonts\font-awesome\less\icons.less" />
+    <Content Include="assets\fonts\font-awesome\less\larger.less" />
+    <Content Include="assets\fonts\font-awesome\less\list.less" />
+    <Content Include="assets\fonts\font-awesome\less\mixins.less" />
+    <Content Include="assets\fonts\font-awesome\less\path.less" />
+    <Content Include="assets\fonts\font-awesome\less\rotated-flipped.less" />
+    <Content Include="assets\fonts\font-awesome\less\spinning.less" />
+    <Content Include="assets\fonts\font-awesome\less\stacked.less" />
+    <Content Include="assets\fonts\font-awesome\less\variables.less" />
+    <Content Include="assets\fonts\font-awesome\README.md" />
+    <Content Include="assets\fonts\font-awesome\scss\font-awesome.scss" />
+    <Content Include="assets\fonts\font-awesome\scss\_bordered-pulled.scss" />
+    <Content Include="assets\fonts\font-awesome\scss\_core.scss" />
+    <Content Include="assets\fonts\font-awesome\scss\_extras.scss" />
+    <Content Include="assets\fonts\font-awesome\scss\_fixed-width.scss" />
+    <Content Include="assets\fonts\font-awesome\scss\_icons.scss" />
+    <Content Include="assets\fonts\font-awesome\scss\_larger.scss" />
+    <Content Include="assets\fonts\font-awesome\scss\_list.scss" />
+    <Content Include="assets\fonts\font-awesome\scss\_mixins.scss" />
+    <Content Include="assets\fonts\font-awesome\scss\_path.scss" />
+    <Content Include="assets\fonts\font-awesome\scss\_rotated-flipped.scss" />
+    <Content Include="assets\fonts\font-awesome\scss\_spinning.scss" />
+    <Content Include="assets\fonts\font-awesome\scss\_stacked.scss" />
+    <Content Include="assets\fonts\font-awesome\scss\_variables.scss" />
+    <Content Include="assets\fonts\glyphicons\font\glyphicons-halflings-regular.eot" />
+    <Content Include="assets\fonts\glyphicons\font\glyphicons-halflings-regular.ttf" />
+    <Content Include="assets\fonts\glyphicons\font\glyphicons-halflings-regular.woff" />
+    <Content Include="Documentfonts\BELLB.TTF" />
+    <Content Include="Documentfonts\MinionPro-Semibold.otf" />
+    <Content Include="Documentfonts\OpenSans-Bold.ttf" />
+    <Content Include="Documentfonts\OpenSans-Light.ttf" />
+    <Content Include="Documentfonts\OpenSans-Regular.ttf" />
+    <Content Include="Documentfonts\Roboto-BlackItalic.ttf" />
+    <Content Include="Documentfonts\Roboto-Light.ttf" />
+    <Content Include="Documentfonts\Roboto-LightItalic.ttf" />
+    <Content Include="datacastdashboard\js\README-menu-aim.md" />
+    <Content Include="datacastassets\plugins\datatables\dataTables.bootstrap.js_bak" />
+    <Content Include="datacastassets\plugins\datatables\TableTools\images\psd\collection.psd" />
+    <Content Include="datacastassets\plugins\datatables\TableTools\images\psd\copy document.psd" />
+    <Content Include="datacastassets\plugins\datatables\TableTools\images\psd\file_types.psd" />
+    <Content Include="datacastassets\plugins\datatables\TableTools\images\psd\printer.psd" />
+    <EntityDeploy Include="Models\DbEntities.edmx">
+      <Generator>EntityModelCodeGenerator</Generator>
+      <LastGenOutput>DbEntities.Designer.cs</LastGenOutput>
+    </EntityDeploy>
+    <Content Include="Models\DbEntities.Context.tt">
+      <Generator>TextTemplatingFileGenerator</Generator>
+      <DependentUpon>DbEntities.edmx</DependentUpon>
+      <LastGenOutput>DbEntities.Context.cs</LastGenOutput>
+    </Content>
+    <Content Include="Models\DbEntities.edmx.diagram">
+      <DependentUpon>DbEntities.edmx</DependentUpon>
+    </Content>
+    <Content Include="Models\DbEntities.tt">
+      <Generator>TextTemplatingFileGenerator</Generator>
+      <DependentUpon>DbEntities.edmx</DependentUpon>
+      <LastGenOutput>DbEntities.cs</LastGenOutput>
+    </Content>
+    <EntityDeploy Include="Models\DatacastEntities.edmx">
+      <Generator>EntityModelCodeGenerator</Generator>
+      <LastGenOutput>DatacastEntities.Designer.cs</LastGenOutput>
+    </EntityDeploy>
+    <Content Include="Models\DatacastEntities.Context.tt">
+      <Generator>TextTemplatingFileGenerator</Generator>
+      <DependentUpon>DatacastEntities.edmx</DependentUpon>
+      <LastGenOutput>DatacastEntities.Context.cs</LastGenOutput>
+    </Content>
+    <Content Include="Models\DatacastEntities.edmx.diagram">
+      <DependentUpon>DatacastEntities.edmx</DependentUpon>
+    </Content>
+    <Content Include="Models\DatacastEntities.tt">
+      <Generator>TextTemplatingFileGenerator</Generator>
+      <DependentUpon>DatacastEntities.edmx</DependentUpon>
+      <LastGenOutput>DatacastEntities.cs</LastGenOutput>
+    </Content>
+    <None Include="Properties\PublishProfiles\Local.pubxml" />
+    <None Include="Properties\PublishProfiles\local1.pubxml" />
+    <None Include="Properties\PublishProfiles\raghuveer.pubxml" />
+    <None Include="Scripts\jquery-1.10.2.intellisense.js" />
+    <Content Include="PHPCOdeofIFRamein DrupalSIte.txt" />
+    <Content Include="Sample.html" />
+    <Content Include="Scripts\jquery-1.10.2.js" />
+    <Content Include="Scripts\jquery-1.10.2.min.js" />
+    <None Include="Scripts\jquery.validate-vsdoc.js" />
+    <Content Include="Scripts\jquery.validate.js" />
+    <Content Include="Scripts\jquery.validate.min.js" />
+    <Content Include="Scripts\jquery.validate.unobtrusive.js" />
+    <Content Include="Scripts\jquery.validate.unobtrusive.min.js" />
+    <Content Include="SSISPackage_FileIssue_Solution.txt" />
+    <Content Include="Web.config">
+      <SubType>Designer</SubType>
+    </Content>
+    <Content Include="Scripts\jquery-1.10.2.min.map" />
+    <Content Include="Views\Home\Index.cshtml" />
+    <Content Include="Views\Shared\_Layout.cshtml" />
+    <Content Include="Views\Home\Dashboard.cshtml" />
+    <Content Include="Views\Home\ViewDataSet.cshtml" />
+    <Content Include="Views\Home\ReplaceDataSet.cshtml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="App_Start\RouteConfig.cs" />
+    <Compile Include="App_Start\UnityConfig.cs" />
+    <Compile Include="App_Start\UnityMvcActivator.cs" />
+    <Compile Include="Bootstrapper.cs" />
+    <Compile Include="Controllers\DatacastDBWidgetController.cs" />
+    <Compile Include="Controllers\DatacastHomeController.cs" />
+    <Compile Include="Controllers\HomeController.cs" />
+    <Compile Include="DataRepository\DatacastDataRepository.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="DataRepository\IDatacastDataRepository.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="DataRepository\DataRepository.cs" />
+    <Compile Include="DataRepository\IDataRepository.cs" />
+    <Compile Include="Global.asax.cs">
+      <DependentUpon>Global.asax</DependentUpon>
+    </Compile>
+    <Compile Include="Models\Category.cs">
+      <DependentUpon>DatacastEntities.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\CategoryDropDown.cs">
+      <DependentUpon>DatacastEntities.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\CompaniesList.cs">
+      <DependentUpon>DatacastEntities.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\Company.cs">
+      <DependentUpon>DatacastEntities.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\CompanyList.cs">
+      <DependentUpon>DatacastEntities.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\CompanyMasterMetaData.cs">
+      <DependentUpon>DatacastEntities.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\CompanyShortCode.cs">
+      <DependentUpon>DatacastEntities.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\CompanyStagingLoadInfo.cs">
+      <DependentUpon>DatacastEntities.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\CompanyWeb.cs">
+      <DependentUpon>DatacastEntities.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\CompanyWebForNew.cs">
+      <DependentUpon>DatacastEntities.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\Continent.cs">
+      <DependentUpon>DatacastEntities.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\Country.cs">
+      <DependentUpon>DatacastEntities.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\Customer.cs">
+      <DependentUpon>DatacastEntities.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\CustomerDataSet.cs">
+      <DependentUpon>DatacastEntities.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\CustomerDatasetsProcess.cs">
+      <DependentUpon>DatacastEntities.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\CustomerDatasetsProcess_Schedule.cs">
+      <DependentUpon>DatacastEntities.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\DatacastDomainModel.cs" />
+    <Compile Include="Models\DatacastEntities.Context.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>DatacastEntities.Context.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\DatacastEntities.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>DatacastEntities.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\DatacastEntities.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>DatacastEntities.edmx</DependentUpon>
+    </Compile>
+    <Compile Include="Models\DateRanx.cs">
+      <DependentUpon>DatacastEntities.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\DbEntities.Context.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>DbEntities.Context.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\DbEntities.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>DbEntities.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\DbEntities.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>DbEntities.edmx</DependentUpon>
+    </Compile>
+    <Compile Include="Models\DomainModel.cs" />
+    <Compile Include="Models\Dumped.cs">
+      <DependentUpon>DatacastEntities.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\ExceptionLog.cs">
+      <DependentUpon>DatacastEntities.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\FavouriteList.cs">
+      <DependentUpon>DatacastEntities.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\ForeCastCheckData.cs">
+      <DependentUpon>DatacastEntities.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\ForeCastData.cs">
+      <DependentUpon>DatacastEntities.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\ForecastData_08282017.cs">
+      <DependentUpon>DatacastEntities.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\ForeCastMetaData.cs">
+      <DependentUpon>DatacastEntities.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\f_split_Result.cs">
+      <DependentUpon>DatacastEntities.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\Indicator.cs">
+      <DependentUpon>DatacastEntities.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\Indicator20170110.cs">
+      <DependentUpon>DatacastEntities.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\IndicatorList.cs">
+      <DependentUpon>DatacastEntities.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\IndicatorWeb.cs">
+      <DependentUpon>DatacastEntities.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\IndicatorWebForNew.cs">
+      <DependentUpon>DatacastEntities.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\Industry.cs">
+      <DependentUpon>DatacastEntities.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\MasterMetaData.cs">
+      <DependentUpon>DatacastEntities.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\MasterMetaData_Backup.cs">
+      <DependentUpon>DatacastEntities.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\Month.cs">
+      <DependentUpon>DatacastEntities.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\Notify.cs">
+      <DependentUpon>DatacastEntities.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\NotifyDev.cs">
+      <DependentUpon>DatacastEntities.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\PaidForecast.cs">
+      <DependentUpon>DatacastEntities.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\PopupAccess.cs">
+      <DependentUpon>DatacastEntities.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\Product.cs">
+      <DependentUpon>DatacastEntities.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\Region.cs">
+      <DependentUpon>DatacastEntities.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\ReleaseSchedule.cs">
+      <DependentUpon>DatacastEntities.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\ShortCode.cs">
+      <DependentUpon>DatacastEntities.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\Split_Result.cs">
+      <DependentUpon>DatacastEntities.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\sp_CheckLogin_Result.cs">
+      <DependentUpon>DatacastEntities.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\SP_SelectAllCompanies_Result.cs">
+      <DependentUpon>DatacastEntities.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\SP_SelectAllIndicators_Result.cs">
+      <DependentUpon>DatacastEntities.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\SP_SelectCompanyDataForWeb_Result.cs">
+      <DependentUpon>DatacastEntities.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\sp_SelectCompanyDataInclusive_New_Result.cs">
+      <DependentUpon>DatacastEntities.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\sp_SelectCompanyDataInclusive_Result.cs">
+      <DependentUpon>DatacastEntities.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\SP_SelectCompanyData_Result.cs">
+      <DependentUpon>DatacastEntities.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\SP_SelectCompanyData_TestSP_Result.cs">
+      <DependentUpon>DatacastEntities.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\SP_SelectCompanyMetaData_Result.cs">
+      <DependentUpon>DatacastEntities.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\SP_SelectCompanyShortCodes_Result.cs">
+      <DependentUpon>DatacastEntities.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\SP_SelectCompanyUpdateLoadResult_Result.cs">
+      <DependentUpon>DatacastEntities.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\SP_SelectCompanyWebShortCodesFOrNewCompany_Result.cs">
+      <DependentUpon>DatacastEntities.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\SP_SelectCompanyWebShortCodes_Result.cs">
+      <DependentUpon>DatacastEntities.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\SP_SelectCustomerData_Result.cs">
+      <DependentUpon>DatacastEntities.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\SP_SelectForecastDatabyForecastMetadataID_Result.cs">
+      <DependentUpon>DatacastEntities.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\SP_SelectForecastDosCodes_Result.cs">
+      <DependentUpon>DatacastEntities.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\sp_SelectForecastStagingWebData_Result.cs">
+      <DependentUpon>DatacastEntities.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\SP_SelectForecastWebShortCodes_Result.cs">
+      <DependentUpon>DatacastEntities.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\SP_SelectIndicatorDataForWeb_Result.cs">
+      <DependentUpon>DatacastEntities.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\SP_SelectIndicatorData_Result.cs">
+      <DependentUpon>DatacastEntities.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\SP_SelectIndicatorData_TestSp_Result.cs">
+      <DependentUpon>DatacastEntities.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\SP_SelectIndicatorsNonUpdateLoadResult_Result.cs">
+      <DependentUpon>DatacastEntities.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\SP_SelectIndicatorsUpdateLoadResult_Result.cs">
+      <DependentUpon>DatacastEntities.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\SP_SelectIndicatorWebShortCodesFOrNewIndicators_Result.cs">
+      <DependentUpon>DatacastEntities.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\SP_SelectIndicatorWebShortCodes_Result.cs">
+      <DependentUpon>DatacastEntities.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\SP_SelectIndustryMetaData_Result.cs">
+      <DependentUpon>DatacastEntities.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\SP_SelectShortCodes_Result.cs">
+      <DependentUpon>DatacastEntities.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\sp_SelectStagingWebDataForCompany_Result.cs">
+      <DependentUpon>DatacastEntities.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\sp_SelectStagingWebDataForNewCompany_Result.cs">
+      <DependentUpon>DatacastEntities.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\sp_SelectStagingWebDataForNewIndicators_Result.cs">
+      <DependentUpon>DatacastEntities.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\sp_SelectStagingWebData_Result.cs">
+      <DependentUpon>DatacastEntities.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\StagingCompany.cs">
+      <DependentUpon>DatacastEntities.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\StagingCompanyData.cs">
+      <DependentUpon>DatacastEntities.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\StagingCompanyWeb.cs">
+      <DependentUpon>DatacastEntities.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\StagingForeCast.cs">
+      <DependentUpon>DatacastEntities.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\StagingForecastTest.cs">
+      <DependentUpon>DatacastEntities.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\StagingIndicatorTest.cs">
+      <DependentUpon>DatacastEntities.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\StagingIndicatorWeb.cs">
+      <DependentUpon>DatacastEntities.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\StagingIndicatorWebForNewIndicator.cs">
+      <DependentUpon>DatacastEntities.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\StagingLoadInfo.cs">
+      <DependentUpon>DatacastEntities.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\StateProvince.cs">
+      <DependentUpon>DatacastEntities.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\SubCategory.cs">
+      <DependentUpon>DatacastEntities.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\SubProduct.cs">
+      <DependentUpon>DatacastEntities.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\TempTable.cs">
+      <DependentUpon>DatacastEntities.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\TempTableForRawData.cs">
+      <DependentUpon>DatacastEntities.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\TEMP_CompanyReporting_Logic.cs">
+      <DependentUpon>DatacastEntities.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\TEMP_CompanyReporting_Logic_Portal.cs">
+      <DependentUpon>DatacastEntities.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\TEMP_IndicatorReporting_Logic.cs">
+      <DependentUpon>DatacastEntities.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\TestSP.cs">
+      <DependentUpon>DatacastEntities.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\UI_ForeCastData.cs">
+      <DependentUpon>DatacastEntities.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\UI_ForeCastMetaData.cs">
+      <DependentUpon>DatacastEntities.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\User.cs">
+      <DependentUpon>DatacastEntities.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\uspSelectAccounts_Result.cs">
+      <DependentUpon>DatacastEntities.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\uspSelectAllDBWidgetsListByCompanyID_Result.cs">
+      <DependentUpon>DatacastEntities.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\uspSelectAllFavouriteListByUserIDForDatacast_Result.cs">
+      <DependentUpon>DbEntities.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\uspSelectAllFavouriteListByUserID_Result.cs">
+      <DependentUpon>DatacastEntities.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\uspSelectAllFavouritesListByUserID_Result.cs">
+      <DependentUpon>DbEntities.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\uspSelectCompanyAndIndicatorDateByShordCodes03312017_Result.cs">
+      <DependentUpon>DatacastEntities.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\uspSelectCompanyAndIndicatorDateByShordCodesForAlliance_Result.cs">
+      <DependentUpon>DatacastEntities.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\uspSelectCompanyAndIndicatorDateByShordCodes_08282017_Result.cs">
+      <DependentUpon>DatacastEntities.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\uspSelectCompanyAndIndicatorDateByShordCodes_new_Result.cs">
+      <DependentUpon>DatacastEntities.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\uspSelectCompanyAndIndicatorDateByShordCodes_old_Result.cs">
+      <DependentUpon>DatacastEntities.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\uspSelectCompanyAndIndicatorDateByShordCodes_Result.cs">
+      <DependentUpon>DatacastEntities.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\uspSelectCompanyDataForDataTrends_Result.cs">
+      <DependentUpon>DatacastEntities.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\uspSelectCompanyDatasetsForInternalRatesOfChange_Result.cs">
+      <DependentUpon>DatacastEntities.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\uspSelectCompanyDataSetsInfoDownloadSection1_Result.cs">
+      <DependentUpon>DatacastEntities.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\uspSelectCompanyForecastDataByCompanyShortCode_Result.cs">
+      <DependentUpon>DatacastEntities.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\uspSelectDatacastCategoriesPortal_Result.cs">
+      <DependentUpon>DbEntities.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\uspSelectDatacastCategories_Result.cs">
+      <DependentUpon>DatacastEntities.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\uspSelectDatacastSubCategoriesByCategoryPortal_Result.cs">
+      <DependentUpon>DbEntities.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\uspSelectDatacastSubCategoriesByCategory_Result.cs">
+      <DependentUpon>DatacastEntities.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\uspSelectDatacastSubSector2BySubSector1Portal_Result.cs">
+      <DependentUpon>DbEntities.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\uspSelectDatacastSubSector2BySubSector1_Result.cs">
+      <DependentUpon>DatacastEntities.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\uspSelectDatacastSubSector3BySubSector2Portal_Result.cs">
+      <DependentUpon>DbEntities.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\uspSelectDatacastSubSector3BySubSector2_Result.cs">
+      <DependentUpon>DatacastEntities.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\uspSelectDatacastSubSectorsBySectorPortal_Result.cs">
+      <DependentUpon>DbEntities.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\uspSelectDatacastSubSectorsBySector_Result.cs">
+      <DependentUpon>DatacastEntities.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\uspSelectDataSetsByCompanyDivisionForAlliance_Result.cs">
+      <DependentUpon>DbEntities.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\uspSelectDataSetsByCompanyDivision_Result.cs">
+      <DependentUpon>DbEntities.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\uspSelectDataSetsByFavouriteListsOfUserID_Result.cs">
+      <DependentUpon>DbEntities.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\uspSelectDataSetsByQBaseAccountIDForDatacast_Result.cs">
+      <DependentUpon>DbEntities.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\uspSelectDataSetsByQBaseAccountID_Result.cs">
+      <DependentUpon>DatacastEntities.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\uspSelectDataSetsByUserFavouriteList_Result.cs">
+      <DependentUpon>DbEntities.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\uspSelectDataSetsDetailsByDataSetIDForBanner_Result.cs">
+      <DependentUpon>DbEntities.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\uspSelectDataSetsDetailsByDataSetID_Result.cs">
+      <DependentUpon>DbEntities.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\uspSelectDBWidgetsCorrelationListByCompanyID_Result.cs">
+      <DependentUpon>DatacastEntities.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\uspSelectDBWidgetsListByCompanyID_Result.cs">
+      <DependentUpon>DatacastEntities.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\uspSelectDivisionsByAccountID_Result.cs">
+      <DependentUpon>DatacastEntities.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\uspSelectFavouriteListByUserIDForDatacast_Result.cs">
+      <DependentUpon>DbEntities.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\uspSelectFavouriteListByUserID_Result.cs">
+      <DependentUpon>DatacastEntities.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\uspSelectFavouritesListByUserIDAndCompanyShortCode_Result.cs">
+      <DependentUpon>DbEntities.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\uspSelectFavouritesListByUserID_Result.cs">
+      <DependentUpon>DatacastEntities.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\uspSelectIndicatorCategoryDropdown_Result.cs">
+      <DependentUpon>DbEntities.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\uspSelectIndicatorDataByIndicatorShortCodes_Result.cs">
+      <DependentUpon>DatacastEntities.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\uspSelectIndicatorForecastDataByIndicatorShortCode_Result.cs">
+      <DependentUpon>DatacastEntities.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\uspSelectIndicatorListByCategorySearchPortal_Result.cs">
+      <DependentUpon>DbEntities.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\uspSelectIndicatorListByCategorySearch_Result.cs">
+      <DependentUpon>DatacastEntities.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\uspSelectIndicatorSeriesItemsForDownloadData_Result.cs">
+      <DependentUpon>DatacastEntities.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\uspSelectLoadCorelationLeadLagByDataSetIDForAlliance_Result.cs">
+      <DependentUpon>DatacastEntities.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\uspSelectLoadCorelationLeadLagByDataSetIDForDatacast_Result.cs">
+      <DependentUpon>DbEntities.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\uspSelectLoadCorelationLeadLagByDataSetID_04282017_Result.cs">
+      <DependentUpon>DatacastEntities.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\uspSelectLoadCorelationLeadLagByDataSetID_Result.cs">
+      <DependentUpon>DatacastEntities.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\uspSelectLoadCorelationLeadLagByMultipleDatasetIDS_04282017_Result.cs">
+      <DependentUpon>DatacastEntities.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\uspSelectLoadCorelationLeadLagByMultipleDatasetIDS_Result.cs">
+      <DependentUpon>DatacastEntities.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\uspSelectMasterMetaDataByMetaDataID_Result.cs">
+      <DependentUpon>DatacastEntities.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\UspSelectMasterMetaDataByWorkBook_Result.cs">
+      <DependentUpon>DatacastEntities.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\uspSelectMasterMetaDataFields_Result.cs">
+      <DependentUpon>DatacastEntities.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\UspSelectMasterMetaData_Result.cs">
+      <DependentUpon>DatacastEntities.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\uspSelectPhaseValuesOfDBWidgetsByCompanyId_Result.cs">
+      <DependentUpon>DatacastEntities.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\uspSelectRowsByDataSetID_Result.cs">
+      <DependentUpon>DbEntities.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\vwCompanyAVG.cs">
+      <DependentUpon>DatacastEntities.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\vwCompanyForecast.cs">
+      <DependentUpon>DatacastEntities.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\vwCustomer.cs">
+      <DependentUpon>DatacastEntities.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\vwDataSet.cs">
+      <DependentUpon>DatacastEntities.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\vwIndicatorAVG.cs">
+      <DependentUpon>DatacastEntities.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\vwIndicatorForecast.cs">
+      <DependentUpon>DatacastEntities.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\vwSelectIndicator.cs">
+      <DependentUpon>DatacastEntities.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\vwTableau.cs">
+      <DependentUpon>DatacastEntities.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\VWTBL_COMPANY.cs">
+      <DependentUpon>DatacastEntities.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\VWTBL_COMPANY_PORTAL.cs">
+      <DependentUpon>DatacastEntities.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\VWTBL_COMPANY_PORTAL_Backup.cs">
+      <DependentUpon>DatacastEntities.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\VWTBL_INDICATOR.cs">
+      <DependentUpon>DatacastEntities.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Properties\AssemblyInfo.cs" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="Views\web.config" />
+    <Content Include="packages.config" />
+    <Content Include="dashboard\fonts\brandon\brandontext-black-webfont.woff" />
+    <Content Include="dashboard\fonts\brandon\brandontext-black-webfont.woff2" />
+    <Content Include="dashboard\fonts\brandon\brandontext-blackitalic-webfont.woff" />
+    <Content Include="dashboard\fonts\brandon\brandontext-blackitalic-webfont.woff2" />
+    <Content Include="dashboard\fonts\brandon\brandontext-bold-webfont.woff" />
+    <Content Include="dashboard\fonts\brandon\brandontext-bold-webfont.woff2" />
+    <Content Include="dashboard\fonts\brandon\brandontext-bolditalic-webfont.woff" />
+    <Content Include="dashboard\fonts\brandon\brandontext-bolditalic-webfont.woff2" />
+    <Content Include="dashboard\fonts\brandon\brandontext-light-webfont.woff" />
+    <Content Include="dashboard\fonts\brandon\brandontext-light-webfont.woff2" />
+    <Content Include="dashboard\fonts\brandon\brandontext-lightitalic-webfont.woff" />
+    <Content Include="dashboard\fonts\brandon\brandontext-lightitalic-webfont.woff2" />
+    <Content Include="dashboard\fonts\brandon\brandontext-medium-webfont.woff" />
+    <Content Include="dashboard\fonts\brandon\brandontext-medium-webfont.woff2" />
+    <Content Include="dashboard\fonts\brandon\brandontext-mediumitalic-webfont.woff" />
+    <Content Include="dashboard\fonts\brandon\brandontext-mediumitalic-webfont.woff2" />
+    <Content Include="dashboard\fonts\brandon\brandontext-regular-webfont.woff" />
+    <Content Include="dashboard\fonts\brandon\brandontext-regular-webfont.woff2" />
+    <Content Include="dashboard\fonts\brandon\brandontext-regularitalic-webfont.woff" />
+    <Content Include="dashboard\fonts\brandon\brandontext-regularitalic-webfont.woff2" />
+    <Content Include="dashboard\fonts\brandon\brandontext-thin-webfont.woff" />
+    <Content Include="dashboard\fonts\brandon\brandontext-thin-webfont.woff2" />
+    <Content Include="dashboard\fonts\brandon\brandontext-thinitalic-webfont.woff" />
+    <Content Include="dashboard\fonts\brandon\brandontext-thinitalic-webfont.woff2" />
+    <Content Include="dashboard\fonts\et-icons\et-line-.eot" />
+    <Content Include="dashboard\fonts\et-icons\et-line.eot" />
+    <Content Include="dashboard\fonts\et-icons\et-line.ttf" />
+    <Content Include="dashboard\fonts\et-icons\et-line.woff" />
+    <Content Include="dashboard\fonts\ion-icons\ionicons-v=2.0.0.eot" />
+    <Content Include="dashboard\fonts\ion-icons\ionicons-v=2.0.0.ttf" />
+    <Content Include="dashboard\fonts\ion-icons\ionicons-v=2.0.0.woff" />
+    <Content Include="dashboard\fonts\lovelo\lovelo_black-webfont-.eot" />
+    <Content Include="dashboard\fonts\lovelo\lovelo_black-webfont.eot" />
+    <Content Include="dashboard\fonts\lovelo\lovelo_black-webfont.ttf" />
+    <Content Include="dashboard\fonts\lovelo\lovelo_black-webfont.woff" />
+    <Content Include="dashboard\fonts\lovelo\lovelo_black-webfont.woff2" />
+    <Content Include="dashboard\fonts\themify-icons\Flaticon-.eot" />
+    <Content Include="dashboard\fonts\themify-icons\Flaticon.eot" />
+    <Content Include="dashboard\fonts\themify-icons\Flaticon.ttf" />
+    <Content Include="dashboard\fonts\themify-icons\Flaticon.woff" />
+    <Content Include="dashboard\fonts\themify-icons\themify--fvbane.eot" />
+    <Content Include="dashboard\fonts\themify-icons\themify--fvbane.ttf" />
+    <Content Include="dashboard\fonts\themify-icons\themify--fvbane.woff" />
+    <Content Include="dashboard\fonts\themify-icons\themify-.eot" />
+    <Content Include="dashboard\js\README-menu-aim.md" />
+    <Content Include="fonts\brandon\brandontext-black-webfont.woff" />
+    <Content Include="fonts\brandon\brandontext-black-webfont.woff2" />
+    <Content Include="fonts\brandon\brandontext-blackitalic-webfont.woff" />
+    <Content Include="fonts\brandon\brandontext-blackitalic-webfont.woff2" />
+    <Content Include="fonts\brandon\brandontext-bold-webfont.woff" />
+    <Content Include="fonts\brandon\brandontext-bold-webfont.woff2" />
+    <Content Include="fonts\brandon\brandontext-bolditalic-webfont.woff" />
+    <Content Include="fonts\brandon\brandontext-bolditalic-webfont.woff2" />
+    <Content Include="fonts\brandon\brandontext-light-webfont.woff" />
+    <Content Include="fonts\brandon\brandontext-light-webfont.woff2" />
+    <Content Include="fonts\brandon\brandontext-lightitalic-webfont.woff" />
+    <Content Include="fonts\brandon\brandontext-lightitalic-webfont.woff2" />
+    <Content Include="fonts\brandon\brandontext-medium-webfont.woff" />
+    <Content Include="fonts\brandon\brandontext-medium-webfont.woff2" />
+    <Content Include="fonts\brandon\brandontext-mediumitalic-webfont.woff" />
+    <Content Include="fonts\brandon\brandontext-mediumitalic-webfont.woff2" />
+    <Content Include="fonts\brandon\brandontext-regular-webfont.woff" />
+    <Content Include="fonts\brandon\brandontext-regular-webfont.woff2" />
+    <Content Include="fonts\brandon\brandontext-regularitalic-webfont.woff" />
+    <Content Include="fonts\brandon\brandontext-regularitalic-webfont.woff2" />
+    <Content Include="fonts\brandon\brandontext-thin-webfont.woff" />
+    <Content Include="fonts\brandon\brandontext-thin-webfont.woff2" />
+    <Content Include="fonts\brandon\brandontext-thinitalic-webfont.woff" />
+    <Content Include="fonts\brandon\brandontext-thinitalic-webfont.woff2" />
+    <Content Include="fonts\et-icons\et-line-.eot" />
+    <Content Include="fonts\et-icons\et-line.eot" />
+    <Content Include="fonts\et-icons\et-line.ttf" />
+    <Content Include="fonts\et-icons\et-line.woff" />
+    <Content Include="fonts\ion-icons\ionicons-v=2.0.0.eot" />
+    <Content Include="fonts\ion-icons\ionicons-v=2.0.0.ttf" />
+    <Content Include="fonts\ion-icons\ionicons-v=2.0.0.woff" />
+    <Content Include="fonts\lovelo\lovelo_black-webfont-.eot" />
+    <Content Include="fonts\lovelo\lovelo_black-webfont.eot" />
+    <Content Include="fonts\lovelo\lovelo_black-webfont.ttf" />
+    <Content Include="fonts\lovelo\lovelo_black-webfont.woff" />
+    <Content Include="fonts\lovelo\lovelo_black-webfont.woff2" />
+    <Content Include="fonts\themify-icons\Flaticon-.eot" />
+    <Content Include="fonts\themify-icons\Flaticon.eot" />
+    <Content Include="fonts\themify-icons\Flaticon.ttf" />
+    <Content Include="fonts\themify-icons\Flaticon.woff" />
+    <Content Include="fonts\themify-icons\themify--fvbane.eot" />
+    <Content Include="fonts\themify-icons\themify--fvbane.ttf" />
+    <Content Include="fonts\themify-icons\themify--fvbane.woff" />
+    <Content Include="fonts\themify-icons\themify-.eot" />
+    <Content Include="Views\Home\AddDatasets.cshtml" />
+    <Content Include="Views\Home\ITRSession.cshtml" />
+    <Content Include="Templates\DataTemplate.xlsx" />
+    <Content Include="Views\Home\CreateFavouriteList.cshtml" />
+    <Content Include="Views\DatacastHome\DataCast.cshtml" />
+    <Content Include="Views\DatacastHome\DashboardWidgets.cshtml" />
+    <Content Include="Views\DatacastHome\DataCast_04092018%28Vij%29.cshtml" />
+    <Content Include="Views\DatacastHome\DataCastFromServer.cshtml" />
+    <None Include="Web.Debug.config">
+      <DependentUpon>Web.config</DependentUpon>
+    </None>
+    <None Include="Web.Release.config">
+      <DependentUpon>Web.config</DependentUpon>
+    </None>
+  </ItemGroup>
+  <ItemGroup>
+    <Folder Include="App_Data\" />
+    <Folder Include="datacastassets\css\" />
+    <Folder Include="datacastassets\fonts\" />
+    <Folder Include="datacastassets\img\" />
+    <Folder Include="datacastassets\js\" />
+    <Folder Include="datacastdashboard\fonts\" />
+    <Folder Include="SaveFile\" />
+    <Folder Include="Views\DatacastDBWidget\" />
+  </ItemGroup>
+  <ItemGroup>
+    <Service Include="{508349B6-6B84-4DF5-91F0-309BEEBAD82D}" />
+  </ItemGroup>
+  <PropertyGroup>
+    <VisualStudioVersion Condition="'$(VisualStudioVersion)' == ''">10.0</VisualStudioVersion>
+    <VSToolsPath Condition="'$(VSToolsPath)' == ''">$(MSBuildExtensionsPath32)\Microsoft\VisualStudio\v$(VisualStudioVersion)</VSToolsPath>
+  </PropertyGroup>
+  <Import Project="$(MSBuildBinPath)\Microsoft.CSharp.targets" />
+  <Import Project="$(VSToolsPath)\WebApplications\Microsoft.WebApplication.targets" Condition="'$(VSToolsPath)' != ''" />
+  <Import Project="$(MSBuildExtensionsPath32)\Microsoft\VisualStudio\v10.0\WebApplications\Microsoft.WebApplication.targets" Condition="false" />
+  <ProjectExtensions>
+    <VisualStudio>
+      <FlavorProperties GUID="{349c5851-65df-11da-9384-00065b846f21}">
+        <WebProjectProperties>
+          <UseIIS>True</UseIIS>
+          <AutoAssignPort>True</AutoAssignPort>
+          <DevelopmentServerPort>56348</DevelopmentServerPort>
+          <DevelopmentServerVPath>/</DevelopmentServerVPath>
+          <IISUrl>http://localhost:56348/</IISUrl>
+          <NTLMAuthentication>False</NTLMAuthentication>
+          <UseCustomServer>False</UseCustomServer>
+          <CustomServerUrl>
+          </CustomServerUrl>
+          <SaveServerSettingsInUserFile>False</SaveServerSettingsInUserFile>
+        </WebProjectProperties>
+      </FlavorProperties>
+    </VisualStudio>
+  </ProjectExtensions>
+  <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
+       Other similar extension points exist, see Microsoft.Common.targets.
+  <Target Name="BeforeBuild">
+  </Target>
+  <Target Name="AfterBuild">
+  </Target>
+  -->
+</Project>

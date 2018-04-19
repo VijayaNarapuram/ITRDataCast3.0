@@ -1,0 +1,183 @@
+%!Adobe-FontList 1.17
+%Locale:0x409
+
+%BeginFont
+Handler:DirectoryHandler
+FontType:TrueType
+FontName:BellMTBold
+FamilyName:Bell MT
+StyleName:Bold
+FullName:Bell MT Bold
+MenuName:Bell MT
+StyleBits:2
+WritingScript:Roman
+OutlineFileName:C:\Users\CWilson\Creative Cloud Files\Website\DataCast log in mock-ups Folder\Document fonts\BELLB.TTF
+DataFormat:sfntData
+FileLength:82580
+FileModTime:934996410
+WeightClass:700
+WidthClass:5
+AngleClass:0
+NameArray:0,Mac,4,Bell MT Bold
+NameArray:0,Win,1,Bell MT
+%EndFont
+
+%BeginFont
+Handler:DirectoryHandler
+FontType:Type1
+FontName:MinionPro-Semibold
+FamilyName:Minion Pro
+StyleName:Semibold
+FullName:Minion Pro Semibold
+MenuName:Minion Pro SmBd
+StyleBits:0
+WritingScript:Roman
+OutlineFileName:C:\Users\CWilson\Creative Cloud Files\Website\DataCast log in mock-ups Folder\Document fonts\MinionPro-Semibold.otf
+DataFormat:sfntData
+UsesStandardEncoding:yes
+isCFF:yes
+FileLength:221460
+FileModTime:1363377126
+WeightClass:600
+WidthClass:5
+AngleClass:0
+DesignSize:110
+NameArray:0,Mac,18,Minion Pro SmBd
+NameArray:0,Mac,4,Minion Pro Semibold
+NameArray:0,Win,1,Minion Pro SmBd
+NameArray:0,Win,16,Minion Pro
+%EndFont
+
+%BeginFont
+Handler:DirectoryHandler
+FontType:TrueType
+FontName:OpenSans-Bold
+FamilyName:Open Sans
+StyleName:Bold
+FullName:Open Sans Bold
+MenuName:Open Sans
+StyleBits:2
+WritingScript:Roman
+OutlineFileName:C:\Users\CWilson\Creative Cloud Files\Website\DataCast log in mock-ups Folder\Document fonts\OpenSans-Bold.ttf
+DataFormat:sfntData
+FileLength:224592
+FileModTime:1472061023
+WeightClass:700
+WidthClass:5
+AngleClass:0
+NameArray:0,Mac,4,Open Sans Bold
+NameArray:0,Win,1,Open Sans
+%EndFont
+
+%BeginFont
+Handler:DirectoryHandler
+FontType:TrueType
+FontName:OpenSans-Light
+FamilyName:Open Sans
+StyleName:Light
+FullName:Open Sans Light
+MenuName:Open Sans Light
+StyleBits:0
+WritingScript:Roman
+OutlineFileName:C:\Users\CWilson\Creative Cloud Files\Website\DataCast log in mock-ups Folder\Document fonts\OpenSans-Light.ttf
+DataFormat:sfntData
+FileLength:222412
+FileModTime:1472061023
+WeightClass:300
+WidthClass:5
+AngleClass:0
+NameArray:0,Mac,4,Open Sans Light
+NameArray:0,Win,1,Open Sans Light
+NameArray:0,Win,16,Open Sans
+%EndFont
+
+%BeginFont
+Handler:DirectoryHandler
+FontType:TrueType
+FontName:OpenSans
+FamilyName:Open Sans
+StyleName:Regular
+FullName:Open Sans
+MenuName:Open Sans
+StyleBits:0
+WritingScript:Roman
+OutlineFileName:C:\Users\CWilson\Creative Cloud Files\Website\DataCast log in mock-ups Folder\Document fonts\OpenSans-Regular.ttf
+DataFormat:sfntData
+FileLength:217360
+FileModTime:1472061023
+WeightClass:400
+WidthClass:5
+AngleClass:0
+NameArray:0,Mac,4,Open Sans
+NameArray:0,Win,1,Open Sans
+%EndFont
+
+%BeginFont
+Handler:DirectoryHandler
+FontType:TrueType
+FontName:Roboto-BlackItalic
+FamilyName:Roboto
+StyleName:Black Italic
+FullName:Roboto Black Italic
+MenuName:Roboto Bk
+StyleBits:3
+WritingScript:Roman
+OutlineFileName:C:\Users\CWilson\Creative Cloud Files\Website\DataCast log in mock-ups Folder\Document fonts\Roboto-BlackItalic.ttf
+DataFormat:sfntData
+FileLength:166320
+FileModTime:1373389166
+WeightClass:400
+WidthClass:5
+AngleClass:0
+NameArray:0,Mac,18,Roboto Black Italic
+NameArray:0,Mac,4,Roboto Black Italic
+NameArray:0,Win,1,Roboto Bk
+NameArray:0,Win,16,Roboto
+%EndFont
+
+%BeginFont
+Handler:DirectoryHandler
+FontType:TrueType
+FontName:Roboto-Light
+FamilyName:Roboto
+StyleName:Light
+FullName:Roboto Light
+MenuName:Roboto Lt
+StyleBits:0
+WritingScript:Roman
+OutlineFileName:C:\Users\CWilson\Creative Cloud Files\Website\DataCast log in mock-ups Folder\Document fonts\Roboto-Light.ttf
+DataFormat:sfntData
+FileLength:162636
+FileModTime:1373389166
+WeightClass:300
+WidthClass:5
+AngleClass:0
+NameArray:0,Mac,18,Roboto Light
+NameArray:0,Mac,4,Roboto Light
+NameArray:0,Win,1,Roboto Lt
+NameArray:0,Win,16,Roboto
+%EndFont
+
+%BeginFont
+Handler:DirectoryHandler
+FontType:TrueType
+FontName:Roboto-LightItalic
+FamilyName:Roboto
+StyleName:Light Italic
+FullName:Roboto Light Italic
+MenuName:Roboto Lt
+StyleBits:1
+WritingScript:Roman
+OutlineFileName:C:\Users\CWilson\Creative Cloud Files\Website\DataCast log in mock-ups Folder\Document fonts\Roboto-LightItalic.ttf
+DataFormat:sfntData
+FileLength:163248
+FileModTime:1373389166
+WeightClass:300
+WidthClass:5
+AngleClass:0
+NameArray:0,Mac,18,Roboto Light Italic
+NameArray:0,Mac,4,Roboto Light Italic
+NameArray:0,Win,1,Roboto Lt
+NameArray:0,Win,16,Roboto
+%EndFont
+
