@@ -174,6 +174,49 @@ namespace ITR.Controllers
             return Json(finalResult, JsonRequestBehavior.AllowGet);
         }
 
+        //[AcceptVerbs(HttpVerbs.Get)]
+        //public JsonResult SelectDBWidgetsListByCompanyID(string CompanyShortCode, int UserId)
+        //{
+        //    var listInfo = _homeRepository.SelectDBWidgetsListByCompanyID(UserId, CompanyShortCode);
+        //    JavaScriptSerializer serializer = new JavaScriptSerializer();
+        //    serializer.MaxJsonLength = int.MaxValue;
+        //    string rettval = serializer.Serialize(listInfo);
+        //    return Json(rettval, JsonRequestBehavior.AllowGet);
+        //}
+               
+        public ActionResult SelectDBWidgetsListByCompanyID(string CompanyShortCode, int UserId)
+        {
+            ActionResult response = null;
+            IList<uspSelectDBWidgetsListByCompanyID_Result> resultList = _homeRepository.SelectDBWidgetsListByCompanyID(UserId, CompanyShortCode);
+
+            string strIndicatorsOfCompany = string.Empty;
+
+            try
+            {
+                if (resultList.Count > 0)
+                {
+                    foreach (var item in resultList)
+                    {
+                        strIndicatorsOfCompany = strIndicatorsOfCompany + item.IndicatorShortCode + '_' + item.Indicator + '~';
+                    }
+
+                    //strIndicatorsOfCompany = Convert.ToString(resultList[0].IndicatorShortCode);
+
+                    response = Json(new { result = "Success", strIndicatorsOfCompany = strIndicatorsOfCompany });
+                }
+                else
+                {
+                    response = Json(new { result = "notSuccess", strIndicatorsOfCompany = strIndicatorsOfCompany });
+                }
+            }
+            catch (Exception ex)
+            {
+                throw ex;
+            }
+
+            return response;
+        }
+
         /// <summary>
         /// Created by VIJAYA  
         /// Created Date : 2018/04/12

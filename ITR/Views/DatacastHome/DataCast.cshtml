@@ -2658,24 +2658,23 @@ else
                                 IndicatorMinValue = value1;
                                 IndicatorMINFlag = true;
 
-                                //console.log('MinValue - ' + IndicatorMinValue);
+                                console.log('IndicatorMinValue - ' + IndicatorMinValue);
                             } else if (key == "MaxValue" && obj["Code"] == "Indicator" && IndicatorMAXFlag == false) {
                                 IndicatorMaxValue = value1;
                                 IndicatorMAXFlag = true;
 
-                                //console.log('MaxValue - ' + IndicatorMaxValue);
+                                console.log('IndicatorMaxValue - ' + IndicatorMaxValue);
                             } else if (key == "MinValue" && obj["Code"] == "Company" && CompanyMINFlag == false) {
                                 CompanyMinValue = value1;
                                 CompanyMINFlag = true;
 
-                                //console.log('CompanyMinValue - ' + CompanyMinValue);
+                                console.log('CompanyMinValue - ' + CompanyMinValue);
                             } else if (key == "MaxValue" && obj["Code"] == "Company" && CompanyMAXFlag == false) {
                                 CompanyMaxValue = value1;
                                 CompanyMAXFlag = true;
 
-                                //console.log('CompanyMaxValue - ' + CompanyMaxValue);
+                                console.log('CompanyMaxValue - ' + CompanyMaxValue);
                             }
-
 
                             if (IndicatorMINFlag == true && IndicatorMAXFlag == true && CompanyMINFlag == true && CompanyMAXFlag == true) {
                                 //console.log("IndicatorMinValue " + IndicatorMinValue)
@@ -2683,6 +2682,7 @@ else
                                 //console.log("CompanyMinValue " + CompanyMinValue)
                                 //console.log("CompanyMaxValue " + CompanyMaxValue)
                                 i = combinationObject.length;
+                                console.log('i - ' + i);
                                 break;
                             }
                         }
