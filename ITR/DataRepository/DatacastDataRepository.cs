@@ -644,45 +644,7 @@ namespace ITR.DataRepository
                 PortalItemsList.Add(PortalItem);
             }
             return PortalItemsList;
-        }
-
-        /// <summary>  
-        /// Created by: VIJAYA
-        /// Created On: 2018/04/12
-        /// To Delete an Indicator from Dashboard Widgets List...
-        /// </summary>
-        /// <param name="model"></param>
-        /// <returns></returns>
-        public int DeleteDBWidgetIndicator(int DashboardWidgetsListId, string CompanyShortCode, int UserID)
-        {
-            try
-            {
-                System.Data.Objects.ObjectResult<int?> returnValue = objEntities.uspDeleteDBWidgetsListByCompanyAndUserID(DashboardWidgetsListId, CompanyShortCode, UserID);
-                var result = returnValue.FirstOrDefault<int?>();
-                if (result.HasValue)
-                {
-                    if (result > 0)
-                    {
-                        //on Success
-                        return 1;
-                    }
-                    else
-                    {
-                        // when the user is trying to add same UserRole name then donot allow to insert/Add
-                        return 0;
-                    }
-                }
-                else
-                {
-                    // on failure 
-                    return 0;
-                }
-            }
-            catch (Exception ex)
-            {
-                return 0;
-            }
-        }
+        }        
 
         ///// <summary>  
         ///// Created by: VIJAYA
@@ -721,6 +683,62 @@ namespace ITR.DataRepository
             }
             return PortalItemsList;
         }
+
+        /// <summary>  
+        /// Created by: VIJAYA
+        /// Created On: 2018/04/19
+        /// To Delete an Indicator from Dashboard Widgets List...
+        /// </summary>
+        /// <param name="model"></param>
+        /// <returns></returns>
+        public int DeleteDBWidgetIndicator(int DashboardWidgetsListId, string CompanyShortCode, int UserID)
+        {
+            try
+            {
+                System.Data.Objects.ObjectResult<int?> returnValue = objEntities.uspDeleteDBWidgetsListByCompanyAndUserID(DashboardWidgetsListId, CompanyShortCode, UserID);
+                var result = returnValue.FirstOrDefault<int?>();
+                if (result.HasValue)
+                {
+                    if (result > 0)
+                    {
+                        //on Success
+                        return 1;
+                    }
+                    else
+                    {
+                        // when the user is trying to add same UserRole name then donot allow to insert/Add
+                        return 0;
+                    }
+                }
+                else
+                {
+                    // on failure 
+                    return 0;
+                }
+            }
+            catch (Exception ex)
+            {
+                return 0;
+            }
+        }
+
+        /// <summary>  
+        /// Created by: VIJAYA
+        /// Created On: 2018/04/12
+        /// Selects DASHBOARD WIDGETS values by CompanyId, UserId...
+        /// </summary>
+        /// <param name="model"></param>
+        /// <returns></returns>
+        public IList<uspSelectDBWidgetsListByCompanyID_Result> SelectDBWidgetsListByCompanyID(int userID, string dataSetID)
+        {
+            IList<uspSelectDBWidgetsListByCompanyID_Result> PortalItemsList = new List<uspSelectDBWidgetsListByCompanyID_Result>();
+            foreach (uspSelectDBWidgetsListByCompanyID_Result PortalItem in objEntities.uspSelectDBWidgetsListByCompanyID(userID, dataSetID))
+            {
+                PortalItemsList.Add(PortalItem);
+            }
+            return PortalItemsList;
+        }        
+
         #endregion
 
         /// <summary>

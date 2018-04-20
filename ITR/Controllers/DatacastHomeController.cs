@@ -195,6 +195,7 @@ namespace ITR.Controllers
         /// <summary>
         /// Created By:Vishnu
         /// Created On: 04-Nov-2016
+        /// 
         /// Gets Company Data for Internal Data Trends Tab
         /// </summary>
         /// <param name="CompanyShortCode"></param>
@@ -1648,46 +1649,7 @@ namespace ITR.Controllers
                 },
                         JsonRequestBehavior.AllowGet);
             }
-
-        }
-
-        /// <summary>
-        /// Created by VIJAYA  
-        /// Created Date : 2018/04/12
-        /// To Delete a DASHBOARD WIDGET...
-        /// </summary>
-        /// <param name="model"></param>
-        /// <returns></returns>
-        [HttpPost]
-        public ActionResult DeleteDBWidgetIndicator(int DashboardWidgetsListId,string CompanyShortCode, int UserID)
-        {
-            ActionResult response = null;
-
-            try
-            {
-                //for holding response value of DBCall
-                int intResult = 0;
-
-                //inserts the details to table
-                intResult = _homeRepository.DeleteDBWidgetIndicator(DashboardWidgetsListId, CompanyShortCode, UserID);
-
-                if (intResult == 1) //inserted successfully
-                {
-                    response = Json(new { result = "1" });
-                }
-                else //On Error
-                {
-                    response = Json(new { result = "0" }, JsonRequestBehavior.AllowGet);
-                }
-
-            }
-            catch (Exception ex)
-            {
-                throw ex;
-            }
-
-            return response;
-        }
+        }       
 
         /// <summary>
         /// Created by VIJAYA  

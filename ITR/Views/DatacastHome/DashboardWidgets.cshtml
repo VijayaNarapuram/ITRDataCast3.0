@@ -26,219 +26,27 @@
             </div>
             <!--Second Div End-->
         </div>
-
         <br />
-        @*<div class="row">
-            <div class="col-sm-12">
-                <label id="lblTableHeading" style="background-color:blue">Indicator Phase Signals for Company A</label>
-            </div>
-        </div>
-
-        <div class="row">
-            <table class="table table-th-block table-dark link_cursor" id="tblData">
-                <thead>
-                    <tr>
-                        <th>Indicator</th>
-                        <th>Mar-18</th>
-                        <th>Jun-18</th>
-                        <th>Sep-18</th>
-                        <th>Dec-18</th>
-                        <th>Year-End 2019</th>
-                        <th>Year-End 2020</th>
-                        <th>Timing</th>
-                    </tr>
-                </thead>
-                <tbody></tbody>
-            </table>
-        </div>*@
-
         <div class="mainCnt">
             <div class="auctionCnt">
-                <h5 class="heading-small"><strong><span style="margin: 0 0 0 21px;" id="tblHeading"></span></strong></h5>
-                <div class="col-sm-12" id="ACQNINACQS"></div>              
+                <h4 class="bg-primary p-sm text-center" id="tblHeading"></h4>
+                @*<h5 class="heading-small"><strong><span style="margin: 0 0 0 21px;" id="tblHeading"></span></strong></h5>*@
+                <div class="col-sm-12" id="ACQNINACQS"></div>
+
+                <div id="chart"></div>
             </div>
-        </div>
+        </div>      
     </div>
 </div>
+
 
 @section PagespecificCss
 {
     <link href="~/css/light/all.min.css" rel="stylesheet" />
     <link href="~/datacastdashboard/css/bootstrap.min.css" rel="stylesheet" />
     <link href="~/datacastassets/plugins/datatables/dataTables.min.css" rel="stylesheet" />
-    <link href="~/css/style.css" rel="stylesheet" />
-
-    <style>
-        .bold {
-            font-weight: bold;
-        }
-
-        .FIText {
-            color: black;
-            padding-left: 6px;
-        }
-
-        .cursor {
-            cursor: pointer;
-        }
-
-        .active {
-            background-color: blue;
-            color: white;
-            font-weight: bold;
-        }
-
-        .modal1 {
-            position: fixed;
-            z-index: 999;
-            height: 100%;
-            width: 100%;
-            top: 0;
-            background-color: Black;
-            filter: alpha(opacity=60);
-            opacity: 0.6;
-            -moz-opacity: 0.8;
-        }
-
-        .modal2 {
-            position: absolute;
-            z-index: 999;
-            width: 100%;
-            top: 50%;
-            background-color: transparent;
-            /*filter: alpha(opacity=60);
-                opacity: 2;
-                -moz-opacity: 0.8;*/
-        }
-
-        .center {
-            z-index: 1000;
-            margin: 300px auto;
-            padding: 10px;
-            width: 130px;
-            background-color: White;
-            border-radius: 10px;
-            filter: alpha(opacity=100);
-            opacity: 1;
-            -moz-opacity: 1;
-        }
-
-            .center img {
-                height: 110px;
-                width: 110px;
-            }
-
-        hr {
-            -moz-border-bottom-colors: none;
-            -moz-border-image: none;
-            -moz-border-left-colors: none;
-            -moz-border-right-colors: none;
-            -moz-border-top-colors: none;
-            border-color: #acacac -moz-use-text-color #FFFFFF;
-            border-style: solid none;
-            border-width: 3px 0;
-            margin-left: 10%;
-            margin-right: 10%;
-            margin-top: 2%;
-            margin-bottom: 0%;
-        }
-
-        /*Added by Vishnu For bPopup*/
-        #displayMessage {
-            background-color: #fff !important;
-            border-radius: 15px !important;
-            color: #000 !important;
-            box-shadow: 0 0 25px 5px #999;
-            padding: 20px !important;
-            min-width: 200px !important;
-            min-height: 100px !important;
-        }
-
-        .button.b-close, .button.bClose {
-            color: #fff !important;
-            background-color: #2b91af !important;
-            border-radius: 7px !important;
-            box-shadow: none !important;
-            font: bold 131% sans-serif !important;
-            padding: 0 6px 2px !important;
-            position: absolute !important;
-            right: -7px !important;
-            top: -7px !important;
-            cursor: pointer;
-        }
-
-        .button.ok-close {
-            box-shadow: none !important;
-            cursor: pointer;
-        }
-
-
-
-        /*To disable the events of active row, so we can avoid clicking on already selected rows*/
-        .blocked {
-            position: relative;
-            pointer-events: none;
-        }
-
-        .hide_column {
-            display: none;
-        }
-
-        .highlight {
-            background-color: green !important;
-        }
-
-        #linkPrintPDF {
-            vertical-align: middle;
-        }
-
-        #linkPrintPNG {
-            vertical-align: middle;
-        }
-
-
-        #linkPrintPDFIDT {
-            vertical-align: middle;
-        }
-
-        #linkPrintPNGIDT {
-            vertical-align: middle;
-        }
-
-        #linkPrintPDFIRC {
-            vertical-align: middle;
-        }
-
-        #linkPrintPNGIRC {
-            vertical-align: middle;
-        }
-
-        .link_cursor {
-            cursor: pointer;
-        }
-
-        table.dataTable thead th {
-            padding: 3px 18px 3px 10px;
-        }
-
-        .testpopup {
-            z-index: 9999999 !important;
-        }
-
-        .modal-header {
-            padding: 7px !important;
-        }
-
-        .modal-body {
-            padding: 7px !important;
-        }
-
-        .activ {
-            background-color: #08c;
-            color: white;
-            font-weight: bold;
-        }
-    </style>
+    @*<link href="~/css/style.css" rel="stylesheet" />*@  
+    <link href="~/assets/css/DBWidgetStyles.css" rel="stylesheet" />
 }
 
 @section PageSpecificScript
@@ -252,6 +60,56 @@
     <script src="~/datacastjs/html2canvas.js"></script>
 
     <script type="text/javascript">
+
+        var userId = 1;
+        var ticksRepeatCompany = 0;
+        var indicatortitlestatus = 0,
+             companytitlestatus = 0,
+             isInvertedVal = false;
+
+        var ticksRepeatCompany = 0,
+        ticksRepeatIndicator = 0,
+        CompanyMaxvalueLine = 0,
+        IndicatorMaxvalueLine = 0,
+        CompanyIndicatorMaxLineDifference = 0,
+        CompanyZeroLine = 0,
+        IndicatorZeroLine = 0,
+        CompanyZeroLineFlag = false,
+        IndicatorZeroLineFlag = false,
+        CompanyNeededLines = 0,
+        IndicatorNeededLines = 0,
+        ZeroLinesAlign = false,
+        IndicatorMinValueNew = "", IndicatorMaxValueNew = "",
+        CompanyMinValueNew = "", CompanyMaxValueNew = "",
+        k = 0,
+        i = 0,
+        j = 0;
+
+        var ticksRepeatCompany = 0;
+        var ticksRepeatIndicator = 0;
+        var CompanyMaxvalueLine = 0;
+        var IndicatorMaxvalueLine = 0;
+        var CompanyIndicatorMaxLineDifference = 0;
+        var CompanyZeroLine = 0;
+        var IndicatorZeroLine = 0;
+        var CompanyZeroLineFlag = false;
+        var IndicatorZeroLineFlag = false;
+        var CompanyNeededLines = 0;
+        var IndicatorNeededLines = 0;
+        var ZeroLinesAlign = false;
+        var IndicatorMinValueNew = "",
+            IndicatorMaxValueNew = "";
+        var CompanyMinValueNew = "",
+            CompanyMaxValueNew = "";
+        var IndicatorMinValueOrg = "",
+            IndicatorMaxValueOrg = "";
+        var CompanyMinValueOrg = "",
+            CompanyMaxValueOrg = "";
+
+        var ChartIndicatorMinValue = "",
+            ChartIndicatorMaxValue = "";
+        var ChartCompanyMinValue = "",
+            ChartCompanyMaxValue = "";
 
         //LOADING DATASETS DROPDOWN...
         function LoadDataSets() {
@@ -300,17 +158,17 @@
                                       //TO LOAD PHASE VALUES OF DB WIDGETS IN DATATABLE...
                                       LoadPhaseValuesOfDBWidgets();
 
-                                      LoadIndicatorsList();
-                                      LoadIDTChartData();
-                                      LoadIRCChartData();
-                                      //For download data tab
-                                      $('#ddlDataSetsDD option:nth(0)').attr("selected", "selected");
-                                      $("#divIndicatorSection1").html('');//To clear Previos content if any
-                                      LoadIndicatorsListDownloadDataForMultipleCompanyDataSetsSection1();//For download data Company Data Part Indicator list Loading
-                                      $('#ddlDataSetsIndList option:nth(0)').attr("selected", "selected");
-                                      $("#divIndicatorDD").html('');//To clear Previos content if any
-                                      LoadIndicatorsListDownloadDataForMultipleCompanyDataSets();
-                                      $('.shield-chart-button').show();
+                                      //LoadIndicatorsList();
+                                      //LoadIDTChartData();
+                                      //LoadIRCChartData();
+                                      ////For download data tab
+                                      //$('#ddlDataSetsDD option:nth(0)').attr("selected", "selected");
+                                      //$("#divIndicatorSection1").html('');//To clear Previos content if any
+                                      //LoadIndicatorsListDownloadDataForMultipleCompanyDataSetsSection1();//For download data Company Data Part Indicator list Loading
+                                      //$('#ddlDataSetsIndList option:nth(0)').attr("selected", "selected");
+                                      //$("#divIndicatorDD").html('');//To clear Previos content if any
+                                      //LoadIndicatorsListDownloadDataForMultipleCompanyDataSets();
+                                      //$('.shield-chart-button').show();
                                   }
                                   else {
                                       // alert("Else CAse");//To clear Previous content if any.
@@ -434,7 +292,7 @@
                 $("#divLables").hide();
             });
         });
-       
+
         //TO LOAD PHASE VALUES OF DB WIDGETS IN DATATABLE...
         function LoadPhaseValuesOfDBWidgets() {
             url = '/DatacastDBWidget/SelectPhaseValuesOfDBWidgetsList/';
@@ -444,12 +302,762 @@
             responseData = SendRequestJSON(url, modelObj);
             if (responseData.length > 0) {
                 $("#ACQNINACQS").html(responseData);
+
+                $(document).on('click', '.btnDelDbWidget', function (e) {
+                    ajaxindicatorstart();
+
+                    var ControlId = $(this).attr('id');
+                    var DashboardWidgetsListId = ControlId.split('_')[1];
+
+                    //alert(DashboardWidgetsListId);
+                    //alert($("#ddlDataSets").val());
+                    //alert(userId);
+
+                    var urldelete = '/DatacastDBWidget//DeleteDBWidgetIndicator';
+                    var modelobjlocal = {
+                        DashboardWidgetsListId: DashboardWidgetsListId,
+                        CompanyShortCode: $("#ddlDataSets").val(),
+                        UserID: userId
+                    };
+
+                    var txt;
+                    console.log('modelobjlocal -' + modelobjlocal);
+
+                    if (confirm("Are you sure?") == true) {
+                        var response = SendRequestJSON(urldelete, modelobjlocal);
+
+                        if (response.result == '1') {
+                            alert("Dashboard Widget indicator deleted successfully.");
+
+                            LoadPhaseValuesOfDBWidgets();
+                        } else {
+                            alert("Unable to Delete Dashboard Widget indicator.");
+                        }
+                    } else {
+                    }
+                    ajaxindicatorstop();
+                });
             }
         }
 
         $(document).ready(function (e) {
-            LoadDataSets();              
+            LoadDataSets();
+
+            LoadChartData();            
         });
 
+        function GetMonthName(monthNumber) {
+            var months = ['January', 'February', 'March', 'April', 'May', 'June', 'July', 'August', 'September', 'October', 'November', 'December'];
+            return months[monthNumber - 1];
+        }
+
+        function LoadChart() {
+            //LOAD CHART
+            $("#chart").shieldChart({
+                theme: "light",
+                height: 500,
+                //primaryHeader: {
+                //    text: "ITR - DataCast: US Single-Unit Housing Starts"
+                //},
+                exportOptions: {
+                    image: false,
+                    print: false
+                },
+                axisX: [{
+                    drawWidth: 1,
+                    ticksRepeat: 24,
+                    categoricalValues: $.map(combinationObject, function (item) {
+                        //console.log('combinationObject - ' + combinationObject);
+                        //console.log(item.Code);
+
+                        if (item.Code == "Indicator") {
+                            var dateValue = new Date(parseInt(item.MonthYear.substr(6)));
+                            // dateValue= parseInt(dateValue.getMonth() + 1) + "/" + parseInt(dateValue.getDate()) + "/" + dateValue.getFullYear()
+                            var monthName = GetMonthName(dateValue.getMonth() + 1);
+                            var date = monthName + '  ' + dateValue.getFullYear(); //March  2018
+                            //console.log('date -' + date);
+                            return date;
+                        }
+                    }),
+                    title: {
+                        text: 'Years',
+                        style: {
+                            color: '#000000'
+                        }
+                    },
+                    axisTickText: {
+                        // return a new text for the ticks of the X-axis
+                        format: function (text, axis, chart) {
+                            // var dateValue = new Date(text);
+                            var string = text;
+
+                            //console.log('string - ' + string);
+
+                            string = string.split("  ");
+
+                            return string[1]; //Here 0-index will have month name and 1-index will have year//dateValue.getFullYear();
+                        },
+                        style: {
+                            color: '#000000'
+                        }
+                    }
+
+                }],
+                axisY: [{
+                    min: CompanyMinValue,
+                    max: CompanyMaxValue,
+                    //ticksRepeat:parseInt((Math.abs(CompanyMinValue) + CompanyMaxValue) / 8),
+                    ticksRepeat: ticksRepeatCompany, //Math.round( (Math.abs(CompanyMinValue)+CompanyMaxValue)/8),
+                    title: {
+                        text: $.map(combinationObject, function (item) {
+
+                            if (companytitlestatus == 0) {
+                                if (item.StatPref1 == "1/12") {
+                                    companytitlestatus = 1
+                                    //  return  'Company 1/12 (Annual Growth Rate)'
+                                    return 'Company - 1/12 '
+
+                                } else if (item.StatPref1 == "3/12") {
+                                    companytitlestatus = 1
+                                    //  return  'Company 12/12 (Annual Growth Rate)'
+                                    return 'Company - 3/12 '
+                                } else if (item.StatPref1 == "Raw") {
+                                    companytitlestatus = 1
+                                    //  return  'Company 12/12 (Annual Growth Rate)'
+                                    return 'Company - Monthly '
+                                } else {
+                                    companytitlestatus = 1
+                                    //   return  'Company 12/12 (Annual Growth Rate)'
+                                    return 'Company - 12/12 '
+                                }
+                            }
+
+                        }), // Datacast 2.5 change
+                        style: {
+                            color: '#000000'
+                        }
+
+
+                    },
+                    axisTickText: {
+                        format: function (text, axis, chart) {
+                            if (text > 0)
+                                CompanyMaxValueNew = text;
+                            else if (i == 0) {
+                                CompanyMinValueNew = text;
+                                i = i + 1;
+                            }
+
+                            if (text == 0) {
+                                CompanyZeroLineFlag = true;
+                                //alert(CompanyZeroLineFlag);
+                            }
+                            if (CompanyZeroLineFlag == false) {
+                                CompanyZeroLine = CompanyZeroLine + 1;
+                            }
+
+                            return text;
+                        },
+                        style: {
+                            color: '#000000'
+                        }
+
+                    },
+                    plotLines: [{
+                        start: 0,
+                        drawWidth: 3,
+                        drawColor: '#C0C0C0'
+                    }]
+                }, {
+                    inverseOrder: isInvertedVal,
+                    min: IndicatorMinValue,
+                    max: IndicatorMaxValue,
+                    //ticksRepeat: parseInt((Math.abs(IndicatorMinValue) + IndicatorMaxValue) / 8),
+                    ticksRepeat: ticksRepeatIndicator, //Math.round((Math.abs(IndicatorMinValue) + IndicatorMaxValue)/8),
+                    title: {
+                        text: $.map(combinationObject, function (item) {
+                            if (indicatortitlestatus == 0) {
+                                if (item.StatPref1 == "1/12") {
+                                    indicatortitlestatus = 1
+                                    // return  'Indicator 1/12 (Monthly Growth Rate)'
+                                    return 'Indicator - 1/12 '
+
+                                } else if (item.StatPref1 == "3/12") {
+                                    indicatortitlestatus = 1
+                                    // return  'Indicator 3/12 (Annual Growth Rate)'
+                                    return ' Indicator - 3/12 '
+                                } else if (item.StatPref1 == "Raw") {
+                                    indicatortitlestatus = 1
+                                    // return  'Indicator 3/12 (Annual Growth Rate)'
+                                    return ' Indicator - Monthly '
+                                } else {
+                                    indicatortitlestatus = 1
+                                    //    return  'Indicator 12/12 (Annual Growth Rate)'
+                                    return ' Indicator - 12/12 '
+                                }
+                            }
+
+                        }), // Datacast 2.5 change
+                        style: {
+                            color: '#000000'
+                        }
+                        //align: 'high',
+                        //textAngle: 1,
+                        //offset:60
+
+                    },
+                    //seriesSettings: {
+                    //    line: {
+                    //        pointMark: {
+                    //            drawWidth: 20
+                    //        }
+                    //    }
+                    //},
+                    swapLocation: true,
+                    axisTickText: {
+                        format: function (text, axis, chart) {
+
+
+                            if (text > 0)
+                                IndicatorMaxValueNew = text;
+                            else if (j == 0) {
+                                IndicatorMinValueNew = text;
+                                j = j + 1;
+                            }
+
+
+                            if (isInvertedVal == false) {
+
+                                if (text == 0) {
+                                    IndicatorZeroLineFlag = true;
+
+                                }
+                                if (IndicatorZeroLineFlag == false) {
+                                    IndicatorZeroLine = IndicatorZeroLine + 1;
+                                }
+                            } else {
+                                if (text == 0) {
+                                    IndicatorZeroLine = 0;
+                                }
+                                if (text > 0) {
+                                    IndicatorZeroLine = IndicatorZeroLine + 1;
+                                }
+                            }
+
+
+                            return text;
+                        },
+                        style: {
+                            color: '#000000'
+                        },
+                        textAngle: 0
+                    }
+                }],
+                dataSeries: [
+
+
+
+
+                    {
+                        seriesType: 'line',
+                        pointMark: {
+                            enabled: false,
+                            drawWidth: 0
+                        },
+                        axis: 0,
+                        tooltipSettings: {
+                            enabled: true,
+                            axisMarkers: {
+                                enabled: true,
+                                //mode: 'xy',
+                                color: 'red',
+                                width: 1,
+                                zIndex: 3
+                            },
+
+
+                            customPointText: $.map(combinationObject, function (item) {
+                                if (item.Code == "Indicator" && item.Forecast == true) {
+                                    //  alert(item.StatPref1);
+
+                                    if (item.StatPref1 == "1/12") {
+                                        return shield.format(
+                                            '<span><b> Indicator Data Percent Change in 12-Month Moving Average: {value}</b></span>', {
+                                                value: item.C1By12 //point.y
+                                            }
+                                        );
+                                    } else if (item.StatPref1 == "3/12") {
+                                        return shield.format(
+                                            '<span><b> Indicator Data Percent Change in 12-Month Moving Average: {value}</b></span>', {
+                                                value: item.C3BY12 //point.y
+                                            }
+                                        );
+                                    } else if (item.StatPref1 == "Raw") {
+                                        return shield.format(
+                                            '<span><b> Indicator Data Percent Change in 12-Month Moving Average: {value}</b></span>', {
+                                                value: item.Monthly //point.y
+                                            }
+                                        );
+                                    } else {
+                                        return shield.format(
+                                            '<span><b> Indicator Data Percent Change in 12-Month Moving Average: {value}</b></span>', {
+                                                value: item.C12BY12 //point.y
+                                            }
+                                        );
+                                    }
+                                }
+                            })
+                            /*
+                            customPointText: function (point, chart, text) {
+                                return shield.format(
+                                    '<span><b> Company Percent Change in 12-Month Moving Average: {value}</b></span>',
+                                    {
+                                        value: point.y
+                                    }
+                                );
+                            }
+                            */
+                        },
+                        collectionAlias: "Company Division Data",
+                        data: $.map(combinationObject, function (item) {
+                            if (item.Code == "Company") {
+                                if (item.StatPref1 == "1/12") {
+                                    if (k == 0) {
+                                        if (item.C1By12 < 0) {
+                                            if (ChartCompanyMinValue > item.C1By12)
+                                                ChartCompanyMinValue = item.C1By12;
+                                        } else {
+                                            if (ChartCompanyMaxValue < item.C1By12)
+                                                ChartCompanyMaxValue = item.C1By12;
+                                        }
+                                    }
+
+                                    return {
+                                        y: item.C1By12
+                                    } // //return { y: item.C12BY12 }
+                                } else if (item.StatPref1 == "3/12") {
+                                    if (k == 0) {
+                                        if (item.C3BY12 < 0) {
+                                            if (ChartCompanyMinValue > item.C3BY12)
+                                                ChartCompanyMinValue = item.C3BY12;
+                                        } else {
+                                            if (ChartCompanyMaxValue < item.C3BY12)
+                                                ChartCompanyMaxValue = item.C3BY12;
+                                        }
+                                    }
+
+                                    return {
+                                        y: item.C3BY12
+                                    } // //return { y: item.C12BY12 }
+                                } else if (item.StatPref1 == "Raw") {
+                                    if (k == 0) {
+                                        if (item.Monthly < 0) {
+                                            if (ChartCompanyMinValue > item.Monthly)
+                                                ChartCompanyMinValue = item.Monthly;
+                                        } else {
+                                            if (ChartCompanyMaxValue < item.Monthly)
+                                                ChartCompanyMaxValue = item.Monthly;
+                                        }
+                                    }
+
+                                    return {
+                                        y: item.Monthly
+                                    } // //return { y: item.C12BY12 }
+                                } else {
+                                    if (k == 0) {
+                                        if (item.C12BY12 < 0) {
+                                            if (ChartCompanyMinValue > item.C12BY12)
+                                                ChartCompanyMinValue = item.C12BY12;
+                                        } else {
+                                            if (ChartCompanyMaxValue < item.C12BY12)
+                                                ChartCompanyMaxValue = item.C12BY12;
+                                        }
+                                    }
+
+                                    return {
+                                        y: item.C12BY12
+                                    } // //return { y: item.C12BY12 }
+                                }
+                            }
+                        })
+
+                    }, {
+                        seriesType: 'scatter',
+                        axis: 0,
+                        tooltipSettings: {
+                            enabled: true,
+                            axisMarkers: {
+                                enabled: true,
+                                color: 'red',
+                                width: 1,
+                                zIndex: 3
+                            },
+                            customPointText: function (point, chart, text) {
+                                return shield.format(
+                                    '<span><b> Company Forecasted 12-Month Moving Average: {value}</b></span>', {
+                                        value: point.y
+                                    }
+                                );
+                            }
+                        },
+                        pointMark: {
+                            enabled: true,
+                            drawWidth: 0
+                        },
+                        color: 'lightblue',
+                        collectionAlias: "Company Forecast",
+                        // data: [null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, 5.9, 11.0, 20.0, -7.8, 9.0]
+                        data: $.map(combinationObject, function (item) {
+                            //  console.log(item)
+                            if (item.Code == "Company" && item.Forecast == false)
+                                return {
+                                    y: null
+                                }
+                            else if (item.Code == "Company" && item.Forecast == true) {
+                                if (item.StatPref1 == "1/12") {
+                                    return {
+                                        y: item.C1By12
+                                    }
+                                } else if (item.StatPref1 == "3/12") {
+                                    return {
+                                        y: item.C3BY12
+                                    }
+                                } else if (item.StatPref1 == "Raw") {
+                                    return {
+                                        y: item.Monthly
+                                    }
+                                } else {
+                                    return {
+                                        y: item.C12BY12
+                                    }
+                                }
+                            }
+                        })
+                    }
+
+
+                    , {
+                        seriesType: 'line',
+                        axisY: 1,
+                        tooltipSettings: {
+                            enabled: true,
+                            axisMarkers: {
+                                enabled: true,
+                                //mode: 'xy',
+                                color: 'red',
+                                width: 1,
+                                zIndex: 3
+                            },
+                            customPointText: $.map(combinationObject, function (item) {
+                                if (item.Code == "Indicator" && item.Forecast == true) {
+
+
+                                    if (item.StatPref1 == "1/12") {
+                                        return shield.format(
+                                            '<span><b> Indicator Data Percent Change in 12-Month Moving Average: {value}</b></span>', {
+                                                value: item.C1By12 //point.y
+                                            }
+                                        );
+                                    } else if (item.StatPref1 == "3/12") {
+                                        return shield.format(
+                                            '<span><b> Indicator Data Percent Change in 12-Month Moving Average: {value}</b></span>', {
+                                                value: item.C3BY12 //point.y
+                                            }
+                                        );
+                                    } else if (item.StatPref1 == "Raw") {
+                                        return shield.format(
+                                            '<span><b> Indicator Data Percent Change in 12-Month Moving Average: {value}</b></span>', {
+                                                value: item.Monthly //point.y
+                                            }
+                                        );
+                                    } else {
+                                        return shield.format(
+                                            '<span><b> Indicator Data Percent Change in 12-Month Moving Average: {value}</b></span>', {
+                                                value: item.C12BY12 //point.y
+                                            }
+                                        );
+                                    }
+                                }
+                            })
+
+                            /*
+                            customPointText: function (point, chart, text) {
+                                return shield.format(
+                                    '<span><b> Indicator Data Percent Change in 12-Month Moving Average: {value}</b></span>',
+                                    {
+                                        value: point.y
+                                    }
+                                );
+                            }
+                            */
+                        },
+                        pointMark: {
+                            enabled: false,
+                            drawWidth: 0
+                        },
+                        color: 'green',
+                        collectionAlias: "Indicator History",
+                        data: $.map(combinationObject, function (item) {
+                            if (item.Code == "Indicator" && item.Forecast == false) {
+
+                                //if (item.C12BY12 < 0 && IndicatorMinValueFlag == false) {
+                                //    if (item.C12BY12 <= IndicatorMinValueOrg)
+                                //        IndicatorMinValueFlag = true;
+                                //}
+
+
+                                if (item.StatPref1 == "1/12") {
+                                    if (k == 0) {
+                                        if (item.C1By12 < 0) {
+                                            if (ChartIndicatorMinValue > item.C1By12)
+                                                ChartIndicatorMinValue = item.C1By12;
+                                        } else {
+                                            if (ChartIndicatorMaxValue < item.C1By12)
+                                                ChartIndicatorMaxValue = item.C1By12;
+                                        }
+                                    }
+
+                                    return {
+                                        y: item.C1By12
+                                    }
+                                } else if (item.StatPref1 == "3/12") {
+                                    if (k == 0) {
+                                        if (item.C3BY12 < 0) {
+                                            if (ChartIndicatorMinValue > item.C3BY12)
+                                                ChartIndicatorMinValue = item.C3BY12;
+                                        } else {
+                                            if (ChartIndicatorMaxValue < item.C3BY12)
+                                                ChartIndicatorMaxValue = item.C3BY12;
+                                        }
+                                    }
+
+                                    return {
+                                        y: item.C3BY12
+                                    }
+                                } else if (item.StatPref1 == "Raw") {
+                                    if (k == 0) {
+                                        if (item.Monthly < 0) {
+                                            if (ChartIndicatorMinValue > item.Monthly)
+                                                ChartIndicatorMinValue = item.Monthly;
+                                        } else {
+                                            if (ChartIndicatorMaxValue < item.Monthly)
+                                                ChartIndicatorMaxValue = item.Monthly;
+                                        }
+                                    }
+
+                                    return {
+                                        y: item.Monthly
+                                    }
+                                } else {
+                                    if (k == 0) {
+                                        if (item.C12BY12 < 0) {
+                                            if (ChartIndicatorMinValue > item.C12BY12)
+                                                ChartIndicatorMinValue = item.C12BY12;
+                                        } else {
+                                            if (ChartIndicatorMaxValue < item.C12BY12)
+                                                ChartIndicatorMaxValue = item.C12BY12;
+                                        }
+                                    }
+
+                                    return {
+                                        y: item.C12BY12
+                                    }
+                                }
+                            }
+                                //return { y: item.C12BY12 }
+                            else if (item.Code == "Indicator" && item.Forecast == true)
+                                return {
+                                    y: null
+                                }
+                        })
+                    }, {
+                        seriesType: 'scatter',
+                        axisY: 1,
+                        tooltipSettings: {
+                            enabled: true,
+                            axisMarkers: {
+                                enabled: true,
+                                color: 'red',
+                                width: 1,
+                                zIndex: 3
+                            },
+                            customPointText: function (point, chart, text) {
+                                return shield.format(
+                                    '<span><b> Indicator Forecasted 12-Month Moving Average: {value}</b></span>', {
+                                        value: point.y
+                                    }
+                                );
+                            }
+                        },
+                        pointMark: {
+                            enabled: true,
+                            drawWidth: 0
+                        },
+                        color: 'lightgreen',
+                        collectionAlias: "Indicator Forecast",
+                        // data: [null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, 5.9, 11.0, 20.0, -7.8, 9.0]
+                        data: $.map(combinationObject, function (item) {
+                            //  console.log(item)
+                            if (item.Code == "Indicator" && item.Forecast == false)
+                                return {
+                                    y: null
+                                }
+                            else if (item.Code == "Indicator" && item.Forecast == true) {
+                                if (item.StatPref1 == "1/12") {
+                                    return {
+                                        y: item.C1By12
+                                    }
+                                } else if (item.StatPref1 == "3/12") {
+                                    return {
+                                        y: item.C3BY12
+                                    }
+                                } else if (item.StatPref1 == "Raw") {
+                                    return {
+                                        y: item.Monthly
+                                    }
+                                } else {
+                                    return {
+                                        y: item.C12BY12
+                                    }
+                                }
+                            }
+                        })
+                    }
+                ],
+                chartLegend: {
+                    enabled: true,
+                    align: 'center'
+                },
+                events: { //Called on Chart load completed
+                    load: function (event) {
+                        ajaxindicatorstop();
+
+                        if (CompanyZeroLine == IndicatorZeroLine) {
+                            $("#chart").show();
+                        } else if (isInvertedVal == false && k == 0) {
+                            k = k + 1;
+                            LoadChartCalculations(1);
+                        } else if (isInvertedVal == false && k == 1) {
+                            k = k + 1;
+                            LoadChartCalculations(2);
+
+                        } else if (isInvertedVal == false && k == 2) {
+                            k = k + 1;
+                            LoadChartCalculations(3);
+
+                        } else if (isInvertedVal == true && k == 0) {
+
+                            k = k + 1;
+                            LoadChartCalculations(1);
+                        } else if (isInvertedVal == true && k == 1) {
+                            k = k + 1;
+                            LoadChartCalculations(2);
+                        } else if (isInvertedVal == true && k == 2) {
+                            k = k + 1;
+                            LoadChartCalculations(3);
+                        } else if (isInvertedVal == true && k == 3) {
+                            k = k + 1;
+                            LoadChartCalculations(4);
+                        } else if (isInvertedVal == true && k == 4) {
+                            k = k + 1;
+                            LoadChartCalculations(5);
+                        }
+
+                    }
+                }
+            });
+        }
+
+        function LoadChartData() {
+            var duration = 0;
+            var accessduration = 0;
+           
+            indicatorShotrCode = 'BRAZTIP';
+            companyCode = 'Timken-1-NA-Industrial Distribution'; //$("#ddlDataSets").val();
+            var isInvertedVal = false;
+            var moveMonths = 0;
+            var _CompanyId = 2301;
+
+            $.getJSON("/DatacastHome/GetIndicatorCompanyAndIndicatorDataByShortCodes?CompanyShortCode=" + companyCode + "&IndicatorShortCode=" + indicatorShotrCode + "&InverseOrder=" + isInvertedVal + "&MoveMonths=" + moveMonths + "&CustomerCompanyID=" + _CompanyId,
+                function (data) {
+                    combinationObject = JSON.parse(data);
+                    IDTcombinationObject = combinationObject; //For InternalDataTrends chart
+                    var IndicatorMINFlag = false,
+                        IndicatorMAXFlag = false,
+                        CompanyMINFlag = false,
+                        CompanyMAXFlag = false;
+                    for (i = 0; i < combinationObject.length; i++) {
+                        var obj = combinationObject[i];
+                        for (key in obj) {
+                            // console.log("Key is " + key + "  value is " + obj[key]);
+                            var value1 = obj[key];
+                            if (key == "Duration") {
+                                duration = value1;
+                            }
+                            if (key == "AccessDuration") {
+                                accessduration = value1;
+                            }
+                            if (key == "MinValue" && obj["Code"] == "Indicator" && IndicatorMINFlag == false) {
+                                IndicatorMinValue = value1;
+                                IndicatorMINFlag = true;
+
+                                //console.log('MinValue - ' + IndicatorMinValue);
+                            } else if (key == "MaxValue" && obj["Code"] == "Indicator" && IndicatorMAXFlag == false) {
+                                IndicatorMaxValue = value1;
+                                IndicatorMAXFlag = true;
+
+                                //console.log('MaxValue - ' + IndicatorMaxValue);
+                            } else if (key == "MinValue" && obj["Code"] == "Company" && CompanyMINFlag == false) {
+                                CompanyMinValue = value1;
+                                CompanyMINFlag = true;
+
+                                //console.log('CompanyMinValue - ' + CompanyMinValue);
+                            } else if (key == "MaxValue" && obj["Code"] == "Company" && CompanyMAXFlag == false) {
+                                CompanyMaxValue = value1;
+                                CompanyMAXFlag = true;
+                            }
+
+                            if (IndicatorMINFlag == true && IndicatorMAXFlag == true && CompanyMINFlag == true && CompanyMAXFlag == true) {                              
+                                i = combinationObject.length;
+                                break;
+                            }
+                        }
+
+                    }
+                    if (combinationObject != undefined && combinationObject != "") {
+                        LoadChart();                        
+                    }
+                    // LoadDDChart();
+                }).error(function (jqXHR, textStatus, errorThrown) {
+                    //  // console.log("incoming Text " + jqXHR.responseText);
+                    ajaxindicatorstop(); // Remove the loader
+                    document.getElementById("displayMessage").innerHTML = 'There is something wrong with the Combination you selected, please try a different combination';
+                    $('#displayMessage').prepend('<span class="button b-close"><span>X</span></span>'); //Prepending Close button to popup
+                    $('#displayMessage').bPopup({
+                        autoClose: 2000
+                        // , onClose: function () { window.history.back(); }
+                    });
+                    //$('#chart').height(500);
+                });
+        }
+
+        function ajaxindicatorstart() {
+            // alert("entererd");
+            if ($('body').find('#loadingDiv').attr('id') != 'loadingDiv') {
+                var loadingString = '<div id="loadingDiv" class="modal1"><div id="loading-image" class="center"><img src="../assets/img/loader.gif" alt="Loading..." /></div></div>';
+                $('body').append(loadingString);
+                $('#loadingDiv .bg').height('100%');
+                $('#loadingDiv').fadeIn(300);
+                $('body').css('cursor', 'wait');
+                $('body').css('cursorDD', 'wait');
+            }
+        };
+
+        function ajaxindicatorstop() {
+            $('#loadingDiv .bg').height('100%');
+            $('#loadingDiv').remove();
+            $('body').css('cursor', 'default');
+            $('body').css('cursorDD', 'default');
+        }
     </script>
 }

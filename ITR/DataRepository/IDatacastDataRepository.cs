@@ -50,7 +50,7 @@ namespace ITR.DataRepository
         int InsertDashboardWidgetsList(DatacastFavoritesModel model);
         int UpdateDashboardWidgetsList(DatacastFavoritesModel model);
         IList<uspSelectDBWidgetsListByCompanyID_Result> SelectDBWidgetsListByCompanyID(int userID, string dataSetID);
-        int DeleteDBWidgetIndicator(int DashboardWidgetsListId, string CompanyShortCode, int UserID);
+        //int DeleteDBWidgetIndicator(int DashboardWidgetsListId, string CompanyShortCode, int UserID);
         IList<uspSelectDBWidgetsCorrelationListByCompanyID_Result> SelectDBWidgetsCorrelationListByCompanyID(string dataSetID, int userID, int iDisplayLength, int iDisplayStart, string sSearch, int sortColumnIndex, string sortDirection);
               
     }
@@ -65,6 +65,9 @@ namespace ITR.DataRepository
     {
         #region Dashboard Widgets
         IList<uspSelectPhaseValuesOfDBWidgetsByCompanyId_Result> SelectPhaseValuesOfDBWidgetsByCompanyId(string CompanyShortCode);
+        int DeleteDBWidgetIndicator(int DashboardWidgetsListId, string CompanyShortCode, int UserID);
+
+        IList<uspSelectDBWidgetsListByCompanyID_Result> SelectDBWidgetsListByCompanyID(int userID, string dataSetID);
         #endregion
     }
 }
