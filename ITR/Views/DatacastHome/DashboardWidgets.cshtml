@@ -17,7 +17,7 @@
             </div>
             <div>
                 <div class="col-sm-1 pull-right">
-                    <button id="linkPrintIRC" class="shield-chart-button" type="button" title="Print the chart">
+                    <button id="linkPrint" class="shield-chart-button" type="button" title="Print the chart">
                         <div class="sui-sprite shield-print-button-img"></div>
                     </button>
                     <input type="image" id="linkPrintPDF" src="~/img/home/pdf_2.png" title="Download pdf document">
@@ -30,15 +30,12 @@
         <br />
         <div class="mainCnt">
             <div class="auctionCnt">
-                <h4 class="bg-primary p-sm text-center" id="tblHeading"></h4>
-                @*<h5 class="heading-small"><strong><span style="margin: 0 0 0 21px;" id="tblHeading"></span></strong></h5>*@
-                <div class="col-sm-12" id="ACQNINACQS"></div>
-                @*<div>                    
-                    <div style="width:50%;" id="chart_0" class="ChartWidget pull-left"></div>       
-                    <div style="width:50%" id="chart_1" class="ChartWidget pull-right"></div>
-                </div>*@
+                @*<h4 class="bg-primary p-sm text-center" id="tblHeading"></h4>              
+                <div class="col-sm-12" id="ACQNINACQS"></div>*@               
                 <div id="divPrint">
-                    <div style="text-align: center;">
+                    <h4 class="bg-primary p-sm text-center" id="tblHeading"></h4>
+                    <div class="col-sm-12" id="ACQNINACQS"></div>  
+                    @*<div style="text-align: center;">
                         <span style="font-family: 'Bell MT'; font-size: 71px; line-height: 79px; color: #3175a4; font-weight: bold;">ITR</span><span style="font-family: 'Arial'; font-size: 48px; line-height: 54px; color: #270076; font-weight: bold;">&nbsp;</span><span style="font-family: &quot; Roboto Black&quot; , Roboto; font-size: 64px; line-height: 72px; color: rgb(7, 166, 132); font-style: italic; font-weight: 900;">Data</span><span style="font-family: &quot; Roboto Light&quot; , Roboto; font-size: 64px; line-height: 72px; color: rgb(7, 166, 132); font-style: italic; font-weight: 300;">Cast</span>
                     </div>
                     <div style="text-align: center;">
@@ -57,46 +54,76 @@
                             <br />
                             <span id="spnBusiness" style="display:none">Phases are automated, not manually calculated as seen in other ITR works*</span>
                         </span>
-                    </div>
+                    </div>*@
                     @*<div>*@
                     <div class="row">
-                        <div class="col-sm-6">
-                            <div id="chart_0"></div>
+                        <div class="col-sm-6">                           
+                            <div style="text-align: center;">                               
+                                <span id="label_0" style="font-family: 'Gill Sans MT'; font-size: 15px; line-height: 21px; color: #000000; font-weight: bold; text-align: center;" class="labels"></span>                               
+                            </div>
+                            <div id="chart_0" class="charts"></div>
                         </div>
                         <div class="col-sm-6">
-                            <div id="chart_1"></div>
+                            <div style="text-align: center;">
+                                <span id="label_1" style="font-family: 'Gill Sans MT'; font-size: 15px; line-height: 21px; color: #000000; font-weight: bold; text-align: center;" class="labels"></span>
+                            </div>
+                            <div id="chart_1" class="charts"></div>
                         </div>
                     </div>     
                     <div class="row">
                         <div class="col-sm-6">
-                            <div id="chart_2"></div>
+                            <div style="text-align: center;">
+                                <span id="label_2" style="font-family: 'Gill Sans MT'; font-size: 15px; line-height: 21px; color: #000000; font-weight: bold; text-align: center;" class="labels"></span>
+                            </div>
+                            <div id="chart_2" class="charts"></div>
                         </div>
                         <div class="col-sm-6">
-                            <div id="chart_3"></div>
+                            <div style="text-align: center;">
+                                <span id="label_3" style="font-family: 'Gill Sans MT'; font-size: 15px; line-height: 21px; color: #000000; font-weight: bold; text-align: center;" class="labels"></span>
+                            </div>
+                            <div id="chart_3" class="charts"></div>
                         </div>
                     </div> 
                     <div class="row">
                         <div class="col-sm-6">
-                            <div id="chart_4"></div>
+                            <div style="text-align: center;">
+                                <span id="label_4" style="font-family: 'Gill Sans MT'; font-size: 15px; line-height: 21px; color: #000000; font-weight: bold; text-align: center;" class="labels"></span>
+                            </div>
+                            <div id="chart_4" class="charts"></div>
                         </div>
                         <div class="col-sm-6">
-                            <div id="chart_5"></div>
+                            <div style="text-align: center;">
+                                <span id="label_5" style="font-family: 'Gill Sans MT'; font-size: 15px; line-height: 21px; color: #000000; font-weight: bold; text-align: center;" class="labels"></span>
+                            </div>
+                            <div id="chart_5" class="charts"></div>
                         </div>
                     </div>    
                     <div class="row">
                         <div class="col-sm-6">
-                            <div id="chart_6"></div>
+                            <div style="text-align: center;">
+                                <span id="label_6" style="font-family: 'Gill Sans MT'; font-size: 15px; line-height: 21px; color: #000000; font-weight: bold; text-align: center;" class="labels"></span>
+                            </div>
+                            <div id="chart_6" class="charts"></div>
                         </div>
                         <div class="col-sm-6">
-                            <div id="chart_7"></div>
+                            <div style="text-align: center;">
+                                <span id="label_7" style="font-family: 'Gill Sans MT'; font-size: 15px; line-height: 21px; color: #000000; font-weight: bold; text-align: center;" class="labels"></span>
+                            </div>
+                            <div id="chart_7" class="charts"></div>
                         </div>
                     </div>  
                     <div class="row">
                         <div class="col-sm-6">
-                            <div id="chart_8"></div>
+                            <div style="text-align: center;">
+                                <span id="label_8" style="font-family: 'Gill Sans MT'; font-size: 15px; line-height: 21px; color: #000000; font-weight: bold; text-align: center;" class="labels"></span>
+                            </div>
+                            <div id="chart_8" class="charts"></div>
                         </div>
                         <div class="col-sm-6">
-                            <div id="chart_9"></div>
+                            <div style="text-align: center;">
+                                <span id="label_9" style="font-family: 'Gill Sans MT'; font-size: 15px; line-height: 21px; color: #000000; font-weight: bold; text-align: center;" class="labels"></span>     
+                            </div>
+                            <div id="chart_9" class="charts"></div>
                         </div>
                     </div>              
                 </div>
@@ -104,7 +131,6 @@
         </div>      
     </div>
 </div>
-
 
 @section PagespecificCss
 {
@@ -118,6 +144,19 @@
     <link rel="stylesheet" href="/resources/demos/style.css">   
     <style>
         .draggable { width: 500px; height: 150px; padding: 0.5em; }
+
+        #linkPrintPDF {
+            vertical-align: middle;
+        }
+
+        #linkPrintPNG {
+            vertical-align: middle;
+        }
+
+
+        #linkPrintPDFIDT {
+            vertical-align: middle;
+        }
     </style>
 }
 
@@ -202,6 +241,8 @@
                 divisionId = 0;
             }
             if (accountid != '' && accountid != '0') {
+                ajaxindicatorstart();
+
                 var url = 'GetDataSetsByQBaseAccountIDAndDivisionID/';
                 var modelobj = {
                     accountID: accountid,
@@ -231,67 +272,14 @@
                                   //  $(".spnIRCDataSet2Name").text($("#ddlIRCDataSet2 option:selected").text());
                                   $(".spnIRCDataSet2Name").text($("#ddlIRCDataSet2 option:selected").text() + " for " + $("#ddl2ndCaluculation option:selected").text());
                                   IRCdataSetName2 = $("#ddlIRCDataSet2 option:selected").text();
-                                  // alert(dataSetID);
+                                  
+
                                   if (dataSetID != "" && dataSetID != "null" && dataSetID != null) {
 
-                                      $('#tblHeading').text('Indicator Phase Signals for ' + $("#ddlDataSets").val());
-                                      //TO LOAD PHASE VALUES OF DB WIDGETS IN DATATABLE...
-                                      LoadPhaseValuesOfDBWidgets();
-
-                                      /* LOADING CHARTS... */
-                                      //GETTING DB SELECTED WIDGET INDICATORS SHORT CODES...
-                                      var IndicatorsList = '';
-                                      var url = '/DatacastDBWidget/SelectDBWidgetsListByCompanyID';
-                                      var modelobjlocal = {                                         
-                                          CompanyShortCode: dataSetID,
-                                          UserId: 1 //userId
-                                      };
-                                      console.log(modelobjlocal);
-
-                                      var response = SendRequestJSON(url, modelobjlocal);
-                                    
-                                      if (response.result == 'Success') {
-                                          IndicatorsList = response.strIndicatorsOfCompany;
-                                      }
-                                      var indicatorsLength = IndicatorsList.split('~'); //IndicatorsList.split(',').length;
-                                      console.log('indicatorsLength - ' + indicatorsLength.length);
-                                      console.log('indicatorsLength - ' + indicatorsLength[0]);
-
-                                      if (indicatorsLength.length > 0)
-                                      {
-                                          for (var j = 0; j < indicatorsLength.length - 1; j++) {
-                                              //alert(indicatorsLength[j]);
-
-                                              $(".spnIndicatorName").html(indicatorsLength[j].split('_')[0]);
-                                          //for (var j = 0; j < 1; j++) {
-                                              //LOADING CHART DATA...
-                                              indicatorShotrCode = indicatorsLength[j].split('_')[0];
-                                              LoadChartData(indicatorShotrCode, j);
-                                          }
-                                      }
-                                      else {
-                                          alert('No Widgets selected for this company...')
-                                      }
-
-                                     
-                                      
-                                      //LoadIndicatorsList();
-                                      //LoadIDTChartData();
-                                      //LoadIRCChartData();
-                                      ////For download data tab
-                                      //$('#ddlDataSetsDD option:nth(0)').attr("selected", "selected");
-                                      //$("#divIndicatorSection1").html('');//To clear Previos content if any
-                                      //LoadIndicatorsListDownloadDataForMultipleCompanyDataSetsSection1();//For download data Company Data Part Indicator list Loading
-                                      //$('#ddlDataSetsIndList option:nth(0)').attr("selected", "selected");
-                                      //$("#divIndicatorDD").html('');//To clear Previos content if any
-                                      //LoadIndicatorsListDownloadDataForMultipleCompanyDataSets();
-                                      //$('.shield-chart-button').show();
+                                      //LOADING PHASES TABLE AND CHARTS...
+                                      LoadPhasesTableAndCharts(dataSetID);                                     
                                   }
-                                  else {
-                                      // alert("Else CAse");//To clear Previous content if any.
-                                      // LoadIndicatorsList();
-                                      // LoadIDTChartData();
-                                      // LoadIRCChartData();
+                                  else {                                  
                                       //For download data tab
                                       $('#ddlDataSetsDD').empty();
                                       $("#divIndicatorSectsion1").html('');//To clear Previos content if any
@@ -301,8 +289,7 @@
                                       $('#divIndicatorDDShortCodes').html('');
                                       $('#divIndicator').empty();
                                       $('.divIndicator').empty();
-                                      $(".divIndicatorSectsion1").empty();
-                                      $("#chart").html('');
+                                      $(".divIndicatorSectsion1").empty();                                     
                                       $("#chartIRC").html('');
                                       $("#chartIDT").html('');
                                       $('.shield-chart-button').hide();
@@ -313,10 +300,13 @@
             }
         }
 
-        $("#linkPrintIRC").on("click", function () {//Created By: Vsihnu,Prints page contents with CSS
-            //$("#divLables").show();
-            var left = ($(window).width() / 2) - (900 / 2), top = ($(window).height() / 2) - (600 / 2);
-            var divContents = $("#divPrintIRC").html();
+        //PRINT FUNCTIONALITY...
+        $("#linkPrint").on("click", function () { //Created By: Vsihnu,Prints page contents with CSS
+            $("#divLables").show();
+            var left = ($(window).width() / 2) - (900 / 2),
+                top = ($(window).height() / 2) - (600 / 2);
+            var divContents = $("#divPrint").html();
+            console.log('divcontents - ' + divContents);
             var printWindow = window.open("", "print", "width=" + $(window).width() + ", height=" + $(window).height() + ", top=" + top + ", left=" + left);
             printWindow.document.write('<html><head><title> ITR Economics</title>');
             var myStyle = document.styleSheets;
@@ -331,13 +321,15 @@
             printWindow.document.close();
             setTimeout(function () {
                 printWindow.print();
-            }, 2500);//To Avoid Blank page printing in Google Chrome
-            //  $("#divLables").hide();
+            }, 4500); //To Avoid Blank page printing in Google Chrome
+            $("#divLables").hide();
         });
 
+        //PRINT PDF FUNCTIONALITY...
         $("#linkPrintPDF").on("click", function () {
             $("#divLables").show();
-            var name = $("#spnIndicatorName").text();
+            //var name = $("#spnIndicatorName").text();
+            var name = "DBWidgetsData";
             var div_content = document.querySelectorAll("#divPrint")[0];
             div_content.style.backgroundColor = "white";
             //make it as html5 canvasotab
@@ -350,50 +342,14 @@
                 $("#divLables").hide();
             });
         });
-
-        //Created by Nishanth for downloading Pdf
-        $("#linkPrintPDFIRC").on("click", function () {
-            //   $("#divLables").show();
-            var name = "";
-            //alert($("#spnDataSetName").text());
-            var D1 = $("#ddlIRCDataSet1").val();
-            var D2 = $("#ddlIRCDataSet2").val();
-            if (D1 == D2) {
-                name = "IRC_" + D1;
-            }
-            else {
-                name = "IRC_" + D1 + " " + D2;
-            }
-
-            // var name = $("#spnIndicatorName").text();
-            //var divContents = $("#divPrint").html();
-            div_content = document.querySelectorAll("#divPrintIRC");
-            div_content[0].style.backgroundColor = "white";
-            //make it as html5 canvasotab
-            html2canvas(div_content).then(function (canvas) {
-                //change the canvas to jpeg image
-
-                var image = canvas.toDataURL('image/jpeg');
-                //  alert(image);
-                // window.open(image);
-                var doc = new jsPDF("l", "pt", "a4");
-
-                // var width = 980;
-                //  var height = 500;
-                //   var pdf = new jsPDF("2", "pt", "letter");
-
-                doc.addImage(image, 'JPEG', 0, 50, 850, 500);
-                doc.save(name + ".pdf");
-                // $("#divLables").hide();
-            });
-        });
                
+        //PRINT IMAGE FUNCTIONALITY...
         $("#linkPrintPNG").on("click", function () {
             $("#divLables").show();
             div_content = document.querySelectorAll("#divPrint");
             div_content[0].style.backgroundColor = "white";
             // var name = $("#spnDataSetName").text();
-            var name = $("#spnIndicatorName").text();
+            var name = "DBWidgetsData";
             //make it as html5 canvas
             html2canvas(div_content).then(function (canvas) {
                 //change the canvas to jpeg image
@@ -473,8 +429,6 @@
             //        IndicatorMinValue = IndicatorMinValueNew;//-7
             //        IndicatorMaxValue = IndicatorMaxValueNew;//5
             //    }
-
-
 
             var IndicatorMinvalueLine = 0;
             var ticksRepeatCompany_Privious = ticksRepeatCompany; //25
@@ -650,6 +604,83 @@
             }
         }
 
+        function LoadChartData(indicatorShotrCode, count, indicatorFullName) {
+            var duration = 0;
+            var accessduration = 0;
+
+            companyCode = $("#ddlDataSets").val(); // 'Timken-1-NA-Industrial Distribution';
+            var isInvertedVal = false;
+            var moveMonths = 0;
+            var _CompanyId = 2301;          
+
+            $("#label_" + count).text(indicatorFullName);
+
+            $.getJSON("/DatacastHome/GetIndicatorCompanyAndIndicatorDataByShortCodes?CompanyShortCode=" + companyCode + "&IndicatorShortCode=" + indicatorShotrCode + "&InverseOrder=" + isInvertedVal + "&MoveMonths=" + moveMonths + "&CustomerCompanyID=" + _CompanyId,
+                function (data) {
+                    combinationObject = JSON.parse(data);
+                    IDTcombinationObject = combinationObject; //For InternalDataTrends chart
+                    var IndicatorMINFlag = false,
+                        IndicatorMAXFlag = false,
+                        CompanyMINFlag = false,
+                        CompanyMAXFlag = false;
+                    for (i = 0; i < combinationObject.length; i++) {
+                        var obj = combinationObject[i];
+                        for (key in obj) {
+                            // console.log("Key is " + key + "  value is " + obj[key]);
+                            var value1 = obj[key];
+                            if (key == "Duration") {
+                                duration = value1;
+                            }
+                            if (key == "AccessDuration") {
+                                accessduration = value1;
+                            }
+                            if (key == "MinValue" && obj["Code"] == "Indicator" && IndicatorMINFlag == false) {
+                                IndicatorMinValue = value1;
+                                IndicatorMINFlag = true;
+
+                                console.log('IndicatorMinValue - ' + IndicatorMinValue);
+                            } else if (key == "MaxValue" && obj["Code"] == "Indicator" && IndicatorMAXFlag == false) {
+                                IndicatorMaxValue = value1;
+                                IndicatorMAXFlag = true;
+
+                                console.log('IndicatorMaxValue - ' + IndicatorMaxValue);
+                            } else if (key == "MinValue" && obj["Code"] == "Company" && CompanyMINFlag == false) {
+                                CompanyMinValue = value1;
+                                CompanyMINFlag = true;
+
+                                console.log('CompanyMinValue - ' + CompanyMinValue);
+                            } else if (key == "MaxValue" && obj["Code"] == "Company" && CompanyMAXFlag == false) {
+                                CompanyMaxValue = value1;
+                                CompanyMAXFlag = true;
+
+                                console.log('CompanyMaxValue - ' + CompanyMaxValue);
+                            }
+
+                            if (IndicatorMINFlag == true && IndicatorMAXFlag == true && CompanyMINFlag == true && CompanyMAXFlag == true) {
+                                i = combinationObject.length;
+                                console.log('i - ' + i);
+                                break;
+                            }
+                        }
+                    }
+                    if (combinationObject != undefined && combinationObject != "") {
+                        console.log('loading chart...')
+                        LoadChart(count);
+                    }
+                    // LoadDDChart();
+                }).error(function (jqXHR, textStatus, errorThrown) {
+                    //  // console.log("incoming Text " + jqXHR.responseText);
+                    ajaxindicatorstop(); // Remove the loader
+                    document.getElementById("displayMessage").innerHTML = 'There is something wrong with the Combination you selected, please try a different combination';
+                    $('#displayMessage').prepend('<span class="button b-close"><span>X</span></span>'); //Prepending Close button to popup
+                    $('#displayMessage').bPopup({
+                        autoClose: 2000
+                        // , onClose: function () { window.history.back(); }
+                    });
+                    //$('#chart').height(500);
+                });
+        }
+
         function LoadChart(count) {
             ticksRepeatCompany = 0;
             ticksRepeatIndicator = 0;
@@ -665,6 +696,10 @@
             ZeroLinesAlign = false;
             i = 0;
             j = 0;
+
+            //Need to make '0' before chart loads...
+            companytitlestatus = 0; //By Vijaya
+            indicatortitlestatus = 0;
 
 
             ticksRepeatCompany = Math.round((Math.abs(CompanyMinValue) + CompanyMaxValue) / 8);
@@ -684,7 +719,7 @@
 
             console.log('ticksRepeatIndicator - ' + ticksRepeatIndicator);
             console.log('ticksRepeatCompany - ' + ticksRepeatCompany);
-
+           
             //LOAD CHART
             $("#chart_" + count).shieldChart({
                 theme: "light",
@@ -743,6 +778,9 @@
                     ticksRepeat: ticksRepeatCompany, //Math.round( (Math.abs(CompanyMinValue)+CompanyMaxValue)/8),
                     title: {
                         text: $.map(combinationObject, function (item) {
+
+                            //console.log('companytitlestatus - ' + companytitlestatus);
+                            //console.log('item.StatPref1 - ' + item.StatPref1);
 
                             if (companytitlestatus == 0) {
                                 if (item.StatPref1 == "1/12") {
@@ -883,10 +921,6 @@
                     }
                 }],
                 dataSeries: [
-
-
-
-
                     {
                         seriesType: 'line',
                         pointMark: {
@@ -1063,8 +1097,6 @@
                             }
                         })
                     }
-
-
                     , {
                         seriesType: 'line',
                         axisY: 1,
@@ -1296,83 +1328,7 @@
                 }
             });
         }
-
-        function LoadChartData(indicatorShotrCode, count) {
-            var duration = 0;
-            var accessduration = 0;
-           
-            //indicatorShotrCode = 'NDFSNAVNO';
-            companyCode = $("#ddlDataSets").val(); // 'Timken-1-NA-Industrial Distribution';
-            var isInvertedVal = false;
-            var moveMonths = 0;
-            var _CompanyId = 2301;
-
-            $.getJSON("/DatacastHome/GetIndicatorCompanyAndIndicatorDataByShortCodes?CompanyShortCode=" + companyCode + "&IndicatorShortCode=" + indicatorShotrCode + "&InverseOrder=" + isInvertedVal + "&MoveMonths=" + moveMonths + "&CustomerCompanyID=" + _CompanyId,
-                function (data) {
-                    combinationObject = JSON.parse(data);
-                    IDTcombinationObject = combinationObject; //For InternalDataTrends chart
-                    var IndicatorMINFlag = false,
-                        IndicatorMAXFlag = false,
-                        CompanyMINFlag = false,
-                        CompanyMAXFlag = false;
-                    for (i = 0; i < combinationObject.length; i++) {
-                        var obj = combinationObject[i];
-                        for (key in obj) {
-                            // console.log("Key is " + key + "  value is " + obj[key]);
-                            var value1 = obj[key];
-                            if (key == "Duration") {
-                                duration = value1;
-                            }
-                            if (key == "AccessDuration") {
-                                accessduration = value1;
-                            }
-                            if (key == "MinValue" && obj["Code"] == "Indicator" && IndicatorMINFlag == false) {
-                                IndicatorMinValue = value1;
-                                IndicatorMINFlag = true;
-
-                                console.log('IndicatorMinValue - ' + IndicatorMinValue);
-                            } else if (key == "MaxValue" && obj["Code"] == "Indicator" && IndicatorMAXFlag == false) {
-                                IndicatorMaxValue = value1;
-                                IndicatorMAXFlag = true;
-
-                                console.log('IndicatorMaxValue - ' + IndicatorMaxValue);
-                            } else if (key == "MinValue" && obj["Code"] == "Company" && CompanyMINFlag == false) {
-                                CompanyMinValue = value1;
-                                CompanyMINFlag = true;
-
-                                console.log('CompanyMinValue - ' + CompanyMinValue);
-                            } else if (key == "MaxValue" && obj["Code"] == "Company" && CompanyMAXFlag == false) {
-                                CompanyMaxValue = value1;
-                                CompanyMAXFlag = true;
-
-                                console.log('CompanyMaxValue - ' + CompanyMaxValue);
-                            }
-
-                            if (IndicatorMINFlag == true && IndicatorMAXFlag == true && CompanyMINFlag == true && CompanyMAXFlag == true) {                              
-                                i = combinationObject.length;
-                                console.log('i - ' + i);
-                                break;
-                            }
-                        }
-                    }
-                    if (combinationObject != undefined && combinationObject != "") {
-                        console.log('loading chart...')
-                        LoadChart(count);                        
-                    }
-                    // LoadDDChart();
-                }).error(function (jqXHR, textStatus, errorThrown) {
-                    //  // console.log("incoming Text " + jqXHR.responseText);
-                    ajaxindicatorstop(); // Remove the loader
-                    document.getElementById("displayMessage").innerHTML = 'There is something wrong with the Combination you selected, please try a different combination';
-                    $('#displayMessage').prepend('<span class="button b-close"><span>X</span></span>'); //Prepending Close button to popup
-                    $('#displayMessage').bPopup({
-                        autoClose: 2000
-                        // , onClose: function () { window.history.back(); }
-                    });
-                    //$('#chart').height(500);
-                });
-        }
-
+        
         function ajaxindicatorstart() {
             // alert("entererd");
             if ($('body').find('#loadingDiv').attr('id') != 'loadingDiv') {
@@ -1391,5 +1347,83 @@
             $('body').css('cursor', 'default');
             $('body').css('cursorDD', 'default');
         }
+
+        //COMPANY DROPDOWN CHANGE EVENT...
+        $("#ddlDataSets").change(function (e) {
+            var dataSetID = $("#ddlDataSets").val();//COMPANY ID...
+
+            LoadPhasesTableAndCharts(dataSetID);            
+        });
+
+        function LoadPhasesTableAndCharts(dataSetID)
+        {
+            if (dataSetID != "" && dataSetID != "null" && dataSetID != null) {
+               
+                $('.charts').each(function () {
+                    $(".charts").html('');
+                });
+
+                $('.labels').each(function () {
+                    $(".labels").text('');
+                });                
+
+                $('#tblHeading').text('Indicator Phase Signals for ' + $("#ddlDataSets").val());
+                //TO LOAD PHASE VALUES OF DB WIDGETS IN DATATABLE...
+                LoadPhaseValuesOfDBWidgets();
+
+                /* LOADING CHARTS... */
+                //GETTING DB SELECTED WIDGET INDICATORS SHORT CODES...
+                var IndicatorsList = '';
+                var url = '/DatacastDBWidget/SelectDBWidgetsListByCompanyID';
+                var modelobjlocal = {
+                    CompanyShortCode: dataSetID,
+                    UserId: 1 //userId
+                };
+                console.log(modelobjlocal);
+
+                var response = SendRequestJSON(url, modelobjlocal);
+
+                if (response.result == 'Success') {
+                    IndicatorsList = response.strIndicatorsOfCompany;
+                }
+                else {
+                    IndicatorsList = '';
+                }
+
+                console.log('IndicatorsList - ' + IndicatorsList);
+                var SelectedIndicators = IndicatorsList.split('~'); //IndicatorsList.split(',').length;
+
+                var SelectedIndicatorsCount = SelectedIndicators.length;
+
+                //console.log('indicatorsLength - ' + SelectedIndicators.length);
+                //console.log('indicatorsLength[0] - ' + SelectedIndicators[0]);
+                //console.log('indicatorsLength[1] - ' + SelectedIndicators[1]);
+                //console.log('indicatorsLength[2] - ' + SelectedIndicators[2]);
+                //console.log('indicatorsLength[3] - ' + SelectedIndicators[3]);
+
+                if (IndicatorsList != '') {
+                    for (var j = 0; j < SelectedIndicatorsCount - 1; j++) {
+                        //alert(indicatorsLength[j]);
+                        
+                        $(".spnIndicatorName").html(SelectedIndicators[j].split('_')[0]);
+                        //for (var j = 0; j < 1; j++) {
+                        //LOADING CHART DATA...
+                        indicatorShotrCode = SelectedIndicators[j].split('_')[0];               
+
+                        LoadChartData(indicatorShotrCode, j, SelectedIndicators[j].split('_')[1]);
+                    }
+                }
+                else {
+                    $('.charts').each(function () {
+                        $(".charts").html('');
+                    });
+
+                    $('.labels').each(function () {
+                        $(".labels").text('');
+                    });
+                }
+            }
+        }
+
     </script>
 }

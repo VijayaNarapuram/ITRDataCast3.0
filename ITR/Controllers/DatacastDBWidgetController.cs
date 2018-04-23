@@ -100,74 +100,81 @@ namespace ITR.Controllers
             string[] monthsArray = new string[] { CurrentMonth, "mar", "jun", "sep", "dec", "dec_2019", "dec_2020" };
             
             //foreach (var item in DistinctPhaseValuesOfDBWidgetsList)
-            foreach (var item in DBWidgetsListByCompanyId)
+            if (DBWidgetsListByCompanyId.Count > 0)
             {
-                finalResult += "<tr>";
-                finalResult += "<td style='background-color:lightgray;display:none;'>" + item.DashboardWidgetsListId + "</td>";
-                finalResult += "<td>" + item.Indicator + "</td>";
-
-                foreach (var AI in monthsArray)
+                foreach (var item in DBWidgetsListByCompanyId)
                 {
-                    if (AI.Contains('_'))
+                    finalResult += "<tr>";
+                    finalResult += "<td style='background-color:lightgray;display:none;'>" + item.DashboardWidgetsListId + "</td>";
+                    finalResult += "<td>" + item.Indicator + "</td>";
+
+                    foreach (var AI in monthsArray)
                     {
-                        var indicatorValuesList = PhaseValuesOfDBWidgetsList.Select(e => new { e.DashboardWidgetsListId, e.Indicator, e.SHORTCODE, e.MY, e.Phases, e.Timing }).
-                                                                        Where(e => e.Indicator == item.Indicator &&
-                                                                                   AI.Split('_')[0].ToLower().Contains(e.MY.ToString().Split(' ')[1].ToLower()) &&
-                                                                                   AI.Split('_')[1] == e.MY.ToString().Split(' ')[2] &&
-                                                                                  (AI.Split('_')[1] == nextYear || AI.Split('_')[1] == NNYear)
-                                                                        );
-
-                        var ExistsCount = indicatorValuesList.Count(a => a.DashboardWidgetsListId == item.DashboardWidgetsListId) > 0;
-
-                        if (ExistsCount)
+                        if (AI.Contains('_'))
                         {
-                            foreach (var value in indicatorValuesList)
-                            {
-                                if (AI.ToLower() == CurrentMonth.ToLower())
-                                {
-                                    CurrentMonthtiming = Convert.ToInt16(value.Timing);
-                                }
+                            var indicatorValuesList = PhaseValuesOfDBWidgetsList.Select(e => new { e.DashboardWidgetsListId, e.Indicator, e.SHORTCODE, e.MY, e.Phases, e.Timing }).
+                                                                            Where(e => e.Indicator == item.Indicator &&
+                                                                                       AI.Split('_')[0].ToLower().Contains(e.MY.ToString().Split(' ')[1].ToLower()) &&
+                                                                                       AI.Split('_')[1] == e.MY.ToString().Split(' ')[2] &&
+                                                                                      (AI.Split('_')[1] == nextYear || AI.Split('_')[1] == NNYear)
+                                                                            );
 
-                                finalResult += "<td>" + value.Phases + "</td>";
+                            var ExistsCount = indicatorValuesList.Count(a => a.DashboardWidgetsListId == item.DashboardWidgetsListId) > 0;
+
+                            if (ExistsCount)
+                            {
+                                foreach (var value in indicatorValuesList)
+                                {
+                                    if (AI.ToLower() == CurrentMonth.ToLower())
+                                    {
+                                        CurrentMonthtiming = Convert.ToInt16(value.Timing);
+                                    }
+
+                                    finalResult += "<td>" + value.Phases + "</td>";
+                                }
+                            }
+                            else
+                            {
+                                finalResult += "<td>" + "N/A" + "</td>";
                             }
                         }
                         else
                         {
-                            finalResult += "<td>" + "N/A" + "</td>";
-                        }
-                    }
-                    else
-                    {
-                        var indicatorValuesList = PhaseValuesOfDBWidgetsList.Select(e => new { e.DashboardWidgetsListId, e.Indicator, e.SHORTCODE, e.MY, e.Phases, e.Timing }).
-                                                                                                Where(e => e.Indicator == item.Indicator && AI.ToLower().Contains(e.MY.ToString().Split(' ')[1].ToLower())
-                                                                                              );
+                            var indicatorValuesList = PhaseValuesOfDBWidgetsList.Select(e => new { e.DashboardWidgetsListId, e.Indicator, e.SHORTCODE, e.MY, e.Phases, e.Timing }).
+                                                                                                    Where(e => e.Indicator == item.Indicator && AI.ToLower().Contains(e.MY.ToString().Split(' ')[1].ToLower())
+                                                                                                  );
 
-                        var ExistsCount = indicatorValuesList.Count(a => a.DashboardWidgetsListId == item.DashboardWidgetsListId) > 0;
+                            var ExistsCount = indicatorValuesList.Count(a => a.DashboardWidgetsListId == item.DashboardWidgetsListId) > 0;
 
-                        if (ExistsCount)
-                        {
-                            foreach (var value in indicatorValuesList)
+                            if (ExistsCount)
                             {
-                                if (AI.ToLower() == CurrentMonth.ToLower())
+                                foreach (var value in indicatorValuesList)
                                 {
-                                    CurrentMonthtiming = Convert.ToInt16(value.Timing);
-                                }
+                                    if (AI.ToLower() == CurrentMonth.ToLower())
+                                    {
+                                        CurrentMonthtiming = Convert.ToInt16(value.Timing);
+                                    }
 
-                                finalResult += "<td>" + value.Phases + "</td>";
+                                    finalResult += "<td>" + value.Phases + "</td>";
+                                }
+                            }
+                            else
+                            {
+                                finalResult += "<td>" + "N/A" + "</td>";
                             }
                         }
-                        else
-                        {
-                            finalResult += "<td>" + "N/A" + "</td>";
-                        }
                     }
+
+                    //ADD TIMING COLUMN...
+                    finalResult += "<td>" + CurrentMonthtiming + "</td>";
+
+                    finalResult += "<td><a href='#' id='btnDelDbWidget_" + item.DashboardWidgetsListId + "' class='pull-left btnDelDbWidget'  title='Click to delete dashboard widgets'>Delete</a></td>";
+                    finalResult += "</tr>";
                 }
-
-                //ADD TIMING COLUMN...
-                finalResult += "<td>" + CurrentMonthtiming + "</td>";
-                
-                finalResult += "<td><a href='#' id='btnDelDbWidget_" + item.DashboardWidgetsListId + "' class='pull-left btnDelDbWidget'  title='Click to delete dashboard widgets'>Delete</a></td>";
-                finalResult += "</tr>";
+            }
+            else
+            {
+                finalResult += "<tr><td><span>No widgets selected for this company</span></td></tr>";
             }
 
             finalResult += "</tbody>";
