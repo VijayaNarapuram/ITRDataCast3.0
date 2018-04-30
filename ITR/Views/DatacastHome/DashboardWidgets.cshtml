@@ -3,39 +3,60 @@
     Layout = "~/Views/Shared/_Layout.cshtml";
 }
 
+<ol class="breadcrumb">
+
+    <li>Home</li>
+    <li class="active">Dashboard</li>
+
+</ol>
+<div class="page-heading">
+    <h1>Dashboard</h1>
+
+</div>
+
+
 <div class="container-fluid">
-    <div id="page-wrap" ng-app="">
-        <div class="row">
+    <div id="page-wrap" ng-app="" class="panel panel-default m-n">
+        <div class="panel-heading">
             <!--Second Div Start-->
-            <div class="col-sm-5">
+            <div class="col-sm-3">
                 <div class="row">
-                    <div class="col-sm-10"><strong>Company DataSet</strong></div>
+                    <div><strong>Company DataSet</strong></div>
                 </div>
                 <div class="row">
-                    <select class="col-sm-10" id="ddlDataSets"></select>
+                    <select class="form-control" id="ddlDataSets"></select>
                 </div>
+
             </div>
             <div>
-                <div class="col-sm-1 pull-right">
-                    <button id="linkPrint" class="shield-chart-button" type="button" title="Print the chart">
-                        <div class="sui-sprite shield-print-button-img"></div>
+                <div class="col-sm-2 pull-right mt-md">
+                    
+                    <button id="linkPrint" class="btn btn-default" type="button" title="Print the chart">
+                        <i class="fa fa-print"></i>
                     </button>
-                    <input type="image" id="linkPrintPDF" src="~/img/home/pdf_2.png" title="Download pdf document">
-
-                    <input type="image" id="linkPrintPNG" src="~/img/home/image_icon.png" title="Download Image">
+                    <button id="linkPrintPDF" class="btn btn-default" type="button" title="Download pdf document">
+                        <i class="fa fa-file"></i>
+                    </button>
+                    <button id="linkPrintPNG" class="btn btn-default" type="button" title="Download Image">
+                        <i class="fa fa-image"></i>
+                    </button>
+                 
                 </div>                
             </div>
             <!--Second Div End-->
+            <div class="clearfix m-sm"></div>
         </div>
-        <br />
+        </div>
+
         <div class="mainCnt">
-            <div class="auctionCnt">
-                @*<h4 class="bg-primary p-sm text-center" id="tblHeading"></h4>              
-                <div class="col-sm-12" id="ACQNINACQS"></div>*@               
-                <div id="divPrint">
-                    <h4 class="bg-primary p-sm text-center" id="tblHeading"></h4>
-                    <div class="col-sm-12" id="ACQNINACQS"></div>  
-                    @*<div style="text-align: center;">
+            <div id="divPrint">
+                <div class="panel" >
+                    <div class="panel-body pt-n">
+                        <h4 class="p-sm text-center text-info" id="tblHeading"></h4>
+                        <div class="col-sm-12" id="ACQNINACQS"></div>
+                    </div>
+                </div>
+                        @*<div style="text-align: center;">
                         <span style="font-family: 'Bell MT'; font-size: 71px; line-height: 79px; color: #3175a4; font-weight: bold;">ITR</span><span style="font-family: 'Arial'; font-size: 48px; line-height: 54px; color: #270076; font-weight: bold;">&nbsp;</span><span style="font-family: &quot; Roboto Black&quot; , Roboto; font-size: 64px; line-height: 72px; color: rgb(7, 166, 132); font-style: italic; font-weight: 900;">Data</span><span style="font-family: &quot; Roboto Light&quot; , Roboto; font-size: 64px; line-height: 72px; color: rgb(7, 166, 132); font-style: italic; font-weight: 300;">Cast</span>
                     </div>
                     <div style="text-align: center;">
@@ -55,82 +76,100 @@
                             <span id="spnBusiness" style="display:none">Phases are automated, not manually calculated as seen in other ITR works*</span>
                         </span>
                     </div>*@
-                    @*<div>*@
-                    <div class="row">
-                        <div class="col-sm-6">                           
-                            <div style="text-align: center;">                               
-                                <span id="label_0" style="font-family: 'Gill Sans MT'; font-size: 15px; line-height: 21px; color: #000000; font-weight: bold; text-align: center;" class="labels"></span>                               
+                        @*<div>*@
+
+                        <div class="row" data-widget-group="group-demo">
+                            <div class="col-md-6">
+                                <div class="panel" data-widget='{"id" : "wiget1"}'>
+                                    <div class="panel-heading">
+                                        <div class="panel1-ctrls button-icon-bg"
+                                             data-actions-container=""
+                                             data-action-collapse='{"target": ".panel-body"}'>
+                                        </div>
+                                        <h2 id="label_0"></h2>
+                                    </div>
+                                    <div class="panel-editbox" data-widget-controls=""></div>
+                                    <div class="panel-body">
+
+                                        <div id="chart_0" class="charts"></div>
+                                    </div>
+                                </div>
+
+                                <div class="panel" data-widget='{"id" : "wiget2"}'>
+                                    <div class="panel-heading">
+                                        <div class="panel1-ctrls button-icon-bg"
+                                             data-actions-container=""
+                                             data-action-collapse='{"target": ".panel-body"}'>
+                                        </div>
+                                        <h2 id="label_2"></h2>
+                                    </div>
+
+                                    <div class="panel-body">
+                                        <div id="chart_2" class="charts"></div>
+                                    </div>
+                                </div>
+
+                                <div class="panel" data-widget='{"id" : "wiget3"}'>
+                                    <div class="panel-heading">
+                                        <div class="panel1-ctrls button-icon-bg"
+                                             data-actions-container=""
+                                             data-action-collapse='{"target": ".panel-body"}'>
+                                        </div>
+                                        <h2 id="label_3"></h2>
+                                    </div>
+
+                                    <div class="panel-body">
+                                        <div id="chart_3" class="charts"></div>
+                                    </div>
+                                </div>
+
                             </div>
-                            <div id="chart_0" class="charts"></div>
-                        </div>
-                        <div class="col-sm-6">
-                            <div style="text-align: center;">
-                                <span id="label_1" style="font-family: 'Gill Sans MT'; font-size: 15px; line-height: 21px; color: #000000; font-weight: bold; text-align: center;" class="labels"></span>
+
+                            <div class="col-md-6">
+                                <div class="panel" data-widget='{"id" : "wiget4"}'>
+                                    <div class="panel-heading">
+                                        <div class="panel1-ctrls button-icon-bg"
+                                             data-actions-container=""
+                                             data-action-collapse='{"target": ".panel-body"}'>
+                                        </div>
+                                        <h2 id="label_4"></h2>
+                                    </div>
+                                    <div class="panel-editbox" data-widget-controls=""></div>
+                                    <div class="panel-body">
+                                        <div id="chart_4" class="charts"></div>
+                                    </div>
+                                </div>
+                                <div class="panel" data-widget='{"id" : "wiget5"}'>
+                                    <div class="panel-heading">
+                                        <div class="panel1-ctrls button-icon-bg"
+                                             data-actions-container=""
+                                             data-action-collapse='{"target": ".panel-body"}'>
+                                        </div>
+                                        <h2 id="label_5"></h2>
+                                    </div>
+                                    <div class="panel-body">
+                                        <div id="chart_5" class="charts"></div>
+                                    </div>
+                                </div>
+                                <div class="panel" data-widget='{"id" : "wiget6"}'>
+                                    <div class="panel-heading">
+                                        <div class="panel1-ctrls button-icon-bg"
+                                             data-actions-container=""
+                                             data-action-collapse='{"target": ".panel-body"}'>
+                                        </div>
+                                        <h2 id="label_6"></h2>
+                                    </div>
+                                    <div class="panel-body">
+                                        <div id="chart_6" class="charts"></div>
+                                    </div>
+                                </div>
                             </div>
-                            <div id="chart_1" class="charts"></div>
                         </div>
-                    </div>     
-                    <div class="row">
-                        <div class="col-sm-6">
-                            <div style="text-align: center;">
-                                <span id="label_2" style="font-family: 'Gill Sans MT'; font-size: 15px; line-height: 21px; color: #000000; font-weight: bold; text-align: center;" class="labels"></span>
-                            </div>
-                            <div id="chart_2" class="charts"></div>
-                        </div>
-                        <div class="col-sm-6">
-                            <div style="text-align: center;">
-                                <span id="label_3" style="font-family: 'Gill Sans MT'; font-size: 15px; line-height: 21px; color: #000000; font-weight: bold; text-align: center;" class="labels"></span>
-                            </div>
-                            <div id="chart_3" class="charts"></div>
-                        </div>
-                    </div> 
-                    <div class="row">
-                        <div class="col-sm-6">
-                            <div style="text-align: center;">
-                                <span id="label_4" style="font-family: 'Gill Sans MT'; font-size: 15px; line-height: 21px; color: #000000; font-weight: bold; text-align: center;" class="labels"></span>
-                            </div>
-                            <div id="chart_4" class="charts"></div>
-                        </div>
-                        <div class="col-sm-6">
-                            <div style="text-align: center;">
-                                <span id="label_5" style="font-family: 'Gill Sans MT'; font-size: 15px; line-height: 21px; color: #000000; font-weight: bold; text-align: center;" class="labels"></span>
-                            </div>
-                            <div id="chart_5" class="charts"></div>
-                        </div>
-                    </div>    
-                    <div class="row">
-                        <div class="col-sm-6">
-                            <div style="text-align: center;">
-                                <span id="label_6" style="font-family: 'Gill Sans MT'; font-size: 15px; line-height: 21px; color: #000000; font-weight: bold; text-align: center;" class="labels"></span>
-                            </div>
-                            <div id="chart_6" class="charts"></div>
-                        </div>
-                        <div class="col-sm-6">
-                            <div style="text-align: center;">
-                                <span id="label_7" style="font-family: 'Gill Sans MT'; font-size: 15px; line-height: 21px; color: #000000; font-weight: bold; text-align: center;" class="labels"></span>
-                            </div>
-                            <div id="chart_7" class="charts"></div>
-                        </div>
-                    </div>  
-                    <div class="row">
-                        <div class="col-sm-6">
-                            <div style="text-align: center;">
-                                <span id="label_8" style="font-family: 'Gill Sans MT'; font-size: 15px; line-height: 21px; color: #000000; font-weight: bold; text-align: center;" class="labels"></span>
-                            </div>
-                            <div id="chart_8" class="charts"></div>
-                        </div>
-                        <div class="col-sm-6">
-                            <div style="text-align: center;">
-                                <span id="label_9" style="font-family: 'Gill Sans MT'; font-size: 15px; line-height: 21px; color: #000000; font-weight: bold; text-align: center;" class="labels"></span>     
-                            </div>
-                            <div id="chart_9" class="charts"></div>
-                        </div>
-                    </div>              
+
+                    </div>
                 </div>
             </div>
-        </div>      
-    </div>
-</div>
+
 
 @section PagespecificCss
 {
@@ -162,6 +201,24 @@
 
 @section PageSpecificScript
 {
+
+
+<script src="~/assets/plugins/wijets/wijets.js"></script>     								<!-- Wijet -->
+<script src="~/assets/plugins/datatables/jquery.dataTables.js"></script>
+<script src="~/assets/plugins/datatables/dataTables.bootstrap.js"></script>
+<script src="~/assets/demo/demo-datatables.js"></script>
+
+
+<script>
+	$('#reset').click(function () {
+		bootbox.confirm("Are you sure you want to clear Local Storage? This will clear ALL globally set settings", function() {
+			localStorage.clear();
+		});
+	});
+
+	$.wijets().make();
+</script>
+
     <script type="text/javascript" src="~/datacastassets/plugins/datatables/jquery.dataTables.js"></script>
     <script type="text/javascript" src="~/datacastassets/plugins/datatables/dataTables.bootstrap.js"></script>
 
@@ -169,9 +226,6 @@
     <script src="~/datacastjs/angular-1.4.8.min.js"></script>
     <script src="~/datacastjs/jspdf.debug.js"></script>
     <script src="~/datacastjs/html2canvas.js"></script>*@
-
-    <script src="https://code.jquery.com/jquery-1.12.4.js"></script>
-    <script src="https://code.jquery.com/ui/1.12.1/jquery-ui.js"></script>
 
     <script src="~/datacastjs/shieldui-all.min.js"></script>
     <script src="~/datacastjs/angular-1.4.8.min.js"></script>

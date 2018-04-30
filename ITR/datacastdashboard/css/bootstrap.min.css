@@ -2844,7 +2844,9 @@ th {
 .table>colgroup+thead>tr:first-child>th,
 .table>thead:first-child>tr:first-child>td,
 .table>thead:first-child>tr:first-child>th {
-    border-top: 0
+    border-top:0 ;
+    background: #3175a4 !important;
+    color: #fff;
 }
 
 .table>tbody+tbody {
@@ -5648,7 +5650,7 @@ fieldset[disabled] .navbar-inverse .btn-link:hover {
 }
 
 .breadcrumb>.active {
-    color: #777
+    color: #03a9f4;
 }
 
 .pagination {

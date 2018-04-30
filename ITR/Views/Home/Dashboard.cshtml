@@ -4,64 +4,65 @@
     Layout = "~/Views/Shared/_Layout.cshtml";
 }
 
+<ol class="breadcrumb">
+
+    <li>Home</li>
+    <li class="active">Data Upload</li>
+
+</ol>
+<div class="page-heading">
+    <h1>Data Upload</h1>
+
+    <a href="~/Home/AddDatasets" id="uploadData" class="btn btn-primary pull-right">Upload Datasets</a>
+</div>
+
+
 <div class="container-fluid">
+   
+    
+
     <div class="panel">
-        <div class="row">
-            <div class="col-md-12 text-right">
-                @*<a href="~/Templates/DataTemplate.xlsx" id="downloadData" class="btn btn-primary downloadData" style="padding:20px; font-weight:normal; font-size: 10px;">Download Dataset Template</a>*@
-                <a href="~/Home/AddDatasets" id="uploadData" class="btn btn-primary" style="padding:20px; font-weight:normal; font-size: 10px;">Upload Datasets</a>
+        <div class="panel-body">
+            <div class="row">
+               
+                    <div class="col-md-3">
+                        <label><b>Company :</b></label>
+
+                        <label id="lblCompanyName"></label>
+                    </div>
+                    <div class="col-md-3">
+                        <label><b>Division :</b></label>
+
+                        <label id="lblDivisionName"></label>
+                    </div>
+             
             </div>
-        </div>
-    </div>
+            <div class="clearfix m-sm"></div>
+            <div class="row ">
 
-
-    <div class="panel" style="border: 1px solid #dedede; padding-top: 10px; padding-bottom: 12px;">
-        <div class="row">
-            <div class="col-md-12">
-                <div class=" col-md-3">
-                    <label>Company </label>
-                    <br />
-                    <label id="lblCompanyName"></label>
-                </div>
                 <div class="col-md-3">
-                    <label>Division</label>
-                    <br />
-                    <label id="lblDivisionName"></label>
+                    <label>Indicators</label>
+                    @Html.DropDownListFor(Model => Model.Indicators, new SelectList(ViewBag.Indicators as System.Collections.IEnumerable, "RServerParam", "DrpDwnName"), new { @class = "form-control", id = "ddlIndicators" })
                 </div>
-            </div>
-        </div>
-    </div>
-
-    <div class="panel">
-        <div class="row">
-            <div class="col-md-12" align="left">
-                <a href="~/Home/CreateFavouriteList" id="btnCreateFavouriteList" class="btn btn-primary" style="padding:15px; font-weight:normal; font-size: 8px;">Create Favorite List</a>
-            </div>
-
-        </div>
-
-    </div>
-    <div class="panel">
-
-        <div class="row ">
-
-            <div class="col-md-3">
-                <label>Indicators</label>
-                @Html.DropDownListFor(Model => Model.Indicators, new SelectList(ViewBag.Indicators as System.Collections.IEnumerable, "RServerParam", "DrpDwnName"), new { @class = "form-control", id = "ddlIndicators" })
-            </div>
-            <div class="col-md-3" id="favdiv">
-                <div>
-                    <label>Favorite List</label>
-                    <select class="form-control" id="ddlFavourites"></select>
+                <div class="col-md-3" id="favdiv">
+                    <div>
+                        <label>Favorite List</label>
+                        <select class="form-control" id="ddlFavourites"></select>
+                    </div>
                 </div>
-            </div>
-            <div class="col-md-3">
-                <label style="height:39px"></label>
-                <button class="btn btn-success" id="btnrunanalysis">Run Analysis</button>
-            </div>
+                <div class="col-md-6">
+                    <label style="height:39px"></label>
+                    <button class="btn btn-success" id="btnrunanalysis">Run Analysis</button> 
 
+                    <a href="~/Home/CreateFavouriteList" id="btnCreateFavouriteList" class="btn btn-primary ml-sm">Create Favorite List</a>
+                </div>
+
+            </div>
         </div>
     </div>
+
+   
+    
 
     @*<div class="panel">
             <div class="row ">

@@ -1549,8 +1549,7 @@ nav.navbar.nav-grey {
 
 /*---------- TYPOGRAPHY ----------*/ 
 h1, h2, h3, h4, h5, h6 {
-	/*font-family: 'brandon_text_regularregular';*/
-    font-family:'OpenSans_Bold' !important;
+    font-family:'Open Sans' !important;
 	font-weight: 300;
 	line-height: 1.1;
     /*color: #666666;*/  
