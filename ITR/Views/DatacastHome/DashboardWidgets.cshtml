@@ -4,16 +4,12 @@
 }
 
 <ol class="breadcrumb">
-
     <li>Home</li>
     <li class="active">Dashboard</li>
-
 </ol>
 <div class="page-heading">
     <h1>Dashboard</h1>
-
 </div>
-
 
 <div class="container-fluid">
     <div id="page-wrap" ng-app="" class="panel panel-default m-n">
@@ -80,7 +76,7 @@
 
                         <div class="row" data-widget-group="group-demo">
                             <div class="col-md-6">
-                                <div class="panel" data-widget='{"id" : "wiget1"}'>
+                                <div class="panel widgets" id="wiget_0" data-widget='{"id" : "wiget_0"}'>
                                     <div class="panel-heading">
                                         <div class="panel1-ctrls button-icon-bg"
                                              data-actions-container=""
@@ -95,7 +91,22 @@
                                     </div>
                                 </div>
 
-                                <div class="panel" data-widget='{"id" : "wiget2"}'>
+                                <div class="panel widgets" id="wiget_1"  data-widget='{"id" : "wiget_1"}'>
+                                    <div class="panel-heading">
+                                        <div class="panel1-ctrls button-icon-bg"
+                                             data-actions-container=""
+                                             data-action-collapse='{"target": ".panel-body"}'>
+                                        </div>
+                                        <h2 id="label_1"></h2>
+                                    </div>
+                                    <div class="panel-editbox" data-widget-controls=""></div>
+                                    <div class="panel-body">
+
+                                        <div id="chart_1" class="charts"></div>
+                                    </div>
+                                </div>
+
+                                <div class="panel widgets" id="wiget_2" data-widget='{"id" : "wiget_2"}'>
                                     <div class="panel-heading">
                                         <div class="panel1-ctrls button-icon-bg"
                                              data-actions-container=""
@@ -109,7 +120,7 @@
                                     </div>
                                 </div>
 
-                                <div class="panel" data-widget='{"id" : "wiget3"}'>
+                                <div class="panel widgets" id="wiget_3" data-widget='{"id" : "wiget_3"}'>
                                     <div class="panel-heading">
                                         <div class="panel1-ctrls button-icon-bg"
                                              data-actions-container=""
@@ -126,7 +137,7 @@
                             </div>
 
                             <div class="col-md-6">
-                                <div class="panel" data-widget='{"id" : "wiget4"}'>
+                                <div class="panel widgets" id="wiget_4" data-widget='{"id" : "wiget_4"}'>
                                     <div class="panel-heading">
                                         <div class="panel1-ctrls button-icon-bg"
                                              data-actions-container=""
@@ -139,7 +150,8 @@
                                         <div id="chart_4" class="charts"></div>
                                     </div>
                                 </div>
-                                <div class="panel" data-widget='{"id" : "wiget5"}'>
+
+                                <div class="panel widgets" id="wiget_5" data-widget='{"id" : "wiget_5"}'>
                                     <div class="panel-heading">
                                         <div class="panel1-ctrls button-icon-bg"
                                              data-actions-container=""
@@ -151,7 +163,8 @@
                                         <div id="chart_5" class="charts"></div>
                                     </div>
                                 </div>
-                                <div class="panel" data-widget='{"id" : "wiget6"}'>
+
+                                <div class="panel widgets" id="wiget_6" data-widget='{"id" : "wiget_6"}'>
                                     <div class="panel-heading">
                                         <div class="panel1-ctrls button-icon-bg"
                                              data-actions-container=""
@@ -163,9 +176,51 @@
                                         <div id="chart_6" class="charts"></div>
                                     </div>
                                 </div>
-                            </div>
-                        </div>
 
+                                <div class="panel widgets" id="wiget_7"  data-widget='{"id" : "wiget_7"}'>
+                                    <div class="panel-heading">
+                                        <div class="panel1-ctrls button-icon-bg"
+                                             data-actions-container=""
+                                             data-action-collapse='{"target": ".panel-body"}'>
+                                        </div>
+                                        <h2 id="label_7"></h2>
+                                    </div>
+                                    <div class="panel-body">
+                                        <div id="chart_7" class="charts"></div>
+                                    </div>
+                                </div>
+                                
+                            </div>
+
+                            <div class="col-md-6">
+                                <div class="panel widgets" id="wiget_8" data-widget='{"id" : "wiget_8"}'>
+                                    <div class="panel-heading">
+                                        <div class="panel1-ctrls button-icon-bg"
+                                             data-actions-container=""
+                                             data-action-collapse='{"target": ".panel-body"}'>
+                                        </div>
+                                        <h2 id="label_8"></h2>
+                                    </div>
+                                    <div class="panel-body">
+                                        <div id="chart_8" class="charts"></div>
+                                    </div>
+                                </div>
+
+                                <div class="panel widgets" id="wiget_9" data-widget='{"id" : "wiget_9"}'>
+                                    <div class="panel-heading">
+                                        <div class="panel1-ctrls button-icon-bg"
+                                             data-actions-container=""
+                                             data-action-collapse='{"target": ".panel-body"}'>
+                                        </div>
+                                        <h2 id="label_9"></h2>
+                                    </div>
+                                    <div class="panel-body">
+                                        <div id="chart_9" class="charts"></div>
+                                    </div>
+                                </div>
+                            </div>
+
+                         </div>
                     </div>
                 </div>
             </div>
@@ -209,6 +264,7 @@
 <script src="~/assets/demo/demo-datatables.js"></script>
 
 
+
 <script>
 	$('#reset').click(function () {
 		bootbox.confirm("Are you sure you want to clear Local Storage? This will clear ALL globally set settings", function() {
@@ -216,7 +272,7 @@
 		});
 	});
 
-	$.wijets().make();
+	//$.wijets().make();
 </script>
 
     <script type="text/javascript" src="~/datacastassets/plugins/datatables/jquery.dataTables.js"></script>
@@ -327,9 +383,7 @@
                                   $(".spnIRCDataSet2Name").text($("#ddlIRCDataSet2 option:selected").text() + " for " + $("#ddl2ndCaluculation option:selected").text());
                                   IRCdataSetName2 = $("#ddlIRCDataSet2 option:selected").text();
                                   
-
                                   if (dataSetID != "" && dataSetID != "null" && dataSetID != null) {
-
                                       //LOADING PHASES TABLE AND CHARTS...
                                       LoadPhasesTableAndCharts(dataSetID);                                     
                                   }
@@ -376,6 +430,8 @@
             setTimeout(function () {
                 printWindow.print();
             }, 4500); //To Avoid Blank page printing in Google Chrome
+
+            setTimeout(function () { mywindow.close() }, 1000);
             $("#divLables").hide();
         });
 
@@ -455,7 +511,8 @@
                         if (response.result == '1') {
                             alert("Dashboard Widget indicator deleted successfully.");
 
-                            LoadPhaseValuesOfDBWidgets();
+                            //LoadPhaseValuesOfDBWidgets();
+                            LoadPhasesTableAndCharts($("#ddlDataSets").val());
                         } else {
                             alert("Unable to Delete Dashboard Widget indicator.");
                         }
@@ -736,6 +793,8 @@
         }
 
         function LoadChart(count) {
+            
+            $("#wiget_" + count).show();
             ticksRepeatCompany = 0;
             ticksRepeatIndicator = 0;
             CompanyMaxvalueLine = 0;
@@ -1411,15 +1470,20 @@
 
         function LoadPhasesTableAndCharts(dataSetID)
         {
-            if (dataSetID != "" && dataSetID != "null" && dataSetID != null) {
-               
+            //alert('from LoadPhasesTableAndCharts');
+            if (dataSetID != "" && dataSetID != "null" && dataSetID != null) {               
+                
+                $('.widgets').each(function () {
+                    $(".widgets").hide();
+                });
+
                 $('.charts').each(function () {
                     $(".charts").html('');
                 });
 
                 $('.labels').each(function () {
                     $(".labels").text('');
-                });                
+                });             
 
                 $('#tblHeading').text('Indicator Phase Signals for ' + $("#ddlDataSets").val());
                 //TO LOAD PHASE VALUES OF DB WIDGETS IN DATATABLE...
@@ -1461,6 +1525,7 @@
                         
                         $(".spnIndicatorName").html(SelectedIndicators[j].split('_')[0]);
                         //for (var j = 0; j < 1; j++) {
+
                         //LOADING CHART DATA...
                         indicatorShotrCode = SelectedIndicators[j].split('_')[0];               
 

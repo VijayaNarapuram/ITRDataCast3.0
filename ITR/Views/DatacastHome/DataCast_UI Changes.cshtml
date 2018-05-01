@@ -4,525 +4,558 @@
     Layout = "~/Views/Shared/_Layout.cshtml";
 }
 
+<ol class="breadcrumb">
+
+    <li>Home</li>
+    <li class="active">Analysis</li>
+
+</ol>
+<div class="page-heading">
+    <h1>Analysis</h1>
+
+</div>
+
 <div class="container-fluid">
     <div id="page-wrap" ng-app="">
-        <div class="panel" style="border: 1px solid #dedede; padding-top: 0px; padding-bottom: 5px;">
-            <div class="row">
+        <div class="panel">
+            <div class="panel-body">
                 <div class="col-sm-12">
-                    <div class=" col-sm-6">
-                        <label>Company</label>
-                        <br />
-                        @*@Html.DropDownListFor(Model => Model.Accounts, new SelectList(ViewBag.Accounts as System.Collections.IEnumerable, "AccountID", "AccountName"), "Select", new { @class = "form-control", id = "ddlAccounts" })*@
-                        <label id="lblCompanyName"></label>
-                    </div>
-                    <div class="col-sm-3">
-                        <label>Division</label>
-                        <br />
-                        @*<select name="ddlDivision" class="form-control" id="ddlDivision"></select>*@
-                        <label id="lblDivision"></label>
+                    <div class="row">
+                        <div class="col-sm-4">
+                            <label>Company : </label>
+                            @*@Html.DropDownListFor(Model => Model.Accounts, new SelectList(ViewBag.Accounts as System.Collections.IEnumerable, "AccountID", "AccountName"), "Select", new { @class = "form-control", id = "ddlAccounts" })*@
+                            <label id="lblCompanyName"></label>
+                        </div>
+                        <div class="col-sm-4">
+                            <label>Division :</label>
+                            @*<select name="ddlDivision" class="form-control" id="ddlDivision"></select>*@
+                            <label id="lblDivision"></label>
+                        </div>
                     </div>
                 </div>
             </div>
         </div>
+        <div class="panel-body">
+            <div class="tabs">
+                <!--Internal Rates of Change Start-->
+                <div class="tab">
+                    <input type="radio" class="radio" id="tab-2" name="tab-group-1">
+                    <label for="tab-2">Internal Rates of Change</label>
 
-        <div class="tabs">
-            <!--Internal Rates of Change Start-->
-            <div class="tab">
-                <input type="radio" class="radio" id="tab-2" name="tab-group-1">
-                <label for="tab-2">Internal Rates of Change</label>
+                    <div class="content tab-c">
+                        <div class="row">
+                            <div class="col-sm-6 pull-right text-right">
 
-                <div class="content">
-                    <div class="row">
-                        <div class="col-sm-1 pull-right">
-                            <button id="linkPrintIRC" class="shield-chart-button" type="button" title="Print the chart">
-                                <div class="sui-sprite shield-print-button-img"></div>
-                            </button>
-                            <input type="image" id="linkPrintPDFIRC" src="~/img/home/pdf_2.png" title="Download pdf document">
-
-                            <input type="image" id="linkPrintPNGIRC" src="~/img/home/image_icon.png" title="Download Image">
+                                <button id="linkPrintIRC" class="btn btn-default" type="button" title="Print the chart">
+                                    <i class="fa fa-print"></i>
+                                </button>
+                                <button id="linkPrintPDFIRC" class="btn btn-default" type="button" title="Download pdf document">
+                                    <i class="fa fa-file"></i>
+                                </button>
+                                <button id="linkPrintPNGIRC" class="btn btn-default" type="button" title="Download Image">
+                                    <i class="fa fa-image"></i>
+                                </button>
+                            </div>
                         </div>
-                    </div>
 
-                    <div id="divPrintIRC">
-                        <div style="text-align: center;">
-                            <span style="font-family: 'Bell MT'; font-size: 71px; line-height: 79px; color: #3175a4; font-weight: bold;">ITR</span><span style="font-family: 'Arial'; font-size: 48px; line-height: 54px; color: #270076; font-weight: bold;">&nbsp;</span><span style="font-family: &quot; Roboto Black&quot; , Roboto; font-size: 64px; line-height: 72px; color: rgb(7, 166, 132); font-style: italic; font-weight: 900;">Data</span><span style="font-family: &quot; Roboto Light&quot; , Roboto; font-size: 64px; line-height: 72px; color: rgb(7, 166, 132); font-style: italic; font-weight: 300;">Cast</span>
-                        </div>
-                        <div style="text-align: center;">
-                            <span style="font-family: 'Arial'; font-size: 11px; line-height: 12px; color: #acacac;">__________________________    </span><span style="font-family: &quot; Roboto Light&quot; , Roboto; font-size: 16px; line-height: 18px; color: rgb(0, 0, 0); font-weight: 300;">First in Forecasts Since 1948 </span><span style="font-family: 'Arial'; font-size: 11px; line-height: 12px; color: #acacac;">__________________________</span>
-                        </div>
-                        <div style="text-align: center;">
-                            <span style="font-family: 'Gill Sans MT'; font-size: 19px; line-height: 21px; color: #000000; font-weight: bold;">
-                                <span id="spnIRCDataSet1Name" class="spnIRCDataSet1Name"></span>
-                                <br>
-                                <span>vs </span>
-                                <br />
-                                <span id="spnIRCDataSet2Name" class="spnIRCDataSet2Name"></span>
+                        <div id="divPrintIRC">
+                            <div style="text-align: center;">
+                                <span style="font-family: 'Bell MT'; font-size: 71px; line-height: 79px; color: #3175a4; font-weight: bold;">ITR</span><span style="font-family: 'Arial'; font-size: 48px; line-height: 54px; color: #270076; font-weight: bold;">&nbsp;</span><span style="font-family: &quot; Roboto Black&quot; , Roboto; font-size: 64px; line-height: 72px; color: rgb(7, 166, 132); font-style: italic; font-weight: 900;">Data</span><span style="font-family: &quot; Roboto Light&quot; , Roboto; font-size: 64px; line-height: 72px; color: rgb(7, 166, 132); font-style: italic; font-weight: 300;">Cast</span>
+                            </div>
+                            <div style="text-align: center;">
+                                <span style="font-family: 'Arial'; font-size: 11px; line-height: 12px; color: #acacac;">__________________________    </span><span style="font-family: &quot; Roboto Light&quot; , Roboto; font-size: 16px; line-height: 18px; color: rgb(0, 0, 0); font-weight: 300;">First in Forecasts Since 1948 </span><span style="font-family: 'Arial'; font-size: 11px; line-height: 12px; color: #acacac;">__________________________</span>
+                            </div>
+                            <div style="text-align: center;">
+                                <span style="font-family: 'Gill Sans MT'; font-size: 19px; line-height: 21px; color: #000000; font-weight: bold;">
+                                    <span id="spnIRCDataSet1Name" class="spnIRCDataSet1Name"></span>
+                                    <br>
+                                    <span>vs </span>
+                                    <br />
+                                    <span id="spnIRCDataSet2Name" class="spnIRCDataSet2Name"></span>
 
-                                <br>
-                                <br>
-                            </span>
+                                    <br>
+                                    <br>
+                                </span>
+                            </div>
+                            <div id="chartIRC"></div>
                         </div>
-                        <div id="chartIRC"></div>
-                    </div>
-                    <!--divPrintIRC End-->
-                    <!--Grid below the chart-->
-                    <div class="row" style="background-color: rgb(215, 215, 215); width: 100%; vertical-align: central; margin-left: 0%; height: 300px;">
-                        <!--First Div Start-->
-                        <div class="col-sm-2" style="padding-left: 25px;">
+                        <!--divPrintIRC End-->
+                        <!--Grid below the chart-->
 
-                            <div class="row" style="font-weight: bold;">Chart Legend</div>
-                            <div class="row" style="font-weight: bold;"><span style="font-family: 'Wide Latin'; font-size: 16px; line-height: 18px; color: green;">---</span> <span style="font-family: &quot; Roboto Light&quot; , Roboto; font-size: 11px; line-height: 12px; color: rgb(0, 0, 0); font-weight: 300;">Dataset 1</span> </div>
-                            <div class="row" style="font-weight: bold;"><span style="font-family: 'Wide Latin'; font-size: 16px; line-height: 18px; color: #3E576F;">---</span> <span style="font-family: &quot; Roboto Light&quot; , Roboto; font-size: 11px; line-height: 12px; color: rgb(0, 0, 0); font-weight: 300;">Dataset 2</span></div>
+                        <div class="clearfix m-md"></div>
 
-                        </div>
-                        <!--First Div End-->
-                        <!--Second Div Start-->
-                        <div class="col-sm-5" style="padding-left: 25px;">
-                            <div class="row"><strong>Select 1st Calculation</strong></div>
-                            <div class="row">
-                                <select id="ddl1stCaluculation" style="width: 95%;">
+                        <div>
+                            <!--First Div Start-->
+                            <div class="col-sm-3">
+
+                                <div class="row" style="font-weight: bold;">Chart Legend</div>
+                                <div class="row" style="font-weight: bold;">
+                                    <span style="font-family: 'Wide Latin'; font-size: 16px; line-height: 18px; color: green;">---</span> <span style="font-family: &quot; Roboto Light&quot; , Roboto; font-size: 11px; line-height: 12px; color: rgb(0, 0, 0); font-weight: 300;">Dataset 1</span>
+                                </div>
+                                <div class="row" style="font-weight: bold;"><span style="font-family: 'Wide Latin'; font-size: 16px; line-height: 18px; color: #3E576F;">---</span> <span style="font-family: &quot; Roboto Light&quot; , Roboto; font-size: 11px; line-height: 12px; color: rgb(0, 0, 0); font-weight: 300;">Dataset 2</span></div>
+
+                            </div>
+                            <!--First Div End-->
+                            <!--Second Div Start-->
+                            <div class="col-sm-3">
+                                <span>Select 1st Calculation</span>
+
+                                <select id="ddl1stCaluculation" class="form-control">
                                     <option value="1/12">1/12</option>
                                     <option value="3/12" selected>3/12</option>
                                     <option value="12/12">12/12</option>
                                 </select>
+
+                                <div class="clearfix m-sm"></div>
+
+                                <span>Select Dataset 1</span>
+                                <select id="ddlIRCDataSet1" class="form-control"></select>
+
                             </div>
-                            <div class="row"><strong>Select Dataset 1</strong></div>
-                            <div class="row">
-                                <select id="ddlIRCDataSet1" style="width: 95%;"></select>
-                            </div>
-                        </div>
-                        <!--Second Div End-->
-                        <!--Third Div Start-->
-                        <div class="col-sm-5" style="padding-left: 25px;">
-                            <div class="row"><strong>Select 2nd Calculation</strong></div>
-                            <div class="row">
-                                <select id="ddl2ndCaluculation" style="width: 95%;">
+                            <!--Second Div End-->
+                            <!--Third Div Start-->
+                            <div class="col-sm-3">
+                                <span>Select 2nd Calculation</span>
+
+                                <select id="ddl2ndCaluculation" class="form-control">
                                     <option value="1/12">1/12</option>
                                     <option value="3/12">3/12</option>
                                     <option value="12/12" selected>12/12</option>
                                 </select>
+
+                                <div class="clearfix m-sm"></div>
+                                <span>Select Dataset 2</span>
+                                <select id="ddlIRCDataSet2" class="form-control"></select>
+
                             </div>
-                            <div class="row"><strong>Select Dataset 2</strong></div>
-                            <div class="row">
-                                <select id="ddlIRCDataSet2" style="width: 95%;"></select>
-                            </div>
-                        </div>
-                        <!--Third Div End-->
+                            <!--Third Div End-->
 
-
-                    </div>
-
-
-                </div>
-            </div>
-            <!--Internal Rates of Change End-->
-            <!--Internal Data Trends Start-->
-            <div class="tab">
-                <input type="radio" class="radio" id="tab-1" name="tab-group-1">
-                <label for="tab-1">Internal Data Trends</label>
-
-                <div class="content">
-                    <div class="row">
-                        <div class="col-sm-1 pull-right">
-                            <button id="linkPrintIDT" class="shield-chart-button" type="button" title="Print the chart">
-                                <div class="sui-sprite shield-print-button-img"></div>
-                            </button>
-                            <input type="image" id="linkPrintPDFIDT" src="~/img/home/pdf_2.png" title="Download pdf document">
-
-                            <input type="image" id="linkPrintPNGIDT" src="~/img/home/image_icon.png" title="Download Image">
-                        </div>
-                    </div>
-                    <div id="divPrintIDT">
-                        <div style="text-align: center;">
-                            <span style="font-family: 'Bell MT'; font-size: 71px; line-height: 79px; color: #3175a4; font-weight: bold;">ITR</span><span style="font-family: 'Arial'; font-size: 48px; line-height: 54px; color: #270076; font-weight: bold;">&nbsp;</span><span style="font-family: &quot; Roboto Black&quot; , Roboto; font-size: 64px; line-height: 72px; color: rgb(7, 166, 132); font-style: italic; font-weight: 900;">Data</span><span style="font-family: &quot; Roboto Light&quot; , Roboto; font-size: 64px; line-height: 72px; color: rgb(7, 166, 132); font-style: italic; font-weight: 300;">Cast</span>
-                        </div>
-                        <div style="text-align: center;">
-                            <span style="font-family: 'Arial'; font-size: 11px; line-height: 12px; color: #acacac;">__________________________    </span><span style="font-family: &quot; Roboto Light&quot; , Roboto; font-size: 16px; line-height: 18px; color: rgb(0, 0, 0); font-weight: 300;">First in Forecasts Since 1948 </span><span style="font-family: 'Arial'; font-size: 11px; line-height: 12px; color: #acacac;">__________________________</span>
-                        </div>
-                        <div style="text-align: center;">
-                            <span style="font-family: 'Gill Sans MT'; font-size: 19px; line-height: 21px; color: #000000; font-weight: bold;">
-                                <span id="spnIDTDataSetName" class="spnIDTDataSetName"></span>
-                                <br>
-                                <span id="spnIDTCaluculationsType" class="spnIDTCaluculationsType"></span>
-
-                                <br>
-                                <div id="divLablesIDT" style="display: none;">
-                                    <strong>Calculation Type: <span id="spnIDTCalculationType" class="spnIDTCalculationType"></span></strong>
-                                </div>
-                                <br>
-                            </span>
-                        </div>
-                        <div id="chartIDT"></div>
-                    </div>
-                    <!--divPrintIDT END-->
-                    <!--Grid below the chart-->
-                    <div class="row" style="background-color: rgb(215, 215, 215); width: 100%; vertical-align: central; margin-left: 0%; height: 300px;">
-                        <!--First Div Start-->
-                        <div class="col-sm-3" style="padding-left: 25px;">
-
-                            <div class="row" style="font-weight: bold;">Chart Legend</div>
-                            <div class="row" style="font-weight: bold;"><span style="font-family: 'Wide Latin'; font-size: 16px; line-height: 18px; color: green;">---</span> <span style="font-family: &quot; Roboto Light&quot; , Roboto; font-size: 11px; line-height: 12px; color: rgb(0, 0, 0); font-weight: 300;">3 MMT or 3 MMA</span> </div>
-                            @*<div class="row" style="font-weight: bold;"><span style="font-family: 'Wide Latin'; font-size: 19px; line-height: 21px; color: #3E576F; font-weight: bold;">..</span> <span style="font-family: &quot; Roboto Light&quot; , Roboto; font-size: 11px; line-height: 12px; color: rgb(0, 0, 0); font-weight: 300;">Company Forecast </span></div>
-                            *@
-                            <div class="row" style="font-weight: bold;"><span style="font-family: 'Wide Latin'; font-size: 16px; line-height: 18px; color: #3E576F;">---</span> <span style="font-family: &quot; Roboto Light&quot; , Roboto; font-size: 11px; line-height: 12px; color: rgb(0, 0, 0); font-weight: 300;">12 MMT or 12 MMA</span></div>
-                            @*<div class="row" style="font-weight: bold;"><span style="font-family: 'Wide Latin'; font-size: 19px; line-height: 21px; color: green; font-weight: bold;">..</span> <span style="font-family: &quot; Roboto Light&quot; , Roboto; font-size: 11px; line-height: 12px; color: rgb(0, 0, 0); font-weight: 300;">Indicator Forecast  </span></div>
-                            *@
 
                         </div>
-                        <!--First Div End-->
-                        <!--Second Div Start-->
-                        <div class="col-sm-5">
-                            <div class="row">
-                                <div class="col-sm-10"><strong>Select Company DataSet</strong></div>
-                            </div>
-                            <div class="row">
-                                <select id="ddlIDTDataSets" style="width: 95%;"></select>
-                            </div>
-                        </div>
-                        <!--Second Div End-->
-                        <!--Third Div Start-->
-                        <div class="col-sm-4">
-                            <div class="row bold">Select Calculation Type(MMT or MMA)</div>
-                            <div class="row">
-                                <input type="radio" class="FICheckRadio" name="radioCaluculationType" checked="checked" value="0">
-                                <a class="FIText" title="Monthly Moving Total">Monthly Moving Total</a>
-                            </div>
-                            <div class="row">
-                                <input type="radio" class="FICheckRadio" name="radioCaluculationType" value="1">
-                                <a class="FIText" title="Monthly Moving Average">Monthly Moving Average</a>
-                            </div>
-                        </div>
-                        <!--Third Div End-->
+
+
                     </div>
                 </div>
-            </div>
-            <!--Internal Data Trends End-->
-            <!--DataCast Start-->
-            <div class="tab">
-                <input type="radio" class="radio" id="tab-3" name="tab-group-1" checked>
-                <label for="tab-3">Datacast</label>
+                <!--Internal Rates of Change End-->
+                <!--Internal Data Trends Start-->
+                <div class="tab ">
+                    <input type="radio" class="radio" id="tab-1" name="tab-group-1">
+                    <label for="tab-1">Internal Data Trends</label>
 
-                <div class="content">
-                    <div class="row">
-                        <div class="col-sm-1 pull-right">
-                            <button id="linkPrint" class="shield-chart-button" type="button" title="Print the chart">
-                                <div class="sui-sprite shield-print-button-img"></div>
-                            </button>
-                            <input type="image" id="linkPrintPDF" src="~/img/home/pdf_2.png" title="Download pdf document">
-                            <input type="image" id="linkPrintPNG" src="~/img/home/image_icon.png" title="Download Image">
-                        </div>
-                    </div>
+                    <div class="content tab-c">
+                        <div class="row">
+                            <div class="col-sm-6 pull-right text-right">
 
-                    <div id="divPrint">
-                        <div style="text-align: center;">
-                            <span style="font-family: 'Bell MT'; font-size: 71px; line-height: 79px; color: #3175a4; font-weight: bold;">ITR</span><span style="font-family: 'Arial'; font-size: 48px; line-height: 54px; color: #270076; font-weight: bold;">&nbsp;</span><span style="font-family: &quot; Roboto Black&quot; , Roboto; font-size: 64px; line-height: 72px; color: rgb(7, 166, 132); font-style: italic; font-weight: 900;">Data</span><span style="font-family: &quot; Roboto Light&quot; , Roboto; font-size: 64px; line-height: 72px; color: rgb(7, 166, 132); font-style: italic; font-weight: 300;">Cast</span>
-                        </div>
-                        <div style="text-align: center;">
-                            <span style="font-family: 'Arial'; font-size: 11px; line-height: 12px; color: #acacac;">__________________________    </span><span style="font-family: &quot; Roboto Light&quot; , Roboto; font-size: 16px; line-height: 18px; color: rgb(0, 0, 0); font-weight: 300;">First in Forecasts Since 1948 </span><span style="font-family: 'Arial'; font-size: 11px; line-height: 12px; color: #acacac;">__________________________</span>
-                        </div>
-                        <div style="text-align: center;">
-                            <span style="font-family: 'Gill Sans MT'; font-size: 19px; line-height: 21px; color: #000000; font-weight: bold;">
-                                <span id="spnDataSetName" class="spnDataSetName"></span>
-                                <br>
-                                <span id="spnIndicatorName" class="spnIndicatorName"></span>
-
-
-                                <div id="divLables" style="display: none;">
-                                    <strong>Lead / Lag Months: <span id="spnIndicatorMoveMonths" class="spnIndicatorMoveMonths" data-ng-bind="moveMonths"></span></strong>
-                                    <strong>, Indicator view: <span id="spnIndicatorView" class="spnIndicatorView"></span></strong>
-                                </div>
-                                <br />
-                                <span id="spnBusiness" style="display:none">Phases are automated, not manually calculated as seen in other ITR works*</span>
-
-                            </span>
-                        </div>
-                        <div id="chart"></div>
-
-                    </div>
-                    <!-- End of DataCast Print Div-->
-                    <!--Grid below the chart-->
-                    <div class="row" style="background-color: rgb(215, 215, 215); width: 100%; vertical-align: central; margin-left: 0%; height: 300px;">
-                        <!--First Div Start-->
-                        <div class="col-sm-3" style="padding-left: 25px;">
-                            <div class="row">
-                                <div class="col-sm-12">Select Company DataSet</div>
+                                <button id="linkPrintIDT" class="btn btn-default" type="button" title="Print the chart">
+                                    <i class="fa fa-print"></i>
+                                </button>
+                                <button id="linkPrintPDFIDT" class="btn btn-default" type="button" title="Download pdf document">
+                                    <i class="fa fa-file"></i>
+                                </button>
+                                <button id="linkPrintPNGIDT" class="btn btn-default" type="button" title="Download Image">
+                                    <i class="fa fa-image"></i>
+                                </button>
                             </div>
-                            <div class="row">
-                                <select class="col-sm-12" id="ddlDataSets"></select>
+
+                        </div>
+                        <div id="divPrintIDT">
+                            <div style="text-align: center;">
+                                <span style="font-family: 'Bell MT'; font-size: 71px; line-height: 79px; color: #3175a4; font-weight: bold;">ITR</span><span style="font-family: 'Arial'; font-size: 48px; line-height: 54px; color: #270076; font-weight: bold;">&nbsp;</span><span style="font-family: &quot; Roboto Black&quot; , Roboto; font-size: 64px; line-height: 72px; color: rgb(7, 166, 132); font-style: italic; font-weight: 900;">Data</span><span style="font-family: &quot; Roboto Light&quot; , Roboto; font-size: 64px; line-height: 72px; color: rgb(7, 166, 132); font-style: italic; font-weight: 300;">Cast</span>
                             </div>
-                            <br />
-                            <div class="row" style="font-weight: bold;">Chart Legend</div>
-                            <div class="row" style="font-weight: bold;"><span style="font-family: 'Wide Latin'; font-size: 16px; line-height: 18px; color: #3E576F;">---</span> <span style="font-family: &quot; Roboto Light&quot; , Roboto; font-size: 11px; line-height: 12px; color: rgb(0, 0, 0); font-weight: 300;">Company/Division Data</span> </div>
-                            <div class="row" style="font-weight: bold;"><span style="font-family: 'Wide Latin'; font-size: 19px; line-height: 21px; color: #3E576F; font-weight: bold;">..</span> <span style="font-family: &quot; Roboto Light&quot; , Roboto; font-size: 11px; line-height: 12px; color: rgb(0, 0, 0); font-weight: 300;">Company Forecast </span></div>
-                            <div class="row" style="font-weight: bold;"><span style="font-family: 'Wide Latin'; font-size: 16px; line-height: 18px; color: green;">---</span> <span style="font-family: &quot; Roboto Light&quot; , Roboto; font-size: 11px; line-height: 12px; color: rgb(0, 0, 0); font-weight: 300;">Indicator History</span></div>
-                            <div class="row" style="font-weight: bold;"><span style="font-family: 'Wide Latin'; font-size: 19px; line-height: 21px; color: green; font-weight: bold;">..</span> <span style="font-family: &quot; Roboto Light&quot; , Roboto; font-size: 11px; line-height: 12px; color: rgb(0, 0, 0); font-weight: 300;">Indicator Forecast  </span></div>
-
-                        </div>
-                        <!--First Div End-->
-                        <!--Second Div Start-->
-                        <div class="col-sm-6">
-
-                            @*<div class="row">
-                                    <div class="col-sm-6" style="font-weight: bold;">Indicator Name - Indicator</div>
-                                    <div class="col-sm-3" style="font-weight: bold;">Correlation</div>
-                                    <div class="col-sm-3" style="font-weight: bold;">Lead/Lag</div>
-                                </div>*@
-                            <table align="right" style="margin:5px;padding:0px !important;width:100%;">
-                                <tr>
-                                    <td align="center">
-                                        <span style="color:rgba(0, 41, 162, 0.91);" id="spnFavListName"></span>
-                                    </td>
-                                </tr>
-                                <tr>
-                                    <td>
-                                        <input type="button" style="font-weight:bold; margin-bottom: 5px;" align="right" value=" Show Favorites List " id="ShowFavorites">&nbsp;&nbsp;&nbsp;
-                                        <input type="button" style="font-weight:bold; margin-bottom: 5px;" align="right" value=" Show All Indicators " id="HideFavorites">&nbsp;&nbsp;&nbsp;
-                                        <input type="button" style="font-weight:bold; margin-bottom: 5px;" align="right" value=" Save Favorites List " id="SaveFavorites">&nbsp;&nbsp;&nbsp;
-                                        <input type="button" style="font-weight:bold; margin-bottom: 5px;" align="right" value=" Clear Favorites " id="ClearFavorites">&nbsp;&nbsp;&nbsp;
-                                        <input type="button" style="font-weight:bold; margin-bottom: 5px;" align="right" value=" Search Category " id="SearchCategory">&nbsp;&nbsp;&nbsp;
-
-                                        <input type="button" style="font-weight:bold; margin-bottom: 5px;display:none;" align="right" value=" Remove indicator from dashboard " id="RemoveIFromDashboard">&nbsp;&nbsp;&nbsp;
-                                        <input type="button" style="font-weight:bold; margin-bottom: 5px;" align="right" value=" Show Dashboard Widgets " id="ShowDBWidgets">&nbsp;&nbsp;&nbsp;
-                                        <input type="button" style="font-weight:bold; margin-bottom: 5px;" align="right" value=" Save Dashboard Widgets " id="AddIToDashboard">&nbsp;&nbsp;&nbsp;
-                                        <input type="button" style="font-weight:bold; margin-bottom: 5px;" align="right" value=" Clear Dashboard Widgets " id="ClearDBWidgets">&nbsp;&nbsp;&nbsp;
-                                    </td>
-
-                                </tr>
-                                <tr>
-                                    <td style="font-weight:bold;" align="center">
-                                        <input type="checkbox" id="chkBusinessPhase" name="chkBusinessPhase" value="chkBusinessPhase" /><span style="font-weight: bold;"> Business Phase</span>
-                                    </td>
-                                </tr>
-                                <tr>
-                                    <td>
-                                        <div id="divIndicator" style='height: 250px; display: block; overflow-y: scroll; overflow-x: hidden; background-color: white; margin: 0 0 20px 0;'>
-                                            <!--Here the Indicator list  will be loaded dynamically-->
-                                            <table class="table table-th-block table-dark link_cursor" id="CorelationLeadLagList">
-                                                <thead>
-                                                    <tr>
-                                                        @*<th><input type="checkbox" name="selectAll" value="1" id="selectAll">Indicator Name</th>*@
-                                                        <th>Indicator Name</th>
-                                                        <th>Correlation</th>
-                                                        <th>Lead/Lag</th>
-                                                        <th>Company</th>
-                                                        <th>Indicator</th>
-                                                        <th>Description</th>
-                                                        <th>FavouriteListName</th>
-                                                        <th>Favorites</th>
-                                                        <th>Dashoard</th>
-                                                    </tr>
-                                                </thead>
-                                                <tbody></tbody>
-                                            </table>
-                                        </div>
-                                    </td>
-                                </tr>
-                            </table>
-                        </div>
-                        <!--Second Div End-->
-                        <!--Third Div Start-->
-                        <div class="col-sm-3">
-                            <div class="row">
-                                <span style="font-family: &quot; Roboto Light&quot; , Roboto; font-size: 15px; line-height: 17px; color: rgb(0, 0, 0); font-weight: bold;">
-                                    Enter Number of Months
+                            <div style="text-align: center;">
+                                <span style="font-family: 'Arial'; font-size: 11px; line-height: 12px; color: #acacac;">__________________________    </span><span style="font-family: &quot; Roboto Light&quot; , Roboto; font-size: 16px; line-height: 18px; color: rgb(0, 0, 0); font-weight: 300;">First in Forecasts Since 1948 </span><span style="font-family: 'Arial'; font-size: 11px; line-height: 12px; color: #acacac;">__________________________</span>
+                            </div>
+                            <div style="text-align: center;">
+                                <span style="font-family: 'Gill Sans MT'; font-size: 19px; line-height: 21px; color: #000000; font-weight: bold;">
+                                    <span id="spnIDTDataSetName" class="spnIDTDataSetName"></span>
                                     <br>
-                                    To Move Indicator
+                                    <span id="spnIDTCaluculationsType" class="spnIDTCaluculationsType"></span>
+
+                                    <br>
+                                    <div id="divLablesIDT" style="display: none;">
+                                        <strong>Calculation Type: <span id="spnIDTCalculationType" class="spnIDTCalculationType"></span></strong>
+                                    </div>
+                                    <br>
                                 </span>
                             </div>
-                            <div class="row" data-ng-init="moveMonths='0'">
-                                <input type="text" class="QueryBox" data-ng-model="moveMonths" value="0">
-                            </div>
-                            <br />
-                            <div class="row bold">Invert Indicator</div>
-                            <div class="row">
-                                <input type="radio" class="FICheckRadio" name="radioInvert" value="1">
-                                <a class="FIText" title="Inverted View">Inverted View</a>
-                            </div>
-                            <div class="row">
-                                <input type="radio" class="FICheckRadio" name="radioInvert" checked="checked" value="0">
-                                <a class="FIText" title="Normal View">Normal View</a>
-                            </div>
+                            <div id="chartIDT"></div>
                         </div>
-                        <!--Third Div End-->
+                        <!--divPrintIDT END-->
+                        <!--Grid below the chart-->
+                        <div class="clearfix m-md"></div>
+
+                        <div class="row">
+                            <!--First Div Start-->
+                            <div class="col-sm-3">
+
+                                <div style="font-weight: bold;">Chart Legend</div>
+                                <div style="font-weight: bold;"><span style="font-family: 'Wide Latin'; font-size: 16px; line-height: 18px; color: green;">---</span> <span style="font-family: &quot; Roboto Light&quot; , Roboto; font-size: 11px; line-height: 12px; color: rgb(0, 0, 0); font-weight: 300;">3 MMT or 3 MMA</span> </div>
+                                @*<div class="row" style="font-weight: bold;"><span style="font-family: 'Wide Latin'; font-size: 19px; line-height: 21px; color: #3E576F; font-weight: bold;">..</span> <span style="font-family: &quot; Roboto Light&quot; , Roboto; font-size: 11px; line-height: 12px; color: rgb(0, 0, 0); font-weight: 300;">Company Forecast </span></div>
+                                *@
+                                <div style="font-weight: bold;"><span style="font-family: 'Wide Latin'; font-size: 16px; line-height: 18px; color: #3E576F;">---</span> <span style="font-family: &quot; Roboto Light&quot; , Roboto; font-size: 11px; line-height: 12px; color: rgb(0, 0, 0); font-weight: 300;">12 MMT or 12 MMA</span></div>
+                                @*<div class="row" style="font-weight: bold;"><span style="font-family: 'Wide Latin'; font-size: 19px; line-height: 21px; color: green; font-weight: bold;">..</span> <span style="font-family: &quot; Roboto Light&quot; , Roboto; font-size: 11px; line-height: 12px; color: rgb(0, 0, 0); font-weight: 300;">Indicator Forecast  </span></div>
+                                *@
+
+                            </div>
+                            <!--First Div End-->
+                            <!--Second Div Start-->
+                            <div class="col-sm-3">
+                                <span class="bold">Select Company DataSet</span>
+                                <div class="clearfix m-sm"></div>
+                                <select id="ddlIDTDataSets" class="form-control"></select>
+
+                            </div>
+                            <!--Second Div End-->
+                            <!--Third Div Start-->
+                            <div class="col-sm-4">
+                                <span class="bold">Select Calculation Type(MMT or MMA)</span>
+                                <div class="clearfix m-sm"></div>
+                                <input type="radio" class="FICheckRadio" name="radioCaluculationType" checked="checked" value="0">
+                                <a class="FIText" title="Monthly Moving Total">Monthly Moving Total</a>
+
+                                <div class="clearfix m-sm"></div>
+                                <input type="radio" class="FICheckRadio" name="radioCaluculationType" value="1">
+                                <a class="FIText" title="Monthly Moving Average">Monthly Moving Average</a>
+
+                            </div>
+                            <!--Third Div End-->
+                        </div>
                     </div>
                 </div>
-            </div>
-            <!--DataCast End-->
-            <!--Download Data Start-->
-            <div class="tab">
-                <input type="radio" class="radio" id="tab-4" name="tab-group-1">
-                <label for="tab-4">Download Data</label>
-                <div class="content">
-                    <div class="row">
-                        <div class="col-sm-8">
-                            <div id="chartDownloadData"></div>
+                <!--Internal Data Trends End-->
+                <!--DataCast Start-->
+                <div class="tab">
+                    <input type="radio" class="radio" id="tab-3" name="tab-group-1" checked>
+                    <label for="tab-3">Datacast</label>
+
+                    <div class="content tab-c">
+                        <div class="row">
+                            <div class="col-sm-6 pull-right text-right">
+                                <button id="linkPrint" class="btn btn-default" type="button" title="Print the chart">
+                                    <i class="fa fa-print"></i>
+                                </button>
+                                <button id="linkPrintPDF" class="btn btn-default" type="button" title="Download pdf document">
+                                    <i class="fa fa-file"></i>
+                                </button>
+                                <button id="linkPrintPNG" class="btn btn-default" type="button" title="Download Image">
+                                    <i class="fa fa-image"></i>
+                                </button>
+                            </div>
+                        </div>
+
+                        <div id="divPrint">
+                            <div style="text-align: center;">
+                                <span style="font-family: 'Bell MT'; font-size: 71px; line-height: 79px; color: #3175a4; font-weight: bold;">ITR</span><span style="font-family: 'Arial'; font-size: 48px; line-height: 54px; color: #270076; font-weight: bold;">&nbsp;</span><span style="font-family: &quot; Roboto Black&quot; , Roboto; font-size: 64px; line-height: 72px; color: rgb(7, 166, 132); font-style: italic; font-weight: 900;">Data</span><span style="font-family: &quot; Roboto Light&quot; , Roboto; font-size: 64px; line-height: 72px; color: rgb(7, 166, 132); font-style: italic; font-weight: 300;">Cast</span>
+                            </div>
+                            <div style="text-align: center;">
+                                <span style="font-family: 'Arial'; font-size: 11px; line-height: 12px; color: #acacac;">__________________________    </span><span style="font-family: &quot; Roboto Light&quot; , Roboto; font-size: 16px; line-height: 18px; color: rgb(0, 0, 0); font-weight: 300;">First in Forecasts Since 1948 </span><span style="font-family: 'Arial'; font-size: 11px; line-height: 12px; color: #acacac;">__________________________</span>
+                            </div>
+                            <div style="text-align: center;">
+                                <span style="font-family: 'Gill Sans MT'; font-size: 19px; line-height: 21px; color: #000000; font-weight: bold;">
+                                    <span id="spnDataSetName" class="spnDataSetName"></span>
+                                    <br>
+                                    <span id="spnIndicatorName" class="spnIndicatorName"></span>
+
+
+                                    <div id="divLables" style="display: none;">
+                                        <strong>Lead / Lag Months: <span id="spnIndicatorMoveMonths" class="spnIndicatorMoveMonths" data-ng-bind="moveMonths"></span></strong>
+                                        <strong>, Indicator view: <span id="spnIndicatorView" class="spnIndicatorView"></span></strong>
+                                    </div>
+                                    <br />
+                                    <span id="spnBusiness" style="display:none">Phases are automated, not manually calculated as seen in other ITR works*</span>
+
+                                </span>
+                            </div>
+                            <div id="chart"></div>
+
+                        </div>
+                        <!-- End of DataCast Print Div-->
+                        <!--Grid below the chart-->
+
+                        <div class="row">
+                            <div class="col-sm-3">
+                                <div style="font-weight: bold;">Chart Legend</div>
+                                <div style="font-weight: bold;"><span style="font-family: 'Wide Latin'; font-size: 16px; line-height: 18px; color: #3E576F;">---</span> <span style="font-family: &quot; Roboto Light&quot; , Roboto; font-size: 11px; line-height: 12px; color: rgb(0, 0, 0); font-weight: 300;">Company/Division Data</span> </div>
+                                <div style="font-weight: bold;"><span style="font-family: 'Wide Latin'; font-size: 19px; line-height: 21px; color: #3E576F; font-weight: bold;">..</span> <span style="font-family: &quot; Roboto Light&quot; , Roboto; font-size: 11px; line-height: 12px; color: rgb(0, 0, 0); font-weight: 300;">Company Forecast </span></div>
+                                <div style="font-weight: bold;"><span style="font-family: 'Wide Latin'; font-size: 16px; line-height: 18px; color: green;">---</span> <span style="font-family: &quot; Roboto Light&quot; , Roboto; font-size: 11px; line-height: 12px; color: rgb(0, 0, 0); font-weight: 300;">Indicator History</span></div>
+                                <div style="font-weight: bold;"><span style="font-family: 'Wide Latin'; font-size: 19px; line-height: 21px; color: green; font-weight: bold;">..</span> <span style="font-family: &quot; Roboto Light&quot; , Roboto; font-size: 11px; line-height: 12px; color: rgb(0, 0, 0); font-weight: 300;">Indicator Forecast  </span></div>
+
+                            </div>
+                            <!--First Div Start-->
+                            <div class="col-sm-3">
+                                <div class="form-group">
+                                    <span class="bold">Select Company DataSet</span>
+                                    <div class="clearfix m-sm"></div>
+                                    <select class="form-control" id="ddlDataSets"></select>
+                                </div>
+
+                            </div>
+                            <!--First Div End-->
+                            <!--Second Div Start-->
+                            <div class="col-sm-3">
+                                <div class="row">
+                                    <span class="bold">
+                                        Enter Number of Months
+                                        <br>
+                                        To Move Indicator
+                                    </span>
+                                </div>
+                                <div class="clearfix m-sm"></div>
+                                <div class="row" data-ng-init="moveMonths='0'">
+                                    <input type="text" class="QueryBox" data-ng-model="moveMonths" value="0">
+                                </div>
+
+
+                            </div>
+
+                            <div class="col-sm-3">
+                                <div class="row bold">Invert Indicator</div>
+                                <div class="clearfix m-sm"></div>
+                                <div class="row">
+                                    <input type="radio" class="FICheckRadio" name="radioInvert" value="1">
+                                    <a class="FIText" title="Inverted View">Inverted View</a>
+                                </div>
+                                <div class="row">
+                                    <input type="radio" class="FICheckRadio" name="radioInvert" checked="checked" value="0">
+                                    <a class="FIText" title="Normal View">Normal View</a>
+                                </div>
+                            </div>
+                            <!--Second Div End-->
+
+                            <div class="col-sm-12">
+
+                                @*<div class="row">
+                                        <div class="col-sm-6" style="font-weight: bold;">Indicator Name - Indicator</div>
+                                        <div class="col-sm-3" style="font-weight: bold;">Correlation</div>
+                                        <div class="col-sm-3" style="font-weight: bold;">Lead/Lag</div>
+                                    </div>*@
+
+                                <div class="clearfix m-sm"></div>
+                                <div class="col-sm-8 text-center pull-right">
+                                    <input type="checkbox" id="chkBusinessPhase" name="chkBusinessPhase" value="chkBusinessPhase" />
+                                    <span style="font-weight: bold;"> Business Phase</span>
+                                </div>
+
+                                <div class="col-sm-4">
+                                    <span style="color:rgba(0, 41, 162, 0.91);" id="spnFavListName"></span>
+
+                                    <a class="btn btn-info btn-sm mb-sm" id="ShowFavorites">Show Favorites List</a>
+                                    <a class="btn btn-info btn-sm mb-sm" id="HideFavorites">Show All Indicators</a>
+                                    <a class="btn btn-info btn-sm mb-sm" id="SaveFavorites">Save Favorites List</a>
+                                    <a class="btn btn-info btn-sm mb-sm" id="ClearFavorites">Clear Favorites</a>
+                                    <a class="btn btn-info btn-sm mb-sm" id="SearchCategory">Search Category</a>
+
+                                    <a class="btn btn-info btn-sm mb-sm" id="RemoveIFromDashboard">Remove indicator from dashboard</a>
+                                    <a class="btn btn-info btn-sm mb-sm" id="ShowDBWidgets">Show Dashboard Widgets</a>
+                                    <a class="btn btn-info btn-sm mb-sm" id="AddIToDashboard">Save Dashboard Widgets</a>
+                                    <a class="btn btn-info btn-sm mb-sm" id="ClearDBWidgets">Clear Dashboard Widgets</a>
+                                </div>
+
+
+                                <div id="divIndicato" class="col-sm-8" style="height:260px;overflow-y:auto;">
+                                    <!--Here the Indicator list  will be loaded dynamically-->
+                                    <table class="table" id="CorelationLeadLagList">
+                                        <thead>
+                                            <tr>
+                                                @*<th><input type="checkbox" name="selectAll" value="1" id="selectAll">Indicator Name</th>*@
+                                                <th>Indicator Name</th>
+                                                <th>Correlation</th>
+                                                <th>Lead/Lag</th>
+                                                <th>Company</th>
+                                                <th>Indicator</th>
+                                                <th>Description</th>
+                                                <th>FavouriteListName</th>
+                                                <th>Favorites</th>
+                                                <th>Dashoard</th>
+                                            </tr>
+                                        </thead>
+                                        <tbody></tbody>
+                                    </table>
+                                </div>
+
+                                <div class="clearfix m-sm"></div>
+                            </div>
                         </div>
                     </div>
+                </div>
+                <!--DataCast End-->
+                <!--Download Data Start-->
+                <div class="tab">
+                    <input type="radio" class="radio" id="tab-4" name="tab-group-1">
+                    <label for="tab-4">Download Data</label>
+                    <div class="content tab-c">
+                        <div class="row">
+                            <div class="col-sm-8">
+                                <div id="chartDownloadData"></div>
+                            </div>
+                        </div>
 
-                    <span style="font-weight: bold; margin-left: 0%;">Company Data </span>
-                    <!-- Raghuveer STart -->
-                    <div class="row" style="background-color: rgb(215, 215, 215); width: 100%; vertical-align: central; margin-left: 0%; height: 300px;">
-                        <!--First Div Start-->
-                        <div class="col-sm-12">
-                            <div class="row">
-                                <div class="col-sm-6" style="padding-left: 25px;">
-                                    <div class="row">
-                                        <div class="col-sm-10">Select Company DataSet</div>
-                                    </div>
-                                    <div class="row">
+                        <span style="font-weight: bold; margin-left: 0%;">Company Data </span>
+                        <!-- Raghuveer STart -->
+                        <div class="row">
+                            <!--First Div Start-->
+                            <div class="col-sm-12">
+                                <div class="row">
+                                    <div class="col-sm-4">
+
+                                        <div>Select Company DataSet</div>
                                         <select id="ddlDataSetsDD" class="multiSelect form-control link_cursor" multiple="multiple"></select>
-                                    </div>
-                                </div>
 
-                                <div class="col-sm-6">
-                                    <br />
-                                    <br />
-                                    <a href="#" class="btn btn-success pull-right" id="DownloadSection1" download="CompanyData.csv">DOWNLOAD CSV</a>
-                                </div>
-                            </div>
-                            <div class="row">
-                                <div class="col-sm-12 downloadsection1">
-                                    <div class="rowstyle downloadsection1Cnt">
-                                        <div class="col-sm-1 dataRow dataRowMore" style="font-weight: bold;">MonthYear</div>
-                                        <div class="col-sm-1 dataRow" style="font-weight: bold;">1/12</div>
-                                        <div class="col-sm-1 dataRow dataRowMore" style="font-weight: bold;">3MMA</div>
-                                        <div class="col-sm-1 dataRow " style="font-weight: bold;">3MMT</div>
-                                        <div class="col-sm-1 dataRow dataRow_m1" style="font-weight: bold;">3/12</div>
-                                        <div class="col-sm-1 dataRow dataRowMore dataRow_m2" style="font-weight: bold;">12MMA</div>
-                                        <div class="col-sm-1 dataRow dataRow_m3" style="font-weight: bold;">12MMT</div>
-                                        <div class="col-sm-1 dataRow dataRow_m4" style="font-weight: bold;">12/12</div>
                                     </div>
-                                    <div id="divIndicatorSection1" style='height: 150px; display: block; overflow-y: scroll; overflow-x: hidden; background-color: white;'>
-                                        <!--Here the Indicator list  will be loaded dynamically-->
+
+                                    <div class="col-sm-8">
+                                        <a href="#" class="btn btn-success pull-right m-md" id="DownloadSection1" download="CompanyData.csv">DOWNLOAD CSV</a>
                                     </div>
                                 </div>
-                            </div>
-                        </div>
-                    </div>
-                    <hr />
-                    <br />
-                    <span style="font-weight: bold; margin-left: 0%;">Indicator List </span>
-                    <div class="row" style="background-color: rgb(215, 215, 215); width: 100%; vertical-align: central; margin-left: 0%; height: 300px;">
-                        <div class="col-sm-12">
-                            <div class="row">
-                                <div class="col-sm-6" style="padding-left: 25px;">
-                                    <div class="row">
-                                        <div class="col-sm-10">Select Company DataSet</div>
-                                    </div>
-                                    <div class="row">
-                                        <select id="ddlDataSetsIndList" class="multiSelect form-control link_cursor" multiple="multiple"></select>
-                                    </div>
-                                </div>
-                                <div class="col-sm-6">
-                                    <br />
-                                    <br />
-                                    <a href="#" class="btn btn-success pull-right" id="DownloadSection2">DOWNLOAD CSV</a>
-                                    @*download="IndicatorList.csv"*@
-                                </div>
-                            </div>
-                            <div class="row">
-                                <!--Second Div Start-->
-                                <div class="col-sm-12 downloadsection2">
-                                    <div class="row">
-                                        <div style='height: 150px; display: block; overflow-y: scroll; overflow-x: hidden; background-color: white;'>
+                                <div class="clearfix m-sm"></div>
+                                <div class="row">
+                                    <div class="col-sm-12 downloadsection1">
+                                        <div class="rowstyle downloadsection1Cnt">
+                                            <div class="col-sm-1 dataRow dataRowMore" style="font-weight: bold;">MonthYear</div>
+                                            <div class="col-sm-1 dataRow" style="font-weight: bold;">1/12</div>
+                                            <div class="col-sm-1 dataRow dataRowMore" style="font-weight: bold;">3MMA</div>
+                                            <div class="col-sm-2 dataRow " style="font-weight: bold;">3MMT</div>
+                                            <div class="col-sm-1 dataRow dataRow_m1" style="font-weight: bold;">3/12</div>
+                                            <div class="col-sm-1 dataRow dataRowMore dataRow_m2" style="font-weight: bold;">12MMA</div>
+                                            <div class="col-sm-2 dataRow dataRow_m3" style="font-weight: bold;">12MMT</div>
+                                            <div class="col-sm-1 dataRow dataRow_m4" style="font-weight: bold;">12/12</div>
+                                        </div>
+                                        <div id="divIndicatorSection1" style='height: 150px; display: block; overflow-y: scroll; overflow-x: hidden; background-color: white;'>
                                             <!--Here the Indicator list  will be loaded dynamically-->
-                                            <table class="table table-th-block table-dark link_cursor" id="CorelationLeadLagListDownload">
-                                                <thead>
-                                                    <tr>
-                                                        <th>Indicator Name</th>
-                                                        <th>Correlation</th>
-                                                        <th>Lead/Lag</th>
-                                                        <th>Company</th>
-                                                        <th>Indicator</th>
-                                                    </tr>
-                                                </thead>
-                                                <tbody></tbody>
-                                            </table>
                                         </div>
                                     </div>
                                 </div>
                             </div>
                         </div>
-                    </div>
-
-                    <br />
-                    <span style="font-weight: bold; margin-left: 0%;">Indicator Data </span>
-                    <div class="row" style="background-color: rgb(215, 215, 215); width: 100%; vertical-align: central; margin-left: 0%; height: 230px;">
-                        <!--First Div Start-->
-                        <div class="col-sm-12" style="padding-left: 25px;">
-                            <div class="row text-right">
-                                <div class="col-sm-12">
-                                    <br />
-                                    <a href="#" class="btn btn-success" id="DownloadSection3" download="IndicatorData.csv">DOWNLOAD CSV</a>
-                                </div>
-                            </div>
-                            <div class="row">
-                                <!--Second Div Start-->
-                                <div class="col-sm-12 downloadsection3">
-
-                                    <div class="row">
-                                        <div class="col-sm-3" style="font-weight: bold;">MonthYear</div>
-                                        <div class="col-sm-3" style="font-weight: bold;">Indicator Full Name</div>
-                                        <div class="col-sm-3" style="font-weight: bold;">12/12</div>
+                        <div class="clearfix m-sm"></div>
+                        <span style="font-weight: bold; margin-left: 0%;">Indicator List </span>
+                        <div class="row">
+                            <div class="col-sm-12">
+                                <div class="row">
+                                    <div class="col-sm-6" style="padding-left: 25px;">
+                                        <div class="row">
+                                            <div class="col-sm-10">Select Company DataSet</div>
+                                        </div>
+                                        <div class="row">
+                                            <select id="ddlDataSetsIndList" class="multiSelect form-control link_cursor" multiple="multiple"></select>
+                                        </div>
                                     </div>
-                                    <div id="divIndicatorDDShortCodes" style='height: 150px; display: block; overflow-y: scroll; overflow-x: hidden; background-color: white;'>
-                                        <!--Here the Indicator list  will be loaded dynamically-->
+                                    <div class="col-sm-6">
+                                        <br />
+                                        <br />
+                                        <a href="#" class="btn btn-success pull-right" id="DownloadSection2">DOWNLOAD CSV</a>
+                                        @*download="IndicatorList.csv"*@
+                                    </div>
+                                </div>
+                                <div class="clearfix m-sm"></div>
+                                <div class="row">
+                                    <!--Second Div Start-->
+                                    <div class="col-sm-12 downloadsection2">
+                                        <div class="row">
+                                            <div style='height: 150px; display: block; overflow-y: scroll; overflow-x: hidden; background-color: white;'>
+                                                <!--Here the Indicator list  will be loaded dynamically-->
+                                                <table class="table table-th-block table-dark link_cursor" id="CorelationLeadLagListDownload">
+                                                    <thead>
+                                                        <tr>
+                                                            <th>Indicator Name</th>
+                                                            <th>Correlation</th>
+                                                            <th>Lead/Lag</th>
+                                                            <th>Company</th>
+                                                            <th>Indicator</th>
+                                                        </tr>
+                                                    </thead>
+                                                    <tbody></tbody>
+                                                </table>
+                                            </div>
+                                        </div>
                                     </div>
                                 </div>
                             </div>
                         </div>
-                    </div>
-                    <br />
-                </div>
-            </div>
-            <!--Download Data End-->
-            <!--Indicator Summary Start-->
-            <div class="tab">
-                <input type="radio" class="radio" id="tab-5" name="tab-group-1">
-                <label for="tab-5">Indicator Summary</label>
-                <div class="content">
-                    @*<div class="row">
-                            <div class="col-sm-10" style="background-color: rgb(215, 215, 215); width: 100%; vertical-align: central; margin-left: 0%; font-weight: bold; padding-top: 30px;">
-                                <span id="spnDataSetName" class="spnDataSetName"></span>
-                                <hr />
+
+                        <br />
+                        <span style="font-weight: bold; margin-left: 0%;">Indicator Data </span>
+                        <div class="row">
+                            <!--First Div Start-->
+                            <div class="col-sm-12" style="padding-left: 25px;">
+                                <div class="row text-right">
+                                    <div class="col-sm-12">
+                                        <a href="#" class="btn btn-success" id="DownloadSection3" download="IndicatorData.csv">DOWNLOAD CSV</a>
+                                    </div>
+                                </div>
+                                <div class="row">
+                                    <!--Second Div Start-->
+                                    <div class="col-sm-12 downloadsection3">
+
+                                        <div class="row">
+                                            <div class="col-sm-3" style="font-weight: bold;">MonthYear</div>
+                                            <div class="col-sm-3" style="font-weight: bold;">Indicator Full Name</div>
+                                            <div class="col-sm-3" style="font-weight: bold;">12/12</div>
+                                        </div>
+                                        <div id="divIndicatorDDShortCodes" style='height: 150px; display: block; overflow-y: scroll; overflow-x: hidden; background-color: white;'>
+                                            <!--Here the Indicator list  will be loaded dynamically-->
+                                        </div>
+                                    </div>
+                                </div>
                             </div>
-                        </div>*@
-                    <div class="row">
-                        <div class="col-sm-10" style="background-color: rgb(215, 215, 215); width: 100%; vertical-align: central; margin-left: 0%; height: 500px;">
-                            @*<div class="row">
-                                    <div class="col-sm-6" style="font-weight: bold;">Indicator Name - Indicator</div>
-                                    <div class="col-sm-3" style="font-weight: bold;">Correlation</div>
-                                    <div class="col-sm-3" style="font-weight: bold;">Lead/Lag</div>
-                                </div>*@
-                            <div class="divIndicator" style='height: 450px; display: block; overflow-y: scroll; overflow-x: hidden; background-color: white;'>
-                                <!--Here the Indicator list  will be loaded dynamically-->
-                                <table class="table table-th-block table-dark" id="CorelationLeadLagListIndicationSummary">
-                                    <thead>
-                                        <tr>
-                                            <th>Indicator Name</th>
-                                            <th>Correlation</th>
-                                            <th>Lead/Lag</th>
-                                            <th>Company</th>
-                                            <th>Indicator</th>
-                                        </tr>
-                                    </thead>
-                                    <tbody></tbody>
-                                </table>
-                                @*<div id="divIndicatorDD" style='height: 150px; display: block; overflow-y: scroll; overflow-x: hidden; background-color: white;'>*@
-                                <!--Here the Indicator list  will be loaded dynamically-->
-                                @*</div>*@
+                        </div>
+                        <br />
+                    </div>
+                </div>
+                <!--Download Data End-->
+                <!--Indicator Summary Start-->
+                <div class="tab">
+                    <input type="radio" class="radio" id="tab-5" name="tab-group-1">
+                    <label for="tab-5">Indicator Summary</label>
+                    <div class="content tab-c">
+                        @*<div class="row">
+                                <div class="col-sm-10" style="background-color: rgb(215, 215, 215); width: 100%; vertical-align: central; margin-left: 0%; font-weight: bold; padding-top: 30px;">
+                                    <span id="spnDataSetName" class="spnDataSetName"></span>
+                                    <hr />
+                                </div>
+                            </div>*@
+                        <div class="row">
+                            <div class="col-sm-12">
+                                @*<div class="row">
+                                        <div class="col-sm-6" style="font-weight: bold;">Indicator Name - Indicator</div>
+                                        <div class="col-sm-3" style="font-weight: bold;">Correlation</div>
+                                        <div class="col-sm-3" style="font-weight: bold;">Lead/Lag</div>
+                                    </div>*@
+                                <div class="divIndicator">
+                                    <!--Here the Indicator list  will be loaded dynamically-->
+                                    <table class="table table-th-block table-dark" id="CorelationLeadLagListIndicationSummary">
+                                        <thead>
+                                            <tr>
+                                                <th>Indicator Name</th>
+                                                <th>Correlation</th>
+                                                <th>Lead/Lag</th>
+                                                <th>Company</th>
+                                                <th>Indicator</th>
+                                            </tr>
+                                        </thead>
+                                        <tbody></tbody>
+                                    </table>
+                                    @*<div id="divIndicatorDD" style='height: 150px; display: block; overflow-y: scroll; overflow-x: hidden; background-color: white;'>*@
+                                    <!--Here the Indicator list  will be loaded dynamically-->
+                                    @*</div>*@
+                                </div>
                             </div>
                         </div>
                     </div>
                 </div>
+                <!--Indicator Summary End-->
+
+                <div class="clearfix m-sm"></div>
             </div>
-            <!--Indicator Summary End-->
         </div>
+
+
+
     </div>
 </div>
 <!--Favorites list popup-->
 
-<div class="modal2" id="FavListModalPopUp" tabindex="-1" role="dialog" aria-hidden="true" style="display:none;">
+<div class="modal" id="FavListModalPopUp" tabindex="-1" role="dialog" aria-hidden="true" style="display:none;">
     <div class="modal-dialog">
         <div class="modal-content" style="width:450px">
             <div class="modal-header">
@@ -565,7 +598,7 @@
 </div>
 
 
-<div class="modal2" id="FirstViewPopup" tabindex="-1" role="dialog" aria-hidden="true" style="display:none;">
+<div class="modal" id="FirstViewPopup" tabindex="-1" role="dialog" aria-hidden="true" style="display:none;">
     <div class="modal-dialog">
         <div class="modal-content" style="width:650px">
             <div class="modal-header">
@@ -608,7 +641,7 @@
     <!-- /#DefaultModal -->
 </div>
 
-<div class="modal2" id="SearchCategoryPopup" tabindex="-1" role="dialog" aria-hidden="true" style="display:none;">
+<div class="modal" id="SearchCategoryPopup" tabindex="-1" role="dialog" aria-hidden="true" style="display:none;">
     <div class="modal-dialog">
         <div class="modal-content" style="width:450px">
             <div class="modal-header">
@@ -696,7 +729,7 @@
 </div>
 
 @*ADDED BY VIJAYA TO SHOW DASHBOARD WIDGETS IN POPU*@
-<div class="modal2" id="DBWidgetsListModalPopUp" tabindex="-1" role="dialog" aria-hidden="true" style="display:none;">
+<div class="modal" id="DBWidgetsListModalPopUp" tabindex="-1" role="dialog" aria-hidden="true" style="display:none;">
     <div class="modal-dialog">
         <div class="modal-content" style="width:550px">
             <div class="modal-header">
@@ -790,7 +823,11 @@ else
                 console.log(error)
             }
         });
-        $("#hdnCompanyID").val(2301) //5399); //8224)
+        /*
+        2301 - Timken
+        5399 - 
+        */
+        $("#hdnCompanyID").val(5399); //8224)
         $("#hdnDivisionID").val(0);
         $("#hdnUserID").val(1);
     </script>
@@ -816,12 +853,6 @@ else
 
         .cursor {
             cursor: pointer;
-        }
-
-        .active {
-            background-color: blue;
-            color: white;
-            font-weight: bold;
         }
 
         .modal1 {
@@ -5227,9 +5258,6 @@ else
 
             // By Raghuveer on 26 July 2017 for Business Phase functionality
             $("#chkBusinessPhase").click(function() {
-
-
-
                 if ($(this).is(':checked')) {
                     if (window.localStorage.getItem('PopupStatus') == null || window.localStorage.getItem('PopupStatus') == '1') {
                         $("#FirstViewPopup").show();
@@ -6157,7 +6185,7 @@ else
                     }
                 });
                 */
-                /* STEP ! : WE ARE ADDING/UPDATING VALUES IN DBWidgetsList WHEN CLICKED ON 'SHOW DASHBOARD WIDGETS' 
+                /* STEP ! : WE ARE ADDING/UPDATING VALUES IN DBWidgetsList WHEN CLICKED ON 'SHOW DASHBOARD WIDGETS'
                    STEP 2 : ADDING/UPDATING VALUES IN DBWidgetsList IN PAGINATION... $("#CorelationLeadLagList_paginate") Event...
                    STEP 3 : ADDING/UPDATING VALUES IN DBWidgetsList WHEN CLICK IN DATATABLE... $(document).on('click', '#CorelationLeadLagList tbody tr', function(e) { EVENT...
                    So considering DBWidgetsList Length to get widgetsCount... Need to have the ability to add only 10 indicators...
@@ -6308,7 +6336,7 @@ else
                     //alert(htmlIndicatorString);
                     //   LoadDDChart();
                 });
-        }       
+        }
 
         //TABLE DEFINITION for Indicator list
         oTable111 = $('#dtDBWidgetsList').dataTable({
