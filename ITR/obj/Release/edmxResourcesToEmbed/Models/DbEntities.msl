@@ -353,5 +353,6 @@
     </FunctionImportMapping>
     <FunctionImportMapping FunctionImportName="uspUpdateCustomerDataSet" FunctionName="ITRDevModel.Store.uspUpdateCustomerDataSet" />
     <FunctionImportMapping FunctionImportName="uspUpdateFavouriteList" FunctionName="ITRDevModel.Store.uspUpdateFavouriteList" />
+    <FunctionImportMapping FunctionImportName="uspClearDataSetAnalysis" FunctionName="ITRDevModel.Store.uspClearDataSetAnalysis" />
   </EntityContainerMapping>
 </Mapping>

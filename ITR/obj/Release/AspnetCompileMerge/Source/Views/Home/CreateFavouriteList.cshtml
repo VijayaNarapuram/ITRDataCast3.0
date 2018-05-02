@@ -4,242 +4,239 @@
     Layout = "~/Views/Shared/_Layout.cshtml";
 }
 
+<ol class="breadcrumb">
+
+    <li>Home</li>
+    <li class="active">Create Favourite List</li>
+
+</ol>
+<div class="page-heading">
+    <h1>Create Favourite List</h1>
+
+    
+</div>
+
 <div class="container-fluid">
 
-    <div class="panel" style="border: 1px solid #dedede; padding-top: 10px; padding-bottom: 12px;">
-        <div class="row">
-            <div class="col-md-12">
-                <div class=" col-md-3">
-                    <label>Company </label>
-                    <br />
+    <div class="panel">
+        <div class="panel-body">
+            <div class="row">
+
+                <div class="col-md-3">
+                    <label><b>Company :</b></label>
+
                     <label id="lblCompanyName"></label>
                 </div>
                 <div class="col-md-3">
-                    <label>Division</label>
-                    <br />
+                    <label><b>Division :</b></label>
+
                     <label id="lblDivisionName"></label>
                 </div>
+
             </div>
         </div>
     </div>
 
-    <div class="row">
 
-        
-        <div class="col-sm-11">
-
-            @*<div class="row">
-                <div class="col-sm-6" style="font-weight: bold;">Indicator Name - Indicator</div>
-                <div class="col-sm-3" style="font-weight: bold;">Correlation</div>
-                <div class="col-sm-3" style="font-weight: bold;">Lead/Lag</div>
-            </div>*@
-            <table align="right" style="margin:5px;padding:0px !important;width:100%;">
-                <tr>
-                    <td align="center">
-                        <span style="color:rgba(0, 41, 162, 0.91);" id="spnFavListName"></span>
-                    </td>
-                </tr>
-                <tr>
-                    <td>
-                        <input type="button" style="font-weight:bold; margin-bottom: 5px;" align="right" value=" Show Favorites List " id="ShowFavorites">&nbsp;&nbsp;&nbsp;
-                        <input type="button" style="font-weight:bold; margin-bottom: 5px;" align="right" value=" Show All Indicators " id="HideFavorites">&nbsp;&nbsp;&nbsp;
-                        <input type="button" style="font-weight:bold; margin-bottom: 5px;" align="right" value=" Save Favorites List " id="SaveFavorites">&nbsp;&nbsp;&nbsp;
-                        <input type="button" style="font-weight:bold; margin-bottom: 5px;" align="right" value=" Clear Favorites " id="ClearFavorites">&nbsp;&nbsp;&nbsp;
-                        <input type="button" style="font-weight:bold; margin-bottom: 5px;" align="right" value=" Search Category " id="SearchCategory">
-                    </td>
-
-                </tr>
-
-                <tr>
-                    <td>
-                        <div id="divIndicator" style='display: block; background-color: white;'>
+    <div class="panel">
+        <div class="panel-body">
+            <div class="row">
 
 
-                            <!--Here the Indicator list  will be loaded dynamically-->
+                <div class="col-sm-12">
 
-                            <table class="table table-th-block table-dark link_cursor" id="CorelationLeadLagList">
-                                <thead>
-                                    <tr>
+                    <span style="color:rgba(0, 41, 162, 0.91);" id="spnFavListName"></span>
 
-                                        @*<th><input type="checkbox" name="selectAll" value="1" id="selectAll">IndicatoName-Indicator</th>*@
-                                        <th>IndicatoName-Indicator</th>
-                                        <th>Correlation</th>
-                                        <th>Lead/Lag</th>
-                                        <th>Company</th>
-                                        <th>Indicator</th>
-                                        <th>Description</th>
-                                        <th>FavouriteListName</th>
-                                        <th>Favorites</th>
-                                    </tr>
-                                </thead>
-                                <tbody></tbody>
-                            </table>
-                        </div>
-                    </td>
-                </tr>
-            </table>
+                    <button class="btn btn-primary-alt" id="ShowFavorites">Show Favorites List</button>
+                    <button class="btn btn-info-alt ml-sm" id="HideFavorites">Show All Indicators</button>
+                    <button class="btn btn-green-alt ml-sm" id="SaveFavorites">Save Favorites List</button>
+                    <button class="btn btn-danger-alt ml-sm" id="ClearFavorites">Clear Favorites</button>
+                    <button class="btn btn-brown-alt ml-sm" id="SearchCategory">Search Category</button>
 
+                    <div class="clearfix m-sm"></div>
 
-        </div>
-            </div>
+                    <div id="divIndicator">
+                        <!--Here the Indicator list  will be loaded dynamically-->
 
+                        <table class="table table-th-block table-dark link_cursor" id="CorelationLeadLagList">
+                            <thead>
+                                <tr>
 
+                                    @*<th><input type="checkbox" name="selectAll" value="1" id="selectAll">IndicatoName-Indicator</th>*@
+                                    <th>IndicatoName-Indicator</th>
+                                    <th>Correlation</th>
+                                    <th>Lead/Lag</th>
+                                    <th>Company</th>
+                                    <th>Indicator</th>
+                                    <th>Description</th>
+                                    <th>FavouriteListName</th>
+                                    <th>Favorites</th>
+                                </tr>
+                            </thead>
+                            <tbody></tbody>
+                        </table>
+                    </div>
 
-    <!-- Section Added by Raghuveer on July 19 2017 (Start)-->
-
-    <div class="modal2" id="FavListModalPopUp" tabindex="-1" role="dialog" aria-hidden="true" style="display:none;">
-        <div class="modal-dialog">
-            <div class="modal-content" style="width:450px">
-                <div class="modal-header">
-                    <button id="close" type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
 
                 </div>
-                <div class="modal-body">
+            </div>
+        </div>
+    </div>
 
-                    <div id="dialog-form">
-                        <div class="the-box full no-border">
-                            <div class="row">
-                                <div class="col-sm-12">
-                                    <div class="table-responsive">
-                                        <table class="table table-th-block table-dark" id="dtFavList">
-                                            <thead>
-                                                <tr>
-                                                    <th>Favorite List Name</th>
-                                                    <th>Delete</th>
-                                                </tr>
-                                            </thead>
-                                            <tbody></tbody>
-                                        </table>
+            <!-- Section Added by Raghuveer on July 19 2017 (Start)-->
+
+            <div class="modal2" id="FavListModalPopUp" tabindex="-1" role="dialog" aria-hidden="true" style="display:none;">
+                <div class="modal-dialog">
+                    <div class="modal-content" style="width:450px">
+                        <div class="modal-header">
+                            <button id="close" type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
+
+                        </div>
+                        <div class="modal-body">
+
+                            <div id="dialog-form">
+                                <div class="the-box full no-border">
+                                    <div class="row">
+                                        <div class="col-sm-12">
+                                            <div class="table-responsive">
+                                                <table class="table table-th-block table-dark" id="dtFavList">
+                                                    <thead>
+                                                        <tr>
+                                                            <th>Favorite List Name</th>
+                                                            <th>Delete</th>
+                                                        </tr>
+                                                    </thead>
+                                                    <tbody></tbody>
+                                                </table>
+                                            </div>
+                                        </div>
+                                        <!-- /.table-responsive -->
                                     </div>
+
+                                    <br />
+
+                                    <div class="row btnprint">
+
+                                        <div class="col-sm-4">
+                                            <button class="btn btn-warning pull-left" id="btnCancelFavPopUP">Cancel</button>
+                                        </div>
+
+
+
+                                    </div>
+
                                 </div>
-                                <!-- /.table-responsive -->
+
+
+
                             </div>
 
-                            <br />
 
-                            <div class="row btnprint">
+                            <!-- /.modal-content -->
+                        </div>
+                        <!-- /.modal-content -->
+                    </div>
+                    <!-- /.modal-dialog -->
+                </div>
+                <!-- /#DefaultModal -->
+            </div>
 
-                                <div class="col-sm-4">
-                                    <button class="btn btn-warning pull-left" id="btnCancelFavPopUP">Cancel</button>
-                                </div>
 
 
-
-                            </div>
+            <div class="modal2" id="SearchCategoryPopup" tabindex="-1" role="dialog" aria-hidden="true" style="display:none;">
+                <div class="modal-dialog">
+                    <div class="modal-content" style="width:450px">
+                        <div class="modal-header">
+                            <button id="closecategorypopup" type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
 
                         </div>
+                        <div class="modal-body">
+
+                            <div id="dialog-form">
+                                <div class="the-box full no-border">
+                                    <div class="row">
+                                        <div class="col-sm-12">
+
+                                            Category : <select id="ddlCategories" class="form-control link_cursor"></select>
+                                        </div>
+                                        <!-- /.table-responsive -->
+                                    </div>
+
+                                    <br />
+                                    <div class="row" style="display:none" id="subcategoryrow">
+                                        <div class="col-sm-12">
+
+                                            Sub Category : <select id="ddlSubCategories" class="form-control link_cursor"></select>
+                                        </div>
+                                        <!-- /.table-responsive -->
+                                    </div>
+                                    <br />
+
+                                    <div class="row" style="display:none" id="subsector1row">
+                                        <div class="col-sm-12">
+
+                                            SubSector1 : <select id="ddlSubSectors1" class="form-control link_cursor"></select>
+                                        </div>
+                                        <!-- /.table-responsive -->
+                                    </div>
+                                    <br />
+
+                                    <div class="row" style="display:none" id="subsector2row">
+                                        <div class="col-sm-12">
+
+                                            SubSector2 : <select id="ddlSubSectors2" class="form-control link_cursor"></select>
+                                        </div>
+                                        <!-- /.table-responsive -->
+                                    </div>
+                                    <br />
+
+                                    <div class="row" style="display:none" id="subsector3row">
+                                        <div class="col-sm-12">
+
+                                            SubSector3 : <select id="ddlSubSectors3" class="form-control link_cursor"></select>
+                                        </div>
+                                        <!-- /.table-responsive -->
+                                    </div>
+                                    <br />
 
 
+                                    <div class="row btnprint">
 
-                    </div>
+                                        <div class="col-sm-4">
+                                            <button class="btn btn-warning pull-left" id="btnCancelSearchCategoryPopup">Cancel</button>
+                                        </div>
+                                        <div class="col-sm-4">
+                                            <label>&nbsp;</label>
+                                        </div>
+                                        <div class="col-sm-4">
+                                            <button class="btn btn-sucess pull-right" id="btnSearchCategorySubCategory">Search</button>
+                                        </div>
 
+                                    </div>
 
-                    <!-- /.modal-content -->
-                </div>
-                <!-- /.modal-content -->
-            </div>
-            <!-- /.modal-dialog -->
-        </div>
-        <!-- /#DefaultModal -->
-    </div>
-
-
-
-    <div class="modal2" id="SearchCategoryPopup" tabindex="-1" role="dialog" aria-hidden="true" style="display:none;">
-        <div class="modal-dialog">
-            <div class="modal-content" style="width:450px">
-                <div class="modal-header">
-                    <button id="closecategorypopup" type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
-
-                </div>
-                <div class="modal-body">
-
-                    <div id="dialog-form">
-                        <div class="the-box full no-border">
-                            <div class="row">
-                                <div class="col-sm-12">
-
-                                    Category : <select id="ddlCategories" class="form-control link_cursor"></select>
                                 </div>
-                                <!-- /.table-responsive -->
-                            </div>
-
-                            <br />
-                            <div class="row" style="display:none" id="subcategoryrow">
-                                <div class="col-sm-12">
-
-                                    Sub Category : <select id="ddlSubCategories" class="form-control link_cursor"></select>
-                                </div>
-                                <!-- /.table-responsive -->
-                            </div>
-                            <br />
-
-                            <div class="row" style="display:none" id="subsector1row">
-                                <div class="col-sm-12">
-
-                                    SubSector1 : <select id="ddlSubSectors1" class="form-control link_cursor"></select>
-                                </div>
-                                <!-- /.table-responsive -->
-                            </div>
-                            <br />
-
-                            <div class="row" style="display:none" id="subsector2row">
-                                <div class="col-sm-12">
-
-                                    SubSector2 : <select id="ddlSubSectors2" class="form-control link_cursor"></select>
-                                </div>
-                                <!-- /.table-responsive -->
-                            </div>
-                            <br />
-
-                            <div class="row" style="display:none" id="subsector3row">
-                                <div class="col-sm-12">
-
-                                    SubSector3 : <select id="ddlSubSectors3" class="form-control link_cursor"></select>
-                                </div>
-                                <!-- /.table-responsive -->
-                            </div>
-                            <br />
 
 
-                            <div class="row btnprint">
-
-                                <div class="col-sm-4">
-                                    <button class="btn btn-warning pull-left" id="btnCancelSearchCategoryPopup">Cancel</button>
-                                </div>
-                                <div class="col-sm-4">
-                                    <label>&nbsp;</label>
-                                </div>
-                                <div class="col-sm-4">
-                                    <button class="btn btn-sucess pull-right" id="btnSearchCategorySubCategory">Search</button>
-                                </div>
 
                             </div>
 
+
+                            <!-- /.modal-content -->
                         </div>
-
-
-
+                        <!-- /.modal-content -->
                     </div>
-
-
-                    <!-- /.modal-content -->
+                    <!-- /.modal-dialog -->
                 </div>
-                <!-- /.modal-content -->
+                <!-- /#DefaultModal -->
             </div>
-            <!-- /.modal-dialog -->
-        </div>
-        <!-- /#DefaultModal -->
-    </div>
 
 
 
 
-    <!-- Section Added by Raghuveer on July 19 2017 (End)-->
+            <!-- Section Added by Raghuveer on July 19 2017 (End)-->
 
         </div> <!-- .container-fluid -->
         <!-- Modal Delete -->
-       
         <!-- /end Modal Delete-->
         @if (Session.Count > 0)
         {
@@ -345,19 +342,19 @@
                 var SubSector3Name="";
 
                 $(document).ready(function () {
-                   
+
                     _CompanyId = $("#hdnCompanyID").val();//window.localStorage.getItem('CompanyID'); //5916//
 
                     divisionID = $("#hdnDivisionID").val();//window.localStorage.getItem('DivisionID'); //41//
                     var userID = $("#hdnUserID").val();//window.localStorage.getItem('UserID');
                     isDataPortalAdmin = $("#hdnIsDataPortalAdmin").val(); //true;//
 
-                 //  $("#hdnUserID").val(1);
+                    //  $("#hdnUserID").val(1);
 
                     //To Bind the selected values of AddDataset Page if the uer is dataportal admin
                     if ((isDataPortalAdmin == true || isDataPortalAdmin == "true" || isDataPortalAdmin == "TRUE") && window.localStorage.getItem('CompanyID') != null) {
                         _CompanyId = window.localStorage.getItem('ECompanyID');
-                       // _CompanyId = 8224;
+                        // _CompanyId = 8224;
                         $("#lblCompanyName").html(_CompanyId);
                         LoadDivisions();
                     }
@@ -369,7 +366,7 @@
                     $("#btnHideFavouriteList").hide();
 
                     // Section Added By Raghuveer on 7-June-2017
-                   // LoadDataSets();
+                    // LoadDataSets();
                     LoadIndicatorsList();
 
                     //Block Started Added by Raghuveer on 6 March 2017
@@ -388,7 +385,7 @@
                         if (isDataPortalAdmin == true || isDataPortalAdmin == "true" || isDataPortalAdmin == "TRUE") { //enable the dropdowns
                         }
                         else if (divisionID != "0" && divisionID != "") {
-                         
+
                         }
                         else {
                         }
@@ -396,49 +393,49 @@
                     else if (divisionID == null) {
                     }
 
-                    
+
 
                 });
 
-               function LoadDivisions() {
-                        var accountid = _CompanyId;//$('#ddlAccounts').val();
-                        if (accountid != '' && accountid != '0') {
-                            var url = 'GetDivisionsByAccountID/';
-                            var modelobj = {
-                                id: accountid
-                            }
-                            $.getJSON(url, modelobj,
-                                          function (optionsData) {
+                function LoadDivisions() {
+                    var accountid = _CompanyId;//$('#ddlAccounts').val();
+                    if (accountid != '' && accountid != '0') {
+                        var url = 'GetDivisionsByAccountID/';
+                        var modelobj = {
+                            id: accountid
+                        }
+                        $.getJSON(url, modelobj,
+                                      function (optionsData) {
 
-                                              $.each(optionsData, function (index, itemData) {
-                                                  if(itemData.Value== divisionID)
-                                                  {
-                                                      $("#lblDivisionName").html(itemData.Text);
-                                                  }
+                                          $.each(optionsData, function (index, itemData) {
+                                              if(itemData.Value== divisionID)
+                                              {
+                                                  $("#lblDivisionName").html(itemData.Text);
+                                              }
 
-                                              });
                                           });
+                                      });
 
 
-                        }
-                        if (isDataPortalAdmin == true || isDataPortalAdmin == "true" || isDataPortalAdmin == "TRUE") {
-                            // window.localStorage.setItem('CompanyID', $("#ddlAccounts").val());
-                            window.localStorage.setItem('CompanyID', _CompanyId);
-                         //   window.localStorage.setItem('DivisionID', 0);
-                            window.localStorage.setItem('DivisionID', window.localStorage.getItem('DivisionID'));
-                        }
-                        else {
-                            //   localStorage.clear();
-                        }
                     }
+                    if (isDataPortalAdmin == true || isDataPortalAdmin == "true" || isDataPortalAdmin == "TRUE") {
+                        // window.localStorage.setItem('CompanyID', $("#ddlAccounts").val());
+                        window.localStorage.setItem('CompanyID', _CompanyId);
+                        //   window.localStorage.setItem('DivisionID', 0);
+                        window.localStorage.setItem('DivisionID', window.localStorage.getItem('DivisionID'));
+                    }
+                    else {
+                        //   localStorage.clear();
+                    }
+                }
 
-               
 
 
 
 
-               
-                    
+
+
+
 
 
                 //$("#ddlDataSets").on('change', function (e) {
@@ -468,7 +465,7 @@
                 //    cTable.fnDraw();
                 //    // LoadIndicatorsList();
 
-                
+
                 //});
 
 
@@ -497,18 +494,18 @@
                 });
 
                 $(document).on('click', '#HideFavorites', function (e) {
-                    e.preventDefault();           
-                         
+                    e.preventDefault();
+
                     FavListFlag = false;
                     //SelFavName = "";
                     //FavList = "";
                     //FavListName = "";
                     //$('#SaveFavorites').val(' Save Favorites List ');
-           
+
                     var oTable = $('#CorelationLeadLagList').dataTable();
                     oTable.fnDraw();
-            
-           
+
+
                 });
 
 
@@ -518,17 +515,17 @@
                     FavList = "";
                     FavListpaginate = "";
                     SelFavName = "";
-           
-           
+
+
                     oTable = $("#dtFavList").dataTable();
                     var aData = oTable.fnGetData($(this).closest('tr'));
-                   
+
                     SelFavName = aData[0];
                     FavListName = SelFavName;
                     $("#spnFavListName").html('Favorite Name: <b>' + FavListName + '</b>');
                     if(FuncnText == " Show Favorites List ")
                     {
-               
+
                         $('#SaveFavorites').val(' Update Favorites List ');
                         //$('#ShowFavorites').val(' Hide Favorites List ');
                         FavListFlag = true;
@@ -536,12 +533,12 @@
 
                         $.getJSON("GetAllFavoritesListByDataSetIDUesrID?dataSetID=Portal&userID=" + $("#hdnUserID").val() + "&SelFavName=" + SelFavName,//need to update userid
               function (data) {
-                  var jsonObject = JSON.parse(data);   
+                  var jsonObject = JSON.parse(data);
                   ajaxindicatorstart();
-          
+
                   for (i = 0; i < jsonObject.length; i++) {
                       var obj = jsonObject[i];
-              
+
                       //console.log(obj["IndicatorShortCode"]);
                       if(FavList == "")
                           FavList = obj["IndicatorShortCode"]+ ",";
@@ -551,9 +548,9 @@
                           {
                               FavList = FavList + obj["IndicatorShortCode"] + "," ;
                           }
-                      } 
-              
-             
+                      }
+
+
 
                   }
                   var oTable = $('#CorelationLeadLagList').dataTable();
@@ -563,27 +560,27 @@
               });
 
 
-               
 
-         
-                 
-                
+
+
+
+
                     }
                     //else
-                    //{                
+                    //{
                     //    FavListFlag = false;
                     //    $('#SaveFavorites').val(' Save Favorites List ');
                     //    $('#ShowFavorites').val(' Show Favorites List ');
                     //    var oTable = $('#CorelationLeadLagList').dataTable();
                     //    oTable.fnDraw();
-                    //}       
-            
-            
-          
+                    //}
+
+
+
                     $('#FavListModalPopUp').hide();
                 });
 
-                
+
 
                 $(document).on('click', '#ShowFavorites', function (e) {
                     e.preventDefault();
@@ -595,23 +592,23 @@
                         $('#FavListModalPopUp').show();
                     }
                     //else
-                    //{                
+                    //{
                     //    FavListFlag = false;
                     //    SelFavName = "";
                     //    $('#SaveFavorites').val(' Save Favorites List ');
                     //    $(this).val(' Show Favorites List ');
                     //    var oTable = $('#CorelationLeadLagList').dataTable();
                     //    oTable.fnDraw();
-                    //} 
-           
+                    //}
+
                 });
 
                 //Save Favorites
                 $(document).on('click', '#SaveFavorites', function (e) {
-                    e.preventDefault();      
-                //    FavList="";
-                    $('.CBX').each(function() {     
-                       
+                    e.preventDefault();
+                    //    FavList="";
+                    $('.CBX').each(function() {
+
                         if($(this)[0].checked)
                         {
                             if(FavList == "")
@@ -622,18 +619,18 @@
                                 {
                                     FavList = FavList + $(this).closest('tr').find('td:eq(4)').text() + "," ;
                                 }
-                            }                   
+                            }
                         }
                     });
-            
+
                     var table = $('#CorelationLeadLagList').DataTable();
                     table.search( '' ).columns().search( '' ).draw();
-                   
+
                     if(FavList != "")
-                    {         
+                    {
                         var FavoritesListName = SetFavoritesListName();
                         if (FavoritesListName != null && FavoritesListName != "") {
-                    
+
                             if($(this).val() == " Save Favorites List ")
                             {
                                 var url = "AddFavorites";
@@ -641,7 +638,7 @@
                             else
                             {
 
-                              
+
                                 var url = "UpdateFavorites";
                             }
                             var d = new Date();
@@ -653,35 +650,35 @@
                                 UserID: $("#hdnUserID").val(),//need to update
                                 FavouriteListName: FavoritesListName,
                                 CreatedBY : $("#hdnUserID").val(),//need to update
-                                CreatedDate:strDate                    
+                                CreatedDate:strDate
                             };
                             var response = SendRequestJSON(url, modelobj);
 
-                            if (response.result == 'Success') 
+                            if (response.result == 'Success')
                             {
                                 if($(this).val() == " Save Favorites List ")
                                 {
                                     alert("Favorites added successfully.");
-                            
+
                                 }
                                 else
                                 {
                                     alert("Favorites updated successfully.");
                                     var oTable = $('#CorelationLeadLagList').dataTable();
-                                    oTable.fnDraw(); 
+                                    oTable.fnDraw();
                                     FavListName = FavoritesListName;
                                 }
-                        
+
                             }
                         }
                         //else
                         //{
                         //    SetFavoritesListName();
-                        //}                               
+                        //}
                     }
                     else
                     {
-                        alert("Please select atleast one Indicator.");             
+                        alert("Please select atleast one Indicator.");
                         return false;
                     }
                 });
@@ -698,13 +695,13 @@
 
                     if (FavoritesListName != null && FavoritesListName != "") {
                         return FavoritesListName;
-                    }            
+                    }
                 }
 
 
 
                 // By Raghuveer on 19 July 2017 (Start)
-                function LoadIndicatorsList() {        
+                function LoadIndicatorsList() {
                     // $(".spnIndicatorName").html('');
                     var oTable ="";
                     ivar = 0;
@@ -745,7 +742,7 @@
 
                         },
                         "fnDrawCallback": function (oSettings) {
-                            
+
                             //var loopCount=0;
                             $('#CorelationLeadLagList tbody tr:first').each(function () {
                                 //if(loopCount==0)
@@ -777,15 +774,15 @@
                                     CompanyZeroLineFlag = false;
                                     IndicatorZeroLineFlag = false;
                                     CompanyNeededLines = 0;
-                                    IndicatorNeededLines = 0;                                
+                                    IndicatorNeededLines = 0;
                                     IndicatorMinValueNew = "", IndicatorMaxValueNew = "";
                                     CompanyMinValueNew = "", CompanyMaxValueNew = "";
                                     k = 0;
                                     i = 0;
                                     j = 0;
                                     //IndicatorMinValueFlag = false;
-                                   
-                                    
+
+
 
                                     //  ajaxindicatorstop();
                                 }
@@ -793,14 +790,14 @@
                                 //loopCount=loopCount+1;
 
 
-                            })                           
+                            })
                         },
                         "bProcessing": true,
                         "aoColumns": [
-                        
+
 
                                           {
-                                              "sName": "IndicatorName-Indicator"                                              
+                                              "sName": "IndicatorName-Indicator"
                                           },
                                         {
                                             "sName": "Correlation",
@@ -817,7 +814,7 @@
                                         },
                                         {
                                             "sName": "Indicator",
-                                            "sClass": "hide_column"                                            
+                                            "sClass": "hide_column"
                                         },
                                         {
                                             "sName": "Description",
@@ -830,7 +827,7 @@
                                             "sClass": "hide_column",
                                             "render": function (oObj) {
                                                 //FavListName = oObj;
-                                                return oObj;                                                
+                                                return oObj;
                                             }
                                         },
                                         {
@@ -838,28 +835,28 @@
                                             "bSearch": false,
                                             "bSortable": false,
                                             "render": function (oObj) {
-                                                
+
                                                 ivar = ivar + 1;
                                                 //if(FavListFlag == false)
                                                 // {
                                                 if(FavList.indexOf(oObj + ",") >= 0)
                                                 {
-                                                    return '<input type="checkbox" id='+ ivar + ' class="CBX" checked >'; 
+                                                    return '<input type="checkbox" id='+ ivar + ' class="CBX" checked >';
                                                 }
                                                 else
-                                                    return '<input type="checkbox" id='+ ivar + ' class="CBX" > '; 
+                                                    return '<input type="checkbox" id='+ ivar + ' class="CBX" > ';
                                                 // }
                                                 //else
-                                                //   return '<input type="checkbox" id='+ ivar + ' class="CBX" checked >'; 
+                                                //   return '<input type="checkbox" id='+ ivar + ' class="CBX" checked >';
                                             }
                                         }
-                                        
+
 
                         ]
                     });
                     //khaja
 
-                    
+
 
                     var oTable123 ="";
                     //ivar = 0;
@@ -891,46 +888,46 @@
                         "fnServerParams": function (aoData) {
                             aoData.push({ "name": "dataSetID", "value": dataSetIDLocal });
                             aoData.push({ "name": "userID", "value": $("#hdnUserID").val() });//need to update
-                          
+
                         },
-                       
+
                         "bProcessing": true,
                         "aoColumns": [
-                        
+
 
                                           {
                                               "sName": "FavouriteListName",
                                               "bSortable":false,
-                                              "render": function (oObj) {                                               
-                                                  
-                                                  return '<a href="#" class="LoadFavIndicators" title="Click to Load Indicators" >'+  oObj + '</a>'; 
-                                                  
+                                              "render": function (oObj) {
+
+                                                  return '<a href="#" class="LoadFavIndicators" title="Click to Load Indicators" >'+  oObj + '</a>';
+
                                               }
                                           },
 
                                           {
                                               "sName": "FavouriteListName",
                                               "bSortable":false,
-                                              "render": function (oObj) {                                               
-                                                  return '<a href="#" data-value='+ oObj +' class="DeleteFavIndicators" title="Click to Load Indicators" >Delete</a>'; 
-                                                  
+                                              "render": function (oObj) {
+                                                  return '<a href="#" data-value='+ oObj +' class="DeleteFavIndicators" title="Click to Load Indicators" >Delete</a>';
+
                                               }
                                           }
-                                        
+
 
                         ]
                     });
 
-                  
+
                     //khaja
-                  // $('#CorelationLeadLagList_filter input').attr("placeholder", "Search");
+                    // $('#CorelationLeadLagList_filter input').attr("placeholder", "Search");
 
 
-                   
 
-                    $("#CorelationLeadLagList_paginate").on("click", "a", function() 
-                    { 
-                        $('.CBX').each(function() {                        
+
+                    $("#CorelationLeadLagList_paginate").on("click", "a", function()
+                    {
+                        $('.CBX').each(function() {
                             if($(this)[0].checked)
                             {
                                 if(FavList == "")
@@ -941,9 +938,9 @@
                                     {
                                         FavList = FavList + $(this).closest('tr').find('td:eq(4)').text() + "," ;
                                     }
-                                }     
-                    
-                           
+                                }
+
+
                             }
                             else
                             {
@@ -952,10 +949,10 @@
                                     FavList = FavList.replace($(this).closest('tr').find('td:eq(4)').text() + ",","");
                                 }
                             }
-                        
-                        }); 
+
+                        });
                     });
-                    
+
                 }
 
 
@@ -981,14 +978,14 @@
                 });
 
                 $(document).on('click', '#ClearFavorites', function (e) {
-                    e.preventDefault();      
-            
-                    $('.CBX').each(function() {                        
+                    e.preventDefault();
+
+                    $('.CBX').each(function() {
                         if($(this)[0].checked)
                         {
-                            $(this)[0].checked = false;         
+                            $(this)[0].checked = false;
                         }
-                    });           
+                    });
                     FavListFlag = false;
                     SelFavName = "";
                     FavList = "";
@@ -996,11 +993,11 @@
                     $('#SaveFavorites').val(' Save Favorites List ');
                     $("#spnFavListName").text('');
                     var oTable = $('#CorelationLeadLagList').dataTable();
-                    oTable.fnDraw(); 
+                    oTable.fnDraw();
 
                 });
 
-             
+
                 $(document).on('click','.DeleteFavIndicators',function(e){
                     ajaxindicatorstart();
                     oTable = $("#dtFavList").dataTable();
@@ -1018,19 +1015,19 @@
                     if (confirm("Are you sure?") == true) {
                         var response = SendRequestJSON(urldelete, modelobjlocal);
 
-                        if (response.result == '1') 
+                        if (response.result == '1')
                         {
                             if(tempFname == FavListName)
                             {
-                   
+
                                 FavListFlag = false;
                                 SelFavName = "";
                                 FavList = "";
                                 $("#spnFavListName").text('');
-                   
+
                             }
                             alert("Favorites list deleted successfully.");
-                
+
                             var oTable1 = $('#CorelationLeadLagList').dataTable();
                             oTable1.fnDraw();
                             var oTable = $('#dtFavList').dataTable();
@@ -1038,7 +1035,7 @@
 
                             if(tempFname == FavListName)
                             {
-                     
+
                                 $('#SaveFavorites').val(' Save Favorites List ');
                                 FavListName = "";
                             }
@@ -1049,20 +1046,20 @@
                             alert("Unable to Delete Favorite List.");
                         }
                     } else {
-                
+
                     }
-            
-         
+
+
                     ajaxindicatorstop();
-        
+
                 });
 
                 // By Raghuveer on July 19 2017 (End)
 
 
 
-                
-                // Section Starts for Datacast 2.3 by Raghuveer 
+
+                // Section Starts for Datacast 2.3 by Raghuveer
 
 
                 // By Raghuveer on 29 August 2017 for Datacast 2.3 release
@@ -1086,16 +1083,16 @@
                                                   value: itemData.Text,
                                                   text: itemData.Text
                                               }));
-                                          
+
 
                                           });
-                                     
+
                                       });
 
                         $("#ddlCategories").show();
 
                         $('#SearchCategoryPopup').show();
-                    
+
                     }
                     //else
                     //{
@@ -1121,12 +1118,12 @@
 
 
                     $("#ddlCategories").hide();
-            
 
-                    $("#subcategoryrow").hide();  
-                    $("#subsector1row").hide(); 
-                    $("#subsector2row").hide(); 
-                    $("#subsector3row").hide(); 
+
+                    $("#subcategoryrow").hide();
+                    $("#subsector1row").hide();
+                    $("#subsector2row").hide();
+                    $("#subsector3row").hide();
 
                     $('#SearchCategoryPopup').hide();
                 });
@@ -1141,14 +1138,14 @@
                     $("#ddlSubSectors2").empty();
                     $("#ddlSubSectors3").empty();
 
-                    $("#subcategoryrow").hide();  
-                    $("#subsector1row").hide(); 
-                    $("#subsector2row").hide(); 
-                    $("#subsector3row").hide(); 
+                    $("#subcategoryrow").hide();
+                    $("#subsector1row").hide();
+                    $("#subsector2row").hide();
+                    $("#subsector3row").hide();
 
 
                     var url = 'GetSubCategoriesbyCategory/';
-                    var modelobj = { 
+                    var modelobj = {
                         Industry : $(this).val()
                     }
                     $.getJSON(url, modelobj,
@@ -1165,28 +1162,28 @@
                                           }));
                                       });
 
-                           
+
                                       if(optionsData.length>0 )
                                       {
-                                          $("#subcategoryrow").show();  
-                                
+                                          $("#subcategoryrow").show();
+
                                       }
                                   });
                 });
 
                 // By Raghuveer on 29 August 2017 for Datacast 2.3 release
                 $("#ddlSubCategories").change(function(){
-        
+
                     $("#ddlSubSectors1").empty();
                     $("#ddlSubSectors2").empty();
                     $("#ddlSubSectors3").empty();
 
-                    $("#subsector1row").hide(); 
-                    $("#subsector2row").hide(); 
-                    $("#subsector3row").hide(); 
+                    $("#subsector1row").hide();
+                    $("#subsector2row").hide();
+                    $("#subsector3row").hide();
 
                     var url = 'GetSubSectors1BySector/';
-                    var modelobj = { 
+                    var modelobj = {
                         Industry : $("#ddlCategories").val(),
                         Sector : $(this).val(),
                     }
@@ -1202,27 +1199,27 @@
                                               value: itemData.Text,
                                               text: itemData.Text
                                           }));
-                                          
+
 
                                       });
                                       if(optionsData.length>0 )
-                                          $("#subsector1row").show();     
+                                          $("#subsector1row").show();
                                   });
-          
-           
+
+
                 });
 
                 // By Raghuveer on 29 August 2017 for Datacast 2.3 release
                 $("#ddlSubSectors1").change(function(){
-           
+
                     $("#ddlSubSectors2").empty();
                     $("#ddlSubSectors3").empty();
-           
-                    $("#subsector2row").hide(); 
-                    $("#subsector3row").hide(); 
+
+                    $("#subsector2row").hide();
+                    $("#subsector3row").hide();
 
                     var url = 'GetSubSectors2BySubSectors1/';
-                    var modelobj = { 
+                    var modelobj = {
                         Industry : $("#ddlCategories").val(),
                         Sector : $("#ddlSubCategories").val(),
                         SubSector1 : $(this).val()
@@ -1239,24 +1236,24 @@
                                               value: itemData.Text,
                                               text: itemData.Text
                                           }));
-                                          
+
 
                                       });
                                       if(optionsData.length>0 )
-                                          $("#subsector2row").show();     
+                                          $("#subsector2row").show();
                                   });
-           
-           
+
+
                 });
 
                 // By Raghuveer on 29 August 2017 for Datacast 2.3 release
                 $("#ddlSubSectors2").change(function(){
-            
+
                     $("#ddlSubSectors3").empty();
-                    $("#subsector3row").hide(); 
+                    $("#subsector3row").hide();
 
                     var url = 'GetSubSectors3BySubSectors2/';
-                    var modelobj = { 
+                    var modelobj = {
                         Industry : $("#ddlCategories").val(),
                         Sector : $("#ddlSubCategories").val(),
                         SubSector1 : $("#ddlSubSectors1").val(),
@@ -1274,15 +1271,15 @@
                                               value: itemData.Text,
                                               text: itemData.Text
                                           }));
-                                          
+
 
                                       });
                                       if(optionsData.length>0 )
-                                          $("#subsector3row").show();    
+                                          $("#subsector3row").show();
                                   });
-             
 
-           
+
+
                 });
 
                 $(document).on('click', '#closecategorypopup', function (e) {
@@ -1295,12 +1292,12 @@
 
 
                     $("#ddlCategories").hide();
-            
 
-                    $("#subcategoryrow").hide();  
-                    $("#subsector1row").hide(); 
-                    $("#subsector2row").hide(); 
-                    $("#subsector3row").hide(); 
+
+                    $("#subcategoryrow").hide();
+                    $("#subsector1row").hide();
+                    $("#subsector2row").hide();
+                    $("#subsector3row").hide();
 
                     $('#SearchCategoryPopup').hide();
                 });
@@ -1329,19 +1326,15 @@
 
             </script>
             <style>
-
                 .modal2 {
-                    position:fixed;
+                    position: fixed;
                     z-index: 999;
                     background-color: transparent;
                     filter: alpha(opacity=60);
-                    top:20%;
-                    left:33%;
+                    top: 20%;
+                    left: 33%;
                     opacity: 2;
                     -moz-opacity: 0.8;
-
                 }
-
-                
-                </style>
+            </style>
         }

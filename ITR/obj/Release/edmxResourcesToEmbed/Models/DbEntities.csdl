@@ -273,6 +273,9 @@
       <Parameter Name="CreatedBY" Mode="In" Type="String" />
       <Parameter Name="CreatedDate" Mode="In" Type="DateTime" />
     </FunctionImport>
+    <FunctionImport Name="uspClearDataSetAnalysis" ReturnType="Collection(Int32)">
+      <Parameter Name="CustomerDataSetID" Mode="In" Type="Int32" />
+    </FunctionImport>
   </EntityContainer>
   <ComplexType Name="uspSelectAccounts_Result">
     <Property Type="String" Name="AccountName" Nullable="true" MaxLength="255" />

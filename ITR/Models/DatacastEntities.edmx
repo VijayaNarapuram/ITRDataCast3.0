@@ -3284,48 +3284,6 @@ FROM [dbo].[vwTableau] AS [vwTableau]</DefiningQuery>
           <Property Name="CreatedBy" Type="String" MaxLength="128" FixedLength="false" Unicode="false" />
           <Property Name="CreatedDate" Type="DateTime" Precision="3" />
         </EntityType>
-        <EntityType Name="ForecastData_08282017">
-          <Key>
-            <PropertyRef Name="ForeCastDataID" />
-          </Key>
-          <Property Name="ForeCastDataID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
-          <Property Name="ForeCastMetaDataID" Type="Int32" />
-          <Property Name="ShortCode" Type="String" MaxLength="64" FixedLength="false" Unicode="false" />
-          <Property Name="ForeCastDate" Type="DateTime" Precision="0" />
-          <Property Name="MonthYear" Type="DateTime" Precision="0" />
-          <Property Name="LFR12MMA" Type="Decimal" Precision="32" Scale="16" />
-          <Property Name="Avg12MMA" Type="Decimal" Precision="32" Scale="16" />
-          <Property Name="UFR12MMA" Type="Decimal" Precision="32" Scale="16" />
-          <Property Name="LFR3MMA" Type="Decimal" Precision="32" Scale="16" />
-          <Property Name="Avg3MMA" Type="Decimal" Precision="32" Scale="16" />
-          <Property Name="UFR3MMA" Type="Decimal" Precision="32" Scale="16" />
-          <Property Name="LFR12by12" Type="Decimal" Precision="32" Scale="16" />
-          <Property Name="Avg12by12" Type="Decimal" Precision="32" Scale="16" />
-          <Property Name="UFR12by12" Type="Decimal" Precision="32" Scale="16" />
-          <Property Name="LFR3by12" Type="Decimal" Precision="32" Scale="16" />
-          <Property Name="Avg3by12" Type="Decimal" Precision="32" Scale="16" />
-          <Property Name="UFR3by12" Type="Decimal" Precision="32" Scale="16" />
-          <Property Name="CreatedBy" Type="String" MaxLength="128" FixedLength="false" Unicode="false" />
-          <Property Name="CreatedDate" Type="DateTime" Precision="3" />
-        </EntityType>
-        <EntityType Name="Indicator20170110">
-          <Key>
-            <PropertyRef Name="ProdIndicatorId" />
-          </Key>
-          <Property Name="ProdIndicatorId" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
-          <Property Name="MonthYear" Type="DateTime" Precision="3" />
-          <Property Name="RawValue" Type="Decimal" Precision="32" Scale="16" />
-          <Property Name="AdjValue" Type="Decimal" Precision="32" Scale="16" />
-          <Property Name="UpdateReason" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
-          <Property Name="ValueStartDate" Type="DateTime" Precision="3" />
-          <Property Name="ValueEndDate" Type="DateTime" Precision="3" />
-          <Property Name="CurrentFlag" Type="String" MaxLength="1" FixedLength="false" Unicode="false" />
-          <Property Name="CreatedBy" Type="String" MaxLength="500" FixedLength="false" Unicode="false" />
-          <Property Name="CreatedDate" Type="DateTime" Precision="3" />
-          <Property Name="ModifiedBy" Type="String" MaxLength="500" FixedLength="false" Unicode="false" />
-          <Property Name="ModifiedDate" Type="DateTime" Precision="3" />
-          <Property Name="MasterMetadataID" Type="Int32" />
-        </EntityType>
         <EntityType Name="IndicatorList">
           <Key>
             <PropertyRef Name="Sysid" />
@@ -3754,12 +3712,6 @@ FROM [dbo].[vwTableau] AS [vwTableau]</DefiningQuery>
           <Property Name="C12BY12" Type="Decimal" Precision="32" Scale="16" />
           <Property Name="HIghLow" Type="String" MaxLength="8" FixedLength="false" Unicode="false" />
         </EntityType>
-        <EntityType Name="TestSP">
-          <Key>
-            <PropertyRef Name="a" />
-          </Key>
-          <Property Name="a" Type="Int32" Nullable="false" />
-        </EntityType>
         <EntityType Name="User">
           <Key>
             <PropertyRef Name="UserId" />
@@ -3771,23 +3723,6 @@ FROM [dbo].[vwTableau] AS [vwTableau]</DefiningQuery>
           <Property Name="Password" Type="String" MaxLength="64" FixedLength="false" Unicode="false" Nullable="false" />
           <Property Name="CreatedBy" Type="String" MaxLength="64" FixedLength="false" Unicode="false" />
           <Property Name="CreatedDate" Type="DateTime" Precision="3" />
-        </EntityType>
-        <EntityType Name="VWTBL_COMPANY_PORTAL_Backup">
-          <Key>
-            <PropertyRef Name="ID" />
-          </Key>
-          <Property Name="ID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
-          <Property Name="MonthYear" Type="DateTime" Precision="3" />
-          <Property Name="Sales" Type="Decimal" Precision="24" Scale="15" />
-          <Property Name="C1By12" Type="Decimal" Precision="24" Scale="15" />
-          <Property Name="C3MMT" Type="Decimal" Precision="24" Scale="15" />
-          <Property Name="C3BY12" Type="Decimal" Precision="24" Scale="15" />
-          <Property Name="C3MMA" Type="Decimal" Precision="24" Scale="15" />
-          <Property Name="C12MMT" Type="Decimal" Precision="24" Scale="15" />
-          <Property Name="C12BY12" Type="Decimal" Precision="24" Scale="15" />
-          <Property Name="C12MMA" Type="Decimal" Precision="24" Scale="15" />
-          <Property Name="CustomerDataSetID" Type="Int32" />
-          <Property Name="Monthly" Type="Decimal" Precision="24" Scale="15" />
         </EntityType>
         <EntityType Name="vwCompanyAVG">
           <Key>
@@ -3980,8 +3915,6 @@ FROM [dbo].[vwTableau] AS [vwTableau]</DefiningQuery>
           <EntitySet Name="ExceptionLogs" EntityType="Self.ExceptionLog" />
           <EntitySet Name="FavouriteLists" EntityType="Self.FavouriteList" />
           <EntitySet Name="ForeCastCheckDatas" EntityType="Self.ForeCastCheckData" />
-          <EntitySet Name="ForecastData_08282017" EntityType="Self.ForecastData_08282017" />
-          <EntitySet Name="Indicator20170110" EntityType="Self.Indicator20170110" />
           <EntitySet Name="IndicatorLists" EntityType="Self.IndicatorList" />
           <EntitySet Name="Industries" EntityType="Self.Industry" />
           <EntitySet Name="MasterMetaData_Backup" EntityType="Self.MasterMetaData_Backup" />
@@ -4007,9 +3940,7 @@ FROM [dbo].[vwTableau] AS [vwTableau]</DefiningQuery>
           <EntitySet Name="TEMP_IndicatorReporting_Logic" EntityType="Self.TEMP_IndicatorReporting_Logic" />
           <EntitySet Name="TempTables" EntityType="Self.TempTable" />
           <EntitySet Name="TempTableForRawDatas" EntityType="Self.TempTableForRawData" />
-          <EntitySet Name="TestSPs" EntityType="Self.TestSP" />
           <EntitySet Name="Users" EntityType="Self.User" />
-          <EntitySet Name="VWTBL_COMPANY_PORTAL_Backup" EntityType="Self.VWTBL_COMPANY_PORTAL_Backup" />
           <EntitySet Name="vwCompanyAVGs" EntityType="Self.vwCompanyAVG" />
           <EntitySet Name="vwCompanyForecasts" EntityType="Self.vwCompanyForecast" />
           <EntitySet Name="vwCustomers" EntityType="Self.vwCustomer" />

@@ -64,8 +64,6 @@ namespace ITR.Models
         public DbSet<ExceptionLog> ExceptionLogs { get; set; }
         public DbSet<FavouriteList> FavouriteLists { get; set; }
         public DbSet<ForeCastCheckData> ForeCastCheckDatas { get; set; }
-        public DbSet<ForecastData_08282017> ForecastData_08282017 { get; set; }
-        public DbSet<Indicator20170110> Indicator20170110 { get; set; }
         public DbSet<IndicatorList> IndicatorLists { get; set; }
         public DbSet<Industry> Industries { get; set; }
         public DbSet<MasterMetaData_Backup> MasterMetaData_Backup { get; set; }
@@ -91,9 +89,7 @@ namespace ITR.Models
         public DbSet<TEMP_IndicatorReporting_Logic> TEMP_IndicatorReporting_Logic { get; set; }
         public DbSet<TempTable> TempTables { get; set; }
         public DbSet<TempTableForRawData> TempTableForRawDatas { get; set; }
-        public DbSet<TestSP> TestSPs { get; set; }
         public DbSet<User> Users { get; set; }
-        public DbSet<VWTBL_COMPANY_PORTAL_Backup> VWTBL_COMPANY_PORTAL_Backup { get; set; }
         public DbSet<vwCompanyAVG> vwCompanyAVGs { get; set; }
         public DbSet<vwCompanyForecast> vwCompanyForecasts { get; set; }
         public DbSet<vwCustomer> vwCustomers { get; set; }

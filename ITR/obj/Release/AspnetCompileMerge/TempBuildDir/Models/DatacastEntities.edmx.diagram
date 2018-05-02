@@ -4,7 +4,7 @@
   <edmx:Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
     <!-- Diagram content (shape and connector positions) -->
     <edmx:Diagrams>
-      <Diagram DiagramId="93b187c181114525ba3ae001136b76e2" Name="Diagram1">
+      <Diagram DiagramId="93b187c181114525ba3ae001136b76e2" Name="Diagram1" ZoomLevel="81">
         <EntityTypeShape EntityType="LDBTESTModel.Company" Width="1.5" PointX="0.75" PointY="0.75" IsExpanded="true" />
         <EntityTypeShape EntityType="LDBTESTModel.CompanyWeb" Width="1.5" PointX="2.75" PointY="0.75" IsExpanded="true" />
         <EntityTypeShape EntityType="LDBTESTModel.CompanyWebForNew" Width="1.5" PointX="4.75" PointY="0.75" IsExpanded="true" />
@@ -41,8 +41,6 @@
         <EntityTypeShape EntityType="LDBTESTModel.ExceptionLog" Width="1.5" PointX="8.75" PointY="17.75" IsExpanded="true" />
         <EntityTypeShape EntityType="LDBTESTModel.FavouriteList" Width="1.5" PointX="10.75" PointY="17.75" IsExpanded="true" />
         <EntityTypeShape EntityType="LDBTESTModel.ForeCastCheckData" Width="1.5" PointX="18.75" PointY="0.75" IsExpanded="true" />
-        <EntityTypeShape EntityType="LDBTESTModel.ForecastData_08282017" Width="1.5" PointX="18.75" PointY="3.75" IsExpanded="true" />
-        <EntityTypeShape EntityType="LDBTESTModel.Indicator20170110" Width="1.5" PointX="18.75" PointY="9.75" IsExpanded="true" />
         <EntityTypeShape EntityType="LDBTESTModel.IndicatorList" Width="1.5" PointX="12.75" PointY="18.75" IsExpanded="true" />
         <EntityTypeShape EntityType="LDBTESTModel.Industry" Width="1.5" PointX="18.75" PointY="14.75" IsExpanded="true" />
         <EntityTypeShape EntityType="LDBTESTModel.MasterMetaData_Backup" Width="1.5" PointX="14.75" PointY="19.75" IsExpanded="true" />
@@ -68,9 +66,7 @@
         <EntityTypeShape EntityType="LDBTESTModel.TEMP_IndicatorReporting_Logic" Width="1.5" PointX="4.75" PointY="23.75" IsExpanded="true" />
         <EntityTypeShape EntityType="LDBTESTModel.TempTable" Width="1.5" PointX="16.75" PointY="23.75" IsExpanded="true" />
         <EntityTypeShape EntityType="LDBTESTModel.TempTableForRawData" Width="1.5" PointX="24.75" PointY="0.75" IsExpanded="true" />
-        <EntityTypeShape EntityType="LDBTESTModel.TestSP" Width="1.5" PointX="24.75" PointY="3.75" IsExpanded="true" />
         <EntityTypeShape EntityType="LDBTESTModel.User" Width="1.5" PointX="24.75" PointY="5.75" IsExpanded="true" />
-        <EntityTypeShape EntityType="LDBTESTModel.VWTBL_COMPANY_PORTAL_Backup" Width="1.5" PointX="24.75" PointY="8.75" IsExpanded="true" />
         <EntityTypeShape EntityType="LDBTESTModel.vwCompanyAVG" Width="1.5" PointX="10.75" PointY="24.75" IsExpanded="true" />
         <EntityTypeShape EntityType="LDBTESTModel.vwCompanyForecast" Width="1.5" PointX="24.75" PointY="13.75" IsExpanded="true" />
         <EntityTypeShape EntityType="LDBTESTModel.vwCustomer" Width="1.5" PointX="24.75" PointY="18.75" IsExpanded="true" />

@@ -16,7 +16,7 @@
 
 .tabs {
       position: relative;   
-      min-height: 1100px; /* This part sucks */
+      min-height: 1180px; /* This part sucks */
       clear: both;
       margin: 10px 0;
       width: 100%;
@@ -48,6 +48,8 @@
     transition: all 0.2s ease-in-out 0s;
        
     }
+        .tab  label {
+        }
     /*.tab [type=radio] {
       display: none;   
     }*/
@@ -64,6 +66,10 @@
       padding: 20px;
       z-index:0;
       border: 1px solid #ccc; 
+
+    }
+   .tab-c {
+        visibility: hidden;
     }
     [type=radio]:checked ~ label {
       background:#3175a4;
@@ -74,6 +80,7 @@
     }
     [type=radio]:checked ~ label ~ .content {
       z-index: 1;
+    visibility: visible !important;
     }
 .downloadsection1 {
     padding: 0 15px;
@@ -119,4 +126,8 @@
 }
 .dataRow_m4{
     margin:0 0 0 2px;
+}
+.dataTables_wrapper label{
+    padding:0px !important;
+    background-color:transparent !important;
 }

@@ -1,0 +1,1548 @@
+﻿@{
+    ViewBag.Title = "DashboardWidgets";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<ol class="breadcrumb">
+    <li>Home</li>
+    <li class="active">Dashboard</li>
+</ol>
+<div class="page-heading">
+    <h1>Dashboard</h1>
+</div>
+
+<div class="container-fluid">
+    <div id="page-wrap" ng-app="" class="panel panel-default m-n">
+        <div class="panel-heading">
+            <!--Second Div Start-->
+            <div class="col-sm-3">
+                <div class="row">
+                    <div><strong>Company DataSet</strong></div>
+                </div>
+                <div class="row">
+                    <select class="form-control" id="ddlDataSets"></select>
+                </div>
+
+            </div>
+            <div>
+                <div class="col-sm-2 pull-right mt-md">
+                    
+                    <button id="linkPrint" class="btn btn-default" type="button" title="Print the chart">
+                        <i class="fa fa-print"></i>
+                    </button>
+                    <button id="linkPrintPDF" class="btn btn-default" type="button" title="Download pdf document">
+                        <i class="fa fa-file"></i>
+                    </button>
+                    <button id="linkPrintPNG" class="btn btn-default" type="button" title="Download Image">
+                        <i class="fa fa-image"></i>
+                    </button>
+                 
+                </div>                
+            </div>
+            <!--Second Div End-->
+            <div class="clearfix m-sm"></div>
+        </div>
+        </div>
+
+        <div class="mainCnt">
+            <div id="divPrint">
+                <div class="panel" >
+                    <div class="panel-body p-n">
+                        <h4 class="p-sm text-center text-info" id="tblHeading"></h4>
+                        <div class="col-sm-12" id="ACQNINACQS"></div>
+                    </div>
+                </div>
+                        @*<div style="text-align: center;">
+                        <span style="font-family: 'Bell MT'; font-size: 71px; line-height: 79px; color: #3175a4; font-weight: bold;">ITR</span><span style="font-family: 'Arial'; font-size: 48px; line-height: 54px; color: #270076; font-weight: bold;">&nbsp;</span><span style="font-family: &quot; Roboto Black&quot; , Roboto; font-size: 64px; line-height: 72px; color: rgb(7, 166, 132); font-style: italic; font-weight: 900;">Data</span><span style="font-family: &quot; Roboto Light&quot; , Roboto; font-size: 64px; line-height: 72px; color: rgb(7, 166, 132); font-style: italic; font-weight: 300;">Cast</span>
+                    </div>
+                    <div style="text-align: center;">
+                        <span style="font-family: 'Arial'; font-size: 11px; line-height: 12px; color: #acacac;">__________________________    </span><span style="font-family: &quot; Roboto Light&quot; , Roboto; font-size: 16px; line-height: 18px; color: rgb(0, 0, 0); font-weight: 300;">First in Forecasts Since 1948 </span><span style="font-family: 'Arial'; font-size: 11px; line-height: 12px; color: #acacac;">__________________________</span>
+                    </div>
+                    <div style="text-align: center;">
+                        <span style="font-family: 'Gill Sans MT'; font-size: 19px; line-height: 21px; color: #000000; font-weight: bold;">
+                            <span id="spnDataSetName" class="spnDataSetName"></span>
+                            <br>
+                            <span id="spnIndicatorName" class="spnIndicatorName"></span>
+
+                            <div id="divLables" style="display: none;">
+                                <strong>Lead / Lag Months: <span id="spnIndicatorMoveMonths" class="spnIndicatorMoveMonths" data-ng-bind="moveMonths"></span></strong>
+                                <strong>, Indicator view: <span id="spnIndicatorView" class="spnIndicatorView"></span></strong>
+                            </div>
+                            <br />
+                            <span id="spnBusiness" style="display:none">Phases are automated, not manually calculated as seen in other ITR works*</span>
+                        </span>
+                    </div>*@
+                        @*<div>*@
+
+                        <div class="row" data-widget-group="group-demo">
+                          
+                                <div class="col-md-6">
+                                    <div class="panel widgets" id="wiget_0" data-widget='{"id" : "wiget0"}'>
+                                        <div class="panel-heading">
+                                            <div class="panel1-ctrls button-icon-bg"
+                                                 data-actions-container="">
+                                            </div>
+                                            <h2 id="label_0"></h2>
+                                        </div>
+                                        <div class="panel-editbox" data-widget-controls=""></div>
+                                        <div class="panel-body">
+
+                                            <div id="chart_0" class="charts"></div>
+                                        </div>
+                                    </div>
+                                    </div>
+                                    
+                                <div class="col-md-6">
+                                    <div class="panel widgets" id="wiget_1" data-widget='{"id" : "wiget1"}'>
+                                        <div class="panel-heading">
+                                            <div class="panel1-ctrls button-icon-bg"
+                                                 data-actions-container="">
+                                            </div>
+                                            <h2 id="label_1"></h2>
+                                        </div>
+                                        <div class="panel-editbox" data-widget-controls=""></div>
+                                        <div class="panel-body">
+
+                                            <div id="chart_1" class="charts"></div>
+                                        </div>
+                                    </div>
+                                    </div>
+                                    
+                                <div class="col-md-6">
+                                    <div class="panel widgets" id="wiget_2" data-widget='{"id" : "wiget2"}'>
+                                        <div class="panel-heading">
+                                            <div class="panel1-ctrls button-icon-bg"
+                                                 data-actions-container="">
+                                            </div>
+                                            <h2 id="label_2"></h2>
+                                        </div>
+
+                                        <div class="panel-body">
+                                            <div id="chart_2" class="charts"></div>
+                                        </div>
+                                    </div>
+                                    </div>
+                                <div class="col-md-6">
+                                    <div class="panel widgets" id="wiget_3" data-widget='{"id" : "wiget3"}'>
+                                        <div class="panel-heading">
+                                            <div class="panel1-ctrls button-icon-bg"
+                                                 data-actions-container="">
+                                            </div>
+                                            <h2 id="label_3"></h2>
+                                        </div>
+
+                                        <div class="panel-body">
+                                            <div id="chart_3" class="charts"></div>
+                                        </div>
+                                    </div>
+                                 </div>
+                                
+                                <div class="col-md-6">
+                                    <div class="panel widgets" id="wiget_4" data-widget='{"id" : "wiget4"}'>
+                                        <div class="panel-heading">
+                                            <div class="panel1-ctrls button-icon-bg"
+                                                 data-actions-container="">
+                                            </div>
+                                            <h2 id="label_4"></h2>
+                                        </div>
+                                        <div class="panel-editbox" data-widget-controls=""></div>
+                                        <div class="panel-body">
+                                            <div id="chart_4" class="charts"></div>
+                                        </div>
+                                    </div>
+                                    </div>
+
+                                <div class="col-md-6">
+                                    <div class="panel widgets" id="wiget_5" data-widget='{"id" : "wiget5"}'>
+                                        <div class="panel-heading">
+                                            <div class="panel1-ctrls button-icon-bg"
+                                                 data-actions-container="">
+                                            </div>
+                                            <h2 id="label_5"></h2>
+                                        </div>
+                                        <div class="panel-body">
+                                            <div id="chart_5" class="charts"></div>
+                                        </div>
+                                    </div>
+                                    </div>
+                                <div class="col-md-6">
+                                    <div class="panel widgets" id="wiget_6" data-widget='{"id" : "wiget6"}'>
+                                        <div class="panel-heading">
+                                            <div class="panel1-ctrls button-icon-bg"
+                                                 data-actions-container="">
+                                            </div>
+                                            <h2 id="label_6"></h2>
+                                        </div>
+                                        <div class="panel-body">
+                                            <div id="chart_6" class="charts"></div>
+                                        </div>
+                                    </div>
+                                    </div>
+                                <div class="col-md-6">
+                                    <div class="panel widgets" id="wiget_7" data-widget='{"id" : "wiget7"}'>
+                                        <div class="panel-heading">
+                                            <div class="panel1-ctrls button-icon-bg"
+                                                 data-actions-container="">
+                                            </div>
+                                            <h2 id="label_7"></h2>
+                                        </div>
+                                        <div class="panel-body">
+                                            <div id="chart_7" class="charts"></div>
+                                        </div>
+                                    </div>
+                                    </div>
+                             
+                                <div class="col-md-6">
+                                    <div class="panel widgets" id="wiget_8" data-widget='{"id" : "wiget8"}'>
+                                        <div class="panel-heading">
+                                            <div class="panel1-ctrls button-icon-bg"
+                                                 data-actions-container="">
+                                            </div>
+                                            <h2 id="label_8"></h2>
+                                        </div>
+                                        <div class="panel-body">
+                                            <div id="chart_8" class="charts"></div>
+                                        </div>
+                                    </div>
+                                    </div>
+                                <div class="col-md-6">
+                                    <div class="panel widgets" id="wiget_9" data-widget='{"id" : "wiget9"}'>
+                                        <div class="panel-heading">
+                                            <div class="panel1-ctrls button-icon-bg"
+                                                 data-actions-container="">
+                                            </div>
+                                            <h2 id="label_9"></h2>
+                                        </div>
+                                        <div class="panel-body">
+                                            <div id="chart_9" class="charts"></div>
+                                        </div>
+                                    </div>
+                                </div>
+                        
+
+                         </div>
+                    </div>
+                </div>
+            </div>
+
+
+@section PagespecificCss
+{
+    <link href="~/css/light/all.min.css" rel="stylesheet" />
+    <link href="~/datacastdashboard/css/bootstrap.min.css" rel="stylesheet" />
+    <link href="~/datacastassets/plugins/datatables/dataTables.min.css" rel="stylesheet" />
+    @*<link href="~/css/style.css" rel="stylesheet" />*@  
+    <link href="~/assets/css/DBWidgetStyles.css" rel="stylesheet" />
+
+    <link rel="stylesheet" href="//code.jquery.com/ui/1.12.1/themes/base/jquery-ui.css">
+    <link rel="stylesheet" href="/resources/demos/style.css">   
+    <style>
+        .draggable { width: 500px; height: 150px; padding: 0.5em; }
+
+        #linkPrintPDF {
+            vertical-align: middle;
+        }
+
+        #linkPrintPNG {
+            vertical-align: middle;
+        }
+
+
+        #linkPrintPDFIDT {
+            vertical-align: middle;
+        }
+    </style>
+}
+
+@section PageSpecificScript
+{
+
+
+<script src="~/assets/plugins/wijets/wijets.js"></script>     								<!-- Wijet -->
+<script src="~/assets/plugins/datatables/jquery.dataTables.js"></script>
+<script src="~/assets/plugins/datatables/dataTables.bootstrap.js"></script>
+<script src="~/assets/demo/demo-datatables.js"></script>
+
+
+
+<script>
+	$('#reset').click(function () {
+		bootbox.confirm("Are you sure you want to clear Local Storage? This will clear ALL globally set settings", function() {
+			localStorage.clear();
+		});
+	});
+
+	$.wijets().make();
+</script>
+
+    <script type="text/javascript" src="~/datacastassets/plugins/datatables/jquery.dataTables.js"></script>
+    <script type="text/javascript" src="~/datacastassets/plugins/datatables/dataTables.bootstrap.js"></script>
+
+    @*<script src="~/datacastjs/shieldui-all.min.js"></script>
+    <script src="~/datacastjs/angular-1.4.8.min.js"></script>
+    <script src="~/datacastjs/jspdf.debug.js"></script>
+    <script src="~/datacastjs/html2canvas.js"></script>*@
+
+    <script src="~/datacastjs/shieldui-all.min.js"></script>
+    <script src="~/datacastjs/angular-1.4.8.min.js"></script>
+    <script src="~/datacastjs/jspdf.debug.js"></script>
+    <script src="~/datacastjs/html2canvas.js"></script>
+
+    <script type="text/javascript">
+
+        var userId = 1;
+        var ticksRepeatCompany = 0;
+        var indicatortitlestatus = 0,
+             companytitlestatus = 0,
+             isInvertedVal = false;
+
+        var ticksRepeatCompany = 0,
+        ticksRepeatIndicator = 0,
+        CompanyMaxvalueLine = 0,
+        IndicatorMaxvalueLine = 0,
+        CompanyIndicatorMaxLineDifference = 0,
+        CompanyZeroLine = 0,
+        IndicatorZeroLine = 0,
+        CompanyZeroLineFlag = false,
+        IndicatorZeroLineFlag = false,
+        CompanyNeededLines = 0,
+        IndicatorNeededLines = 0,
+        ZeroLinesAlign = false,
+        IndicatorMinValueNew = "", IndicatorMaxValueNew = "",
+        CompanyMinValueNew = "", CompanyMaxValueNew = "",
+        k = 0,
+        i = 0,
+        j = 0;
+
+        var ticksRepeatCompany = 0;
+        var ticksRepeatIndicator = 0;
+        var CompanyMaxvalueLine = 0;
+        var IndicatorMaxvalueLine = 0;
+        var CompanyIndicatorMaxLineDifference = 0;
+        var CompanyZeroLine = 0;
+        var IndicatorZeroLine = 0;
+        var CompanyZeroLineFlag = false;
+        var IndicatorZeroLineFlag = false;
+        var CompanyNeededLines = 0;
+        var IndicatorNeededLines = 0;
+        var ZeroLinesAlign = false;
+        var IndicatorMinValueNew = "",
+            IndicatorMaxValueNew = "";
+        var CompanyMinValueNew = "",
+            CompanyMaxValueNew = "";
+        var IndicatorMinValueOrg = "",
+            IndicatorMaxValueOrg = "";
+        var CompanyMinValueOrg = "",
+            CompanyMaxValueOrg = "";
+
+        var ChartIndicatorMinValue = "",
+            ChartIndicatorMaxValue = "";
+        var ChartCompanyMinValue = "",
+            ChartCompanyMaxValue = "";
+
+        //LOADING DATASETS DROPDOWN...
+        function LoadDataSets() {
+            // alert(1);
+
+            var accountid = 2301; // _CompanyId;//2301;// $('#ddlAccounts option:selected').val();//2857;2857;//
+            var divisionId = 0; //divisionID;//0;// divisionID;  //$('#ddlDivision option:selected').val(); //247;//$("#ddlDivision").val();//247;247;//
+
+            if (divisionId == "" || divisionId == null || divisionId == "null") {
+                divisionId = 0;
+            }
+            if (accountid != '' && accountid != '0') {
+                ajaxindicatorstart();
+
+                var url = 'GetDataSetsByQBaseAccountIDAndDivisionID/';
+                var modelobj = {
+                    accountID: accountid,
+                    divisionID: divisionId
+                }
+                $.getJSON(url, modelobj,
+                              function (optionsData) {
+                                  var select = $("#ddlDataSets");
+
+                                  select.empty();
+
+                                  $.each(optionsData, function (index, itemData) {
+                                      select.append($('<option/>', {
+                                          value: itemData.Text,
+                                          text: itemData.Text
+                                      }));
+                                  });
+                                  // alert("before datasetid");
+                                  dataSetID = $("#ddlDataSets").val();
+                                  dataSetIDLocal = $("#ddlDataSets").val();
+                                  IDTdataSetName = $("#ddlDataSets option:selected").text();
+                                  $(".spnDataSetName").text($("#ddlDataSets option:selected").text());
+                                  $(".spnIDTDataSetName").text($("#ddlDataSets option:selected").text());
+                                  //  $(".spnIRCDataSet1Name").text($("#ddlIRCDataSet1 option:selected").text());
+                                  $(".spnIRCDataSet1Name").text($("#ddlIRCDataSet1 option:selected").text() + " for " + $("#ddl1stCaluculation option:selected").text());
+                                  IRCdataSetName1 = $("#ddlIRCDataSet1 option:selected").text();
+                                  //  $(".spnIRCDataSet2Name").text($("#ddlIRCDataSet2 option:selected").text());
+                                  $(".spnIRCDataSet2Name").text($("#ddlIRCDataSet2 option:selected").text() + " for " + $("#ddl2ndCaluculation option:selected").text());
+                                  IRCdataSetName2 = $("#ddlIRCDataSet2 option:selected").text();
+                                  
+                                  if (dataSetID != "" && dataSetID != "null" && dataSetID != null) {
+                                      //LOADING PHASES TABLE AND CHARTS...
+                                      LoadPhasesTableAndCharts(dataSetID);                                     
+                                  }
+                                  else {                                  
+                                      //For download data tab
+                                      $('#ddlDataSetsDD').empty();
+                                      $("#divIndicatorSectsion1").html('');//To clear Previos content if any
+                                      $("#divIndicatorSection1").html('');
+                                      $('#ddlDataSetsIndList').empty();
+                                      $("#divIndicatorDD").html('');//To clear Previos content if any
+                                      $('#divIndicatorDDShortCodes').html('');
+                                      $('#divIndicator').empty();
+                                      $('.divIndicator').empty();
+                                      $(".divIndicatorSectsion1").empty();                                     
+                                      $("#chartIRC").html('');
+                                      $("#chartIDT").html('');
+                                      $('.shield-chart-button').hide();
+                                      // LoadIndicatorsListDownloadDataForMultipleCompanyDataSets();
+                                  }
+                              });
+
+            }
+        }
+
+        //PRINT FUNCTIONALITY...
+        $("#linkPrint").on("click", function () { //Created By: Vsihnu,Prints page contents with CSS
+            $("#divLables").show();
+            var left = ($(window).width() / 2) - (900 / 2),
+                top = ($(window).height() / 2) - (600 / 2);
+            var divContents = $("#divPrint").html();
+            console.log('divcontents - ' + divContents);
+            var printWindow = window.open("", "print", "width=" + $(window).width() + ", height=" + $(window).height() + ", top=" + top + ", left=" + left);
+            printWindow.document.write('<html><head><title> ITR Economics</title>');
+            var myStyle = document.styleSheets;
+            for (var i = 0; i < myStyle.length; i++) {
+                if (myStyle[i].href != null && myStyle[i].href != "" && myStyle[i].href != 'null')
+                    printWindow.document.write('<link rel="stylesheet" href="' + myStyle[i].href + '" type="text/css" />');
+            }
+            printWindow.document.write('</head><body >');
+
+            printWindow.document.write(divContents);
+            printWindow.document.write('</body></html>');
+            printWindow.document.close();
+            setTimeout(function () {
+                printWindow.print();
+            }, 4500); //To Avoid Blank page printing in Google Chrome
+
+            setTimeout(function () { mywindow.close() }, 1000);
+            $("#divLables").hide();
+        });
+
+        //PRINT PDF FUNCTIONALITY...
+        $("#linkPrintPDF").on("click", function () {
+            $("#divLables").show();
+            //var name = $("#spnIndicatorName").text();
+            var name = "DBWidgetsData";
+            var div_content = document.querySelectorAll("#divPrint")[0];
+            div_content.style.backgroundColor = "white";
+            //make it as html5 canvasotab
+            html2canvas(div_content).then(function (canvas) {
+                //change the canvas to jpeg image
+                var image = canvas.toDataURL('image/jpeg');
+                var doc = new jsPDF("l", "pt", "a4");
+                doc.addImage(image, 'JPEG', 0, 50, 850, 500);
+                doc.save(name + ".pdf");
+                $("#divLables").hide();
+            });
+        });
+               
+        //PRINT IMAGE FUNCTIONALITY...
+        $("#linkPrintPNG").on("click", function () {
+            $("#divLables").show();
+            div_content = document.querySelectorAll("#divPrint");
+            div_content[0].style.backgroundColor = "white";
+            // var name = $("#spnDataSetName").text();
+            var name = "DBWidgetsData";
+            //make it as html5 canvas
+            html2canvas(div_content).then(function (canvas) {
+                //change the canvas to jpeg image
+                var image = canvas.toDataURL('image/jpeg');
+                var uri = 'data:application/octet-stream;' + decodeURIComponent(image);
+                var downloadLink = document.createElement("a");
+                downloadLink.href = uri;
+                downloadLink.download = name + ".png";
+                document.body.appendChild(downloadLink);
+                downloadLink.click();
+                document.body.removeChild(downloadLink);
+                $("#divLables").hide();
+            });
+        });
+
+        //TO LOAD PHASE VALUES OF DB WIDGETS IN DATATABLE...
+        function LoadPhaseValuesOfDBWidgets() {
+            url = '/DatacastDBWidget/SelectPhaseValuesOfDBWidgetsList/';
+            var modelObj = {
+                CompanyShortCode: $("#ddlDataSets").val()
+            };
+            responseData = SendRequestJSON(url, modelObj);
+            if (responseData.length > 0) {
+                $("#ACQNINACQS").html(responseData);
+
+                $(document).on('click', '.btnDelDbWidget', function (e) {
+                    ajaxindicatorstart();
+
+                    var ControlId = $(this).attr('id');
+                    var DashboardWidgetsListId = ControlId.split('_')[1];
+
+                    //alert(DashboardWidgetsListId);
+                    //alert($("#ddlDataSets").val());
+                    //alert(userId);
+
+                    var urldelete = '/DatacastDBWidget//DeleteDBWidgetIndicator';
+                    var modelobjlocal = {
+                        DashboardWidgetsListId: DashboardWidgetsListId,
+                        CompanyShortCode: $("#ddlDataSets").val(),
+                        UserID: userId
+                    };
+
+                    var txt;
+                    console.log('modelobjlocal -' + modelobjlocal);
+
+                    if (confirm("Are you sure?") == true) {
+                        var response = SendRequestJSON(urldelete, modelobjlocal);
+
+                        if (response.result == '1') {
+                            alert("Dashboard Widget indicator deleted successfully.");
+
+                            //LoadPhaseValuesOfDBWidgets();
+                            LoadPhasesTableAndCharts($("#ddlDataSets").val());
+                        } else {
+                            alert("Unable to Delete Dashboard Widget indicator.");
+                        }
+                    } else {
+                    }
+                    ajaxindicatorstop();
+                });
+            }
+        }
+
+        $(document).ready(function (e) {
+            LoadDataSets();                    
+        });
+
+        function GetMonthName(monthNumber) {
+            var months = ['January', 'February', 'March', 'April', 'May', 'June', 'July', 'August', 'September', 'October', 'November', 'December'];
+            return months[monthNumber - 1];
+        }
+
+        function LoadChartCalculations(caseT) {
+            //don't delete
+            //if (isInvertedVal == false) {
+            //    CompanyMinValue = CompanyMinValueNew;//100
+            //    CompanyMaxValue = CompanyMaxValueNew;//200
+            //        IndicatorMinValue = IndicatorMinValueNew;//-7
+            //        IndicatorMaxValue = IndicatorMaxValueNew;//5
+            //    }
+
+            var IndicatorMinvalueLine = 0;
+            var ticksRepeatCompany_Privious = ticksRepeatCompany; //25
+            var ticksRepeatIndicator_Privious = ticksRepeatIndicator; //25
+
+            var modulus = 0;
+
+            if (isInvertedVal == false) {
+
+                switch (caseT) {
+                    case 1:
+                        //alert('case 1');
+                        modulus = Math.abs(CompanyMinValue % IndicatorZeroLine);
+                        if (modulus > 0) {
+
+                            ticksRepeatCompany = Math.abs(Math.floor(CompanyMinValue / IndicatorZeroLine)) + 1;
+                        } else
+                            ticksRepeatCompany = Math.abs(Math.floor(CompanyMinValue / IndicatorZeroLine));
+
+                        if (ticksRepeatCompany == ticksRepeatCompany_Privious) {
+
+                            CompanyMinValue = CompanyMinValue - (ticksRepeatCompany * (Math.abs(Math.abs(CompanyZeroLine) - Math.abs(IndicatorZeroLine))));
+                        }
+                        break;
+                    case 2:
+                        // alert('case 2');
+                        CompanyMinValue = CompanyMinValueNew; //100
+                        CompanyMaxValue = CompanyMaxValueNew; //200
+                        IndicatorMinValue = IndicatorMinValueNew; //-7
+                        IndicatorMaxValue = IndicatorMaxValueNew; //5
+                        modulus = Math.abs(CompanyMinValue % IndicatorZeroLine);
+                        if (modulus > 0) {
+
+                            ticksRepeatCompany = Math.abs(Math.floor(CompanyMinValue / IndicatorZeroLine)) + 1;
+                        } else
+                            ticksRepeatCompany = Math.abs(Math.floor(CompanyMinValue / IndicatorZeroLine));
+
+                        if (ticksRepeatCompany == ticksRepeatCompany_Privious) {
+
+                            CompanyMinValue = CompanyMinValue - (ticksRepeatCompany * (Math.abs(Math.abs(CompanyZeroLine) - Math.abs(IndicatorZeroLine))));
+                        }
+                        break;
+                    case 3:
+                        {
+                            //  alert('case 3');
+                            CompanyMinValue = CompanyMinValue - (ticksRepeatCompany * (Math.abs(Math.abs(CompanyZeroLine) - Math.abs(IndicatorZeroLine))));
+                        }
+                        break;
+                }
+
+
+            } else {
+
+
+                switch (caseT) {
+                    case 1:
+                        //alert('case 1');
+                        //if (IndicatorMinValueFlag == false) {
+                        //    if (CompanyMinValueNew < IndicatorMinValue)// -38 < -52
+                        //        IndicatorMinValue = CompanyMinValueNew;
+                        //    CompanyMinValue = CompanyMinValueNew - 1;
+                        //}
+                        modulus = Math.abs(Math.abs(IndicatorMinValue) % ticksRepeatIndicator);
+                        if (modulus > 0) {
+                            //ticksRepeatCompany = Math.round(Math.abs(CompanyMinValue / IndicatorZeroLine)) + 1;
+                            IndicatorMinvalueLine = Math.floor(Math.abs(IndicatorMinValue) / ticksRepeatIndicator) + 1;
+                        } else
+                            IndicatorMinvalueLine = Math.floor(Math.abs(IndicatorMinValue) / ticksRepeatIndicator);
+
+                        modulus = 0;
+
+                        modulus = Math.abs(CompanyMaxValueOrg % IndicatorMinvalueLine);
+                        if (modulus > 0) {
+                            ticksRepeatCompany = Math.floor(CompanyMaxValueOrg / IndicatorMinvalueLine) + 1;
+                        } else
+                            ticksRepeatCompany = Math.floor(CompanyMaxValueOrg / IndicatorMinvalueLine);
+                        break;
+                    case 2:
+                        //alert('case 2');
+                        if (ticksRepeatIndicator == ticksRepeatIndicator_Privious || ticksRepeatCompany == ticksRepeatCompany_Privious) {
+
+                            //  if (IndicatorMinValueFlag == true) {
+
+                            CompanyMinValue = CompanyMinValueNew; //100
+                            CompanyMaxValue = CompanyMaxValueNew; //200
+                            IndicatorMinValue = IndicatorMinValueNew; //-7
+                            IndicatorMaxValue = IndicatorMaxValueNew; //5
+
+                            modulus = Math.abs(CompanyMinValue % IndicatorZeroLine);
+                            if (modulus > 0) {
+                                ticksRepeatCompany = Math.floor(Math.abs(CompanyMinValue / IndicatorZeroLine)) + 1;
+                            } else
+                                ticksRepeatCompany = Math.floor(Math.abs(CompanyMinValue / IndicatorZeroLine));
+
+                            //  }
+
+                        }
+                        break;
+                    case 3:
+                        {
+                            //alert('case 3');
+
+
+                            var tempIndicatorMinValue = 0;
+                            var tempCompanyMinValue = 0;
+                            if (ChartCompanyMaxValue > Math.abs(ChartIndicatorMinValue)) {
+                                modulus = Math.abs(ChartCompanyMaxValue % ticksRepeatCompany);
+                                if (modulus > 0) {
+                                    tempIndicatorMinValue = Math.floor(Math.abs(ChartCompanyMaxValue / ticksRepeatCompany)) + 1;
+                                } else
+                                    tempIndicatorMinValue = Math.floor(Math.abs(ChartCompanyMaxValue / ticksRepeatCompany));
+
+                                IndicatorMinValue = -(ticksRepeatIndicator * tempIndicatorMinValue);
+                            } else {
+                                modulus = Math.abs(ChartIndicatorMinValue % ticksRepeatCompany);
+                                if (modulus > 0) {
+                                    tempIndicatorMinValue = Math.floor(Math.abs(ChartIndicatorMinValue / ticksRepeatCompany)) + 1;
+                                } else
+                                    tempIndicatorMinValue = Math.floor(Math.abs(ChartIndicatorMinValue / ticksRepeatCompany));
+
+                                IndicatorMinValue = -(ticksRepeatCompany * tempIndicatorMinValue);
+                            }
+
+                            if (IndicatorMinValue > ChartIndicatorMinValue) //-70 > -100
+                                IndicatorMinValue = ChartIndicatorMinValue;
+
+
+
+                            if (ChartIndicatorMaxValue > Math.abs(ChartCompanyMinValue)) {
+                                modulus = Math.abs(ChartIndicatorMaxValue % ticksRepeatIndicator);
+                                if (modulus > 0) {
+                                    tempCompanyMinValue = Math.floor(Math.abs(ChartIndicatorMaxValue / ticksRepeatIndicator)) + 1;
+                                } else
+                                    tempCompanyMinValue = Math.floor(Math.abs(ChartIndicatorMaxValue / ticksRepeatIndicator));
+
+                                CompanyMinValue = -(ticksRepeatCompany * tempCompanyMinValue);
+
+                            } else {
+                                modulus = Math.abs(ChartCompanyMinValue % ticksRepeatIndicator);
+                                if (modulus > 0) {
+                                    tempCompanyMinValue = Math.floor(Math.abs(ChartCompanyMinValue / ticksRepeatIndicator)) + 1;
+                                } else
+                                    tempCompanyMinValue = Math.floor(Math.abs(ChartCompanyMinValue / ticksRepeatIndicator));
+
+                                CompanyMinValue = -(ticksRepeatIndicator * tempCompanyMinValue);
+                            }
+
+                            if (CompanyMinValue > ChartCompanyMinValue)
+                                CompanyMinValue = ChartCompanyMinValue;
+
+
+                            CompanyMaxValue = ChartCompanyMaxValue; //18;//16
+                            IndicatorMaxValue = ChartIndicatorMaxValue; // 165;// 154
+
+                        }
+                        break;
+                    case 4:
+                        {
+                            //alert('case 4');
+                            CompanyMinValue = CompanyMinValue - (ticksRepeatCompany * (Math.abs(Math.abs(CompanyZeroLine) - Math.abs(IndicatorZeroLine))));
+                        }
+                        break;
+                    case 5:
+                        {
+                            //alert('case 5');
+                            CompanyMinValue = CompanyMinValue + (ticksRepeatCompany * (Math.abs(Math.abs(CompanyZeroLine) - Math.abs(IndicatorZeroLine))));
+                            //Above line resetting CompanyMinValue which is added in case 4.
+
+                            IndicatorMinValue = IndicatorMinValueNew - (ticksRepeatIndicator * (Math.abs(Math.abs(CompanyZeroLine) - Math.abs(IndicatorZeroLine))));
+                        }
+                        break;
+                }
+            }
+        }
+
+        function LoadChartData(indicatorShotrCode, count, indicatorFullName) {
+            var duration = 0;
+            var accessduration = 0;
+
+            companyCode = $("#ddlDataSets").val(); // 'Timken-1-NA-Industrial Distribution';
+            var isInvertedVal = false;
+            var moveMonths = 0;
+            var _CompanyId = 2301;          
+
+            $("#label_" + count).text(indicatorFullName);
+
+            $.getJSON("/DatacastHome/GetIndicatorCompanyAndIndicatorDataByShortCodes?CompanyShortCode=" + companyCode + "&IndicatorShortCode=" + indicatorShotrCode + "&InverseOrder=" + isInvertedVal + "&MoveMonths=" + moveMonths + "&CustomerCompanyID=" + _CompanyId,
+                function (data) {
+                    combinationObject = JSON.parse(data);
+                    IDTcombinationObject = combinationObject; //For InternalDataTrends chart
+                    var IndicatorMINFlag = false,
+                        IndicatorMAXFlag = false,
+                        CompanyMINFlag = false,
+                        CompanyMAXFlag = false;
+                    for (i = 0; i < combinationObject.length; i++) {
+                        var obj = combinationObject[i];
+                        for (key in obj) {
+                            // console.log("Key is " + key + "  value is " + obj[key]);
+                            var value1 = obj[key];
+                            if (key == "Duration") {
+                                duration = value1;
+                            }
+                            if (key == "AccessDuration") {
+                                accessduration = value1;
+                            }
+                            if (key == "MinValue" && obj["Code"] == "Indicator" && IndicatorMINFlag == false) {
+                                IndicatorMinValue = value1;
+                                IndicatorMINFlag = true;
+
+                                console.log('IndicatorMinValue - ' + IndicatorMinValue);
+                            } else if (key == "MaxValue" && obj["Code"] == "Indicator" && IndicatorMAXFlag == false) {
+                                IndicatorMaxValue = value1;
+                                IndicatorMAXFlag = true;
+
+                                console.log('IndicatorMaxValue - ' + IndicatorMaxValue);
+                            } else if (key == "MinValue" && obj["Code"] == "Company" && CompanyMINFlag == false) {
+                                CompanyMinValue = value1;
+                                CompanyMINFlag = true;
+
+                                console.log('CompanyMinValue - ' + CompanyMinValue);
+                            } else if (key == "MaxValue" && obj["Code"] == "Company" && CompanyMAXFlag == false) {
+                                CompanyMaxValue = value1;
+                                CompanyMAXFlag = true;
+
+                                console.log('CompanyMaxValue - ' + CompanyMaxValue);
+                            }
+
+                            if (IndicatorMINFlag == true && IndicatorMAXFlag == true && CompanyMINFlag == true && CompanyMAXFlag == true) {
+                                i = combinationObject.length;
+                                console.log('i - ' + i);
+                                break;
+                            }
+                        }
+                    }
+                    if (combinationObject != undefined && combinationObject != "") {
+                        console.log('loading chart...')
+                        LoadChart(count);
+                    }
+                    // LoadDDChart();
+                }).error(function (jqXHR, textStatus, errorThrown) {
+                    //  // console.log("incoming Text " + jqXHR.responseText);
+                    ajaxindicatorstop(); // Remove the loader
+                    document.getElementById("displayMessage").innerHTML = 'There is something wrong with the Combination you selected, please try a different combination';
+                    $('#displayMessage').prepend('<span class="button b-close"><span>X</span></span>'); //Prepending Close button to popup
+                    $('#displayMessage').bPopup({
+                        autoClose: 2000
+                        // , onClose: function () { window.history.back(); }
+                    });
+                    //$('#chart').height(500);
+                });
+        }
+
+        function LoadChart(count) {
+            
+            $("#wiget_" + count).show();
+            ticksRepeatCompany = 0;
+            ticksRepeatIndicator = 0;
+            CompanyMaxvalueLine = 0;
+            IndicatorMaxvalueLine = 0;
+            CompanyIndicatorMaxLineDifference = 0;
+            CompanyZeroLine = 0;
+            IndicatorZeroLine = 0;
+            CompanyZeroLineFlag = false;
+            IndicatorZeroLineFlag = false;
+            CompanyNeededLines = 0;
+            IndicatorNeededLines = 0;
+            ZeroLinesAlign = false;
+            i = 0;
+            j = 0;
+
+            //Need to make '0' before chart loads...
+            companytitlestatus = 0; //By Vijaya
+            indicatortitlestatus = 0;
+
+
+            ticksRepeatCompany = Math.round((Math.abs(CompanyMinValue) + CompanyMaxValue) / 8);
+            if (IndicatorMinValue != '0')
+                ticksRepeatIndicator = Math.round((Math.abs(IndicatorMinValue) + IndicatorMaxValue) / 8);
+            else {
+                IndicatorMinValue = Math.round((CompanyMinValue * IndicatorMaxValue) / CompanyMaxValue);
+                ticksRepeatIndicator = Math.round((Math.abs(IndicatorMinValue) + IndicatorMaxValue) / 8);
+            }
+
+
+            if (isInvertedVal == false) {
+                if (CompanyNeededLines != IndicatorNeededLines) {
+                    ticksRepeatCompany = Math.round(CompanyMaxValue / IndicatorMaxvalueLine);
+                }
+            }
+
+            console.log('ticksRepeatIndicator - ' + ticksRepeatIndicator);
+            console.log('ticksRepeatCompany - ' + ticksRepeatCompany);
+           
+            //LOAD CHART
+            $("#chart_" + count).shieldChart({
+                theme: "light",
+                height: 500,
+                //primaryHeader: {
+                //    text: "ITR - DataCast: US Single-Unit Housing Starts"
+                //},
+                exportOptions: {
+                    image: false,
+                    print: false
+                },
+                axisX: [{
+                    drawWidth: 1,
+                    ticksRepeat: 24,
+                    categoricalValues: $.map(combinationObject, function (item) {
+                        //console.log('combinationObject - ' + combinationObject);
+                        console.log('from chart - ' + item.Code);
+
+                        if (item.Code == "Indicator") {
+                            var dateValue = new Date(parseInt(item.MonthYear.substr(6)));
+                            // dateValue= parseInt(dateValue.getMonth() + 1) + "/" + parseInt(dateValue.getDate()) + "/" + dateValue.getFullYear()
+                            var monthName = GetMonthName(dateValue.getMonth() + 1);
+                            var date = monthName + '  ' + dateValue.getFullYear(); //March  2018
+                            //console.log('date -' + date);
+                            return date;
+                        }
+                    }),
+                    title: {
+                        text: 'Years',
+                        style: {
+                            color: '#000000'
+                        }
+                    },
+                    axisTickText: {
+                        // return a new text for the ticks of the X-axis
+                        format: function (text, axis, chart) {
+                            // var dateValue = new Date(text);
+                            var string = text;
+
+                            //console.log('string - ' + string);
+
+                            string = string.split("  ");
+
+                            return string[1]; //Here 0-index will have month name and 1-index will have year//dateValue.getFullYear();
+                        },
+                        style: {
+                            color: '#000000'
+                        }
+                    }
+
+                }],
+                axisY: [{
+                    min: CompanyMinValue,
+                    max: CompanyMaxValue,
+                    //ticksRepeat:parseInt((Math.abs(CompanyMinValue) + CompanyMaxValue) / 8),
+                    ticksRepeat: ticksRepeatCompany, //Math.round( (Math.abs(CompanyMinValue)+CompanyMaxValue)/8),
+                    title: {
+                        text: $.map(combinationObject, function (item) {
+
+                            //console.log('companytitlestatus - ' + companytitlestatus);
+                            //console.log('item.StatPref1 - ' + item.StatPref1);
+
+                            if (companytitlestatus == 0) {
+                                if (item.StatPref1 == "1/12") {
+                                    companytitlestatus = 1
+                                    //  return  'Company 1/12 (Annual Growth Rate)'
+                                    return 'Company - 1/12 '
+
+                                } else if (item.StatPref1 == "3/12") {
+                                    companytitlestatus = 1
+                                    //  return  'Company 12/12 (Annual Growth Rate)'
+                                    return 'Company - 3/12 '
+                                } else if (item.StatPref1 == "Raw") {
+                                    companytitlestatus = 1
+                                    //  return  'Company 12/12 (Annual Growth Rate)'
+                                    return 'Company - Monthly '
+                                } else {
+                                    companytitlestatus = 1
+                                    //   return  'Company 12/12 (Annual Growth Rate)'
+                                    return 'Company - 12/12 '
+                                }
+                            }
+
+                        }), // Datacast 2.5 change
+                        style: {
+                            color: '#000000'
+                        }
+                    },
+                    axisTickText: {
+                        format: function (text, axis, chart) {
+                            if (text > 0)
+                                CompanyMaxValueNew = text;
+                            else if (i == 0) {
+                                CompanyMinValueNew = text;
+                                i = i + 1;
+                            }
+
+                            if (text == 0) {
+                                CompanyZeroLineFlag = true;
+                                //alert(CompanyZeroLineFlag);
+                            }
+                            if (CompanyZeroLineFlag == false) {
+                                CompanyZeroLine = CompanyZeroLine + 1;
+                            }
+                            return text;
+                        },
+                        style: {
+                            color: '#000000'
+                        }
+                    },
+                    plotLines: [{
+                        start: 0,
+                        drawWidth: 3,
+                        drawColor: '#C0C0C0'
+                    }]
+                }, {
+                    inverseOrder: isInvertedVal,
+                    min: IndicatorMinValue,
+                    max: IndicatorMaxValue,
+                    //ticksRepeat: parseInt((Math.abs(IndicatorMinValue) + IndicatorMaxValue) / 8),
+                    ticksRepeat: ticksRepeatIndicator, //Math.round((Math.abs(IndicatorMinValue) + IndicatorMaxValue)/8),
+                    title: {
+                        text: $.map(combinationObject, function (item) {
+                            if (indicatortitlestatus == 0) {
+                                if (item.StatPref1 == "1/12") {
+                                    indicatortitlestatus = 1
+                                    // return  'Indicator 1/12 (Monthly Growth Rate)'
+                                    return 'Indicator - 1/12 '
+
+                                } else if (item.StatPref1 == "3/12") {
+                                    indicatortitlestatus = 1
+                                    // return  'Indicator 3/12 (Annual Growth Rate)'
+                                    return ' Indicator - 3/12 '
+                                } else if (item.StatPref1 == "Raw") {
+                                    indicatortitlestatus = 1
+                                    // return  'Indicator 3/12 (Annual Growth Rate)'
+                                    return ' Indicator - Monthly '
+                                } else {
+                                    indicatortitlestatus = 1
+                                    //    return  'Indicator 12/12 (Annual Growth Rate)'
+                                    return ' Indicator - 12/12 '
+                                }
+                            }
+
+                        }), // Datacast 2.5 change
+                        style: {
+                            color: '#000000'
+                        }
+                        //align: 'high',
+                        //textAngle: 1,
+                        //offset:60
+
+                    },
+                    //seriesSettings: {
+                    //    line: {
+                    //        pointMark: {
+                    //            drawWidth: 20
+                    //        }
+                    //    }
+                    //},
+                    swapLocation: true,
+                    axisTickText: {
+                        format: function (text, axis, chart) {
+
+
+                            if (text > 0)
+                                IndicatorMaxValueNew = text;
+                            else if (j == 0) {
+                                IndicatorMinValueNew = text;
+                                j = j + 1;
+                            }
+
+
+                            if (isInvertedVal == false) {
+
+                                if (text == 0) {
+                                    IndicatorZeroLineFlag = true;
+
+                                }
+                                if (IndicatorZeroLineFlag == false) {
+                                    IndicatorZeroLine = IndicatorZeroLine + 1;
+                                }
+                            } else {
+                                if (text == 0) {
+                                    IndicatorZeroLine = 0;
+                                }
+                                if (text > 0) {
+                                    IndicatorZeroLine = IndicatorZeroLine + 1;
+                                }
+                            }
+
+
+                            return text;
+                        },
+                        style: {
+                            color: '#000000'
+                        },
+                        textAngle: 0
+                    }
+                }],
+                dataSeries: [
+                    {
+                        seriesType: 'line',
+                        pointMark: {
+                            enabled: false,
+                            drawWidth: 0
+                        },
+                        axis: 0,
+                        tooltipSettings: {
+                            enabled: true,
+                            axisMarkers: {
+                                enabled: true,
+                                //mode: 'xy',
+                                color: 'red',
+                                width: 1,
+                                zIndex: 3
+                            },
+
+
+                            customPointText: $.map(combinationObject, function (item) {
+                                if (item.Code == "Indicator" && item.Forecast == true) {
+                                    //  alert(item.StatPref1);
+
+                                    if (item.StatPref1 == "1/12") {
+                                        return shield.format(
+                                            '<span><b> Indicator Data Percent Change in 12-Month Moving Average: {value}</b></span>', {
+                                                value: item.C1By12 //point.y
+                                            }
+                                        );
+                                    } else if (item.StatPref1 == "3/12") {
+                                        return shield.format(
+                                            '<span><b> Indicator Data Percent Change in 12-Month Moving Average: {value}</b></span>', {
+                                                value: item.C3BY12 //point.y
+                                            }
+                                        );
+                                    } else if (item.StatPref1 == "Raw") {
+                                        return shield.format(
+                                            '<span><b> Indicator Data Percent Change in 12-Month Moving Average: {value}</b></span>', {
+                                                value: item.Monthly //point.y
+                                            }
+                                        );
+                                    } else {
+                                        return shield.format(
+                                            '<span><b> Indicator Data Percent Change in 12-Month Moving Average: {value}</b></span>', {
+                                                value: item.C12BY12 //point.y
+                                            }
+                                        );
+                                    }
+                                }
+                            })
+                            /*
+                            customPointText: function (point, chart, text) {
+                                return shield.format(
+                                    '<span><b> Company Percent Change in 12-Month Moving Average: {value}</b></span>',
+                                    {
+                                        value: point.y
+                                    }
+                                );
+                            }
+                            */
+                        },
+                        collectionAlias: "Company Division Data",
+                        data: $.map(combinationObject, function (item) {
+                            if (item.Code == "Company") {
+                                if (item.StatPref1 == "1/12") {
+                                    if (k == 0) {
+                                        if (item.C1By12 < 0) {
+                                            if (ChartCompanyMinValue > item.C1By12)
+                                                ChartCompanyMinValue = item.C1By12;
+                                        } else {
+                                            if (ChartCompanyMaxValue < item.C1By12)
+                                                ChartCompanyMaxValue = item.C1By12;
+                                        }
+                                    }
+
+                                    return {
+                                        y: item.C1By12
+                                    } // //return { y: item.C12BY12 }
+                                } else if (item.StatPref1 == "3/12") {
+                                    if (k == 0) {
+                                        if (item.C3BY12 < 0) {
+                                            if (ChartCompanyMinValue > item.C3BY12)
+                                                ChartCompanyMinValue = item.C3BY12;
+                                        } else {
+                                            if (ChartCompanyMaxValue < item.C3BY12)
+                                                ChartCompanyMaxValue = item.C3BY12;
+                                        }
+                                    }
+
+                                    return {
+                                        y: item.C3BY12
+                                    } // //return { y: item.C12BY12 }
+                                } else if (item.StatPref1 == "Raw") {
+                                    if (k == 0) {
+                                        if (item.Monthly < 0) {
+                                            if (ChartCompanyMinValue > item.Monthly)
+                                                ChartCompanyMinValue = item.Monthly;
+                                        } else {
+                                            if (ChartCompanyMaxValue < item.Monthly)
+                                                ChartCompanyMaxValue = item.Monthly;
+                                        }
+                                    }
+
+                                    return {
+                                        y: item.Monthly
+                                    } // //return { y: item.C12BY12 }
+                                } else {
+                                    if (k == 0) {
+                                        if (item.C12BY12 < 0) {
+                                            if (ChartCompanyMinValue > item.C12BY12)
+                                                ChartCompanyMinValue = item.C12BY12;
+                                        } else {
+                                            if (ChartCompanyMaxValue < item.C12BY12)
+                                                ChartCompanyMaxValue = item.C12BY12;
+                                        }
+                                    }
+
+                                    return {
+                                        y: item.C12BY12
+                                    } // //return { y: item.C12BY12 }
+                                }
+                            }
+                        })
+
+                    }, {
+                        seriesType: 'scatter',
+                        axis: 0,
+                        tooltipSettings: {
+                            enabled: true,
+                            axisMarkers: {
+                                enabled: true,
+                                color: 'red',
+                                width: 1,
+                                zIndex: 3
+                            },
+                            customPointText: function (point, chart, text) {
+                                return shield.format(
+                                    '<span><b> Company Forecasted 12-Month Moving Average: {value}</b></span>', {
+                                        value: point.y
+                                    }
+                                );
+                            }
+                        },
+                        pointMark: {
+                            enabled: true,
+                            drawWidth: 0
+                        },
+                        color: 'lightblue',
+                        collectionAlias: "Company Forecast",
+                        // data: [null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, 5.9, 11.0, 20.0, -7.8, 9.0]
+                        data: $.map(combinationObject, function (item) {
+                            //  console.log(item)
+                            if (item.Code == "Company" && item.Forecast == false)
+                                return {
+                                    y: null
+                                }
+                            else if (item.Code == "Company" && item.Forecast == true) {
+                                if (item.StatPref1 == "1/12") {
+                                    return {
+                                        y: item.C1By12
+                                    }
+                                } else if (item.StatPref1 == "3/12") {
+                                    return {
+                                        y: item.C3BY12
+                                    }
+                                } else if (item.StatPref1 == "Raw") {
+                                    return {
+                                        y: item.Monthly
+                                    }
+                                } else {
+                                    return {
+                                        y: item.C12BY12
+                                    }
+                                }
+                            }
+                        })
+                    }
+                    , {
+                        seriesType: 'line',
+                        axisY: 1,
+                        tooltipSettings: {
+                            enabled: true,
+                            axisMarkers: {
+                                enabled: true,
+                                //mode: 'xy',
+                                color: 'red',
+                                width: 1,
+                                zIndex: 3
+                            },
+                            customPointText: $.map(combinationObject, function (item) {
+                                if (item.Code == "Indicator" && item.Forecast == true) {
+
+
+                                    if (item.StatPref1 == "1/12") {
+                                        return shield.format(
+                                            '<span><b> Indicator Data Percent Change in 12-Month Moving Average: {value}</b></span>', {
+                                                value: item.C1By12 //point.y
+                                            }
+                                        );
+                                    } else if (item.StatPref1 == "3/12") {
+                                        return shield.format(
+                                            '<span><b> Indicator Data Percent Change in 12-Month Moving Average: {value}</b></span>', {
+                                                value: item.C3BY12 //point.y
+                                            }
+                                        );
+                                    } else if (item.StatPref1 == "Raw") {
+                                        return shield.format(
+                                            '<span><b> Indicator Data Percent Change in 12-Month Moving Average: {value}</b></span>', {
+                                                value: item.Monthly //point.y
+                                            }
+                                        );
+                                    } else {
+                                        return shield.format(
+                                            '<span><b> Indicator Data Percent Change in 12-Month Moving Average: {value}</b></span>', {
+                                                value: item.C12BY12 //point.y
+                                            }
+                                        );
+                                    }
+                                }
+                            })
+
+                            /*
+                            customPointText: function (point, chart, text) {
+                                return shield.format(
+                                    '<span><b> Indicator Data Percent Change in 12-Month Moving Average: {value}</b></span>',
+                                    {
+                                        value: point.y
+                                    }
+                                );
+                            }
+                            */
+                        },
+                        pointMark: {
+                            enabled: false,
+                            drawWidth: 0
+                        },
+                        color: 'green',
+                        collectionAlias: "Indicator History",
+                        data: $.map(combinationObject, function (item) {
+                            if (item.Code == "Indicator" && item.Forecast == false) {
+
+                                //if (item.C12BY12 < 0 && IndicatorMinValueFlag == false) {
+                                //    if (item.C12BY12 <= IndicatorMinValueOrg)
+                                //        IndicatorMinValueFlag = true;
+                                //}
+
+
+                                if (item.StatPref1 == "1/12") {
+                                    if (k == 0) {
+                                        if (item.C1By12 < 0) {
+                                            if (ChartIndicatorMinValue > item.C1By12)
+                                                ChartIndicatorMinValue = item.C1By12;
+                                        } else {
+                                            if (ChartIndicatorMaxValue < item.C1By12)
+                                                ChartIndicatorMaxValue = item.C1By12;
+                                        }
+                                    }
+
+                                    return {
+                                        y: item.C1By12
+                                    }
+                                } else if (item.StatPref1 == "3/12") {
+                                    if (k == 0) {
+                                        if (item.C3BY12 < 0) {
+                                            if (ChartIndicatorMinValue > item.C3BY12)
+                                                ChartIndicatorMinValue = item.C3BY12;
+                                        } else {
+                                            if (ChartIndicatorMaxValue < item.C3BY12)
+                                                ChartIndicatorMaxValue = item.C3BY12;
+                                        }
+                                    }
+
+                                    return {
+                                        y: item.C3BY12
+                                    }
+                                } else if (item.StatPref1 == "Raw") {
+                                    if (k == 0) {
+                                        if (item.Monthly < 0) {
+                                            if (ChartIndicatorMinValue > item.Monthly)
+                                                ChartIndicatorMinValue = item.Monthly;
+                                        } else {
+                                            if (ChartIndicatorMaxValue < item.Monthly)
+                                                ChartIndicatorMaxValue = item.Monthly;
+                                        }
+                                    }
+
+                                    return {
+                                        y: item.Monthly
+                                    }
+                                } else {
+                                    if (k == 0) {
+                                        if (item.C12BY12 < 0) {
+                                            if (ChartIndicatorMinValue > item.C12BY12)
+                                                ChartIndicatorMinValue = item.C12BY12;
+                                        } else {
+                                            if (ChartIndicatorMaxValue < item.C12BY12)
+                                                ChartIndicatorMaxValue = item.C12BY12;
+                                        }
+                                    }
+
+                                    return {
+                                        y: item.C12BY12
+                                    }
+                                }
+                            }
+                                //return { y: item.C12BY12 }
+                            else if (item.Code == "Indicator" && item.Forecast == true)
+                                return {
+                                    y: null
+                                }
+                        })
+                    }, {
+                        seriesType: 'scatter',
+                        axisY: 1,
+                        tooltipSettings: {
+                            enabled: true,
+                            axisMarkers: {
+                                enabled: true,
+                                color: 'red',
+                                width: 1,
+                                zIndex: 3
+                            },
+                            customPointText: function (point, chart, text) {
+                                return shield.format(
+                                    '<span><b> Indicator Forecasted 12-Month Moving Average: {value}</b></span>', {
+                                        value: point.y
+                                    }
+                                );
+                            }
+                        },
+                        pointMark: {
+                            enabled: true,
+                            drawWidth: 0
+                        },
+                        color: 'lightgreen',
+                        collectionAlias: "Indicator Forecast",
+                        // data: [null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, 5.9, 11.0, 20.0, -7.8, 9.0]
+                        data: $.map(combinationObject, function (item) {
+                            //  console.log(item)
+                            if (item.Code == "Indicator" && item.Forecast == false)
+                                return {
+                                    y: null
+                                }
+                            else if (item.Code == "Indicator" && item.Forecast == true) {
+                                if (item.StatPref1 == "1/12") {
+                                    return {
+                                        y: item.C1By12
+                                    }
+                                } else if (item.StatPref1 == "3/12") {
+                                    return {
+                                        y: item.C3BY12
+                                    }
+                                } else if (item.StatPref1 == "Raw") {
+                                    return {
+                                        y: item.Monthly
+                                    }
+                                } else {
+                                    return {
+                                        y: item.C12BY12
+                                    }
+                                }
+                            }
+                        })
+                    }
+                ],
+                chartLegend: {
+                    enabled: true,
+                    align: 'center'
+                },
+                events: { //Called on Chart load completed
+                    load: function (event) {
+                        ajaxindicatorstop();
+
+                        if (CompanyZeroLine == IndicatorZeroLine) {
+                            $("#chart").show();
+                        } else if (isInvertedVal == false && k == 0) {
+                            k = k + 1;
+                            LoadChartCalculations(1);
+                        } else if (isInvertedVal == false && k == 1) {
+                            k = k + 1;
+                            LoadChartCalculations(2);
+
+                        } else if (isInvertedVal == false && k == 2) {
+                            k = k + 1;
+                            LoadChartCalculations(3);
+
+                        } else if (isInvertedVal == true && k == 0) {
+
+                            k = k + 1;
+                            LoadChartCalculations(1);
+                        } else if (isInvertedVal == true && k == 1) {
+                            k = k + 1;
+                            LoadChartCalculations(2);
+                        } else if (isInvertedVal == true && k == 2) {
+                            k = k + 1;
+                            LoadChartCalculations(3);
+                        } else if (isInvertedVal == true && k == 3) {
+                            k = k + 1;
+                            LoadChartCalculations(4);
+                        } else if (isInvertedVal == true && k == 4) {
+                            k = k + 1;
+                            LoadChartCalculations(5);
+                        }
+
+                    }
+                }
+            });
+        }
+        
+        function ajaxindicatorstart() {
+            // alert("entererd");
+            if ($('body').find('#loadingDiv').attr('id') != 'loadingDiv') {
+                var loadingString = '<div id="loadingDiv" class="modal1"><div id="loading-image" class="center"><img src="../assets/img/loader.gif" alt="Loading..." /></div></div>';
+                $('body').append(loadingString);
+                $('#loadingDiv .bg').height('100%');
+                $('#loadingDiv').fadeIn(300);
+                $('body').css('cursor', 'wait');
+                $('body').css('cursorDD', 'wait');
+            }
+        };
+
+        function ajaxindicatorstop() {
+            $('#loadingDiv .bg').height('100%');
+            $('#loadingDiv').remove();
+            $('body').css('cursor', 'default');
+            $('body').css('cursorDD', 'default');
+        }
+
+        //COMPANY DROPDOWN CHANGE EVENT...
+        $("#ddlDataSets").change(function (e) {
+            var dataSetID = $("#ddlDataSets").val();//COMPANY ID...
+
+            LoadPhasesTableAndCharts(dataSetID);            
+        });
+
+        function LoadPhasesTableAndCharts(dataSetID)
+        {
+            //alert('from LoadPhasesTableAndCharts');
+            if (dataSetID != "" && dataSetID != "null" && dataSetID != null) {               
+                
+                $('.widgets').each(function () {
+                    $(".widgets").hide();
+                });
+
+                $('.charts').each(function () {
+                    $(".charts").html('');
+                });
+
+                $('.labels').each(function () {
+                    $(".labels").text('');
+                });             
+
+                $('#tblHeading').text('Indicator Phase Signals for ' + $("#ddlDataSets").val());
+                //TO LOAD PHASE VALUES OF DB WIDGETS IN DATATABLE...
+                LoadPhaseValuesOfDBWidgets();
+
+                /* LOADING CHARTS... */
+                //GETTING DB SELECTED WIDGET INDICATORS SHORT CODES...
+                var IndicatorsList = '';
+                var url = '/DatacastDBWidget/SelectDBWidgetsListByCompanyID';
+                var modelobjlocal = {
+                    CompanyShortCode: dataSetID,
+                    UserId: 1 //userId
+                };
+                console.log(modelobjlocal);
+
+                var response = SendRequestJSON(url, modelobjlocal);
+
+                if (response.result == 'Success') {
+                    IndicatorsList = response.strIndicatorsOfCompany;
+                }
+                else {
+                    IndicatorsList = '';
+                }
+
+                console.log('IndicatorsList - ' + IndicatorsList);
+                var SelectedIndicators = IndicatorsList.split('~'); //IndicatorsList.split(',').length;
+
+                var SelectedIndicatorsCount = SelectedIndicators.length;
+
+                //console.log('indicatorsLength - ' + SelectedIndicators.length);
+                //console.log('indicatorsLength[0] - ' + SelectedIndicators[0]);
+                //console.log('indicatorsLength[1] - ' + SelectedIndicators[1]);
+                //console.log('indicatorsLength[2] - ' + SelectedIndicators[2]);
+                //console.log('indicatorsLength[3] - ' + SelectedIndicators[3]);
+
+                if (IndicatorsList != '') {
+                    for (var j = 0; j < SelectedIndicatorsCount - 1; j++) {
+                        //alert(indicatorsLength[j]);
+                        
+                        $(".spnIndicatorName").html(SelectedIndicators[j].split('_')[0]);
+                        //for (var j = 0; j < 1; j++) {
+
+                        //LOADING CHART DATA...
+                        indicatorShotrCode = SelectedIndicators[j].split('_')[0];               
+
+                        LoadChartData(indicatorShotrCode, j, SelectedIndicators[j].split('_')[1]);
+                    }
+                }
+                else {
+                    $('.charts').each(function () {
+                        $(".charts").html('');
+                    });
+
+                    $('.labels').each(function () {
+                        $(".labels").text('');
+                    });
+                }
+            }
+        }
+
+    </script>
+}

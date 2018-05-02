@@ -1,21 +1,5 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
-<Schema Namespace="ITRDevModel.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2008" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
-  <!--Errors Found During Generation:
-warning 6013: The table/view 'ITRDev.dbo.Accounts' does not have a primary key defined and no valid primary key could be inferred. This table/view has been excluded. To use the entity, you will need to review your schema, add the correct keys, and uncomment it.
-        <EntityType Name="Accounts">
-          <Property Name="AccountName" Type="varchar" MaxLength="255" />
-          <Property Name="QBaseAccountID" Type="int" />
-          <Property Name="DivID" Type="int" />
-          <Property Name="DivisionName" Type="varchar" MaxLength="255" />
-        </EntityType>-->
-  <!--Errors Found During Generation:
-warning 6013: The table/view 'ITRDev.dbo.AllAccounts' does not have a primary key defined and no valid primary key could be inferred. This table/view has been excluded. To use the entity, you will need to review your schema, add the correct keys, and uncomment it.
-        <EntityType Name="AllAccounts">
-          <Property Name="AccountName" Type="varchar" MaxLength="255" />
-          <Property Name="CompanyName" Type="varchar" MaxLength="255" />
-          <Property Name="QBaseAccountID" Type="int" />
-          <Property Name="ProgramEconomist" Type="varchar" MaxLength="255" />
-        </EntityType>-->
+<Schema Namespace="ITRDevModel.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2008" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
   <!--Errors Found During Generation:
 warning 6002: The table/view 'ITRDev.dbo.CustomerDataSets' does not have a primary key defined. The key has been inferred and the definition was created as a read-only table/view.-->
   <EntityType Name="CustomerDataSets">
@@ -68,6 +52,9 @@ warning 6002: The table/view 'ITRDev.dbo.StagingCompanyData' does not have a pri
     <Property Name="ModifiedBy" Type="varchar" MaxLength="64" />
     <Property Name="ModifiedDate" Type="datetime" />
   </EntityType>
+  <Function Name="uspClearDataSetAnalysis" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="CustomerDataSetID" Type="int" Mode="In" />
+  </Function>
   <Function Name="uspDeleteCustomerDataSet" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
     <Parameter Name="CustomerDataSetID" Type="int" Mode="In" />
   </Function>
