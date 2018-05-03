@@ -5556,7 +5556,6 @@ textarea.autosize {
   font-size: 13px;
   margin-top: 16px;
   margin-bottom: 16px;
-  font-family: 'Open Sans', 'Droid Sans', Tahoma, Arial, sans-serif;
   font-weight: bold;
 }
 .stepy-header li small,
@@ -5579,7 +5578,6 @@ textarea.autosize {
   margin-top: 16px;
   margin-bottom: 16px;
   font-weight: 300;
-  font-family: 'Open Sans', 'Droid Sans', Tahoma, Arial, sans-serif;
   font-family: 300;
 }
 .stepy-header li div small,

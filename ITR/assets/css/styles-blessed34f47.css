@@ -788,7 +788,6 @@ table.table-vab > tfoot > tr > th {
 }
 /*! normalize.css v3.0.2 | MIT License | git.io/normalize */
 html {
-  font-family: sans-serif;
   -ms-text-size-adjust: 100%;
   -webkit-text-size-adjust: 100%;
 }
@@ -1059,7 +1058,6 @@ html {
   -webkit-tap-highlight-color: rgba(0, 0, 0, 0);
 }
 body {
-  font-family: 'Open Sans', 'Droid Sans', Tahoma, Arial, sans-serif;
   font-size: 13px;
   line-height: 1.54;
   color: #455a64;
@@ -1158,7 +1156,6 @@ h6,
 .h4,
 .h5,
 .h6 {
-  font-family: 'Open Sans', 'Droid Sans', Tahoma, Arial, sans-serif;
   font-weight: 400;
   line-height: 1.25;
   color: #455a64;
@@ -1496,7 +1493,7 @@ code,
 kbd,
 pre,
 samp {
-  font-family: Monaco, Menlo, Consolas, "Courier New", monospace;
+
 }
 code {
   padding: 2px 4px;
@@ -6411,7 +6408,6 @@ h6,
 .h6 {
   margin-top: 16px;
   margin-bottom: 16px;
-  font-family: 'Open Sans', 'Droid Sans', Tahoma, Arial, sans-serif;
 }
 h1,
 h2,
@@ -6491,7 +6487,6 @@ address {
 }
 kdb,
 samp {
-  font-family: Monaco, Menlo, Consolas, "Courier New", monospace;
 }
 pre {
   margin-bottom: 20px;
