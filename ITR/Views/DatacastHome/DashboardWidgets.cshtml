@@ -26,7 +26,7 @@
             </div>
             <div>
                 <div class="col-sm-2 pull-right mt-md">
-                    
+
                     <button id="linkPrint" class="btn btn-default" type="button" title="Print the chart">
                         <i class="fa fa-print"></i>
                     </button>
@@ -36,192 +36,171 @@
                     <button id="linkPrintPNG" class="btn btn-default" type="button" title="Download Image">
                         <i class="fa fa-image"></i>
                     </button>
-                 
-                </div>                
+
+                </div>
             </div>
             <!--Second Div End-->
             <div class="clearfix m-sm"></div>
         </div>
-        </div>
+    </div>
 
-        <div class="mainCnt">
-            <div id="divPrint">
-                <div class="panel" >
-                    <div class="panel-body p-n">
-                        <h4 class="p-sm text-center text-info" id="tblHeading"></h4>
-                        <div class="col-sm-12" id="ACQNINACQS"></div>
-                    </div>
-                </div>
-                        @*<div style="text-align: center;">
-                        <span style="font-family: 'Bell MT'; font-size: 71px; line-height: 79px; color: #3175a4; font-weight: bold;">ITR</span><span style="font-family: 'Arial'; font-size: 48px; line-height: 54px; color: #270076; font-weight: bold;">&nbsp;</span><span style="font-family: &quot; Roboto Black&quot; , Roboto; font-size: 64px; line-height: 72px; color: rgb(7, 166, 132); font-style: italic; font-weight: 900;">Data</span><span style="font-family: &quot; Roboto Light&quot; , Roboto; font-size: 64px; line-height: 72px; color: rgb(7, 166, 132); font-style: italic; font-weight: 300;">Cast</span>
-                    </div>
-                    <div style="text-align: center;">
-                        <span style="font-family: 'Arial'; font-size: 11px; line-height: 12px; color: #acacac;">__________________________    </span><span style="font-family: &quot; Roboto Light&quot; , Roboto; font-size: 16px; line-height: 18px; color: rgb(0, 0, 0); font-weight: 300;">First in Forecasts Since 1948 </span><span style="font-family: 'Arial'; font-size: 11px; line-height: 12px; color: #acacac;">__________________________</span>
-                    </div>
-                    <div style="text-align: center;">
-                        <span style="font-family: 'Gill Sans MT'; font-size: 19px; line-height: 21px; color: #000000; font-weight: bold;">
-                            <span id="spnDataSetName" class="spnDataSetName"></span>
-                            <br>
-                            <span id="spnIndicatorName" class="spnIndicatorName"></span>
-
-                            <div id="divLables" style="display: none;">
-                                <strong>Lead / Lag Months: <span id="spnIndicatorMoveMonths" class="spnIndicatorMoveMonths" data-ng-bind="moveMonths"></span></strong>
-                                <strong>, Indicator view: <span id="spnIndicatorView" class="spnIndicatorView"></span></strong>
-                            </div>
-                            <br />
-                            <span id="spnBusiness" style="display:none">Phases are automated, not manually calculated as seen in other ITR works*</span>
-                        </span>
-                    </div>*@
-                        @*<div>*@
-
-                        <div data-widget-group="group-demo">
-                          
-                                
-                                    <div class="panel widgets p-n m-sm" id="wiget_0" data-widget='{"id" : "wiget0"}'>
-                                        <div class="panel-heading">
-                                            <div class="panel1-ctrls button-icon-bg"
-                                                 data-actions-container="">
-                                            </div>
-                                            <h2 id="label_0"></h2>
-                                        </div>
-                                        <div class="panel-editbox" data-widget-controls=""></div>
-                                        <div class="panel-body">
-
-                                            <div id="chart_0" class="charts"></div>
-                                        </div>
-                                    </div>
-                                 
-                            
-                                <div class="panel widgets p-n m-sm" id="wiget_1" data-widget='{"id" : "wiget1"}'>
-                                    <div class="panel-heading">
-                                        <div class="panel1-ctrls button-icon-bg"
-                                             data-actions-container="">
-                                        </div>
-                                        <h2 id="label_1"></h2>
-                                    </div>
-                                    <div class="panel-editbox" data-widget-controls=""></div>
-                                    <div class="panel-body">
-
-                                        <div id="chart_1" class="charts"></div>
-                                    </div>
-                                </div>
-
-
-                                <div class="panel widgets p-n m-sm" id="wiget_2" data-widget='{"id" : "wiget2"}'>
-                                    <div class="panel-heading">
-                                        <div class="panel1-ctrls button-icon-bg"
-                                             data-actions-container="">
-                                        </div>
-                                        <h2 id="label_2"></h2>
-                                    </div>
-
-                                    <div class="panel-body">
-                                        <div id="chart_2" class="charts"></div>
-                                    </div>
-                                </div>
-
-
-                                <div class="panel widgets p-n m-sm" id="wiget_3" data-widget='{"id" : "wiget3"}'>
-                                    <div class="panel-heading">
-                                        <div class="panel1-ctrls button-icon-bg"
-                                             data-actions-container="">
-                                        </div>
-                                        <h2 id="label_3"></h2>
-                                    </div>
-
-                                    <div class="panel-body">
-                                        <div id="chart_3" class="charts"></div>
-                                    </div>
-                                </div>
-
-
-
-                                <div class="panel widgets p-n m-sm" id="wiget_4" data-widget='{"id" : "wiget4"}'>
-                                    <div class="panel-heading">
-                                        <div class="panel1-ctrls button-icon-bg"
-                                             data-actions-container="">
-                                        </div>
-                                        <h2 id="label_4"></h2>
-                                    </div>
-                                    <div class="panel-editbox" data-widget-controls=""></div>
-                                    <div class="panel-body">
-                                        <div id="chart_4" class="charts"></div>
-                                    </div>
-                                </div>
-
-
-
-                                <div class="panel widgets p-n m-sm" id="wiget_5" data-widget='{"id" : "wiget5"}'>
-                                    <div class="panel-heading">
-                                        <div class="panel1-ctrls button-icon-bg"
-                                             data-actions-container="">
-                                        </div>
-                                        <h2 id="label_5"></h2>
-                                    </div>
-                                    <div class="panel-body">
-                                        <div id="chart_5" class="charts"></div>
-                                    </div>
-                                </div>
-
-
-                                <div class="panel widgets p-n m-sm" id="wiget_6" data-widget='{"id" : "wiget6"}'>
-                                    <div class="panel-heading">
-                                        <div class="panel1-ctrls button-icon-bg"
-                                             data-actions-container="">
-                                        </div>
-                                        <h2 id="label_6"></h2>
-                                    </div>
-                                    <div class="panel-body">
-                                        <div id="chart_6" class="charts"></div>
-                                    </div>
-                                </div>
-
-
-                                <div class="panel widgets p-n m-sm" id="wiget_7" data-widget='{"id" : "wiget7"}'>
-                                    <div class="panel-heading">
-                                        <div class="panel1-ctrls button-icon-bg"
-                                             data-actions-container="">
-                                        </div>
-                                        <h2 id="label_7"></h2>
-                                    </div>
-                                    <div class="panel-body">
-                                        <div id="chart_7" class="charts"></div>
-                                    </div>
-                                </div>
-
-
-
-                                <div class="panel widgets p-n m-sm" id="wiget_8" data-widget='{"id" : "wiget8"}'>
-                                    <div class="panel-heading">
-                                        <div class="panel1-ctrls button-icon-bg"
-                                             data-actions-container="">
-                                        </div>
-                                        <h2 id="label_8"></h2>
-                                    </div>
-                                    <div class="panel-body">
-                                        <div id="chart_8" class="charts"></div>
-                                    </div>
-                                </div>
-
-
-                                <div class="panel widgets p-n m-sm" id="wiget_9" data-widget='{"id" : "wiget9"}'>
-                                    <div class="panel-heading">
-                                        <div class="panel1-ctrls button-icon-bg"
-                                             data-actions-container="">
-                                        </div>
-                                        <h2 id="label_9"></h2>
-                                    </div>
-                                    <div class="panel-body">
-                                        <div id="chart_9" class="charts"></div>
-                                    </div>
-                                </div>
-
-                           
-
-                         </div>
-                    </div>
+    <div class="mainCnt">
+        <div id="divPrint">
+            <div class="panel">
+                <div class="panel-body p-n">
+                    <h4 class="p-sm text-center text-info" id="tblHeading"></h4>
+                    <div class="col-sm-12" id="ACQNINACQS"></div>
                 </div>
             </div>
+            @*<div style="text-align: center;">
+                    <span style="font-family: 'Bell MT'; font-size: 71px; line-height: 79px; color: #3175a4; font-weight: bold;">ITR</span><span style="font-family: 'Arial'; font-size: 48px; line-height: 54px; color: #270076; font-weight: bold;">&nbsp;</span><span style="font-family: &quot; Roboto Black&quot; , Roboto; font-size: 64px; line-height: 72px; color: rgb(7, 166, 132); font-style: italic; font-weight: 900;">Data</span><span style="font-family: &quot; Roboto Light&quot; , Roboto; font-size: 64px; line-height: 72px; color: rgb(7, 166, 132); font-style: italic; font-weight: 300;">Cast</span>
+                </div>
+                <div style="text-align: center;">
+                    <span style="font-family: 'Arial'; font-size: 11px; line-height: 12px; color: #acacac;">__________________________    </span><span style="font-family: &quot; Roboto Light&quot; , Roboto; font-size: 16px; line-height: 18px; color: rgb(0, 0, 0); font-weight: 300;">First in Forecasts Since 1948 </span><span style="font-family: 'Arial'; font-size: 11px; line-height: 12px; color: #acacac;">__________________________</span>
+                </div>
+                <div style="text-align: center;">
+                    <span style="font-family: 'Gill Sans MT'; font-size: 19px; line-height: 21px; color: #000000; font-weight: bold;">
+                        <span id="spnDataSetName" class="spnDataSetName"></span>
+                        <br>
+                        <span id="spnIndicatorName" class="spnIndicatorName"></span>
+
+                        <div id="divLables" style="display: none;">
+                            <strong>Lead / Lag Months: <span id="spnIndicatorMoveMonths" class="spnIndicatorMoveMonths" data-ng-bind="moveMonths"></span></strong>
+                            <strong>, Indicator view: <span id="spnIndicatorView" class="spnIndicatorView"></span></strong>
+                        </div>
+                        <br />
+                        <span id="spnBusiness" style="display:none">Phases are automated, not manually calculated as seen in other ITR works*</span>
+                    </span>
+                </div>*@
+            @*<div>*@
+
+            <div data-widget-group="group-demo">
+                <div class="panel widgets p-n m-sm" id="wiget_0" data-widget='{"id" : "wiget0"}'>
+                    <div class="panel-heading">
+                        <div class="panel1-ctrls button-icon-bg" data-actions-container="">
+                        </div>
+                        <h2 id="label_0"></h2>
+                    </div>
+                    <div class="panel-editbox" data-widget-controls=""></div>
+                    <div class="panel-body">
+                        <div id="chart_0" class="charts"></div>
+                    </div>
+                </div>
+
+                <div class="panel widgets p-n m-sm" id="wiget_1" data-widget='{"id" : "wiget1"}'>
+                    <div class="panel-heading">
+                        <div class="panel1-ctrls button-icon-bg"
+                             data-actions-container="">
+                        </div>
+                        <h2 id="label_1"></h2>
+                    </div>
+                    <div class="panel-editbox" data-widget-controls=""></div>
+                    <div class="panel-body">
+                        <div id="chart_1" class="charts"></div>
+                    </div>
+                </div>
+
+                <div class="panel widgets p-n m-sm" id="wiget_2" data-widget='{"id" : "wiget2"}'>
+                    <div class="panel-heading">
+                        <div class="panel1-ctrls button-icon-bg"
+                             data-actions-container="">
+                        </div>
+                        <h2 id="label_2"></h2>
+                    </div>
+                    <div class="panel-body">
+                        <div id="chart_2" class="charts"></div>
+                    </div>
+                </div>
+
+                <div class="panel widgets p-n m-sm" id="wiget_3" data-widget='{"id" : "wiget3"}'>
+                    <div class="panel-heading">
+                        <div class="panel1-ctrls button-icon-bg"
+                             data-actions-container="">
+                        </div>
+                        <h2 id="label_3"></h2>
+                    </div>
+                    <div class="panel-body">
+                        <div id="chart_3" class="charts"></div>
+                    </div>
+                </div>
+
+                <div class="panel widgets p-n m-sm" id="wiget_4" data-widget='{"id" : "wiget4"}'>
+                    <div class="panel-heading">
+                        <div class="panel1-ctrls button-icon-bg"
+                             data-actions-container="">
+                        </div>
+                        <h2 id="label_4"></h2>
+                    </div>
+                    <div class="panel-editbox" data-widget-controls=""></div>
+                    <div class="panel-body">
+                        <div id="chart_4" class="charts"></div>
+                    </div>
+                </div>
+
+                <div class="panel widgets p-n m-sm" id="wiget_5" data-widget='{"id" : "wiget5"}'>
+                    <div class="panel-heading">
+                        <div class="panel1-ctrls button-icon-bg"
+                             data-actions-container="">
+                        </div>
+                        <h2 id="label_5"></h2>
+                    </div>
+                    <div class="panel-body">
+                        <div id="chart_5" class="charts"></div>
+                    </div>
+                </div>
+                
+                <div class="panel widgets p-n m-sm" id="wiget_6" data-widget='{"id" : "wiget6"}'>
+                    <div class="panel-heading">
+                        <div class="panel1-ctrls button-icon-bg"
+                             data-actions-container="">
+                        </div>
+                        <h2 id="label_6"></h2>
+                    </div>
+                    <div class="panel-body">
+                        <div id="chart_6" class="charts"></div>
+                    </div>
+                </div>
+
+                <div class="panel widgets p-n m-sm" id="wiget_7" data-widget='{"id" : "wiget7"}'>
+                    <div class="panel-heading">
+                        <div class="panel1-ctrls button-icon-bg"
+                             data-actions-container="">
+                        </div>
+                        <h2 id="label_7"></h2>
+                    </div>
+                    <div class="panel-body">
+                        <div id="chart_7" class="charts"></div>
+                    </div>
+                </div>
+                
+                <div class="panel widgets p-n m-sm" id="wiget_8" data-widget='{"id" : "wiget8"}'>
+                    <div class="panel-heading">
+                        <div class="panel1-ctrls button-icon-bg"
+                             data-actions-container="">
+                        </div>
+                        <h2 id="label_8"></h2>
+                    </div>
+                    <div class="panel-body">
+                        <div id="chart_8" class="charts"></div>
+                    </div>
+                </div>
+
+                <div class="panel widgets p-n m-sm" id="wiget_9" data-widget='{"id" : "wiget9"}'>
+                    <div class="panel-heading">
+                        <div class="panel1-ctrls button-icon-bg"
+                             data-actions-container="">
+                        </div>
+                        <h2 id="label_9"></h2>
+                    </div>
+                    <div class="panel-body">
+                        <div id="chart_9" class="charts"></div>
+                    </div>
+                </div>
+                
+            </div>
+        </div>
+    </div>
+</div>
 
 
 @section PagespecificCss
@@ -229,13 +208,17 @@
     <link href="~/css/light/all.min.css" rel="stylesheet" />
     <link href="~/datacastdashboard/css/bootstrap.min.css" rel="stylesheet" />
     <link href="~/datacastassets/plugins/datatables/dataTables.min.css" rel="stylesheet" />
-    @*<link href="~/css/style.css" rel="stylesheet" />*@  
+    @*<link href="~/css/style.css" rel="stylesheet" />*@
     <link href="~/assets/css/DBWidgetStyles.css" rel="stylesheet" />
 
     <link rel="stylesheet" href="//code.jquery.com/ui/1.12.1/themes/base/jquery-ui.css">
-    <link rel="stylesheet" href="/resources/demos/style.css">   
+    <link rel="stylesheet" href="/resources/demos/style.css">
     <style>
-        .draggable { width: 500px; height: 150px; padding: 0.5em; }
+        .draggable {
+            width: 500px;
+            height: 150px;
+            padding: 0.5em;
+        }
 
         #linkPrintPDF {
             vertical-align: middle;
@@ -249,8 +232,9 @@
         #linkPrintPDFIDT {
             vertical-align: middle;
         }
+
         body {
-         font-family:Times New Roman !important;
+            font-family: Times New Roman !important;
         }
     </style>
 }
@@ -259,30 +243,30 @@
 {
 
 
-<script src="~/assets/plugins/wijets/wijets.js"></script>     								<!-- Wijet -->
-<script src="~/assets/plugins/datatables/jquery.dataTables.js"></script>
-<script src="~/assets/plugins/datatables/dataTables.bootstrap.js"></script>
-<script src="~/assets/demo/demo-datatables.js"></script>
+    <script src="~/assets/plugins/wijets/wijets.js"></script>     								<!-- Wijet -->
+    <script src="~/assets/plugins/datatables/jquery.dataTables.js"></script>
+    <script src="~/assets/plugins/datatables/dataTables.bootstrap.js"></script>
+    <script src="~/assets/demo/demo-datatables.js"></script>
 
 
 
-<script>
-	$('#reset').click(function () {
-		bootbox.confirm("Are you sure you want to clear Local Storage? This will clear ALL globally set settings", function() {
-			localStorage.clear();
-		});
-	});
+    <script>
+        $('#reset').click(function () {
+            bootbox.confirm("Are you sure you want to clear Local Storage? This will clear ALL globally set settings", function () {
+                localStorage.clear();
+            });
+        });
 
-	$.wijets().make();
-</script>
+        $.wijets().make();
+    </script>
 
     <script type="text/javascript" src="~/datacastassets/plugins/datatables/jquery.dataTables.js"></script>
     <script type="text/javascript" src="~/datacastassets/plugins/datatables/dataTables.bootstrap.js"></script>
 
     @*<script src="~/datacastjs/shieldui-all.min.js"></script>
-    <script src="~/datacastjs/angular-1.4.8.min.js"></script>
-    <script src="~/datacastjs/jspdf.debug.js"></script>
-    <script src="~/datacastjs/html2canvas.js"></script>*@
+        <script src="~/datacastjs/angular-1.4.8.min.js"></script>
+        <script src="~/datacastjs/jspdf.debug.js"></script>
+        <script src="~/datacastjs/html2canvas.js"></script>*@
 
     <script src="~/datacastjs/shieldui-all.min.js"></script>
     <script src="~/datacastjs/angular-1.4.8.min.js"></script>
@@ -383,12 +367,12 @@
                                   //  $(".spnIRCDataSet2Name").text($("#ddlIRCDataSet2 option:selected").text());
                                   $(".spnIRCDataSet2Name").text($("#ddlIRCDataSet2 option:selected").text() + " for " + $("#ddl2ndCaluculation option:selected").text());
                                   IRCdataSetName2 = $("#ddlIRCDataSet2 option:selected").text();
-                                  
+
                                   if (dataSetID != "" && dataSetID != "null" && dataSetID != null) {
                                       //LOADING PHASES TABLE AND CHARTS...
-                                      LoadPhasesTableAndCharts(dataSetID);                                     
+                                      LoadPhasesTableAndCharts(dataSetID);
                                   }
-                                  else {                                  
+                                  else {
                                       //For download data tab
                                       $('#ddlDataSetsDD').empty();
                                       $("#divIndicatorSectsion1").html('');//To clear Previos content if any
@@ -398,7 +382,7 @@
                                       $('#divIndicatorDDShortCodes').html('');
                                       $('#divIndicator').empty();
                                       $('.divIndicator').empty();
-                                      $(".divIndicatorSectsion1").empty();                                     
+                                      $(".divIndicatorSectsion1").empty();
                                       $("#chartIRC").html('');
                                       $("#chartIDT").html('');
                                       $('.shield-chart-button').hide();
@@ -442,18 +426,21 @@
             //var name = $("#spnIndicatorName").text();
             var name = "DBWidgetsData";
             var div_content = document.querySelectorAll("#divPrint")[0];
+            //console.log(div_content);
             div_content.style.backgroundColor = "white";
             //make it as html5 canvasotab
             html2canvas(div_content).then(function (canvas) {
                 //change the canvas to jpeg image
                 var image = canvas.toDataURL('image/jpeg');
+                console.log(image);
                 var doc = new jsPDF("l", "pt", "a4");
+                //doc.addImage(image, 'JPEG', 0, 50, 850, 500);
                 doc.addImage(image, 'JPEG', 0, 50, 850, 500);
                 doc.save(name + ".pdf");
                 $("#divLables").hide();
             });
         });
-               
+
         //PRINT IMAGE FUNCTIONALITY...
         $("#linkPrintPNG").on("click", function () {
             $("#divLables").show();
@@ -525,7 +512,7 @@
         }
 
         $(document).ready(function (e) {
-            LoadDataSets();                    
+            LoadDataSets();
         });
 
         function GetMonthName(monthNumber) {
@@ -723,7 +710,7 @@
             companyCode = $("#ddlDataSets").val(); // 'Timken-1-NA-Industrial Distribution';
             var isInvertedVal = false;
             var moveMonths = 0;
-            var _CompanyId = 2301;          
+            var _CompanyId = 2301;
 
             $("#label_" + count).text(indicatorFullName);
 
@@ -794,7 +781,7 @@
         }
 
         function LoadChart(count) {
-            
+
             $("#wiget_" + count).show();
             ticksRepeatCompany = 0;
             ticksRepeatIndicator = 0;
@@ -833,7 +820,7 @@
 
             console.log('ticksRepeatIndicator - ' + ticksRepeatIndicator);
             console.log('ticksRepeatCompany - ' + ticksRepeatCompany);
-           
+
             //LOAD CHART
             $("#chart_" + count).shieldChart({
                 theme: "light",
@@ -1442,7 +1429,7 @@
                 }
             });
         }
-        
+
         function ajaxindicatorstart() {
             // alert("entererd");
             if ($('body').find('#loadingDiv').attr('id') != 'loadingDiv') {
@@ -1466,14 +1453,13 @@
         $("#ddlDataSets").change(function (e) {
             var dataSetID = $("#ddlDataSets").val();//COMPANY ID...
 
-            LoadPhasesTableAndCharts(dataSetID);            
+            LoadPhasesTableAndCharts(dataSetID);
         });
 
-        function LoadPhasesTableAndCharts(dataSetID)
-        {
+        function LoadPhasesTableAndCharts(dataSetID) {
             //alert('from LoadPhasesTableAndCharts');
-            if (dataSetID != "" && dataSetID != "null" && dataSetID != null) {               
-                
+            if (dataSetID != "" && dataSetID != "null" && dataSetID != null) {
+
                 $('.widgets').each(function () {
                     $(".widgets").hide();
                 });
@@ -1484,7 +1470,7 @@
 
                 $('.labels').each(function () {
                     $(".labels").text('');
-                });             
+                });
 
                 $('#tblHeading').text('Indicator Phase Signals for ' + $("#ddlDataSets").val());
                 //TO LOAD PHASE VALUES OF DB WIDGETS IN DATATABLE...
@@ -1523,12 +1509,12 @@
                 if (IndicatorsList != '') {
                     for (var j = 0; j < SelectedIndicatorsCount - 1; j++) {
                         //alert(indicatorsLength[j]);
-                        
+
                         $(".spnIndicatorName").html(SelectedIndicators[j].split('_')[0]);
                         //for (var j = 0; j < 1; j++) {
 
                         //LOADING CHART DATA...
-                        indicatorShotrCode = SelectedIndicators[j].split('_')[0];               
+                        indicatorShotrCode = SelectedIndicators[j].split('_')[0];
 
                         LoadChartData(indicatorShotrCode, j, SelectedIndicators[j].split('_')[1]);
                     }

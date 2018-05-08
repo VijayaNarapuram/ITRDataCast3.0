@@ -2373,8 +2373,9 @@ else
 
         function LoadIndicatorsListDownloadDataForMultipleCompanyDataSetsSection1() {
             $("#divIndicatorSection1").html(''); // To Clear previous values if any
-            $.getJSON("GetCompanyDatasetsInfoForDownloadSection1?dataSetIDs=" + $("#ddlDataSetsDD").val(),
+            $.getJSON("GetCompanyDatasetsInfoForDownloadSection1?dataSetIDs=" + encodeURIComponent($("#ddlDataSetsDD").val()),
                 function(data) {
+             
                     var jsonObject = JSON.parse(data);
                     var htmlIndicatorString = "";
                     $("#divIndicatorDD").html(''); //To clean Previous content if any
@@ -2741,7 +2742,7 @@ else
 
         function LoadIDTChartData() {
 
-            $.getJSON("GetCompanyDataForTrends?CompanyShortCode=" + IDTdataSetName + "&CaluclationType=" + caluculationTypeVal,
+            $.getJSON("GetCompanyDataForTrends?CompanyShortCode=" + encodeURIComponent(IDTdataSetName) + "&CaluclationType=" + caluculationTypeVal,
                 function(data) {
                     IDTcombinationObject = JSON.parse(data);
                     //IDTcombinationObject = combinationObject;//For InternalDataTrends chart
@@ -2815,7 +2816,7 @@ else
             SecondMinCompany = 0;
         //Created By Vishnu, Will loads the Internal rates of change data.
         function LoadIRCChartData() {
-            $.getJSON("GetCompaniesDataForInternalRatesOfChange?FirstCompanyDatasetName=" + IRCdataSetName1 + "&FirstDatasetCaluclationType=" + IRCTooltip1Text + "&SecondCompanyDatasetName=" + IRCdataSetName2 + "&SecondDatasetCaluclationType=" + IRCTooltip2Text,
+            $.getJSON("GetCompaniesDataForInternalRatesOfChange?FirstCompanyDatasetName=" + encodeURIComponent(IRCdataSetName1) + "&FirstDatasetCaluclationType=" + IRCTooltip1Text + "&SecondCompanyDatasetName=" + encodeURIComponent(IRCdataSetName2) + "&SecondDatasetCaluclationType=" + IRCTooltip2Text,
                 function(data) {
                     IRCcombinationObject1 = JSON.parse(data);
 
@@ -3014,7 +3015,7 @@ else
                                     companytitlestatus = 1
                                     //  return  'Company 12/12 (Annual Growth Rate)'
                                     return 'Company - 3/12 '
-                                } else if (item.StatPref1 == "Raw") {
+                                } else if (item.StatPref1 == "Monthly") {
                                     companytitlestatus = 1
                                     //  return  'Company 12/12 (Annual Growth Rate)'
                                     return 'Company - Monthly '
@@ -3079,7 +3080,7 @@ else
                                     indicatortitlestatus = 1
                                     // return  'Indicator 3/12 (Annual Growth Rate)'
                                     return ' Indicator - 3/12 '
-                                } else if (item.StatPref1 == "Raw") {
+                                } else if (item.StatPref1 == "Monthly") {
                                     indicatortitlestatus = 1
                                     // return  'Indicator 3/12 (Annual Growth Rate)'
                                     return ' Indicator - Monthly '
@@ -3185,7 +3186,7 @@ else
                                                 value: item.C3BY12 //point.y
                                             }
                                         );
-                                    } else if (item.StatPref1 == "Raw") {
+                                    } else if (item.StatPref1 == "Monthly") {
                                         return shield.format(
                                             '<span><b> Indicator Data Percent Change in 12-Month Moving Average: {value}</b></span>', {
                                                 value: item.Monthly //point.y
@@ -3242,7 +3243,7 @@ else
                                     return {
                                         y: item.C3BY12
                                     } // //return { y: item.C12BY12 }
-                                } else if (item.StatPref1 == "Raw") {
+                                } else if (item.StatPref1 == "Monthly") {
                                     if (k == 0) {
                                         if (item.Monthly < 0) {
                                             if (ChartCompanyMinValue > item.Monthly)
@@ -3315,7 +3316,7 @@ else
                                     return {
                                         y: item.C3BY12
                                     }
-                                } else if (item.StatPref1 == "Raw") {
+                                } else if (item.StatPref1 == "Monthly") {
                                     return {
                                         y: item.Monthly
                                     }
@@ -3357,7 +3358,7 @@ else
                                                 value: item.C3BY12 //point.y
                                             }
                                         );
-                                    } else if (item.StatPref1 == "Raw") {
+                                    } else if (item.StatPref1 == "Monthly") {
                                         return shield.format(
                                             '<span><b> Indicator Data Percent Change in 12-Month Moving Average: {value}</b></span>', {
                                                 value: item.Monthly //point.y
@@ -3429,7 +3430,7 @@ else
                                     return {
                                         y: item.C3BY12
                                     }
-                                } else if (item.StatPref1 == "Raw") {
+                                } else if (item.StatPref1 == "Monthly") {
                                     if (k == 0) {
                                         if (item.Monthly < 0) {
                                             if (ChartIndicatorMinValue > item.Monthly)
@@ -3506,7 +3507,7 @@ else
                                     return {
                                         y: item.C3BY12
                                     }
-                                } else if (item.StatPref1 == "Raw") {
+                                } else if (item.StatPref1 == "Monthly") {
                                     return {
                                         y: item.Monthly
                                     }
@@ -3678,7 +3679,7 @@ else
                                 } else if (item.StatPref1 == "3/12") {
                                     companytitlestatus = 1
                                     return 'Company 3/12 (Annual Growth Rate)'
-                                } else if (item.StatPref1 == "Raw") {
+                                } else if (item.StatPref1 == "Monthly") {
                                     companytitlestatus = 1
                                     return 'Company Monthly (Annual Growth Rate)'
                                 } else {
@@ -3741,7 +3742,7 @@ else
                                 } else if (item.StatPref1 == "3/12") {
                                     indicatortitlestatus = 1
                                     return 'Indicator 3/12 (Annual Growth Rate)'
-                                } else if (item.StatPref1 == "Raw") {
+                                } else if (item.StatPref1 == "Monthly") {
                                     indicatortitlestatus = 1
                                     return 'Indicator Monthly (Annual Growth Rate)'
                                 } else {
@@ -3861,7 +3862,7 @@ else
                                 return {
                                     y: item.C3BY12
                                 } // //return { y: item.C12BY12 }
-                            } else if (item.StatPref1 == "Raw") {
+                            } else if (item.StatPref1 == "Monthly") {
                                 if (k == 0) {
                                     if (item.Monthly < 0) {
                                         if (ChartCompanyMinValue > item.Monthly)
@@ -3937,7 +3938,7 @@ else
                                     return {
                                         y: item.C3BY12
                                     }
-                                } else if (item.StatPref1 == "Raw") {
+                                } else if (item.StatPref1 == "Monthly") {
                                     return {
                                         y: item.Monthly
                                     }
@@ -4014,7 +4015,7 @@ else
                                     return {
                                         y: item.C3BY12
                                     }
-                                } else if (item.StatPref1 == "Raw") {
+                                } else if (item.StatPref1 == "Monthly") {
                                     if (k == 0) {
                                         if (item.Monthly < 0) {
                                             if (ChartIndicatorMinValue > item.Monthly)
@@ -4091,7 +4092,7 @@ else
                                     return {
                                         y: item.C3BY12
                                     }
-                                else if (item.StatPref1 == "Raw")
+                                else if (item.StatPref1 == "Monthly")
                                     return {
                                         y: item.Monthly
                                     }
@@ -4143,7 +4144,7 @@ else
                                     return {
                                         y: item.C3BY12
                                     }
-                                else if (item.StatPref1 == "Raw")
+                                else if (item.StatPref1 == "Monthly")
                                     return {
                                         y: item.Monthly
                                     }
@@ -6256,7 +6257,7 @@ else
         });
 
         function LoadIndicatorDataForDownloadSection3() {
-            $.getJSON("GetIndicatorDataByIndicatorShortCodes?indicatorshortcodes=" + LocalIndicatorShortCode + "&companyCode=" + companyCodeDD,
+            $.getJSON("GetIndicatorDataByIndicatorShortCodes?indicatorshortcodes=" + LocalIndicatorShortCode + "&companyCode=" + encodeURIComponent(companyCodeDD),
                 function(data) {
                     var jsonObject = JSON.parse(data);
                     var htmlIndicatorString = "";
