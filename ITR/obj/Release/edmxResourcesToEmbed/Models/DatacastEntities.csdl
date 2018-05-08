@@ -1862,6 +1862,9 @@
     <FunctionImport Name="uspSelectPhaseValuesOfDBWidgetsByCompanyId" ReturnType="Collection(LDBTESTModel.uspSelectPhaseValuesOfDBWidgetsByCompanyId_Result)">
       <Parameter Name="CompanyShortCode" Mode="In" Type="String" />
     </FunctionImport>
+    <FunctionImport Name="uspSelectForecastDataByIndicatorForDownload" ReturnType="Collection(LDBTESTModel.uspSelectForecastDataByIndicatorForDownload_Result)">
+      <Parameter Name="IndicatorShortCode" Mode="In" Type="String" />
+    </FunctionImport>
   </EntityContainer>
   <ComplexType Name="sp_CheckLogin_Result">
     <Property Type="String" Name="UserName" Nullable="false" MaxLength="64" />
@@ -2624,5 +2627,26 @@
     <Property Type="String" Name="SHORTCODE" Nullable="true" MaxLength="64" />
     <Property Type="String" Name="MY" Nullable="true" MaxLength="64" />
     <Property Type="Int32" Name="Timing" Nullable="true" />
+  </ComplexType>
+  <ComplexType Name="uspSelectForecastDataByIndicatorForDownload_Result">
+    <Property Type="Int32" Name="ForeCastDataID" Nullable="false" />
+    <Property Type="Int32" Name="ForeCastMetaDataID" Nullable="true" />
+    <Property Type="String" Name="ShortCode" Nullable="true" MaxLength="64" />
+    <Property Type="DateTime" Name="ForeCastDate" Nullable="true" />
+    <Property Type="DateTime" Name="MonthYear" Nullable="true" />
+    <Property Type="Decimal" Name="LFR12MMA" Nullable="true" Precision="32" Scale="16" />
+    <Property Type="Decimal" Name="Avg12MMA" Nullable="true" Precision="32" Scale="16" />
+    <Property Type="Decimal" Name="UFR12MMA" Nullable="true" Precision="32" Scale="16" />
+    <Property Type="Decimal" Name="LFR3MMA" Nullable="true" Precision="32" Scale="16" />
+    <Property Type="Decimal" Name="Avg3MMA" Nullable="true" Precision="32" Scale="16" />
+    <Property Type="Decimal" Name="UFR3MMA" Nullable="true" Precision="32" Scale="16" />
+    <Property Type="Decimal" Name="LFR12by12" Nullable="true" Precision="32" Scale="16" />
+    <Property Type="Decimal" Name="Avg12by12" Nullable="true" Precision="32" Scale="16" />
+    <Property Type="Decimal" Name="UFR12by12" Nullable="true" Precision="32" Scale="16" />
+    <Property Type="Decimal" Name="LFR3by12" Nullable="true" Precision="32" Scale="16" />
+    <Property Type="Decimal" Name="Avg3by12" Nullable="true" Precision="32" Scale="16" />
+    <Property Type="Decimal" Name="UFR3by12" Nullable="true" Precision="32" Scale="16" />
+    <Property Type="String" Name="CreatedBy" Nullable="true" MaxLength="128" />
+    <Property Type="DateTime" Name="CreatedDate" Nullable="true" Precision="23" />
   </ComplexType>
 </Schema>

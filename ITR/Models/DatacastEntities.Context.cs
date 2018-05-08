@@ -2266,5 +2266,14 @@ namespace ITR.Models
     
             return ((IObjectContextAdapter)this).ObjectContext.ExecuteFunction<uspSelectPhaseValuesOfDBWidgetsByCompanyId_Result>("uspSelectPhaseValuesOfDBWidgetsByCompanyId", companyShortCodeParameter);
         }
+    
+        public virtual ObjectResult<uspSelectForecastDataByIndicatorForDownload_Result> uspSelectForecastDataByIndicatorForDownload(string indicatorShortCode)
+        {
+            var indicatorShortCodeParameter = indicatorShortCode != null ?
+                new ObjectParameter("IndicatorShortCode", indicatorShortCode) :
+                new ObjectParameter("IndicatorShortCode", typeof(string));
+    
+            return ((IObjectContextAdapter)this).ObjectContext.ExecuteFunction<uspSelectForecastDataByIndicatorForDownload_Result>("uspSelectForecastDataByIndicatorForDownload", indicatorShortCodeParameter);
+        }
     }
 }

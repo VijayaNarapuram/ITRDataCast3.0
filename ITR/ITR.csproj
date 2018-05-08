@@ -1408,6 +1408,9 @@
     <Compile Include="Models\uspSelectFavouritesListByUserID_Result.cs">
       <DependentUpon>DatacastEntities.tt</DependentUpon>
     </Compile>
+    <Compile Include="Models\uspSelectForecastDataByIndicatorForDownload_Result.cs">
+      <DependentUpon>DatacastEntities.tt</DependentUpon>
+    </Compile>
     <Compile Include="Models\uspSelectIndicatorCategoryDropdown_Result.cs">
       <DependentUpon>DbEntities.tt</DependentUpon>
     </Compile>

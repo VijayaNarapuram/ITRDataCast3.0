@@ -4,7 +4,7 @@
   <edmx:Runtime>
     <!-- SSDL content -->
     <edmx:StorageModels>
-    <Schema Namespace="LDBTESTModel.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2008" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+    <Schema Namespace="LDBTESTModel.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2008" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
         <!--Errors Found During Generation:
 warning 6002: The table/view 'LDBTEST_04092018.dbo.Categories' does not have a primary key defined. The key has been inferred and the definition was created as a read-only table/view.-->
         <EntityType Name="Categories">
@@ -1764,6 +1764,9 @@ warning 6002: The table/view 'LDBTEST_04092018.dbo.vwTableau' does not have a pr
         <Function Name="uspSelectFavouritesListByUserID" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
           <Parameter Name="UserID" Type="int" Mode="In" />
           <Parameter Name="CompanyShortCode" Type="varchar" Mode="In" />
+        </Function>
+        <Function Name="uspSelectForecastDataByIndicatorForDownload" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+          <Parameter Name="IndicatorShortCode" Type="varchar" Mode="In" />
         </Function>
         <Function Name="uspSelectIndicatorDataByIndicatorShortCodes" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
           <Parameter Name="IndicatorShortCodes" Type="varchar(max)" Mode="In" />
@@ -4544,7 +4547,10 @@ FROM [dbo].[vwTableau] AS [vwTableau]</DefiningQuery>
             <Parameter Name="SortDir" Mode="In" Type="String" />
           </FunctionImport>
           <FunctionImport Name="uspSelectPhaseValuesOfDBWidgetsByCompanyId" ReturnType="Collection(LDBTESTModel.uspSelectPhaseValuesOfDBWidgetsByCompanyId_Result)">
-            <Parameter Name="CompanyShortCode" Mode="In" Type="String" />
+          <Parameter Name="CompanyShortCode" Mode="In" Type="String" />
+          </FunctionImport>
+          <FunctionImport Name="uspSelectForecastDataByIndicatorForDownload" ReturnType="Collection(LDBTESTModel.uspSelectForecastDataByIndicatorForDownload_Result)">
+            <Parameter Name="IndicatorShortCode" Mode="In" Type="String" />
           </FunctionImport>
         </EntityContainer>
         <ComplexType Name="sp_CheckLogin_Result">
@@ -5308,6 +5314,27 @@ FROM [dbo].[vwTableau] AS [vwTableau]</DefiningQuery>
           <Property Type="String" Name="SHORTCODE" Nullable="true" MaxLength="64" />
           <Property Type="String" Name="MY" Nullable="true" MaxLength="64" />
           <Property Type="Int32" Name="Timing" Nullable="true" />
+        </ComplexType>
+        <ComplexType Name="uspSelectForecastDataByIndicatorForDownload_Result">
+          <Property Type="Int32" Name="ForeCastDataID" Nullable="false" />
+          <Property Type="Int32" Name="ForeCastMetaDataID" Nullable="true" />
+          <Property Type="String" Name="ShortCode" Nullable="true" MaxLength="64" />
+          <Property Type="DateTime" Name="ForeCastDate" Nullable="true" />
+          <Property Type="DateTime" Name="MonthYear" Nullable="true" />
+          <Property Type="Decimal" Name="LFR12MMA" Nullable="true" Precision="32" Scale="16" />
+          <Property Type="Decimal" Name="Avg12MMA" Nullable="true" Precision="32" Scale="16" />
+          <Property Type="Decimal" Name="UFR12MMA" Nullable="true" Precision="32" Scale="16" />
+          <Property Type="Decimal" Name="LFR3MMA" Nullable="true" Precision="32" Scale="16" />
+          <Property Type="Decimal" Name="Avg3MMA" Nullable="true" Precision="32" Scale="16" />
+          <Property Type="Decimal" Name="UFR3MMA" Nullable="true" Precision="32" Scale="16" />
+          <Property Type="Decimal" Name="LFR12by12" Nullable="true" Precision="32" Scale="16" />
+          <Property Type="Decimal" Name="Avg12by12" Nullable="true" Precision="32" Scale="16" />
+          <Property Type="Decimal" Name="UFR12by12" Nullable="true" Precision="32" Scale="16" />
+          <Property Type="Decimal" Name="LFR3by12" Nullable="true" Precision="32" Scale="16" />
+          <Property Type="Decimal" Name="Avg3by12" Nullable="true" Precision="32" Scale="16" />
+          <Property Type="Decimal" Name="UFR3by12" Nullable="true" Precision="32" Scale="16" />
+          <Property Type="String" Name="CreatedBy" Nullable="true" MaxLength="128" />
+          <Property Type="DateTime" Name="CreatedDate" Nullable="true" Precision="23" />
         </ComplexType>
       </Schema>
     </edmx:ConceptualModels>
@@ -7675,6 +7702,31 @@ FROM [dbo].[vwTableau] AS [vwTableau]</DefiningQuery>
                 <ScalarProperty Name="SHORTCODE" ColumnName="SHORTCODE" />
                 <ScalarProperty Name="MY" ColumnName="MY" />
                 <ScalarProperty Name="Timing" ColumnName="Timing" />
+              </ComplexTypeMapping>
+            </ResultMapping>
+          </FunctionImportMapping>
+          <FunctionImportMapping FunctionImportName="uspSelectForecastDataByIndicatorForDownload" FunctionName="LDBTESTModel.Store.uspSelectForecastDataByIndicatorForDownload">
+            <ResultMapping>
+              <ComplexTypeMapping TypeName="LDBTESTModel.uspSelectForecastDataByIndicatorForDownload_Result">
+                <ScalarProperty Name="ForeCastDataID" ColumnName="ForeCastDataID" />
+                <ScalarProperty Name="ForeCastMetaDataID" ColumnName="ForeCastMetaDataID" />
+                <ScalarProperty Name="ShortCode" ColumnName="ShortCode" />
+                <ScalarProperty Name="ForeCastDate" ColumnName="ForeCastDate" />
+                <ScalarProperty Name="MonthYear" ColumnName="MonthYear" />
+                <ScalarProperty Name="LFR12MMA" ColumnName="LFR12MMA" />
+                <ScalarProperty Name="Avg12MMA" ColumnName="Avg12MMA" />
+                <ScalarProperty Name="UFR12MMA" ColumnName="UFR12MMA" />
+                <ScalarProperty Name="LFR3MMA" ColumnName="LFR3MMA" />
+                <ScalarProperty Name="Avg3MMA" ColumnName="Avg3MMA" />
+                <ScalarProperty Name="UFR3MMA" ColumnName="UFR3MMA" />
+                <ScalarProperty Name="LFR12by12" ColumnName="LFR12by12" />
+                <ScalarProperty Name="Avg12by12" ColumnName="Avg12by12" />
+                <ScalarProperty Name="UFR12by12" ColumnName="UFR12by12" />
+                <ScalarProperty Name="LFR3by12" ColumnName="LFR3by12" />
+                <ScalarProperty Name="Avg3by12" ColumnName="Avg3by12" />
+                <ScalarProperty Name="UFR3by12" ColumnName="UFR3by12" />
+                <ScalarProperty Name="CreatedBy" ColumnName="CreatedBy" />
+                <ScalarProperty Name="CreatedDate" ColumnName="CreatedDate" />
               </ComplexTypeMapping>
             </ResultMapping>
           </FunctionImportMapping>
