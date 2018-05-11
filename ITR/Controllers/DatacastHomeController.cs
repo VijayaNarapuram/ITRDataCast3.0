@@ -8,6 +8,7 @@ using System.Collections.Generic;
 using System.Configuration;
 using System.Data;
 using System.Data.SqlClient;
+using System.Globalization;
 using System.IO;
 using System.Linq;
 using System.Net;
@@ -734,6 +735,74 @@ namespace ITR.Controllers
                     m_odbcon.Open();
                 }
                 odbadpt.Fill(retds);
+
+                // ExportDataSetToExcel(retds,outputpath);
+                // ExportToExcel(retds, outputpath);
+                GridView GridView1 = new GridView();
+                GridView1.AllowPaging = false;
+                GridView1.DataSource = retds;
+                GridView1.DataBind();
+                Response.Clear();
+                Response.Buffer = true;
+                // Response.AddHeader("content-disposition",
+                // "attachment;filename=IndicatorList.csv");
+                //Response.Charset = "";
+                //Response.ContentType = "application/vnd.ms-excel";
+                StringWriter sw = new StringWriter();
+                HtmlTextWriter hw = new HtmlTextWriter(sw);
+                GridView1.RenderControl(hw);
+                Response.Output.Write(sw.ToString());
+                Response.Flush();
+                Response.End();
+                m_odbcon.Close();
+
+            }
+            catch (Exception ex)
+            {
+                throw new Exception(ex.Message, ex.InnerException);
+            }
+            finally
+            {
+                if (m_odbcon.State == ConnectionState.Open)
+                {
+                    m_odbcon.Close();
+                }
+                odbadpt = null;
+            }
+            // return retds;
+
+        }
+
+
+        public void GetForecastDataByIndicatorForDownloadSection3(string IndicatorShortCode)
+        {
+            SqlConnection m_odbcon = new System.Data.SqlClient.SqlConnection(m_sdbconstr);
+
+            DataSet retds = new DataSet();
+
+            System.Data.SqlClient.SqlDataAdapter odbadpt = new System.Data.SqlClient.SqlDataAdapter("exec dbo.uspSelectForecastDataByIndicatorForDownload  @IndicatorShortCode='" + IndicatorShortCode + "'", m_odbcon);
+
+            try
+            {
+                odbadpt.SelectCommand.CommandType = CommandType.Text;
+                odbadpt.SelectCommand.CommandTimeout = 1200;
+                if (m_odbcon.State == ConnectionState.Closed)
+                {
+                    m_odbcon.Open();
+                }
+                odbadpt.Fill(retds);
+                DataTable table = retds.Tables[0];
+               
+                foreach (DataRow row in table.Rows)
+                {
+                   
+                    DateTime dt = DateTime.Parse(row["MonthYear"].ToString());
+                    DateTime dt1 = DateTime.Parse(row["ForeCastDate"].ToString());
+                 
+                    row["ForeCastDate"] = dt.ToString("MMMM dd yyyy");
+                    row["MonthYear"] = dt.ToString("MMMM dd yyyy");
+
+                }
 
                 // ExportDataSetToExcel(retds,outputpath);
                 // ExportToExcel(retds, outputpath);
