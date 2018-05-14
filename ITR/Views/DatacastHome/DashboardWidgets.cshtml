@@ -521,45 +521,45 @@
             };
             responseData = SendRequestJSON(url, modelObj);
             if (responseData.length > 0) {
-                $("#ACQNINACQS").html(responseData);
-
-                $(document).on('click', '.btnDelDbWidget', function (e) {
-                    ajaxindicatorstart();
-
-                    var ControlId = $(this).attr('id');
-                    var DashboardWidgetsListId = ControlId.split('_')[1];
-
-                    //alert(DashboardWidgetsListId);
-                    //alert($("#ddlDataSets").val());
-                    //alert(userId);
-
-                    var urldelete = '/DatacastDBWidget//DeleteDBWidgetIndicator';
-                    var modelobjlocal = {
-                        DashboardWidgetsListId: DashboardWidgetsListId,
-                        CompanyShortCode: $("#ddlDataSets").val(),
-                        UserID: userId
-                    };
-
-                    var txt;
-                    console.log('modelobjlocal -' + modelobjlocal);
-
-                    if (confirm("Are you sure?") == true) {
-                        var response = SendRequestJSON(urldelete, modelobjlocal);
-
-                        if (response.result == '1') {
-                            alert("Dashboard Widget indicator deleted successfully.");
-
-                            //LoadPhaseValuesOfDBWidgets();
-                            LoadPhasesTableAndCharts($("#ddlDataSets").val());
-                        } else {
-                            alert("Unable to Delete Dashboard Widget indicator.");
-                        }
-                    } else {
-                    }
-                    ajaxindicatorstop();
-                });
+                $("#ACQNINACQS").html(responseData);               
             }
         }
+
+        $(document).on('click', '.btnDelDbWidget', function (e) {
+            ajaxindicatorstart();
+
+            var ControlId = $(this).attr('id');
+            var DashboardWidgetsListId = ControlId.split('_')[1];
+
+            //alert(DashboardWidgetsListId);
+            //alert($("#ddlDataSets").val());
+            //alert(userId);
+
+            var urldelete = '/DatacastDBWidget//DeleteDBWidgetIndicator';
+            var modelobjlocal = {
+                DashboardWidgetsListId: DashboardWidgetsListId,
+                CompanyShortCode: $("#ddlDataSets").val(),
+                UserID: userId
+            };
+
+            var txt;
+            console.log('modelobjlocal -' + modelobjlocal);
+
+            if (confirm("Are you sure you want to delete this indicator?") == true) {
+                var response = SendRequestJSON(urldelete, modelobjlocal);
+
+                if (response.result == '1') {
+                    alert("Dashboard Widget indicator deleted successfully.");
+
+                    //LoadPhaseValuesOfDBWidgets();
+                    LoadPhasesTableAndCharts($("#ddlDataSets").val());
+                } else {
+                    alert("Unable to Delete Dashboard Widget indicator.");
+                }
+            } else {
+            }
+            //ajaxindicatorstop();
+        });
 
         $(document).ready(function (e) {
             LoadDataSets();

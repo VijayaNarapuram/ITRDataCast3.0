@@ -759,7 +759,7 @@ else
         <script type="text/javascript" src="//ajax.googleapis.com/ajax/libs/jquery/1.8.1/jquery.min.js"></script>*@
     <script src="~/datacastjs/jquery-1.11.1.min.js"></script>
     <script type="text/javascript" lang="javascript">
-        //console.log("else case");
+        ////console.log("else case");
         var elseCaseCompanyId = window.localStorage.getItem('ECompanyID');
         $("#hdnCompanyID").val(elseCaseCompanyId);
         var elseCaseDivisionID = window.localStorage.getItem('EDivisionID');
@@ -783,11 +783,11 @@ else
             dataType: "json",
             data: sessionObj,
             success: function (res) {
-                console.log("Step 4 Datacast Else Case");
-                // console.log(res);
+                //console.log("Step 4 Datacast Else Case");
+                // //console.log(res);
             },
             error: function (error) {
-                console.log(error)
+                //console.log(error)
             }
         });
         $("#hdnCompanyID").val(2301) //5399); //8224)
@@ -1216,8 +1216,8 @@ else
             //        if (i == 0) { //For Loading first time
             //            indicatorShotrCode = obj["Indicator"];
             //            companyCode = obj["Company"];
-            //            // console.log("companyCode " + companyCode)
-            //            // console.log("indicatorShotrCode " + indicatorShotrCode)
+            //            // //console.log("companyCode " + companyCode)
+            //            // //console.log("indicatorShotrCode " + indicatorShotrCode)
             //        }
             //        if (i == 0) {
             //            htmlIndicatorString = htmlIndicatorString + '<div class="row cursor active blocked" data-indicatorShotrCode="' + obj["Indicator"] + '"   data-companyCode="' + obj["Company"] + '">';
@@ -1227,7 +1227,7 @@ else
             //            htmlIndicatorString = htmlIndicatorString + '<div class="row cursor" data-indicatorShotrCode="' + obj["Indicator"] + '"   data-companyCode="' + obj["Company"] + '">';
             //        }
             //        for (key in obj) {
-            //            //  console.log("Key is " + key + "  value is " + obj[key]);
+            //            //  //console.log("Key is " + key + "  value is " + obj[key]);
             //            if (key == "ASeriesName") enter
             //                htmlIndicatorString = htmlIndicatorString + '<div class="col-sm-6" style="font-size: 11px;">	' + obj["ASeriesName"] + '</div>';
             //            }
@@ -1256,7 +1256,7 @@ else
             {
                 var Indicatorcode="";
                 var bTable = "";
-                //console.log('from IndicationSummary FavListFlag - ' + FavListFlag);
+                ////console.log('from IndicationSummary FavListFlag - ' + FavListFlag);
                 //TABLE DEFINITION for Indicator list
                 bTable = $('#CorelationLeadLagListIndicationSummary').dataTable({
                     "aLengthMenu": [
@@ -1426,8 +1426,8 @@ else
                                 $(".spnIndicatorName").html(aData[0]);
                                 indicatorShotrCode = aData[4];
                                 //alert(indicatorShotrCode);
-                                //console.log("indicatorShotrCode "+indicatorShotrCode)
-                                //console.log("companyCode "+companyCode)
+                                ////console.log("indicatorShotrCode "+indicatorShotrCode)
+                                ////console.log("companyCode "+companyCode)
                                 $(this).addClass("active");
                                 //khaja
                                 ticksRepeatCompany = 0;
@@ -1497,7 +1497,7 @@ else
                             "render": function(oObj) {
 
                                 ivar = ivar + 1;
-                                //console.log('FavList - ' + FavList);
+                                ////console.log('FavList - ' + FavList);
                                 //if(FavListFlag == false)
                                 // {
                                 if (FavList.indexOf(oObj + ",") >= 0) {
@@ -1516,10 +1516,11 @@ else
                             "bSortable": false,
                             "render": function(oObj) {
                                 ivarforDBWidgets = ivarforDBWidgets + 1;
-                                //console.log('oObj - ' + oObj);
+                                ////console.log('oObj - ' + oObj);
+                                //console.log('DBWidgetsList - ' + DBWidgetsList);
 
                                 if (DBWidgetsList.indexOf(oObj + ",") >= 0) {
-                                    //console.log('from if loop');
+                                    ////console.log('from if loop');
                                     return '<input type="checkbox" id=' + ivarforDBWidgets + ' class="CBDB" checked >';
                                 } else
                                     return '<input type="checkbox" id=' + ivarforDBWidgets + ' class="CBDB" > ';
@@ -1596,7 +1597,7 @@ else
                 //khaja
                 // $('#CorelationLeadLagList_filter input').attr("placeholder", "Search");
                 $("#CorelationLeadLagList_paginate").on("click", "a", function() {
-                    //console.log('from paginate');
+                    ////console.log('from paginate');
 
                     $('.CBX').each(function() {
                         if ($(this)[0].checked) {
@@ -1635,7 +1636,7 @@ else
                             }
                         }
 
-                        //console.log('DBWidgetsList -' + DBWidgetsList);
+                        ////console.log('DBWidgetsList -' + DBWidgetsList);
                     });
                 });
 
@@ -1997,12 +1998,12 @@ else
             FavListName = SelFavName;
             DBWidgetsListFlag = false; //DBWidget flag is false...
 
-            //console.log('FuncnText - ' + FuncnText);
+            ////console.log('FuncnText - ' + FuncnText);
 
             $("#spnFavListName").html('Favorite Name: <b>' + FavListName + '</b>');
 
             if (FuncnText == " Show Favorites List ") {
-                //console.log('from show fav list');
+                ////console.log('from show fav list');
 
                 $('#SaveFavorites').val(' Update Favorites List ');
                 //$('#ShowFavorites').val(' Hide Favorites List ');
@@ -2017,7 +2018,7 @@ else
                         for (i = 0; i < jsonObject.length; i++) {
                             var obj = jsonObject[i];
 
-                            //console.log(obj["IndicatorShortCode"]);
+                            ////console.log(obj["IndicatorShortCode"]);
                             if (FavList == "")
                                 FavList = obj["IndicatorShortCode"] + ",";
                             else {
@@ -2027,7 +2028,7 @@ else
                             }
                         }
 
-                        //console.log('from show favs - ' + FavList);
+                        ////console.log('from show favs - ' + FavList);
                         var oTable = $('#CorelationLeadLagList').dataTable();
                         oTable.fnDraw();
                         ajaxindicatorstop();
@@ -2108,7 +2109,7 @@ else
         $(document).on('click', '#SaveFavorites', function(e) {
             e.preventDefault();
 
-            //console.log('FavList from save fav -' + FavList);
+            ////console.log('FavList from save fav -' + FavList);
 
             $('.CBX').each(function() {
                 if ($(this)[0].checked) {
@@ -2275,7 +2276,7 @@ else
             i = 0;
             j = 0;
 
-            //console.log('widgetsCount -' + widgetsCount);
+            ////console.log('widgetsCount -' + widgetsCount);
 
             $(this).addClass("active");
 
@@ -2335,8 +2336,8 @@ else
             //        if (i == 0) { //For Loading first time
             //            // indicatorShotrCode = obj["Indicator"];
             //            // companyCode = obj["Company"];
-            //            // console.log("companyCode " + companyCode)
-            //            // console.log("indicatorShotrCode " + indicatorShotrCode)
+            //            // //console.log("companyCode " + companyCode)
+            //            // //console.log("indicatorShotrCode " + indicatorShotrCode)
             //        }
 
             //        if (i == 0) {
@@ -2347,7 +2348,7 @@ else
             //            htmlIndicatorString = htmlIndicatorString + '<div class="row cursorDD" data-indicatorShotrCode="' + obj["Indicator"] + '"   data-companyCode="' + obj["Company"] + '">';
             //        }
             //        for (key in obj) {
-            //            //  console.log("Key is " + key + "  value is " + obj[key]);
+            //            //  //console.log("Key is " + key + "  value is " + obj[key]);
             //            if (key == "ASeriesName") {
             //                htmlIndicatorString = htmlIndicatorString + '<div class="col-sm-6" style="font-size: 11px;">	' + obj["ASeriesName"] + '</div>';
             //            }
@@ -2388,8 +2389,8 @@ else
                         if (i == 0) { //For Loading first time
                             indicatorShotrCode = obj["Indicator"];
                             companyCode = obj["Company"];
-                            // console.log("companyCode " + companyCode)
-                            // console.log("indicatorShotrCode " + indicatorShotrCode)
+                            // //console.log("companyCode " + companyCode)
+                            // //console.log("indicatorShotrCode " + indicatorShotrCode)
                         }
                         if (i == 0) {
                             htmlIndicatorString = htmlIndicatorString + '<div class="rowstyle dataRow1Cnt" data-indicatorShotrCode="' + obj["Indicator"] + '"   data-companyCode="' + obj["Company"] + '">';
@@ -2399,7 +2400,7 @@ else
                         }
                         for (key in obj) {
 
-                            //  console.log("Key is " + key + "  value is " + obj[key]);
+                            //  //console.log("Key is " + key + "  value is " + obj[key]);
                             if (key == "MonthYear") {
                                 var dateValue = new Date(parseInt(obj["MonthYear"].substr(6)));
                                 // dateValue= parseInt(dateValue.getMonth() + 1) + "/" + parseInt(dateValue.getDate()) + "/" + dateValue.getFullYear()
@@ -2492,8 +2493,8 @@ else
             //        if (i == 0) { //For Loading first time
             //            indicatorShotrCodeDD = obj["Indicator"];
             //            companyCodeDD = obj["Company"];
-            //            // console.log("companyCode " + companyCode)
-            //            // console.log("indicatorShotrCode " + indicatorShotrCode)
+            //            // //console.log("companyCode " + companyCode)
+            //            // //console.log("indicatorShotrCode " + indicatorShotrCode)
             //        }
 
             //        if (i == 0) {
@@ -2505,7 +2506,7 @@ else
             //            htmlIndicatorString = htmlIndicatorString + '<div class="row cursorDD" data-indicatorShotrCode="' + obj["Indicator"] + '"   data-companyCode="' + obj["Company"] + '">';
             //        }
             //        for (key in obj) {
-            //            //  console.log("Key is " + key + "  value is " + obj[key]);
+            //            //  //console.log("Key is " + key + "  value is " + obj[key]);
             //            if (key == "ASeriesName") {
             //                htmlIndicatorString = htmlIndicatorString + '<div class="col-sm-6" style="font-size: 11px;">	' + obj["ASeriesName"] + '</div>';
             //            }
@@ -2637,7 +2638,7 @@ else
                 function(data) {
                     combinationObject = JSON.parse(data);
 
-                    //console.log('combinationObject - ' + combinationObject);
+                    ////console.log('combinationObject - ' + combinationObject);
 
                     IDTcombinationObject = combinationObject; //For InternalDataTrends chart
                     var IndicatorMINFlag = false,
@@ -2647,7 +2648,7 @@ else
                     for (i = 0; i < combinationObject.length; i++) {
                         var obj = combinationObject[i];
                         for (key in obj) {
-                            // console.log("Key is " + key + "  value is " + obj[key]);
+                            // //console.log("Key is " + key + "  value is " + obj[key]);
                             var value1 = obj[key];
                             if (key == "Duration") {
                                 duration = value1;
@@ -2659,31 +2660,31 @@ else
                                 IndicatorMinValue = value1;
                                 IndicatorMINFlag = true;
 
-                                console.log('IndicatorMinValue - ' + IndicatorMinValue);
+                                //console.log('IndicatorMinValue - ' + IndicatorMinValue);
                             } else if (key == "MaxValue" && obj["Code"] == "Indicator" && IndicatorMAXFlag == false) {
                                 IndicatorMaxValue = value1;
                                 IndicatorMAXFlag = true;
 
-                                console.log('IndicatorMaxValue - ' + IndicatorMaxValue);
+                                //console.log('IndicatorMaxValue - ' + IndicatorMaxValue);
                             } else if (key == "MinValue" && obj["Code"] == "Company" && CompanyMINFlag == false) {
                                 CompanyMinValue = value1;
                                 CompanyMINFlag = true;
 
-                                console.log('CompanyMinValue - ' + CompanyMinValue);
+                                //console.log('CompanyMinValue - ' + CompanyMinValue);
                             } else if (key == "MaxValue" && obj["Code"] == "Company" && CompanyMAXFlag == false) {
                                 CompanyMaxValue = value1;
                                 CompanyMAXFlag = true;
 
-                                console.log('CompanyMaxValue - ' + CompanyMaxValue);
+                                //console.log('CompanyMaxValue - ' + CompanyMaxValue);
                             }
 
                             if (IndicatorMINFlag == true && IndicatorMAXFlag == true && CompanyMINFlag == true && CompanyMAXFlag == true) {
-                                //console.log("IndicatorMinValue " + IndicatorMinValue)
-                                //console.log("IndicatorMaxValue " + IndicatorMaxValue)
-                                //console.log("CompanyMinValue " + CompanyMinValue)
-                                //console.log("CompanyMaxValue " + CompanyMaxValue)
+                                ////console.log("IndicatorMinValue " + IndicatorMinValue)
+                                ////console.log("IndicatorMaxValue " + IndicatorMaxValue)
+                                ////console.log("CompanyMinValue " + CompanyMinValue)
+                                ////console.log("CompanyMaxValue " + CompanyMaxValue)
                                 i = combinationObject.length;
-                                console.log('i - ' + i);
+                                //console.log('i - ' + i);
                                 break;
                             }
                         }
@@ -2725,7 +2726,7 @@ else
                     }
                     // LoadDDChart();
                 }).error(function(jqXHR, textStatus, errorThrown) {
-                    //  // console.log("incoming Text " + jqXHR.responseText);
+                    //  // //console.log("incoming Text " + jqXHR.responseText);
                     ajaxindicatorstop(); // Remove the loader
                     document.getElementById("displayMessage").innerHTML = 'There is something wrong with the Combination you selected, please try a different combination';
                     $('#displayMessage').prepend('<span class="button b-close"><span>X</span></span>'); //Prepending Close button to popup
@@ -2753,7 +2754,7 @@ else
                     for (i = 0; i < IDTcombinationObject.length; i++) {
                         var obj = IDTcombinationObject[i];
                         for (key in obj) {
-                            // console.log("Key is " + key + "  value is " + obj[key]);
+                            // //console.log("Key is " + key + "  value is " + obj[key]);
                             var value1 = obj[key];
                             if (key == "Min12MM" && MM12MINFlag == false) {
                                 MM12MinValue = value1;
@@ -2770,10 +2771,10 @@ else
                             }
 
                             if (MM12MINFlag == true && MM12MAXFlag == true && MM3MINFlag == true && MM3MAXFlag == true) {
-                                //console.log("MM12MinValue " + MM12MinValue)
-                                //console.log("MM12MaxValue " + MM12MaxValue)
-                                //console.log("MM3MinValue " + MM3MinValue)
-                                //console.log("MM3MaxValue " + MM3MaxValue)
+                                ////console.log("MM12MinValue " + MM12MinValue)
+                                ////console.log("MM12MaxValue " + MM12MaxValue)
+                                ////console.log("MM3MinValue " + MM3MinValue)
+                                ////console.log("MM3MaxValue " + MM3MaxValue)
                                 i = IDTcombinationObject.length;
                                 break;
                             }
@@ -2797,7 +2798,7 @@ else
                         LoadIDTChart();
                     }
                 }).error(function(jqXHR, textStatus, errorThrown) {
-                    //  // console.log("incoming Text " + jqXHR.responseText);
+                    //  // //console.log("incoming Text " + jqXHR.responseText);
                     ajaxindicatorstop(); // Remove the loader
                     document.getElementById("displayMessage").innerHTML = 'There is something wrong with the Combination you selected, please try a different combination';
                     $('#displayMessage').prepend('<span class="button b-close"><span>X</span></span>'); //Prepending Close button to popup
@@ -2827,7 +2828,7 @@ else
                     for (i = 0; i < IRCcombinationObject1.length; i++) {
                         var obj = IRCcombinationObject1[i];
                         for (key in obj) {
-                            // console.log("Key is " + key + "  value is " + obj[key]);
+                            // //console.log("Key is " + key + "  value is " + obj[key]);
                             var value1 = obj[key];
 
                             if (key == "FirstMinCompany") {
@@ -2855,7 +2856,7 @@ else
                     if (IRCcombinationObject1 != undefined && IRCcombinationObject1 != "")
                         LoadIRCChart();
                 }).error(function(jqXHR, textStatus, errorThrown) {
-                    //  // console.log("incoming Text " + jqXHR.responseText);
+                    //  // //console.log("incoming Text " + jqXHR.responseText);
                     ajaxindicatorstop(); // Remove the loader
                     document.getElementById("displayMessage").innerHTML = 'There is something wrong with the Combination you selected, please try a different combination';
                     $('#displayMessage').prepend('<span class="button b-close"><span>X</span></span>'); //Prepending Close button to popup
@@ -2961,15 +2962,15 @@ else
                     drawWidth: 1,
                     ticksRepeat: 24,
                     categoricalValues: $.map(combinationObject, function(item) {
-                        //console.log('combinationObject - ' + combinationObject);
-                        //console.log(item.Code);
+                        ////console.log('combinationObject - ' + combinationObject);
+                        ////console.log(item.Code);
 
                         if (item.Code == "Indicator") {
                             var dateValue = new Date(parseInt(item.MonthYear.substr(6)));
                             // dateValue= parseInt(dateValue.getMonth() + 1) + "/" + parseInt(dateValue.getDate()) + "/" + dateValue.getFullYear()
                             var monthName = GetMonthName(dateValue.getMonth() + 1);
                             var date = monthName + '  ' + dateValue.getFullYear(); //March  2018
-                            //console.log('date -' + date);
+                            ////console.log('date -' + date);
                             return date;
                         }
                     }),
@@ -2985,7 +2986,7 @@ else
                             // var dateValue = new Date(text);
                             var string = text;
 
-                            //console.log('string - ' + string);
+                            ////console.log('string - ' + string);
 
                             string = string.split("  ");
 
@@ -3302,7 +3303,7 @@ else
                         collectionAlias: "Company Forecast",
                         // data: [null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, 5.9, 11.0, 20.0, -7.8, 9.0]
                         data: $.map(combinationObject, function(item) {
-                            //  console.log(item)
+                            //  //console.log(item)
                             if (item.Code == "Company" && item.Forecast == false)
                                 return {
                                     y: null
@@ -3493,7 +3494,7 @@ else
                         collectionAlias: "Indicator Forecast",
                         // data: [null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, 5.9, 11.0, 20.0, -7.8, 9.0]
                         data: $.map(combinationObject, function(item) {
-                            //  console.log(item)
+                            //  //console.log(item)
                             if (item.Code == "Indicator" && item.Forecast == false)
                                 return {
                                     y: null
@@ -3614,12 +3615,12 @@ else
                     drawWidth: 1,
                     ticksRepeat: 24,
                     categoricalValues: $.map(combinationObject, function(item) {
-                        // console.log(item)
+                        // //console.log(item)
                         if (item.Code == "Indicator") {
                             var dateValue = new Date(parseInt(item.MonthYear.substr(6)));
                             // dateValue= parseInt(dateValue.getMonth() + 1) + "/" + parseInt(dateValue.getDate()) + "/" + dateValue.getFullYear()
                             var monthName = GetMonthName(dateValue.getMonth() + 1);
-                            var date = monthName + '  ' + dateValue.getFullYear()
+                            var date = monthName + '  ' + dateValue.getFullYear();                            
                             return date;
                         }
                     }),
@@ -3635,8 +3636,11 @@ else
                             // var dateValue = new Date(text);
                             var string = text;
                             string = string.split("  ");
-                            //console.log('string from CheckZeroLineForBusinessPhase - ' + string);
-                            return string[0] + "-" + string[1]; //Here 0-index will have month name and 1-index will have year//dateValue.getFullYear();
+                            ////console.log('string from CheckZeroLineForBusinessPhase - ' + string);
+                            //return string[0] + "-" + string[1]; //Here 0-index will have month name and 1-index will have year//dateValue.getFullYear();
+                            /* Modified by Vijaya on 05142018 as per Joe's changes... */
+                            return string[1]; //Here 0-index will have month name and 1-index will have year//dateValue.getFullYear();
+
                         },
                         style: {
                             color: '#000000'
@@ -3924,7 +3928,7 @@ else
                         collectionAlias: "Company Forecast",
                         // data: [null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, 5.9, 11.0, 20.0, -7.8, 9.0]
                         data: $.map(combinationObject, function(item) {
-                            //  console.log(item)
+                            //  //console.log(item)
                             if (item.Code == "Company" && item.Forecast == false)
                                 return {
                                     y: null
@@ -4078,7 +4082,7 @@ else
                         collectionAlias: "Indicator Forecast",
                         // data: [null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, 5.9, 11.0, 20.0, -7.8, 9.0]
                         data: $.map(combinationObject, function(item) {
-                            //  console.log(item)
+                            //  //console.log(item)
                             if (item.Code == "Indicator" && item.Forecast == false)
                                 return {
                                     y: null
@@ -4130,7 +4134,7 @@ else
                         collectionAlias: "Indicator Forecast",
                         // data: [null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, 5.9, 11.0, 20.0, -7.8, 9.0]
                         data: $.map(combinationObject, function(item) {
-                            //  console.log(item)
+                            //  //console.log(item)
                             if (item.Code == "Indicator" && item.Forecast == false)
                                 return {
                                     y: null
@@ -4782,7 +4786,7 @@ else
                     axisTickText: {
                         // return a new text for the ticks of the X-axis
                         format: function(text, axis, chart) {
-                            // console.log("text " + text);
+                            // //console.log("text " + text);
                             if (text === undefined) {
                                 return '0000';
                             } else {
@@ -5375,7 +5379,7 @@ else
 
                 if ($(this).data('indicatorshotrcode') != indicatorShotrCode) {
                     $(this).addClass('active blocked')
-                    // console.log($(this)[0].firstChild.innerText)
+                    // //console.log($(this)[0].firstChild.innerText)
                     $(".spnIndicatorName").text($(this)[0].firstChild.innerText);
 
                     indicatorShotrCode = $(this).data('indicatorshotrcode'); //Assign the value to variable and reload the chart
@@ -5422,7 +5426,7 @@ else
 
                 if ($(this).data('indicatorshotrcode') != indicatorShotrCodeDD) {
                     $(this).addClass('active');
-                    // console.log($(this)[0].firstChild.innerText)
+                    // //console.log($(this)[0].firstChild.innerText)
                     $(".spnIndicatorName").text($(this)[0].firstChild.innerText);
                     indicatorShotrCodeDD = $(this).data('indicatorshotrcode'); //Assign the value to variable and reload the chart
                     LocalIndicatorShortCode = $(this).data('indicatorshotrcode');
@@ -5946,7 +5950,7 @@ else
                             tmpArr.push(tmpStr);
                         }
                     });
-                    //console.log(tmpArr);
+                    ////console.log(tmpArr);
                     csvData.push(tmpArr.join(','));
                     //   }
                 });
@@ -6009,7 +6013,7 @@ else
                 $.get("GetIndicatorSeriesForDownloadSection2", {
                     CompanyShortCode: companyCode
                 }, function(data) {
-                    // console.log(data);
+                    // //console.log(data);
                     //var str = data;
                     // var $link = $(link);
                     var data = $(data); //Only one table
@@ -6190,13 +6194,13 @@ else
             $(document).on('click', '#AddIToDashboard', function(e) {
                 e.preventDefault();
                 //widgetsCount = 0;
-                //console.log('DBWidgets List from save WID -' + DBWidgetsList);
+                ////console.log('DBWidgets List from save WID -' + DBWidgetsList);
 
                 //DASHBOARD INDICATORS LIST...
                 /*
                 $('.CBDB').each(function() {
-                    //console.log('Count - ' + widgetsCount);
-                    //console.log($(this));
+                    ////console.log('Count - ' + widgetsCount);
+                    ////console.log($(this));
                     if ($(this)[0].checked == true) {
                         //alert(widgetsCount);
                         widgetsCount++;
@@ -6247,11 +6251,12 @@ else
                         if (response.result == 'Success') {
                             if ($(this).val() == " Save Dashboard Widgets ") {
                                 alert("Dahsboard widget indicators added successfully.");
-                                //oTable.fnDraw();
+                                oTable.fnDraw();
                                 //FavListFlag = false;
                                 //DBWidgetsListFlag = false;
                             } else {
                                 alert("Dahsboard widget indicators updated successfully.");
+                                DBWidgetsList = '';
                                 var oTable = $('#CorelationLeadLagList').dataTable();
                                 oTable.fnDraw();
                                 //FavListFlag = false;
@@ -6329,13 +6334,13 @@ else
                         if (i == 0) {
                             htmlIndicatorString = htmlIndicatorString + '<div class="row cursorDD" data-indicatorShotrCode="' + obj["Indicator"] + '"   data-companyCode="' + obj["Company"] + '">';
                             $(".spnIndicatorName").html(obj["ASeriesName"]);
-                            // console.log( $(".spnIndicatorName").html());
+                            // //console.log( $(".spnIndicatorName").html());
                             // alert($(".spnIndicatorName").html());
                         } else {
                             htmlIndicatorString = htmlIndicatorString + '<div class="row cursorDD" data-indicatorShotrCode="' + obj["Indicator"] + '"   data-companyCode="' + obj["Company"] + '">';
                         }
                         for (key in obj) {
-                            //  console.log("Key is " + key + "  value is " + obj[key]);
+                            //  //console.log("Key is " + key + "  value is " + obj[key]);
                             if (key == "MonthYear") {
                                 var dateValue = new Date(parseInt(obj["MonthYear"].substr(6)));
                                 // dateValue= parseInt(dateValue.getMonth() + 1) + "/" + parseInt(dateValue.getDate()) + "/" + dateValue.getFullYear()
@@ -6489,7 +6494,7 @@ else
                         for (i = 0; i < jsonObject.length; i++) {
                             var obj = jsonObject[i];
 
-                            //console.log(obj["IndicatorShortCode"]);
+                            ////console.log(obj["IndicatorShortCode"]);
                             if (DBWidgetsList == "")
                                 DBWidgetsList = obj["IndicatorShortCode"] + ",";
                             else {
