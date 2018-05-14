@@ -797,9 +797,9 @@ namespace ITR.Controllers
                 {
                    
                     DateTime dt = DateTime.Parse(row["MonthYear"].ToString());
-                    DateTime dt1 = DateTime.Parse(row["ForeCastDate"].ToString());
+                 //   DateTime dt1 = DateTime.Parse(row["ForeCastDate"].ToString());
                  
-                    row["ForeCastDate"] = dt1.ToString("MMMM dd yyyy");
+                 //   row["ForeCastDate"] = dt1.ToString("MMMM dd yyyy");
                     row["MonthYear"] = dt.ToString("MMMM dd yyyy");
 
                 }
