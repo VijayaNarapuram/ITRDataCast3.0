@@ -575,7 +575,7 @@ namespace ITR.Controllers
                 param.sSearch = "";
             }
 
-          //  IEnumerable<uspSelectFavouriteListByUserID_Result> filteredFavorites = _homeRepository.SelectFavoritesLoadCorelationLeadLagByDataSetID(dataSetID, Convert.ToInt32(Session["UserId"]), SelFavName, param.iDisplayLength, param.iDisplayStart, param.sSearch, sortColumnIndex, sortDirection);
+            //  IEnumerable<uspSelectFavouriteListByUserID_Result> filteredFavorites = _homeRepository.SelectFavoritesLoadCorelationLeadLagByDataSetID(dataSetID, Convert.ToInt32(Session["UserId"]), SelFavName, param.iDisplayLength, param.iDisplayStart, param.sSearch, sortColumnIndex, sortDirection);
             IEnumerable<uspSelectFavouriteListByUserID_Result> filteredFavorites = _homeRepository.SelectFavoritesLoadCorelationLeadLagByDataSetID(dataSetID, userID, SelFavName, param.iDisplayLength, param.iDisplayStart, param.sSearch, sortColumnIndex, sortDirection);
             IEnumerable<uspSelectFavouriteListByUserID_Result> searchFavorites = null;
 
@@ -592,8 +592,6 @@ namespace ITR.Controllers
                                         Convert.ToString(c.Indicator) //FOR DB WIDGET CHECKBOX...
                          };
 
-
-
             var totalcount = filteredFavorites.Count() == 0 ? 0 : filteredFavorites.FirstOrDefault().TotalCount.Value;
             var iTotalRecordsCount = filteredFavorites.Count() == 0 ? 0 : filteredFavorites.FirstOrDefault().iTotalRecords.Value;
 
@@ -601,11 +599,9 @@ namespace ITR.Controllers
 
             // var iTotalRecordsCount = filteredEmployees.FirstOrDefault().iTotalRecords.Value.ToString();
 
-
-
             if (totalcount == 0)// for search  with ZERO records as return case.
             {
-               // searchFavorites = _homeRepository.SelectFavoritesLoadCorelationLeadLagByDataSetID(dataSetID, Convert.ToInt32(Session["UserId"]), SelFavName, param.iDisplayLength, param.iDisplayStart, param.sSearch, sortColumnIndex, sortDirection)
+                // searchFavorites = _homeRepository.SelectFavoritesLoadCorelationLeadLagByDataSetID(dataSetID, Convert.ToInt32(Session["UserId"]), SelFavName, param.iDisplayLength, param.iDisplayStart, param.sSearch, sortColumnIndex, sortDirection)
                 searchFavorites = _homeRepository.SelectFavoritesLoadCorelationLeadLagByDataSetID(dataSetID, userID, SelFavName, param.iDisplayLength, param.iDisplayStart, param.sSearch, sortColumnIndex, sortDirection)
                 .Where(c => Convert.ToString(c.ASeriesName).Contains(param.sSearch)
                                 ||
@@ -614,14 +610,33 @@ namespace ITR.Controllers
                      c.Indicator.ToLower().Contains(param.sSearch)
                                 );
 
+                /* Added by Vijaya, Throwing error if favourites list name doesn't have any indicators */ 
+                var result1 = from c in searchFavorites
+                              select new[] { Convert.ToString(c.ASeriesName),
+                                        Convert.ToString(c.CorrValue),
+                                        Convert.ToString(c.lagValue),
+                                        Convert.ToString(c.Company), 
+                                        Convert.ToString(c.Indicator), 
+                                        Convert.ToString(c.Description), 
+                                        Convert.ToString(c.FavouriteListName),
+                                        Convert.ToString(c.Indicator), //FOR FAVOURITES CHECKBOX...
+                                        Convert.ToString(c.Indicator) //FOR DB WIDGET CHECKBOX...
+                         };
+
+                //return Json(new
+                //{
+                //    sEcho = param.sEcho,
+                //    iTotalRecords = iTotalRecordsCount,
+                //    iTotalDisplayRecords = totalcount,
+                //    aaData = searchFavorites
+                //}, JsonRequestBehavior.AllowGet);
                 return Json(new
                 {
                     sEcho = param.sEcho,
                     iTotalRecords = iTotalRecordsCount,
                     iTotalDisplayRecords = totalcount,
-                    aaData = searchFavorites
-                },
-                         JsonRequestBehavior.AllowGet);
+                    aaData = result1
+                }, JsonRequestBehavior.AllowGet);
             }
             else
             {
