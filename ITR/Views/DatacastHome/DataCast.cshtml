@@ -6112,7 +6112,8 @@ else
                 Indicatorcode = LocalIndicatorShortCode;
                 LocalIndicatorShortCode
                $.get("GetForecastDataByIndicatorForDownloadSection3", {
-                   IndicatorShortCode: Indicatorcode
+                   IndicatorShortCode: Indicatorcode,
+                   CompanyID: $("#hdnCompanyID").val()
                }, function(data) {
                  var data = $(data); //Only one table
                     var csvData = [];

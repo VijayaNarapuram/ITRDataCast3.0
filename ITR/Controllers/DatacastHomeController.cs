@@ -774,13 +774,13 @@ namespace ITR.Controllers
         }
 
 
-        public void GetForecastDataByIndicatorForDownloadSection3(string IndicatorShortCode)
+        public void GetForecastDataByIndicatorForDownloadSection3(string IndicatorShortCode, int CompanyID)
         {
             SqlConnection m_odbcon = new System.Data.SqlClient.SqlConnection(m_sdbconstr);
 
             DataSet retds = new DataSet();
 
-            System.Data.SqlClient.SqlDataAdapter odbadpt = new System.Data.SqlClient.SqlDataAdapter("exec dbo.uspSelectForecastDataByIndicatorForDownload  @IndicatorShortCode='" + IndicatorShortCode + "'", m_odbcon);
+            System.Data.SqlClient.SqlDataAdapter odbadpt = new System.Data.SqlClient.SqlDataAdapter("exec dbo.uspSelectForecastDataByIndicatorForDownload  @IndicatorShortCode='" + IndicatorShortCode + "',@CompanyID='" + CompanyID + "'", m_odbcon);
 
             try
             {
