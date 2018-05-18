@@ -273,7 +273,7 @@
                                         <input type="button" style="font-weight:bold; margin-bottom: 5px;display:none;" align="right" value=" Remove indicator from dashboard " id="RemoveIFromDashboard">&nbsp;&nbsp;&nbsp;
                                         @*<input type="button" style="font-weight:bold; margin-bottom: 5px;" align="right" value=" Show Dashboard Widgets " id="ShowDBWidgets">&nbsp;&nbsp;&nbsp;*@
                                         <input type="button" style="font-weight:bold; margin-bottom: 5px;" align="right" value=" Save Dashboard Widgets " id="AddIToDashboard">&nbsp;&nbsp;&nbsp;
-                                        @*<input type="button" style="font-weight:bold; margin-bottom: 5px;" align="right" value=" Clear Dashboard Widgets " id="ClearDBWidgets">&nbsp;&nbsp;&nbsp;*@
+                                        <input type="button" style="font-weight:bold; margin-bottom: 5px;" align="right" value=" Clear Dashboard Widgets " id="ClearDBWidgets" />
                                     </td>
 
                                 </tr>
@@ -6482,7 +6482,7 @@ else
                     DBWidgetsListFlag = false;
                     var oTable = $('#CorelationLeadLagList').dataTable();
                     oTable.fnDraw();
-                    ajaxindicatorstop();
+                    //ajaxindicatorstop();
                 });
         }
 
