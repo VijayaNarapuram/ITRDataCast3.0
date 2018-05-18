@@ -6115,55 +6115,57 @@ else
                    IndicatorShortCode: Indicatorcode,
                    CompanyID: $("#hdnCompanyID").val()
                }, function(data) {
-                 var data = $(data); //Only one table
-                    var csvData = [];
-                    var tmpArr = [];
-                    var tmpStr = '';
+                   if(($(data).html()).length!=2){
+                       var data = $(data); //Only one table
+                       var csvData = [];
+                       var tmpArr = [];
+                       var tmpStr = '';
 
-                    data.find("tr").each(function() {
-                        tmpArr = [];
-                        $(this).find("th").each(function() {
-                            if ($(this).text().match(/^-{0,1}\d*\.{0,1}\d+$/)) {
-                                tmpArr.push(parseFloat($(this).text()));
-                            } else {
-                                tmpStr = $(this).text().replace(/"/g, '""');
-                                tmpArr.push('"' + tmpStr + '"');
-                            }
-                        });
-                        $(this).find("td").each(function() {
-                            if ($(this).text().match(/^-{0,1}\d*\.{0,1}\d+$/)) {
-                                tmpArr.push(parseFloat($(this).text()));
-                            } else {
-                                tmpStr = $(this).text().replace(/"/g, '""');
-                                tmpArr.push('"' + tmpStr + '"');
-                            }
-                        });
-                        csvData.push(tmpArr.join(','));
-                        //   }
-                    });
+                       data.find("tr").each(function() {
+                           tmpArr = [];
+                           $(this).find("th").each(function() {
+                               if ($(this).text().match(/^-{0,1}\d*\.{0,1}\d+$/)) {
+                                   tmpArr.push(parseFloat($(this).text()));
+                               } else {
+                                   tmpStr = $(this).text().replace(/"/g, '""');
+                                   tmpArr.push('"' + tmpStr + '"');
+                               }
+                           });
+                           $(this).find("td").each(function() {
+                               if ($(this).text().match(/^-{0,1}\d*\.{0,1}\d+$/)) {
+                                   tmpArr.push(parseFloat($(this).text()));
+                               } else {
+                                   tmpStr = $(this).text().replace(/"/g, '""');
+                                   tmpArr.push('"' + tmpStr + '"');
+                               }
+                           });
+                           csvData.push(tmpArr.join(','));
+                           //   }
+                       });
 
-                    var output = csvData.join('\n');
-                    var ua = window.navigator.userAgent;
-                    var msie = ua.indexOf("MSIE ");
+                       var output = csvData.join('\n');
+                       var ua = window.navigator.userAgent;
+                       var msie = ua.indexOf("MSIE ");
 
-                    if (msie > 0 || !!navigator.userAgent.match(/Trident.*rv\:11\./)) // If Internet Explorer
-                    {
+                       if (msie > 0 || !!navigator.userAgent.match(/Trident.*rv\:11\./)) // If Internet Explorer
+                       {
 
-                        if (navigator.msSaveBlob) { // IE 10+
-                            navigator.msSaveBlob(new Blob([output], {
-                                type: 'text/csv;charset=utf-8;'
-                            }), "ForecastDataList.csv");
-                        }
-                    } else // If another browser, return 0
-                    {
-                        var uri = 'data:text/csv;charset=utf-8,' + encodeURIComponent(output);
-                        var downloadLink = document.createElement("a");
-                        downloadLink.href = uri;
-                        downloadLink.download = "ForecastDataList.csv";
-                        document.body.appendChild(downloadLink);
-                        downloadLink.click();
-                        document.body.removeChild(downloadLink);
-                    }
+                           if (navigator.msSaveBlob) { // IE 10+
+                               navigator.msSaveBlob(new Blob([output], {
+                                   type: 'text/csv;charset=utf-8;'
+                               }), "ForecastDataList.csv");
+                           }
+                       } else // If another browser, return 0
+                       {
+                           var uri = 'data:text/csv;charset=utf-8,' + encodeURIComponent(output);
+                           var downloadLink = document.createElement("a");
+                           downloadLink.href = uri;
+                           downloadLink.download = "ForecastDataList.csv";
+                           document.body.appendChild(downloadLink);
+                           downloadLink.click();
+                           document.body.removeChild(downloadLink);
+                       }
+                   }
                 });
 
             });
