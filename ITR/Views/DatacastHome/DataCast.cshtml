@@ -108,11 +108,7 @@
                             </div>
                         </div>
                         <!--Third Div End-->
-
-
                     </div>
-
-
                 </div>
             </div>
             <!--Internal Rates of Change End-->
@@ -159,15 +155,11 @@
                     <div class="row" style="background-color: rgb(215, 215, 215); width: 100%; vertical-align: central; margin-left: 0%; height: 300px;">
                         <!--First Div Start-->
                         <div class="col-sm-3" style="padding-left: 25px;">
-
                             <div class="row" style="font-weight: bold;">Chart Legend</div>
                             <div class="row" style="font-weight: bold;"><span style="font-family: 'Wide Latin'; font-size: 16px; line-height: 18px; color: green;">---</span> <span style="font-family: &quot; Roboto Light&quot; , Roboto; font-size: 11px; line-height: 12px; color: rgb(0, 0, 0); font-weight: 300;">3 MMT or 3 MMA</span> </div>
-                            @*<div class="row" style="font-weight: bold;"><span style="font-family: 'Wide Latin'; font-size: 19px; line-height: 21px; color: #3E576F; font-weight: bold;">..</span> <span style="font-family: &quot; Roboto Light&quot; , Roboto; font-size: 11px; line-height: 12px; color: rgb(0, 0, 0); font-weight: 300;">Company Forecast </span></div>
-                            *@
+                            @*<div class="row" style="font-weight: bold;"><span style="font-family: 'Wide Latin'; font-size: 19px; line-height: 21px; color: #3E576F; font-weight: bold;">..</span> <span style="font-family: &quot; Roboto Light&quot; , Roboto; font-size: 11px; line-height: 12px; color: rgb(0, 0, 0); font-weight: 300;">Company Forecast </span></div>*@
                             <div class="row" style="font-weight: bold;"><span style="font-family: 'Wide Latin'; font-size: 16px; line-height: 18px; color: #3E576F;">---</span> <span style="font-family: &quot; Roboto Light&quot; , Roboto; font-size: 11px; line-height: 12px; color: rgb(0, 0, 0); font-weight: 300;">12 MMT or 12 MMA</span></div>
-                            @*<div class="row" style="font-weight: bold;"><span style="font-family: 'Wide Latin'; font-size: 19px; line-height: 21px; color: green; font-weight: bold;">..</span> <span style="font-family: &quot; Roboto Light&quot; , Roboto; font-size: 11px; line-height: 12px; color: rgb(0, 0, 0); font-weight: 300;">Indicator Forecast  </span></div>
-                            *@
-
+                            @*<div class="row" style="font-weight: bold;"><span style="font-family: 'Wide Latin'; font-size: 19px; line-height: 21px; color: green; font-weight: bold;">..</span> <span style="font-family: &quot; Roboto Light&quot; , Roboto; font-size: 11px; line-height: 12px; color: rgb(0, 0, 0); font-weight: 300;">Indicator Forecast  </span></div>  *@
                         </div>
                         <!--First Div End-->
                         <!--Second Div Start-->
@@ -225,15 +217,12 @@
                                 <span id="spnDataSetName" class="spnDataSetName"></span>
                                 <br>
                                 <span id="spnIndicatorName" class="spnIndicatorName"></span>
-
-
                                 <div id="divLables" style="display: none;">
                                     <strong>Lead / Lag Months: <span id="spnIndicatorMoveMonths" class="spnIndicatorMoveMonths" data-ng-bind="moveMonths"></span></strong>
                                     <strong>, Indicator view: <span id="spnIndicatorView" class="spnIndicatorView"></span></strong>
                                 </div>
                                 <br />
                                 <span id="spnBusiness" style="display:none">Phases are automated, not manually calculated as seen in other ITR works*</span>
-
                             </span>
                         </div>
                         <div id="chart"></div>
@@ -282,9 +271,9 @@
                                         <input type="button" style="font-weight:bold; margin-bottom: 5px;" align="right" value=" Search Category " id="SearchCategory">&nbsp;&nbsp;&nbsp;
 
                                         <input type="button" style="font-weight:bold; margin-bottom: 5px;display:none;" align="right" value=" Remove indicator from dashboard " id="RemoveIFromDashboard">&nbsp;&nbsp;&nbsp;
-                                        <input type="button" style="font-weight:bold; margin-bottom: 5px;" align="right" value=" Show Dashboard Widgets " id="ShowDBWidgets">&nbsp;&nbsp;&nbsp;
+                                        @*<input type="button" style="font-weight:bold; margin-bottom: 5px;" align="right" value=" Show Dashboard Widgets " id="ShowDBWidgets">&nbsp;&nbsp;&nbsp;*@
                                         <input type="button" style="font-weight:bold; margin-bottom: 5px;" align="right" value=" Save Dashboard Widgets " id="AddIToDashboard">&nbsp;&nbsp;&nbsp;
-                                        <input type="button" style="font-weight:bold; margin-bottom: 5px;" align="right" value=" Clear Dashboard Widgets " id="ClearDBWidgets">&nbsp;&nbsp;&nbsp;
+                                        @*<input type="button" style="font-weight:bold; margin-bottom: 5px;" align="right" value=" Clear Dashboard Widgets " id="ClearDBWidgets">&nbsp;&nbsp;&nbsp;*@
                                     </td>
 
                                 </tr>
@@ -358,7 +347,6 @@
                             <div id="chartDownloadData"></div>
                         </div>
                     </div>
-
                     <span style="font-weight: bold; margin-left: 0%;">Company Data </span>
                     <!-- Raghuveer STart -->
                     <div class="row" style="background-color: rgb(215, 215, 215); width: 100%; vertical-align: central; margin-left: 0%; height: 300px;">
@@ -1087,8 +1075,8 @@ else
             return months[monthNumber - 1];
         }
 
+        //LOADING DATASETS...
         function LoadDataSets() {
-            // alert(1);
 
             var accountid = _CompanyId; //2301;// $('#ddlAccounts option:selected').val();//2857;2857;//
             var divisionId = divisionID; //0;// divisionID;  //$('#ddlDivision option:selected').val(); //247;//$("#ddlDivision").val();//247;247;//
@@ -1113,6 +1101,7 @@ else
                         select.empty();
                         select1.empty();
                         select2.empty();
+
                         select3.empty();
                         select4.empty();
                         select5.empty();
@@ -1159,6 +1148,9 @@ else
                         IRCdataSetName2 = $("#ddlIRCDataSet2 option:selected").text();
                         // alert(dataSetID);
                         if (dataSetID != "" && dataSetID != "null" && dataSetID != null) {
+
+                            //GETTING INDICATORS FOR DASHBOARD...
+                            LoadDashboardWidgetsList(dataSetID);
 
                             LoadIndicatorsList();
                             LoadIDTChartData();
@@ -1511,13 +1503,13 @@ else
                             }
                         },
                         {
-                            "sName": "Indicator Name",
+                            "sName": "Indicator Name", //DBWidgetsFlag...
                             "bSearch": false,
                             "bSortable": false,
                             "render": function(oObj) {
                                 ivarforDBWidgets = ivarforDBWidgets + 1;
                                 ////console.log('oObj - ' + oObj);
-                                //console.log('DBWidgetsList - ' + DBWidgetsList);
+                                console.log('DBWidgetsList from datatable - ' + DBWidgetsList);
 
                                 if (DBWidgetsList.indexOf(oObj + ",") >= 0) {
                                     ////console.log('from if loop');
@@ -2282,6 +2274,8 @@ else
 
             //IndicatorMinValueFlag = false;
             //if ($(this).find("input[type=checkbox]")[0].checked == false) {
+
+
             if ($(this).find("input:checkbox[class = CBX]")[0].checked == false) {
                 if (FavList.indexOf(aData[4] + ",") >= 0) {
                     FavList = FavList.replace(aData[4] + ",", "");
@@ -2300,6 +2294,8 @@ else
                 widgetsCount = widgetsCount + 1;
             }
 
+            console.log('from table load - ' + DBWidgetsList);
+            console.log('from table load - ' + widgetsCount);
 
             LoadChartData();
             //ajaxindicatorstop();
@@ -2376,7 +2372,7 @@ else
             $("#divIndicatorSection1").html(''); // To Clear previous values if any
             $.getJSON("GetCompanyDatasetsInfoForDownloadSection1?dataSetIDs=" + encodeURIComponent($("#ddlDataSetsDD").val()),
                 function(data) {
-             
+
                     var jsonObject = JSON.parse(data);
                     var htmlIndicatorString = "";
                     $("#divIndicatorDD").html(''); //To clean Previous content if any
@@ -3620,7 +3616,7 @@ else
                             var dateValue = new Date(parseInt(item.MonthYear.substr(6)));
                             // dateValue= parseInt(dateValue.getMonth() + 1) + "/" + parseInt(dateValue.getDate()) + "/" + dateValue.getFullYear()
                             var monthName = GetMonthName(dateValue.getMonth() + 1);
-                            var date = monthName + '  ' + dateValue.getFullYear();                            
+                            var date = monthName + '  ' + dateValue.getFullYear();
                             return date;
                         }
                     }),
@@ -5453,18 +5449,20 @@ else
                 SelFavName = "";
                 $("#spnFavListName").text('');
 
-
+                //NEED TO EMPTY PARAMETERS ABT DBWIDGETS...
+                widgetsCount = 0;
+                DBWidgetsList  = "";
+                if (dataSetID != "" && dataSetID != "null" && dataSetID != null) {
+                    LoadDashboardWidgetsList(dataSetID);
+                }
                 var oTable = $('#CorelationLeadLagList').dataTable();
                 oTable.fnDraw();
                 var bTable = $('#CorelationLeadLagListIndicationSummary').dataTable();
                 bTable.fnDraw();
 
-
                 var cTable = $('#dtFavList').dataTable();
                 cTable.fnDraw();
                 // LoadIndicatorsList();
-
-
             })
 
             $("#ddlDataSetsDD").on('change', function(e) {
@@ -6111,61 +6109,62 @@ else
                 $("div.downloadsection3").toCSVSection3(this);
                 Indicatorcode = LocalIndicatorShortCode;
                 LocalIndicatorShortCode
-               $.get("GetForecastDataByIndicatorForDownloadSection3", {
-                   IndicatorShortCode: Indicatorcode,
-                   CompanyID: $("#hdnCompanyID").val()
-               }, function(data) {
-                   if(($(data).html()).length!=2){
-                       var data = $(data); //Only one table
-                       var csvData = [];
-                       var tmpArr = [];
-                       var tmpStr = '';
+                $.get("GetForecastDataByIndicatorForDownloadSection3", {
+                    IndicatorShortCode: Indicatorcode,
+                    CompanyID: $("#hdnCompanyID").val()
+                }, function(data) {
 
-                       data.find("tr").each(function() {
-                           tmpArr = [];
-                           $(this).find("th").each(function() {
-                               if ($(this).text().match(/^-{0,1}\d*\.{0,1}\d+$/)) {
-                                   tmpArr.push(parseFloat($(this).text()));
-                               } else {
-                                   tmpStr = $(this).text().replace(/"/g, '""');
-                                   tmpArr.push('"' + tmpStr + '"');
-                               }
-                           });
-                           $(this).find("td").each(function() {
-                               if ($(this).text().match(/^-{0,1}\d*\.{0,1}\d+$/)) {
-                                   tmpArr.push(parseFloat($(this).text()));
-                               } else {
-                                   tmpStr = $(this).text().replace(/"/g, '""');
-                                   tmpArr.push('"' + tmpStr + '"');
-                               }
-                           });
-                           csvData.push(tmpArr.join(','));
-                           //   }
-                       });
+                    if(($(data).html()).length!=2){
+                        var data = $(data); //Only one table
+                        var csvData = [];
+                        var tmpArr = [];
+                        var tmpStr = '';
 
-                       var output = csvData.join('\n');
-                       var ua = window.navigator.userAgent;
-                       var msie = ua.indexOf("MSIE ");
+                        data.find("tr").each(function() {
+                            tmpArr = [];
+                            $(this).find("th").each(function() {
+                                if ($(this).text().match(/^-{0,1}\d*\.{0,1}\d+$/)) {
+                                    tmpArr.push(parseFloat($(this).text()));
+                                } else {
+                                    tmpStr = $(this).text().replace(/"/g, '""');
+                                    tmpArr.push('"' + tmpStr + '"');
+                                }
+                            });
+                            $(this).find("td").each(function() {
+                                if ($(this).text().match(/^-{0,1}\d*\.{0,1}\d+$/)) {
+                                    tmpArr.push(parseFloat($(this).text()));
+                                } else {
+                                    tmpStr = $(this).text().replace(/"/g, '""');
+                                    tmpArr.push('"' + tmpStr + '"');
+                                }
+                            });
+                            csvData.push(tmpArr.join(','));
+                            //   }
+                        });
 
-                       if (msie > 0 || !!navigator.userAgent.match(/Trident.*rv\:11\./)) // If Internet Explorer
-                       {
+                        var output = csvData.join('\n');
+                        var ua = window.navigator.userAgent;
+                        var msie = ua.indexOf("MSIE ");
 
-                           if (navigator.msSaveBlob) { // IE 10+
-                               navigator.msSaveBlob(new Blob([output], {
-                                   type: 'text/csv;charset=utf-8;'
-                               }), "ForecastDataList.csv");
-                           }
-                       } else // If another browser, return 0
-                       {
-                           var uri = 'data:text/csv;charset=utf-8,' + encodeURIComponent(output);
-                           var downloadLink = document.createElement("a");
-                           downloadLink.href = uri;
-                           downloadLink.download = "ForecastDataList.csv";
-                           document.body.appendChild(downloadLink);
-                           downloadLink.click();
-                           document.body.removeChild(downloadLink);
-                       }
-                   }
+                        if (msie > 0 || !!navigator.userAgent.match(/Trident.*rv\:11\./)) // If Internet Explorer
+                        {
+
+                            if (navigator.msSaveBlob) { // IE 10+
+                                navigator.msSaveBlob(new Blob([output], {
+                                    type: 'text/csv;charset=utf-8;'
+                                }), "ForecastDataList.csv");
+                            }
+                        } else // If another browser, return 0
+                        {
+                            var uri = 'data:text/csv;charset=utf-8,' + encodeURIComponent(output);
+                            var downloadLink = document.createElement("a");
+                            downloadLink.href = uri;
+                            downloadLink.download = "ForecastDataList.csv";
+                            document.body.appendChild(downloadLink);
+                            downloadLink.click();
+                            document.body.removeChild(downloadLink);
+                        }
+                    }
                 });
 
             });
@@ -6217,12 +6216,12 @@ else
                     }
                 });
                 */
-                /* STEP ! : WE ARE ADDING/UPDATING VALUES IN DBWidgetsList WHEN CLICKED ON 'SHOW DASHBOARD WIDGETS' 
+                /* STEP ! : WE ARE ADDING/UPDATING VALUES IN DBWidgetsList WHEN CLICKED ON 'SHOW DASHBOARD WIDGETS'
                    STEP 2 : ADDING/UPDATING VALUES IN DBWidgetsList IN PAGINATION... $("#CorelationLeadLagList_paginate") Event...
                    STEP 3 : ADDING/UPDATING VALUES IN DBWidgetsList WHEN CLICK IN DATATABLE... $(document).on('click', '#CorelationLeadLagList tbody tr', function(e) { EVENT...
                    So considering DBWidgetsList Length to get widgetsCount... Need to have the ability to add only 10 indicators...
                 */
-                var widgetsCount = (DBWidgetsList != "") ? DBWidgetsList.split(',').length - 1 : 0;
+                widgetsCount = (DBWidgetsList != "") ? DBWidgetsList.split(',').length - 1 : 0;
                 console.log('DBWidgetsList - ' + DBWidgetsList);
                 console.log('widgetsCount - ' + widgetsCount);
 
@@ -6235,9 +6234,10 @@ else
 
                         if ($(this).val() == " Save Dashboard Widgets ") {
                             var url = "InsertDashboardWidgetsList";
-                        } else {
-                            var url = "UpdateDashboardWidgetsList";
                         }
+                        //} else {
+                        //    var url = "UpdateDashboardWidgetsList";
+                        //}
                         var d = new Date();
                         var strDate = d.getFullYear() + "/" + (d.getMonth() + 1) + "/" + d.getDate();
 
@@ -6254,16 +6254,14 @@ else
                         if (response.result == 'Success') {
                             if ($(this).val() == " Save Dashboard Widgets ") {
                                 alert("Dahsboard widget indicators added successfully.");
-                                oTable.fnDraw();
-                                //FavListFlag = false;
-                                //DBWidgetsListFlag = false;
+                                //var oTable = $('#CorelationLeadLagList').dataTable();
+                                //oTable.fnDraw();
                             } else {
                                 alert("Dahsboard widget indicators updated successfully.");
                                 DBWidgetsList = '';
-                                var oTable = $('#CorelationLeadLagList').dataTable();
-                                oTable.fnDraw();
-                                //FavListFlag = false;
-                                //DBWidgetsListFlag = false;
+                                //var oTable = $('#CorelationLeadLagList').dataTable();
+                                //oTable.fnDraw();
+
                                 //DBWidgetsList = ''; //PLEASE EMPTY DBWidgetsList AS IT CONTAINS DB WIDGETS LIST...
                                 //$('#AddIToDashboard').val(' Save Dashboard Widgets ');
                             }
@@ -6283,21 +6281,8 @@ else
 
             //CLEAR DASHBOARD WIDGETS SELECTIONS FROM DATATABLE...
             $(document).on('click', '#ClearDBWidgets', function(e) {
-                e.preventDefault();
 
-                //$('.CBX').each(function() {
-                //    if ($(this)[0].checked) {
-                //        $(this)[0].checked = false;
-                //    }
-                //});
-                //FavListFlag = false;
-                //SelFavName = "";
-                //FavList = "";
-                //FavListName = "";
-                //$('#SaveFavorites').val(' Save Favorites List ');
-                //$("#spnFavListName").text('');
-                //var oTable = $('#CorelationLeadLagList').dataTable();
-                //oTable.fnDraw();
+                e.preventDefault();
 
                 //CLEAR DASHBOARD WIDGETS SELECTIONS...
                 $('.CBDB').each(function() {
@@ -6369,7 +6354,7 @@ else
                     //alert(htmlIndicatorString);
                     //   LoadDDChart();
                 });
-        }       
+        }
 
         //TABLE DEFINITION for Indicator list
         oTable111 = $('#dtDBWidgetsList').dataTable({
@@ -6469,6 +6454,37 @@ else
             }
             ajaxindicatorstop();
         });
+
+        //TO SHOW INDICATORS IN PAGE LOAD...(SAME AS SHOW DASHBOARD FUNCTIONALITY...)
+        function LoadDashboardWidgetsList(dataSetID)
+        {
+            //$('#AddIToDashboard').val(' Update dashboard widgets ');
+            DBWidgetsListFlag = true;
+
+            $.getJSON("SelectDBWidgetsListByCompanyID?dataSetID=" + $("#ddlDataSets").val() + "&userID=" + $("#hdnUserID").val(), //need to update userid
+                function(data) {
+                    var jsonObject = JSON.parse(data);
+                    ajaxindicatorstart();
+
+                    for (i = 0; i < jsonObject.length; i++) {
+                        var obj = jsonObject[i];
+
+                        ////console.log(obj["IndicatorShortCode"]);
+                        if (DBWidgetsList == "")
+                            DBWidgetsList = obj["IndicatorShortCode"] + ",";
+                        else {
+                            if (DBWidgetsList.indexOf(obj["IndicatorShortCode"] + ",") < 0) {
+                                DBWidgetsList = DBWidgetsList + obj["IndicatorShortCode"] + ",";
+                            }
+                        }
+                    }
+
+                    DBWidgetsListFlag = false;
+                    var oTable = $('#CorelationLeadLagList').dataTable();
+                    oTable.fnDraw();
+                    ajaxindicatorstop();
+                });
+        }
 
         //Show DASHBOARD SELECTED WIDGETS IN DATATABLE...
         $(document).on('click', '#ShowDBWidgets', function(e) {
