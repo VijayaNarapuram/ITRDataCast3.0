@@ -272,8 +272,8 @@
 
                                         <input type="button" style="font-weight:bold; margin-bottom: 5px;display:none;" align="right" value=" Remove indicator from dashboard " id="RemoveIFromDashboard">&nbsp;&nbsp;&nbsp;
                                         @*<input type="button" style="font-weight:bold; margin-bottom: 5px;" align="right" value=" Show Dashboard Widgets " id="ShowDBWidgets">&nbsp;&nbsp;&nbsp;*@
-                                        <input type="button" style="font-weight:bold; margin-bottom: 5px;" align="right" value=" Save Dashboard Widgets " id="AddIToDashboard">&nbsp;&nbsp;&nbsp;
-                                        <input type="button" style="font-weight:bold; margin-bottom: 5px;" align="right" value=" Clear Dashboard Widgets " id="ClearDBWidgets" />
+                                        <input type="button" style="font-weight:bold; margin-bottom: 5px;" align="right" value=" Save Dashboard Indicator " id="AddIToDashboard">&nbsp;&nbsp;&nbsp;
+                                        <input type="button" style="font-weight:bold; margin-bottom: 5px;" align="right" value=" Clear Dashboard Indicator " id="ClearDBWidgets" />
                                     </td>
 
                                 </tr>
@@ -5496,7 +5496,7 @@ else
                 var cTable = $('#CorelationLeadLagListDownload').dataTable();
                 cTable.fnDraw();
                 //$("#divIndicatorDD").find(".cursorDD").trigger("click");
-                ajaxindicatorstop();
+                //ajaxindicatorstop();
 
             })
 
@@ -6524,7 +6524,7 @@ else
                         }
                         var oTable = $('#CorelationLeadLagList').dataTable();
                         oTable.fnDraw();
-                        ajaxindicatorstop();
+                        //ajaxindicatorstop();
                     });
             }
 
