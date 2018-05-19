@@ -2351,19 +2351,6 @@
         </ComplexTypeMapping>
       </ResultMapping>
     </FunctionImportMapping>
-    <FunctionImportMapping FunctionImportName="uspSelectPhaseValuesOfDBWidgetsByCompanyId" FunctionName="LDBTESTModel.Store.uspSelectPhaseValuesOfDBWidgetsByCompanyId">
-      <ResultMapping>
-        <ComplexTypeMapping TypeName="LDBTESTModel.uspSelectPhaseValuesOfDBWidgetsByCompanyId_Result">
-          <ScalarProperty Name="DashboardWidgetsListId" ColumnName="DashboardWidgetsListId" />
-          <ScalarProperty Name="Indicator" ColumnName="Indicator" />
-          <ScalarProperty Name="MonthYear" ColumnName="MonthYear" />
-          <ScalarProperty Name="Phases" ColumnName="Phases" />
-          <ScalarProperty Name="SHORTCODE" ColumnName="SHORTCODE" />
-          <ScalarProperty Name="MY" ColumnName="MY" />
-          <ScalarProperty Name="Timing" ColumnName="Timing" />
-        </ComplexTypeMapping>
-      </ResultMapping>
-    </FunctionImportMapping>
     <FunctionImportMapping FunctionImportName="uspSelectForecastDataByIndicatorForDownload" FunctionName="LDBTESTModel.Store.uspSelectForecastDataByIndicatorForDownload">
       <ResultMapping>
         <ComplexTypeMapping TypeName="LDBTESTModel.uspSelectForecastDataByIndicatorForDownload_Result">
@@ -2386,6 +2373,19 @@
           <ScalarProperty Name="UFR3by12" ColumnName="UFR3by12" />
           <ScalarProperty Name="CreatedBy" ColumnName="CreatedBy" />
           <ScalarProperty Name="CreatedDate" ColumnName="CreatedDate" />
+        </ComplexTypeMapping>
+      </ResultMapping>
+    </FunctionImportMapping>
+    <FunctionImportMapping FunctionImportName="uspSelectPhaseValuesOfDBWidgetsByCompanyId" FunctionName="LDBTESTModel.Store.uspSelectPhaseValuesOfDBWidgetsByCompanyId">
+      <ResultMapping>
+        <ComplexTypeMapping TypeName="LDBTESTModel.uspSelectPhaseValuesOfDBWidgetsByCompanyId_Result">
+          <ScalarProperty Name="DashboardWidgetsListId" ColumnName="DashboardWidgetsListId" />
+          <ScalarProperty Name="Indicator" ColumnName="Indicator" />
+          <ScalarProperty Name="MonthYear" ColumnName="MonthYear" />
+          <ScalarProperty Name="Phases" ColumnName="Phases" />
+          <ScalarProperty Name="SHORTCODE" ColumnName="SHORTCODE" />
+          <ScalarProperty Name="MY" ColumnName="MY" />
+          <ScalarProperty Name="Timing" ColumnName="Timing" />
         </ComplexTypeMapping>
       </ResultMapping>
     </FunctionImportMapping>

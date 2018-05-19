@@ -1762,6 +1762,7 @@ warning 6002: The table/view 'LDBTEST_04092018.dbo.vwTableau' does not have a pr
   </Function>
   <Function Name="uspSelectForecastDataByIndicatorForDownload" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
     <Parameter Name="IndicatorShortCode" Type="varchar" Mode="In" />
+    <Parameter Name="CompanyID" Type="int" Mode="In" />
   </Function>
   <Function Name="uspSelectIndicatorDataByIndicatorShortCodes" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
     <Parameter Name="IndicatorShortCodes" Type="varchar(max)" Mode="In" />

@@ -1767,6 +1767,7 @@ warning 6002: The table/view 'LDBTEST_04092018.dbo.vwTableau' does not have a pr
         </Function>
         <Function Name="uspSelectForecastDataByIndicatorForDownload" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
           <Parameter Name="IndicatorShortCode" Type="varchar" Mode="In" />
+          <Parameter Name="CompanyID" Type="int" Mode="In" />
         </Function>
         <Function Name="uspSelectIndicatorDataByIndicatorShortCodes" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
           <Parameter Name="IndicatorShortCodes" Type="varchar(max)" Mode="In" />
@@ -4546,11 +4547,12 @@ FROM [dbo].[vwTableau] AS [vwTableau]</DefiningQuery>
             <Parameter Name="SortCol" Mode="In" Type="Int32" />
             <Parameter Name="SortDir" Mode="In" Type="String" />
           </FunctionImport>
-          <FunctionImport Name="uspSelectPhaseValuesOfDBWidgetsByCompanyId" ReturnType="Collection(LDBTESTModel.uspSelectPhaseValuesOfDBWidgetsByCompanyId_Result)">
-          <Parameter Name="CompanyShortCode" Mode="In" Type="String" />
-          </FunctionImport>
           <FunctionImport Name="uspSelectForecastDataByIndicatorForDownload" ReturnType="Collection(LDBTESTModel.uspSelectForecastDataByIndicatorForDownload_Result)">
-            <Parameter Name="IndicatorShortCode" Mode="In" Type="String" />
+          <Parameter Name="IndicatorShortCode" Mode="In" Type="String" />
+            <Parameter Name="CompanyID" Mode="In" Type="Int32" />
+          </FunctionImport>
+          <FunctionImport Name="uspSelectPhaseValuesOfDBWidgetsByCompanyId" ReturnType="Collection(LDBTESTModel.uspSelectPhaseValuesOfDBWidgetsByCompanyId_Result)">
+            <Parameter Name="CompanyShortCode" Mode="In" Type="String" />
           </FunctionImport>
         </EntityContainer>
         <ComplexType Name="sp_CheckLogin_Result">
@@ -5306,15 +5308,6 @@ FROM [dbo].[vwTableau] AS [vwTableau]</DefiningQuery>
           <Property Type="String" Name="Indicator" Nullable="true" />
           <Property Type="String" Name="Description" Nullable="true" MaxLength="1024" />
         </ComplexType>
-        <ComplexType Name="uspSelectPhaseValuesOfDBWidgetsByCompanyId_Result">
-          <Property Type="Int32" Name="DashboardWidgetsListId" Nullable="false" />
-          <Property Type="String" Name="Indicator" Nullable="true" MaxLength="500" />
-          <Property Type="DateTime" Name="MonthYear" Nullable="true" Precision="23" />
-          <Property Type="String" Name="Phases" Nullable="true" MaxLength="8" />
-          <Property Type="String" Name="SHORTCODE" Nullable="true" MaxLength="64" />
-          <Property Type="String" Name="MY" Nullable="true" MaxLength="64" />
-          <Property Type="Int32" Name="Timing" Nullable="true" />
-        </ComplexType>
         <ComplexType Name="uspSelectForecastDataByIndicatorForDownload_Result">
           <Property Type="Int32" Name="ForeCastDataID" Nullable="false" />
           <Property Type="Int32" Name="ForeCastMetaDataID" Nullable="true" />
@@ -5335,6 +5328,15 @@ FROM [dbo].[vwTableau] AS [vwTableau]</DefiningQuery>
           <Property Type="Decimal" Name="UFR3by12" Nullable="true" Precision="32" Scale="16" />
           <Property Type="String" Name="CreatedBy" Nullable="true" MaxLength="128" />
           <Property Type="DateTime" Name="CreatedDate" Nullable="true" Precision="23" />
+        </ComplexType>
+        <ComplexType Name="uspSelectPhaseValuesOfDBWidgetsByCompanyId_Result">
+          <Property Type="Int32" Name="DashboardWidgetsListId" Nullable="false" />
+          <Property Type="String" Name="Indicator" Nullable="true" MaxLength="500" />
+          <Property Type="DateTime" Name="MonthYear" Nullable="true" Precision="23" />
+          <Property Type="String" Name="Phases" Nullable="true" MaxLength="8" />
+          <Property Type="String" Name="SHORTCODE" Nullable="true" MaxLength="64" />
+          <Property Type="String" Name="MY" Nullable="true" MaxLength="64" />
+          <Property Type="Double" Name="Timing" Nullable="true" />
         </ComplexType>
       </Schema>
     </edmx:ConceptualModels>
@@ -7692,19 +7694,6 @@ FROM [dbo].[vwTableau] AS [vwTableau]</DefiningQuery>
               </ComplexTypeMapping>
             </ResultMapping>
           </FunctionImportMapping>
-          <FunctionImportMapping FunctionImportName="uspSelectPhaseValuesOfDBWidgetsByCompanyId" FunctionName="LDBTESTModel.Store.uspSelectPhaseValuesOfDBWidgetsByCompanyId">
-            <ResultMapping>
-              <ComplexTypeMapping TypeName="LDBTESTModel.uspSelectPhaseValuesOfDBWidgetsByCompanyId_Result">
-                <ScalarProperty Name="DashboardWidgetsListId" ColumnName="DashboardWidgetsListId" />
-                <ScalarProperty Name="Indicator" ColumnName="Indicator" />
-                <ScalarProperty Name="MonthYear" ColumnName="MonthYear" />
-                <ScalarProperty Name="Phases" ColumnName="Phases" />
-                <ScalarProperty Name="SHORTCODE" ColumnName="SHORTCODE" />
-                <ScalarProperty Name="MY" ColumnName="MY" />
-                <ScalarProperty Name="Timing" ColumnName="Timing" />
-              </ComplexTypeMapping>
-            </ResultMapping>
-          </FunctionImportMapping>
           <FunctionImportMapping FunctionImportName="uspSelectForecastDataByIndicatorForDownload" FunctionName="LDBTESTModel.Store.uspSelectForecastDataByIndicatorForDownload">
             <ResultMapping>
               <ComplexTypeMapping TypeName="LDBTESTModel.uspSelectForecastDataByIndicatorForDownload_Result">
@@ -7727,6 +7716,19 @@ FROM [dbo].[vwTableau] AS [vwTableau]</DefiningQuery>
                 <ScalarProperty Name="UFR3by12" ColumnName="UFR3by12" />
                 <ScalarProperty Name="CreatedBy" ColumnName="CreatedBy" />
                 <ScalarProperty Name="CreatedDate" ColumnName="CreatedDate" />
+              </ComplexTypeMapping>
+            </ResultMapping>
+          </FunctionImportMapping>
+          <FunctionImportMapping FunctionImportName="uspSelectPhaseValuesOfDBWidgetsByCompanyId" FunctionName="LDBTESTModel.Store.uspSelectPhaseValuesOfDBWidgetsByCompanyId">
+            <ResultMapping>
+              <ComplexTypeMapping TypeName="LDBTESTModel.uspSelectPhaseValuesOfDBWidgetsByCompanyId_Result">
+                <ScalarProperty Name="DashboardWidgetsListId" ColumnName="DashboardWidgetsListId" />
+                <ScalarProperty Name="Indicator" ColumnName="Indicator" />
+                <ScalarProperty Name="MonthYear" ColumnName="MonthYear" />
+                <ScalarProperty Name="Phases" ColumnName="Phases" />
+                <ScalarProperty Name="SHORTCODE" ColumnName="SHORTCODE" />
+                <ScalarProperty Name="MY" ColumnName="MY" />
+                <ScalarProperty Name="Timing" ColumnName="Timing" />
               </ComplexTypeMapping>
             </ResultMapping>
           </FunctionImportMapping>

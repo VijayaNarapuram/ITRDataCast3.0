@@ -57,7 +57,7 @@ namespace ITR.Controllers
 
             string currentYear = DateTime.Now.Year.ToString();
             string CurrentMonth = String.Format("{0:MMMM}", DateTime.Now);
-            CurrentMonth = "January";
+            //CurrentMonth = "January";
 
             DateTime currentDate = DateTime.Now;
             string nextYear = currentDate.AddYears(1).Year.ToString();
@@ -125,10 +125,10 @@ namespace ITR.Controllers
                             {
                                 foreach (var value in indicatorValuesList)
                                 {
-                                    if (AI.ToLower() == CurrentMonth.ToLower())
-                                    {
+                                    //if (AI.ToLower() == CurrentMonth.ToLower())
+                                    //{
                                         CurrentMonthtiming = Convert.ToInt16(value.Timing);
-                                    }
+                                    //}
 
                                     finalResult += "<td>" + value.Phases + "</td>";
                                 }
@@ -150,10 +150,10 @@ namespace ITR.Controllers
                             {
                                 foreach (var value in indicatorValuesList)
                                 {
-                                    if (AI.ToLower() == CurrentMonth.ToLower())
-                                    {
+                                    //if (AI.ToLower() == CurrentMonth.ToLower())
+                                    //{
                                         CurrentMonthtiming = Convert.ToInt16(value.Timing);
-                                    }
+                                    //}
 
                                     finalResult += "<td>" + value.Phases + "</td>";
                                 }

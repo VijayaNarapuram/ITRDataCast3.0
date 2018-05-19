@@ -2258,6 +2258,19 @@ namespace ITR.Models
             return ((IObjectContextAdapter)this).ObjectContext.ExecuteFunction<uspSelectDBWidgetsCorrelationListByCompanyID_Result>("uspSelectDBWidgetsCorrelationListByCompanyID", companyShortCodeParameter, userIDParameter, displayLengthParameter, displayStartParameter, searchParameter, sortColParameter, sortDirParameter);
         }
     
+        public virtual ObjectResult<uspSelectForecastDataByIndicatorForDownload_Result> uspSelectForecastDataByIndicatorForDownload(string indicatorShortCode, Nullable<int> companyID)
+        {
+            var indicatorShortCodeParameter = indicatorShortCode != null ?
+                new ObjectParameter("IndicatorShortCode", indicatorShortCode) :
+                new ObjectParameter("IndicatorShortCode", typeof(string));
+    
+            var companyIDParameter = companyID.HasValue ?
+                new ObjectParameter("CompanyID", companyID) :
+                new ObjectParameter("CompanyID", typeof(int));
+    
+            return ((IObjectContextAdapter)this).ObjectContext.ExecuteFunction<uspSelectForecastDataByIndicatorForDownload_Result>("uspSelectForecastDataByIndicatorForDownload", indicatorShortCodeParameter, companyIDParameter);
+        }
+    
         public virtual ObjectResult<uspSelectPhaseValuesOfDBWidgetsByCompanyId_Result> uspSelectPhaseValuesOfDBWidgetsByCompanyId(string companyShortCode)
         {
             var companyShortCodeParameter = companyShortCode != null ?
@@ -2265,15 +2278,6 @@ namespace ITR.Models
                 new ObjectParameter("CompanyShortCode", typeof(string));
     
             return ((IObjectContextAdapter)this).ObjectContext.ExecuteFunction<uspSelectPhaseValuesOfDBWidgetsByCompanyId_Result>("uspSelectPhaseValuesOfDBWidgetsByCompanyId", companyShortCodeParameter);
-        }
-    
-        public virtual ObjectResult<uspSelectForecastDataByIndicatorForDownload_Result> uspSelectForecastDataByIndicatorForDownload(string indicatorShortCode)
-        {
-            var indicatorShortCodeParameter = indicatorShortCode != null ?
-                new ObjectParameter("IndicatorShortCode", indicatorShortCode) :
-                new ObjectParameter("IndicatorShortCode", typeof(string));
-    
-            return ((IObjectContextAdapter)this).ObjectContext.ExecuteFunction<uspSelectForecastDataByIndicatorForDownload_Result>("uspSelectForecastDataByIndicatorForDownload", indicatorShortCodeParameter);
         }
     }
 }

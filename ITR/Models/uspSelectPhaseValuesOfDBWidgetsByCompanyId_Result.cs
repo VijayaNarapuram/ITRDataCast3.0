@@ -19,6 +19,6 @@ namespace ITR.Models
         public string Phases { get; set; }
         public string SHORTCODE { get; set; }
         public string MY { get; set; }
-        public Nullable<int> Timing { get; set; }
+        public Nullable<double> Timing { get; set; }
     }
 }
