@@ -445,3 +445,12 @@
     margin-top: 10px;
     display: inline-block;
 }
+.mr-15{
+    margin-left:13px !important;
+    margin-right:10px !important;
+    padding: 0;
+}
+
+.clearfix{
+    clear:both;
+}
