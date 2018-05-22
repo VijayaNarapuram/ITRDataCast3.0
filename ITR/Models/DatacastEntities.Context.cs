@@ -2279,5 +2279,14 @@ namespace ITR.Models
     
             return ((IObjectContextAdapter)this).ObjectContext.ExecuteFunction<uspSelectPhaseValuesOfDBWidgetsByCompanyId_Result>("uspSelectPhaseValuesOfDBWidgetsByCompanyId", companyShortCodeParameter);
         }
+    
+        public virtual ObjectResult<uspSelectTimingValuesOfDBWidgetsByCompanyId_Result> uspSelectTimingValuesOfDBWidgetsByCompanyId(string companyShortCode)
+        {
+            var companyShortCodeParameter = companyShortCode != null ?
+                new ObjectParameter("CompanyShortCode", companyShortCode) :
+                new ObjectParameter("CompanyShortCode", typeof(string));
+    
+            return ((IObjectContextAdapter)this).ObjectContext.ExecuteFunction<uspSelectTimingValuesOfDBWidgetsByCompanyId_Result>("uspSelectTimingValuesOfDBWidgetsByCompanyId", companyShortCodeParameter);
+        }
     }
 }

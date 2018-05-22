@@ -1465,6 +1465,9 @@
     <Compile Include="Models\uspSelectRowsByDataSetID_Result.cs">
       <DependentUpon>DbEntities.tt</DependentUpon>
     </Compile>
+    <Compile Include="Models\uspSelectTimingValuesOfDBWidgetsByCompanyId_Result.cs">
+      <DependentUpon>DatacastEntities.tt</DependentUpon>
+    </Compile>
     <Compile Include="Models\vwCompanyAVG.cs">
       <DependentUpon>DatacastEntities.tt</DependentUpon>
     </Compile>

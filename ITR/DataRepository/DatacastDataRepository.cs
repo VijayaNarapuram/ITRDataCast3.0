@@ -684,6 +684,16 @@ namespace ITR.DataRepository
             return PortalItemsList;
         }
 
+        public IList<uspSelectTimingValuesOfDBWidgetsByCompanyId_Result> SelectTimingValuesOfDBWidgetsByCompanyId(string CompanyShortCode)
+        {
+            IList<uspSelectTimingValuesOfDBWidgetsByCompanyId_Result> PortalItemsList = new List<uspSelectTimingValuesOfDBWidgetsByCompanyId_Result>();
+            foreach (uspSelectTimingValuesOfDBWidgetsByCompanyId_Result PortalItem in objEntities.uspSelectTimingValuesOfDBWidgetsByCompanyId(CompanyShortCode))
+            {
+                PortalItemsList.Add(PortalItem);
+            }
+            return PortalItemsList;
+        }
+
         /// <summary>  
         /// Created by: VIJAYA
         /// Created On: 2018/04/19

@@ -50,7 +50,7 @@ namespace ITR.Controllers
             var DBWidgetsListByCompanyId = _homeRepository.SelectDBWidgetsListByCompanyID(1,CompanyShortCode);
 
             var PhaseValuesOfDBWidgetsList = _homeRepository.SelectPhaseValuesOfDBWidgetsByCompanyId(CompanyShortCode);
-
+            var TimingValuesOfDBWidgetsList = _homeRepository.SelectTimingValuesOfDBWidgetsByCompanyId(CompanyShortCode);
 
             var DistinctPhaseValuesOfDBWidgetsList = PhaseValuesOfDBWidgetsList.Select(e => new {e.DashboardWidgetsListId, e.Indicator })
                                 .Distinct();
@@ -166,7 +166,16 @@ namespace ITR.Controllers
                     }
 
                     //ADD TIMING COLUMN...
-                    finalResult += "<td>" + CurrentMonthtiming + "</td>";
+                    //finalResult += "<td>" + CurrentMonthtiming + "</td>";
+                    Double IndicatorTiming = 0;
+                    foreach (var item1 in TimingValuesOfDBWidgetsList)
+                    {
+                        if (item1.IndicatorShortCode == item.IndicatorShortCode)
+                        {                           
+                            IndicatorTiming = Convert.ToDouble(item1.Timing);
+                        }                                        
+                    }
+                    finalResult += "<td>" + IndicatorTiming + "</td>";       
 
                     finalResult += "<td><a href='#' id='btnDelDbWidget_" + item.DashboardWidgetsListId + "' class='pull-left btnDelDbWidget'  title='Click to delete dashboard widgets'>Delete</a></td>";
                     finalResult += "</tr>";

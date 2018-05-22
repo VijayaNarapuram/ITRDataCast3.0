@@ -424,7 +424,7 @@
             var left = ($(window).width() / 2) - (900 / 2),
                 top = ($(window).height() / 2) - (600 / 2);
             var divContents = $("#divPrint").html();
-            console.log('divcontents - ' + divContents);
+            //console.log('divcontents - ' + divContents);
             var printWindow = window.open("", "print", "width=" + $(window).width() + ", height=" + $(window).height() + ", top=" + top + ", left=" + left);
             printWindow.document.write('<html><head><title> ITR Economics</title>');
             var myStyle = document.styleSheets;
@@ -458,7 +458,7 @@
 
                 //change the canvas to jpeg image
                 var image = canvas.toDataURL('image/jpeg');
-                console.log(image);
+                //console.log(image);
                 var doc = new jsPDF("l", "pt", "a4");
                 //doc.addImage(image, 'JPEG', 0, 50, 850, 500);
 
@@ -491,15 +491,64 @@
         });
 
         //TO LOAD PHASE VALUES OF DB WIDGETS IN DATATABLE...
-        function LoadPhaseValuesOfDBWidgets() {
+        function LoadPhaseValuesOfDBWidgets1() {
             url = '/DatacastDBWidget/SelectPhaseValuesOfDBWidgetsList/';
             var modelObj = {
                 CompanyShortCode: $("#ddlDataSets").val()
             };
-            responseData = SendRequestJSON(url, modelObj);
+            responseData = SendRequestJSONFromDBWidget(url, modelObj);
             if (responseData.length > 0) {
                 $("#ACQNINACQS").html(responseData);
             }
+        }
+
+        function LoadPhaseValuesOfDBWidgets() {
+            var modelObj = {
+                CompanyShortCode: $("#ddlDataSets").val()
+            };
+            $.ajax({
+                url: '/DatacastDBWidget/SelectPhaseValuesOfDBWidgetsList/',
+                type: 'POST',
+                contentType: 'application/json',
+                dataType: 'json',
+                data: JSON.stringify(modelObj),
+                //async: false,
+                //cache: false,
+                beforeSend: function (response) {
+                    ajaxindicatorstart();
+                },
+                success: function (response) {
+                    $("#ACQNINACQS").html(response);
+                },
+                complete: function () {
+                    ajaxindicatorstart();
+                }
+            });
+        }
+
+        function SendRequestJSONFromDBWidget(url, modelobj) {          
+            var response;
+            $.ajax({
+                type: "POST",
+                async: false,
+                url: url,
+                dataType: "json",
+                data: modelobj, // like for UserRole-Model {RoleName:obj.RoleName,RoleDescription:obj.RoleDescription},
+                beforeSend: function (response) {
+                    ajaxindicatorstart();
+                },
+                success: function (res) {
+                    response = res;
+                },
+                error: function () {
+                    //  throw new Error
+                    $('#loadingDiv .bg').height('100%');
+                    $('#loadingDiv').remove();
+                    $('body').css('cursor', 'default');
+                    //throw new Error
+                }
+            });
+            return response;
         }
 
         $(document).on('click', '.btnDelDbWidget', function (e) {
@@ -520,18 +569,17 @@
             };
 
             var txt;
-            console.log('modelobjlocal -' + modelobjlocal);
+            //console.log('modelobjlocal -' + modelobjlocal);
 
             if (confirm("Are you sure you want to delete this indicator?") == true) {
                 var response = SendRequestJSON(urldelete, modelobjlocal);
 
                 if (response.result == '1') {
-                    alert("Dashboard Widget indicator deleted successfully.");
-
+                    alert("Dashboard indicator deleted successfully.");
                     //LoadPhaseValuesOfDBWidgets();
                     LoadPhasesTableAndCharts($("#ddlDataSets").val());
                 } else {
-                    alert("Unable to Delete Dashboard Widget indicator.");
+                    alert("Unable to Delete Dashboard indicator.");
                 }
             } else {
             }
@@ -753,7 +801,7 @@
                     for (i = 0; i < combinationObject.length; i++) {
                         var obj = combinationObject[i];
                         for (key in obj) {
-                            // console.log("Key is " + key + "  value is " + obj[key]);
+                            // //console.log("Key is " + key + "  value is " + obj[key]);
                             var value1 = obj[key];
                             if (key == "Duration") {
                                 duration = value1;
@@ -765,38 +813,38 @@
                                 IndicatorMinValue = value1;
                                 IndicatorMINFlag = true;
 
-                                console.log('IndicatorMinValue - ' + IndicatorMinValue);
+                                //console.log('IndicatorMinValue - ' + IndicatorMinValue);
                             } else if (key == "MaxValue" && obj["Code"] == "Indicator" && IndicatorMAXFlag == false) {
                                 IndicatorMaxValue = value1;
                                 IndicatorMAXFlag = true;
 
-                                console.log('IndicatorMaxValue - ' + IndicatorMaxValue);
+                                //console.log('IndicatorMaxValue - ' + IndicatorMaxValue);
                             } else if (key == "MinValue" && obj["Code"] == "Company" && CompanyMINFlag == false) {
                                 CompanyMinValue = value1;
                                 CompanyMINFlag = true;
 
-                                console.log('CompanyMinValue - ' + CompanyMinValue);
+                                //console.log('CompanyMinValue - ' + CompanyMinValue);
                             } else if (key == "MaxValue" && obj["Code"] == "Company" && CompanyMAXFlag == false) {
                                 CompanyMaxValue = value1;
                                 CompanyMAXFlag = true;
 
-                                console.log('CompanyMaxValue - ' + CompanyMaxValue);
+                                //console.log('CompanyMaxValue - ' + CompanyMaxValue);
                             }
 
                             if (IndicatorMINFlag == true && IndicatorMAXFlag == true && CompanyMINFlag == true && CompanyMAXFlag == true) {
                                 i = combinationObject.length;
-                                console.log('i - ' + i);
+                                //console.log('i - ' + i);
                                 break;
                             }
                         }
                     }
                     if (combinationObject != undefined && combinationObject != "") {
-                        console.log('loading chart...')
+                        //console.log('loading chart...')
                         LoadChart(count);
                     }
                     // LoadDDChart();
                 }).error(function (jqXHR, textStatus, errorThrown) {
-                    //  // console.log("incoming Text " + jqXHR.responseText);
+                    //  // //console.log("incoming Text " + jqXHR.responseText);
                     ajaxindicatorstop(); // Remove the loader
                     document.getElementById("displayMessage").innerHTML = 'There is something wrong with the Combination you selected, please try a different combination';
                     $('#displayMessage').prepend('<span class="button b-close"><span>X</span></span>'); //Prepending Close button to popup
@@ -847,8 +895,8 @@
                 }
             }
 
-            console.log('ticksRepeatIndicator - ' + ticksRepeatIndicator);
-            console.log('ticksRepeatCompany - ' + ticksRepeatCompany);
+            //console.log('ticksRepeatIndicator - ' + ticksRepeatIndicator);
+            //console.log('ticksRepeatCompany - ' + ticksRepeatCompany);
 
             //LOAD CHART
             $("#chart_" + count).shieldChart({
@@ -866,7 +914,7 @@
                     ticksRepeat: 24,
                     categoricalValues: $.map(combinationObject, function (item) {
                         //console.log('combinationObject - ' + combinationObject);
-                        console.log('from chart - ' + item.Code);
+                        //console.log('from chart - ' + item.Code);
 
                         if (item.Code == "Indicator") {
                             var dateValue = new Date(parseInt(item.MonthYear.substr(6)));
@@ -1201,7 +1249,7 @@
                         collectionAlias: "Company Forecast",
                         // data: [null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, 5.9, 11.0, 20.0, -7.8, 9.0]
                         data: $.map(combinationObject, function (item) {
-                            //  console.log(item)
+                            //  //console.log(item)
                             if (item.Code == "Company" && item.Forecast == false)
                                 return {
                                     y: null
@@ -1388,7 +1436,7 @@
                         collectionAlias: "Indicator Forecast",
                         // data: [null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, 5.9, 11.0, 20.0, -7.8, 9.0]
                         data: $.map(combinationObject, function (item) {
-                            //  console.log(item)
+                            //  //console.log(item)
                             if (item.Code == "Indicator" && item.Forecast == false)
                                 return {
                                     y: null
@@ -1421,7 +1469,8 @@
                 },
                 events: { //Called on Chart load completed
                     load: function (event) {
-                        ajaxindicatorstop();
+
+                        //ajaxindicatorstop();
 
                         if (CompanyZeroLine == IndicatorZeroLine) {
                             $("#chart").show();
@@ -1486,6 +1535,7 @@
         });
 
         function LoadPhasesTableAndCharts(dataSetID) {
+            ajaxindicatorstart();
             //alert('from LoadPhasesTableAndCharts');
             if (dataSetID != "" && dataSetID != "null" && dataSetID != null) {
 
@@ -1503,9 +1553,9 @@
 
                 $('#tblHeading').text('Indicator Phase Signals for ' + $("#ddlDataSets").val());
                 //TO LOAD PHASE VALUES OF DB WIDGETS IN DATATABLE...
-                LoadPhaseValuesOfDBWidgets();
+                //LoadPhaseValuesOfDBWidgets();
 
-                /* LOADING CHARTS... */
+                /* 1. LOADING CHARTS... */
                 //GETTING DB SELECTED WIDGET INDICATORS SHORT CODES...
                 var IndicatorsList = '';
                 var url = '/DatacastDBWidget/SelectDBWidgetsListByCompanyID';
@@ -1513,7 +1563,7 @@
                     CompanyShortCode: dataSetID,
                     UserId: 1 //userId
                 };
-                console.log(modelobjlocal);
+                //console.log(modelobjlocal);
 
                 var response = SendRequestJSON(url, modelobjlocal);
 
@@ -1524,7 +1574,7 @@
                     IndicatorsList = '';
                 }
 
-                console.log('IndicatorsList - ' + IndicatorsList);
+                //console.log('IndicatorsList - ' + IndicatorsList);
                 var SelectedIndicators = IndicatorsList.split('~'); //IndicatorsList.split(',').length;
 
                 var SelectedIndicatorsCount = SelectedIndicators.length;
@@ -1535,6 +1585,7 @@
                 //console.log('indicatorsLength[2] - ' + SelectedIndicators[2]);
                 //console.log('indicatorsLength[3] - ' + SelectedIndicators[3]);
 
+                //LOOPING THRU EACH SELECTED DASHBOARD INDICATOR...
                 if (IndicatorsList != '') {
                     for (var j = 0; j < SelectedIndicatorsCount - 1; j++) {
                         //alert(indicatorsLength[j]);
@@ -1547,6 +1598,9 @@
 
                         LoadChartData(indicatorShotrCode, j, SelectedIndicators[j].split('_')[1]);
                     }
+
+                    //2. LOADING TABLE... TO LOAD PHASE VALUES OF DB WIDGETS IN DATATABLE...
+                    LoadPhaseValuesOfDBWidgets();
                 }
                 else {
                     $('.charts').each(function () {

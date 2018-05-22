@@ -65,6 +65,7 @@ namespace ITR.DataRepository
     {
         #region Dashboard Widgets
         IList<uspSelectPhaseValuesOfDBWidgetsByCompanyId_Result> SelectPhaseValuesOfDBWidgetsByCompanyId(string CompanyShortCode);
+        IList<uspSelectTimingValuesOfDBWidgetsByCompanyId_Result> SelectTimingValuesOfDBWidgetsByCompanyId(string CompanyShortCode);
         int DeleteDBWidgetIndicator(int DashboardWidgetsListId, string CompanyShortCode, int UserID);
 
         IList<uspSelectDBWidgetsListByCompanyID_Result> SelectDBWidgetsListByCompanyID(int userID, string dataSetID);

@@ -747,7 +747,7 @@ else
         <script type="text/javascript" src="//ajax.googleapis.com/ajax/libs/jquery/1.8.1/jquery.min.js"></script>*@
     <script src="~/datacastjs/jquery-1.11.1.min.js"></script>
     <script type="text/javascript" lang="javascript">
-        ////console.log("else case");
+        //console.log("else case");
         var elseCaseCompanyId = window.localStorage.getItem('ECompanyID');
         $("#hdnCompanyID").val(elseCaseCompanyId);
         var elseCaseDivisionID = window.localStorage.getItem('EDivisionID');
@@ -1248,7 +1248,7 @@ else
             {
                 var Indicatorcode="";
                 var bTable = "";
-                ////console.log('from IndicationSummary FavListFlag - ' + FavListFlag);
+                //console.log('from IndicationSummary FavListFlag - ' + FavListFlag);
                 //TABLE DEFINITION for Indicator list
                 bTable = $('#CorelationLeadLagListIndicationSummary').dataTable({
                     "aLengthMenu": [
@@ -1418,8 +1418,8 @@ else
                                 $(".spnIndicatorName").html(aData[0]);
                                 indicatorShotrCode = aData[4];
                                 //alert(indicatorShotrCode);
-                                ////console.log("indicatorShotrCode "+indicatorShotrCode)
-                                ////console.log("companyCode "+companyCode)
+                                //console.log("indicatorShotrCode "+indicatorShotrCode)
+                                //console.log("companyCode "+companyCode)
                                 $(this).addClass("active");
                                 //khaja
                                 ticksRepeatCompany = 0;
@@ -1489,7 +1489,7 @@ else
                             "render": function(oObj) {
 
                                 ivar = ivar + 1;
-                                ////console.log('FavList - ' + FavList);
+                                //console.log('FavList - ' + FavList);
                                 //if(FavListFlag == false)
                                 // {
                                 if (FavList.indexOf(oObj + ",") >= 0) {
@@ -1508,11 +1508,11 @@ else
                             "bSortable": false,
                             "render": function(oObj) {
                                 ivarforDBWidgets = ivarforDBWidgets + 1;
-                                ////console.log('oObj - ' + oObj);
-                                console.log('DBWidgetsList from datatable - ' + DBWidgetsList);
+                                //console.log('oObj - ' + oObj);
+                                //console.log('DBWidgetsList from datatable - ' + DBWidgetsList);
 
                                 if (DBWidgetsList.indexOf(oObj + ",") >= 0) {
-                                    ////console.log('from if loop');
+                                    //console.log('from if loop');
                                     return '<input type="checkbox" id=' + ivarforDBWidgets + ' class="CBDB" checked >';
                                 } else
                                     return '<input type="checkbox" id=' + ivarforDBWidgets + ' class="CBDB" > ';
@@ -1589,7 +1589,7 @@ else
                 //khaja
                 // $('#CorelationLeadLagList_filter input').attr("placeholder", "Search");
                 $("#CorelationLeadLagList_paginate").on("click", "a", function() {
-                    ////console.log('from paginate');
+                    //console.log('from paginate');
 
                     $('.CBX').each(function() {
                         if ($(this)[0].checked) {
@@ -1628,7 +1628,7 @@ else
                             }
                         }
 
-                        ////console.log('DBWidgetsList -' + DBWidgetsList);
+                        //console.log('DBWidgetsList -' + DBWidgetsList);
                     });
                 });
 
@@ -1990,17 +1990,17 @@ else
             FavListName = SelFavName;
             DBWidgetsListFlag = false; //DBWidget flag is false...
 
-            ////console.log('FuncnText - ' + FuncnText);
+            //console.log('FuncnText - ' + FuncnText);
 
             $("#spnFavListName").html('Favorite Name: <b>' + FavListName + '</b>');
 
             if (FuncnText == " Show Favorites List ") {
-                ////console.log('from show fav list');
+                //console.log('from show fav list');
 
                 $('#SaveFavorites').val(' Update Favorites List ');
                 //$('#ShowFavorites').val(' Hide Favorites List ');
                 FavListFlag = true;
-                ////
+                //
 
                 $.getJSON("GetAllFavoritesListByDataSetIDUesrID?dataSetID=" + $("#ddlDataSets").val() + "&userID=" + $("#hdnUserID").val() + "&SelFavName=" + SelFavName, //need to update userid
                     function(data) {
@@ -2010,7 +2010,7 @@ else
                         for (i = 0; i < jsonObject.length; i++) {
                             var obj = jsonObject[i];
 
-                            ////console.log(obj["IndicatorShortCode"]);
+                            //console.log(obj["IndicatorShortCode"]);
                             if (FavList == "")
                                 FavList = obj["IndicatorShortCode"] + ",";
                             else {
@@ -2020,7 +2020,7 @@ else
                             }
                         }
 
-                        ////console.log('from show favs - ' + FavList);
+                        //console.log('from show favs - ' + FavList);
                         var oTable = $('#CorelationLeadLagList').dataTable();
                         oTable.fnDraw();
                         ajaxindicatorstop();
@@ -2101,7 +2101,7 @@ else
         $(document).on('click', '#SaveFavorites', function(e) {
             e.preventDefault();
 
-            ////console.log('FavList from save fav -' + FavList);
+            //console.log('FavList from save fav -' + FavList);
 
             $('.CBX').each(function() {
                 if ($(this)[0].checked) {
@@ -2218,6 +2218,9 @@ else
                 url: url,
                 dataType: "json",
                 data: modelobj, // like for UserRole-Model {RoleName:obj.RoleName,RoleDescription:obj.RoleDescription},
+                beforeSend: function (response) {
+                    ajaxindicatorstart();
+                },
                 success: function(res) {
                     response = res;
                 },
@@ -2268,7 +2271,7 @@ else
             i = 0;
             j = 0;
 
-            ////console.log('widgetsCount -' + widgetsCount);
+            //console.log('widgetsCount -' + widgetsCount);
 
             $(this).addClass("active");
 
@@ -2294,8 +2297,8 @@ else
                 widgetsCount = widgetsCount + 1;
             }
 
-            console.log('from table load - ' + DBWidgetsList);
-            console.log('from table load - ' + widgetsCount);
+            //console.log('from table load - ' + DBWidgetsList);
+            //console.log('from table load - ' + widgetsCount);
 
             LoadChartData();
             //ajaxindicatorstop();
@@ -2634,7 +2637,7 @@ else
                 function(data) {
                     combinationObject = JSON.parse(data);
 
-                    ////console.log('combinationObject - ' + combinationObject);
+                    //console.log('combinationObject - ' + combinationObject);
 
                     IDTcombinationObject = combinationObject; //For InternalDataTrends chart
                     var IndicatorMINFlag = false,
@@ -2675,10 +2678,10 @@ else
                             }
 
                             if (IndicatorMINFlag == true && IndicatorMAXFlag == true && CompanyMINFlag == true && CompanyMAXFlag == true) {
-                                ////console.log("IndicatorMinValue " + IndicatorMinValue)
-                                ////console.log("IndicatorMaxValue " + IndicatorMaxValue)
-                                ////console.log("CompanyMinValue " + CompanyMinValue)
-                                ////console.log("CompanyMaxValue " + CompanyMaxValue)
+                                //console.log("IndicatorMinValue " + IndicatorMinValue)
+                                //console.log("IndicatorMaxValue " + IndicatorMaxValue)
+                                //console.log("CompanyMinValue " + CompanyMinValue)
+                                //console.log("CompanyMaxValue " + CompanyMaxValue)
                                 i = combinationObject.length;
                                 //console.log('i - ' + i);
                                 break;
@@ -2767,10 +2770,10 @@ else
                             }
 
                             if (MM12MINFlag == true && MM12MAXFlag == true && MM3MINFlag == true && MM3MAXFlag == true) {
-                                ////console.log("MM12MinValue " + MM12MinValue)
-                                ////console.log("MM12MaxValue " + MM12MaxValue)
-                                ////console.log("MM3MinValue " + MM3MinValue)
-                                ////console.log("MM3MaxValue " + MM3MaxValue)
+                                //console.log("MM12MinValue " + MM12MinValue)
+                                //console.log("MM12MaxValue " + MM12MaxValue)
+                                //console.log("MM3MinValue " + MM3MinValue)
+                                //console.log("MM3MaxValue " + MM3MaxValue)
                                 i = IDTcombinationObject.length;
                                 break;
                             }
@@ -2958,15 +2961,15 @@ else
                     drawWidth: 1,
                     ticksRepeat: 24,
                     categoricalValues: $.map(combinationObject, function(item) {
-                        ////console.log('combinationObject - ' + combinationObject);
-                        ////console.log(item.Code);
+                        //console.log('combinationObject - ' + combinationObject);
+                        //console.log(item.Code);
 
                         if (item.Code == "Indicator") {
                             var dateValue = new Date(parseInt(item.MonthYear.substr(6)));
                             // dateValue= parseInt(dateValue.getMonth() + 1) + "/" + parseInt(dateValue.getDate()) + "/" + dateValue.getFullYear()
                             var monthName = GetMonthName(dateValue.getMonth() + 1);
                             var date = monthName + '  ' + dateValue.getFullYear(); //March  2018
-                            ////console.log('date -' + date);
+                            //console.log('date -' + date);
                             return date;
                         }
                     }),
@@ -2982,7 +2985,7 @@ else
                             // var dateValue = new Date(text);
                             var string = text;
 
-                            ////console.log('string - ' + string);
+                            //console.log('string - ' + string);
 
                             string = string.split("  ");
 
@@ -3632,7 +3635,7 @@ else
                             // var dateValue = new Date(text);
                             var string = text;
                             string = string.split("  ");
-                            ////console.log('string from CheckZeroLineForBusinessPhase - ' + string);
+                            //console.log('string from CheckZeroLineForBusinessPhase - ' + string);
                             //return string[0] + "-" + string[1]; //Here 0-index will have month name and 1-index will have year//dateValue.getFullYear();
                             /* Modified by Vijaya on 05142018 as per Joe's changes... */
                             return string[1]; //Here 0-index will have month name and 1-index will have year//dateValue.getFullYear();
@@ -4929,7 +4932,7 @@ else
         var isDataPortalAdmin = "";
         $(document).ready(function(e) {
 
-            //// Handle click on "Select all" control
+            // Handle click on "Select all" control
             //$('#selectAll').on('click', function(){
             //    alert(1);
             //    $('.CBX').prop('checked', this.checked);
@@ -5948,7 +5951,7 @@ else
                             tmpArr.push(tmpStr);
                         }
                     });
-                    ////console.log(tmpArr);
+                    //console.log(tmpArr);
                     csvData.push(tmpArr.join(','));
                     //   }
                 });
@@ -6196,13 +6199,13 @@ else
             $(document).on('click', '#AddIToDashboard', function(e) {
                 e.preventDefault();
                 //widgetsCount = 0;
-                ////console.log('DBWidgets List from save WID -' + DBWidgetsList);
+                //console.log('DBWidgets List from save WID -' + DBWidgetsList);
 
                 //DASHBOARD INDICATORS LIST...
                 /*
                 $('.CBDB').each(function() {
-                    ////console.log('Count - ' + widgetsCount);
-                    ////console.log($(this));
+                    //console.log('Count - ' + widgetsCount);
+                    //console.log($(this));
                     if ($(this)[0].checked == true) {
                         //alert(widgetsCount);
                         widgetsCount++;
@@ -6222,8 +6225,8 @@ else
                    So considering DBWidgetsList Length to get widgetsCount... Need to have the ability to add only 10 indicators...
                 */
                 widgetsCount = (DBWidgetsList != "") ? DBWidgetsList.split(',').length - 1 : 0;
-                console.log('DBWidgetsList - ' + DBWidgetsList);
-                console.log('widgetsCount - ' + widgetsCount);
+                //console.log('DBWidgetsList - ' + DBWidgetsList);
+                //console.log('widgetsCount - ' + widgetsCount);
 
                 var table = $('#CorelationLeadLagList').DataTable();
                 table.search('').columns().search('').draw();
@@ -6232,7 +6235,7 @@ else
                     //var FavoritesListName = SetFavoritesListName();
                     if (DBWidgetsListName != null && DBWidgetsListName != "") {
 
-                        if ($(this).val() == " Save Dashboard Widgets ") {
+                        if ($(this).val() == " Save Dashboard Indicator ") {
                             var url = "InsertDashboardWidgetsList";
                         }
                         //} else {
@@ -6252,8 +6255,8 @@ else
                         var response = SendRequestJSON(url, modelobj);
 
                         if (response.result == 'Success') {
-                            if ($(this).val() == " Save Dashboard Widgets ") {
-                                alert("Dahsboard widget indicators added successfully.");
+                            if ($(this).val() == " Save Dashboard Indicator ") {
+                                alert("Dahsboard indicators added successfully.");
                                 //var oTable = $('#CorelationLeadLagList').dataTable();
                                 //oTable.fnDraw();
                             } else {
@@ -6414,46 +6417,7 @@ else
                     }
                 }
             ]
-        });
-
-        //DELETE DBWidgets Functionality...
-        var DashboardWidgetsListId = "";
-        $(document).on('click', '.DeleteDBWidgetsIndicators', function(e) {
-            ajaxindicatorstart();
-            oTable = $("#dtDBWidgetsList").dataTable();
-            var aData = oTable.fnGetData($(this).closest('tr'));
-            DashboardWidgetsListId = aData[0];
-            //	alert(tempFname)
-            var urldelete = "DeleteDBWidgetIndicator";
-            var modelobjlocal = {
-                DashboardWidgetsListId : DashboardWidgetsListId,
-                CompanyShortCode: $("#ddlDataSets").val(),
-                UserID: $("#hdnUserID").val()
-            };
-
-            var txt;
-            if (confirm("Are you sure?") == true) {
-                var response = SendRequestJSON(urldelete, modelobjlocal);
-
-                if (response.result == '1') {
-                    alert("Dashboard Widget indicator deleted successfully.");
-
-                    var oTable = $('#dtDBWidgetsList').dataTable();
-                    oTable.fnDraw();
-
-                    //if (tempFname == FavListName) {
-                    //    $('#SaveFavorites').val(' Save Favorites List ');
-                    //    FavListName = "";
-                    //}
-
-                    $('#DBWidgetsListModalPopUp').hide();
-                } else {
-                    alert("Unable to Delete Dashboard Widget indicator.");
-                }
-            } else {
-            }
-            ajaxindicatorstop();
-        });
+        });        
 
         //TO SHOW INDICATORS IN PAGE LOAD...(SAME AS SHOW DASHBOARD FUNCTIONALITY...)
         function LoadDashboardWidgetsList(dataSetID)
@@ -6469,7 +6433,7 @@ else
                     for (i = 0; i < jsonObject.length; i++) {
                         var obj = jsonObject[i];
 
-                        ////console.log(obj["IndicatorShortCode"]);
+                        //console.log(obj["IndicatorShortCode"]);
                         if (DBWidgetsList == "")
                             DBWidgetsList = obj["IndicatorShortCode"] + ",";
                         else {
@@ -6500,9 +6464,9 @@ else
             //SelFavName = aData[0];
             //FavListName = SelFavName;
 
-            if (FuncnText == " Show Dashboard Widgets ") {
+            if (FuncnText == " Show Dashboard Indicator ") {
 
-                $('#AddIToDashboard').val(' Update dashboard widgets ');
+                $('#AddIToDashboard').val(' Update Dashboard Indicator ');
                 DBWidgetsListFlag = true;
 
                 $.getJSON("SelectDBWidgetsListByCompanyID?dataSetID=" + $("#ddlDataSets").val() + "&userID=" + $("#hdnUserID").val(), //need to update userid
@@ -6513,7 +6477,7 @@ else
                         for (i = 0; i < jsonObject.length; i++) {
                             var obj = jsonObject[i];
 
-                            ////console.log(obj["IndicatorShortCode"]);
+                            //console.log(obj["IndicatorShortCode"]);
                             if (DBWidgetsList == "")
                                 DBWidgetsList = obj["IndicatorShortCode"] + ",";
                             else {
