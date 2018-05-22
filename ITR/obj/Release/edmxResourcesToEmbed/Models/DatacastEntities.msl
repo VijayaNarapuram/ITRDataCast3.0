@@ -2389,5 +2389,14 @@
         </ComplexTypeMapping>
       </ResultMapping>
     </FunctionImportMapping>
+    <FunctionImportMapping FunctionImportName="uspSelectTimingValuesOfDBWidgetsByCompanyId" FunctionName="LDBTESTModel.Store.uspSelectTimingValuesOfDBWidgetsByCompanyId">
+      <ResultMapping>
+        <ComplexTypeMapping TypeName="LDBTESTModel.uspSelectTimingValuesOfDBWidgetsByCompanyId_Result">
+          <ScalarProperty Name="CompanyShortCode" ColumnName="CompanyShortCode" />
+          <ScalarProperty Name="IndicatorShortCode" ColumnName="IndicatorShortCode" />
+          <ScalarProperty Name="Timing" ColumnName="Timing" />
+        </ComplexTypeMapping>
+      </ResultMapping>
+    </FunctionImportMapping>
   </EntityContainerMapping>
 </Mapping>

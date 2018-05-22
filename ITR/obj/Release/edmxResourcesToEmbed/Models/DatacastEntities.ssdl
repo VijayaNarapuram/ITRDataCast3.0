@@ -1838,6 +1838,9 @@ warning 6002: The table/view 'LDBTEST_04092018.dbo.vwTableau' does not have a pr
   <Function Name="uspSelectPhaseValuesOfDBWidgetsByCompanyId" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
     <Parameter Name="CompanyShortCode" Type="varchar(max)" Mode="In" />
   </Function>
+  <Function Name="uspSelectTimingValuesOfDBWidgetsByCompanyId" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="CompanyShortCode" Type="varchar(max)" Mode="In" />
+  </Function>
   <Function Name="uspTest" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
     <Parameter Name="A" Type="decimal" Mode="In" />
     <Parameter Name="B" Type="decimal" Mode="In" />

@@ -1866,6 +1866,9 @@
     <FunctionImport Name="uspSelectPhaseValuesOfDBWidgetsByCompanyId" ReturnType="Collection(LDBTESTModel.uspSelectPhaseValuesOfDBWidgetsByCompanyId_Result)">
       <Parameter Name="CompanyShortCode" Mode="In" Type="String" />
     </FunctionImport>
+    <FunctionImport Name="uspSelectTimingValuesOfDBWidgetsByCompanyId" ReturnType="Collection(LDBTESTModel.uspSelectTimingValuesOfDBWidgetsByCompanyId_Result)">
+      <Parameter Name="CompanyShortCode" Mode="In" Type="String" />
+    </FunctionImport>
   </EntityContainer>
   <ComplexType Name="sp_CheckLogin_Result">
     <Property Type="String" Name="UserName" Nullable="false" MaxLength="64" />
@@ -2648,6 +2651,11 @@
     <Property Type="String" Name="Phases" Nullable="true" MaxLength="8" />
     <Property Type="String" Name="SHORTCODE" Nullable="true" MaxLength="64" />
     <Property Type="String" Name="MY" Nullable="true" MaxLength="64" />
+    <Property Type="Double" Name="Timing" Nullable="true" />
+  </ComplexType>
+  <ComplexType Name="uspSelectTimingValuesOfDBWidgetsByCompanyId_Result">
+    <Property Type="String" Name="CompanyShortCode" Nullable="false" MaxLength="128" />
+    <Property Type="String" Name="IndicatorShortCode" Nullable="false" MaxLength="128" />
     <Property Type="Double" Name="Timing" Nullable="true" />
   </ComplexType>
 </Schema>
