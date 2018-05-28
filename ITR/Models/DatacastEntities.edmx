@@ -352,6 +352,7 @@ warning 6002: The table/view 'LDBTEST_04092018.dbo.ForeCastCheckData' does not h
           <Property Name="UFR3by12" Type="decimal" Precision="32" Scale="16" />
           <Property Name="CreatedBy" Type="varchar" MaxLength="128" />
           <Property Name="CreatedDate" Type="datetime" />
+          <Property Name="Phases" Type="varchar" MaxLength="4" />
         </EntityType>
         <EntityType Name="ForeCastMetaData">
           <Key>
@@ -1843,6 +1844,9 @@ warning 6002: The table/view 'LDBTEST_04092018.dbo.vwTableau' does not have a pr
         <Function Name="uspSelectPhaseValuesOfDBWidgetsByCompanyId" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
           <Parameter Name="CompanyShortCode" Type="varchar(max)" Mode="In" />
         </Function>
+        <Function Name="uspSelectPhaseValuesOfDBWidgetsByCompanyIdNew" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+          <Parameter Name="CompanyShortCode" Type="varchar(max)" Mode="In" />
+        </Function>
         <Function Name="uspSelectTimingValuesOfDBWidgetsByCompanyId" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
           <Parameter Name="CompanyShortCode" Type="varchar(max)" Mode="In" />
         </Function>
@@ -2805,6 +2809,7 @@ FROM [dbo].[vwTableau] AS [vwTableau]</DefiningQuery>
           <Property Name="UFR3by12" Type="Decimal" Precision="32" Scale="16" />
           <Property Name="CreatedBy" Type="String" MaxLength="128" FixedLength="false" Unicode="false" />
           <Property Name="CreatedDate" Type="DateTime" Precision="3" />
+          <Property Name="Phases" Type="String" MaxLength="4" FixedLength="false" Unicode="false" />
         </EntityType>
         <EntityType Name="ForeCastMetaData">
           <Key>
@@ -4558,6 +4563,9 @@ FROM [dbo].[vwTableau] AS [vwTableau]</DefiningQuery>
           <Parameter Name="CompanyShortCode" Mode="In" Type="String" />
           </FunctionImport>
           <FunctionImport Name="uspSelectTimingValuesOfDBWidgetsByCompanyId" ReturnType="Collection(LDBTESTModel.uspSelectTimingValuesOfDBWidgetsByCompanyId_Result)">
+          <Parameter Name="CompanyShortCode" Mode="In" Type="String" />
+          </FunctionImport>
+          <FunctionImport Name="uspSelectPhaseValuesOfDBWidgetsByCompanyIdNew" ReturnType="Collection(LDBTESTModel.uspSelectPhaseValuesOfDBWidgetsByCompanyIdNew_Result)">
             <Parameter Name="CompanyShortCode" Mode="In" Type="String" />
           </FunctionImport>
         </EntityContainer>
@@ -5349,6 +5357,14 @@ FROM [dbo].[vwTableau] AS [vwTableau]</DefiningQuery>
           <Property Type="String" Name="IndicatorShortCode" Nullable="false" MaxLength="128" />
           <Property Type="Double" Name="Timing" Nullable="true" />
         </ComplexType>
+        <ComplexType Name="uspSelectPhaseValuesOfDBWidgetsByCompanyIdNew_Result">
+          <Property Type="Int32" Name="DashboardWidgetsListId" Nullable="true" />
+          <Property Type="String" Name="Indicator" Nullable="true" />
+          <Property Type="String" Name="SHORTCODE" Nullable="true" MaxLength="64" />
+          <Property Type="DateTime" Name="MonthYear" Nullable="true" Precision="23" />
+          <Property Type="String" Name="Phases" Nullable="true" MaxLength="8" />
+          <Property Type="String" Name="MY" Nullable="true" MaxLength="64" />
+        </ComplexType>
       </Schema>
     </edmx:ConceptualModels>
     <!-- C-S mapping content -->
@@ -5446,6 +5462,7 @@ FROM [dbo].[vwTableau] AS [vwTableau]</DefiningQuery>
           <EntitySetMapping Name="ForeCastDatas">
             <EntityTypeMapping TypeName="LDBTESTModel.ForeCastData">
               <MappingFragment StoreEntitySet="ForeCastData">
+                <ScalarProperty Name="Phases" ColumnName="Phases" />
                 <ScalarProperty Name="ForeCastDataID" ColumnName="ForeCastDataID" />
                 <ScalarProperty Name="ForeCastMetaDataID" ColumnName="ForeCastMetaDataID" />
                 <ScalarProperty Name="ShortCode" ColumnName="ShortCode" />
@@ -7749,6 +7766,18 @@ FROM [dbo].[vwTableau] AS [vwTableau]</DefiningQuery>
                 <ScalarProperty Name="CompanyShortCode" ColumnName="CompanyShortCode" />
                 <ScalarProperty Name="IndicatorShortCode" ColumnName="IndicatorShortCode" />
                 <ScalarProperty Name="Timing" ColumnName="Timing" />
+              </ComplexTypeMapping>
+            </ResultMapping>
+          </FunctionImportMapping>
+          <FunctionImportMapping FunctionImportName="uspSelectPhaseValuesOfDBWidgetsByCompanyIdNew" FunctionName="LDBTESTModel.Store.uspSelectPhaseValuesOfDBWidgetsByCompanyIdNew">
+            <ResultMapping>
+              <ComplexTypeMapping TypeName="LDBTESTModel.uspSelectPhaseValuesOfDBWidgetsByCompanyIdNew_Result">
+                <ScalarProperty Name="DashboardWidgetsListId" ColumnName="DashboardWidgetsListId" />
+                <ScalarProperty Name="Indicator" ColumnName="Indicator" />
+                <ScalarProperty Name="SHORTCODE" ColumnName="SHORTCODE" />
+                <ScalarProperty Name="MonthYear" ColumnName="MonthYear" />
+                <ScalarProperty Name="Phases" ColumnName="Phases" />
+                <ScalarProperty Name="MY" ColumnName="MY" />
               </ComplexTypeMapping>
             </ResultMapping>
           </FunctionImportMapping>

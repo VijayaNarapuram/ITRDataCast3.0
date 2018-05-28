@@ -92,6 +92,7 @@
     <EntitySetMapping Name="ForeCastDatas">
       <EntityTypeMapping TypeName="LDBTESTModel.ForeCastData">
         <MappingFragment StoreEntitySet="ForeCastData">
+          <ScalarProperty Name="Phases" ColumnName="Phases" />
           <ScalarProperty Name="ForeCastDataID" ColumnName="ForeCastDataID" />
           <ScalarProperty Name="ForeCastMetaDataID" ColumnName="ForeCastMetaDataID" />
           <ScalarProperty Name="ShortCode" ColumnName="ShortCode" />
@@ -2395,6 +2396,18 @@
           <ScalarProperty Name="CompanyShortCode" ColumnName="CompanyShortCode" />
           <ScalarProperty Name="IndicatorShortCode" ColumnName="IndicatorShortCode" />
           <ScalarProperty Name="Timing" ColumnName="Timing" />
+        </ComplexTypeMapping>
+      </ResultMapping>
+    </FunctionImportMapping>
+    <FunctionImportMapping FunctionImportName="uspSelectPhaseValuesOfDBWidgetsByCompanyIdNew" FunctionName="LDBTESTModel.Store.uspSelectPhaseValuesOfDBWidgetsByCompanyIdNew">
+      <ResultMapping>
+        <ComplexTypeMapping TypeName="LDBTESTModel.uspSelectPhaseValuesOfDBWidgetsByCompanyIdNew_Result">
+          <ScalarProperty Name="DashboardWidgetsListId" ColumnName="DashboardWidgetsListId" />
+          <ScalarProperty Name="Indicator" ColumnName="Indicator" />
+          <ScalarProperty Name="SHORTCODE" ColumnName="SHORTCODE" />
+          <ScalarProperty Name="MonthYear" ColumnName="MonthYear" />
+          <ScalarProperty Name="Phases" ColumnName="Phases" />
+          <ScalarProperty Name="MY" ColumnName="MY" />
         </ComplexTypeMapping>
       </ResultMapping>
     </FunctionImportMapping>

@@ -44,25 +44,26 @@ namespace ITR.Controllers
         /// TO Select Phase values of Dashboard Widgets By CompanySchortCode
         /// </summary>
         /// <returns></returns>
-        public JsonResult SelectPhaseValuesOfDBWidgetsList(string CompanyShortCode)
+        public JsonResult SelectPhaseValuesOfDBWidgetsList(int UserId, string CompanyShortCode)
         {
             string finalResult = "";
-            var DBWidgetsListByCompanyId = _homeRepository.SelectDBWidgetsListByCompanyID(1,CompanyShortCode);
+            var DBWidgetsListByCompanyId = _homeRepository.SelectDBWidgetsListByCompanyID(UserId, CompanyShortCode);
 
-            var PhaseValuesOfDBWidgetsList = _homeRepository.SelectPhaseValuesOfDBWidgetsByCompanyId(CompanyShortCode);
+            //var PhaseValuesOfDBWidgetsList = _homeRepository.SelectPhaseValuesOfDBWidgetsByCompanyId(CompanyShortCode);
+            var PhaseValuesOfDBWidgetsList = _homeRepository.SelectPhaseValuesOfDBWidgetsByCompanyIdNew(CompanyShortCode);
             var TimingValuesOfDBWidgetsList = _homeRepository.SelectTimingValuesOfDBWidgetsByCompanyId(CompanyShortCode);
 
             var DistinctPhaseValuesOfDBWidgetsList = PhaseValuesOfDBWidgetsList.Select(e => new {e.DashboardWidgetsListId, e.Indicator })
                                 .Distinct();
 
-            string currentYear = DateTime.Now.Year.ToString();
+            string currentYear = DateTime.Now.Year.ToString().Substring(DateTime.Now.Year.ToString().Length - 2);
             string CurrentMonth = String.Format("{0:MMMM}", DateTime.Now);
             //CurrentMonth = "January";
 
             DateTime currentDate = DateTime.Now;
             string nextYear = currentDate.AddYears(1).Year.ToString();
             string NNYear = currentDate.AddYears(2).Year.ToString();
-            int CurrentMonthtiming = 0;
+            //int CurrentMonthtiming = 0;
 
             DataTable dt = new DataTable();
             dt.Columns.Add("MonthYear");
@@ -78,8 +79,7 @@ namespace ITR.Controllers
             //DataTable transposedTable = GenerateTransposedTable(dt);
 
             finalResult =
-                   "<div class='table-responsive'>" +
-                       //"<table class='table table-th-block table-dark' id='Phasesdatatable-example'>" +
+                   "<div class='table-responsive'>" +                      
                        "<table class='table table-striped table-bordered' cellspacing='0' width='100%'>" +
                        "<thead> " +
                        "  <tr> " + "<th style='background-color:lightgray;display:none;' colspan='1'> Dashboard Widgets ListId </th>" +
@@ -95,9 +95,9 @@ namespace ITR.Controllers
                                    "<th style='background-color:lightgray;' colspan='1'> Delete </th>" +
                            "</tr>";
             finalResult += "</thead>";
-            finalResult += "<tbody>";
+            finalResult += "<tbody>";    
 
-            string[] monthsArray = new string[] { CurrentMonth, "mar", "jun", "sep", "dec", "dec_2019", "dec_2020" };
+            string[] monthsArray = new string[] { CurrentMonth, "mar", "jun", "sep", "dec", "dec_" + nextYear.Substring(nextYear.Length - 2), "dec_" + NNYear.Substring(NNYear.Length - 2) };
             
             //foreach (var item in DistinctPhaseValuesOfDBWidgetsList)
             if (DBWidgetsListByCompanyId.Count > 0)
@@ -110,53 +110,63 @@ namespace ITR.Controllers
 
                     foreach (var AI in monthsArray)
                     {
-                        if (AI.Contains('_'))
+                        if (AI.Contains('_')) //NEXT YEAR, NEXTNEXT YEAR...
                         {
-                            var indicatorValuesList = PhaseValuesOfDBWidgetsList.Select(e => new { e.DashboardWidgetsListId, e.Indicator, e.SHORTCODE, e.MY, e.Phases, e.Timing }).
+                            var indicatorValuesList = PhaseValuesOfDBWidgetsList.Select(e => new { e.DashboardWidgetsListId, e.Indicator, e.SHORTCODE, e.MY, e.Phases }).
                                                                             Where(e => e.Indicator == item.Indicator &&
-                                                                                       AI.Split('_')[0].ToLower().Contains(e.MY.ToString().Split(' ')[1].ToLower()) &&
-                                                                                       AI.Split('_')[1] == e.MY.ToString().Split(' ')[2] &&
-                                                                                      (AI.Split('_')[1] == nextYear || AI.Split('_')[1] == NNYear)
+                                                                                       AI.Split('_')[0].ToLower().Contains(e.MY.ToString().Split(' ')[1].ToLower()) && //MONTH
+                                                                                       //AI.Split('_')[1] == e.MY.ToString().Split(' ')[2] &&
+                                                                                      (AI.Split('_')[1] == nextYear.Substring(nextYear.Length - 2) || AI.Split('_')[1] == NNYear.Substring(NNYear.Length - 2))
                                                                             );
 
-                            var ExistsCount = indicatorValuesList.Count(a => a.DashboardWidgetsListId == item.DashboardWidgetsListId) > 0;
+                            var ExistsCount = indicatorValuesList.Count(a => (a.DashboardWidgetsListId == item.DashboardWidgetsListId)
+                                                                           && a.MY.ToString().Split(' ')[2] == AI.Split('_')[1]
+                                                                           && a.MY.ToString().Split(' ')[1] == "Dec"
+                                                                           ) > 0;
 
                             if (ExistsCount)
                             {
+                                //string PhaseVal = string.Empty;
+
                                 foreach (var value in indicatorValuesList)
                                 {
-                                    //if (AI.ToLower() == CurrentMonth.ToLower())
-                                    //{
-                                        CurrentMonthtiming = Convert.ToInt16(value.Timing);
-                                    //}
-
-                                    finalResult += "<td>" + value.Phases + "</td>";
+                                //    if (value.MY.ToString().Split(' ')[2] == AI.Split('_')[1] )
+                                //    PhaseVal = value.Phases;               
+                                    finalResult += "<td>" + value.Phases + "</td>";          
                                 }
+
+                               // finalResult += "<td>" + PhaseVal + "</td>";          
                             }
                             else
                             {
                                 finalResult += "<td>" + "N/A" + "</td>";
                             }
                         }
-                        else
+                        else //CURRENT YEAR...
                         {
-                            var indicatorValuesList = PhaseValuesOfDBWidgetsList.Select(e => new { e.DashboardWidgetsListId, e.Indicator, e.SHORTCODE, e.MY, e.Phases, e.Timing }).
-                                                                                                    Where(e => e.Indicator == item.Indicator && AI.ToLower().Contains(e.MY.ToString().Split(' ')[1].ToLower())
+                            var indicatorValuesList = PhaseValuesOfDBWidgetsList.Select(e => new { e.DashboardWidgetsListId, e.Indicator, e.SHORTCODE, e.MY, e.Phases }).
+                                                                                                    Where(e => e.Indicator == item.Indicator
+                                                                                                               && AI.ToLower().Contains(e.MY.ToString().Split(' ')[1].ToLower())
+                                                                                                               && e.MY.ToString().Split(' ')[2] == currentYear
+                                                                                                        
                                                                                                   );
 
-                            var ExistsCount = indicatorValuesList.Count(a => a.DashboardWidgetsListId == item.DashboardWidgetsListId) > 0;
+                            var ExistsCount = indicatorValuesList.Count(a => a.DashboardWidgetsListId == item.DashboardWidgetsListId && 
+                                                                             a.MY.ToString().Split(' ')[2] == currentYear      
+                                                                       ) > 0;
+
+                            var IndicatorsCount = indicatorValuesList.Count();
 
                             if (ExistsCount)
                             {
+                                //string PhaseValue = string.Empty;
                                 foreach (var value in indicatorValuesList)
                                 {
-                                    //if (AI.ToLower() == CurrentMonth.ToLower())
-                                    //{
-                                        CurrentMonthtiming = Convert.ToInt16(value.Timing);
-                                    //}
-
-                                    finalResult += "<td>" + value.Phases + "</td>";
-                                }
+                                    if(value.MY.ToString().Split(' ')[1] == AI.ToString().ToLower() )
+                                    {
+                                        finalResult += "<td>" + value.Phases + "</td>";
+                                    }
+                                }                               
                             }
                             else
                             {

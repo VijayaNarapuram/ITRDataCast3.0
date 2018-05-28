@@ -114,6 +114,7 @@
     <Property Name="UFR3by12" Type="Decimal" Precision="32" Scale="16" />
     <Property Name="CreatedBy" Type="String" MaxLength="128" FixedLength="false" Unicode="false" />
     <Property Name="CreatedDate" Type="DateTime" Precision="3" />
+    <Property Name="Phases" Type="String" MaxLength="4" FixedLength="false" Unicode="false" />
   </EntityType>
   <EntityType Name="ForeCastMetaData">
     <Key>
@@ -1869,6 +1870,9 @@
     <FunctionImport Name="uspSelectTimingValuesOfDBWidgetsByCompanyId" ReturnType="Collection(LDBTESTModel.uspSelectTimingValuesOfDBWidgetsByCompanyId_Result)">
       <Parameter Name="CompanyShortCode" Mode="In" Type="String" />
     </FunctionImport>
+    <FunctionImport Name="uspSelectPhaseValuesOfDBWidgetsByCompanyIdNew" ReturnType="Collection(LDBTESTModel.uspSelectPhaseValuesOfDBWidgetsByCompanyIdNew_Result)">
+      <Parameter Name="CompanyShortCode" Mode="In" Type="String" />
+    </FunctionImport>
   </EntityContainer>
   <ComplexType Name="sp_CheckLogin_Result">
     <Property Type="String" Name="UserName" Nullable="false" MaxLength="64" />
@@ -2657,5 +2661,13 @@
     <Property Type="String" Name="CompanyShortCode" Nullable="false" MaxLength="128" />
     <Property Type="String" Name="IndicatorShortCode" Nullable="false" MaxLength="128" />
     <Property Type="Double" Name="Timing" Nullable="true" />
+  </ComplexType>
+  <ComplexType Name="uspSelectPhaseValuesOfDBWidgetsByCompanyIdNew_Result">
+    <Property Type="Int32" Name="DashboardWidgetsListId" Nullable="true" />
+    <Property Type="String" Name="Indicator" Nullable="true" />
+    <Property Type="String" Name="SHORTCODE" Nullable="true" MaxLength="64" />
+    <Property Type="DateTime" Name="MonthYear" Nullable="true" Precision="23" />
+    <Property Type="String" Name="Phases" Nullable="true" MaxLength="8" />
+    <Property Type="String" Name="MY" Nullable="true" MaxLength="64" />
   </ComplexType>
 </Schema>

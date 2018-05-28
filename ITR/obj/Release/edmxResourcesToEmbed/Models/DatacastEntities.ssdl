@@ -347,6 +347,7 @@ warning 6002: The table/view 'LDBTEST_04092018.dbo.ForeCastCheckData' does not h
     <Property Name="UFR3by12" Type="decimal" Precision="32" Scale="16" />
     <Property Name="CreatedBy" Type="varchar" MaxLength="128" />
     <Property Name="CreatedDate" Type="datetime" />
+    <Property Name="Phases" Type="varchar" MaxLength="4" />
   </EntityType>
   <EntityType Name="ForeCastMetaData">
     <Key>
@@ -1836,6 +1837,9 @@ warning 6002: The table/view 'LDBTEST_04092018.dbo.vwTableau' does not have a pr
   </Function>
   <Function Name="uspSelectMasterMetaDataFields" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo" />
   <Function Name="uspSelectPhaseValuesOfDBWidgetsByCompanyId" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="CompanyShortCode" Type="varchar(max)" Mode="In" />
+  </Function>
+  <Function Name="uspSelectPhaseValuesOfDBWidgetsByCompanyIdNew" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
     <Parameter Name="CompanyShortCode" Type="varchar(max)" Mode="In" />
   </Function>
   <Function Name="uspSelectTimingValuesOfDBWidgetsByCompanyId" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">

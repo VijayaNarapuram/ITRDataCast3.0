@@ -684,6 +684,16 @@ namespace ITR.DataRepository
             return PortalItemsList;
         }
 
+        public IList<uspSelectPhaseValuesOfDBWidgetsByCompanyIdNew_Result> SelectPhaseValuesOfDBWidgetsByCompanyIdNew(string CompanyShortCode)
+        {
+            IList<uspSelectPhaseValuesOfDBWidgetsByCompanyIdNew_Result> PortalItemsList = new List<uspSelectPhaseValuesOfDBWidgetsByCompanyIdNew_Result>();
+            foreach (uspSelectPhaseValuesOfDBWidgetsByCompanyIdNew_Result PortalItem in objEntities.uspSelectPhaseValuesOfDBWidgetsByCompanyIdNew(CompanyShortCode))
+            {
+                PortalItemsList.Add(PortalItem);
+            }
+            return PortalItemsList;
+        }
+
         public IList<uspSelectTimingValuesOfDBWidgetsByCompanyId_Result> SelectTimingValuesOfDBWidgetsByCompanyId(string CompanyShortCode)
         {
             IList<uspSelectTimingValuesOfDBWidgetsByCompanyId_Result> PortalItemsList = new List<uspSelectTimingValuesOfDBWidgetsByCompanyId_Result>();

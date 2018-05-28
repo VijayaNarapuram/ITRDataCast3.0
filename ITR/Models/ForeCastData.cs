@@ -33,5 +33,6 @@ namespace ITR.Models
         public Nullable<decimal> UFR3by12 { get; set; }
         public string CreatedBy { get; set; }
         public Nullable<System.DateTime> CreatedDate { get; set; }
+        public string Phases { get; set; }
     }
 }

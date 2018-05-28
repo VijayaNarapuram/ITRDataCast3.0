@@ -1459,6 +1459,9 @@
     <Compile Include="Models\UspSelectMasterMetaData_Result.cs">
       <DependentUpon>DatacastEntities.tt</DependentUpon>
     </Compile>
+    <Compile Include="Models\uspSelectPhaseValuesOfDBWidgetsByCompanyIdNew_Result.cs">
+      <DependentUpon>DatacastEntities.tt</DependentUpon>
+    </Compile>
     <Compile Include="Models\uspSelectPhaseValuesOfDBWidgetsByCompanyId_Result.cs">
       <DependentUpon>DatacastEntities.tt</DependentUpon>
     </Compile>
