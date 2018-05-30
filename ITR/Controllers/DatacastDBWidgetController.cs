@@ -194,7 +194,7 @@ namespace ITR.Controllers
             }
             else
             {
-                finalResult += "<tr><td><span>No widgets selected for this company</span></td></tr>";
+                finalResult += "<tr><td><span>No indicators selected for this company</span></td></tr>";
             }
 
             finalResult += "</tbody>";
