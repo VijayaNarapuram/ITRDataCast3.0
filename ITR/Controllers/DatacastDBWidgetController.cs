@@ -112,30 +112,31 @@ namespace ITR.Controllers
                     {
                         if (AI.Contains('_')) //NEXT YEAR, NEXTNEXT YEAR...
                         {
+                            var YearValue = AI.Split('_')[1];
                             var indicatorValuesList = PhaseValuesOfDBWidgetsList.Select(e => new { e.DashboardWidgetsListId, e.Indicator, e.SHORTCODE, e.MY, e.Phases }).
                                                                             Where(e => e.Indicator == item.Indicator &&
-                                                                                       AI.Split('_')[0].ToLower().Contains(e.MY.ToString().Split(' ')[1].ToLower()) && //MONTH
-                                                                                       //AI.Split('_')[1] == e.MY.ToString().Split(' ')[2] &&
-                                                                                      (AI.Split('_')[1] == nextYear.Substring(nextYear.Length - 2) || AI.Split('_')[1] == NNYear.Substring(NNYear.Length - 2))
+                                                                                       AI.Split('_')[0].ToLower().Contains(e.MY.ToString().Split(' ')[1].ToLower()) && //MONTH                                                                                    
+                                                                                      e.MY.ToString().Split(' ')[2] == YearValue
                                                                             );
 
-                            var ExistsCount = indicatorValuesList.Count(a => (a.DashboardWidgetsListId == item.DashboardWidgetsListId)
-                                                                           && a.MY.ToString().Split(' ')[2] == AI.Split('_')[1]
-                                                                           && a.MY.ToString().Split(' ')[1] == "Dec"
-                                                                           ) > 0;
+                            //var ExistsCount = indicatorValuesList.Count(a => (a.DashboardWidgetsListId == item.DashboardWidgetsListId)
+                            //                                               && a.MY.ToString().Split(' ')[2] == AI.Split('_')[1]
+                            //                                               && a.MY.ToString().Split(' ')[1].ToString().ToLower() == "dec"
+                            //                                               ) > 0;
 
-                            if (ExistsCount)
+                            if (indicatorValuesList.Count() > 0)
                             {
-                                //string PhaseVal = string.Empty;
+                                string PhaseVal = string.Empty;
 
                                 foreach (var value in indicatorValuesList)
                                 {
-                                //    if (value.MY.ToString().Split(' ')[2] == AI.Split('_')[1] )
-                                //    PhaseVal = value.Phases;               
-                                    finalResult += "<td>" + value.Phases + "</td>";          
+                                    //if (value.MY.ToString().Split(' ')[2].ToString().ToLower() == "dec" && value.MY.ToString().Split(' ')[1] == nextYear.Substring(nextYear.Length - 2))
+                                    //{
+                                        PhaseVal = value.Phases;
+                                   // }                                          
                                 }
 
-                               // finalResult += "<td>" + PhaseVal + "</td>";          
+                                finalResult += "<td>" + PhaseVal + "</td>";         
                             }
                             else
                             {
@@ -146,23 +147,23 @@ namespace ITR.Controllers
                         {
                             var indicatorValuesList = PhaseValuesOfDBWidgetsList.Select(e => new { e.DashboardWidgetsListId, e.Indicator, e.SHORTCODE, e.MY, e.Phases }).
                                                                                                     Where(e => e.Indicator == item.Indicator
-                                                                                                               && AI.ToLower().Contains(e.MY.ToString().Split(' ')[1].ToLower())
-                                                                                                               && e.MY.ToString().Split(' ')[2] == currentYear
+                                                                                                               && AI.ToLower().Contains(e.MY.ToString().Split(' ')[1].ToLower()) //MONTH
+                                                                                                               && e.MY.ToString().Split(' ')[2] == currentYear //YEAR
                                                                                                         
                                                                                                   );
 
-                            var ExistsCount = indicatorValuesList.Count(a => a.DashboardWidgetsListId == item.DashboardWidgetsListId && 
-                                                                             a.MY.ToString().Split(' ')[2] == currentYear      
-                                                                       ) > 0;
+                            //var ExistsCount = indicatorValuesList.Count(a => a.DashboardWidgetsListId == item.DashboardWidgetsListId && 
+                            //                                                 a.MY.ToString().Split(' ')[2] == currentYear      
+                            //                                           ) > 0;
 
-                            var IndicatorsCount = indicatorValuesList.Count();
+                            //var IndicatorsCount = indicatorValuesList.Count();
 
-                            if (ExistsCount)
+                            if (indicatorValuesList.Count() > 0)
                             {
                                 //string PhaseValue = string.Empty;
                                 foreach (var value in indicatorValuesList)
                                 {
-                                    if(value.MY.ToString().Split(' ')[1] == AI.ToString().ToLower() )
+                                    if (value.MY.ToString().Split(' ')[1].ToString().ToLower() == AI.ToString().ToLower())
                                     {
                                         finalResult += "<td>" + value.Phases + "</td>";
                                     }
