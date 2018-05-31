@@ -132,10 +132,10 @@ namespace ITR.Controllers
                                 {
                                     //if (value.MY.ToString().Split(' ')[2].ToString().ToLower() == "dec" && value.MY.ToString().Split(' ')[1] == nextYear.Substring(nextYear.Length - 2))
                                     //{
-                                        PhaseVal = value.Phases;
+                                    PhaseVal = (value.Phases == null || value.Phases == "") ? "N/A" : value.Phases;
                                    // }                                          
                                 }
-
+                                 
                                 finalResult += "<td>" + PhaseVal + "</td>";         
                             }
                             else
@@ -160,12 +160,15 @@ namespace ITR.Controllers
 
                             if (indicatorValuesList.Count() > 0)
                             {
-                                //string PhaseValue = string.Empty;
+                                string PhaseVal = string.Empty;
+
                                 foreach (var value in indicatorValuesList)
                                 {
                                     if (value.MY.ToString().Split(' ')[1].ToString().ToLower() == AI.ToString().ToLower())
                                     {
-                                        finalResult += "<td>" + value.Phases + "</td>";
+                                        //finalResult += "<td>" + value.Phases + "</td>";
+                                        PhaseVal = (value.Phases == null || value.Phases == "") ? "N/A" : value.Phases;
+                                        finalResult += "<td>" + PhaseVal + "</td>";                                 
                                     }
                                 }                               
                             }
