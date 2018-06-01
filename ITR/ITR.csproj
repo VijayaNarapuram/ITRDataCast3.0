@@ -145,6 +145,7 @@
   <ItemGroup>
     <Content Include="assets\css\bootstrap.min.css" />
     <Content Include="assets\css\DBWidgetStyles.css" />
+    <Content Include="assets\css\dragable.css" />
     <Content Include="assets\css\responsive.css" />
     <Content Include="assets\css\styles-blessed14f47.css" />
     <Content Include="assets\css\styles-blessed24f47.css" />
@@ -1331,6 +1332,9 @@
       <DependentUpon>DatacastEntities.tt</DependentUpon>
     </Compile>
     <Compile Include="Models\uspSelectCompanyForecastDataByCompanyShortCode_Result.cs">
+      <DependentUpon>DatacastEntities.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\uspSelectCurrentMonthPhaseValuesOfDBWidgetsByCompanyId_Result.cs">
       <DependentUpon>DatacastEntities.tt</DependentUpon>
     </Compile>
     <Compile Include="Models\uspSelectDatacastCategoriesPortal_Result.cs">

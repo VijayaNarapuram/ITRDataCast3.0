@@ -65,11 +65,12 @@ namespace ITR.DataRepository
     {
         #region Dashboard Widgets
         IList<uspSelectPhaseValuesOfDBWidgetsByCompanyId_Result> SelectPhaseValuesOfDBWidgetsByCompanyId(string CompanyShortCode);
-        IList<uspSelectPhaseValuesOfDBWidgetsByCompanyIdNew_Result> SelectPhaseValuesOfDBWidgetsByCompanyIdNew(string CompanyShortCode);
+        IList<uspSelectPhaseValuesOfDBWidgetsByCompanyIdNew_Result> SelectPhaseValuesOfDBWidgetsByCompanyIdNew(string CompanyShortCode, int CompanyId);
         IList<uspSelectTimingValuesOfDBWidgetsByCompanyId_Result> SelectTimingValuesOfDBWidgetsByCompanyId(string CompanyShortCode);
         int DeleteDBWidgetIndicator(int DashboardWidgetsListId, string CompanyShortCode, int UserID);
 
         IList<uspSelectDBWidgetsListByCompanyID_Result> SelectDBWidgetsListByCompanyID(int userID, string dataSetID);
+        IList<uspSelectCurrentMonthPhaseValuesOfDBWidgetsByCompanyId_Result> SelectCurrentMonthPhaseValuesOfDBWidgetsByCompanyId(string CompanyShortCode);
         #endregion
     }
 }

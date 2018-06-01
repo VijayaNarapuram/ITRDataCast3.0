@@ -2289,13 +2289,26 @@ namespace ITR.Models
             return ((IObjectContextAdapter)this).ObjectContext.ExecuteFunction<uspSelectTimingValuesOfDBWidgetsByCompanyId_Result>("uspSelectTimingValuesOfDBWidgetsByCompanyId", companyShortCodeParameter);
         }
     
-        public virtual ObjectResult<uspSelectPhaseValuesOfDBWidgetsByCompanyIdNew_Result> uspSelectPhaseValuesOfDBWidgetsByCompanyIdNew(string companyShortCode)
+        public virtual ObjectResult<uspSelectCurrentMonthPhaseValuesOfDBWidgetsByCompanyId_Result> uspSelectCurrentMonthPhaseValuesOfDBWidgetsByCompanyId(string companyShortCode)
         {
             var companyShortCodeParameter = companyShortCode != null ?
                 new ObjectParameter("CompanyShortCode", companyShortCode) :
                 new ObjectParameter("CompanyShortCode", typeof(string));
     
-            return ((IObjectContextAdapter)this).ObjectContext.ExecuteFunction<uspSelectPhaseValuesOfDBWidgetsByCompanyIdNew_Result>("uspSelectPhaseValuesOfDBWidgetsByCompanyIdNew", companyShortCodeParameter);
+            return ((IObjectContextAdapter)this).ObjectContext.ExecuteFunction<uspSelectCurrentMonthPhaseValuesOfDBWidgetsByCompanyId_Result>("uspSelectCurrentMonthPhaseValuesOfDBWidgetsByCompanyId", companyShortCodeParameter);
+        }
+    
+        public virtual ObjectResult<uspSelectPhaseValuesOfDBWidgetsByCompanyIdNew_Result> uspSelectPhaseValuesOfDBWidgetsByCompanyIdNew(string companyShortCode, Nullable<int> companyID)
+        {
+            var companyShortCodeParameter = companyShortCode != null ?
+                new ObjectParameter("CompanyShortCode", companyShortCode) :
+                new ObjectParameter("CompanyShortCode", typeof(string));
+    
+            var companyIDParameter = companyID.HasValue ?
+                new ObjectParameter("CompanyID", companyID) :
+                new ObjectParameter("CompanyID", typeof(int));
+    
+            return ((IObjectContextAdapter)this).ObjectContext.ExecuteFunction<uspSelectPhaseValuesOfDBWidgetsByCompanyIdNew_Result>("uspSelectPhaseValuesOfDBWidgetsByCompanyIdNew", companyShortCodeParameter, companyIDParameter);
         }
     }
 }
