@@ -3,7 +3,11 @@
     ViewBag.Title = "Datacast";
     Layout = "~/Views/Shared/_Layout.cshtml";
 }
-
+<style type="text/css">
+    .business_tbl input {
+        font-size: 12px !important;
+    }
+</style>
 <div class="container-fluid">
     <div id="page-wrap" ng-app="">
         <div class="panel" style="border: 1px solid #dedede; padding-top: 0px; padding-bottom: 5px;">
@@ -249,14 +253,14 @@
                         </div>
                         <!--First Div End-->
                         <!--Second Div Start-->
-                        <div class="col-sm-6">
+                        <div class="col-sm-7">
 
                             @*<div class="row">
                                     <div class="col-sm-6" style="font-weight: bold;">Indicator Name - Indicator</div>
                                     <div class="col-sm-3" style="font-weight: bold;">Correlation</div>
                                     <div class="col-sm-3" style="font-weight: bold;">Lead/Lag</div>
                                 </div>*@
-                            <table align="right" style="margin:5px;padding:0px !important;width:100%;">
+                            <table class="business_tbl" align="right" style="margin:5px;padding:0px !important;width:100%;display: inline-block;">
                                 <tr>
                                     <td align="center">
                                         <span style="color:rgba(0, 41, 162, 0.91);" id="spnFavListName"></span>
@@ -284,7 +288,7 @@
                                 </tr>
                                 <tr>
                                     <td>
-                                        <div id="divIndicator" style='height: 250px; display: block; overflow-y: scroll; overflow-x: hidden; background-color: white; margin: 0 0 20px 0;'>
+                                        <div id="divIndicator" style='width:480px;height: 250px; display: block; overflow-y: scroll; overflow-x: hidden; background-color: white; margin: 0 0 20px 0;'>
                                             <!--Here the Indicator list  will be loaded dynamically-->
                                             <table class="table table-th-block table-dark link_cursor" id="CorelationLeadLagList">
                                                 <thead>
@@ -310,16 +314,16 @@
                         </div>
                         <!--Second Div End-->
                         <!--Third Div Start-->
-                        <div class="col-sm-3">
+                        <div class="col-sm-2">
                             <div class="row">
-                                <span style="font-family: &quot; Roboto Light&quot; , Roboto; font-size: 15px; line-height: 17px; color: rgb(0, 0, 0); font-weight: bold;">
+                                <span style="font-family: &quot; Roboto Light&quot; , Roboto; font-size: 13px; line-height: 17px; color: rgb(0, 0, 0); font-weight: bold;">
                                     Enter Number of Months
                                     <br>
                                     To Move Indicator
                                 </span>
                             </div>
                             <div class="row" data-ng-init="moveMonths='0'">
-                                <input type="text" class="QueryBox" data-ng-model="moveMonths" value="0">
+                                <input type="text" class="QueryBox" data-ng-model="moveMonths" value="0" style="width:100%;">
                             </div>
                             <br />
                             <div class="row bold">Invert Indicator</div>
@@ -778,9 +782,9 @@ else
                 //console.log(error)
             }
         });
-        $("#hdnCompanyID").val(2301) //5399); //8224)
-        $("#hdnDivisionID").val(0);
-        $("#hdnUserID").val(1);
+        //   $("#hdnCompanyID").val(2301) //5399); //8224)
+        //  $("#hdnDivisionID").val(0);
+        //  $("#hdnUserID").val(1);
     </script>
 }
 
@@ -6417,7 +6421,7 @@ else
                     }
                 }
             ]
-        });        
+        });
 
         //TO SHOW INDICATORS IN PAGE LOAD...(SAME AS SHOW DASHBOARD FUNCTIONALITY...)
         function LoadDashboardWidgetsList(dataSetID)

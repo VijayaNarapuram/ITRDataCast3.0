@@ -450,3 +450,7 @@
     /*width: 48%;*/
     /*float: left;*/
 }
+
+#divPrint .panel.item.mr-15{
+   margin-left: 10px !important;
+}
