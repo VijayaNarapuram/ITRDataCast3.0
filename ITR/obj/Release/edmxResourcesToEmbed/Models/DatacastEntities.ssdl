@@ -1708,6 +1708,9 @@ warning 6002: The table/view 'LDBTEST_04092018.dbo.vwTableau' does not have a pr
     <Parameter Name="CustomerDataSetID" Type="int" Mode="In" />
   </Function>
   <Function Name="uspSelectCompanySalesPortalByCustomerDataSetID_Scheduler" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo" />
+  <Function Name="uspSelectCurrentMonthPhaseValuesOfDBWidgetsByCompanyId" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="CompanyShortCode" Type="varchar(max)" Mode="In" />
+  </Function>
   <Function Name="uspSelectDatacastCategories" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo" />
   <Function Name="uspSelectDatacastSubCategoriesByCategory" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
     <Parameter Name="Industry" Type="varchar" Mode="In" />
@@ -1841,6 +1844,7 @@ warning 6002: The table/view 'LDBTEST_04092018.dbo.vwTableau' does not have a pr
   </Function>
   <Function Name="uspSelectPhaseValuesOfDBWidgetsByCompanyIdNew" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
     <Parameter Name="CompanyShortCode" Type="varchar(max)" Mode="In" />
+    <Parameter Name="CompanyID" Type="int" Mode="In" />
   </Function>
   <Function Name="uspSelectTimingValuesOfDBWidgetsByCompanyId" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
     <Parameter Name="CompanyShortCode" Type="varchar(max)" Mode="In" />

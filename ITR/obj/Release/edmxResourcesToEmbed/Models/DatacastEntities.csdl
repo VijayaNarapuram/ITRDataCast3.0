@@ -1870,8 +1870,12 @@
     <FunctionImport Name="uspSelectTimingValuesOfDBWidgetsByCompanyId" ReturnType="Collection(LDBTESTModel.uspSelectTimingValuesOfDBWidgetsByCompanyId_Result)">
       <Parameter Name="CompanyShortCode" Mode="In" Type="String" />
     </FunctionImport>
+    <FunctionImport Name="uspSelectCurrentMonthPhaseValuesOfDBWidgetsByCompanyId" ReturnType="Collection(LDBTESTModel.uspSelectCurrentMonthPhaseValuesOfDBWidgetsByCompanyId_Result)">
+      <Parameter Name="CompanyShortCode" Mode="In" Type="String" />
+    </FunctionImport>
     <FunctionImport Name="uspSelectPhaseValuesOfDBWidgetsByCompanyIdNew" ReturnType="Collection(LDBTESTModel.uspSelectPhaseValuesOfDBWidgetsByCompanyIdNew_Result)">
       <Parameter Name="CompanyShortCode" Mode="In" Type="String" />
+      <Parameter Name="CompanyID" Mode="In" Type="Int32" />
     </FunctionImport>
   </EntityContainer>
   <ComplexType Name="sp_CheckLogin_Result">
@@ -2661,6 +2665,14 @@
     <Property Type="String" Name="CompanyShortCode" Nullable="false" MaxLength="128" />
     <Property Type="String" Name="IndicatorShortCode" Nullable="false" MaxLength="128" />
     <Property Type="Double" Name="Timing" Nullable="true" />
+  </ComplexType>
+  <ComplexType Name="uspSelectCurrentMonthPhaseValuesOfDBWidgetsByCompanyId_Result">
+    <Property Type="Int32" Name="DashboardWidgetsListId" Nullable="true" />
+    <Property Type="String" Name="IndicatorName" Nullable="true" />
+    <Property Type="String" Name="IndicatorShortCode" Nullable="true" MaxLength="64" />
+    <Property Type="DateTime" Name="MonthYear" Nullable="true" />
+    <Property Type="String" Name="MY" Nullable="true" MaxLength="16" />
+    <Property Type="String" Name="Phases" Nullable="true" MaxLength="8" />
   </ComplexType>
   <ComplexType Name="uspSelectPhaseValuesOfDBWidgetsByCompanyIdNew_Result">
     <Property Type="Int32" Name="DashboardWidgetsListId" Nullable="true" />

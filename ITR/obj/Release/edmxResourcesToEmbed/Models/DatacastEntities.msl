@@ -2399,6 +2399,18 @@
         </ComplexTypeMapping>
       </ResultMapping>
     </FunctionImportMapping>
+    <FunctionImportMapping FunctionImportName="uspSelectCurrentMonthPhaseValuesOfDBWidgetsByCompanyId" FunctionName="LDBTESTModel.Store.uspSelectCurrentMonthPhaseValuesOfDBWidgetsByCompanyId">
+      <ResultMapping>
+        <ComplexTypeMapping TypeName="LDBTESTModel.uspSelectCurrentMonthPhaseValuesOfDBWidgetsByCompanyId_Result">
+          <ScalarProperty Name="DashboardWidgetsListId" ColumnName="DashboardWidgetsListId" />
+          <ScalarProperty Name="IndicatorName" ColumnName="IndicatorName" />
+          <ScalarProperty Name="IndicatorShortCode" ColumnName="IndicatorShortCode" />
+          <ScalarProperty Name="MonthYear" ColumnName="MonthYear" />
+          <ScalarProperty Name="MY" ColumnName="MY" />
+          <ScalarProperty Name="Phases" ColumnName="Phases" />
+        </ComplexTypeMapping>
+      </ResultMapping>
+    </FunctionImportMapping>
     <FunctionImportMapping FunctionImportName="uspSelectPhaseValuesOfDBWidgetsByCompanyIdNew" FunctionName="LDBTESTModel.Store.uspSelectPhaseValuesOfDBWidgetsByCompanyIdNew">
       <ResultMapping>
         <ComplexTypeMapping TypeName="LDBTESTModel.uspSelectPhaseValuesOfDBWidgetsByCompanyIdNew_Result">

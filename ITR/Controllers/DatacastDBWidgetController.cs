@@ -120,7 +120,7 @@ namespace ITR.Controllers
                         {
                             var YearValue = AI.Split('_')[1];
                             var indicatorValuesList = ForeCastPhaseValuesOfDBWidgetsList.Select(e => new { e.DashboardWidgetsListId, e.Indicator, e.SHORTCODE, e.MY, e.Phases }).
-                                                                            Where(e => e.Indicator == item.Indicator &&
+                                                                            Where(e => e.SHORTCODE == item.IndicatorShortCode &&
                                                                                        AI.Split('_')[0].ToLower().Contains(e.MY.ToString().Split(' ')[1].ToLower()) && //MONTH                                                                                    
                                                                                        e.MY.ToString().Split(' ')[2] == YearValue //YEAR
                                                                             );
@@ -146,7 +146,7 @@ namespace ITR.Controllers
                             if (AI == "CM") //CURRENT MONTH...
                             {
                                 var indicatorValuesList = CurrentMonthPhaseValuesOfDBWidgetsList.Select(e => new { e.DashboardWidgetsListId, e.IndicatorName, e.IndicatorShortCode, e.MY, e.Phases }).
-                                                                                                   Where(e => e.IndicatorName == item.Indicator);
+                                                                                                   Where(e => e.IndicatorShortCode == item.IndicatorShortCode);
                                 if (indicatorValuesList.Count() > 0)
                                 {
                                     string PhaseVal = string.Empty;
@@ -169,7 +169,7 @@ namespace ITR.Controllers
                             else
                             {
                                 var indicatorValuesList = ForeCastPhaseValuesOfDBWidgetsList.Select(e => new { e.DashboardWidgetsListId, e.Indicator, e.SHORTCODE, e.MY, e.Phases }).
-                                                                                                  Where(e => e.Indicator == item.Indicator
+                                                                                                  Where(e => e.SHORTCODE == item.IndicatorShortCode
                                                                                                              && AI.ToLower().Contains(e.MY.ToString().Split(' ')[1].ToLower()) //MONTH
                                                                                                              && e.MY.ToString().Split(' ')[2] == currentYear //YEAR
                                                                                                 );
