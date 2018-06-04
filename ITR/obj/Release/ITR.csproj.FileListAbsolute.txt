@@ -39,4 +39,3 @@ E:\ITRDataCast3.0\ITR\bin\System.Web.WebPages.Deployment.xml
 E:\ITRDataCast3.0\ITR\bin\System.Web.WebPages.Razor.xml
 E:\ITRDataCast3.0\ITR\obj\Release\ITR.dll
 E:\ITRDataCast3.0\ITR\obj\Release\ITR.pdb
-E:\ITRDataCast3.0\ITR\obj\Release\ITR.csprojResolveAssemblyReference.cache
