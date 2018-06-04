@@ -155,10 +155,10 @@ namespace ITR.Controllers
                                     {
                                         //if (value.MY.ToString().Split(' ')[1].ToString().ToLower() == AI.ToString().ToLower())
                                         //{
-                                            PhaseVal = (value.Phases == null || value.Phases == "") ? "N/A" : value.Phases;
-                                            finalResult += "<td>" + PhaseVal + "</td>";
+                                            PhaseVal = (value.Phases == null || value.Phases == "") ? "N/A" : value.Phases;                                           
                                         //}
                                     }
+                                    finalResult += "<td>" + PhaseVal + "</td>";
                                 }
                                 else
                                 {
@@ -182,9 +182,9 @@ namespace ITR.Controllers
                                         if (value.MY.ToString().Split(' ')[1].ToString().ToLower() == AI.ToString().ToLower())
                                         {                                            
                                             PhaseVal = (value.Phases == null || value.Phases == "") ? "N/A" : value.Phases;                                           
-                                        }
-                                        finalResult += "<td>" + PhaseVal + "</td>";
+                                        }                                      
                                     }
+                                    finalResult += "<td>" + PhaseVal + "</td>";
                                 }
                                 else
                                 {

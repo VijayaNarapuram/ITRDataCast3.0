@@ -1007,7 +1007,8 @@ else
                                     companytitlestatus = 1
                                     //  return  'Company 12/12 (Annual Growth Rate)'
                                     return 'Company - 3/12 '
-                                } else if (item.StatPref1 == "Raw") {
+                                } //else if (item.StatPref1 == "Raw") {
+                                else if (item.StatPref1 == "Monthly") {
                                     companytitlestatus = 1
                                     //  return  'Company 12/12 (Annual Growth Rate)'
                                     return 'Company - Monthly '
@@ -1068,7 +1069,8 @@ else
                                     indicatortitlestatus = 1
                                     // return  'Indicator 3/12 (Annual Growth Rate)'
                                     return ' Indicator - 3/12 '
-                                } else if (item.StatPref1 == "Raw") {
+                                } //else if (item.StatPref1 == "Raw") {
+                                else if (item.StatPref1 == "Monthly") {
                                     indicatortitlestatus = 1
                                     // return  'Indicator 3/12 (Annual Growth Rate)'
                                     return ' Indicator - Monthly '
@@ -1170,7 +1172,8 @@ else
                                                 value: item.C3BY12 //point.y
                                             }
                                         );
-                                    } else if (item.StatPref1 == "Raw") {
+                                    } //else if (item.StatPref1 == "Raw") {
+                                    else if (item.StatPref1 == "Monthly") {
                                         return shield.format(
                                             '<span><b> Indicator Data Percent Change in 12-Month Moving Average: {value}</b></span>', {
                                                 value: item.Monthly //point.y
@@ -1227,7 +1230,8 @@ else
                                     return {
                                         y: item.C3BY12
                                     } // //return { y: item.C12BY12 }
-                                } else if (item.StatPref1 == "Raw") {
+                                } //else if (item.StatPref1 == "Raw") {
+                                else if (item.StatPref1 == "Monthly") {
                                     if (k == 0) {
                                         if (item.Monthly < 0) {
                                             if (ChartCompanyMinValue > item.Monthly)
@@ -1300,7 +1304,8 @@ else
                                     return {
                                         y: item.C3BY12
                                     }
-                                } else if (item.StatPref1 == "Raw") {
+                                } //else if (item.StatPref1 == "Raw") {
+                                else if (item.StatPref1 == "Monthly") {
                                     return {
                                         y: item.Monthly
                                     }
@@ -1340,7 +1345,8 @@ else
                                                 value: item.C3BY12 //point.y
                                             }
                                         );
-                                    } else if (item.StatPref1 == "Raw") {
+                                    } //else if (item.StatPref1 == "Raw") {
+                                    else if (item.StatPref1 == "Monthly") {
                                         return shield.format(
                                             '<span><b> Indicator Data Percent Change in 12-Month Moving Average: {value}</b></span>', {
                                                 value: item.Monthly //point.y
@@ -1410,7 +1416,8 @@ else
                                     return {
                                         y: item.C3BY12
                                     }
-                                } else if (item.StatPref1 == "Raw") {
+                                } //else if (item.StatPref1 == "Raw") {
+                                else if (item.StatPref1 == "Monthly") {
                                     if (k == 0) {
                                         if (item.Monthly < 0) {
                                             if (ChartIndicatorMinValue > item.Monthly)
@@ -1487,7 +1494,8 @@ else
                                     return {
                                         y: item.C3BY12
                                     }
-                                } else if (item.StatPref1 == "Raw") {
+                                } //else if (item.StatPref1 == "Raw") {
+                                else if (item.StatPref1 == "Monthly") {
                                     return {
                                         y: item.Monthly
                                     }
