@@ -688,7 +688,7 @@
 </div>
 
 @*ADDED BY VIJAYA TO SHOW DASHBOARD WIDGETS IN POPU*@
-<div class="modal2" id="DBWidgetsListModalPopUp" tabindex="-1" role="dialog" aria-hidden="true" style="display:none;">
+@*<div class="modal2" id="DBWidgetsListModalPopUp" tabindex="-1" role="dialog" aria-hidden="true" style="display:none;">
     <div class="modal-dialog">
         <div class="modal-content" style="width:550px">
             <div class="modal-header">
@@ -729,7 +729,7 @@
         <!-- /.modal-dialog -->
     </div>
     <!-- /#DefaultModal -->
-</div>
+</div>*@
 
 
 @if (Session.Count > 0)
@@ -782,9 +782,10 @@ else
                 //console.log(error)
             }
         });
-        //   $("#hdnCompanyID").val(2301) //5399); //8224)
-        //  $("#hdnDivisionID").val(0);
-        //  $("#hdnUserID").val(1);
+          
+        $("#hdnCompanyID").val(5399);// 2301) //5399); //8224)
+        $("#hdnDivisionID").val(0);
+        $("#hdnUserID").val(1);
     </script>
 }
 
@@ -6178,25 +6179,25 @@ else
 
             /* BY VIJAYA */
             //REMOVE INDICATORS FROM DASHBOARD...
-            $(document).on('click', '#RemoveIFromDashboard', function(e) {
-                e.preventDefault();
-                CategorySearchStatus = "";
-                if ($(this).val() == " Remove indicator from dashboard ") {
-                    var oTablec = $('#dtDBWidgetsList').dataTable();
-                    oTablec.fnDraw();
-                    $('#DBWidgetsListModalPopUp').show();
-                }
-                //else
-                //{
-                //    FavListFlag = false;
-                //    SelFavName = "";
-                //    $('#SaveFavorites').val(' Save Favorites List ');
-                //    $(this).val(' Show Favorites List ');
-                //    var oTable = $('#CorelationLeadLagList').dataTable();
-                //    oTable.fnDraw();
-                //}
+            //$(document).on('click', '#RemoveIFromDashboard', function(e) {
+            //    e.preventDefault();
+            //    CategorySearchStatus = "";
+            //    if ($(this).val() == " Remove indicator from dashboard ") {
+            //        var oTablec = $('#dtDBWidgetsList').dataTable();
+            //        oTablec.fnDraw();
+            //        $('#DBWidgetsListModalPopUp').show();
+            //    }
+            //    //else
+            //    //{
+            //    //    FavListFlag = false;
+            //    //    SelFavName = "";
+            //    //    $('#SaveFavorites').val(' Save Favorites List ');
+            //    //    $(this).val(' Show Favorites List ');
+            //    //    var oTable = $('#CorelationLeadLagList').dataTable();
+            //    //    oTable.fnDraw();
+            //    //}
 
-            });
+            //});
 
             //ADD/UPDATE DASHBOARD WIDGETS TO DB...
             var DBWidgetsListName = 'Company Dashboard Widgets';
@@ -6364,64 +6365,64 @@ else
         }
 
         //TABLE DEFINITION for Indicator list
-        oTable111 = $('#dtDBWidgetsList').dataTable({
-            "paging": false,
-            "ordering": false,
-            "aLengthMenu": [
-                [5, 10, 25, 50, 200],
-                [5, 10, 25, 50, 200]
-            ],
-            "bScrollCollapse": true,
-            "sType": "POST",
-            "iDisplayLength": 10,
-            "sDom": '<l><t><ip>r',
-            "bJQueryUI": false,
-            //  "sPaginationType": "bootstrap",
-            "responsive": true,
-            "oLanguage": {
-                "sProcessing": ajaxindicatorstart(),
-                "sLengthMenu": "_MENU_ records per page",
-                "searchPlaceholder": "search",
-                "oPaginate": {
-                    "sPrevious": "Prev",
-                    "sNext": "Next"
-                }
+        //oTable111 = $('#dtDBWidgetsList').dataTable({
+        //    "paging": false,
+        //    "ordering": false,
+        //    "aLengthMenu": [
+        //        [5, 10, 25, 50, 200],
+        //        [5, 10, 25, 50, 200]
+        //    ],
+        //    "bScrollCollapse": true,
+        //    "sType": "POST",
+        //    "iDisplayLength": 10,
+        //    "sDom": '<l><t><ip>r',
+        //    "bJQueryUI": false,
+        //    //  "sPaginationType": "bootstrap",
+        //    "responsive": true,
+        //    "oLanguage": {
+        //        "sProcessing": ajaxindicatorstart(),
+        //        "sLengthMenu": "_MENU_ records per page",
+        //        "searchPlaceholder": "search",
+        //        "oPaginate": {
+        //            "sPrevious": "Prev",
+        //            "sNext": "Next"
+        //        }
 
-            },
-            // "aaSorting": [[3, 'asc']],
-            "bServerSide": true,
-            "sAjaxSource": "FillDBWidgetsListByCompanyID",
-            "fnServerParams": function(aoData) {
-                aoData.push({
-                    "name": "dataSetID",
-                    "value": dataSetIDLocal
-                });
-                aoData.push({
-                    "name": "userID",
-                    "value": $("#hdnUserID").val()
-                }); //need to update
-            },
+        //    },
+        //    // "aaSorting": [[3, 'asc']],
+        //    "bServerSide": true,
+        //    "sAjaxSource": "FillDBWidgetsListByCompanyID",
+        //    "fnServerParams": function(aoData) {
+        //        aoData.push({
+        //            "name": "dataSetID",
+        //            "value": dataSetIDLocal
+        //        });
+        //        aoData.push({
+        //            "name": "userID",
+        //            "value": $("#hdnUserID").val()
+        //        }); //need to update
+        //    },
 
-            "bProcessing": true,
-            "aoColumns": [
-                {
-                    "sName": "DashboardWidgetsListId",
-                    "bSortable": false,
-                    "sClass": "hide_column"
-                },
-                {
-                    "sName": "Indicator",
-                    "bSortable": false
-                },
-                {
-                    "sName": "Indicator",
-                    "bSortable": false,
-                    "render": function(oObj) {
-                        return '<a href="#" data-value=' + oObj + ' class="DeleteDBWidgetsIndicators" title="Click to Load Indicators" >Delete</a>';
-                    }
-                }
-            ]
-        });
+        //    "bProcessing": true,
+        //    "aoColumns": [
+        //        {
+        //            "sName": "DashboardWidgetsListId",
+        //            "bSortable": false,
+        //            "sClass": "hide_column"
+        //        },
+        //        {
+        //            "sName": "Indicator",
+        //            "bSortable": false
+        //        },
+        //        {
+        //            "sName": "Indicator",
+        //            "bSortable": false,
+        //            "render": function(oObj) {
+        //                return '<a href="#" data-value=' + oObj + ' class="DeleteDBWidgetsIndicators" title="Click to Load Indicators" >Delete</a>';
+        //            }
+        //        }
+        //    ]
+        //});
 
         //TO SHOW INDICATORS IN PAGE LOAD...(SAME AS SHOW DASHBOARD FUNCTIONALITY...)
         function LoadDashboardWidgetsList(dataSetID)
