@@ -460,6 +460,7 @@ else
                     //myStyle[i].href != "http://localhost:56348/datacastdashboard/css/bootstrap.min.css" &&
                     //myStyle[i].href != "http://localhost:56348/assets/css/styles.css" &&
                     myStyle[i].href != "http://localhost:56348/assets/css/DBWidgetStyles.css"
+                    //myStyle[i].href != "https://datacast.itreconomics.com/assets/css/DBWidgetStyles.css" // PROD URL PATH...
                     )
 
                     printWindow.document.write('<link rel="stylesheet" href="' + myStyle[i].href + '" type="text/css" />');
@@ -947,7 +948,7 @@ else
                     print: false
                 },
                 axisX: [{
-                    drawWidth: 1,
+                    drawWidth: 1,                    
                     ticksRepeat: 24,
                     categoricalValues: $.map(combinationObject, function (item) {
                         //console.log('combinationObject - ' + combinationObject);
@@ -969,6 +970,7 @@ else
                         }
                     },
                     axisTickText: {
+                        textAngle: 50,
                         // return a new text for the ticks of the X-axis
                         format: function (text, axis, chart) {
                             // var dateValue = new Date(text);

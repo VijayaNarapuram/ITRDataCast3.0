@@ -106,6 +106,12 @@
 
     <link href="~/css/jqueryui.css" rel="stylesheet" />
     <link type="text/css" href="../assets/fonts/font-awesome/css/font-awesome.min.css" rel="stylesheet">        <!-- Font Awesome -->
+    <style>
+        .btn {
+            margin: 0 7px 0 7px;
+        }
+    </style>
+
 }
 
 
@@ -305,6 +311,7 @@
           
 
             $('#displayMessage').on('click', '#displaypopupOK', function () {
+                ajaxindicatorstart();
                 window.location = "/Home/Dashboard";
             });
 

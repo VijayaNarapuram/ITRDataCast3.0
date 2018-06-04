@@ -54,7 +54,7 @@
                     <label style="height:39px"></label>
                     <button class="btn btn-success" id="btnrunanalysis">Run Analysis</button> 
 
-                    <a href="~/Home/CreateFavouriteList" id="btnCreateFavouriteList" class="btn btn-primary ml-sm">Create Favorite List</a>
+                    <a href="#" id="btnCreateFavouriteList" class="btn btn-primary ml-sm">Create Favorite List</a>
                 </div>
 
             </div>
@@ -325,6 +325,11 @@ else
                 LoadDatasetDetails();
             }, 1500)
 
+
+            $("#btnCreateFavouriteList").click(function () {
+                ajaxindicatorstart();
+                window.location.href='/Home/CreateFavouriteList'; //~/Home/CreateFavouriteList
+            });
 
             $("#btnrunanalysis").click(function () {
                 var rowCount = $('#dtDataSetList >tbody >tr').length;
