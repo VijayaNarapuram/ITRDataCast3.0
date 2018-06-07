@@ -2196,7 +2196,7 @@ else
             DBWidgetsFlag = false;
             DBWidgetsList = "";
             DBWidgetsListName = "";
-            $('#AddIToDashboard').val(' Save Dashboard Widgets ');
+            $('#AddIToDashboard').val(' Save Dashboard Indicator ');
             var oTable = $('#CorelationLeadLagList').dataTable();
             oTable.fnDraw();
 
@@ -6236,16 +6236,9 @@ else
                 var table = $('#CorelationLeadLagList').DataTable();
                 table.search('').columns().search('').draw();
 
-                if (DBWidgetsList != "" && widgetsCount <= 10) {
-                    //var FavoritesListName = SetFavoritesListName();
-                    if (DBWidgetsListName != null && DBWidgetsListName != "") {
-
-                        if ($(this).val() == " Save Dashboard Indicator ") {
-                            var url = "InsertDashboardWidgetsList";
-                        }
-                        //} else {
-                        //    var url = "UpdateDashboardWidgetsList";
-                        //}
+                if (DBWidgetsList != "" && widgetsCount <= 10) {                    
+                        
+                    var url = "InsertDashboardWidgetsList";                      
                         var d = new Date();
                         var strDate = d.getFullYear() + "/" + (d.getMonth() + 1) + "/" + d.getDate();
 
@@ -6258,23 +6251,12 @@ else
                             CreatedDate: strDate
                         };
                         var response = SendRequestJSON(url, modelobj);
-
-                        if (response.result == 'Success') {
-                            if ($(this).val() == " Save Dashboard Indicator ") {
-                                alert("Dahsboard indicators added successfully.");
-                                //var oTable = $('#CorelationLeadLagList').dataTable();
-                                //oTable.fnDraw();
-                            } else {
-                                alert("Dahsboard widget indicators updated successfully.");
-                                DBWidgetsList = '';
-                                //var oTable = $('#CorelationLeadLagList').dataTable();
-                                //oTable.fnDraw();
-
-                                //DBWidgetsList = ''; //PLEASE EMPTY DBWidgetsList AS IT CONTAINS DB WIDGETS LIST...
-                                //$('#AddIToDashboard').val(' Save Dashboard Widgets ');
-                            }
-                        }
-                    }
+                       
+                        if (response.result == 'Success') {                
+                            alert("Dahsboard indicators added successfully.");
+                            //var oTable = $('#CorelationLeadLagList').dataTable();
+                            //oTable.fnDraw();                          
+                        }                    
                 } else  if (DBWidgetsList == "") {
                     alert("Please select atleast one Indicator.");
                     return false;
@@ -6300,8 +6282,8 @@ else
                 });
                 DBWidgetsFlag = false;
                 DBWidgetsList = "";
-                DBWidgetsListName = "";
-                $('#AddIToDashboard').val(' Save Dashboard Widgets ');
+                //DBWidgetsListName = "";
+                $('#AddIToDashboard').val(' Save Dashboard Indicator ');
                 var oTable = $('#CorelationLeadLagList').dataTable();
                 oTable.fnDraw();
 
