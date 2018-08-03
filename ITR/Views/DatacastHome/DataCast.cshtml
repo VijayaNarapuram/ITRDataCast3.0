@@ -754,10 +754,10 @@
     <input type="hidden" id="hdnDivisionID" title="" value="@Session["DivisonID"].ToString()" />
     <input type="hidden" id="hdnUserID" title="" value="@Session["UserID"].ToString()" />
     <input type="hidden" id="hdnIsDataPortalAdmin" title="" value="@Session["IsDataPortalAdmin"].ToString()" />
-    <script type="text/javascript" lang="javascript">
+    @*<script type="text/javascript" lang="javascript">
     
     alert("session count case" + Session.Count);
-    </script>
+    </script>*@
         }
     else
     {
@@ -771,7 +771,7 @@
         <script src="~/datacastjs/jquery-1.11.1.min.js"></script>
     <script type="text/javascript" lang="javascript">
         //   console.log("else case");
-        alert('eelse case')
+       
         var elseCaseCompanyId = window.localStorage.getItem('ECompanyID');
         $("#hdnCompanyID").val(elseCaseCompanyId);
         var elseCaseDivisionID = window.localStorage.getItem('EDivisionID');
