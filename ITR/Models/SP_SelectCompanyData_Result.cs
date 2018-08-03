@@ -24,5 +24,6 @@ namespace ITR.Models
         public Nullable<decimal> C12MMT { get; set; }
         public Nullable<decimal> C12BY12 { get; set; }
         public Nullable<System.DateTime> MonthYearDate { get; set; }
+        public string VCTYear { get; set; }
     }
 }

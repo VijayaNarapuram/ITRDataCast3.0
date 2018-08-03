@@ -32,6 +32,15 @@ namespace ITR.Models
         public DbSet<ExceptionLog> ExceptionLogs { get; set; }
         public DbSet<StagingCompanyData> StagingCompanyDatas { get; set; }
     
+        public virtual ObjectResult<Nullable<int>> uspClearDataSetAnalysis(Nullable<int> customerDataSetID)
+        {
+            var customerDataSetIDParameter = customerDataSetID.HasValue ?
+                new ObjectParameter("CustomerDataSetID", customerDataSetID) :
+                new ObjectParameter("CustomerDataSetID", typeof(int));
+    
+            return ((IObjectContextAdapter)this).ObjectContext.ExecuteFunction<Nullable<int>>("uspClearDataSetAnalysis", customerDataSetIDParameter);
+        }
+    
         public virtual ObjectResult<Nullable<int>> uspDeleteCustomerDataSet(Nullable<int> customerDataSetID)
         {
             var customerDataSetIDParameter = customerDataSetID.HasValue ?
@@ -498,13 +507,13 @@ namespace ITR.Models
             return ((IObjectContextAdapter)this).ObjectContext.ExecuteFunction<uspSelectDataSetsDetailsByDataSetID_Result>("uspSelectDataSetsDetailsByDataSetID", customerDataSetIDParameter, tableParameter);
         }
     
-        public virtual int uspSelectDataSetsDetailsByDataSetID03242017(Nullable<int> customerDataSetID)
+        public virtual ObjectResult<uspSelectDataSetsDetailsByDataSetID03242017_Result> uspSelectDataSetsDetailsByDataSetID03242017(Nullable<int> customerDataSetID)
         {
             var customerDataSetIDParameter = customerDataSetID.HasValue ?
                 new ObjectParameter("CustomerDataSetID", customerDataSetID) :
                 new ObjectParameter("CustomerDataSetID", typeof(int));
     
-            return ((IObjectContextAdapter)this).ObjectContext.ExecuteFunction("uspSelectDataSetsDetailsByDataSetID03242017", customerDataSetIDParameter);
+            return ((IObjectContextAdapter)this).ObjectContext.ExecuteFunction<uspSelectDataSetsDetailsByDataSetID03242017_Result>("uspSelectDataSetsDetailsByDataSetID03242017", customerDataSetIDParameter);
         }
     
         public virtual ObjectResult<uspSelectDataSetsDetailsByDataSetIDForBanner_Result> uspSelectDataSetsDetailsByDataSetIDForBanner(Nullable<int> customerDataSetID, string table)
@@ -822,15 +831,6 @@ namespace ITR.Models
                 new ObjectParameter("CreatedDate", typeof(System.DateTime));
     
             return ((IObjectContextAdapter)this).ObjectContext.ExecuteFunction<Nullable<int>>("uspUpdateFavouriteList", companyShortCodeParameter, indicatorShortCodesParameter, userIDParameter, favouriteListNameParameter, createdBYParameter, createdDateParameter);
-        }
-    
-        public virtual ObjectResult<Nullable<int>> uspClearDataSetAnalysis(Nullable<int> customerDataSetID)
-        {
-            var customerDataSetIDParameter = customerDataSetID.HasValue ?
-                new ObjectParameter("CustomerDataSetID", customerDataSetID) :
-                new ObjectParameter("CustomerDataSetID", typeof(int));
-    
-            return ((IObjectContextAdapter)this).ObjectContext.ExecuteFunction<Nullable<int>>("uspClearDataSetAnalysis", customerDataSetIDParameter);
         }
     }
 }

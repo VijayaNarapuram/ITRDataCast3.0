@@ -917,6 +917,10 @@
     <Content Include="datacastassets\plugins\datatables\TableTools\images\psd\copy document.psd" />
     <Content Include="datacastassets\plugins\datatables\TableTools\images\psd\file_types.psd" />
     <Content Include="datacastassets\plugins\datatables\TableTools\images\psd\printer.psd" />
+    <Content Include="assets\fonts\font-awesome\fonts\fontawesome-webfont78ce.eot" />
+    <Content Include="assets\fonts\font-awesome\fonts\fontawesome-webfont78ce.ttf" />
+    <Content Include="assets\fonts\font-awesome\fonts\fontawesome-webfont78ce.woff" />
+    <Content Include="assets\fonts\font-awesome\fonts\fontawesome-webfontd41d.eot" />
     <EntityDeploy Include="Models\DbEntities.edmx">
       <Generator>EntityModelCodeGenerator</Generator>
       <LastGenOutput>DbEntities.Designer.cs</LastGenOutput>
@@ -951,10 +955,6 @@
       <DependentUpon>DatacastEntities.edmx</DependentUpon>
       <LastGenOutput>DatacastEntities.cs</LastGenOutput>
     </Content>
-    <Content Include="assets\fonts\font-awesome\fonts\fontawesome-webfont78ce.eot" />
-    <Content Include="assets\fonts\font-awesome\fonts\fontawesome-webfont78ce.ttf" />
-    <Content Include="assets\fonts\font-awesome\fonts\fontawesome-webfont78ce.woff" />
-    <Content Include="assets\fonts\font-awesome\fonts\fontawesome-webfontd41d.eot" />
     <None Include="Properties\PublishProfiles\Local.pubxml" />
     <None Include="Properties\PublishProfiles\local1.pubxml" />
     <None Include="Properties\PublishProfiles\raghuveer.pubxml" />
@@ -997,6 +997,9 @@
     <Compile Include="DataRepository\IDataRepository.cs" />
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
+    </Compile>
+    <Compile Include="Models\Alliance.cs">
+      <DependentUpon>DatacastEntities.tt</DependentUpon>
     </Compile>
     <Compile Include="Models\Category.cs">
       <DependentUpon>DatacastEntities.tt</DependentUpon>
@@ -1046,6 +1049,9 @@
     <Compile Include="Models\CustomerDatasetsProcess_Schedule.cs">
       <DependentUpon>DatacastEntities.tt</DependentUpon>
     </Compile>
+    <Compile Include="Models\DashboardWidgetsList.cs">
+      <DependentUpon>DatacastEntities.tt</DependentUpon>
+    </Compile>
     <Compile Include="Models\DatacastDomainModel.cs" />
     <Compile Include="Models\DatacastEntities.Context.cs">
       <AutoGen>True</AutoGen>
@@ -1090,6 +1096,9 @@
     <Compile Include="Models\FavouriteList.cs">
       <DependentUpon>DatacastEntities.tt</DependentUpon>
     </Compile>
+    <Compile Include="Models\FlowTest.cs">
+      <DependentUpon>DatacastEntities.tt</DependentUpon>
+    </Compile>
     <Compile Include="Models\ForeCastCheckData.cs">
       <DependentUpon>DatacastEntities.tt</DependentUpon>
     </Compile>
@@ -1097,6 +1106,9 @@
       <DependentUpon>DatacastEntities.tt</DependentUpon>
     </Compile>
     <Compile Include="Models\ForeCastMetaData.cs">
+      <DependentUpon>DatacastEntities.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\ForecastSummary.cs">
       <DependentUpon>DatacastEntities.tt</DependentUpon>
     </Compile>
     <Compile Include="Models\f_split_Result.cs">
@@ -1135,6 +1147,12 @@
     <Compile Include="Models\PaidForecast.cs">
       <DependentUpon>DatacastEntities.tt</DependentUpon>
     </Compile>
+    <Compile Include="Models\Perf_Trace_0331.cs">
+      <DependentUpon>DatacastEntities.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\PhasesStatu.cs">
+      <DependentUpon>DatacastEntities.tt</DependentUpon>
+    </Compile>
     <Compile Include="Models\PopupAccess.cs">
       <DependentUpon>DatacastEntities.tt</DependentUpon>
     </Compile>
@@ -1154,6 +1172,9 @@
       <DependentUpon>DatacastEntities.tt</DependentUpon>
     </Compile>
     <Compile Include="Models\sp_CheckLogin_Result.cs">
+      <DependentUpon>DatacastEntities.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\sp_deleteFromDataCastLists_Result.cs">
       <DependentUpon>DatacastEntities.tt</DependentUpon>
     </Compile>
     <Compile Include="Models\SP_SelectAllCompanies_Result.cs">
@@ -1216,6 +1237,9 @@
     <Compile Include="Models\SP_SelectIndicatorData_TestSp_Result.cs">
       <DependentUpon>DatacastEntities.tt</DependentUpon>
     </Compile>
+    <Compile Include="Models\sp_SelectIndicatorOrCompanyforWebapp_Result.cs">
+      <DependentUpon>DatacastEntities.tt</DependentUpon>
+    </Compile>
     <Compile Include="Models\SP_SelectIndicatorsNonUpdateLoadResult_Result.cs">
       <DependentUpon>DatacastEntities.tt</DependentUpon>
     </Compile>
@@ -1229,6 +1253,12 @@
       <DependentUpon>DatacastEntities.tt</DependentUpon>
     </Compile>
     <Compile Include="Models\SP_SelectIndustryMetaData_Result.cs">
+      <DependentUpon>DatacastEntities.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\sp_SelectLatestForecastSummary_Result.cs">
+      <DependentUpon>DatacastEntities.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\sp_SelectMetaDataforWebApp_Result.cs">
       <DependentUpon>DatacastEntities.tt</DependentUpon>
     </Compile>
     <Compile Include="Models\SP_SelectShortCodes_Result.cs">
@@ -1309,9 +1339,6 @@
     <Compile Include="Models\uspSelectAccounts_Result.cs">
       <DependentUpon>DatacastEntities.tt</DependentUpon>
     </Compile>
-    <Compile Include="Models\uspSelectAllDBWidgetsListByCompanyID_Result.cs">
-      <DependentUpon>DatacastEntities.tt</DependentUpon>
-    </Compile>
     <Compile Include="Models\uspSelectAllFavouriteListByUserIDForDatacast_Result.cs">
       <DependentUpon>DbEntities.tt</DependentUpon>
     </Compile>
@@ -1325,6 +1352,15 @@
       <DependentUpon>DatacastEntities.tt</DependentUpon>
     </Compile>
     <Compile Include="Models\uspSelectCompanyAndIndicatorDateByShordCodesForAlliance_Result.cs">
+      <DependentUpon>DatacastEntities.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\uspSelectCompanyAndIndicatorDateByShordCodes_02092018_Result.cs">
+      <DependentUpon>DatacastEntities.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\uspSelectCompanyAndIndicatorDateByShordCodes_02132018_Result.cs">
+      <DependentUpon>DatacastEntities.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\uspSelectCompanyAndIndicatorDateByShordCodes_0619_Result.cs">
       <DependentUpon>DatacastEntities.tt</DependentUpon>
     </Compile>
     <Compile Include="Models\uspSelectCompanyAndIndicatorDateByShordCodes_08282017_Result.cs">
@@ -1400,6 +1436,9 @@
       <DependentUpon>DatacastEntities.tt</DependentUpon>
     </Compile>
     <Compile Include="Models\uspSelectDataSetsByUserFavouriteList_Result.cs">
+      <DependentUpon>DbEntities.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\uspSelectDataSetsDetailsByDataSetID03242017_Result.cs">
       <DependentUpon>DbEntities.tt</DependentUpon>
     </Compile>
     <Compile Include="Models\uspSelectDataSetsDetailsByDataSetIDForBanner_Result.cs">
@@ -1480,6 +1519,12 @@
     <Compile Include="Models\UspSelectMasterMetaData_Result.cs">
       <DependentUpon>DatacastEntities.tt</DependentUpon>
     </Compile>
+    <Compile Include="Models\uspSelectPhaseValuesOfDBWidgetsByCompanyIdNew1_Result.cs">
+      <DependentUpon>DatacastEntities.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\uspSelectPhaseValuesOfDBWidgetsByCompanyIdNew_BKP_Result.cs">
+      <DependentUpon>DatacastEntities.tt</DependentUpon>
+    </Compile>
     <Compile Include="Models\uspSelectPhaseValuesOfDBWidgetsByCompanyIdNew_Result.cs">
       <DependentUpon>DatacastEntities.tt</DependentUpon>
     </Compile>
@@ -1490,30 +1535,6 @@
       <DependentUpon>DbEntities.tt</DependentUpon>
     </Compile>
     <Compile Include="Models\uspSelectTimingValuesOfDBWidgetsByCompanyId_Result.cs">
-      <DependentUpon>DatacastEntities.tt</DependentUpon>
-    </Compile>
-    <Compile Include="Models\vwCompanyAVG.cs">
-      <DependentUpon>DatacastEntities.tt</DependentUpon>
-    </Compile>
-    <Compile Include="Models\vwCompanyForecast.cs">
-      <DependentUpon>DatacastEntities.tt</DependentUpon>
-    </Compile>
-    <Compile Include="Models\vwCustomer.cs">
-      <DependentUpon>DatacastEntities.tt</DependentUpon>
-    </Compile>
-    <Compile Include="Models\vwDataSet.cs">
-      <DependentUpon>DatacastEntities.tt</DependentUpon>
-    </Compile>
-    <Compile Include="Models\vwIndicatorAVG.cs">
-      <DependentUpon>DatacastEntities.tt</DependentUpon>
-    </Compile>
-    <Compile Include="Models\vwIndicatorForecast.cs">
-      <DependentUpon>DatacastEntities.tt</DependentUpon>
-    </Compile>
-    <Compile Include="Models\vwSelectIndicator.cs">
-      <DependentUpon>DatacastEntities.tt</DependentUpon>
-    </Compile>
-    <Compile Include="Models\vwTableau.cs">
       <DependentUpon>DatacastEntities.tt</DependentUpon>
     </Compile>
     <Compile Include="Models\VWTBL_COMPANY.cs">

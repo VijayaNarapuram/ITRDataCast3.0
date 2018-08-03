@@ -11,9 +11,10 @@ namespace ITR.Models
 {
     using System;
     
-    public partial class UspSelectMasterMetaDataByWorkBook_Result
+    public partial class uspSelectCompanyAndIndicatorDateByShordCodes_02092018_Result
     {
         public Nullable<System.DateTime> MonthYear { get; set; }
+        public Nullable<decimal> Sales { get; set; }
         public Nullable<decimal> C1By12 { get; set; }
         public Nullable<decimal> C3MMT { get; set; }
         public Nullable<decimal> C3BY12 { get; set; }
@@ -21,13 +22,17 @@ namespace ITR.Models
         public Nullable<decimal> C12MMT { get; set; }
         public Nullable<decimal> C12BY12 { get; set; }
         public Nullable<decimal> C12MMA { get; set; }
-        public Nullable<decimal> Sales { get; set; }
         public string SHORTCODE { get; set; }
+        public string IndicatorName { get; set; }
         public Nullable<decimal> Monthly { get; set; }
-        public int VwTblIndicatorID { get; set; }
-        public string Phases { get; set; }
-        public Nullable<int> Violencing { get; set; }
-        public string HighLow { get; set; }
-        public Nullable<System.DateTime> LastUpdated { get; set; }
+        public Nullable<bool> Forecast { get; set; }
+        public string Range { get; set; }
+        public Nullable<decimal> MinValue { get; set; }
+        public Nullable<decimal> MaxValue { get; set; }
+        public string Code { get; set; }
+        public string ColorCode { get; set; }
+        public string StatPref1 { get; set; }
+        public Nullable<int> Duration { get; set; }
+        public Nullable<int> AccessDuration { get; set; }
     }
 }

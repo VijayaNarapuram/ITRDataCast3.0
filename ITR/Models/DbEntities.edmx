@@ -4,9 +4,25 @@
   <edmx:Runtime>
     <!-- SSDL content -->
     <edmx:StorageModels>
-    <Schema Namespace="ITRDevModel.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2008" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+      <Schema Namespace="ITRDevModel.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2008" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
         <!--Errors Found During Generation:
-warning 6002: The table/view 'ITRDev.dbo.CustomerDataSets' does not have a primary key defined. The key has been inferred and the definition was created as a read-only table/view.-->
+warning 6013: The table/view 'ITRDev_08022018.dbo.Accounts' does not have a primary key defined and no valid primary key could be inferred. This table/view has been excluded. To use the entity, you will need to review your schema, add the correct keys, and uncomment it.
+        <EntityType Name="Accounts">
+          <Property Name="AccountName" Type="varchar" MaxLength="255" />
+          <Property Name="QBaseAccountID" Type="int" />
+          <Property Name="DivID" Type="int" />
+          <Property Name="DivisionName" Type="varchar" MaxLength="255" />
+        </EntityType>-->
+        <!--Errors Found During Generation:
+warning 6013: The table/view 'ITRDev_08022018.dbo.AllAccounts' does not have a primary key defined and no valid primary key could be inferred. This table/view has been excluded. To use the entity, you will need to review your schema, add the correct keys, and uncomment it.
+        <EntityType Name="AllAccounts">
+          <Property Name="AccountName" Type="varchar" MaxLength="255" />
+          <Property Name="CompanyName" Type="varchar" MaxLength="255" />
+          <Property Name="QBaseAccountID" Type="int" />
+          <Property Name="ProgramEconomist" Type="varchar" MaxLength="255" />
+        </EntityType>-->
+        <!--Errors Found During Generation:
+warning 6002: The table/view 'ITRDev_08022018.dbo.CustomerDataSets' does not have a primary key defined. The key has been inferred and the definition was created as a read-only table/view.-->
         <EntityType Name="CustomerDataSets">
           <Key>
             <PropertyRef Name="CustomerDataSetID" />
@@ -30,7 +46,7 @@ warning 6002: The table/view 'ITRDev.dbo.CustomerDataSets' does not have a prima
           <Property Name="UserName" Type="varchar(max)" />
         </EntityType>
         <!--Errors Found During Generation:
-warning 6002: The table/view 'ITRDev.dbo.ExceptionLog' does not have a primary key defined. The key has been inferred and the definition was created as a read-only table/view.-->
+warning 6002: The table/view 'ITRDev_08022018.dbo.ExceptionLog' does not have a primary key defined. The key has been inferred and the definition was created as a read-only table/view.-->
         <EntityType Name="ExceptionLog">
           <Key>
             <PropertyRef Name="ExceptionID" />
@@ -43,7 +59,7 @@ warning 6002: The table/view 'ITRDev.dbo.ExceptionLog' does not have a primary k
           <Property Name="CreatedDate" Type="datetime" />
         </EntityType>
         <!--Errors Found During Generation:
-warning 6002: The table/view 'ITRDev.dbo.StagingCompanyData' does not have a primary key defined. The key has been inferred and the definition was created as a read-only table/view.-->
+warning 6002: The table/view 'ITRDev_08022018.dbo.StagingCompanyData' does not have a primary key defined. The key has been inferred and the definition was created as a read-only table/view.-->
         <EntityType Name="StagingCompanyData">
           <Key>
             <PropertyRef Name="ProdID" />
@@ -328,7 +344,8 @@ FROM [dbo].[ExceptionLog] AS [ExceptionLog]</DefiningQuery>
 FROM [dbo].[StagingCompanyData] AS [StagingCompanyData]</DefiningQuery>
           </EntitySet>
         </EntityContainer>
-      </Schema></edmx:StorageModels>
+      </Schema>
+    </edmx:StorageModels>
     <!-- CSDL content -->
     <edmx:ConceptualModels>
       <Schema Namespace="ITRDevModel" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
@@ -382,8 +399,11 @@ FROM [dbo].[StagingCompanyData] AS [StagingCompanyData]</DefiningQuery>
           <EntitySet Name="CustomerDataSets" EntityType="Self.CustomerDataSet" />
           <EntitySet Name="ExceptionLogs" EntityType="Self.ExceptionLog" />
           <EntitySet Name="StagingCompanyDatas" EntityType="Self.StagingCompanyData" />
+          <FunctionImport Name="uspClearDataSetAnalysis" ReturnType="Collection(Int32)">
+            <Parameter Name="CustomerDataSetID" Mode="In" Type="Int32" />
+          </FunctionImport>
           <FunctionImport Name="uspDeleteCustomerDataSet" ReturnType="Collection(Int32)">
-          <Parameter Name="CustomerDataSetID" Mode="In" Type="Int32" />
+            <Parameter Name="CustomerDataSetID" Mode="In" Type="Int32" />
           </FunctionImport>
           <FunctionImport Name="uspDeleteFavoriteListByCompanyAndUserID" ReturnType="Collection(Int32)">
             <Parameter Name="CompanyShortCode" Mode="In" Type="String" />
@@ -391,7 +411,7 @@ FROM [dbo].[StagingCompanyData] AS [StagingCompanyData]</DefiningQuery>
             <Parameter Name="FavoriteListName" Mode="In" Type="String" />
           </FunctionImport>
           <FunctionImport Name="uspDeleteRowFromDataSet" ReturnType="Collection(Int32)">
-          <Parameter Name="ProdID" Mode="In" Type="Int32" />
+            <Parameter Name="ProdID" Mode="In" Type="Int32" />
           </FunctionImport>
           <FunctionImport Name="uspInsertCustomerDataSet" ReturnType="Collection(Int32)">
             <Parameter Name="AccountID" Mode="In" Type="Int32" />
@@ -436,7 +456,7 @@ FROM [dbo].[StagingCompanyData] AS [StagingCompanyData]</DefiningQuery>
             <Parameter Name="CreatedDate" Mode="In" Type="DateTime" />
           </FunctionImport>
           <FunctionImport Name="uspPushDataSetToProd" ReturnType="Collection(Int32)">
-          <Parameter Name="CustomerDataSetID" Mode="In" Type="Int32" />
+            <Parameter Name="CustomerDataSetID" Mode="In" Type="Int32" />
           </FunctionImport>
           <FunctionImport Name="uspReplaceCustomerDataSet" ReturnType="Collection(Int32)">
             <Parameter Name="CustomerDataSetID" Mode="In" Type="Int32" />
@@ -459,16 +479,16 @@ FROM [dbo].[StagingCompanyData] AS [StagingCompanyData]</DefiningQuery>
             <Parameter Name="FavListName" Mode="In" Type="String" />
           </FunctionImport>
           <FunctionImport Name="uspSelectAllFavouritesListByUserID" ReturnType="Collection(ITRDevModel.uspSelectAllFavouritesListByUserID_Result)">
-          <Parameter Name="UserID" Mode="In" Type="Int32" />
+            <Parameter Name="UserID" Mode="In" Type="Int32" />
           </FunctionImport>
           <FunctionImport Name="uspSelectAllResultsCountByDataSetID" ReturnType="Collection(Int32)">
-          <Parameter Name="CustomerDataSetID" Mode="In" Type="Int32" />
+            <Parameter Name="CustomerDataSetID" Mode="In" Type="Int32" />
           </FunctionImport>
           <FunctionImport Name="uspSelectCompanySalesPortal" />
           <FunctionImport Name="uspSelectCompanySalesPortalByCustomerDataSetID" />
           <FunctionImport Name="uspSelectDatacastCategoriesPortal" ReturnType="Collection(ITRDevModel.uspSelectDatacastCategoriesPortal_Result)" />
           <FunctionImport Name="uspSelectDatacastSubCategoriesByCategoryPortal" ReturnType="Collection(ITRDevModel.uspSelectDatacastSubCategoriesByCategoryPortal_Result)">
-          <Parameter Name="Industry" Mode="In" Type="String" />
+            <Parameter Name="Industry" Mode="In" Type="String" />
           </FunctionImport>
           <FunctionImport Name="uspSelectDatacastSubSector2BySubSector1Portal" ReturnType="Collection(ITRDevModel.uspSelectDatacastSubSector2BySubSector1Portal_Result)">
             <Parameter Name="Industry" Mode="In" Type="String" />
@@ -514,15 +534,15 @@ FROM [dbo].[StagingCompanyData] AS [StagingCompanyData]</DefiningQuery>
             <Parameter Name="CustomerDataSetID" Mode="In" Type="Int32" />
             <Parameter Name="Table" Mode="In" Type="String" />
           </FunctionImport>
-          <FunctionImport Name="uspSelectDataSetsDetailsByDataSetID03242017">
-          <Parameter Name="CustomerDataSetID" Mode="In" Type="Int32" />
+          <FunctionImport Name="uspSelectDataSetsDetailsByDataSetID03242017" ReturnType="Collection(ITRDevModel.uspSelectDataSetsDetailsByDataSetID03242017_Result)">
+            <Parameter Name="CustomerDataSetID" Mode="In" Type="Int32" />
           </FunctionImport>
           <FunctionImport Name="uspSelectDataSetsDetailsByDataSetIDForBanner" ReturnType="Collection(ITRDevModel.uspSelectDataSetsDetailsByDataSetIDForBanner_Result)">
             <Parameter Name="CustomerDataSetID" Mode="In" Type="Int32" />
             <Parameter Name="Table" Mode="In" Type="String" />
           </FunctionImport>
           <FunctionImport Name="uspSelectDivisionsByAccountID" ReturnType="Collection(ITRDevModel.uspSelectDivisionsByAccountID_Result)">
-          <Parameter Name="AccountID" Mode="In" Type="Int32" />
+            <Parameter Name="AccountID" Mode="In" Type="Int32" />
           </FunctionImport>
           <FunctionImport Name="uspSelectFavouriteListByUserID" ReturnType="Collection(ITRDevModel.uspSelectFavouriteListByUserID_Result)">
             <Parameter Name="CompanyShortCode" Mode="In" Type="String" />
@@ -604,9 +624,6 @@ FROM [dbo].[StagingCompanyData] AS [StagingCompanyData]</DefiningQuery>
             <Parameter Name="FavouriteListName" Mode="In" Type="String" />
             <Parameter Name="CreatedBY" Mode="In" Type="String" />
             <Parameter Name="CreatedDate" Mode="In" Type="DateTime" />
-          </FunctionImport>
-          <FunctionImport Name="uspClearDataSetAnalysis" ReturnType="Collection(Int32)">
-            <Parameter Name="CustomerDataSetID" Mode="In" Type="Int32" />
           </FunctionImport>
         </EntityContainer>
         <ComplexType Name="uspSelectAccounts_Result">
@@ -697,6 +714,16 @@ FROM [dbo].[StagingCompanyData] AS [StagingCompanyData]</DefiningQuery>
         <ComplexType Name="uspSelectDataSetsDetailsByDataSetID_Result">
           <Property Type="Int32" Name="ProdID" Nullable="false" />
           <Property Type="String" Name="MonthYear" Nullable="true" MaxLength="30" />
+          <Property Type="Decimal" Name="AdjValue" Nullable="true" Precision="32" Scale="16" />
+          <Property Type="Int32" Name="CustomerDataSetID" Nullable="true" />
+          <Property Type="String" Name="CreatedBy" Nullable="true" MaxLength="64" />
+          <Property Type="DateTime" Name="CreatedDate" Nullable="true" Precision="23" />
+          <Property Type="String" Name="ModifiedBy" Nullable="true" MaxLength="64" />
+          <Property Type="DateTime" Name="ModifiedDate" Nullable="true" Precision="23" />
+        </ComplexType>
+        <ComplexType Name="uspSelectDataSetsDetailsByDataSetID03242017_Result">
+          <Property Type="Int32" Name="ProdID" Nullable="false" />
+          <Property Type="DateTime" Name="MonthYear" Nullable="true" />
           <Property Type="Decimal" Name="AdjValue" Nullable="true" Precision="32" Scale="16" />
           <Property Type="Int32" Name="CustomerDataSetID" Nullable="true" />
           <Property Type="String" Name="CreatedBy" Nullable="true" MaxLength="64" />
@@ -852,6 +879,7 @@ FROM [dbo].[StagingCompanyData] AS [StagingCompanyData]</DefiningQuery>
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>
+          <FunctionImportMapping FunctionImportName="uspClearDataSetAnalysis" FunctionName="ITRDevModel.Store.uspClearDataSetAnalysis" />
           <FunctionImportMapping FunctionImportName="uspDeleteCustomerDataSet" FunctionName="ITRDevModel.Store.uspDeleteCustomerDataSet" />
           <FunctionImportMapping FunctionImportName="uspDeleteFavoriteListByCompanyAndUserID" FunctionName="ITRDevModel.Store.uspDeleteFavoriteListByCompanyAndUserID" />
           <FunctionImportMapping FunctionImportName="uspDeleteRowFromDataSet" FunctionName="ITRDevModel.Store.uspDeleteRowFromDataSet" />
@@ -1015,7 +1043,20 @@ FROM [dbo].[StagingCompanyData] AS [StagingCompanyData]</DefiningQuery>
               </ComplexTypeMapping>
             </ResultMapping>
           </FunctionImportMapping>
-          <FunctionImportMapping FunctionImportName="uspSelectDataSetsDetailsByDataSetID03242017" FunctionName="ITRDevModel.Store.uspSelectDataSetsDetailsByDataSetID03242017" />
+          <FunctionImportMapping FunctionImportName="uspSelectDataSetsDetailsByDataSetID03242017" FunctionName="ITRDevModel.Store.uspSelectDataSetsDetailsByDataSetID03242017">
+            <ResultMapping>
+              <ComplexTypeMapping TypeName="ITRDevModel.uspSelectDataSetsDetailsByDataSetID03242017_Result">
+                <ScalarProperty Name="ProdID" ColumnName="ProdID" />
+                <ScalarProperty Name="MonthYear" ColumnName="MonthYear" />
+                <ScalarProperty Name="AdjValue" ColumnName="AdjValue" />
+                <ScalarProperty Name="CustomerDataSetID" ColumnName="CustomerDataSetID" />
+                <ScalarProperty Name="CreatedBy" ColumnName="CreatedBy" />
+                <ScalarProperty Name="CreatedDate" ColumnName="CreatedDate" />
+                <ScalarProperty Name="ModifiedBy" ColumnName="ModifiedBy" />
+                <ScalarProperty Name="ModifiedDate" ColumnName="ModifiedDate" />
+              </ComplexTypeMapping>
+            </ResultMapping>
+          </FunctionImportMapping>
           <FunctionImportMapping FunctionImportName="uspSelectDataSetsDetailsByDataSetIDForBanner" FunctionName="ITRDevModel.Store.uspSelectDataSetsDetailsByDataSetIDForBanner">
             <ResultMapping>
               <ComplexTypeMapping TypeName="ITRDevModel.uspSelectDataSetsDetailsByDataSetIDForBanner_Result">
@@ -1155,7 +1196,6 @@ FROM [dbo].[StagingCompanyData] AS [StagingCompanyData]</DefiningQuery>
           </FunctionImportMapping>
           <FunctionImportMapping FunctionImportName="uspUpdateCustomerDataSet" FunctionName="ITRDevModel.Store.uspUpdateCustomerDataSet" />
           <FunctionImportMapping FunctionImportName="uspUpdateFavouriteList" FunctionName="ITRDevModel.Store.uspUpdateFavouriteList" />
-          <FunctionImportMapping FunctionImportName="uspClearDataSetAnalysis" FunctionName="ITRDevModel.Store.uspClearDataSetAnalysis" />
         </EntityContainerMapping>
       </Mapping>
     </edmx:Mappings>

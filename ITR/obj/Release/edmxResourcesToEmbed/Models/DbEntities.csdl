@@ -50,6 +50,9 @@
     <EntitySet Name="CustomerDataSets" EntityType="Self.CustomerDataSet" />
     <EntitySet Name="ExceptionLogs" EntityType="Self.ExceptionLog" />
     <EntitySet Name="StagingCompanyDatas" EntityType="Self.StagingCompanyData" />
+    <FunctionImport Name="uspClearDataSetAnalysis" ReturnType="Collection(Int32)">
+      <Parameter Name="CustomerDataSetID" Mode="In" Type="Int32" />
+    </FunctionImport>
     <FunctionImport Name="uspDeleteCustomerDataSet" ReturnType="Collection(Int32)">
       <Parameter Name="CustomerDataSetID" Mode="In" Type="Int32" />
     </FunctionImport>
@@ -182,7 +185,7 @@
       <Parameter Name="CustomerDataSetID" Mode="In" Type="Int32" />
       <Parameter Name="Table" Mode="In" Type="String" />
     </FunctionImport>
-    <FunctionImport Name="uspSelectDataSetsDetailsByDataSetID03242017">
+    <FunctionImport Name="uspSelectDataSetsDetailsByDataSetID03242017" ReturnType="Collection(ITRDevModel.uspSelectDataSetsDetailsByDataSetID03242017_Result)">
       <Parameter Name="CustomerDataSetID" Mode="In" Type="Int32" />
     </FunctionImport>
     <FunctionImport Name="uspSelectDataSetsDetailsByDataSetIDForBanner" ReturnType="Collection(ITRDevModel.uspSelectDataSetsDetailsByDataSetIDForBanner_Result)">
@@ -273,9 +276,6 @@
       <Parameter Name="CreatedBY" Mode="In" Type="String" />
       <Parameter Name="CreatedDate" Mode="In" Type="DateTime" />
     </FunctionImport>
-    <FunctionImport Name="uspClearDataSetAnalysis" ReturnType="Collection(Int32)">
-      <Parameter Name="CustomerDataSetID" Mode="In" Type="Int32" />
-    </FunctionImport>
   </EntityContainer>
   <ComplexType Name="uspSelectAccounts_Result">
     <Property Type="String" Name="AccountName" Nullable="true" MaxLength="255" />
@@ -365,6 +365,16 @@
   <ComplexType Name="uspSelectDataSetsDetailsByDataSetID_Result">
     <Property Type="Int32" Name="ProdID" Nullable="false" />
     <Property Type="String" Name="MonthYear" Nullable="true" MaxLength="30" />
+    <Property Type="Decimal" Name="AdjValue" Nullable="true" Precision="32" Scale="16" />
+    <Property Type="Int32" Name="CustomerDataSetID" Nullable="true" />
+    <Property Type="String" Name="CreatedBy" Nullable="true" MaxLength="64" />
+    <Property Type="DateTime" Name="CreatedDate" Nullable="true" Precision="23" />
+    <Property Type="String" Name="ModifiedBy" Nullable="true" MaxLength="64" />
+    <Property Type="DateTime" Name="ModifiedDate" Nullable="true" Precision="23" />
+  </ComplexType>
+  <ComplexType Name="uspSelectDataSetsDetailsByDataSetID03242017_Result">
+    <Property Type="Int32" Name="ProdID" Nullable="false" />
+    <Property Type="DateTime" Name="MonthYear" Nullable="true" />
     <Property Type="Decimal" Name="AdjValue" Nullable="true" Precision="32" Scale="16" />
     <Property Type="Int32" Name="CustomerDataSetID" Nullable="true" />
     <Property Type="String" Name="CreatedBy" Nullable="true" MaxLength="64" />

@@ -783,7 +783,7 @@ else
             }
         });
           
-        $("#hdnCompanyID").val(5399);// 2301) //5399); //8224)
+        $("#hdnCompanyID").val(8224);// 2301) //8224); //8224)
         $("#hdnDivisionID").val(0);
         $("#hdnUserID").val(1);
     </script>
@@ -2378,7 +2378,14 @@ else
 
         function LoadIndicatorsListDownloadDataForMultipleCompanyDataSetsSection1() {
             $("#divIndicatorSection1").html(''); // To Clear previous values if any
-            $.getJSON("GetCompanyDatasetsInfoForDownloadSection1?dataSetIDs=" + encodeURIComponent($("#ddlDataSetsDD").val()),
+
+
+            var selMulti = $.map($("#ddlDataSetsDD option:selected"), function (el, i) {
+                return $(el).text();
+            });
+            // alert(selMulti.join("|"));
+
+            $.getJSON("GetCompanyDatasetsInfoForDownloadSection1?dataSetIDs="  + encodeURIComponent(selMulti.join("|")),
                 function(data) {
 
                     var jsonObject = JSON.parse(data);
@@ -2530,7 +2537,12 @@ else
             //    //   LoadDDChart();
             //});
             {
-                multipleids = $("#ddlDataSetsIndList").val();
+                var selMultiSection2 = $.map($("#ddlDataSetsIndList option:selected"), function (el, i) {
+                    return $(el).text();
+                });
+                selMultiSection2.join("|");
+
+                multipleids = selMultiSection2.join("|");  // $("#ddlDataSetsIndList").val();
                 // alert(multipleids);
                 // var cTable="";
                 //TABLE DEFINITION for Indicator list
@@ -6229,13 +6241,16 @@ else
                    STEP 3 : ADDING/UPDATING VALUES IN DBWidgetsList WHEN CLICK IN DATATABLE... $(document).on('click', '#CorelationLeadLagList tbody tr', function(e) { EVENT...
                    So considering DBWidgetsList Length to get widgetsCount... Need to have the ability to add only 10 indicators...
                 */
+
+              
                 widgetsCount = (DBWidgetsList != "") ? DBWidgetsList.split(',').length - 1 : 0;
                 //console.log('DBWidgetsList - ' + DBWidgetsList);
                 //console.log('widgetsCount - ' + widgetsCount);
-
+              
                 var table = $('#CorelationLeadLagList').DataTable();
                 table.search('').columns().search('').draw();
-
+                alert(DBWidgetsList);
+                alert(widgetsCount)
                 if (DBWidgetsList != "" && widgetsCount <= 10) {                    
                         
                     var url = "InsertDashboardWidgetsList";                      

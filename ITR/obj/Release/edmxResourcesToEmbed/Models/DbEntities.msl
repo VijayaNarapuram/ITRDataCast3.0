@@ -50,6 +50,7 @@
         </MappingFragment>
       </EntityTypeMapping>
     </EntitySetMapping>
+    <FunctionImportMapping FunctionImportName="uspClearDataSetAnalysis" FunctionName="ITRDevModel.Store.uspClearDataSetAnalysis" />
     <FunctionImportMapping FunctionImportName="uspDeleteCustomerDataSet" FunctionName="ITRDevModel.Store.uspDeleteCustomerDataSet" />
     <FunctionImportMapping FunctionImportName="uspDeleteFavoriteListByCompanyAndUserID" FunctionName="ITRDevModel.Store.uspDeleteFavoriteListByCompanyAndUserID" />
     <FunctionImportMapping FunctionImportName="uspDeleteRowFromDataSet" FunctionName="ITRDevModel.Store.uspDeleteRowFromDataSet" />
@@ -213,7 +214,20 @@
         </ComplexTypeMapping>
       </ResultMapping>
     </FunctionImportMapping>
-    <FunctionImportMapping FunctionImportName="uspSelectDataSetsDetailsByDataSetID03242017" FunctionName="ITRDevModel.Store.uspSelectDataSetsDetailsByDataSetID03242017" />
+    <FunctionImportMapping FunctionImportName="uspSelectDataSetsDetailsByDataSetID03242017" FunctionName="ITRDevModel.Store.uspSelectDataSetsDetailsByDataSetID03242017">
+      <ResultMapping>
+        <ComplexTypeMapping TypeName="ITRDevModel.uspSelectDataSetsDetailsByDataSetID03242017_Result">
+          <ScalarProperty Name="ProdID" ColumnName="ProdID" />
+          <ScalarProperty Name="MonthYear" ColumnName="MonthYear" />
+          <ScalarProperty Name="AdjValue" ColumnName="AdjValue" />
+          <ScalarProperty Name="CustomerDataSetID" ColumnName="CustomerDataSetID" />
+          <ScalarProperty Name="CreatedBy" ColumnName="CreatedBy" />
+          <ScalarProperty Name="CreatedDate" ColumnName="CreatedDate" />
+          <ScalarProperty Name="ModifiedBy" ColumnName="ModifiedBy" />
+          <ScalarProperty Name="ModifiedDate" ColumnName="ModifiedDate" />
+        </ComplexTypeMapping>
+      </ResultMapping>
+    </FunctionImportMapping>
     <FunctionImportMapping FunctionImportName="uspSelectDataSetsDetailsByDataSetIDForBanner" FunctionName="ITRDevModel.Store.uspSelectDataSetsDetailsByDataSetIDForBanner">
       <ResultMapping>
         <ComplexTypeMapping TypeName="ITRDevModel.uspSelectDataSetsDetailsByDataSetIDForBanner_Result">
@@ -353,6 +367,5 @@
     </FunctionImportMapping>
     <FunctionImportMapping FunctionImportName="uspUpdateCustomerDataSet" FunctionName="ITRDevModel.Store.uspUpdateCustomerDataSet" />
     <FunctionImportMapping FunctionImportName="uspUpdateFavouriteList" FunctionName="ITRDevModel.Store.uspUpdateFavouriteList" />
-    <FunctionImportMapping FunctionImportName="uspClearDataSetAnalysis" FunctionName="ITRDevModel.Store.uspClearDataSetAnalysis" />
   </EntityContainerMapping>
 </Mapping>

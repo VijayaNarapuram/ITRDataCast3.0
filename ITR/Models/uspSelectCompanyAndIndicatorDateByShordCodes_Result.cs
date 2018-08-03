@@ -34,5 +34,6 @@ namespace ITR.Models
         public string StatPref1 { get; set; }
         public Nullable<int> Duration { get; set; }
         public Nullable<int> AccessDuration { get; set; }
+        public int MyVal { get; set; }
     }
 }

@@ -13,24 +13,19 @@ namespace ITR.Models
     
     public partial class uspSelectForecastDataByIndicatorForDownload_Result
     {
-        public int ForeCastDataID { get; set; }
-        public Nullable<int> ForeCastMetaDataID { get; set; }
         public string ShortCode { get; set; }
-        public Nullable<System.DateTime> ForeCastDate { get; set; }
-        public Nullable<System.DateTime> MonthYear { get; set; }
-        public Nullable<decimal> LFR12MMA { get; set; }
-        public Nullable<decimal> Avg12MMA { get; set; }
-        public Nullable<decimal> UFR12MMA { get; set; }
-        public Nullable<decimal> LFR3MMA { get; set; }
-        public Nullable<decimal> Avg3MMA { get; set; }
-        public Nullable<decimal> UFR3MMA { get; set; }
-        public Nullable<decimal> LFR12by12 { get; set; }
-        public Nullable<decimal> Avg12by12 { get; set; }
-        public Nullable<decimal> UFR12by12 { get; set; }
-        public Nullable<decimal> LFR3by12 { get; set; }
-        public Nullable<decimal> Avg3by12 { get; set; }
-        public Nullable<decimal> UFR3by12 { get; set; }
-        public string CreatedBy { get; set; }
-        public Nullable<System.DateTime> CreatedDate { get; set; }
+        public string MonthYear { get; set; }
+        public string LFR12MMA { get; set; }
+        public string Avg12MMA { get; set; }
+        public string UFR12MMA { get; set; }
+        public string LFR3MMA { get; set; }
+        public string Avg3MMA { get; set; }
+        public string UFR3MMA { get; set; }
+        public string LFR12by12 { get; set; }
+        public string Avg12by12 { get; set; }
+        public string UFR12by12 { get; set; }
+        public string LFR3by12 { get; set; }
+        public string Avg3by12 { get; set; }
+        public string UFR3by12 { get; set; }
     }
 }

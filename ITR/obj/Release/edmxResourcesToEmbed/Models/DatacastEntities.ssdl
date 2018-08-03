@@ -1,7 +1,19 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
-<Schema Namespace="LDBTESTModel.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2008" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+<Schema Namespace="DatacastModel.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2008" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
   <!--Errors Found During Generation:
-warning 6002: The table/view 'LDBTEST_04092018.dbo.Categories' does not have a primary key defined. The key has been inferred and the definition was created as a read-only table/view.-->
+warning 6002: The table/view 'LDBTEST_08022018.dbo.Alliance' does not have a primary key defined. The key has been inferred and the definition was created as a read-only table/view.-->
+  <EntityType Name="Alliance">
+    <Key>
+      <PropertyRef Name="ShortCode" />
+      <PropertyRef Name="QuickBaseID" />
+      <PropertyRef Name="QBDivID" />
+    </Key>
+    <Property Name="ShortCode" Type="varchar" MaxLength="128" Nullable="false" />
+    <Property Name="QuickBaseID" Type="int" Nullable="false" />
+    <Property Name="QBDivID" Type="int" Nullable="false" />
+  </EntityType>
+  <!--Errors Found During Generation:
+warning 6002: The table/view 'LDBTEST_08022018.dbo.Categories' does not have a primary key defined. The key has been inferred and the definition was created as a read-only table/view.-->
   <EntityType Name="Categories">
     <Key>
       <PropertyRef Name="CategoryID" />
@@ -11,7 +23,7 @@ warning 6002: The table/view 'LDBTEST_04092018.dbo.Categories' does not have a p
     <Property Name="CategoryDescription" Type="varchar" MaxLength="32" />
   </EntityType>
   <!--Errors Found During Generation:
-warning 6002: The table/view 'LDBTEST_04092018.dbo.CategoryDropDown' does not have a primary key defined. The key has been inferred and the definition was created as a read-only table/view.-->
+warning 6002: The table/view 'LDBTEST_08022018.dbo.CategoryDropDown' does not have a primary key defined. The key has been inferred and the definition was created as a read-only table/view.-->
   <EntityType Name="CategoryDropDown">
     <Key>
       <PropertyRef Name="CatDrpDnID" />
@@ -28,7 +40,7 @@ warning 6002: The table/view 'LDBTEST_04092018.dbo.CategoryDropDown' does not ha
     <Property Name="DrpDnDisplay" Type="bit" />
   </EntityType>
   <!--Errors Found During Generation:
-warning 6002: The table/view 'LDBTEST_04092018.dbo.CompaniesList' does not have a primary key defined. The key has been inferred and the definition was created as a read-only table/view.-->
+warning 6002: The table/view 'LDBTEST_08022018.dbo.CompaniesList' does not have a primary key defined. The key has been inferred and the definition was created as a read-only table/view.-->
   <EntityType Name="CompaniesList">
     <Key>
       <PropertyRef Name="Sysid" />
@@ -68,7 +80,7 @@ warning 6002: The table/view 'LDBTEST_04092018.dbo.CompaniesList' does not have 
     <Property Name="MasterMetadataID" Type="int" />
   </EntityType>
   <!--Errors Found During Generation:
-warning 6002: The table/view 'LDBTEST_04092018.dbo.CompanyList' does not have a primary key defined. The key has been inferred and the definition was created as a read-only table/view.-->
+warning 6002: The table/view 'LDBTEST_08022018.dbo.CompanyList' does not have a primary key defined. The key has been inferred and the definition was created as a read-only table/view.-->
   <EntityType Name="CompanyList">
     <Key>
       <PropertyRef Name="Sysid" />
@@ -95,7 +107,7 @@ warning 6002: The table/view 'LDBTEST_04092018.dbo.CompanyList' does not have a 
     <Property Name="Sysid" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
   </EntityType>
   <!--Errors Found During Generation:
-warning 6002: The table/view 'LDBTEST_04092018.dbo.CompanyMasterMetaData' does not have a primary key defined. The key has been inferred and the definition was created as a read-only table/view.-->
+warning 6002: The table/view 'LDBTEST_08022018.dbo.CompanyMasterMetaData' does not have a primary key defined. The key has been inferred and the definition was created as a read-only table/view.-->
   <EntityType Name="CompanyMasterMetaData">
     <Key>
       <PropertyRef Name="CompanyMasterMetadataID" />
@@ -120,7 +132,7 @@ warning 6002: The table/view 'LDBTEST_04092018.dbo.CompanyMasterMetaData' does n
     <Property Name="Definition" Type="varchar" MaxLength="1024" />
   </EntityType>
   <!--Errors Found During Generation:
-warning 6002: The table/view 'LDBTEST_04092018.dbo.CompanyShortCodes' does not have a primary key defined. The key has been inferred and the definition was created as a read-only table/view.-->
+warning 6002: The table/view 'LDBTEST_08022018.dbo.CompanyShortCodes' does not have a primary key defined. The key has been inferred and the definition was created as a read-only table/view.-->
   <EntityType Name="CompanyShortCodes">
     <Key>
       <PropertyRef Name="ShortCodesID" />
@@ -131,7 +143,7 @@ warning 6002: The table/view 'LDBTEST_04092018.dbo.CompanyShortCodes' does not h
     <Property Name="ShortCodeDescription" Type="varchar" MaxLength="800" />
   </EntityType>
   <!--Errors Found During Generation:
-warning 6002: The table/view 'LDBTEST_04092018.dbo.CompanyStagingLoadInfo' does not have a primary key defined. The key has been inferred and the definition was created as a read-only table/view.-->
+warning 6002: The table/view 'LDBTEST_08022018.dbo.CompanyStagingLoadInfo' does not have a primary key defined. The key has been inferred and the definition was created as a read-only table/view.-->
   <EntityType Name="CompanyStagingLoadInfo">
     <Key>
       <PropertyRef Name="StagingLoadInfoID" />
@@ -183,7 +195,7 @@ warning 6002: The table/view 'LDBTEST_04092018.dbo.CompanyStagingLoadInfo' does 
     <Property Name="CompanyMasterMetadataID" Type="int" />
   </EntityType>
   <!--Errors Found During Generation:
-warning 6002: The table/view 'LDBTEST_04092018.dbo.Continent' does not have a primary key defined. The key has been inferred and the definition was created as a read-only table/view.-->
+warning 6002: The table/view 'LDBTEST_08022018.dbo.Continent' does not have a primary key defined. The key has been inferred and the definition was created as a read-only table/view.-->
   <EntityType Name="Continent">
     <Key>
       <PropertyRef Name="ContinentID" />
@@ -192,7 +204,7 @@ warning 6002: The table/view 'LDBTEST_04092018.dbo.Continent' does not have a pr
     <Property Name="ContinentName" Type="varchar" MaxLength="20" />
   </EntityType>
   <!--Errors Found During Generation:
-warning 6002: The table/view 'LDBTEST_04092018.dbo.Country' does not have a primary key defined. The key has been inferred and the definition was created as a read-only table/view.-->
+warning 6002: The table/view 'LDBTEST_08022018.dbo.Country' does not have a primary key defined. The key has been inferred and the definition was created as a read-only table/view.-->
   <EntityType Name="Country">
     <Key>
       <PropertyRef Name="CountryID" />
@@ -203,7 +215,7 @@ warning 6002: The table/view 'LDBTEST_04092018.dbo.Country' does not have a prim
     <Property Name="ContinentID" Type="int" />
   </EntityType>
   <!--Errors Found During Generation:
-warning 6002: The table/view 'LDBTEST_04092018.dbo.Customer' does not have a primary key defined. The key has been inferred and the definition was created as a read-only table/view.-->
+warning 6002: The table/view 'LDBTEST_08022018.dbo.Customer' does not have a primary key defined. The key has been inferred and the definition was created as a read-only table/view.-->
   <EntityType Name="Customer">
     <Key>
       <PropertyRef Name="CustomerProdId" />
@@ -243,7 +255,7 @@ warning 6002: The table/view 'LDBTEST_04092018.dbo.Customer' does not have a pri
     <Property Name="UserName" Type="varchar(max)" />
   </EntityType>
   <!--Errors Found During Generation:
-warning 6002: The table/view 'LDBTEST_04092018.dbo.CustomerDatasetsProcess' does not have a primary key defined. The key has been inferred and the definition was created as a read-only table/view.-->
+warning 6002: The table/view 'LDBTEST_08022018.dbo.CustomerDatasetsProcess' does not have a primary key defined. The key has been inferred and the definition was created as a read-only table/view.-->
   <EntityType Name="CustomerDatasetsProcess">
     <Key>
       <PropertyRef Name="ProcessID" />
@@ -254,7 +266,7 @@ warning 6002: The table/view 'LDBTEST_04092018.dbo.CustomerDatasetsProcess' does
     <Property Name="IsProcessed" Type="int" />
   </EntityType>
   <!--Errors Found During Generation:
-warning 6002: The table/view 'LDBTEST_04092018.dbo.CustomerDatasetsProcess_Schedule' does not have a primary key defined. The key has been inferred and the definition was created as a read-only table/view.-->
+warning 6002: The table/view 'LDBTEST_08022018.dbo.CustomerDatasetsProcess_Schedule' does not have a primary key defined. The key has been inferred and the definition was created as a read-only table/view.-->
   <EntityType Name="CustomerDatasetsProcess_Schedule">
     <Key>
       <PropertyRef Name="ProcessID" />
@@ -264,8 +276,22 @@ warning 6002: The table/view 'LDBTEST_04092018.dbo.CustomerDatasetsProcess_Sched
     <Property Name="CreatedDate" Type="datetime" />
     <Property Name="IsProcessed" Type="int" />
   </EntityType>
+  <EntityType Name="DashboardWidgetsList">
+    <Key>
+      <PropertyRef Name="DashboardWidgetsListId" />
+    </Key>
+    <Property Name="DashboardWidgetsListId" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="CompanyShortCode" Type="varchar" MaxLength="128" Nullable="false" />
+    <Property Name="IndicatorShortCode" Type="varchar" MaxLength="128" Nullable="false" />
+    <Property Name="UserID" Type="int" Nullable="false" />
+    <Property Name="DashboardWidgetsListName" Type="varchar" MaxLength="128" />
+    <Property Name="CreatedBy" Type="varchar" MaxLength="128" />
+    <Property Name="CreatedDate" Type="datetime" />
+    <Property Name="ModifiedBy" Type="varchar" MaxLength="128" />
+    <Property Name="ModifiedDate" Type="datetime" />
+  </EntityType>
   <!--Errors Found During Generation:
-warning 6002: The table/view 'LDBTEST_04092018.dbo.DateRanges' does not have a primary key defined. The key has been inferred and the definition was created as a read-only table/view.-->
+warning 6002: The table/view 'LDBTEST_08022018.dbo.DateRanges' does not have a primary key defined. The key has been inferred and the definition was created as a read-only table/view.-->
   <EntityType Name="DateRanges">
     <Key>
       <PropertyRef Name="DateID" />
@@ -274,7 +300,7 @@ warning 6002: The table/view 'LDBTEST_04092018.dbo.DateRanges' does not have a p
     <Property Name="DateValue" Type="datetime" />
   </EntityType>
   <!--Errors Found During Generation:
-warning 6002: The table/view 'LDBTEST_04092018.dbo.Dumped' does not have a primary key defined. The key has been inferred and the definition was created as a read-only table/view.-->
+warning 6002: The table/view 'LDBTEST_08022018.dbo.Dumped' does not have a primary key defined. The key has been inferred and the definition was created as a read-only table/view.-->
   <EntityType Name="Dumped">
     <Key>
       <PropertyRef Name="ID" />
@@ -282,7 +308,7 @@ warning 6002: The table/view 'LDBTEST_04092018.dbo.Dumped' does not have a prima
     <Property Name="ID" Type="int" Nullable="false" />
   </EntityType>
   <!--Errors Found During Generation:
-warning 6002: The table/view 'LDBTEST_04092018.dbo.ExceptionLog' does not have a primary key defined. The key has been inferred and the definition was created as a read-only table/view.-->
+warning 6002: The table/view 'LDBTEST_08022018.dbo.ExceptionLog' does not have a primary key defined. The key has been inferred and the definition was created as a read-only table/view.-->
   <EntityType Name="ExceptionLog">
     <Key>
       <PropertyRef Name="ExceptionID" />
@@ -295,7 +321,7 @@ warning 6002: The table/view 'LDBTEST_04092018.dbo.ExceptionLog' does not have a
     <Property Name="CreatedDate" Type="datetime" />
   </EntityType>
   <!--Errors Found During Generation:
-warning 6002: The table/view 'LDBTEST_04092018.dbo.FavouriteList' does not have a primary key defined. The key has been inferred and the definition was created as a read-only table/view.-->
+warning 6002: The table/view 'LDBTEST_08022018.dbo.FavouriteList' does not have a primary key defined. The key has been inferred and the definition was created as a read-only table/view.-->
   <EntityType Name="FavouriteList">
     <Key>
       <PropertyRef Name="CompanyShortCode" />
@@ -312,7 +338,18 @@ warning 6002: The table/view 'LDBTEST_04092018.dbo.FavouriteList' does not have 
     <Property Name="ModifiedDate" Type="datetime" />
   </EntityType>
   <!--Errors Found During Generation:
-warning 6002: The table/view 'LDBTEST_04092018.dbo.ForeCastCheckData' does not have a primary key defined. The key has been inferred and the definition was created as a read-only table/view.-->
+warning 6002: The table/view 'LDBTEST_08022018.dbo.FlowTest' does not have a primary key defined. The key has been inferred and the definition was created as a read-only table/view.-->
+  <EntityType Name="FlowTest">
+    <Key>
+      <PropertyRef Name="FlowTestID" />
+    </Key>
+    <Property Name="FlowTestID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="CreatedDate" Type="datetime" />
+    <Property Name="UserName" Type="varchar" MaxLength="64" />
+    <Property Name="FlowDesc" Type="varchar" MaxLength="64" />
+  </EntityType>
+  <!--Errors Found During Generation:
+warning 6002: The table/view 'LDBTEST_08022018.dbo.ForeCastCheckData' does not have a primary key defined. The key has been inferred and the definition was created as a read-only table/view.-->
   <EntityType Name="ForeCastCheckData">
     <Key>
       <PropertyRef Name="ForeCastCheckDataID" />
@@ -332,7 +369,7 @@ warning 6002: The table/view 'LDBTEST_04092018.dbo.ForeCastCheckData' does not h
     <Property Name="ForeCastMetaDataID" Type="int" />
     <Property Name="ShortCode" Type="varchar" MaxLength="64" />
     <Property Name="ForeCastDate" Type="date" />
-    <Property Name="MonthYear" Type="date" />
+    <Property Name="MonthYear" Type="datetime" />
     <Property Name="LFR12MMA" Type="decimal" Precision="32" Scale="16" />
     <Property Name="Avg12MMA" Type="decimal" Precision="32" Scale="16" />
     <Property Name="UFR12MMA" Type="decimal" Precision="32" Scale="16" />
@@ -347,7 +384,7 @@ warning 6002: The table/view 'LDBTEST_04092018.dbo.ForeCastCheckData' does not h
     <Property Name="UFR3by12" Type="decimal" Precision="32" Scale="16" />
     <Property Name="CreatedBy" Type="varchar" MaxLength="128" />
     <Property Name="CreatedDate" Type="datetime" />
-    <Property Name="Phases" Type="varchar" MaxLength="4" />
+    <Property Name="Phases" Type="varchar" MaxLength="8" />
   </EntityType>
   <EntityType Name="ForeCastMetaData">
     <Key>
@@ -361,6 +398,26 @@ warning 6002: The table/view 'LDBTEST_04092018.dbo.ForeCastCheckData' does not h
     <Property Name="CreatedBy" Type="varchar" MaxLength="128" />
     <Property Name="CreatedDate" Type="datetime" />
     <Property Name="DataThruDate" Type="date" />
+  </EntityType>
+  <EntityType Name="ForecastSummary">
+    <Key>
+      <PropertyRef Name="FSID" />
+    </Key>
+    <Property Name="FSID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="DOSCode" Type="varchar" MaxLength="30" />
+    <Property Name="ForecastDate" Type="date" />
+    <Property Name="DataThrough" Type="date" />
+    <Property Name="CheckedBy" Type="varchar" MaxLength="50" />
+    <Property Name="LastChecked" Type="date" />
+    <Property Name="DateOfData" Type="date" />
+    <Property Name="ForecastStatus" Type="varchar" MaxLength="50" />
+    <Property Name="UpcomingHighLow" Type="varchar" MaxLength="30" />
+    <Property Name="NextHighLow" Type="varchar" MaxLength="30" />
+    <Property Name="ThirdHighLow" Type="varchar" MaxLength="30" />
+    <Property Name="ForecastCheckNote" Type="varchar(max)" />
+    <Property Name="TemplateVersion" Type="varchar" MaxLength="30" />
+    <Property Name="FileSubfolderName" Type="varchar" MaxLength="100" />
+    <Property Name="LastUpdated" Type="datetime" />
   </EntityType>
   <EntityType Name="Indicator">
     <Key>
@@ -381,7 +438,7 @@ warning 6002: The table/view 'LDBTEST_04092018.dbo.ForeCastCheckData' does not h
     <Property Name="MasterMetadataID" Type="int" />
   </EntityType>
   <!--Errors Found During Generation:
-warning 6002: The table/view 'LDBTEST_04092018.dbo.IndicatorList' does not have a primary key defined. The key has been inferred and the definition was created as a read-only table/view.-->
+warning 6002: The table/view 'LDBTEST_08022018.dbo.IndicatorList' does not have a primary key defined. The key has been inferred and the definition was created as a read-only table/view.-->
   <EntityType Name="IndicatorList">
     <Key>
       <PropertyRef Name="Sysid" />
@@ -444,7 +501,7 @@ warning 6002: The table/view 'LDBTEST_04092018.dbo.IndicatorList' does not have 
     <Property Name="MasterMetadataID" Type="int" />
   </EntityType>
   <!--Errors Found During Generation:
-warning 6002: The table/view 'LDBTEST_04092018.dbo.Industry' does not have a primary key defined. The key has been inferred and the definition was created as a read-only table/view.-->
+warning 6002: The table/view 'LDBTEST_08022018.dbo.Industry' does not have a primary key defined. The key has been inferred and the definition was created as a read-only table/view.-->
   <EntityType Name="Industry">
     <Key>
       <PropertyRef Name="PRODIndicatorID" />
@@ -516,7 +573,7 @@ warning 6002: The table/view 'LDBTEST_04092018.dbo.Industry' does not have a pri
     <Property Name="Description" Type="varchar(max)" />
   </EntityType>
   <!--Errors Found During Generation:
-warning 6002: The table/view 'LDBTEST_04092018.dbo.MasterMetaData_Backup' does not have a primary key defined. The key has been inferred and the definition was created as a read-only table/view.-->
+warning 6002: The table/view 'LDBTEST_08022018.dbo.MasterMetaData_Backup' does not have a primary key defined. The key has been inferred and the definition was created as a read-only table/view.-->
   <EntityType Name="MasterMetaData_Backup">
     <Key>
       <PropertyRef Name="MasterMetadataID" />
@@ -559,7 +616,7 @@ warning 6002: The table/view 'LDBTEST_04092018.dbo.MasterMetaData_Backup' does n
     <Property Name="CEICCode" Type="varchar" MaxLength="500" />
   </EntityType>
   <!--Errors Found During Generation:
-warning 6002: The table/view 'LDBTEST_04092018.dbo.Months' does not have a primary key defined. The key has been inferred and the definition was created as a read-only table/view.-->
+warning 6002: The table/view 'LDBTEST_08022018.dbo.Months' does not have a primary key defined. The key has been inferred and the definition was created as a read-only table/view.-->
   <EntityType Name="Months">
     <Key>
       <PropertyRef Name="Month" />
@@ -567,7 +624,7 @@ warning 6002: The table/view 'LDBTEST_04092018.dbo.Months' does not have a prima
     <Property Name="Month" Type="date" Nullable="false" />
   </EntityType>
   <!--Errors Found During Generation:
-warning 6002: The table/view 'LDBTEST_04092018.dbo.Notify' does not have a primary key defined. The key has been inferred and the definition was created as a read-only table/view.-->
+warning 6002: The table/view 'LDBTEST_08022018.dbo.Notify' does not have a primary key defined. The key has been inferred and the definition was created as a read-only table/view.-->
   <EntityType Name="Notify">
     <Key>
       <PropertyRef Name="NotifyID" />
@@ -583,7 +640,7 @@ warning 6002: The table/view 'LDBTEST_04092018.dbo.Notify' does not have a prima
     <Property Name="IsActive" Type="bit" Nullable="false" />
   </EntityType>
   <!--Errors Found During Generation:
-warning 6002: The table/view 'LDBTEST_04092018.dbo.NotifyDev' does not have a primary key defined. The key has been inferred and the definition was created as a read-only table/view.-->
+warning 6002: The table/view 'LDBTEST_08022018.dbo.NotifyDev' does not have a primary key defined. The key has been inferred and the definition was created as a read-only table/view.-->
   <EntityType Name="NotifyDev">
     <Key>
       <PropertyRef Name="NotifyID" />
@@ -598,7 +655,7 @@ warning 6002: The table/view 'LDBTEST_04092018.dbo.NotifyDev' does not have a pr
     <Property Name="IsActive" Type="bit" />
   </EntityType>
   <!--Errors Found During Generation:
-warning 6002: The table/view 'LDBTEST_04092018.dbo.PaidForecast' does not have a primary key defined. The key has been inferred and the definition was created as a read-only table/view.-->
+warning 6002: The table/view 'LDBTEST_08022018.dbo.PaidForecast' does not have a primary key defined. The key has been inferred and the definition was created as a read-only table/view.-->
   <EntityType Name="PaidForecast">
     <Key>
       <PropertyRef Name="PaidForecastID" />
@@ -613,8 +670,35 @@ warning 6002: The table/view 'LDBTEST_04092018.dbo.PaidForecast' does not have a
     <Property Name="ModifiedDate" Type="datetime" />
     <Property Name="ShowForecast" Type="int" />
   </EntityType>
+  <EntityType Name="Perf_Trace_0331">
+    <Key>
+      <PropertyRef Name="RowNumber" />
+    </Key>
+    <Property Name="RowNumber" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="EventClass" Type="int" />
+    <Property Name="TextData" Type="ntext" />
+    <Property Name="ApplicationName" Type="nvarchar" MaxLength="128" />
+    <Property Name="NTUserName" Type="nvarchar" MaxLength="128" />
+    <Property Name="LoginName" Type="nvarchar" MaxLength="128" />
+    <Property Name="CPU" Type="int" />
+    <Property Name="Reads" Type="bigint" />
+    <Property Name="Writes" Type="bigint" />
+    <Property Name="Duration" Type="bigint" />
+    <Property Name="ClientProcessID" Type="int" />
+    <Property Name="SPID" Type="int" />
+    <Property Name="StartTime" Type="datetime" />
+    <Property Name="EndTime" Type="datetime" />
+    <Property Name="BinaryData" Type="image" />
+  </EntityType>
+  <EntityType Name="PhasesStatus">
+    <Key>
+      <PropertyRef Name="PhseID" />
+    </Key>
+    <Property Name="PhseID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="PhaseDate" Type="datetime" />
+  </EntityType>
   <!--Errors Found During Generation:
-warning 6002: The table/view 'LDBTEST_04092018.dbo.PopupAccess' does not have a primary key defined. The key has been inferred and the definition was created as a read-only table/view.-->
+warning 6002: The table/view 'LDBTEST_08022018.dbo.PopupAccess' does not have a primary key defined. The key has been inferred and the definition was created as a read-only table/view.-->
   <EntityType Name="PopupAccess">
     <Key>
       <PropertyRef Name="UserID" />
@@ -626,7 +710,7 @@ warning 6002: The table/view 'LDBTEST_04092018.dbo.PopupAccess' does not have a 
     <Property Name="CreatedDate" Type="datetime" />
   </EntityType>
   <!--Errors Found During Generation:
-warning 6002: The table/view 'LDBTEST_04092018.dbo.Product' does not have a primary key defined. The key has been inferred and the definition was created as a read-only table/view.-->
+warning 6002: The table/view 'LDBTEST_08022018.dbo.Product' does not have a primary key defined. The key has been inferred and the definition was created as a read-only table/view.-->
   <EntityType Name="Product">
     <Key>
       <PropertyRef Name="ProductID" />
@@ -637,7 +721,7 @@ warning 6002: The table/view 'LDBTEST_04092018.dbo.Product' does not have a prim
     <Property Name="SubCategoryID" Type="int" />
   </EntityType>
   <!--Errors Found During Generation:
-warning 6002: The table/view 'LDBTEST_04092018.dbo.Region' does not have a primary key defined. The key has been inferred and the definition was created as a read-only table/view.-->
+warning 6002: The table/view 'LDBTEST_08022018.dbo.Region' does not have a primary key defined. The key has been inferred and the definition was created as a read-only table/view.-->
   <EntityType Name="Region">
     <Key>
       <PropertyRef Name="RegionID" />
@@ -647,7 +731,7 @@ warning 6002: The table/view 'LDBTEST_04092018.dbo.Region' does not have a prima
     <Property Name="CompanyID" Type="int" />
   </EntityType>
   <!--Errors Found During Generation:
-warning 6002: The table/view 'LDBTEST_04092018.dbo.ReleaseSchedule' does not have a primary key defined. The key has been inferred and the definition was created as a read-only table/view.-->
+warning 6002: The table/view 'LDBTEST_08022018.dbo.ReleaseSchedule' does not have a primary key defined. The key has been inferred and the definition was created as a read-only table/view.-->
   <EntityType Name="ReleaseSchedule">
     <Key>
       <PropertyRef Name="ReleaseScheduleID" />
@@ -666,7 +750,7 @@ warning 6002: The table/view 'LDBTEST_04092018.dbo.ReleaseSchedule' does not hav
     <Property Name="ShortCodeDescription" Type="varchar" MaxLength="800" />
   </EntityType>
   <!--Errors Found During Generation:
-warning 6002: The table/view 'LDBTEST_04092018.dbo.StagingCompany' does not have a primary key defined. The key has been inferred and the definition was created as a read-only table/view.-->
+warning 6002: The table/view 'LDBTEST_08022018.dbo.StagingCompany' does not have a primary key defined. The key has been inferred and the definition was created as a read-only table/view.-->
   <EntityType Name="StagingCompany">
     <Key>
       <PropertyRef Name="STAGCompanyID" />
@@ -689,13 +773,13 @@ warning 6002: The table/view 'LDBTEST_04092018.dbo.StagingCompany' does not have
     <Property Name="MasterMetadataID" Type="int" />
   </EntityType>
   <!--Errors Found During Generation:
-warning 6002: The table/view 'LDBTEST_04092018.dbo.StagingCompanyData' does not have a primary key defined. The key has been inferred and the definition was created as a read-only table/view.-->
+warning 6002: The table/view 'LDBTEST_08022018.dbo.StagingCompanyData' does not have a primary key defined. The key has been inferred and the definition was created as a read-only table/view.-->
   <EntityType Name="StagingCompanyData">
     <Key>
       <PropertyRef Name="ProdID" />
     </Key>
     <Property Name="ProdID" Type="int" Nullable="false" />
-    <Property Name="MonthYear" Type="date" />
+    <Property Name="MonthYear" Type="datetime" />
     <Property Name="AdjValue" Type="decimal" Precision="32" Scale="16" />
     <Property Name="CustomerDataSetID" Type="int" />
     <Property Name="CreatedBy" Type="varchar" MaxLength="64" />
@@ -704,7 +788,7 @@ warning 6002: The table/view 'LDBTEST_04092018.dbo.StagingCompanyData' does not 
     <Property Name="ModifiedDate" Type="datetime" />
   </EntityType>
   <!--Errors Found During Generation:
-warning 6002: The table/view 'LDBTEST_04092018.dbo.StagingCompanyWeb' does not have a primary key defined. The key has been inferred and the definition was created as a read-only table/view.-->
+warning 6002: The table/view 'LDBTEST_08022018.dbo.StagingCompanyWeb' does not have a primary key defined. The key has been inferred and the definition was created as a read-only table/view.-->
   <EntityType Name="StagingCompanyWeb">
     <Key>
       <PropertyRef Name="STAGCompanyID" />
@@ -727,7 +811,7 @@ warning 6002: The table/view 'LDBTEST_04092018.dbo.StagingCompanyWeb' does not h
     <Property Name="MasterMetadataID" Type="int" />
   </EntityType>
   <!--Errors Found During Generation:
-warning 6002: The table/view 'LDBTEST_04092018.dbo.StagingForeCast' does not have a primary key defined. The key has been inferred and the definition was created as a read-only table/view.-->
+warning 6002: The table/view 'LDBTEST_08022018.dbo.StagingForeCast' does not have a primary key defined. The key has been inferred and the definition was created as a read-only table/view.-->
   <EntityType Name="StagingForeCast">
     <Key>
       <PropertyRef Name="STAGForecastID" />
@@ -748,7 +832,7 @@ warning 6002: The table/view 'LDBTEST_04092018.dbo.StagingForeCast' does not hav
     <Property Name="ShortCodesId" Type="int" />
   </EntityType>
   <!--Errors Found During Generation:
-warning 6002: The table/view 'LDBTEST_04092018.dbo.StagingForecastTest' does not have a primary key defined. The key has been inferred and the definition was created as a read-only table/view.-->
+warning 6002: The table/view 'LDBTEST_08022018.dbo.StagingForecastTest' does not have a primary key defined. The key has been inferred and the definition was created as a read-only table/view.-->
   <EntityType Name="StagingForecastTest">
     <Key>
       <PropertyRef Name="Sysid" />
@@ -779,7 +863,7 @@ warning 6002: The table/view 'LDBTEST_04092018.dbo.StagingForecastTest' does not
     <Property Name="ShortCodesId" Type="int" />
   </EntityType>
   <!--Errors Found During Generation:
-warning 6002: The table/view 'LDBTEST_04092018.dbo.StagingIndicatorTest' does not have a primary key defined. The key has been inferred and the definition was created as a read-only table/view.-->
+warning 6002: The table/view 'LDBTEST_08022018.dbo.StagingIndicatorTest' does not have a primary key defined. The key has been inferred and the definition was created as a read-only table/view.-->
   <EntityType Name="StagingIndicatorTest">
     <Key>
       <PropertyRef Name="STAGIndicatorID" />
@@ -805,7 +889,7 @@ warning 6002: The table/view 'LDBTEST_04092018.dbo.StagingIndicatorTest' does no
     <Property Name="Definition" Type="nvarchar" MaxLength="1024" />
   </EntityType>
   <!--Errors Found During Generation:
-warning 6002: The table/view 'LDBTEST_04092018.dbo.StagingIndicatorWeb' does not have a primary key defined. The key has been inferred and the definition was created as a read-only table/view.-->
+warning 6002: The table/view 'LDBTEST_08022018.dbo.StagingIndicatorWeb' does not have a primary key defined. The key has been inferred and the definition was created as a read-only table/view.-->
   <EntityType Name="StagingIndicatorWeb">
     <Key>
       <PropertyRef Name="STAGIndicatorID" />
@@ -831,7 +915,7 @@ warning 6002: The table/view 'LDBTEST_04092018.dbo.StagingIndicatorWeb' does not
     <Property Name="Definition" Type="nvarchar" MaxLength="1024" />
   </EntityType>
   <!--Errors Found During Generation:
-warning 6002: The table/view 'LDBTEST_04092018.dbo.StagingIndicatorWebForNewIndicator' does not have a primary key defined. The key has been inferred and the definition was created as a read-only table/view.-->
+warning 6002: The table/view 'LDBTEST_08022018.dbo.StagingIndicatorWebForNewIndicator' does not have a primary key defined. The key has been inferred and the definition was created as a read-only table/view.-->
   <EntityType Name="StagingIndicatorWebForNewIndicator">
     <Key>
       <PropertyRef Name="STAGIndicatorID" />
@@ -857,7 +941,7 @@ warning 6002: The table/view 'LDBTEST_04092018.dbo.StagingIndicatorWebForNewIndi
     <Property Name="Definition" Type="nvarchar" MaxLength="1024" />
   </EntityType>
   <!--Errors Found During Generation:
-warning 6002: The table/view 'LDBTEST_04092018.dbo.StagingLoadInfo' does not have a primary key defined. The key has been inferred and the definition was created as a read-only table/view.-->
+warning 6002: The table/view 'LDBTEST_08022018.dbo.StagingLoadInfo' does not have a primary key defined. The key has been inferred and the definition was created as a read-only table/view.-->
   <EntityType Name="StagingLoadInfo">
     <Key>
       <PropertyRef Name="StagingLoadInfoID" />
@@ -873,7 +957,7 @@ warning 6002: The table/view 'LDBTEST_04092018.dbo.StagingLoadInfo' does not hav
     <Property Name="ShortCodesID" Type="int" />
   </EntityType>
   <!--Errors Found During Generation:
-warning 6002: The table/view 'LDBTEST_04092018.dbo.StateProvince' does not have a primary key defined. The key has been inferred and the definition was created as a read-only table/view.-->
+warning 6002: The table/view 'LDBTEST_08022018.dbo.StateProvince' does not have a primary key defined. The key has been inferred and the definition was created as a read-only table/view.-->
   <EntityType Name="StateProvince">
     <Key>
       <PropertyRef Name="StateProvinceID" />
@@ -886,7 +970,7 @@ warning 6002: The table/view 'LDBTEST_04092018.dbo.StateProvince' does not have 
     <Property Name="IsProvince" Type="varchar" MaxLength="1" />
   </EntityType>
   <!--Errors Found During Generation:
-warning 6002: The table/view 'LDBTEST_04092018.dbo.SubCategory' does not have a primary key defined. The key has been inferred and the definition was created as a read-only table/view.-->
+warning 6002: The table/view 'LDBTEST_08022018.dbo.SubCategory' does not have a primary key defined. The key has been inferred and the definition was created as a read-only table/view.-->
   <EntityType Name="SubCategory">
     <Key>
       <PropertyRef Name="SubCategoryID" />
@@ -897,7 +981,7 @@ warning 6002: The table/view 'LDBTEST_04092018.dbo.SubCategory' does not have a 
     <Property Name="CategoryID" Type="int" />
   </EntityType>
   <!--Errors Found During Generation:
-warning 6002: The table/view 'LDBTEST_04092018.dbo.SubProducts' does not have a primary key defined. The key has been inferred and the definition was created as a read-only table/view.-->
+warning 6002: The table/view 'LDBTEST_08022018.dbo.SubProducts' does not have a primary key defined. The key has been inferred and the definition was created as a read-only table/view.-->
   <EntityType Name="SubProducts">
     <Key>
       <PropertyRef Name="SubProductID" />
@@ -913,7 +997,7 @@ warning 6002: The table/view 'LDBTEST_04092018.dbo.SubProducts' does not have a 
     </Key>
     <Property Name="ID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
     <Property Name="SourceID" Type="int" />
-    <Property Name="DateMonth" Type="date" />
+    <Property Name="DateMonth" Type="datetime" />
     <Property Name="Sales" Type="decimal" Precision="32" Scale="16" />
     <Property Name="MonthlyValue" Type="decimal" Precision="32" Scale="16" />
     <Property Name="OneByTwelveMMA" Type="decimal" Precision="32" Scale="16" />
@@ -939,7 +1023,7 @@ warning 6002: The table/view 'LDBTEST_04092018.dbo.SubProducts' does not have a 
     </Key>
     <Property Name="ID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
     <Property Name="SourceID" Type="int" />
-    <Property Name="DateMonth" Type="date" />
+    <Property Name="DateMonth" Type="datetime" />
     <Property Name="Sales" Type="decimal" Precision="24" Scale="15" />
     <Property Name="MonthlyValue" Type="decimal" Precision="24" Scale="15" />
     <Property Name="OneByTwelveMMA" Type="decimal" Precision="24" Scale="15" />
@@ -959,7 +1043,7 @@ warning 6002: The table/view 'LDBTEST_04092018.dbo.SubProducts' does not have a 
     <Property Name="FLAG" Type="bit" />
   </EntityType>
   <!--Errors Found During Generation:
-warning 6002: The table/view 'LDBTEST_04092018.dbo.TEMP_IndicatorReporting_Logic' does not have a primary key defined. The key has been inferred and the definition was created as a read-only table/view.-->
+warning 6002: The table/view 'LDBTEST_08022018.dbo.TEMP_IndicatorReporting_Logic' does not have a primary key defined. The key has been inferred and the definition was created as a read-only table/view.-->
   <EntityType Name="TEMP_IndicatorReporting_Logic">
     <Key>
       <PropertyRef Name="ID" />
@@ -967,7 +1051,7 @@ warning 6002: The table/view 'LDBTEST_04092018.dbo.TEMP_IndicatorReporting_Logic
     </Key>
     <Property Name="ID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
     <Property Name="SourceID" Type="int" />
-    <Property Name="DateMonth" Type="date" />
+    <Property Name="DateMonth" Type="datetime" />
     <Property Name="Sales" Type="decimal" Precision="32" Scale="16" />
     <Property Name="MonthlyValue" Type="decimal" Precision="32" Scale="16" />
     <Property Name="OneByTwelveMMA" Type="decimal" Precision="32" Scale="16" />
@@ -987,30 +1071,26 @@ warning 6002: The table/view 'LDBTEST_04092018.dbo.TEMP_IndicatorReporting_Logic
     <Property Name="ShortCode" Type="varchar" MaxLength="64" />
     <Property Name="FLAG" Type="bit" />
   </EntityType>
-  <!--Errors Found During Generation:
-warning 6002: The table/view 'LDBTEST_04092018.dbo.TempTable' does not have a primary key defined. The key has been inferred and the definition was created as a read-only table/view.-->
   <EntityType Name="TempTable">
     <Key>
       <PropertyRef Name="TempTableID" />
     </Key>
     <Property Name="TempTableID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
     <Property Name="ShortCode" Type="varchar" MaxLength="128" />
-    <Property Name="MonthYear" Type="date" />
+    <Property Name="MonthYear" Type="datetime" />
     <Property Name="3BY12" Type="decimal" Precision="32" Scale="16" />
     <Property Name="12BY12" Type="decimal" Precision="32" Scale="16" />
     <Property Name="HighLow" Type="varchar" MaxLength="8" />
     <Property Name="VoilenceLength" Type="int" />
     <Property Name="BusniessPhase" Type="varchar" MaxLength="8" />
   </EntityType>
-  <!--Errors Found During Generation:
-warning 6002: The table/view 'LDBTEST_04092018.dbo.TempTableForRawData' does not have a primary key defined. The key has been inferred and the definition was created as a read-only table/view.-->
   <EntityType Name="TempTableForRawData">
     <Key>
       <PropertyRef Name="TempTableID" />
     </Key>
     <Property Name="TempTableID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
     <Property Name="ShortCode" Type="varchar" MaxLength="128" />
-    <Property Name="MonthYear" Type="date" />
+    <Property Name="MonthYear" Type="datetime" />
     <Property Name="3BY12" Type="decimal" Precision="32" Scale="16" />
     <Property Name="12BY12" Type="decimal" Precision="32" Scale="16" />
     <Property Name="HIghLow" Type="varchar" MaxLength="8" />
@@ -1023,7 +1103,7 @@ warning 6002: The table/view 'LDBTEST_04092018.dbo.TempTableForRawData' does not
     <Property Name="ForeCastMetaDataID" Type="int" />
     <Property Name="ShortCode" Type="varchar" MaxLength="64" />
     <Property Name="ForeCastDate" Type="date" />
-    <Property Name="MonthYear" Type="date" />
+    <Property Name="MonthYear" Type="datetime" />
     <Property Name="LFR12MMA" Type="decimal" Precision="32" Scale="16" />
     <Property Name="Avg12MMA" Type="decimal" Precision="32" Scale="16" />
     <Property Name="UFR12MMA" Type="decimal" Precision="32" Scale="16" />
@@ -1053,7 +1133,7 @@ warning 6002: The table/view 'LDBTEST_04092018.dbo.TempTableForRawData' does not
     <Property Name="DataThruDate" Type="date" />
   </EntityType>
   <!--Errors Found During Generation:
-warning 6002: The table/view 'LDBTEST_04092018.dbo.Users' does not have a primary key defined. The key has been inferred and the definition was created as a read-only table/view.-->
+warning 6002: The table/view 'LDBTEST_08022018.dbo.Users' does not have a primary key defined. The key has been inferred and the definition was created as a read-only table/view.-->
   <EntityType Name="Users">
     <Key>
       <PropertyRef Name="UserId" />
@@ -1121,176 +1201,6 @@ warning 6002: The table/view 'LDBTEST_04092018.dbo.Users' does not have a primar
     <Property Name="HighLow" Type="varchar" MaxLength="8" />
     <Property Name="LastUpdated" Type="datetime" />
   </EntityType>
-  <!--Errors Found During Generation:
-warning 6002: The table/view 'LDBTEST_04092018.dbo.vwCompanyAVG' does not have a primary key defined. The key has been inferred and the definition was created as a read-only table/view.-->
-  <EntityType Name="vwCompanyAVG">
-    <Key>
-      <PropertyRef Name="Range" />
-    </Key>
-    <Property Name="MonthYear" Type="datetime" />
-    <Property Name="Sales" Type="decimal" Precision="24" Scale="15" />
-    <Property Name="1By12" Type="decimal" Precision="24" Scale="15" />
-    <Property Name="3MMT" Type="decimal" Precision="27" Scale="15" />
-    <Property Name="3BY12" Type="decimal" Precision="27" Scale="15" />
-    <Property Name="3MMA" Type="decimal" Precision="24" Scale="15" />
-    <Property Name="12MMT" Type="decimal" Precision="27" Scale="15" />
-    <Property Name="12BY12" Type="decimal" Precision="27" Scale="15" />
-    <Property Name="12MMA" Type="decimal" Precision="24" Scale="15" />
-    <Property Name="SHORTCODE" Type="varchar" MaxLength="64" />
-    <Property Name="CompanyName" Type="varchar" MaxLength="500" />
-    <Property Name="Monthly" Type="decimal" Precision="24" Scale="15" />
-    <Property Name="Forecast" Type="bit" />
-    <Property Name="Range" Type="varchar" MaxLength="3" Nullable="false" />
-  </EntityType>
-  <!--Errors Found During Generation:
-warning 6002: The table/view 'LDBTEST_04092018.dbo.vwCompanyForecast' does not have a primary key defined. The key has been inferred and the definition was created as a read-only table/view.-->
-  <EntityType Name="vwCompanyForecast">
-    <Key>
-      <PropertyRef Name="Range" />
-    </Key>
-    <Property Name="MetaDataID" Type="int" />
-    <Property Name="MonthYear" Type="datetime" />
-    <Property Name="Sales" Type="decimal" Precision="32" Scale="16" />
-    <Property Name="1By12" Type="decimal" Precision="32" Scale="16" />
-    <Property Name="3MMT" Type="decimal" Precision="32" Scale="16" />
-    <Property Name="3BY12" Type="decimal" Precision="32" Scale="16" />
-    <Property Name="3MMA" Type="decimal" Precision="32" Scale="16" />
-    <Property Name="12MMT" Type="decimal" Precision="32" Scale="16" />
-    <Property Name="12BY12" Type="decimal" Precision="32" Scale="16" />
-    <Property Name="12MMA" Type="decimal" Precision="32" Scale="16" />
-    <Property Name="SHORTCODE" Type="varchar" MaxLength="64" />
-    <Property Name="CompanyName" Type="varchar" MaxLength="500" />
-    <Property Name="Monthly" Type="decimal" Precision="32" Scale="16" />
-    <Property Name="Forecast" Type="bit" />
-    <Property Name="Range" Type="varchar" MaxLength="3" Nullable="false" />
-  </EntityType>
-  <!--Errors Found During Generation:
-warning 6002: The table/view 'LDBTEST_04092018.dbo.vwCustomer' does not have a primary key defined. The key has been inferred and the definition was created as a read-only table/view.-->
-  <EntityType Name="vwCustomer">
-    <Key>
-      <PropertyRef Name="DatasetID" />
-    </Key>
-    <Property Name="DatasetID" Type="int" Nullable="false" />
-    <Property Name="DatasetShortcode" Type="varchar" MaxLength="500" />
-    <Property Name="AccountID" Type="int" />
-    <Property Name="AccountName" Type="varchar" MaxLength="512" />
-    <Property Name="DivisionId" Type="int" />
-    <Property Name="DivisionName" Type="varchar" MaxLength="512" />
-  </EntityType>
-  <!--Errors Found During Generation:
-warning 6002: The table/view 'LDBTEST_04092018.dbo.vwDataSet' does not have a primary key defined. The key has been inferred and the definition was created as a read-only table/view.-->
-  <EntityType Name="vwDataSet">
-    <Key>
-      <PropertyRef Name="DatasetID" />
-    </Key>
-    <Property Name="DatasetID" Type="int" Nullable="false" />
-    <Property Name="DatasetShortcode" Type="varchar" MaxLength="128" />
-    <Property Name="AccountID" Type="int" />
-    <Property Name="AccountName" Type="varchar" MaxLength="255" />
-    <Property Name="DivisionId" Type="int" />
-    <Property Name="DivisionName" Type="varchar" MaxLength="255" />
-  </EntityType>
-  <!--Errors Found During Generation:
-warning 6002: The table/view 'LDBTEST_04092018.dbo.vwIndicatorAVG' does not have a primary key defined. The key has been inferred and the definition was created as a read-only table/view.-->
-  <EntityType Name="vwIndicatorAVG">
-    <Key>
-      <PropertyRef Name="Range" />
-    </Key>
-    <Property Name="MonthYear" Type="datetime" />
-    <Property Name="Sales" Type="decimal" Precision="32" Scale="16" />
-    <Property Name="1By12" Type="decimal" Precision="32" Scale="16" />
-    <Property Name="3MMT" Type="decimal" Precision="32" Scale="16" />
-    <Property Name="3BY12" Type="decimal" Precision="32" Scale="16" />
-    <Property Name="3MMA" Type="decimal" Precision="32" Scale="16" />
-    <Property Name="12MMT" Type="decimal" Precision="32" Scale="16" />
-    <Property Name="12BY12" Type="decimal" Precision="32" Scale="16" />
-    <Property Name="12MMA" Type="decimal" Precision="32" Scale="16" />
-    <Property Name="SHORTCODE" Type="varchar" MaxLength="64" />
-    <Property Name="IndicatorName" Type="varchar" MaxLength="500" />
-    <Property Name="Monthly" Type="decimal" Precision="32" Scale="16" />
-    <Property Name="Forecast" Type="bit" />
-    <Property Name="Range" Type="varchar" MaxLength="3" Nullable="false" />
-  </EntityType>
-  <!--Errors Found During Generation:
-warning 6002: The table/view 'LDBTEST_04092018.dbo.vwIndicatorForecast' does not have a primary key defined. The key has been inferred and the definition was created as a read-only table/view.-->
-  <EntityType Name="vwIndicatorForecast">
-    <Key>
-      <PropertyRef Name="Range" />
-    </Key>
-    <Property Name="MetaDataID" Type="int" />
-    <Property Name="MonthYear" Type="datetime" />
-    <Property Name="Sales" Type="decimal" Precision="32" Scale="16" />
-    <Property Name="1By12" Type="decimal" Precision="32" Scale="16" />
-    <Property Name="3MMT" Type="decimal" Precision="32" Scale="16" />
-    <Property Name="3BY12" Type="decimal" Precision="32" Scale="16" />
-    <Property Name="3MMA" Type="decimal" Precision="32" Scale="16" />
-    <Property Name="12MMT" Type="decimal" Precision="32" Scale="16" />
-    <Property Name="12BY12" Type="decimal" Precision="32" Scale="16" />
-    <Property Name="12MMA" Type="decimal" Precision="32" Scale="16" />
-    <Property Name="SHORTCODE" Type="varchar" MaxLength="64" />
-    <Property Name="IndicatorName" Type="varchar" MaxLength="500" />
-    <Property Name="Monthly" Type="decimal" Precision="32" Scale="16" />
-    <Property Name="Forecast" Type="bit" />
-    <Property Name="Range" Type="varchar" MaxLength="3" Nullable="false" />
-    <Property Name="Phases" Type="varchar" MaxLength="8" />
-  </EntityType>
-  <!--Errors Found During Generation:
-warning 6002: The table/view 'LDBTEST_04092018.dbo.vwSelectIndicator' does not have a primary key defined. The key has been inferred and the definition was created as a read-only table/view.-->
-  <EntityType Name="vwSelectIndicator">
-    <Key>
-      <PropertyRef Name="ProdIndicatorId" />
-    </Key>
-    <Property Name="ProdIndicatorId" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
-    <Property Name="MonthYear" Type="datetime" />
-    <Property Name="RawValue" Type="decimal" Precision="18" Scale="10" />
-    <Property Name="AdjValue" Type="decimal" Precision="18" Scale="10" />
-    <Property Name="UpdateReason" Type="varchar" MaxLength="100" />
-    <Property Name="ValueStartDate" Type="datetime" />
-    <Property Name="ValueEndDate" Type="datetime" />
-    <Property Name="CurrentFlag" Type="varchar" MaxLength="1" />
-    <Property Name="CreatedBy" Type="varchar" MaxLength="500" />
-    <Property Name="CreatedDate" Type="datetime" />
-    <Property Name="ModifiedBy" Type="varchar" MaxLength="500" />
-    <Property Name="ModifiedDate" Type="datetime" />
-    <Property Name="MasterMetadataID" Type="int" />
-  </EntityType>
-  <!--Errors Found During Generation:
-warning 6002: The table/view 'LDBTEST_04092018.dbo.vwTableau' does not have a primary key defined. The key has been inferred and the definition was created as a read-only table/view.-->
-  <EntityType Name="vwTableau">
-    <Key>
-      <PropertyRef Name="DataType" />
-    </Key>
-    <Property Name="DataType" Type="varchar" MaxLength="9" Nullable="false" />
-    <Property Name="Company_Name" Type="varchar" MaxLength="500" />
-    <Property Name="DB_AccountID" Type="int" />
-    <Property Name="AccountName" Type="varchar" MaxLength="512" />
-    <Property Name="DB_DivisionID" Type="int" />
-    <Property Name="DivisionName" Type="varchar" MaxLength="512" />
-    <Property Name="Indicator" Type="varchar(max)" />
-    <Property Name="Indicator_Name" Type="varchar" MaxLength="500" />
-    <Property Name="lagValue" Type="float" />
-    <Property Name="CorrValue" Type="float" />
-    <Property Name="Date" Type="datetime" />
-    <Property Name="Sales" Type="decimal" Precision="32" Scale="16" />
-    <Property Name="1BY12 Indicator" Type="decimal" Precision="32" Scale="16" />
-    <Property Name="3MMT Indicator" Type="decimal" Precision="32" Scale="16" />
-    <Property Name="3BY12 Indicator" Type="decimal" Precision="32" Scale="16" />
-    <Property Name="3MMA Indicator" Type="decimal" Precision="32" Scale="16" />
-    <Property Name="12MMT Indicator" Type="decimal" Precision="32" Scale="16" />
-    <Property Name="12BY12 Indicator" Type="decimal" Precision="32" Scale="16" />
-    <Property Name="12MMA Indicator" Type="decimal" Precision="32" Scale="16" />
-    <Property Name="Monthly_Indicator" Type="decimal" Precision="32" Scale="16" />
-    <Property Name="1BY12 Company" Type="decimal" Precision="32" Scale="16" />
-    <Property Name="3MMT Company" Type="decimal" Precision="32" Scale="16" />
-    <Property Name="3BY12 Company" Type="decimal" Precision="32" Scale="16" />
-    <Property Name="3MMA Company" Type="decimal" Precision="32" Scale="16" />
-    <Property Name="12MMT Company" Type="decimal" Precision="32" Scale="16" />
-    <Property Name="12BY12 Company" Type="decimal" Precision="32" Scale="16" />
-    <Property Name="12MMA Company" Type="decimal" Precision="32" Scale="16" />
-    <Property Name="Monthly_Company" Type="decimal" Precision="32" Scale="16" />
-    <Property Name="Forecast" Type="int" />
-    <Property Name="Range" Type="varchar" MaxLength="3" />
-  </EntityType>
   <Function Name="Divide" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="true" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo" ReturnType="decimal">
     <Parameter Name="currentVal" Type="decimal" Mode="In" />
     <Parameter Name="prevValue" Type="decimal" Mode="In" />
@@ -1340,6 +1250,27 @@ warning 6002: The table/view 'LDBTEST_04092018.dbo.vwTableau' does not have a pr
   <Function Name="sp_CheckLogin" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
     <Parameter Name="UserName" Type="varchar" Mode="In" />
     <Parameter Name="Password" Type="varchar" Mode="In" />
+  </Function>
+  <Function Name="SP_DataIntegrity_Company_CalcNulls" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo" />
+  <Function Name="SP_DataIntegrity_Company_InIndicator" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo" />
+  <Function Name="SP_DataIntegrity_Company_MissingMonths" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo" />
+  <Function Name="SP_DataIntegrity_Company_Noon" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo" />
+  <Function Name="SP_DataIntegrity_CompPortal_CalcNulls" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo" />
+  <Function Name="SP_DataIntegrity_CompPortal_MissingMonths" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo" />
+  <Function Name="SP_DataIntegrity_CompPortal_Noon" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo" />
+  <Function Name="SP_DataIntegrity_Forecast_MissingPhases" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo" />
+  <Function Name="SP_DataIntegrity_Indicator_BPNulls" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo" />
+  <Function Name="SP_DataIntegrity_Indicator_CalcNulls" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo" />
+  <Function Name="SP_DataIntegrity_Indicator_CurrentAnnually" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo" />
+  <Function Name="SP_DataIntegrity_Indicator_CurrentMonthly" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo" />
+  <Function Name="SP_DataIntegrity_Indicator_CurrentQuarterly" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo" />
+  <Function Name="SP_DataIntegrity_Indicator_MissingMonths" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo" />
+  <Function Name="SP_DataIntegrity_Indicator_Noon" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo" />
+  <Function Name="sp_deleteFromDataCastLists" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="indicator" Type="varchar" Mode="In" />
+  </Function>
+  <Function Name="sp_DeleteIndicatorOrCompanyByShortcode" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="shortcode" Type="varchar" Mode="In" />
   </Function>
   <Function Name="sp_InsertCompanyShortCodes" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
     <Parameter Name="WorkBook" Type="varchar" Mode="In" />
@@ -1462,6 +1393,9 @@ warning 6002: The table/view 'LDBTEST_04092018.dbo.vwTableau' does not have a pr
   <Function Name="SP_InsertUpdateIndicatorForNewIndicator" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo" />
   <Function Name="SP_InsertUpdateIndustry" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo" />
   <Function Name="SP_InsertUpdateIndustry_backup" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo" />
+  <Function Name="SP_ModROCPlusThree" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="ShortCode" Type="varchar" Mode="In" />
+  </Function>
   <Function Name="SP_MoveCompanyLoadData" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo" />
   <Function Name="SP_MoveDailyLoadData" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo" />
   <Function Name="SP_MoveDailyLoadDataForNewCompanies" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo" />
@@ -1535,6 +1469,9 @@ warning 6002: The table/view 'LDBTEST_04092018.dbo.vwTableau' does not have a pr
     <Parameter Name="StartDate" Type="date" Mode="In" />
     <Parameter Name="EndDate" Type="date" Mode="In" />
   </Function>
+  <Function Name="sp_SelectIndicatorOrCompanyforWebapp" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="indicator" Type="nvarchar" Mode="In" />
+  </Function>
   <Function Name="SP_SelectIndicatorsNonUpdateLoadResult" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo" />
   <Function Name="SP_SelectIndicatorsUpdateLoadResult" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo" />
   <Function Name="SP_SelectIndicatorWebShortCodes" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo" />
@@ -1543,6 +1480,12 @@ warning 6002: The table/view 'LDBTEST_04092018.dbo.vwTableau' does not have a pr
     <Parameter Name="ShortCode" Type="varchar" Mode="In" />
     <Parameter Name="StartDate" Type="date" Mode="In" />
     <Parameter Name="EndDate" Type="date" Mode="In" />
+  </Function>
+  <Function Name="sp_SelectLatestForecastSummary" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="shortcode" Type="varchar" Mode="In" />
+  </Function>
+  <Function Name="sp_SelectMetaDataforWebApp" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="indicator" Type="varchar" Mode="In" />
   </Function>
   <Function Name="SP_SelectShortCodes" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo" />
   <Function Name="sp_SelectStagingWebData" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
@@ -1556,6 +1499,10 @@ warning 6002: The table/view 'LDBTEST_04092018.dbo.vwTableau' does not have a pr
   </Function>
   <Function Name="sp_SelectStagingWebDataForNewIndicators" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
     <Parameter Name="MasterMetaDataID" Type="int" Mode="In" />
+  </Function>
+  <Function Name="sp_updateDataCastLists" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="oldIndicator" Type="varchar" Mode="In" />
+    <Parameter Name="newIndicator" Type="varchar" Mode="In" />
   </Function>
   <Function Name="sp_UpdateStagingForecastInfo" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo" />
   <Function Name="SP_UpdateStagingInfo" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
@@ -1578,7 +1525,10 @@ warning 6002: The table/view 'LDBTEST_04092018.dbo.vwTableau' does not have a pr
     </ReturnType>
   </Function>
   <Function Name="TestLocal" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo" />
+  <Function Name="USP_Update_MasterMetaDataInformationFromPackage" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo" />
   <Function Name="uspBusinessPhaseLogicImplementation" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo" />
+  <Function Name="uspBusinessPhaseLogicImplementationForIndicatorWeb" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo" />
+  <Function Name="uspBusinessPhaseLogicImplementationForNewIndicatorsWeb" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo" />
   <Function Name="uspBusinessPhaseLogicImplementationForSingleShortCode" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
     <Parameter Name="shortcodevalue" Type="varchar" Mode="In" />
   </Function>
@@ -1599,6 +1549,8 @@ warning 6002: The table/view 'LDBTEST_04092018.dbo.vwTableau' does not have a pr
   <Function Name="uspDeleteIndicatorDataSet" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
     <Parameter Name="MasterMetaDataID" Type="int" Mode="In" />
   </Function>
+  <Function Name="uspForecastBusinessPhaseImplementation" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo" />
+  <Function Name="uspForecastBusinessPhaseImplementation_Testing" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo" />
   <Function Name="uspInsertDashboardWidgetsList" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
     <Parameter Name="CompanyShortCode" Type="varchar" Mode="In" />
     <Parameter Name="IndicatorShortCodes" Type="varchar(max)" Mode="In" />
@@ -1633,16 +1585,33 @@ warning 6002: The table/view 'LDBTEST_04092018.dbo.vwTableau' does not have a pr
   <Function Name="uspMonthlyYearlyQuarterlyCalculationForAll" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo" />
   <Function Name="uspMonthlyYearlyQuarterlyCalculationUpdate" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo" />
   <Function Name="uspSelectAccounts" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo" />
-  <Function Name="uspSelectAllDBWidgetsListByCompanyID" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
-    <Parameter Name="CompanyShortCode" Type="varchar" Mode="In" />
-    <Parameter Name="UserID" Type="int" Mode="In" />
-  </Function>
   <Function Name="uspSelectAllFavouriteListByUserID" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
     <Parameter Name="CompanyShortCode" Type="varchar" Mode="In" />
     <Parameter Name="UserID" Type="int" Mode="In" />
     <Parameter Name="FavListName" Type="varchar" Mode="In" />
   </Function>
   <Function Name="uspSelectCompanyAndIndicatorDateByShordCodes" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="CompanyShortCode" Type="varchar(max)" Mode="In" />
+    <Parameter Name="IndicatorShortCode" Type="varchar(max)" Mode="In" />
+    <Parameter Name="InverseOrder" Type="bit" Mode="In" />
+    <Parameter Name="MoveMonths" Type="int" Mode="In" />
+    <Parameter Name="CustomerCompanyID" Type="int" Mode="In" />
+  </Function>
+  <Function Name="uspSelectCompanyAndIndicatorDateByShordCodes_02092018" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="CompanyShortCode" Type="varchar(max)" Mode="In" />
+    <Parameter Name="IndicatorShortCode" Type="varchar(max)" Mode="In" />
+    <Parameter Name="InverseOrder" Type="bit" Mode="In" />
+    <Parameter Name="MoveMonths" Type="int" Mode="In" />
+    <Parameter Name="CustomerCompanyID" Type="int" Mode="In" />
+  </Function>
+  <Function Name="uspSelectCompanyAndIndicatorDateByShordCodes_02132018" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="CompanyShortCode" Type="varchar(max)" Mode="In" />
+    <Parameter Name="IndicatorShortCode" Type="varchar(max)" Mode="In" />
+    <Parameter Name="InverseOrder" Type="bit" Mode="In" />
+    <Parameter Name="MoveMonths" Type="int" Mode="In" />
+    <Parameter Name="CustomerCompanyID" Type="int" Mode="In" />
+  </Function>
+  <Function Name="uspSelectCompanyAndIndicatorDateByShordCodes_0619" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
     <Parameter Name="CompanyShortCode" Type="varchar(max)" Mode="In" />
     <Parameter Name="IndicatorShortCode" Type="varchar(max)" Mode="In" />
     <Parameter Name="InverseOrder" Type="bit" Mode="In" />
@@ -1846,6 +1815,12 @@ warning 6002: The table/view 'LDBTEST_04092018.dbo.vwTableau' does not have a pr
     <Parameter Name="CompanyShortCode" Type="varchar(max)" Mode="In" />
     <Parameter Name="CompanyID" Type="int" Mode="In" />
   </Function>
+  <Function Name="uspSelectPhaseValuesOfDBWidgetsByCompanyIdNew_BKP" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="CompanyShortCode" Type="varchar(max)" Mode="In" />
+  </Function>
+  <Function Name="uspSelectPhaseValuesOfDBWidgetsByCompanyIdNew1" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="CompanyShortCode" Type="varchar(max)" Mode="In" />
+  </Function>
   <Function Name="uspSelectTimingValuesOfDBWidgetsByCompanyId" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
     <Parameter Name="CompanyShortCode" Type="varchar(max)" Mode="In" />
   </Function>
@@ -1873,6 +1848,7 @@ warning 6002: The table/view 'LDBTEST_04092018.dbo.vwTableau' does not have a pr
   <Function Name="uspUpdateFilePathCompanyWeb" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo" />
   <Function Name="uspUpdateFilePathIndicatorList" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo" />
   <Function Name="uspUpdateFilePathIndicatorWeb" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo" />
+  <Function Name="uspUpdateFilePathIndicatorWebSourceLinkDefinition" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo" />
   <Function Name="uspUpdateMasterMetaData" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
     <Parameter Name="FileName" Type="varchar" Mode="In" />
     <Parameter Name="WorkBook" Type="varchar" Mode="In" />
@@ -1922,25 +1898,38 @@ warning 6002: The table/view 'LDBTEST_04092018.dbo.vwTableau' does not have a pr
   </Function>
   <Function Name="uspUpdateMetaDataFRomIndicatorList" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo" />
   <Function Name="uspUpdateUIForecastListPath" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo" />
-  <EntityContainer Name="LDBTESTModelStoreContainer">
+  <EntityContainer Name="DatacastModelStoreContainer">
     <EntitySet Name="Company" EntityType="Self.Company" Schema="dbo" store:Type="Tables" />
     <EntitySet Name="CompanyWeb" EntityType="Self.CompanyWeb" Schema="dbo" store:Type="Tables" />
     <EntitySet Name="CompanyWebForNew" EntityType="Self.CompanyWebForNew" Schema="dbo" store:Type="Tables" />
     <EntitySet Name="CustomerDataSets" EntityType="Self.CustomerDataSets" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="DashboardWidgetsList" EntityType="Self.DashboardWidgetsList" Schema="dbo" store:Type="Tables" />
     <EntitySet Name="ForeCastData" EntityType="Self.ForeCastData" Schema="dbo" store:Type="Tables" />
     <EntitySet Name="ForeCastMetaData" EntityType="Self.ForeCastMetaData" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="ForecastSummary" EntityType="Self.ForecastSummary" Schema="dbo" store:Type="Tables" />
     <EntitySet Name="Indicator" EntityType="Self.Indicator" Schema="dbo" store:Type="Tables" />
     <EntitySet Name="IndicatorWeb" EntityType="Self.IndicatorWeb" Schema="dbo" store:Type="Tables" />
     <EntitySet Name="IndicatorWebForNew" EntityType="Self.IndicatorWebForNew" Schema="dbo" store:Type="Tables" />
     <EntitySet Name="MasterMetaData" EntityType="Self.MasterMetaData" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="Perf_Trace_0331" EntityType="Self.Perf_Trace_0331" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="PhasesStatus" EntityType="Self.PhasesStatus" Schema="dbo" store:Type="Tables" />
     <EntitySet Name="ShortCodes" EntityType="Self.ShortCodes" Schema="dbo" store:Type="Tables" />
     <EntitySet Name="TEMP_CompanyReporting_Logic" EntityType="Self.TEMP_CompanyReporting_Logic" Schema="dbo" store:Type="Tables" />
     <EntitySet Name="TEMP_CompanyReporting_Logic_Portal" EntityType="Self.TEMP_CompanyReporting_Logic_Portal" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="TempTable" EntityType="Self.TempTable" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="TempTableForRawData" EntityType="Self.TempTableForRawData" Schema="dbo" store:Type="Tables" />
     <EntitySet Name="UI_ForeCastData" EntityType="Self.UI_ForeCastData" Schema="dbo" store:Type="Tables" />
     <EntitySet Name="UI_ForeCastMetaData" EntityType="Self.UI_ForeCastMetaData" Schema="dbo" store:Type="Tables" />
     <EntitySet Name="VWTBL_COMPANY" EntityType="Self.VWTBL_COMPANY" Schema="dbo" store:Type="Tables" />
     <EntitySet Name="VWTBL_COMPANY_PORTAL" EntityType="Self.VWTBL_COMPANY_PORTAL" Schema="dbo" store:Type="Tables" />
     <EntitySet Name="VWTBL_INDICATOR" EntityType="Self.VWTBL_INDICATOR" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="Alliance" EntityType="Self.Alliance" store:Type="Tables" store:Schema="dbo">
+      <DefiningQuery>SELECT 
+[Alliance].[ShortCode] AS [ShortCode], 
+[Alliance].[QuickBaseID] AS [QuickBaseID], 
+[Alliance].[QBDivID] AS [QBDivID]
+FROM [dbo].[Alliance] AS [Alliance]</DefiningQuery>
+    </EntitySet>
     <EntitySet Name="Categories" EntityType="Self.Categories" store:Type="Tables" store:Schema="dbo">
       <DefiningQuery>SELECT 
 [Categories].[CategoryID] AS [CategoryID], 
@@ -2122,6 +2111,14 @@ FROM [dbo].[ExceptionLog] AS [ExceptionLog]</DefiningQuery>
 [FavouriteList].[ModifiedBy] AS [ModifiedBy], 
 [FavouriteList].[ModifiedDate] AS [ModifiedDate]
 FROM [dbo].[FavouriteList] AS [FavouriteList]</DefiningQuery>
+    </EntitySet>
+    <EntitySet Name="FlowTest" EntityType="Self.FlowTest" store:Type="Tables" store:Schema="dbo">
+      <DefiningQuery>SELECT 
+[FlowTest].[FlowTestID] AS [FlowTestID], 
+[FlowTest].[CreatedDate] AS [CreatedDate], 
+[FlowTest].[UserName] AS [UserName], 
+[FlowTest].[FlowDesc] AS [FlowDesc]
+FROM [dbo].[FlowTest] AS [FlowTest]</DefiningQuery>
     </EntitySet>
     <EntitySet Name="ForeCastCheckData" EntityType="Self.ForeCastCheckData" store:Type="Tables" store:Schema="dbo">
       <DefiningQuery>SELECT 
@@ -2512,28 +2509,6 @@ FROM [dbo].[SubProducts] AS [SubProducts]</DefiningQuery>
 [TEMP_IndicatorReporting_Logic].[FLAG] AS [FLAG]
 FROM [dbo].[TEMP_IndicatorReporting_Logic] AS [TEMP_IndicatorReporting_Logic]</DefiningQuery>
     </EntitySet>
-    <EntitySet Name="TempTable" EntityType="Self.TempTable" store:Type="Tables" store:Schema="dbo">
-      <DefiningQuery>SELECT 
-[TempTable].[TempTableID] AS [TempTableID], 
-[TempTable].[ShortCode] AS [ShortCode], 
-[TempTable].[MonthYear] AS [MonthYear], 
-[TempTable].[3BY12] AS [3BY12], 
-[TempTable].[12BY12] AS [12BY12], 
-[TempTable].[HighLow] AS [HighLow], 
-[TempTable].[VoilenceLength] AS [VoilenceLength], 
-[TempTable].[BusniessPhase] AS [BusniessPhase]
-FROM [dbo].[TempTable] AS [TempTable]</DefiningQuery>
-    </EntitySet>
-    <EntitySet Name="TempTableForRawData" EntityType="Self.TempTableForRawData" store:Type="Tables" store:Schema="dbo">
-      <DefiningQuery>SELECT 
-[TempTableForRawData].[TempTableID] AS [TempTableID], 
-[TempTableForRawData].[ShortCode] AS [ShortCode], 
-[TempTableForRawData].[MonthYear] AS [MonthYear], 
-[TempTableForRawData].[3BY12] AS [3BY12], 
-[TempTableForRawData].[12BY12] AS [12BY12], 
-[TempTableForRawData].[HIghLow] AS [HIghLow]
-FROM [dbo].[TempTableForRawData] AS [TempTableForRawData]</DefiningQuery>
-    </EntitySet>
     <EntitySet Name="Users" EntityType="Self.Users" store:Type="Tables" store:Schema="dbo">
       <DefiningQuery>SELECT 
 [Users].[UserId] AS [UserId], 
@@ -2542,152 +2517,6 @@ FROM [dbo].[TempTableForRawData] AS [TempTableForRawData]</DefiningQuery>
 [Users].[CreatedBy] AS [CreatedBy], 
 [Users].[CreatedDate] AS [CreatedDate]
 FROM [dbo].[Users] AS [Users]</DefiningQuery>
-    </EntitySet>
-    <EntitySet Name="vwCompanyAVG" EntityType="Self.vwCompanyAVG" store:Type="Views" store:Schema="dbo">
-      <DefiningQuery>SELECT 
-[vwCompanyAVG].[MonthYear] AS [MonthYear], 
-[vwCompanyAVG].[Sales] AS [Sales], 
-[vwCompanyAVG].[1By12] AS [1By12], 
-[vwCompanyAVG].[3MMT] AS [3MMT], 
-[vwCompanyAVG].[3BY12] AS [3BY12], 
-[vwCompanyAVG].[3MMA] AS [3MMA], 
-[vwCompanyAVG].[12MMT] AS [12MMT], 
-[vwCompanyAVG].[12BY12] AS [12BY12], 
-[vwCompanyAVG].[12MMA] AS [12MMA], 
-[vwCompanyAVG].[SHORTCODE] AS [SHORTCODE], 
-[vwCompanyAVG].[CompanyName] AS [CompanyName], 
-[vwCompanyAVG].[Monthly] AS [Monthly], 
-[vwCompanyAVG].[Forecast] AS [Forecast], 
-[vwCompanyAVG].[Range] AS [Range]
-FROM [dbo].[vwCompanyAVG] AS [vwCompanyAVG]</DefiningQuery>
-    </EntitySet>
-    <EntitySet Name="vwCompanyForecast" EntityType="Self.vwCompanyForecast" store:Type="Views" store:Schema="dbo">
-      <DefiningQuery>SELECT 
-[vwCompanyForecast].[MetaDataID] AS [MetaDataID], 
-[vwCompanyForecast].[MonthYear] AS [MonthYear], 
-[vwCompanyForecast].[Sales] AS [Sales], 
-[vwCompanyForecast].[1By12] AS [1By12], 
-[vwCompanyForecast].[3MMT] AS [3MMT], 
-[vwCompanyForecast].[3BY12] AS [3BY12], 
-[vwCompanyForecast].[3MMA] AS [3MMA], 
-[vwCompanyForecast].[12MMT] AS [12MMT], 
-[vwCompanyForecast].[12BY12] AS [12BY12], 
-[vwCompanyForecast].[12MMA] AS [12MMA], 
-[vwCompanyForecast].[SHORTCODE] AS [SHORTCODE], 
-[vwCompanyForecast].[CompanyName] AS [CompanyName], 
-[vwCompanyForecast].[Monthly] AS [Monthly], 
-[vwCompanyForecast].[Forecast] AS [Forecast], 
-[vwCompanyForecast].[Range] AS [Range]
-FROM [dbo].[vwCompanyForecast] AS [vwCompanyForecast]</DefiningQuery>
-    </EntitySet>
-    <EntitySet Name="vwCustomer" EntityType="Self.vwCustomer" store:Type="Views" store:Schema="dbo">
-      <DefiningQuery>SELECT 
-[vwCustomer].[DatasetID] AS [DatasetID], 
-[vwCustomer].[DatasetShortcode] AS [DatasetShortcode], 
-[vwCustomer].[AccountID] AS [AccountID], 
-[vwCustomer].[AccountName] AS [AccountName], 
-[vwCustomer].[DivisionId] AS [DivisionId], 
-[vwCustomer].[DivisionName] AS [DivisionName]
-FROM [dbo].[vwCustomer] AS [vwCustomer]</DefiningQuery>
-    </EntitySet>
-    <EntitySet Name="vwDataSet" EntityType="Self.vwDataSet" store:Type="Views" store:Schema="dbo">
-      <DefiningQuery>SELECT 
-[vwDataSet].[DatasetID] AS [DatasetID], 
-[vwDataSet].[DatasetShortcode] AS [DatasetShortcode], 
-[vwDataSet].[AccountID] AS [AccountID], 
-[vwDataSet].[AccountName] AS [AccountName], 
-[vwDataSet].[DivisionId] AS [DivisionId], 
-[vwDataSet].[DivisionName] AS [DivisionName]
-FROM [dbo].[vwDataSet] AS [vwDataSet]</DefiningQuery>
-    </EntitySet>
-    <EntitySet Name="vwIndicatorAVG" EntityType="Self.vwIndicatorAVG" store:Type="Views" store:Schema="dbo">
-      <DefiningQuery>SELECT 
-[vwIndicatorAVG].[MonthYear] AS [MonthYear], 
-[vwIndicatorAVG].[Sales] AS [Sales], 
-[vwIndicatorAVG].[1By12] AS [1By12], 
-[vwIndicatorAVG].[3MMT] AS [3MMT], 
-[vwIndicatorAVG].[3BY12] AS [3BY12], 
-[vwIndicatorAVG].[3MMA] AS [3MMA], 
-[vwIndicatorAVG].[12MMT] AS [12MMT], 
-[vwIndicatorAVG].[12BY12] AS [12BY12], 
-[vwIndicatorAVG].[12MMA] AS [12MMA], 
-[vwIndicatorAVG].[SHORTCODE] AS [SHORTCODE], 
-[vwIndicatorAVG].[IndicatorName] AS [IndicatorName], 
-[vwIndicatorAVG].[Monthly] AS [Monthly], 
-[vwIndicatorAVG].[Forecast] AS [Forecast], 
-[vwIndicatorAVG].[Range] AS [Range]
-FROM [dbo].[vwIndicatorAVG] AS [vwIndicatorAVG]</DefiningQuery>
-    </EntitySet>
-    <EntitySet Name="vwIndicatorForecast" EntityType="Self.vwIndicatorForecast" store:Type="Views" store:Schema="dbo">
-      <DefiningQuery>SELECT 
-[vwIndicatorForecast].[MetaDataID] AS [MetaDataID], 
-[vwIndicatorForecast].[MonthYear] AS [MonthYear], 
-[vwIndicatorForecast].[Sales] AS [Sales], 
-[vwIndicatorForecast].[1By12] AS [1By12], 
-[vwIndicatorForecast].[3MMT] AS [3MMT], 
-[vwIndicatorForecast].[3BY12] AS [3BY12], 
-[vwIndicatorForecast].[3MMA] AS [3MMA], 
-[vwIndicatorForecast].[12MMT] AS [12MMT], 
-[vwIndicatorForecast].[12BY12] AS [12BY12], 
-[vwIndicatorForecast].[12MMA] AS [12MMA], 
-[vwIndicatorForecast].[SHORTCODE] AS [SHORTCODE], 
-[vwIndicatorForecast].[IndicatorName] AS [IndicatorName], 
-[vwIndicatorForecast].[Monthly] AS [Monthly], 
-[vwIndicatorForecast].[Forecast] AS [Forecast], 
-[vwIndicatorForecast].[Range] AS [Range], 
-[vwIndicatorForecast].[Phases] AS [Phases]
-FROM [dbo].[vwIndicatorForecast] AS [vwIndicatorForecast]</DefiningQuery>
-    </EntitySet>
-    <EntitySet Name="vwSelectIndicator" EntityType="Self.vwSelectIndicator" store:Type="Views" store:Schema="dbo">
-      <DefiningQuery>SELECT 
-[vwSelectIndicator].[ProdIndicatorId] AS [ProdIndicatorId], 
-[vwSelectIndicator].[MonthYear] AS [MonthYear], 
-[vwSelectIndicator].[RawValue] AS [RawValue], 
-[vwSelectIndicator].[AdjValue] AS [AdjValue], 
-[vwSelectIndicator].[UpdateReason] AS [UpdateReason], 
-[vwSelectIndicator].[ValueStartDate] AS [ValueStartDate], 
-[vwSelectIndicator].[ValueEndDate] AS [ValueEndDate], 
-[vwSelectIndicator].[CurrentFlag] AS [CurrentFlag], 
-[vwSelectIndicator].[CreatedBy] AS [CreatedBy], 
-[vwSelectIndicator].[CreatedDate] AS [CreatedDate], 
-[vwSelectIndicator].[ModifiedBy] AS [ModifiedBy], 
-[vwSelectIndicator].[ModifiedDate] AS [ModifiedDate], 
-[vwSelectIndicator].[MasterMetadataID] AS [MasterMetadataID]
-FROM [dbo].[vwSelectIndicator] AS [vwSelectIndicator]</DefiningQuery>
-    </EntitySet>
-    <EntitySet Name="vwTableau" EntityType="Self.vwTableau" store:Type="Views" store:Schema="dbo">
-      <DefiningQuery>SELECT 
-[vwTableau].[DataType] AS [DataType], 
-[vwTableau].[Company_Name] AS [Company_Name], 
-[vwTableau].[DB_AccountID] AS [DB_AccountID], 
-[vwTableau].[AccountName] AS [AccountName], 
-[vwTableau].[DB_DivisionID] AS [DB_DivisionID], 
-[vwTableau].[DivisionName] AS [DivisionName], 
-[vwTableau].[Indicator] AS [Indicator], 
-[vwTableau].[Indicator_Name] AS [Indicator_Name], 
-[vwTableau].[lagValue] AS [lagValue], 
-[vwTableau].[CorrValue] AS [CorrValue], 
-[vwTableau].[Date] AS [Date], 
-[vwTableau].[Sales] AS [Sales], 
-[vwTableau].[1BY12 Indicator] AS [1BY12 Indicator], 
-[vwTableau].[3MMT Indicator] AS [3MMT Indicator], 
-[vwTableau].[3BY12 Indicator] AS [3BY12 Indicator], 
-[vwTableau].[3MMA Indicator] AS [3MMA Indicator], 
-[vwTableau].[12MMT Indicator] AS [12MMT Indicator], 
-[vwTableau].[12BY12 Indicator] AS [12BY12 Indicator], 
-[vwTableau].[12MMA Indicator] AS [12MMA Indicator], 
-[vwTableau].[Monthly_Indicator] AS [Monthly_Indicator], 
-[vwTableau].[1BY12 Company] AS [1BY12 Company], 
-[vwTableau].[3MMT Company] AS [3MMT Company], 
-[vwTableau].[3BY12 Company] AS [3BY12 Company], 
-[vwTableau].[3MMA Company] AS [3MMA Company], 
-[vwTableau].[12MMT Company] AS [12MMT Company], 
-[vwTableau].[12BY12 Company] AS [12BY12 Company], 
-[vwTableau].[12MMA Company] AS [12MMA Company], 
-[vwTableau].[Monthly_Company] AS [Monthly_Company], 
-[vwTableau].[Forecast] AS [Forecast], 
-[vwTableau].[Range] AS [Range]
-FROM [dbo].[vwTableau] AS [vwTableau]</DefiningQuery>
     </EntitySet>
   </EntityContainer>
 </Schema>

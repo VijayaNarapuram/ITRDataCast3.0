@@ -32,22 +32,27 @@ namespace ITR.Models
         public DbSet<CompanyWeb> CompanyWebs { get; set; }
         public DbSet<CompanyWebForNew> CompanyWebForNews { get; set; }
         public DbSet<CustomerDataSet> CustomerDataSets { get; set; }
-        public DbSet<DateRanx> DateRanges { get; set; }
+        public DbSet<DashboardWidgetsList> DashboardWidgetsLists { get; set; }
         public DbSet<ForeCastData> ForeCastDatas { get; set; }
         public DbSet<ForeCastMetaData> ForeCastMetaDatas { get; set; }
+        public DbSet<ForecastSummary> ForecastSummaries { get; set; }
         public DbSet<Indicator> Indicators { get; set; }
         public DbSet<IndicatorWeb> IndicatorWebs { get; set; }
         public DbSet<IndicatorWebForNew> IndicatorWebForNews { get; set; }
         public DbSet<MasterMetaData> MasterMetaDatas { get; set; }
-        public DbSet<Month> Months { get; set; }
+        public DbSet<Perf_Trace_0331> Perf_Trace_0331 { get; set; }
+        public DbSet<PhasesStatu> PhasesStatus { get; set; }
         public DbSet<ShortCode> ShortCodes { get; set; }
         public DbSet<TEMP_CompanyReporting_Logic> TEMP_CompanyReporting_Logic { get; set; }
         public DbSet<TEMP_CompanyReporting_Logic_Portal> TEMP_CompanyReporting_Logic_Portal { get; set; }
+        public DbSet<TempTable> TempTables { get; set; }
+        public DbSet<TempTableForRawData> TempTableForRawDatas { get; set; }
         public DbSet<UI_ForeCastData> UI_ForeCastData { get; set; }
         public DbSet<UI_ForeCastMetaData> UI_ForeCastMetaData { get; set; }
         public DbSet<VWTBL_COMPANY> VWTBL_COMPANY { get; set; }
         public DbSet<VWTBL_COMPANY_PORTAL> VWTBL_COMPANY_PORTAL { get; set; }
         public DbSet<VWTBL_INDICATOR> VWTBL_INDICATOR { get; set; }
+        public DbSet<Alliance> Alliances { get; set; }
         public DbSet<Category> Categories { get; set; }
         public DbSet<CategoryDropDown> CategoryDropDowns { get; set; }
         public DbSet<CompaniesList> CompaniesLists { get; set; }
@@ -60,13 +65,16 @@ namespace ITR.Models
         public DbSet<Customer> Customers { get; set; }
         public DbSet<CustomerDatasetsProcess> CustomerDatasetsProcesses { get; set; }
         public DbSet<CustomerDatasetsProcess_Schedule> CustomerDatasetsProcess_Schedule { get; set; }
+        public DbSet<DateRanx> DateRanges { get; set; }
         public DbSet<Dumped> Dumpeds { get; set; }
         public DbSet<ExceptionLog> ExceptionLogs { get; set; }
         public DbSet<FavouriteList> FavouriteLists { get; set; }
+        public DbSet<FlowTest> FlowTests { get; set; }
         public DbSet<ForeCastCheckData> ForeCastCheckDatas { get; set; }
         public DbSet<IndicatorList> IndicatorLists { get; set; }
         public DbSet<Industry> Industries { get; set; }
         public DbSet<MasterMetaData_Backup> MasterMetaData_Backup { get; set; }
+        public DbSet<Month> Months { get; set; }
         public DbSet<Notify> Notifies { get; set; }
         public DbSet<NotifyDev> NotifyDevs { get; set; }
         public DbSet<PaidForecast> PaidForecasts { get; set; }
@@ -87,17 +95,7 @@ namespace ITR.Models
         public DbSet<SubCategory> SubCategories { get; set; }
         public DbSet<SubProduct> SubProducts { get; set; }
         public DbSet<TEMP_IndicatorReporting_Logic> TEMP_IndicatorReporting_Logic { get; set; }
-        public DbSet<TempTable> TempTables { get; set; }
-        public DbSet<TempTableForRawData> TempTableForRawDatas { get; set; }
         public DbSet<User> Users { get; set; }
-        public DbSet<vwCompanyAVG> vwCompanyAVGs { get; set; }
-        public DbSet<vwCompanyForecast> vwCompanyForecasts { get; set; }
-        public DbSet<vwCustomer> vwCustomers { get; set; }
-        public DbSet<vwDataSet> vwDataSets { get; set; }
-        public DbSet<vwIndicatorAVG> vwIndicatorAVGs { get; set; }
-        public DbSet<vwIndicatorForecast> vwIndicatorForecasts { get; set; }
-        public DbSet<vwSelectIndicator> vwSelectIndicators { get; set; }
-        public DbSet<vwTableau> vwTableaux { get; set; }
     
         [EdmFunction("DatacastEntities", "f_split")]
         public virtual IQueryable<f_split_Result> f_split(string param, string delimiter)
@@ -252,6 +250,99 @@ namespace ITR.Models
                 new ObjectParameter("Password", typeof(string));
     
             return ((IObjectContextAdapter)this).ObjectContext.ExecuteFunction<sp_CheckLogin_Result>("sp_CheckLogin", userNameParameter, passwordParameter);
+        }
+    
+        public virtual ObjectResult<string> SP_DataIntegrity_Company_CalcNulls()
+        {
+            return ((IObjectContextAdapter)this).ObjectContext.ExecuteFunction<string>("SP_DataIntegrity_Company_CalcNulls");
+        }
+    
+        public virtual ObjectResult<string> SP_DataIntegrity_Company_InIndicator()
+        {
+            return ((IObjectContextAdapter)this).ObjectContext.ExecuteFunction<string>("SP_DataIntegrity_Company_InIndicator");
+        }
+    
+        public virtual ObjectResult<string> SP_DataIntegrity_Company_MissingMonths()
+        {
+            return ((IObjectContextAdapter)this).ObjectContext.ExecuteFunction<string>("SP_DataIntegrity_Company_MissingMonths");
+        }
+    
+        public virtual ObjectResult<string> SP_DataIntegrity_Company_Noon()
+        {
+            return ((IObjectContextAdapter)this).ObjectContext.ExecuteFunction<string>("SP_DataIntegrity_Company_Noon");
+        }
+    
+        public virtual ObjectResult<string> SP_DataIntegrity_CompPortal_CalcNulls()
+        {
+            return ((IObjectContextAdapter)this).ObjectContext.ExecuteFunction<string>("SP_DataIntegrity_CompPortal_CalcNulls");
+        }
+    
+        public virtual ObjectResult<string> SP_DataIntegrity_CompPortal_MissingMonths()
+        {
+            return ((IObjectContextAdapter)this).ObjectContext.ExecuteFunction<string>("SP_DataIntegrity_CompPortal_MissingMonths");
+        }
+    
+        public virtual ObjectResult<string> SP_DataIntegrity_CompPortal_Noon()
+        {
+            return ((IObjectContextAdapter)this).ObjectContext.ExecuteFunction<string>("SP_DataIntegrity_CompPortal_Noon");
+        }
+    
+        public virtual ObjectResult<string> SP_DataIntegrity_Forecast_MissingPhases()
+        {
+            return ((IObjectContextAdapter)this).ObjectContext.ExecuteFunction<string>("SP_DataIntegrity_Forecast_MissingPhases");
+        }
+    
+        public virtual ObjectResult<string> SP_DataIntegrity_Indicator_BPNulls()
+        {
+            return ((IObjectContextAdapter)this).ObjectContext.ExecuteFunction<string>("SP_DataIntegrity_Indicator_BPNulls");
+        }
+    
+        public virtual ObjectResult<string> SP_DataIntegrity_Indicator_CalcNulls()
+        {
+            return ((IObjectContextAdapter)this).ObjectContext.ExecuteFunction<string>("SP_DataIntegrity_Indicator_CalcNulls");
+        }
+    
+        public virtual ObjectResult<string> SP_DataIntegrity_Indicator_CurrentAnnually()
+        {
+            return ((IObjectContextAdapter)this).ObjectContext.ExecuteFunction<string>("SP_DataIntegrity_Indicator_CurrentAnnually");
+        }
+    
+        public virtual ObjectResult<string> SP_DataIntegrity_Indicator_CurrentMonthly()
+        {
+            return ((IObjectContextAdapter)this).ObjectContext.ExecuteFunction<string>("SP_DataIntegrity_Indicator_CurrentMonthly");
+        }
+    
+        public virtual ObjectResult<string> SP_DataIntegrity_Indicator_CurrentQuarterly()
+        {
+            return ((IObjectContextAdapter)this).ObjectContext.ExecuteFunction<string>("SP_DataIntegrity_Indicator_CurrentQuarterly");
+        }
+    
+        public virtual ObjectResult<string> SP_DataIntegrity_Indicator_MissingMonths()
+        {
+            return ((IObjectContextAdapter)this).ObjectContext.ExecuteFunction<string>("SP_DataIntegrity_Indicator_MissingMonths");
+        }
+    
+        public virtual ObjectResult<string> SP_DataIntegrity_Indicator_Noon()
+        {
+            return ((IObjectContextAdapter)this).ObjectContext.ExecuteFunction<string>("SP_DataIntegrity_Indicator_Noon");
+        }
+    
+        public virtual ObjectResult<sp_deleteFromDataCastLists_Result> sp_deleteFromDataCastLists(string indicator)
+        {
+            var indicatorParameter = indicator != null ?
+                new ObjectParameter("indicator", indicator) :
+                new ObjectParameter("indicator", typeof(string));
+    
+            return ((IObjectContextAdapter)this).ObjectContext.ExecuteFunction<sp_deleteFromDataCastLists_Result>("sp_deleteFromDataCastLists", indicatorParameter);
+        }
+    
+        public virtual ObjectResult<Nullable<int>> sp_DeleteIndicatorOrCompanyByShortcode(string shortcode)
+        {
+            var shortcodeParameter = shortcode != null ?
+                new ObjectParameter("shortcode", shortcode) :
+                new ObjectParameter("shortcode", typeof(string));
+    
+            return ((IObjectContextAdapter)this).ObjectContext.ExecuteFunction<Nullable<int>>("sp_DeleteIndicatorOrCompanyByShortcode", shortcodeParameter);
         }
     
         public virtual int sp_InsertCompanyShortCodes(string workBook, string shortCode, string shortCodeDesc, ObjectParameter shortCodesId)
@@ -689,6 +780,15 @@ namespace ITR.Models
             return ((IObjectContextAdapter)this).ObjectContext.ExecuteFunction("SP_InsertUpdateIndustry_backup");
         }
     
+        public virtual int SP_ModROCPlusThree(string shortCode)
+        {
+            var shortCodeParameter = shortCode != null ?
+                new ObjectParameter("ShortCode", shortCode) :
+                new ObjectParameter("ShortCode", typeof(string));
+    
+            return ((IObjectContextAdapter)this).ObjectContext.ExecuteFunction("SP_ModROCPlusThree", shortCodeParameter);
+        }
+    
         public virtual int SP_MoveCompanyLoadData()
         {
             return ((IObjectContextAdapter)this).ObjectContext.ExecuteFunction("SP_MoveCompanyLoadData");
@@ -719,9 +819,9 @@ namespace ITR.Models
             return ((IObjectContextAdapter)this).ObjectContext.ExecuteFunction<Nullable<int>>("sp_MoveDataFromCompanyWebForNewCOmpany");
         }
     
-        public virtual ObjectResult<Nullable<int>> sp_MoveDataFromForecastWeb()
+        public virtual int sp_MoveDataFromForecastWeb()
         {
-            return ((IObjectContextAdapter)this).ObjectContext.ExecuteFunction<Nullable<int>>("sp_MoveDataFromForecastWeb");
+            return ((IObjectContextAdapter)this).ObjectContext.ExecuteFunction("sp_MoveDataFromForecastWeb");
         }
     
         public virtual ObjectResult<Nullable<int>> sp_MoveDataFromIndicatorWeb()
@@ -962,6 +1062,15 @@ namespace ITR.Models
             return ((IObjectContextAdapter)this).ObjectContext.ExecuteFunction<SP_SelectIndicatorDataForWeb_Result>("SP_SelectIndicatorDataForWeb", shortCodeParameter, startDateParameter, endDateParameter);
         }
     
+        public virtual ObjectResult<sp_SelectIndicatorOrCompanyforWebapp_Result> sp_SelectIndicatorOrCompanyforWebapp(string indicator)
+        {
+            var indicatorParameter = indicator != null ?
+                new ObjectParameter("indicator", indicator) :
+                new ObjectParameter("indicator", typeof(string));
+    
+            return ((IObjectContextAdapter)this).ObjectContext.ExecuteFunction<sp_SelectIndicatorOrCompanyforWebapp_Result>("sp_SelectIndicatorOrCompanyforWebapp", indicatorParameter);
+        }
+    
         public virtual ObjectResult<SP_SelectIndicatorsNonUpdateLoadResult_Result> SP_SelectIndicatorsNonUpdateLoadResult()
         {
             return ((IObjectContextAdapter)this).ObjectContext.ExecuteFunction<SP_SelectIndicatorsNonUpdateLoadResult_Result>("SP_SelectIndicatorsNonUpdateLoadResult");
@@ -997,6 +1106,24 @@ namespace ITR.Models
                 new ObjectParameter("EndDate", typeof(System.DateTime));
     
             return ((IObjectContextAdapter)this).ObjectContext.ExecuteFunction<SP_SelectIndustryMetaData_Result>("SP_SelectIndustryMetaData", shortCodeParameter, startDateParameter, endDateParameter);
+        }
+    
+        public virtual ObjectResult<sp_SelectLatestForecastSummary_Result> sp_SelectLatestForecastSummary(string shortcode)
+        {
+            var shortcodeParameter = shortcode != null ?
+                new ObjectParameter("shortcode", shortcode) :
+                new ObjectParameter("shortcode", typeof(string));
+    
+            return ((IObjectContextAdapter)this).ObjectContext.ExecuteFunction<sp_SelectLatestForecastSummary_Result>("sp_SelectLatestForecastSummary", shortcodeParameter);
+        }
+    
+        public virtual ObjectResult<sp_SelectMetaDataforWebApp_Result> sp_SelectMetaDataforWebApp(string indicator)
+        {
+            var indicatorParameter = indicator != null ?
+                new ObjectParameter("indicator", indicator) :
+                new ObjectParameter("indicator", typeof(string));
+    
+            return ((IObjectContextAdapter)this).ObjectContext.ExecuteFunction<sp_SelectMetaDataforWebApp_Result>("sp_SelectMetaDataforWebApp", indicatorParameter);
         }
     
         public virtual ObjectResult<SP_SelectShortCodes_Result> SP_SelectShortCodes()
@@ -1040,6 +1167,19 @@ namespace ITR.Models
             return ((IObjectContextAdapter)this).ObjectContext.ExecuteFunction<sp_SelectStagingWebDataForNewIndicators_Result>("sp_SelectStagingWebDataForNewIndicators", masterMetaDataIDParameter);
         }
     
+        public virtual int sp_updateDataCastLists(string oldIndicator, string newIndicator)
+        {
+            var oldIndicatorParameter = oldIndicator != null ?
+                new ObjectParameter("oldIndicator", oldIndicator) :
+                new ObjectParameter("oldIndicator", typeof(string));
+    
+            var newIndicatorParameter = newIndicator != null ?
+                new ObjectParameter("newIndicator", newIndicator) :
+                new ObjectParameter("newIndicator", typeof(string));
+    
+            return ((IObjectContextAdapter)this).ObjectContext.ExecuteFunction("sp_updateDataCastLists", oldIndicatorParameter, newIndicatorParameter);
+        }
+    
         public virtual int sp_UpdateStagingForecastInfo()
         {
             return ((IObjectContextAdapter)this).ObjectContext.ExecuteFunction("sp_UpdateStagingForecastInfo");
@@ -1075,9 +1215,24 @@ namespace ITR.Models
             return ((IObjectContextAdapter)this).ObjectContext.ExecuteFunction("TestLocal");
         }
     
+        public virtual int USP_Update_MasterMetaDataInformationFromPackage()
+        {
+            return ((IObjectContextAdapter)this).ObjectContext.ExecuteFunction("USP_Update_MasterMetaDataInformationFromPackage");
+        }
+    
         public virtual int uspBusinessPhaseLogicImplementation()
         {
             return ((IObjectContextAdapter)this).ObjectContext.ExecuteFunction("uspBusinessPhaseLogicImplementation");
+        }
+    
+        public virtual int uspBusinessPhaseLogicImplementationForIndicatorWeb()
+        {
+            return ((IObjectContextAdapter)this).ObjectContext.ExecuteFunction("uspBusinessPhaseLogicImplementationForIndicatorWeb");
+        }
+    
+        public virtual int uspBusinessPhaseLogicImplementationForNewIndicatorsWeb()
+        {
+            return ((IObjectContextAdapter)this).ObjectContext.ExecuteFunction("uspBusinessPhaseLogicImplementationForNewIndicatorsWeb");
         }
     
         public virtual int uspBusinessPhaseLogicImplementationForSingleShortCode(string shortcodevalue)
@@ -1096,6 +1251,23 @@ namespace ITR.Models
                 new ObjectParameter("MasterMetaDataID", typeof(int));
     
             return ((IObjectContextAdapter)this).ObjectContext.ExecuteFunction<Nullable<int>>("uspDeleteCompanyDataSet", masterMetaDataIDParameter);
+        }
+    
+        public virtual ObjectResult<Nullable<int>> uspDeleteDBWidgetsListByCompanyAndUserID(Nullable<int> dashboardWidgetsListId, string companyShortCode, Nullable<int> userID)
+        {
+            var dashboardWidgetsListIdParameter = dashboardWidgetsListId.HasValue ?
+                new ObjectParameter("DashboardWidgetsListId", dashboardWidgetsListId) :
+                new ObjectParameter("DashboardWidgetsListId", typeof(int));
+    
+            var companyShortCodeParameter = companyShortCode != null ?
+                new ObjectParameter("CompanyShortCode", companyShortCode) :
+                new ObjectParameter("CompanyShortCode", typeof(string));
+    
+            var userIDParameter = userID.HasValue ?
+                new ObjectParameter("UserID", userID) :
+                new ObjectParameter("UserID", typeof(int));
+    
+            return ((IObjectContextAdapter)this).ObjectContext.ExecuteFunction<Nullable<int>>("uspDeleteDBWidgetsListByCompanyAndUserID", dashboardWidgetsListIdParameter, companyShortCodeParameter, userIDParameter);
         }
     
         public virtual ObjectResult<Nullable<int>> uspDeleteDuplicateData()
@@ -1127,6 +1299,45 @@ namespace ITR.Models
                 new ObjectParameter("MasterMetaDataID", typeof(int));
     
             return ((IObjectContextAdapter)this).ObjectContext.ExecuteFunction<Nullable<int>>("uspDeleteIndicatorDataSet", masterMetaDataIDParameter);
+        }
+    
+        public virtual int uspForecastBusinessPhaseImplementation()
+        {
+            return ((IObjectContextAdapter)this).ObjectContext.ExecuteFunction("uspForecastBusinessPhaseImplementation");
+        }
+    
+        public virtual int uspForecastBusinessPhaseImplementation_Testing()
+        {
+            return ((IObjectContextAdapter)this).ObjectContext.ExecuteFunction("uspForecastBusinessPhaseImplementation_Testing");
+        }
+    
+        public virtual ObjectResult<Nullable<int>> uspInsertDashboardWidgetsList(string companyShortCode, string indicatorShortCodes, Nullable<int> userID, string favouriteListName, string createdBY, Nullable<System.DateTime> createdDate)
+        {
+            var companyShortCodeParameter = companyShortCode != null ?
+                new ObjectParameter("CompanyShortCode", companyShortCode) :
+                new ObjectParameter("CompanyShortCode", typeof(string));
+    
+            var indicatorShortCodesParameter = indicatorShortCodes != null ?
+                new ObjectParameter("IndicatorShortCodes", indicatorShortCodes) :
+                new ObjectParameter("IndicatorShortCodes", typeof(string));
+    
+            var userIDParameter = userID.HasValue ?
+                new ObjectParameter("UserID", userID) :
+                new ObjectParameter("UserID", typeof(int));
+    
+            var favouriteListNameParameter = favouriteListName != null ?
+                new ObjectParameter("FavouriteListName", favouriteListName) :
+                new ObjectParameter("FavouriteListName", typeof(string));
+    
+            var createdBYParameter = createdBY != null ?
+                new ObjectParameter("CreatedBY", createdBY) :
+                new ObjectParameter("CreatedBY", typeof(string));
+    
+            var createdDateParameter = createdDate.HasValue ?
+                new ObjectParameter("CreatedDate", createdDate) :
+                new ObjectParameter("CreatedDate", typeof(System.DateTime));
+    
+            return ((IObjectContextAdapter)this).ObjectContext.ExecuteFunction<Nullable<int>>("uspInsertDashboardWidgetsList", companyShortCodeParameter, indicatorShortCodesParameter, userIDParameter, favouriteListNameParameter, createdBYParameter, createdDateParameter);
         }
     
         public virtual ObjectResult<Nullable<int>> uspInsertExceptionLog(string customerID, string exceptionMessage, string pageName, string createdBy, Nullable<System.DateTime> createdDate)
@@ -1268,6 +1479,81 @@ namespace ITR.Models
                 new ObjectParameter("CustomerCompanyID", typeof(int));
     
             return ((IObjectContextAdapter)this).ObjectContext.ExecuteFunction<uspSelectCompanyAndIndicatorDateByShordCodes_Result>("uspSelectCompanyAndIndicatorDateByShordCodes", companyShortCodeParameter, indicatorShortCodeParameter, inverseOrderParameter, moveMonthsParameter, customerCompanyIDParameter);
+        }
+    
+        public virtual ObjectResult<uspSelectCompanyAndIndicatorDateByShordCodes_02092018_Result> uspSelectCompanyAndIndicatorDateByShordCodes_02092018(string companyShortCode, string indicatorShortCode, Nullable<bool> inverseOrder, Nullable<int> moveMonths, Nullable<int> customerCompanyID)
+        {
+            var companyShortCodeParameter = companyShortCode != null ?
+                new ObjectParameter("CompanyShortCode", companyShortCode) :
+                new ObjectParameter("CompanyShortCode", typeof(string));
+    
+            var indicatorShortCodeParameter = indicatorShortCode != null ?
+                new ObjectParameter("IndicatorShortCode", indicatorShortCode) :
+                new ObjectParameter("IndicatorShortCode", typeof(string));
+    
+            var inverseOrderParameter = inverseOrder.HasValue ?
+                new ObjectParameter("InverseOrder", inverseOrder) :
+                new ObjectParameter("InverseOrder", typeof(bool));
+    
+            var moveMonthsParameter = moveMonths.HasValue ?
+                new ObjectParameter("MoveMonths", moveMonths) :
+                new ObjectParameter("MoveMonths", typeof(int));
+    
+            var customerCompanyIDParameter = customerCompanyID.HasValue ?
+                new ObjectParameter("CustomerCompanyID", customerCompanyID) :
+                new ObjectParameter("CustomerCompanyID", typeof(int));
+    
+            return ((IObjectContextAdapter)this).ObjectContext.ExecuteFunction<uspSelectCompanyAndIndicatorDateByShordCodes_02092018_Result>("uspSelectCompanyAndIndicatorDateByShordCodes_02092018", companyShortCodeParameter, indicatorShortCodeParameter, inverseOrderParameter, moveMonthsParameter, customerCompanyIDParameter);
+        }
+    
+        public virtual ObjectResult<uspSelectCompanyAndIndicatorDateByShordCodes_02132018_Result> uspSelectCompanyAndIndicatorDateByShordCodes_02132018(string companyShortCode, string indicatorShortCode, Nullable<bool> inverseOrder, Nullable<int> moveMonths, Nullable<int> customerCompanyID)
+        {
+            var companyShortCodeParameter = companyShortCode != null ?
+                new ObjectParameter("CompanyShortCode", companyShortCode) :
+                new ObjectParameter("CompanyShortCode", typeof(string));
+    
+            var indicatorShortCodeParameter = indicatorShortCode != null ?
+                new ObjectParameter("IndicatorShortCode", indicatorShortCode) :
+                new ObjectParameter("IndicatorShortCode", typeof(string));
+    
+            var inverseOrderParameter = inverseOrder.HasValue ?
+                new ObjectParameter("InverseOrder", inverseOrder) :
+                new ObjectParameter("InverseOrder", typeof(bool));
+    
+            var moveMonthsParameter = moveMonths.HasValue ?
+                new ObjectParameter("MoveMonths", moveMonths) :
+                new ObjectParameter("MoveMonths", typeof(int));
+    
+            var customerCompanyIDParameter = customerCompanyID.HasValue ?
+                new ObjectParameter("CustomerCompanyID", customerCompanyID) :
+                new ObjectParameter("CustomerCompanyID", typeof(int));
+    
+            return ((IObjectContextAdapter)this).ObjectContext.ExecuteFunction<uspSelectCompanyAndIndicatorDateByShordCodes_02132018_Result>("uspSelectCompanyAndIndicatorDateByShordCodes_02132018", companyShortCodeParameter, indicatorShortCodeParameter, inverseOrderParameter, moveMonthsParameter, customerCompanyIDParameter);
+        }
+    
+        public virtual ObjectResult<uspSelectCompanyAndIndicatorDateByShordCodes_0619_Result> uspSelectCompanyAndIndicatorDateByShordCodes_0619(string companyShortCode, string indicatorShortCode, Nullable<bool> inverseOrder, Nullable<int> moveMonths, Nullable<int> customerCompanyID)
+        {
+            var companyShortCodeParameter = companyShortCode != null ?
+                new ObjectParameter("CompanyShortCode", companyShortCode) :
+                new ObjectParameter("CompanyShortCode", typeof(string));
+    
+            var indicatorShortCodeParameter = indicatorShortCode != null ?
+                new ObjectParameter("IndicatorShortCode", indicatorShortCode) :
+                new ObjectParameter("IndicatorShortCode", typeof(string));
+    
+            var inverseOrderParameter = inverseOrder.HasValue ?
+                new ObjectParameter("InverseOrder", inverseOrder) :
+                new ObjectParameter("InverseOrder", typeof(bool));
+    
+            var moveMonthsParameter = moveMonths.HasValue ?
+                new ObjectParameter("MoveMonths", moveMonths) :
+                new ObjectParameter("MoveMonths", typeof(int));
+    
+            var customerCompanyIDParameter = customerCompanyID.HasValue ?
+                new ObjectParameter("CustomerCompanyID", customerCompanyID) :
+                new ObjectParameter("CustomerCompanyID", typeof(int));
+    
+            return ((IObjectContextAdapter)this).ObjectContext.ExecuteFunction<uspSelectCompanyAndIndicatorDateByShordCodes_0619_Result>("uspSelectCompanyAndIndicatorDateByShordCodes_0619", companyShortCodeParameter, indicatorShortCodeParameter, inverseOrderParameter, moveMonthsParameter, customerCompanyIDParameter);
         }
     
         public virtual ObjectResult<uspSelectCompanyAndIndicatorDateByShordCodes_08282017_Result> uspSelectCompanyAndIndicatorDateByShordCodes_08282017(string companyShortCode, string indicatorShortCode, Nullable<bool> inverseOrder, Nullable<int> moveMonths, Nullable<int> customerCompanyID)
@@ -1478,6 +1764,15 @@ namespace ITR.Models
             return ((IObjectContextAdapter)this).ObjectContext.ExecuteFunction("uspSelectCompanySalesPortalByCustomerDataSetID_Scheduler");
         }
     
+        public virtual ObjectResult<uspSelectCurrentMonthPhaseValuesOfDBWidgetsByCompanyId_Result> uspSelectCurrentMonthPhaseValuesOfDBWidgetsByCompanyId(string companyShortCode)
+        {
+            var companyShortCodeParameter = companyShortCode != null ?
+                new ObjectParameter("CompanyShortCode", companyShortCode) :
+                new ObjectParameter("CompanyShortCode", typeof(string));
+    
+            return ((IObjectContextAdapter)this).ObjectContext.ExecuteFunction<uspSelectCurrentMonthPhaseValuesOfDBWidgetsByCompanyId_Result>("uspSelectCurrentMonthPhaseValuesOfDBWidgetsByCompanyId", companyShortCodeParameter);
+        }
+    
         public virtual ObjectResult<uspSelectDatacastCategories_Result> uspSelectDatacastCategories()
         {
             return ((IObjectContextAdapter)this).ObjectContext.ExecuteFunction<uspSelectDatacastCategories_Result>("uspSelectDatacastCategories");
@@ -1556,6 +1851,52 @@ namespace ITR.Models
             return ((IObjectContextAdapter)this).ObjectContext.ExecuteFunction<uspSelectDataSetsByQBaseAccountID_Result>("uspSelectDataSetsByQBaseAccountID", qBaseAccountIDParameter, qBaseDivIDParameter);
         }
     
+        public virtual ObjectResult<uspSelectDBWidgetsCorrelationListByCompanyID_Result> uspSelectDBWidgetsCorrelationListByCompanyID(string companyShortCode, Nullable<int> userID, Nullable<int> displayLength, Nullable<int> displayStart, string search, Nullable<int> sortCol, string sortDir)
+        {
+            var companyShortCodeParameter = companyShortCode != null ?
+                new ObjectParameter("CompanyShortCode", companyShortCode) :
+                new ObjectParameter("CompanyShortCode", typeof(string));
+    
+            var userIDParameter = userID.HasValue ?
+                new ObjectParameter("UserID", userID) :
+                new ObjectParameter("UserID", typeof(int));
+    
+            var displayLengthParameter = displayLength.HasValue ?
+                new ObjectParameter("DisplayLength", displayLength) :
+                new ObjectParameter("DisplayLength", typeof(int));
+    
+            var displayStartParameter = displayStart.HasValue ?
+                new ObjectParameter("DisplayStart", displayStart) :
+                new ObjectParameter("DisplayStart", typeof(int));
+    
+            var searchParameter = search != null ?
+                new ObjectParameter("Search", search) :
+                new ObjectParameter("Search", typeof(string));
+    
+            var sortColParameter = sortCol.HasValue ?
+                new ObjectParameter("SortCol", sortCol) :
+                new ObjectParameter("SortCol", typeof(int));
+    
+            var sortDirParameter = sortDir != null ?
+                new ObjectParameter("SortDir", sortDir) :
+                new ObjectParameter("SortDir", typeof(string));
+    
+            return ((IObjectContextAdapter)this).ObjectContext.ExecuteFunction<uspSelectDBWidgetsCorrelationListByCompanyID_Result>("uspSelectDBWidgetsCorrelationListByCompanyID", companyShortCodeParameter, userIDParameter, displayLengthParameter, displayStartParameter, searchParameter, sortColParameter, sortDirParameter);
+        }
+    
+        public virtual ObjectResult<uspSelectDBWidgetsListByCompanyID_Result> uspSelectDBWidgetsListByCompanyID(Nullable<int> userID, string companyShortCode)
+        {
+            var userIDParameter = userID.HasValue ?
+                new ObjectParameter("UserID", userID) :
+                new ObjectParameter("UserID", typeof(int));
+    
+            var companyShortCodeParameter = companyShortCode != null ?
+                new ObjectParameter("CompanyShortCode", companyShortCode) :
+                new ObjectParameter("CompanyShortCode", typeof(string));
+    
+            return ((IObjectContextAdapter)this).ObjectContext.ExecuteFunction<uspSelectDBWidgetsListByCompanyID_Result>("uspSelectDBWidgetsListByCompanyID", userIDParameter, companyShortCodeParameter);
+        }
+    
         public virtual ObjectResult<uspSelectDivisionsByAccountID_Result> uspSelectDivisionsByAccountID(string accountName)
         {
             var accountNameParameter = accountName != null ?
@@ -1613,6 +1954,19 @@ namespace ITR.Models
                 new ObjectParameter("CompanyShortCode", typeof(string));
     
             return ((IObjectContextAdapter)this).ObjectContext.ExecuteFunction<uspSelectFavouritesListByUserID_Result>("uspSelectFavouritesListByUserID", userIDParameter, companyShortCodeParameter);
+        }
+    
+        public virtual ObjectResult<uspSelectForecastDataByIndicatorForDownload_Result> uspSelectForecastDataByIndicatorForDownload(string indicatorShortCode, Nullable<int> companyID)
+        {
+            var indicatorShortCodeParameter = indicatorShortCode != null ?
+                new ObjectParameter("IndicatorShortCode", indicatorShortCode) :
+                new ObjectParameter("IndicatorShortCode", typeof(string));
+    
+            var companyIDParameter = companyID.HasValue ?
+                new ObjectParameter("CompanyID", companyID) :
+                new ObjectParameter("CompanyID", typeof(int));
+    
+            return ((IObjectContextAdapter)this).ObjectContext.ExecuteFunction<uspSelectForecastDataByIndicatorForDownload_Result>("uspSelectForecastDataByIndicatorForDownload", indicatorShortCodeParameter, companyIDParameter);
         }
     
         public virtual ObjectResult<uspSelectIndicatorDataByIndicatorShortCodes_Result> uspSelectIndicatorDataByIndicatorShortCodes(string indicatorShortCodes, string companyShortCode)
@@ -1870,6 +2224,46 @@ namespace ITR.Models
             return ((IObjectContextAdapter)this).ObjectContext.ExecuteFunction<uspSelectMasterMetaDataFields_Result>("uspSelectMasterMetaDataFields");
         }
     
+        public virtual ObjectResult<uspSelectPhaseValuesOfDBWidgetsByCompanyIdNew_Result> uspSelectPhaseValuesOfDBWidgetsByCompanyIdNew(string companyShortCode, Nullable<int> companyID)
+        {
+            var companyShortCodeParameter = companyShortCode != null ?
+                new ObjectParameter("CompanyShortCode", companyShortCode) :
+                new ObjectParameter("CompanyShortCode", typeof(string));
+    
+            var companyIDParameter = companyID.HasValue ?
+                new ObjectParameter("CompanyID", companyID) :
+                new ObjectParameter("CompanyID", typeof(int));
+    
+            return ((IObjectContextAdapter)this).ObjectContext.ExecuteFunction<uspSelectPhaseValuesOfDBWidgetsByCompanyIdNew_Result>("uspSelectPhaseValuesOfDBWidgetsByCompanyIdNew", companyShortCodeParameter, companyIDParameter);
+        }
+    
+        public virtual ObjectResult<uspSelectPhaseValuesOfDBWidgetsByCompanyIdNew_BKP_Result> uspSelectPhaseValuesOfDBWidgetsByCompanyIdNew_BKP(string companyShortCode)
+        {
+            var companyShortCodeParameter = companyShortCode != null ?
+                new ObjectParameter("CompanyShortCode", companyShortCode) :
+                new ObjectParameter("CompanyShortCode", typeof(string));
+    
+            return ((IObjectContextAdapter)this).ObjectContext.ExecuteFunction<uspSelectPhaseValuesOfDBWidgetsByCompanyIdNew_BKP_Result>("uspSelectPhaseValuesOfDBWidgetsByCompanyIdNew_BKP", companyShortCodeParameter);
+        }
+    
+        public virtual ObjectResult<uspSelectPhaseValuesOfDBWidgetsByCompanyIdNew1_Result> uspSelectPhaseValuesOfDBWidgetsByCompanyIdNew1(string companyShortCode)
+        {
+            var companyShortCodeParameter = companyShortCode != null ?
+                new ObjectParameter("CompanyShortCode", companyShortCode) :
+                new ObjectParameter("CompanyShortCode", typeof(string));
+    
+            return ((IObjectContextAdapter)this).ObjectContext.ExecuteFunction<uspSelectPhaseValuesOfDBWidgetsByCompanyIdNew1_Result>("uspSelectPhaseValuesOfDBWidgetsByCompanyIdNew1", companyShortCodeParameter);
+        }
+    
+        public virtual ObjectResult<uspSelectTimingValuesOfDBWidgetsByCompanyId_Result> uspSelectTimingValuesOfDBWidgetsByCompanyId(string companyShortCode)
+        {
+            var companyShortCodeParameter = companyShortCode != null ?
+                new ObjectParameter("CompanyShortCode", companyShortCode) :
+                new ObjectParameter("CompanyShortCode", typeof(string));
+    
+            return ((IObjectContextAdapter)this).ObjectContext.ExecuteFunction<uspSelectTimingValuesOfDBWidgetsByCompanyId_Result>("uspSelectTimingValuesOfDBWidgetsByCompanyId", companyShortCodeParameter);
+        }
+    
         public virtual ObjectResult<Nullable<decimal>> uspTest(Nullable<decimal> a, Nullable<decimal> b)
         {
             var aParameter = a.HasValue ?
@@ -1881,6 +2275,35 @@ namespace ITR.Models
                 new ObjectParameter("B", typeof(decimal));
     
             return ((IObjectContextAdapter)this).ObjectContext.ExecuteFunction<Nullable<decimal>>("uspTest", aParameter, bParameter);
+        }
+    
+        public virtual ObjectResult<Nullable<int>> uspUpdateDashboardWidgetsList(string companyShortCode, string indicatorShortCodes, Nullable<int> userID, string favouriteListName, string createdBY, Nullable<System.DateTime> createdDate)
+        {
+            var companyShortCodeParameter = companyShortCode != null ?
+                new ObjectParameter("CompanyShortCode", companyShortCode) :
+                new ObjectParameter("CompanyShortCode", typeof(string));
+    
+            var indicatorShortCodesParameter = indicatorShortCodes != null ?
+                new ObjectParameter("IndicatorShortCodes", indicatorShortCodes) :
+                new ObjectParameter("IndicatorShortCodes", typeof(string));
+    
+            var userIDParameter = userID.HasValue ?
+                new ObjectParameter("UserID", userID) :
+                new ObjectParameter("UserID", typeof(int));
+    
+            var favouriteListNameParameter = favouriteListName != null ?
+                new ObjectParameter("FavouriteListName", favouriteListName) :
+                new ObjectParameter("FavouriteListName", typeof(string));
+    
+            var createdBYParameter = createdBY != null ?
+                new ObjectParameter("CreatedBY", createdBY) :
+                new ObjectParameter("CreatedBY", typeof(string));
+    
+            var createdDateParameter = createdDate.HasValue ?
+                new ObjectParameter("CreatedDate", createdDate) :
+                new ObjectParameter("CreatedDate", typeof(System.DateTime));
+    
+            return ((IObjectContextAdapter)this).ObjectContext.ExecuteFunction<Nullable<int>>("uspUpdateDashboardWidgetsList", companyShortCodeParameter, indicatorShortCodesParameter, userIDParameter, favouriteListNameParameter, createdBYParameter, createdDateParameter);
         }
     
         public virtual ObjectResult<Nullable<int>> uspUpdateFavouriteList(string companyShortCode, string indicatorShortCodes, Nullable<int> userID, string favouriteListName, string createdBY, Nullable<System.DateTime> createdDate)
@@ -1930,6 +2353,11 @@ namespace ITR.Models
         public virtual int uspUpdateFilePathIndicatorWeb()
         {
             return ((IObjectContextAdapter)this).ObjectContext.ExecuteFunction("uspUpdateFilePathIndicatorWeb");
+        }
+    
+        public virtual int uspUpdateFilePathIndicatorWebSourceLinkDefinition()
+        {
+            return ((IObjectContextAdapter)this).ObjectContext.ExecuteFunction("uspUpdateFilePathIndicatorWebSourceLinkDefinition");
         }
     
         public virtual ObjectResult<Nullable<int>> uspUpdateMasterMetaData(string fileName, string workBook, string nAICSCode, string seriesName, string nSA, string continent, string country, string region, string state, string mSA, string category, string subcategory, string units, string bASE, string source, string link, string definition, string updateFrequency, string proprietaryData, string updateType, string discontinued, string discontinuedDate, string statPref1, string statPref2, Nullable<int> accountID, Nullable<int> divisionID, string accountName, string divisionName, string modifiedBy, Nullable<System.DateTime> modifiedDate)
@@ -2124,153 +2552,6 @@ namespace ITR.Models
             return ((IObjectContextAdapter)this).ObjectContext.ExecuteFunction("uspUpdateUIForecastListPath");
         }
     
-        public virtual ObjectResult<Nullable<int>> uspInsertDashboardWidgetsList(string companyShortCode, string indicatorShortCodes, Nullable<int> userID, string favouriteListName, string createdBY, Nullable<System.DateTime> createdDate)
-        {
-            var companyShortCodeParameter = companyShortCode != null ?
-                new ObjectParameter("CompanyShortCode", companyShortCode) :
-                new ObjectParameter("CompanyShortCode", typeof(string));
-    
-            var indicatorShortCodesParameter = indicatorShortCodes != null ?
-                new ObjectParameter("IndicatorShortCodes", indicatorShortCodes) :
-                new ObjectParameter("IndicatorShortCodes", typeof(string));
-    
-            var userIDParameter = userID.HasValue ?
-                new ObjectParameter("UserID", userID) :
-                new ObjectParameter("UserID", typeof(int));
-    
-            var favouriteListNameParameter = favouriteListName != null ?
-                new ObjectParameter("FavouriteListName", favouriteListName) :
-                new ObjectParameter("FavouriteListName", typeof(string));
-    
-            var createdBYParameter = createdBY != null ?
-                new ObjectParameter("CreatedBY", createdBY) :
-                new ObjectParameter("CreatedBY", typeof(string));
-    
-            var createdDateParameter = createdDate.HasValue ?
-                new ObjectParameter("CreatedDate", createdDate) :
-                new ObjectParameter("CreatedDate", typeof(System.DateTime));
-    
-            return ((IObjectContextAdapter)this).ObjectContext.ExecuteFunction<Nullable<int>>("uspInsertDashboardWidgetsList", companyShortCodeParameter, indicatorShortCodesParameter, userIDParameter, favouriteListNameParameter, createdBYParameter, createdDateParameter);
-        }
-    
-        public virtual ObjectResult<Nullable<int>> uspUpdateDashboardWidgetsList(string companyShortCode, string indicatorShortCodes, Nullable<int> userID, string favouriteListName, string createdBY, Nullable<System.DateTime> createdDate)
-        {
-            var companyShortCodeParameter = companyShortCode != null ?
-                new ObjectParameter("CompanyShortCode", companyShortCode) :
-                new ObjectParameter("CompanyShortCode", typeof(string));
-    
-            var indicatorShortCodesParameter = indicatorShortCodes != null ?
-                new ObjectParameter("IndicatorShortCodes", indicatorShortCodes) :
-                new ObjectParameter("IndicatorShortCodes", typeof(string));
-    
-            var userIDParameter = userID.HasValue ?
-                new ObjectParameter("UserID", userID) :
-                new ObjectParameter("UserID", typeof(int));
-    
-            var favouriteListNameParameter = favouriteListName != null ?
-                new ObjectParameter("FavouriteListName", favouriteListName) :
-                new ObjectParameter("FavouriteListName", typeof(string));
-    
-            var createdBYParameter = createdBY != null ?
-                new ObjectParameter("CreatedBY", createdBY) :
-                new ObjectParameter("CreatedBY", typeof(string));
-    
-            var createdDateParameter = createdDate.HasValue ?
-                new ObjectParameter("CreatedDate", createdDate) :
-                new ObjectParameter("CreatedDate", typeof(System.DateTime));
-    
-            return ((IObjectContextAdapter)this).ObjectContext.ExecuteFunction<Nullable<int>>("uspUpdateDashboardWidgetsList", companyShortCodeParameter, indicatorShortCodesParameter, userIDParameter, favouriteListNameParameter, createdBYParameter, createdDateParameter);
-        }
-    
-        public virtual ObjectResult<uspSelectDBWidgetsListByCompanyID_Result> uspSelectDBWidgetsListByCompanyID(Nullable<int> userID, string companyShortCode)
-        {
-            var userIDParameter = userID.HasValue ?
-                new ObjectParameter("UserID", userID) :
-                new ObjectParameter("UserID", typeof(int));
-    
-            var companyShortCodeParameter = companyShortCode != null ?
-                new ObjectParameter("CompanyShortCode", companyShortCode) :
-                new ObjectParameter("CompanyShortCode", typeof(string));
-    
-            return ((IObjectContextAdapter)this).ObjectContext.ExecuteFunction<uspSelectDBWidgetsListByCompanyID_Result>("uspSelectDBWidgetsListByCompanyID", userIDParameter, companyShortCodeParameter);
-        }
-    
-        public virtual ObjectResult<Nullable<int>> uspDeleteDBWidgetsListByCompanyAndUserID(Nullable<int> dashboardWidgetsListId, string companyShortCode, Nullable<int> userID)
-        {
-            var dashboardWidgetsListIdParameter = dashboardWidgetsListId.HasValue ?
-                new ObjectParameter("DashboardWidgetsListId", dashboardWidgetsListId) :
-                new ObjectParameter("DashboardWidgetsListId", typeof(int));
-    
-            var companyShortCodeParameter = companyShortCode != null ?
-                new ObjectParameter("CompanyShortCode", companyShortCode) :
-                new ObjectParameter("CompanyShortCode", typeof(string));
-    
-            var userIDParameter = userID.HasValue ?
-                new ObjectParameter("UserID", userID) :
-                new ObjectParameter("UserID", typeof(int));
-    
-            return ((IObjectContextAdapter)this).ObjectContext.ExecuteFunction<Nullable<int>>("uspDeleteDBWidgetsListByCompanyAndUserID", dashboardWidgetsListIdParameter, companyShortCodeParameter, userIDParameter);
-        }
-    
-        public virtual ObjectResult<uspSelectAllDBWidgetsListByCompanyID_Result> uspSelectAllDBWidgetsListByCompanyID(string companyShortCode, Nullable<int> userID)
-        {
-            var companyShortCodeParameter = companyShortCode != null ?
-                new ObjectParameter("CompanyShortCode", companyShortCode) :
-                new ObjectParameter("CompanyShortCode", typeof(string));
-    
-            var userIDParameter = userID.HasValue ?
-                new ObjectParameter("UserID", userID) :
-                new ObjectParameter("UserID", typeof(int));
-    
-            return ((IObjectContextAdapter)this).ObjectContext.ExecuteFunction<uspSelectAllDBWidgetsListByCompanyID_Result>("uspSelectAllDBWidgetsListByCompanyID", companyShortCodeParameter, userIDParameter);
-        }
-    
-        public virtual ObjectResult<uspSelectDBWidgetsCorrelationListByCompanyID_Result> uspSelectDBWidgetsCorrelationListByCompanyID(string companyShortCode, Nullable<int> userID, Nullable<int> displayLength, Nullable<int> displayStart, string search, Nullable<int> sortCol, string sortDir)
-        {
-            var companyShortCodeParameter = companyShortCode != null ?
-                new ObjectParameter("CompanyShortCode", companyShortCode) :
-                new ObjectParameter("CompanyShortCode", typeof(string));
-    
-            var userIDParameter = userID.HasValue ?
-                new ObjectParameter("UserID", userID) :
-                new ObjectParameter("UserID", typeof(int));
-    
-            var displayLengthParameter = displayLength.HasValue ?
-                new ObjectParameter("DisplayLength", displayLength) :
-                new ObjectParameter("DisplayLength", typeof(int));
-    
-            var displayStartParameter = displayStart.HasValue ?
-                new ObjectParameter("DisplayStart", displayStart) :
-                new ObjectParameter("DisplayStart", typeof(int));
-    
-            var searchParameter = search != null ?
-                new ObjectParameter("Search", search) :
-                new ObjectParameter("Search", typeof(string));
-    
-            var sortColParameter = sortCol.HasValue ?
-                new ObjectParameter("SortCol", sortCol) :
-                new ObjectParameter("SortCol", typeof(int));
-    
-            var sortDirParameter = sortDir != null ?
-                new ObjectParameter("SortDir", sortDir) :
-                new ObjectParameter("SortDir", typeof(string));
-    
-            return ((IObjectContextAdapter)this).ObjectContext.ExecuteFunction<uspSelectDBWidgetsCorrelationListByCompanyID_Result>("uspSelectDBWidgetsCorrelationListByCompanyID", companyShortCodeParameter, userIDParameter, displayLengthParameter, displayStartParameter, searchParameter, sortColParameter, sortDirParameter);
-        }
-    
-        public virtual ObjectResult<uspSelectForecastDataByIndicatorForDownload_Result> uspSelectForecastDataByIndicatorForDownload(string indicatorShortCode, Nullable<int> companyID)
-        {
-            var indicatorShortCodeParameter = indicatorShortCode != null ?
-                new ObjectParameter("IndicatorShortCode", indicatorShortCode) :
-                new ObjectParameter("IndicatorShortCode", typeof(string));
-    
-            var companyIDParameter = companyID.HasValue ?
-                new ObjectParameter("CompanyID", companyID) :
-                new ObjectParameter("CompanyID", typeof(int));
-    
-            return ((IObjectContextAdapter)this).ObjectContext.ExecuteFunction<uspSelectForecastDataByIndicatorForDownload_Result>("uspSelectForecastDataByIndicatorForDownload", indicatorShortCodeParameter, companyIDParameter);
-        }
-    
         public virtual ObjectResult<uspSelectPhaseValuesOfDBWidgetsByCompanyId_Result> uspSelectPhaseValuesOfDBWidgetsByCompanyId(string companyShortCode)
         {
             var companyShortCodeParameter = companyShortCode != null ?
@@ -2278,37 +2559,6 @@ namespace ITR.Models
                 new ObjectParameter("CompanyShortCode", typeof(string));
     
             return ((IObjectContextAdapter)this).ObjectContext.ExecuteFunction<uspSelectPhaseValuesOfDBWidgetsByCompanyId_Result>("uspSelectPhaseValuesOfDBWidgetsByCompanyId", companyShortCodeParameter);
-        }
-    
-        public virtual ObjectResult<uspSelectTimingValuesOfDBWidgetsByCompanyId_Result> uspSelectTimingValuesOfDBWidgetsByCompanyId(string companyShortCode)
-        {
-            var companyShortCodeParameter = companyShortCode != null ?
-                new ObjectParameter("CompanyShortCode", companyShortCode) :
-                new ObjectParameter("CompanyShortCode", typeof(string));
-    
-            return ((IObjectContextAdapter)this).ObjectContext.ExecuteFunction<uspSelectTimingValuesOfDBWidgetsByCompanyId_Result>("uspSelectTimingValuesOfDBWidgetsByCompanyId", companyShortCodeParameter);
-        }
-    
-        public virtual ObjectResult<uspSelectCurrentMonthPhaseValuesOfDBWidgetsByCompanyId_Result> uspSelectCurrentMonthPhaseValuesOfDBWidgetsByCompanyId(string companyShortCode)
-        {
-            var companyShortCodeParameter = companyShortCode != null ?
-                new ObjectParameter("CompanyShortCode", companyShortCode) :
-                new ObjectParameter("CompanyShortCode", typeof(string));
-    
-            return ((IObjectContextAdapter)this).ObjectContext.ExecuteFunction<uspSelectCurrentMonthPhaseValuesOfDBWidgetsByCompanyId_Result>("uspSelectCurrentMonthPhaseValuesOfDBWidgetsByCompanyId", companyShortCodeParameter);
-        }
-    
-        public virtual ObjectResult<uspSelectPhaseValuesOfDBWidgetsByCompanyIdNew_Result> uspSelectPhaseValuesOfDBWidgetsByCompanyIdNew(string companyShortCode, Nullable<int> companyID)
-        {
-            var companyShortCodeParameter = companyShortCode != null ?
-                new ObjectParameter("CompanyShortCode", companyShortCode) :
-                new ObjectParameter("CompanyShortCode", typeof(string));
-    
-            var companyIDParameter = companyID.HasValue ?
-                new ObjectParameter("CompanyID", companyID) :
-                new ObjectParameter("CompanyID", typeof(int));
-    
-            return ((IObjectContextAdapter)this).ObjectContext.ExecuteFunction<uspSelectPhaseValuesOfDBWidgetsByCompanyIdNew_Result>("uspSelectPhaseValuesOfDBWidgetsByCompanyIdNew", companyShortCodeParameter, companyIDParameter);
         }
     }
 }
