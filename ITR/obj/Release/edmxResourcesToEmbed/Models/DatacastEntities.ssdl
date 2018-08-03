@@ -1679,6 +1679,7 @@ warning 6002: The table/view 'LDBTEST_08022018.dbo.Users' does not have a primar
   <Function Name="uspSelectCompanySalesPortalByCustomerDataSetID_Scheduler" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo" />
   <Function Name="uspSelectCurrentMonthPhaseValuesOfDBWidgetsByCompanyId" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
     <Parameter Name="CompanyShortCode" Type="varchar(max)" Mode="In" />
+    <Parameter Name="UserID" Type="int" Mode="In" />
   </Function>
   <Function Name="uspSelectDatacastCategories" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo" />
   <Function Name="uspSelectDatacastSubCategoriesByCategory" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">

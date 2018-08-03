@@ -1684,6 +1684,7 @@ warning 6002: The table/view 'LDBTEST_08022018.dbo.Users' does not have a primar
         <Function Name="uspSelectCompanySalesPortalByCustomerDataSetID_Scheduler" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo" />
         <Function Name="uspSelectCurrentMonthPhaseValuesOfDBWidgetsByCompanyId" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
           <Parameter Name="CompanyShortCode" Type="varchar(max)" Mode="In" />
+          <Parameter Name="UserID" Type="int" Mode="In" />
         </Function>
         <Function Name="uspSelectDatacastCategories" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo" />
         <Function Name="uspSelectDatacastSubCategoriesByCategory" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
@@ -4174,9 +4175,6 @@ FROM [dbo].[Users] AS [Users]</DefiningQuery>
           <Parameter Name="CustomerDataSetID" Mode="In" Type="Int32" />
           </FunctionImport>
           <FunctionImport Name="uspSelectCompanySalesPortalByCustomerDataSetID_Scheduler" />
-          <FunctionImport Name="uspSelectCurrentMonthPhaseValuesOfDBWidgetsByCompanyId" ReturnType="Collection(DatacastModel.uspSelectCurrentMonthPhaseValuesOfDBWidgetsByCompanyId_Result)">
-          <Parameter Name="CompanyShortCode" Mode="In" Type="String" />
-          </FunctionImport>
           <FunctionImport Name="uspSelectDatacastCategories" ReturnType="Collection(DatacastModel.uspSelectDatacastCategories_Result)" />
           <FunctionImport Name="uspSelectDatacastSubCategoriesByCategory" ReturnType="Collection(DatacastModel.uspSelectDatacastSubCategoriesByCategory_Result)">
           <Parameter Name="Industry" Mode="In" Type="String" />
@@ -4393,7 +4391,11 @@ FROM [dbo].[Users] AS [Users]</DefiningQuery>
           <FunctionImport Name="uspUpdateMetaDataFRomIndicatorList" />
           <FunctionImport Name="uspUpdateUIForecastListPath" />
           <FunctionImport Name="uspSelectPhaseValuesOfDBWidgetsByCompanyId" ReturnType="Collection(DatacastModel.uspSelectPhaseValuesOfDBWidgetsByCompanyId_Result)">
+          <Parameter Name="CompanyShortCode" Mode="In" Type="String" />
+          </FunctionImport>
+          <FunctionImport Name="uspSelectCurrentMonthPhaseValuesOfDBWidgetsByCompanyId" ReturnType="Collection(DatacastModel.uspSelectCurrentMonthPhaseValuesOfDBWidgetsByCompanyId_Result)">
             <Parameter Name="CompanyShortCode" Mode="In" Type="String" />
+            <Parameter Name="UserID" Mode="In" Type="Int32" />
           </FunctionImport>
         </EntityContainer>
         <ComplexType Name="sp_CheckLogin_Result">
@@ -4988,14 +4990,6 @@ FROM [dbo].[Users] AS [Users]</DefiningQuery>
           <Property Type="Boolean" Name="Forecast" Nullable="true" />
           <Property Type="String" Name="Range" Nullable="false" MaxLength="3" />
         </ComplexType>
-        <ComplexType Name="uspSelectCurrentMonthPhaseValuesOfDBWidgetsByCompanyId_Result">
-          <Property Type="Int32" Name="DashboardWidgetsListId" Nullable="true" />
-          <Property Type="String" Name="IndicatorName" Nullable="true" />
-          <Property Type="String" Name="IndicatorShortCode" Nullable="true" MaxLength="64" />
-          <Property Type="DateTime" Name="MonthYear" Nullable="true" />
-          <Property Type="String" Name="MY" Nullable="true" MaxLength="16" />
-          <Property Type="String" Name="Phases" Nullable="true" MaxLength="8000" />
-        </ComplexType>
         <ComplexType Name="uspSelectDatacastCategories_Result">
           <Property Type="String" Name="Industry" Nullable="true" MaxLength="128" />
           <Property Type="String" Name="IndustryID" Nullable="true" MaxLength="128" />
@@ -5302,6 +5296,14 @@ FROM [dbo].[Users] AS [Users]</DefiningQuery>
           <Property Type="String" Name="SHORTCODE" Nullable="false" MaxLength="128" />
           <Property Type="String" Name="MY" Nullable="true" MaxLength="64" />
           <Property Type="Double" Name="Timing" Nullable="true" />
+        </ComplexType>
+        <ComplexType Name="uspSelectCurrentMonthPhaseValuesOfDBWidgetsByCompanyId_Result">
+          <Property Type="Int32" Name="DashboardWidgetsListId" Nullable="true" />
+          <Property Type="String" Name="IndicatorName" Nullable="true" />
+          <Property Type="String" Name="IndicatorShortCode" Nullable="true" MaxLength="64" />
+          <Property Type="DateTime" Name="MonthYear" Nullable="true" />
+          <Property Type="String" Name="MY" Nullable="true" MaxLength="16" />
+          <Property Type="String" Name="Phases" Nullable="true" MaxLength="8000" />
         </ComplexType>
       </Schema>
     </edmx:ConceptualModels>
@@ -7355,18 +7357,6 @@ FROM [dbo].[Users] AS [Users]</DefiningQuery>
           <FunctionImportMapping FunctionImportName="uspSelectCompanySalesPortal" FunctionName="DatacastModel.Store.uspSelectCompanySalesPortal" />
           <FunctionImportMapping FunctionImportName="uspSelectCompanySalesPortalByCustomerDataSetID" FunctionName="DatacastModel.Store.uspSelectCompanySalesPortalByCustomerDataSetID" />
           <FunctionImportMapping FunctionImportName="uspSelectCompanySalesPortalByCustomerDataSetID_Scheduler" FunctionName="DatacastModel.Store.uspSelectCompanySalesPortalByCustomerDataSetID_Scheduler" />
-          <FunctionImportMapping FunctionImportName="uspSelectCurrentMonthPhaseValuesOfDBWidgetsByCompanyId" FunctionName="DatacastModel.Store.uspSelectCurrentMonthPhaseValuesOfDBWidgetsByCompanyId">
-            <ResultMapping>
-              <ComplexTypeMapping TypeName="DatacastModel.uspSelectCurrentMonthPhaseValuesOfDBWidgetsByCompanyId_Result">
-                <ScalarProperty Name="DashboardWidgetsListId" ColumnName="DashboardWidgetsListId" />
-                <ScalarProperty Name="IndicatorName" ColumnName="IndicatorName" />
-                <ScalarProperty Name="IndicatorShortCode" ColumnName="IndicatorShortCode" />
-                <ScalarProperty Name="MonthYear" ColumnName="MonthYear" />
-                <ScalarProperty Name="MY" ColumnName="MY" />
-                <ScalarProperty Name="Phases" ColumnName="Phases" />
-              </ComplexTypeMapping>
-            </ResultMapping>
-          </FunctionImportMapping>
           <FunctionImportMapping FunctionImportName="uspSelectDatacastCategories" FunctionName="DatacastModel.Store.uspSelectDatacastCategories">
             <ResultMapping>
               <ComplexTypeMapping TypeName="DatacastModel.uspSelectDatacastCategories_Result">
@@ -7809,6 +7799,18 @@ FROM [dbo].[Users] AS [Users]</DefiningQuery>
                 <ScalarProperty Name="SHORTCODE" ColumnName="SHORTCODE" />
                 <ScalarProperty Name="MY" ColumnName="MY" />
                 <ScalarProperty Name="Timing" ColumnName="Timing" />
+              </ComplexTypeMapping>
+            </ResultMapping>
+          </FunctionImportMapping>
+          <FunctionImportMapping FunctionImportName="uspSelectCurrentMonthPhaseValuesOfDBWidgetsByCompanyId" FunctionName="DatacastModel.Store.uspSelectCurrentMonthPhaseValuesOfDBWidgetsByCompanyId">
+            <ResultMapping>
+              <ComplexTypeMapping TypeName="DatacastModel.uspSelectCurrentMonthPhaseValuesOfDBWidgetsByCompanyId_Result">
+                <ScalarProperty Name="DashboardWidgetsListId" ColumnName="DashboardWidgetsListId" />
+                <ScalarProperty Name="IndicatorName" ColumnName="IndicatorName" />
+                <ScalarProperty Name="IndicatorShortCode" ColumnName="IndicatorShortCode" />
+                <ScalarProperty Name="MonthYear" ColumnName="MonthYear" />
+                <ScalarProperty Name="MY" ColumnName="MY" />
+                <ScalarProperty Name="Phases" ColumnName="Phases" />
               </ComplexTypeMapping>
             </ResultMapping>
           </FunctionImportMapping>

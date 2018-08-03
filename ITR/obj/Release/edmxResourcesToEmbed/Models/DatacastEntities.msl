@@ -2047,18 +2047,6 @@
     <FunctionImportMapping FunctionImportName="uspSelectCompanySalesPortal" FunctionName="DatacastModel.Store.uspSelectCompanySalesPortal" />
     <FunctionImportMapping FunctionImportName="uspSelectCompanySalesPortalByCustomerDataSetID" FunctionName="DatacastModel.Store.uspSelectCompanySalesPortalByCustomerDataSetID" />
     <FunctionImportMapping FunctionImportName="uspSelectCompanySalesPortalByCustomerDataSetID_Scheduler" FunctionName="DatacastModel.Store.uspSelectCompanySalesPortalByCustomerDataSetID_Scheduler" />
-    <FunctionImportMapping FunctionImportName="uspSelectCurrentMonthPhaseValuesOfDBWidgetsByCompanyId" FunctionName="DatacastModel.Store.uspSelectCurrentMonthPhaseValuesOfDBWidgetsByCompanyId">
-      <ResultMapping>
-        <ComplexTypeMapping TypeName="DatacastModel.uspSelectCurrentMonthPhaseValuesOfDBWidgetsByCompanyId_Result">
-          <ScalarProperty Name="DashboardWidgetsListId" ColumnName="DashboardWidgetsListId" />
-          <ScalarProperty Name="IndicatorName" ColumnName="IndicatorName" />
-          <ScalarProperty Name="IndicatorShortCode" ColumnName="IndicatorShortCode" />
-          <ScalarProperty Name="MonthYear" ColumnName="MonthYear" />
-          <ScalarProperty Name="MY" ColumnName="MY" />
-          <ScalarProperty Name="Phases" ColumnName="Phases" />
-        </ComplexTypeMapping>
-      </ResultMapping>
-    </FunctionImportMapping>
     <FunctionImportMapping FunctionImportName="uspSelectDatacastCategories" FunctionName="DatacastModel.Store.uspSelectDatacastCategories">
       <ResultMapping>
         <ComplexTypeMapping TypeName="DatacastModel.uspSelectDatacastCategories_Result">
@@ -2501,6 +2489,18 @@
           <ScalarProperty Name="SHORTCODE" ColumnName="SHORTCODE" />
           <ScalarProperty Name="MY" ColumnName="MY" />
           <ScalarProperty Name="Timing" ColumnName="Timing" />
+        </ComplexTypeMapping>
+      </ResultMapping>
+    </FunctionImportMapping>
+    <FunctionImportMapping FunctionImportName="uspSelectCurrentMonthPhaseValuesOfDBWidgetsByCompanyId" FunctionName="DatacastModel.Store.uspSelectCurrentMonthPhaseValuesOfDBWidgetsByCompanyId">
+      <ResultMapping>
+        <ComplexTypeMapping TypeName="DatacastModel.uspSelectCurrentMonthPhaseValuesOfDBWidgetsByCompanyId_Result">
+          <ScalarProperty Name="DashboardWidgetsListId" ColumnName="DashboardWidgetsListId" />
+          <ScalarProperty Name="IndicatorName" ColumnName="IndicatorName" />
+          <ScalarProperty Name="IndicatorShortCode" ColumnName="IndicatorShortCode" />
+          <ScalarProperty Name="MonthYear" ColumnName="MonthYear" />
+          <ScalarProperty Name="MY" ColumnName="MY" />
+          <ScalarProperty Name="Phases" ColumnName="Phases" />
         </ComplexTypeMapping>
       </ResultMapping>
     </FunctionImportMapping>

@@ -70,7 +70,7 @@ namespace ITR.DataRepository
         int DeleteDBWidgetIndicator(int DashboardWidgetsListId, string CompanyShortCode, int UserID);
 
         IList<uspSelectDBWidgetsListByCompanyID_Result> SelectDBWidgetsListByCompanyID(int userID, string dataSetID);
-        IList<uspSelectCurrentMonthPhaseValuesOfDBWidgetsByCompanyId_Result> SelectCurrentMonthPhaseValuesOfDBWidgetsByCompanyId(string CompanyShortCode);
+        IList<uspSelectCurrentMonthPhaseValuesOfDBWidgetsByCompanyId_Result> SelectCurrentMonthPhaseValuesOfDBWidgetsByCompanyId(string CompanyShortCode,int UserID);
         #endregion
     }
 }

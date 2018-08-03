@@ -694,10 +694,10 @@ namespace ITR.DataRepository
             return PortalItemsList;
         }
 
-        public IList<uspSelectCurrentMonthPhaseValuesOfDBWidgetsByCompanyId_Result> SelectCurrentMonthPhaseValuesOfDBWidgetsByCompanyId(string CompanyShortCode)
+        public IList<uspSelectCurrentMonthPhaseValuesOfDBWidgetsByCompanyId_Result> SelectCurrentMonthPhaseValuesOfDBWidgetsByCompanyId(string CompanyShortCode,int UserID)
         {
             IList<uspSelectCurrentMonthPhaseValuesOfDBWidgetsByCompanyId_Result> PortalItemsList = new List<uspSelectCurrentMonthPhaseValuesOfDBWidgetsByCompanyId_Result>();
-            foreach (uspSelectCurrentMonthPhaseValuesOfDBWidgetsByCompanyId_Result PortalItem in objEntities.uspSelectCurrentMonthPhaseValuesOfDBWidgetsByCompanyId(CompanyShortCode))
+            foreach (uspSelectCurrentMonthPhaseValuesOfDBWidgetsByCompanyId_Result PortalItem in objEntities.uspSelectCurrentMonthPhaseValuesOfDBWidgetsByCompanyId(CompanyShortCode, UserID))
             {
                 PortalItemsList.Add(PortalItem);
             }
