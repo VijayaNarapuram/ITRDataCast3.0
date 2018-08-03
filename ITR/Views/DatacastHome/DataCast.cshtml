@@ -37,13 +37,17 @@
 
                 <div class="content">
                     <div class="row">
-                        <div class="col-sm-1 pull-right">
-                            <button id="linkPrintIRC" class="shield-chart-button" type="button" title="Print the chart">
-                                <div class="sui-sprite shield-print-button-img"></div>
+                        <div class="col-sm-2 pull-right">
+                            <button id="linkPrintIRC" class="btn btn-default" type="button" title="Print the chart">
+                                <i class="fa fa-print"></i>
                             </button>
-                            <input type="image" id="linkPrintPDFIRC" src="~/img/home/pdf_2.png" title="Download pdf document">
+                            <button id="linkPrintPDFIRC" class="btn btn-default" type="button" title="Download pdf document">
+                                <i class="fa fa-file"></i>
+                            </button>
+                            <button id="linkPrintPNGIRC" class="btn btn-default" type="button" title="Download Image">
+                                <i class="fa fa-image"></i>
+                            </button>
 
-                            <input type="image" id="linkPrintPNGIRC" src="~/img/home/image_icon.png" title="Download Image">
                         </div>
                     </div>
 
@@ -123,13 +127,18 @@
 
                 <div class="content">
                     <div class="row">
-                        <div class="col-sm-1 pull-right">
-                            <button id="linkPrintIDT" class="shield-chart-button" type="button" title="Print the chart">
-                                <div class="sui-sprite shield-print-button-img"></div>
-                            </button>
-                            <input type="image" id="linkPrintPDFIDT" src="~/img/home/pdf_2.png" title="Download pdf document">
+                        <div class="col-sm-2 pull-right">
 
-                            <input type="image" id="linkPrintPNGIDT" src="~/img/home/image_icon.png" title="Download Image">
+                            <button id="linkPrintIDT" class="btn btn-default" type="button" title="Print the chart">
+                                <i class="fa fa-print"></i>
+                            </button>
+                            <button id="linkPrintPDFIDT" class="btn btn-default" type="button" title="Download pdf document">
+                                <i class="fa fa-file"></i>
+                            </button>
+                            <button id="linkPrintPNGIDT" class="btn btn-default" type="button" title="Download Image">
+                                <i class="fa fa-image"></i>
+                            </button>
+
                         </div>
                     </div>
                     <div id="divPrintIDT">
@@ -200,12 +209,18 @@
 
                 <div class="content">
                     <div class="row">
-                        <div class="col-sm-1 pull-right">
-                            <button id="linkPrint" class="shield-chart-button" type="button" title="Print the chart">
-                                <div class="sui-sprite shield-print-button-img"></div>
+                        <div class="col-sm-2 pull-right">
+
+                            <button id="linkPrint" class="btn btn-default" type="button" title="Print the chart">
+                                <i class="fa fa-print"></i>
                             </button>
-                            <input type="image" id="linkPrintPDF" src="~/img/home/pdf_2.png" title="Download pdf document">
-                            <input type="image" id="linkPrintPNG" src="~/img/home/image_icon.png" title="Download Image">
+                            <button id="linkPrintPDF" class="btn btn-default" type="button" title="Download pdf document">
+                                <i class="fa fa-file"></i>
+                            </button>
+                            <button id="linkPrintPNG" class="btn btn-default" type="button" title="Download Image">
+                                <i class="fa fa-image"></i>
+                            </button>
+
                         </div>
                     </div>
 
@@ -1597,7 +1612,7 @@ else
                     //console.log('from paginate');
 
                     $('.CBX').each(function() {
-                        if ($(this)[0].checked) {
+                                           if ($(this)[0].checked) {
                             if (FavList == "")
                                 FavList = $(this).closest('tr').find('td:eq(4)').text() + ",";
                             else {
@@ -1617,7 +1632,7 @@ else
                     //BY VIJAYA
                     $('.CBDB').each(function() {
                         if ($(this)[0].checked) {
-                            widgetsCount = widgetsCount + 1;
+                           // widgetsCount = widgetsCount + 1;
 
                             if (DBWidgetsList == "")
                                 DBWidgetsList = $(this).closest('tr').find('td:eq(4)').text() + ",";
@@ -1628,7 +1643,7 @@ else
                             }
                         } else {
                             if (DBWidgetsList.indexOf($(this).closest('tr').find('td:eq(4)').text() + ",") >= 0) {
-                                widgetsCount = widgetsCount - 1;
+                               // widgetsCount = widgetsCount - 1;
                                 DBWidgetsList = DBWidgetsList.replace($(this).closest('tr').find('td:eq(4)').text() + ",", "");
                             }
                         }
@@ -6243,14 +6258,19 @@ else
                 */
 
               
-                widgetsCount = (DBWidgetsList != "") ? DBWidgetsList.split(',').length - 1 : 0;
+                //widgetsCount = (DBWidgetsList != "") ? DBWidgetsList.split(',').length - 1 : 0;
+
+                //alert(DBWidgetsList);
+                //alert(widgetsCount);
                 //console.log('DBWidgetsList - ' + DBWidgetsList);
                 //console.log('widgetsCount - ' + widgetsCount);
               
                 var table = $('#CorelationLeadLagList').DataTable();
                 table.search('').columns().search('').draw();
-                alert(DBWidgetsList);
-                alert(widgetsCount)
+
+                widgetsCount = (DBWidgetsList != "") ? DBWidgetsList.split(',').length - 1 : 0;
+
+               
                 if (DBWidgetsList != "" && widgetsCount <= 10) {                    
                         
                     var url = "InsertDashboardWidgetsList";                      
