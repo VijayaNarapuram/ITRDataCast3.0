@@ -256,18 +256,18 @@ else
             $("#favdiv").hide();
             //Added By: Vishnu to Get the Company and divisionids from local storage and set the dropdown value and disable them
             // var companyID = $("#hdnCompanyID").val();//window.localStorage.getItem('CompanyID'); //5916//
-            _CompanyId =  8224; //5399; //8224;//  $("#hdnCompanyID").val();//window.localStorage.getItem('CompanyID'); //5916//
-            divisionID = 0;// $("#hdnDivisionID").val();//window.localStorage.getItem('DivisionID'); //41//
-            var userID = 1;// $("#hdnUserID").val();//$("#hdnUserID").val();//window.localStorage.getItem('UserID');
+            _CompanyId =  $("#hdnCompanyID").val();; //5399; //2301;//  $("#hdnCompanyID").val();//window.localStorage.getItem('CompanyID'); //5916//
+            divisionID = $("#hdnDivisionID").val();// $("#hdnDivisionID").val();//window.localStorage.getItem('DivisionID'); //41//
+            var userID =  $("#hdnUserID").val();//$("#hdnUserID").val();//window.localStorage.getItem('UserID');
             isDataPortalAdmin = $("#hdnIsDataPortalAdmin").val(); //true;//
             $("#btnHideFavourites").hide();
 
-            $("#hdnUserID").val(1);
+          //  $("#hdnUserID").val(1);
             //To Bind the selected values of AddDataset Page if the uer is dataportal admin
             if ((isDataPortalAdmin == true || isDataPortalAdmin == "true" || isDataPortalAdmin == "TRUE") && window.localStorage.getItem('CompanyID') != null) {
                 _CompanyId = window.localStorage.getItem('ECompanyID');
-                _CompanyId = 8224; // 5399; //8224; //8224;
-                //  _CompanyId = 8224;
+             //   _CompanyId = 2301; // 5399; //2301; //2301;
+                //  _CompanyId = 2301;
                 $("#lblCompanyName").html(_CompanyId);
                 LoadDivisions();
             }

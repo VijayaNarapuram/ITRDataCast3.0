@@ -1,8 +1,8 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
 <Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
-  <EntityContainerMapping StorageEntityContainer="DatacastModelStoreContainer" CdmEntityContainer="DatacastEntities">
+  <EntityContainerMapping StorageEntityContainer="LDBTESTModelStoreContainer" CdmEntityContainer="DatacastEntities">
     <EntitySetMapping Name="Companies">
-      <EntityTypeMapping TypeName="DatacastModel.Company">
+      <EntityTypeMapping TypeName="LDBTESTModel.Company">
         <MappingFragment StoreEntitySet="Company">
           <ScalarProperty Name="PRODCompanyID" ColumnName="PRODCompanyID" />
           <ScalarProperty Name="MonthYear" ColumnName="MonthYear" />
@@ -21,7 +21,7 @@
       </EntityTypeMapping>
     </EntitySetMapping>
     <EntitySetMapping Name="CompanyWebs">
-      <EntityTypeMapping TypeName="DatacastModel.CompanyWeb">
+      <EntityTypeMapping TypeName="LDBTESTModel.CompanyWeb">
         <MappingFragment StoreEntitySet="CompanyWeb">
           <ScalarProperty Name="PRODCompanyID" ColumnName="PRODCompanyID" />
           <ScalarProperty Name="MonthYear" ColumnName="MonthYear" />
@@ -40,7 +40,7 @@
       </EntityTypeMapping>
     </EntitySetMapping>
     <EntitySetMapping Name="CompanyWebForNews">
-      <EntityTypeMapping TypeName="DatacastModel.CompanyWebForNew">
+      <EntityTypeMapping TypeName="LDBTESTModel.CompanyWebForNew">
         <MappingFragment StoreEntitySet="CompanyWebForNew">
           <ScalarProperty Name="ProdIndicatorId" ColumnName="ProdIndicatorId" />
           <ScalarProperty Name="MonthYear" ColumnName="MonthYear" />
@@ -59,7 +59,7 @@
       </EntityTypeMapping>
     </EntitySetMapping>
     <EntitySetMapping Name="CustomerDataSets">
-      <EntityTypeMapping TypeName="DatacastModel.CustomerDataSet">
+      <EntityTypeMapping TypeName="LDBTESTModel.CustomerDataSet">
         <MappingFragment StoreEntitySet="CustomerDataSets">
           <ScalarProperty Name="CustomerDataSetID" ColumnName="CustomerDataSetID" />
           <ScalarProperty Name="AccountID" ColumnName="AccountID" />
@@ -82,7 +82,7 @@
       </EntityTypeMapping>
     </EntitySetMapping>
     <EntitySetMapping Name="DashboardWidgetsLists">
-      <EntityTypeMapping TypeName="DatacastModel.DashboardWidgetsList">
+      <EntityTypeMapping TypeName="LDBTESTModel.DashboardWidgetsList">
         <MappingFragment StoreEntitySet="DashboardWidgetsList">
           <ScalarProperty Name="DashboardWidgetsListId" ColumnName="DashboardWidgetsListId" />
           <ScalarProperty Name="CompanyShortCode" ColumnName="CompanyShortCode" />
@@ -97,7 +97,7 @@
       </EntityTypeMapping>
     </EntitySetMapping>
     <EntitySetMapping Name="ForeCastDatas">
-      <EntityTypeMapping TypeName="DatacastModel.ForeCastData">
+      <EntityTypeMapping TypeName="LDBTESTModel.ForeCastData">
         <MappingFragment StoreEntitySet="ForeCastData">
           <ScalarProperty Name="ForeCastDataID" ColumnName="ForeCastDataID" />
           <ScalarProperty Name="ForeCastMetaDataID" ColumnName="ForeCastMetaDataID" />
@@ -123,7 +123,7 @@
       </EntityTypeMapping>
     </EntitySetMapping>
     <EntitySetMapping Name="ForeCastMetaDatas">
-      <EntityTypeMapping TypeName="DatacastModel.ForeCastMetaData">
+      <EntityTypeMapping TypeName="LDBTESTModel.ForeCastMetaData">
         <MappingFragment StoreEntitySet="ForeCastMetaData">
           <ScalarProperty Name="ForeCastMetaDataID" ColumnName="ForeCastMetaDataID" />
           <ScalarProperty Name="ShortCode" ColumnName="ShortCode" />
@@ -137,7 +137,7 @@
       </EntityTypeMapping>
     </EntitySetMapping>
     <EntitySetMapping Name="ForecastSummaries">
-      <EntityTypeMapping TypeName="DatacastModel.ForecastSummary">
+      <EntityTypeMapping TypeName="LDBTESTModel.ForecastSummary">
         <MappingFragment StoreEntitySet="ForecastSummary">
           <ScalarProperty Name="FSID" ColumnName="FSID" />
           <ScalarProperty Name="DOSCode" ColumnName="DOSCode" />
@@ -158,7 +158,7 @@
       </EntityTypeMapping>
     </EntitySetMapping>
     <EntitySetMapping Name="Indicators">
-      <EntityTypeMapping TypeName="DatacastModel.Indicator">
+      <EntityTypeMapping TypeName="LDBTESTModel.Indicator">
         <MappingFragment StoreEntitySet="Indicator">
           <ScalarProperty Name="ProdIndicatorId" ColumnName="ProdIndicatorId" />
           <ScalarProperty Name="MonthYear" ColumnName="MonthYear" />
@@ -177,7 +177,7 @@
       </EntityTypeMapping>
     </EntitySetMapping>
     <EntitySetMapping Name="IndicatorWebs">
-      <EntityTypeMapping TypeName="DatacastModel.IndicatorWeb">
+      <EntityTypeMapping TypeName="LDBTESTModel.IndicatorWeb">
         <MappingFragment StoreEntitySet="IndicatorWeb">
           <ScalarProperty Name="ProdIndicatorId" ColumnName="ProdIndicatorId" />
           <ScalarProperty Name="MonthYear" ColumnName="MonthYear" />
@@ -196,7 +196,7 @@
       </EntityTypeMapping>
     </EntitySetMapping>
     <EntitySetMapping Name="IndicatorWebForNews">
-      <EntityTypeMapping TypeName="DatacastModel.IndicatorWebForNew">
+      <EntityTypeMapping TypeName="LDBTESTModel.IndicatorWebForNew">
         <MappingFragment StoreEntitySet="IndicatorWebForNew">
           <ScalarProperty Name="ProdIndicatorId" ColumnName="ProdIndicatorId" />
           <ScalarProperty Name="MonthYear" ColumnName="MonthYear" />
@@ -215,7 +215,7 @@
       </EntityTypeMapping>
     </EntitySetMapping>
     <EntitySetMapping Name="MasterMetaDatas">
-      <EntityTypeMapping TypeName="DatacastModel.MasterMetaData">
+      <EntityTypeMapping TypeName="LDBTESTModel.MasterMetaData">
         <MappingFragment StoreEntitySet="MasterMetaData">
           <ScalarProperty Name="MasterMetadataID" ColumnName="MasterMetadataID" />
           <ScalarProperty Name="WorkBook" ColumnName="WorkBook" />
@@ -269,7 +269,7 @@
       </EntityTypeMapping>
     </EntitySetMapping>
     <EntitySetMapping Name="Perf_Trace_0331">
-      <EntityTypeMapping TypeName="DatacastModel.Perf_Trace_0331">
+      <EntityTypeMapping TypeName="LDBTESTModel.Perf_Trace_0331">
         <MappingFragment StoreEntitySet="Perf_Trace_0331">
           <ScalarProperty Name="RowNumber" ColumnName="RowNumber" />
           <ScalarProperty Name="EventClass" ColumnName="EventClass" />
@@ -290,7 +290,7 @@
       </EntityTypeMapping>
     </EntitySetMapping>
     <EntitySetMapping Name="PhasesStatus">
-      <EntityTypeMapping TypeName="DatacastModel.PhasesStatu">
+      <EntityTypeMapping TypeName="LDBTESTModel.PhasesStatu">
         <MappingFragment StoreEntitySet="PhasesStatus">
           <ScalarProperty Name="PhseID" ColumnName="PhseID" />
           <ScalarProperty Name="PhaseDate" ColumnName="PhaseDate" />
@@ -298,7 +298,7 @@
       </EntityTypeMapping>
     </EntitySetMapping>
     <EntitySetMapping Name="ShortCodes">
-      <EntityTypeMapping TypeName="DatacastModel.ShortCode">
+      <EntityTypeMapping TypeName="LDBTESTModel.ShortCode">
         <MappingFragment StoreEntitySet="ShortCodes">
           <ScalarProperty Name="ShortCodesID" ColumnName="ShortCodesID" />
           <ScalarProperty Name="WorkBook" ColumnName="WorkBook" />
@@ -308,7 +308,7 @@
       </EntityTypeMapping>
     </EntitySetMapping>
     <EntitySetMapping Name="TEMP_CompanyReporting_Logic">
-      <EntityTypeMapping TypeName="DatacastModel.TEMP_CompanyReporting_Logic">
+      <EntityTypeMapping TypeName="LDBTESTModel.TEMP_CompanyReporting_Logic">
         <MappingFragment StoreEntitySet="TEMP_CompanyReporting_Logic">
           <ScalarProperty Name="ID" ColumnName="ID" />
           <ScalarProperty Name="SourceID" ColumnName="SourceID" />
@@ -335,7 +335,7 @@
       </EntityTypeMapping>
     </EntitySetMapping>
     <EntitySetMapping Name="TEMP_CompanyReporting_Logic_Portal">
-      <EntityTypeMapping TypeName="DatacastModel.TEMP_CompanyReporting_Logic_Portal">
+      <EntityTypeMapping TypeName="LDBTESTModel.TEMP_CompanyReporting_Logic_Portal">
         <MappingFragment StoreEntitySet="TEMP_CompanyReporting_Logic_Portal">
           <ScalarProperty Name="ID" ColumnName="ID" />
           <ScalarProperty Name="SourceID" ColumnName="SourceID" />
@@ -361,7 +361,7 @@
       </EntityTypeMapping>
     </EntitySetMapping>
     <EntitySetMapping Name="TempTables">
-      <EntityTypeMapping TypeName="DatacastModel.TempTable">
+      <EntityTypeMapping TypeName="LDBTESTModel.TempTable">
         <MappingFragment StoreEntitySet="TempTable">
           <ScalarProperty Name="TempTableID" ColumnName="TempTableID" />
           <ScalarProperty Name="ShortCode" ColumnName="ShortCode" />
@@ -375,7 +375,7 @@
       </EntityTypeMapping>
     </EntitySetMapping>
     <EntitySetMapping Name="TempTableForRawDatas">
-      <EntityTypeMapping TypeName="DatacastModel.TempTableForRawData">
+      <EntityTypeMapping TypeName="LDBTESTModel.TempTableForRawData">
         <MappingFragment StoreEntitySet="TempTableForRawData">
           <ScalarProperty Name="TempTableID" ColumnName="TempTableID" />
           <ScalarProperty Name="ShortCode" ColumnName="ShortCode" />
@@ -387,7 +387,7 @@
       </EntityTypeMapping>
     </EntitySetMapping>
     <EntitySetMapping Name="UI_ForeCastData">
-      <EntityTypeMapping TypeName="DatacastModel.UI_ForeCastData">
+      <EntityTypeMapping TypeName="LDBTESTModel.UI_ForeCastData">
         <MappingFragment StoreEntitySet="UI_ForeCastData">
           <ScalarProperty Name="ForeCastDataID" ColumnName="ForeCastDataID" />
           <ScalarProperty Name="ForeCastMetaDataID" ColumnName="ForeCastMetaDataID" />
@@ -412,7 +412,7 @@
       </EntityTypeMapping>
     </EntitySetMapping>
     <EntitySetMapping Name="UI_ForeCastMetaData">
-      <EntityTypeMapping TypeName="DatacastModel.UI_ForeCastMetaData">
+      <EntityTypeMapping TypeName="LDBTESTModel.UI_ForeCastMetaData">
         <MappingFragment StoreEntitySet="UI_ForeCastMetaData">
           <ScalarProperty Name="ForeCastMetaDataID" ColumnName="ForeCastMetaDataID" />
           <ScalarProperty Name="ShortCode" ColumnName="ShortCode" />
@@ -426,7 +426,7 @@
       </EntityTypeMapping>
     </EntitySetMapping>
     <EntitySetMapping Name="VWTBL_COMPANY">
-      <EntityTypeMapping TypeName="DatacastModel.VWTBL_COMPANY">
+      <EntityTypeMapping TypeName="LDBTESTModel.VWTBL_COMPANY">
         <MappingFragment StoreEntitySet="VWTBL_COMPANY">
           <ScalarProperty Name="MonthYear" ColumnName="MonthYear" />
           <ScalarProperty Name="Sales" ColumnName="Sales" />
@@ -444,7 +444,7 @@
       </EntityTypeMapping>
     </EntitySetMapping>
     <EntitySetMapping Name="VWTBL_COMPANY_PORTAL">
-      <EntityTypeMapping TypeName="DatacastModel.VWTBL_COMPANY_PORTAL">
+      <EntityTypeMapping TypeName="LDBTESTModel.VWTBL_COMPANY_PORTAL">
         <MappingFragment StoreEntitySet="VWTBL_COMPANY_PORTAL">
           <ScalarProperty Name="ID" ColumnName="ID" />
           <ScalarProperty Name="MonthYear" ColumnName="MonthYear" />
@@ -462,7 +462,7 @@
       </EntityTypeMapping>
     </EntitySetMapping>
     <EntitySetMapping Name="VWTBL_INDICATOR">
-      <EntityTypeMapping TypeName="DatacastModel.VWTBL_INDICATOR">
+      <EntityTypeMapping TypeName="LDBTESTModel.VWTBL_INDICATOR">
         <MappingFragment StoreEntitySet="VWTBL_INDICATOR">
           <ScalarProperty Name="MonthYear" ColumnName="MonthYear" />
           <ScalarProperty Name="C1By12" ColumnName="1By12" />
@@ -484,7 +484,7 @@
       </EntityTypeMapping>
     </EntitySetMapping>
     <EntitySetMapping Name="Alliances">
-      <EntityTypeMapping TypeName="DatacastModel.Alliance">
+      <EntityTypeMapping TypeName="LDBTESTModel.Alliance">
         <MappingFragment StoreEntitySet="Alliance">
           <ScalarProperty Name="ShortCode" ColumnName="ShortCode" />
           <ScalarProperty Name="QuickBaseID" ColumnName="QuickBaseID" />
@@ -493,7 +493,7 @@
       </EntityTypeMapping>
     </EntitySetMapping>
     <EntitySetMapping Name="Categories">
-      <EntityTypeMapping TypeName="DatacastModel.Category">
+      <EntityTypeMapping TypeName="LDBTESTModel.Category">
         <MappingFragment StoreEntitySet="Categories">
           <ScalarProperty Name="CategoryID" ColumnName="CategoryID" />
           <ScalarProperty Name="CategoryName" ColumnName="CategoryName" />
@@ -502,7 +502,7 @@
       </EntityTypeMapping>
     </EntitySetMapping>
     <EntitySetMapping Name="CategoryDropDowns">
-      <EntityTypeMapping TypeName="DatacastModel.CategoryDropDown">
+      <EntityTypeMapping TypeName="LDBTESTModel.CategoryDropDown">
         <MappingFragment StoreEntitySet="CategoryDropDown">
           <ScalarProperty Name="CatDrpDnID" ColumnName="CatDrpDnID" />
           <ScalarProperty Name="DrpDwnName" ColumnName="DrpDwnName" />
@@ -515,7 +515,7 @@
       </EntityTypeMapping>
     </EntitySetMapping>
     <EntitySetMapping Name="CompaniesLists">
-      <EntityTypeMapping TypeName="DatacastModel.CompaniesList">
+      <EntityTypeMapping TypeName="LDBTESTModel.CompaniesList">
         <MappingFragment StoreEntitySet="CompaniesList">
           <ScalarProperty Name="Sysid" ColumnName="Sysid" />
           <ScalarProperty Name="F2" ColumnName="F2" />
@@ -536,7 +536,7 @@
       </EntityTypeMapping>
     </EntitySetMapping>
     <EntitySetMapping Name="CompanyLists">
-      <EntityTypeMapping TypeName="DatacastModel.CompanyList">
+      <EntityTypeMapping TypeName="LDBTESTModel.CompanyList">
         <MappingFragment StoreEntitySet="CompanyList">
           <ScalarProperty Name="F2" ColumnName="F2" />
           <ScalarProperty Name="F3" ColumnName="F3" />
@@ -562,7 +562,7 @@
       </EntityTypeMapping>
     </EntitySetMapping>
     <EntitySetMapping Name="CompanyMasterMetaDatas">
-      <EntityTypeMapping TypeName="DatacastModel.CompanyMasterMetaData">
+      <EntityTypeMapping TypeName="LDBTESTModel.CompanyMasterMetaData">
         <MappingFragment StoreEntitySet="CompanyMasterMetaData">
           <ScalarProperty Name="CompanyMasterMetadataID" ColumnName="CompanyMasterMetadataID" />
           <ScalarProperty Name="WorkBook" ColumnName="WorkBook" />
@@ -586,7 +586,7 @@
       </EntityTypeMapping>
     </EntitySetMapping>
     <EntitySetMapping Name="CompanyShortCodes">
-      <EntityTypeMapping TypeName="DatacastModel.CompanyShortCode">
+      <EntityTypeMapping TypeName="LDBTESTModel.CompanyShortCode">
         <MappingFragment StoreEntitySet="CompanyShortCodes">
           <ScalarProperty Name="ShortCodesID" ColumnName="ShortCodesID" />
           <ScalarProperty Name="WorkBook" ColumnName="WorkBook" />
@@ -596,7 +596,7 @@
       </EntityTypeMapping>
     </EntitySetMapping>
     <EntitySetMapping Name="CompanyStagingLoadInfoes">
-      <EntityTypeMapping TypeName="DatacastModel.CompanyStagingLoadInfo">
+      <EntityTypeMapping TypeName="LDBTESTModel.CompanyStagingLoadInfo">
         <MappingFragment StoreEntitySet="CompanyStagingLoadInfo">
           <ScalarProperty Name="StagingLoadInfoID" ColumnName="StagingLoadInfoID" />
           <ScalarProperty Name="LoadDate" ColumnName="LoadDate" />
@@ -611,7 +611,7 @@
       </EntityTypeMapping>
     </EntitySetMapping>
     <EntitySetMapping Name="Continents">
-      <EntityTypeMapping TypeName="DatacastModel.Continent">
+      <EntityTypeMapping TypeName="LDBTESTModel.Continent">
         <MappingFragment StoreEntitySet="Continent">
           <ScalarProperty Name="ContinentID" ColumnName="ContinentID" />
           <ScalarProperty Name="ContinentName" ColumnName="ContinentName" />
@@ -619,7 +619,7 @@
       </EntityTypeMapping>
     </EntitySetMapping>
     <EntitySetMapping Name="Countries">
-      <EntityTypeMapping TypeName="DatacastModel.Country">
+      <EntityTypeMapping TypeName="LDBTESTModel.Country">
         <MappingFragment StoreEntitySet="Country">
           <ScalarProperty Name="CountryID" ColumnName="CountryID" />
           <ScalarProperty Name="CountryName" ColumnName="CountryName" />
@@ -629,7 +629,7 @@
       </EntityTypeMapping>
     </EntitySetMapping>
     <EntitySetMapping Name="Customers">
-      <EntityTypeMapping TypeName="DatacastModel.Customer">
+      <EntityTypeMapping TypeName="LDBTESTModel.Customer">
         <MappingFragment StoreEntitySet="Customer">
           <ScalarProperty Name="CustomerProdId" ColumnName="CustomerProdId" />
           <ScalarProperty Name="CustomerName" ColumnName="CustomerName" />
@@ -646,7 +646,7 @@
       </EntityTypeMapping>
     </EntitySetMapping>
     <EntitySetMapping Name="CustomerDatasetsProcesses">
-      <EntityTypeMapping TypeName="DatacastModel.CustomerDatasetsProcess">
+      <EntityTypeMapping TypeName="LDBTESTModel.CustomerDatasetsProcess">
         <MappingFragment StoreEntitySet="CustomerDatasetsProcess">
           <ScalarProperty Name="ProcessID" ColumnName="ProcessID" />
           <ScalarProperty Name="CustomerDatasetID" ColumnName="CustomerDatasetID" />
@@ -656,7 +656,7 @@
       </EntityTypeMapping>
     </EntitySetMapping>
     <EntitySetMapping Name="CustomerDatasetsProcess_Schedule">
-      <EntityTypeMapping TypeName="DatacastModel.CustomerDatasetsProcess_Schedule">
+      <EntityTypeMapping TypeName="LDBTESTModel.CustomerDatasetsProcess_Schedule">
         <MappingFragment StoreEntitySet="CustomerDatasetsProcess_Schedule">
           <ScalarProperty Name="ProcessID" ColumnName="ProcessID" />
           <ScalarProperty Name="CustomerDatasetID" ColumnName="CustomerDatasetID" />
@@ -666,7 +666,7 @@
       </EntityTypeMapping>
     </EntitySetMapping>
     <EntitySetMapping Name="DateRanges">
-      <EntityTypeMapping TypeName="DatacastModel.DateRanx">
+      <EntityTypeMapping TypeName="LDBTESTModel.DateRanx">
         <MappingFragment StoreEntitySet="DateRanges">
           <ScalarProperty Name="DateID" ColumnName="DateID" />
           <ScalarProperty Name="DateValue" ColumnName="DateValue" />
@@ -674,14 +674,14 @@
       </EntityTypeMapping>
     </EntitySetMapping>
     <EntitySetMapping Name="Dumpeds">
-      <EntityTypeMapping TypeName="DatacastModel.Dumped">
+      <EntityTypeMapping TypeName="LDBTESTModel.Dumped">
         <MappingFragment StoreEntitySet="Dumped">
           <ScalarProperty Name="ID" ColumnName="ID" />
         </MappingFragment>
       </EntityTypeMapping>
     </EntitySetMapping>
     <EntitySetMapping Name="ExceptionLogs">
-      <EntityTypeMapping TypeName="DatacastModel.ExceptionLog">
+      <EntityTypeMapping TypeName="LDBTESTModel.ExceptionLog">
         <MappingFragment StoreEntitySet="ExceptionLog">
           <ScalarProperty Name="ExceptionID" ColumnName="ExceptionID" />
           <ScalarProperty Name="CustomerID" ColumnName="CustomerID" />
@@ -693,7 +693,7 @@
       </EntityTypeMapping>
     </EntitySetMapping>
     <EntitySetMapping Name="FavouriteLists">
-      <EntityTypeMapping TypeName="DatacastModel.FavouriteList">
+      <EntityTypeMapping TypeName="LDBTESTModel.FavouriteList">
         <MappingFragment StoreEntitySet="FavouriteList">
           <ScalarProperty Name="CompanyShortCode" ColumnName="CompanyShortCode" />
           <ScalarProperty Name="IndicatorShortCode" ColumnName="IndicatorShortCode" />
@@ -707,7 +707,7 @@
       </EntityTypeMapping>
     </EntitySetMapping>
     <EntitySetMapping Name="FlowTests">
-      <EntityTypeMapping TypeName="DatacastModel.FlowTest">
+      <EntityTypeMapping TypeName="LDBTESTModel.FlowTest">
         <MappingFragment StoreEntitySet="FlowTest">
           <ScalarProperty Name="FlowTestID" ColumnName="FlowTestID" />
           <ScalarProperty Name="CreatedDate" ColumnName="CreatedDate" />
@@ -717,7 +717,7 @@
       </EntityTypeMapping>
     </EntitySetMapping>
     <EntitySetMapping Name="ForeCastCheckDatas">
-      <EntityTypeMapping TypeName="DatacastModel.ForeCastCheckData">
+      <EntityTypeMapping TypeName="LDBTESTModel.ForeCastCheckData">
         <MappingFragment StoreEntitySet="ForeCastCheckData">
           <ScalarProperty Name="ForeCastCheckDataID" ColumnName="ForeCastCheckDataID" />
           <ScalarProperty Name="ForeCastMetaDataID" ColumnName="ForeCastMetaDataID" />
@@ -729,7 +729,7 @@
       </EntityTypeMapping>
     </EntitySetMapping>
     <EntitySetMapping Name="IndicatorLists">
-      <EntityTypeMapping TypeName="DatacastModel.IndicatorList">
+      <EntityTypeMapping TypeName="LDBTESTModel.IndicatorList">
         <MappingFragment StoreEntitySet="IndicatorList">
           <ScalarProperty Name="F2" ColumnName="F2" />
           <ScalarProperty Name="F3" ColumnName="F3" />
@@ -755,7 +755,7 @@
       </EntityTypeMapping>
     </EntitySetMapping>
     <EntitySetMapping Name="Industries">
-      <EntityTypeMapping TypeName="DatacastModel.Industry">
+      <EntityTypeMapping TypeName="LDBTESTModel.Industry">
         <MappingFragment StoreEntitySet="Industry">
           <ScalarProperty Name="PRODIndicatorID" ColumnName="PRODIndicatorID" />
           <ScalarProperty Name="MonthYear" ColumnName="MonthYear" />
@@ -773,7 +773,7 @@
       </EntityTypeMapping>
     </EntitySetMapping>
     <EntitySetMapping Name="MasterMetaData_Backup">
-      <EntityTypeMapping TypeName="DatacastModel.MasterMetaData_Backup">
+      <EntityTypeMapping TypeName="LDBTESTModel.MasterMetaData_Backup">
         <MappingFragment StoreEntitySet="MasterMetaData_Backup">
           <ScalarProperty Name="MasterMetadataID" ColumnName="MasterMetadataID" />
           <ScalarProperty Name="WorkBook" ColumnName="WorkBook" />
@@ -815,14 +815,14 @@
       </EntityTypeMapping>
     </EntitySetMapping>
     <EntitySetMapping Name="Months">
-      <EntityTypeMapping TypeName="DatacastModel.Month">
+      <EntityTypeMapping TypeName="LDBTESTModel.Month">
         <MappingFragment StoreEntitySet="Months">
           <ScalarProperty Name="Month1" ColumnName="Month" />
         </MappingFragment>
       </EntityTypeMapping>
     </EntitySetMapping>
     <EntitySetMapping Name="Notifies">
-      <EntityTypeMapping TypeName="DatacastModel.Notify">
+      <EntityTypeMapping TypeName="LDBTESTModel.Notify">
         <MappingFragment StoreEntitySet="Notify">
           <ScalarProperty Name="NotifyID" ColumnName="NotifyID" />
           <ScalarProperty Name="UserEMail" ColumnName="UserEMail" />
@@ -836,7 +836,7 @@
       </EntityTypeMapping>
     </EntitySetMapping>
     <EntitySetMapping Name="NotifyDevs">
-      <EntityTypeMapping TypeName="DatacastModel.NotifyDev">
+      <EntityTypeMapping TypeName="LDBTESTModel.NotifyDev">
         <MappingFragment StoreEntitySet="NotifyDev">
           <ScalarProperty Name="NotifyID" ColumnName="NotifyID" />
           <ScalarProperty Name="UserEMail" ColumnName="UserEMail" />
@@ -850,7 +850,7 @@
       </EntityTypeMapping>
     </EntitySetMapping>
     <EntitySetMapping Name="PaidForecasts">
-      <EntityTypeMapping TypeName="DatacastModel.PaidForecast">
+      <EntityTypeMapping TypeName="LDBTESTModel.PaidForecast">
         <MappingFragment StoreEntitySet="PaidForecast">
           <ScalarProperty Name="PaidForecastID" ColumnName="PaidForecastID" />
           <ScalarProperty Name="CustomerID" ColumnName="CustomerID" />
@@ -864,7 +864,7 @@
       </EntityTypeMapping>
     </EntitySetMapping>
     <EntitySetMapping Name="PopupAccesses">
-      <EntityTypeMapping TypeName="DatacastModel.PopupAccess">
+      <EntityTypeMapping TypeName="LDBTESTModel.PopupAccess">
         <MappingFragment StoreEntitySet="PopupAccess">
           <ScalarProperty Name="UserID" ColumnName="UserID" />
           <ScalarProperty Name="CompanyDataSet" ColumnName="CompanyDataSet" />
@@ -875,7 +875,7 @@
       </EntityTypeMapping>
     </EntitySetMapping>
     <EntitySetMapping Name="Products">
-      <EntityTypeMapping TypeName="DatacastModel.Product">
+      <EntityTypeMapping TypeName="LDBTESTModel.Product">
         <MappingFragment StoreEntitySet="Product">
           <ScalarProperty Name="ProductID" ColumnName="ProductID" />
           <ScalarProperty Name="ProductName" ColumnName="ProductName" />
@@ -885,7 +885,7 @@
       </EntityTypeMapping>
     </EntitySetMapping>
     <EntitySetMapping Name="Regions">
-      <EntityTypeMapping TypeName="DatacastModel.Region">
+      <EntityTypeMapping TypeName="LDBTESTModel.Region">
         <MappingFragment StoreEntitySet="Region">
           <ScalarProperty Name="RegionID" ColumnName="RegionID" />
           <ScalarProperty Name="RegionName" ColumnName="RegionName" />
@@ -894,7 +894,7 @@
       </EntityTypeMapping>
     </EntitySetMapping>
     <EntitySetMapping Name="ReleaseSchedules">
-      <EntityTypeMapping TypeName="DatacastModel.ReleaseSchedule">
+      <EntityTypeMapping TypeName="LDBTESTModel.ReleaseSchedule">
         <MappingFragment StoreEntitySet="ReleaseSchedule">
           <ScalarProperty Name="ReleaseScheduleID" ColumnName="ReleaseScheduleID" />
           <ScalarProperty Name="ReleaseNotes" ColumnName="ReleaseNotes" />
@@ -903,7 +903,7 @@
       </EntityTypeMapping>
     </EntitySetMapping>
     <EntitySetMapping Name="StagingCompanies">
-      <EntityTypeMapping TypeName="DatacastModel.StagingCompany">
+      <EntityTypeMapping TypeName="LDBTESTModel.StagingCompany">
         <MappingFragment StoreEntitySet="StagingCompany">
           <ScalarProperty Name="STAGCompanyID" ColumnName="STAGCompanyID" />
           <ScalarProperty Name="MonthYear" ColumnName="MonthYear" />
@@ -923,7 +923,7 @@
       </EntityTypeMapping>
     </EntitySetMapping>
     <EntitySetMapping Name="StagingCompanyDatas">
-      <EntityTypeMapping TypeName="DatacastModel.StagingCompanyData">
+      <EntityTypeMapping TypeName="LDBTESTModel.StagingCompanyData">
         <MappingFragment StoreEntitySet="StagingCompanyData">
           <ScalarProperty Name="ProdID" ColumnName="ProdID" />
           <ScalarProperty Name="MonthYear" ColumnName="MonthYear" />
@@ -937,7 +937,7 @@
       </EntityTypeMapping>
     </EntitySetMapping>
     <EntitySetMapping Name="StagingCompanyWebs">
-      <EntityTypeMapping TypeName="DatacastModel.StagingCompanyWeb">
+      <EntityTypeMapping TypeName="LDBTESTModel.StagingCompanyWeb">
         <MappingFragment StoreEntitySet="StagingCompanyWeb">
           <ScalarProperty Name="STAGCompanyID" ColumnName="STAGCompanyID" />
           <ScalarProperty Name="MonthYear" ColumnName="MonthYear" />
@@ -957,7 +957,7 @@
       </EntityTypeMapping>
     </EntitySetMapping>
     <EntitySetMapping Name="StagingForeCasts">
-      <EntityTypeMapping TypeName="DatacastModel.StagingForeCast">
+      <EntityTypeMapping TypeName="LDBTESTModel.StagingForeCast">
         <MappingFragment StoreEntitySet="StagingForeCast">
           <ScalarProperty Name="STAGForecastID" ColumnName="STAGForecastID" />
           <ScalarProperty Name="MonthYear" ColumnName="MonthYear" />
@@ -977,7 +977,7 @@
       </EntityTypeMapping>
     </EntitySetMapping>
     <EntitySetMapping Name="StagingForecastTests">
-      <EntityTypeMapping TypeName="DatacastModel.StagingForecastTest">
+      <EntityTypeMapping TypeName="LDBTESTModel.StagingForecastTest">
         <MappingFragment StoreEntitySet="StagingForecastTest">
           <ScalarProperty Name="Sysid" ColumnName="Sysid" />
           <ScalarProperty Name="MonthYear" ColumnName="MonthYear" />
@@ -1007,7 +1007,7 @@
       </EntityTypeMapping>
     </EntitySetMapping>
     <EntitySetMapping Name="StagingIndicatorTests">
-      <EntityTypeMapping TypeName="DatacastModel.StagingIndicatorTest">
+      <EntityTypeMapping TypeName="LDBTESTModel.StagingIndicatorTest">
         <MappingFragment StoreEntitySet="StagingIndicatorTest">
           <ScalarProperty Name="STAGIndicatorID" ColumnName="STAGIndicatorID" />
           <ScalarProperty Name="MonthYear" ColumnName="MonthYear" />
@@ -1032,7 +1032,7 @@
       </EntityTypeMapping>
     </EntitySetMapping>
     <EntitySetMapping Name="StagingIndicatorWebs">
-      <EntityTypeMapping TypeName="DatacastModel.StagingIndicatorWeb">
+      <EntityTypeMapping TypeName="LDBTESTModel.StagingIndicatorWeb">
         <MappingFragment StoreEntitySet="StagingIndicatorWeb">
           <ScalarProperty Name="STAGIndicatorID" ColumnName="STAGIndicatorID" />
           <ScalarProperty Name="MonthYear" ColumnName="MonthYear" />
@@ -1057,7 +1057,7 @@
       </EntityTypeMapping>
     </EntitySetMapping>
     <EntitySetMapping Name="StagingIndicatorWebForNewIndicators">
-      <EntityTypeMapping TypeName="DatacastModel.StagingIndicatorWebForNewIndicator">
+      <EntityTypeMapping TypeName="LDBTESTModel.StagingIndicatorWebForNewIndicator">
         <MappingFragment StoreEntitySet="StagingIndicatorWebForNewIndicator">
           <ScalarProperty Name="STAGIndicatorID" ColumnName="STAGIndicatorID" />
           <ScalarProperty Name="MonthYear" ColumnName="MonthYear" />
@@ -1082,7 +1082,7 @@
       </EntityTypeMapping>
     </EntitySetMapping>
     <EntitySetMapping Name="StagingLoadInfoes">
-      <EntityTypeMapping TypeName="DatacastModel.StagingLoadInfo">
+      <EntityTypeMapping TypeName="LDBTESTModel.StagingLoadInfo">
         <MappingFragment StoreEntitySet="StagingLoadInfo">
           <ScalarProperty Name="StagingLoadInfoID" ColumnName="StagingLoadInfoID" />
           <ScalarProperty Name="LoadDate" ColumnName="LoadDate" />
@@ -1097,7 +1097,7 @@
       </EntityTypeMapping>
     </EntitySetMapping>
     <EntitySetMapping Name="StateProvinces">
-      <EntityTypeMapping TypeName="DatacastModel.StateProvince">
+      <EntityTypeMapping TypeName="LDBTESTModel.StateProvince">
         <MappingFragment StoreEntitySet="StateProvince">
           <ScalarProperty Name="StateProvinceID" ColumnName="StateProvinceID" />
           <ScalarProperty Name="Name" ColumnName="Name" />
@@ -1109,7 +1109,7 @@
       </EntityTypeMapping>
     </EntitySetMapping>
     <EntitySetMapping Name="SubCategories">
-      <EntityTypeMapping TypeName="DatacastModel.SubCategory">
+      <EntityTypeMapping TypeName="LDBTESTModel.SubCategory">
         <MappingFragment StoreEntitySet="SubCategory">
           <ScalarProperty Name="SubCategoryID" ColumnName="SubCategoryID" />
           <ScalarProperty Name="SubCategoryDescription" ColumnName="SubCategoryDescription" />
@@ -1119,7 +1119,7 @@
       </EntityTypeMapping>
     </EntitySetMapping>
     <EntitySetMapping Name="SubProducts">
-      <EntityTypeMapping TypeName="DatacastModel.SubProduct">
+      <EntityTypeMapping TypeName="LDBTESTModel.SubProduct">
         <MappingFragment StoreEntitySet="SubProducts">
           <ScalarProperty Name="SubProductID" ColumnName="SubProductID" />
           <ScalarProperty Name="SubProductName" ColumnName="SubProductName" />
@@ -1129,7 +1129,7 @@
       </EntityTypeMapping>
     </EntitySetMapping>
     <EntitySetMapping Name="TEMP_IndicatorReporting_Logic">
-      <EntityTypeMapping TypeName="DatacastModel.TEMP_IndicatorReporting_Logic">
+      <EntityTypeMapping TypeName="LDBTESTModel.TEMP_IndicatorReporting_Logic">
         <MappingFragment StoreEntitySet="TEMP_IndicatorReporting_Logic">
           <ScalarProperty Name="ID" ColumnName="ID" />
           <ScalarProperty Name="SourceID" ColumnName="SourceID" />
@@ -1156,7 +1156,7 @@
       </EntityTypeMapping>
     </EntitySetMapping>
     <EntitySetMapping Name="Users">
-      <EntityTypeMapping TypeName="DatacastModel.User">
+      <EntityTypeMapping TypeName="LDBTESTModel.User">
         <MappingFragment StoreEntitySet="Users">
           <ScalarProperty Name="UserId" ColumnName="UserId" />
           <ScalarProperty Name="UserName" ColumnName="UserName" />
@@ -1166,101 +1166,263 @@
         </MappingFragment>
       </EntityTypeMapping>
     </EntitySetMapping>
-    <FunctionImportMapping FunctionName="DatacastModel.Store.f_split" FunctionImportName="f_split">
+    <EntitySetMapping Name="vwCompanyAVGs">
+      <EntityTypeMapping TypeName="LDBTESTModel.vwCompanyAVG">
+        <MappingFragment StoreEntitySet="vwCompanyAVG">
+          <ScalarProperty Name="MonthYear" ColumnName="MonthYear" />
+          <ScalarProperty Name="Sales" ColumnName="Sales" />
+          <ScalarProperty Name="C1By12" ColumnName="1By12" />
+          <ScalarProperty Name="C3MMT" ColumnName="3MMT" />
+          <ScalarProperty Name="C3BY12" ColumnName="3BY12" />
+          <ScalarProperty Name="C3MMA" ColumnName="3MMA" />
+          <ScalarProperty Name="C12MMT" ColumnName="12MMT" />
+          <ScalarProperty Name="C12BY12" ColumnName="12BY12" />
+          <ScalarProperty Name="C12MMA" ColumnName="12MMA" />
+          <ScalarProperty Name="SHORTCODE" ColumnName="SHORTCODE" />
+          <ScalarProperty Name="CompanyName" ColumnName="CompanyName" />
+          <ScalarProperty Name="Monthly" ColumnName="Monthly" />
+          <ScalarProperty Name="Forecast" ColumnName="Forecast" />
+          <ScalarProperty Name="Range" ColumnName="Range" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="vwCompanyForecasts">
+      <EntityTypeMapping TypeName="LDBTESTModel.vwCompanyForecast">
+        <MappingFragment StoreEntitySet="vwCompanyForecast">
+          <ScalarProperty Name="MetaDataID" ColumnName="MetaDataID" />
+          <ScalarProperty Name="MonthYear" ColumnName="MonthYear" />
+          <ScalarProperty Name="Sales" ColumnName="Sales" />
+          <ScalarProperty Name="C1By12" ColumnName="1By12" />
+          <ScalarProperty Name="C3MMT" ColumnName="3MMT" />
+          <ScalarProperty Name="C3BY12" ColumnName="3BY12" />
+          <ScalarProperty Name="C3MMA" ColumnName="3MMA" />
+          <ScalarProperty Name="C12MMT" ColumnName="12MMT" />
+          <ScalarProperty Name="C12BY12" ColumnName="12BY12" />
+          <ScalarProperty Name="C12MMA" ColumnName="12MMA" />
+          <ScalarProperty Name="SHORTCODE" ColumnName="SHORTCODE" />
+          <ScalarProperty Name="CompanyName" ColumnName="CompanyName" />
+          <ScalarProperty Name="Monthly" ColumnName="Monthly" />
+          <ScalarProperty Name="Forecast" ColumnName="Forecast" />
+          <ScalarProperty Name="Range" ColumnName="Range" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="vwCustomers">
+      <EntityTypeMapping TypeName="LDBTESTModel.vwCustomer">
+        <MappingFragment StoreEntitySet="vwCustomer">
+          <ScalarProperty Name="DatasetID" ColumnName="DatasetID" />
+          <ScalarProperty Name="DatasetShortcode" ColumnName="DatasetShortcode" />
+          <ScalarProperty Name="AccountID" ColumnName="AccountID" />
+          <ScalarProperty Name="AccountName" ColumnName="AccountName" />
+          <ScalarProperty Name="DivisionId" ColumnName="DivisionId" />
+          <ScalarProperty Name="DivisionName" ColumnName="DivisionName" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="vwDataSets">
+      <EntityTypeMapping TypeName="LDBTESTModel.vwDataSet">
+        <MappingFragment StoreEntitySet="vwDataSet">
+          <ScalarProperty Name="DatasetID" ColumnName="DatasetID" />
+          <ScalarProperty Name="DatasetShortcode" ColumnName="DatasetShortcode" />
+          <ScalarProperty Name="AccountID" ColumnName="AccountID" />
+          <ScalarProperty Name="AccountName" ColumnName="AccountName" />
+          <ScalarProperty Name="DivisionId" ColumnName="DivisionId" />
+          <ScalarProperty Name="DivisionName" ColumnName="DivisionName" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="vwIndicatorAVGs">
+      <EntityTypeMapping TypeName="LDBTESTModel.vwIndicatorAVG">
+        <MappingFragment StoreEntitySet="vwIndicatorAVG">
+          <ScalarProperty Name="MonthYear" ColumnName="MonthYear" />
+          <ScalarProperty Name="Sales" ColumnName="Sales" />
+          <ScalarProperty Name="C1By12" ColumnName="1By12" />
+          <ScalarProperty Name="C3MMT" ColumnName="3MMT" />
+          <ScalarProperty Name="C3BY12" ColumnName="3BY12" />
+          <ScalarProperty Name="C3MMA" ColumnName="3MMA" />
+          <ScalarProperty Name="C12MMT" ColumnName="12MMT" />
+          <ScalarProperty Name="C12BY12" ColumnName="12BY12" />
+          <ScalarProperty Name="C12MMA" ColumnName="12MMA" />
+          <ScalarProperty Name="SHORTCODE" ColumnName="SHORTCODE" />
+          <ScalarProperty Name="IndicatorName" ColumnName="IndicatorName" />
+          <ScalarProperty Name="Monthly" ColumnName="Monthly" />
+          <ScalarProperty Name="Forecast" ColumnName="Forecast" />
+          <ScalarProperty Name="Range" ColumnName="Range" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="vwIndicatorForecasts">
+      <EntityTypeMapping TypeName="LDBTESTModel.vwIndicatorForecast">
+        <MappingFragment StoreEntitySet="vwIndicatorForecast">
+          <ScalarProperty Name="MetaDataID" ColumnName="MetaDataID" />
+          <ScalarProperty Name="MonthYear" ColumnName="MonthYear" />
+          <ScalarProperty Name="Sales" ColumnName="Sales" />
+          <ScalarProperty Name="C1By12" ColumnName="1By12" />
+          <ScalarProperty Name="C3MMT" ColumnName="3MMT" />
+          <ScalarProperty Name="C3BY12" ColumnName="3BY12" />
+          <ScalarProperty Name="C3MMA" ColumnName="3MMA" />
+          <ScalarProperty Name="C12MMT" ColumnName="12MMT" />
+          <ScalarProperty Name="C12BY12" ColumnName="12BY12" />
+          <ScalarProperty Name="C12MMA" ColumnName="12MMA" />
+          <ScalarProperty Name="SHORTCODE" ColumnName="SHORTCODE" />
+          <ScalarProperty Name="IndicatorName" ColumnName="IndicatorName" />
+          <ScalarProperty Name="Monthly" ColumnName="Monthly" />
+          <ScalarProperty Name="Forecast" ColumnName="Forecast" />
+          <ScalarProperty Name="Range" ColumnName="Range" />
+          <ScalarProperty Name="Phases" ColumnName="Phases" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="vwSelectIndicators">
+      <EntityTypeMapping TypeName="LDBTESTModel.vwSelectIndicator">
+        <MappingFragment StoreEntitySet="vwSelectIndicator">
+          <ScalarProperty Name="ProdIndicatorId" ColumnName="ProdIndicatorId" />
+          <ScalarProperty Name="MonthYear" ColumnName="MonthYear" />
+          <ScalarProperty Name="RawValue" ColumnName="RawValue" />
+          <ScalarProperty Name="AdjValue" ColumnName="AdjValue" />
+          <ScalarProperty Name="UpdateReason" ColumnName="UpdateReason" />
+          <ScalarProperty Name="ValueStartDate" ColumnName="ValueStartDate" />
+          <ScalarProperty Name="ValueEndDate" ColumnName="ValueEndDate" />
+          <ScalarProperty Name="CurrentFlag" ColumnName="CurrentFlag" />
+          <ScalarProperty Name="CreatedBy" ColumnName="CreatedBy" />
+          <ScalarProperty Name="CreatedDate" ColumnName="CreatedDate" />
+          <ScalarProperty Name="ModifiedBy" ColumnName="ModifiedBy" />
+          <ScalarProperty Name="ModifiedDate" ColumnName="ModifiedDate" />
+          <ScalarProperty Name="MasterMetadataID" ColumnName="MasterMetadataID" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="vwTableaux">
+      <EntityTypeMapping TypeName="LDBTESTModel.vwTableau">
+        <MappingFragment StoreEntitySet="vwTableau">
+          <ScalarProperty Name="DataType" ColumnName="DataType" />
+          <ScalarProperty Name="Company_Name" ColumnName="Company_Name" />
+          <ScalarProperty Name="DB_AccountID" ColumnName="DB_AccountID" />
+          <ScalarProperty Name="AccountName" ColumnName="AccountName" />
+          <ScalarProperty Name="DB_DivisionID" ColumnName="DB_DivisionID" />
+          <ScalarProperty Name="DivisionName" ColumnName="DivisionName" />
+          <ScalarProperty Name="Indicator" ColumnName="Indicator" />
+          <ScalarProperty Name="Indicator_Name" ColumnName="Indicator_Name" />
+          <ScalarProperty Name="lagValue" ColumnName="lagValue" />
+          <ScalarProperty Name="CorrValue" ColumnName="CorrValue" />
+          <ScalarProperty Name="Date" ColumnName="Date" />
+          <ScalarProperty Name="Sales" ColumnName="Sales" />
+          <ScalarProperty Name="C1BY12_Indicator" ColumnName="1BY12 Indicator" />
+          <ScalarProperty Name="C3MMT_Indicator" ColumnName="3MMT Indicator" />
+          <ScalarProperty Name="C3BY12_Indicator" ColumnName="3BY12 Indicator" />
+          <ScalarProperty Name="C3MMA_Indicator" ColumnName="3MMA Indicator" />
+          <ScalarProperty Name="C12MMT_Indicator" ColumnName="12MMT Indicator" />
+          <ScalarProperty Name="C12BY12_Indicator" ColumnName="12BY12 Indicator" />
+          <ScalarProperty Name="C12MMA_Indicator" ColumnName="12MMA Indicator" />
+          <ScalarProperty Name="Monthly_Indicator" ColumnName="Monthly_Indicator" />
+          <ScalarProperty Name="C1BY12_Company" ColumnName="1BY12 Company" />
+          <ScalarProperty Name="C3MMT_Company" ColumnName="3MMT Company" />
+          <ScalarProperty Name="C3BY12_Company" ColumnName="3BY12 Company" />
+          <ScalarProperty Name="C3MMA_Company" ColumnName="3MMA Company" />
+          <ScalarProperty Name="C12MMT_Company" ColumnName="12MMT Company" />
+          <ScalarProperty Name="C12BY12_Company" ColumnName="12BY12 Company" />
+          <ScalarProperty Name="C12MMA_Company" ColumnName="12MMA Company" />
+          <ScalarProperty Name="Monthly_Company" ColumnName="Monthly_Company" />
+          <ScalarProperty Name="Forecast" ColumnName="Forecast" />
+          <ScalarProperty Name="Range" ColumnName="Range" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <FunctionImportMapping FunctionName="LDBTESTModel.Store.f_split" FunctionImportName="f_split">
       <ResultMapping>
-        <ComplexTypeMapping TypeName="DatacastModel.f_split_Result">
+        <ComplexTypeMapping TypeName="LDBTESTModel.f_split_Result">
           <ScalarProperty Name="val" ColumnName="val" />
           <ScalarProperty Name="seq" ColumnName="seq" />
         </ComplexTypeMapping>
       </ResultMapping>
     </FunctionImportMapping>
-    <FunctionImportMapping FunctionName="DatacastModel.Store.Split" FunctionImportName="Split">
+    <FunctionImportMapping FunctionName="LDBTESTModel.Store.Split" FunctionImportName="Split">
       <ResultMapping>
-        <ComplexTypeMapping TypeName="DatacastModel.Split_Result">
+        <ComplexTypeMapping TypeName="LDBTESTModel.Split_Result">
           <ScalarProperty Name="Id" ColumnName="Id" />
           <ScalarProperty Name="Data" ColumnName="Data" />
         </ComplexTypeMapping>
       </ResultMapping>
     </FunctionImportMapping>
-    <FunctionImportMapping FunctionImportName="GetCompany" FunctionName="DatacastModel.Store.GetCompany" />
-    <FunctionImportMapping FunctionImportName="GetIndicator" FunctionName="DatacastModel.Store.GetIndicator" />
-    <FunctionImportMapping FunctionImportName="sp_CheckLogin" FunctionName="DatacastModel.Store.sp_CheckLogin">
+    <FunctionImportMapping FunctionImportName="GetCompany" FunctionName="LDBTESTModel.Store.GetCompany" />
+    <FunctionImportMapping FunctionImportName="GetIndicator" FunctionName="LDBTESTModel.Store.GetIndicator" />
+    <FunctionImportMapping FunctionImportName="sp_CheckLogin" FunctionName="LDBTESTModel.Store.sp_CheckLogin">
       <ResultMapping>
-        <ComplexTypeMapping TypeName="DatacastModel.sp_CheckLogin_Result">
+        <ComplexTypeMapping TypeName="LDBTESTModel.sp_CheckLogin_Result">
           <ScalarProperty Name="UserName" ColumnName="UserName" />
           <ScalarProperty Name="Password" ColumnName="Password" />
         </ComplexTypeMapping>
       </ResultMapping>
     </FunctionImportMapping>
-    <FunctionImportMapping FunctionImportName="SP_DataIntegrity_Company_CalcNulls" FunctionName="DatacastModel.Store.SP_DataIntegrity_Company_CalcNulls" />
-    <FunctionImportMapping FunctionImportName="SP_DataIntegrity_Company_InIndicator" FunctionName="DatacastModel.Store.SP_DataIntegrity_Company_InIndicator" />
-    <FunctionImportMapping FunctionImportName="SP_DataIntegrity_Company_MissingMonths" FunctionName="DatacastModel.Store.SP_DataIntegrity_Company_MissingMonths" />
-    <FunctionImportMapping FunctionImportName="SP_DataIntegrity_Company_Noon" FunctionName="DatacastModel.Store.SP_DataIntegrity_Company_Noon" />
-    <FunctionImportMapping FunctionImportName="SP_DataIntegrity_CompPortal_CalcNulls" FunctionName="DatacastModel.Store.SP_DataIntegrity_CompPortal_CalcNulls" />
-    <FunctionImportMapping FunctionImportName="SP_DataIntegrity_CompPortal_MissingMonths" FunctionName="DatacastModel.Store.SP_DataIntegrity_CompPortal_MissingMonths" />
-    <FunctionImportMapping FunctionImportName="SP_DataIntegrity_CompPortal_Noon" FunctionName="DatacastModel.Store.SP_DataIntegrity_CompPortal_Noon" />
-    <FunctionImportMapping FunctionImportName="SP_DataIntegrity_Forecast_MissingPhases" FunctionName="DatacastModel.Store.SP_DataIntegrity_Forecast_MissingPhases" />
-    <FunctionImportMapping FunctionImportName="SP_DataIntegrity_Indicator_BPNulls" FunctionName="DatacastModel.Store.SP_DataIntegrity_Indicator_BPNulls" />
-    <FunctionImportMapping FunctionImportName="SP_DataIntegrity_Indicator_CalcNulls" FunctionName="DatacastModel.Store.SP_DataIntegrity_Indicator_CalcNulls" />
-    <FunctionImportMapping FunctionImportName="SP_DataIntegrity_Indicator_CurrentAnnually" FunctionName="DatacastModel.Store.SP_DataIntegrity_Indicator_CurrentAnnually" />
-    <FunctionImportMapping FunctionImportName="SP_DataIntegrity_Indicator_CurrentMonthly" FunctionName="DatacastModel.Store.SP_DataIntegrity_Indicator_CurrentMonthly" />
-    <FunctionImportMapping FunctionImportName="SP_DataIntegrity_Indicator_CurrentQuarterly" FunctionName="DatacastModel.Store.SP_DataIntegrity_Indicator_CurrentQuarterly" />
-    <FunctionImportMapping FunctionImportName="SP_DataIntegrity_Indicator_MissingMonths" FunctionName="DatacastModel.Store.SP_DataIntegrity_Indicator_MissingMonths" />
-    <FunctionImportMapping FunctionImportName="SP_DataIntegrity_Indicator_Noon" FunctionName="DatacastModel.Store.SP_DataIntegrity_Indicator_Noon" />
-    <FunctionImportMapping FunctionImportName="sp_deleteFromDataCastLists" FunctionName="DatacastModel.Store.sp_deleteFromDataCastLists">
+    <FunctionImportMapping FunctionImportName="SP_DataIntegrity_Company_CalcNulls" FunctionName="LDBTESTModel.Store.SP_DataIntegrity_Company_CalcNulls" />
+    <FunctionImportMapping FunctionImportName="SP_DataIntegrity_Company_InIndicator" FunctionName="LDBTESTModel.Store.SP_DataIntegrity_Company_InIndicator" />
+    <FunctionImportMapping FunctionImportName="SP_DataIntegrity_Company_MissingMonths" FunctionName="LDBTESTModel.Store.SP_DataIntegrity_Company_MissingMonths" />
+    <FunctionImportMapping FunctionImportName="SP_DataIntegrity_Company_Noon" FunctionName="LDBTESTModel.Store.SP_DataIntegrity_Company_Noon" />
+    <FunctionImportMapping FunctionImportName="SP_DataIntegrity_CompPortal_CalcNulls" FunctionName="LDBTESTModel.Store.SP_DataIntegrity_CompPortal_CalcNulls" />
+    <FunctionImportMapping FunctionImportName="SP_DataIntegrity_CompPortal_MissingMonths" FunctionName="LDBTESTModel.Store.SP_DataIntegrity_CompPortal_MissingMonths" />
+    <FunctionImportMapping FunctionImportName="SP_DataIntegrity_CompPortal_Noon" FunctionName="LDBTESTModel.Store.SP_DataIntegrity_CompPortal_Noon" />
+    <FunctionImportMapping FunctionImportName="SP_DataIntegrity_Forecast_MissingPhases" FunctionName="LDBTESTModel.Store.SP_DataIntegrity_Forecast_MissingPhases" />
+    <FunctionImportMapping FunctionImportName="SP_DataIntegrity_Indicator_BPNulls" FunctionName="LDBTESTModel.Store.SP_DataIntegrity_Indicator_BPNulls" />
+    <FunctionImportMapping FunctionImportName="SP_DataIntegrity_Indicator_CalcNulls" FunctionName="LDBTESTModel.Store.SP_DataIntegrity_Indicator_CalcNulls" />
+    <FunctionImportMapping FunctionImportName="SP_DataIntegrity_Indicator_CurrentAnnually" FunctionName="LDBTESTModel.Store.SP_DataIntegrity_Indicator_CurrentAnnually" />
+    <FunctionImportMapping FunctionImportName="SP_DataIntegrity_Indicator_CurrentMonthly" FunctionName="LDBTESTModel.Store.SP_DataIntegrity_Indicator_CurrentMonthly" />
+    <FunctionImportMapping FunctionImportName="SP_DataIntegrity_Indicator_CurrentQuarterly" FunctionName="LDBTESTModel.Store.SP_DataIntegrity_Indicator_CurrentQuarterly" />
+    <FunctionImportMapping FunctionImportName="SP_DataIntegrity_Indicator_MissingMonths" FunctionName="LDBTESTModel.Store.SP_DataIntegrity_Indicator_MissingMonths" />
+    <FunctionImportMapping FunctionImportName="SP_DataIntegrity_Indicator_Noon" FunctionName="LDBTESTModel.Store.SP_DataIntegrity_Indicator_Noon" />
+    <FunctionImportMapping FunctionImportName="sp_deleteFromDataCastLists" FunctionName="LDBTESTModel.Store.sp_deleteFromDataCastLists">
       <ResultMapping>
-        <ComplexTypeMapping TypeName="DatacastModel.sp_deleteFromDataCastLists_Result">
+        <ComplexTypeMapping TypeName="LDBTESTModel.sp_deleteFromDataCastLists_Result">
           <ScalarProperty Name="success" ColumnName="success" />
           <ScalarProperty Name="rowsaffected" ColumnName="rowsaffected" />
         </ComplexTypeMapping>
       </ResultMapping>
     </FunctionImportMapping>
-    <FunctionImportMapping FunctionImportName="sp_DeleteIndicatorOrCompanyByShortcode" FunctionName="DatacastModel.Store.sp_DeleteIndicatorOrCompanyByShortcode" />
-    <FunctionImportMapping FunctionImportName="sp_InsertCompanyShortCodes" FunctionName="DatacastModel.Store.sp_InsertCompanyShortCodes" />
-    <FunctionImportMapping FunctionImportName="SP_InsertCompanyStagingLoadInfo" FunctionName="DatacastModel.Store.SP_InsertCompanyStagingLoadInfo" />
-    <FunctionImportMapping FunctionImportName="sp_InsertMasterMetadata" FunctionName="DatacastModel.Store.sp_InsertMasterMetadata" />
-    <FunctionImportMapping FunctionImportName="sp_InsertMasterMetadataDailyLoad" FunctionName="DatacastModel.Store.sp_InsertMasterMetadataDailyLoad" />
-    <FunctionImportMapping FunctionImportName="sp_InsertMasterMetadataForCompany" FunctionName="DatacastModel.Store.sp_InsertMasterMetadataForCompany" />
-    <FunctionImportMapping FunctionImportName="sp_InsertMasterMetadataNewCompany" FunctionName="DatacastModel.Store.sp_InsertMasterMetadataNewCompany" />
-    <FunctionImportMapping FunctionImportName="sp_InsertMasterMetadataNewIndicator" FunctionName="DatacastModel.Store.sp_InsertMasterMetadataNewIndicator" />
-    <FunctionImportMapping FunctionImportName="sp_InsertShortCodes" FunctionName="DatacastModel.Store.sp_InsertShortCodes" />
-    <FunctionImportMapping FunctionImportName="SP_InsertStagingLoadInfo" FunctionName="DatacastModel.Store.SP_InsertStagingLoadInfo" />
-    <FunctionImportMapping FunctionImportName="SP_InsertUpateForecast" FunctionName="DatacastModel.Store.SP_InsertUpateForecast" />
-    <FunctionImportMapping FunctionImportName="SP_InsertUpdateCompany" FunctionName="DatacastModel.Store.SP_InsertUpdateCompany" />
-    <FunctionImportMapping FunctionImportName="SP_InsertUpdateIndicator" FunctionName="DatacastModel.Store.SP_InsertUpdateIndicator" />
-    <FunctionImportMapping FunctionImportName="SP_InsertUpdateIndicatorForNewIndicator" FunctionName="DatacastModel.Store.SP_InsertUpdateIndicatorForNewIndicator" />
-    <FunctionImportMapping FunctionImportName="SP_InsertUpdateIndustry" FunctionName="DatacastModel.Store.SP_InsertUpdateIndustry" />
-    <FunctionImportMapping FunctionImportName="SP_InsertUpdateIndustry_backup" FunctionName="DatacastModel.Store.SP_InsertUpdateIndustry_backup" />
-    <FunctionImportMapping FunctionImportName="SP_ModROCPlusThree" FunctionName="DatacastModel.Store.SP_ModROCPlusThree" />
-    <FunctionImportMapping FunctionImportName="SP_MoveCompanyLoadData" FunctionName="DatacastModel.Store.SP_MoveCompanyLoadData" />
-    <FunctionImportMapping FunctionImportName="SP_MoveDailyLoadData" FunctionName="DatacastModel.Store.SP_MoveDailyLoadData" />
-    <FunctionImportMapping FunctionImportName="SP_MoveDailyLoadDataForNewCompanies" FunctionName="DatacastModel.Store.SP_MoveDailyLoadDataForNewCompanies" />
-    <FunctionImportMapping FunctionImportName="SP_MoveDailyLoadDataForNewIndicators" FunctionName="DatacastModel.Store.SP_MoveDailyLoadDataForNewIndicators" />
-    <FunctionImportMapping FunctionImportName="sp_MoveDataFromCompanyWeb" FunctionName="DatacastModel.Store.sp_MoveDataFromCompanyWeb" />
-    <FunctionImportMapping FunctionImportName="sp_MoveDataFromCompanyWebForNewCOmpany" FunctionName="DatacastModel.Store.sp_MoveDataFromCompanyWebForNewCOmpany" />
-    <FunctionImportMapping FunctionImportName="sp_MoveDataFromForecastWeb" FunctionName="DatacastModel.Store.sp_MoveDataFromForecastWeb" />
-    <FunctionImportMapping FunctionImportName="sp_MoveDataFromIndicatorWeb" FunctionName="DatacastModel.Store.sp_MoveDataFromIndicatorWeb" />
-    <FunctionImportMapping FunctionImportName="sp_MoveDataFromIndicatorWebForNew" FunctionName="DatacastModel.Store.sp_MoveDataFromIndicatorWebForNew" />
-    <FunctionImportMapping FunctionImportName="SP_SelectAllCompanies" FunctionName="DatacastModel.Store.SP_SelectAllCompanies">
+    <FunctionImportMapping FunctionImportName="sp_DeleteIndicatorOrCompanyByShortcode" FunctionName="LDBTESTModel.Store.sp_DeleteIndicatorOrCompanyByShortcode" />
+    <FunctionImportMapping FunctionImportName="sp_InsertCompanyShortCodes" FunctionName="LDBTESTModel.Store.sp_InsertCompanyShortCodes" />
+    <FunctionImportMapping FunctionImportName="SP_InsertCompanyStagingLoadInfo" FunctionName="LDBTESTModel.Store.SP_InsertCompanyStagingLoadInfo" />
+    <FunctionImportMapping FunctionImportName="sp_InsertMasterMetadata" FunctionName="LDBTESTModel.Store.sp_InsertMasterMetadata" />
+    <FunctionImportMapping FunctionImportName="sp_InsertMasterMetadataDailyLoad" FunctionName="LDBTESTModel.Store.sp_InsertMasterMetadataDailyLoad" />
+    <FunctionImportMapping FunctionImportName="sp_InsertMasterMetadataForCompany" FunctionName="LDBTESTModel.Store.sp_InsertMasterMetadataForCompany" />
+    <FunctionImportMapping FunctionImportName="sp_InsertMasterMetadataNewCompany" FunctionName="LDBTESTModel.Store.sp_InsertMasterMetadataNewCompany" />
+    <FunctionImportMapping FunctionImportName="sp_InsertMasterMetadataNewIndicator" FunctionName="LDBTESTModel.Store.sp_InsertMasterMetadataNewIndicator" />
+    <FunctionImportMapping FunctionImportName="sp_InsertShortCodes" FunctionName="LDBTESTModel.Store.sp_InsertShortCodes" />
+    <FunctionImportMapping FunctionImportName="SP_InsertStagingLoadInfo" FunctionName="LDBTESTModel.Store.SP_InsertStagingLoadInfo" />
+    <FunctionImportMapping FunctionImportName="SP_InsertUpateForecast" FunctionName="LDBTESTModel.Store.SP_InsertUpateForecast" />
+    <FunctionImportMapping FunctionImportName="SP_InsertUpdateCompany" FunctionName="LDBTESTModel.Store.SP_InsertUpdateCompany" />
+    <FunctionImportMapping FunctionImportName="SP_InsertUpdateIndicator" FunctionName="LDBTESTModel.Store.SP_InsertUpdateIndicator" />
+    <FunctionImportMapping FunctionImportName="SP_InsertUpdateIndicatorForNewIndicator" FunctionName="LDBTESTModel.Store.SP_InsertUpdateIndicatorForNewIndicator" />
+    <FunctionImportMapping FunctionImportName="SP_InsertUpdateIndustry" FunctionName="LDBTESTModel.Store.SP_InsertUpdateIndustry" />
+    <FunctionImportMapping FunctionImportName="SP_InsertUpdateIndustry_backup" FunctionName="LDBTESTModel.Store.SP_InsertUpdateIndustry_backup" />
+    <FunctionImportMapping FunctionImportName="SP_ModROCPlusThree" FunctionName="LDBTESTModel.Store.SP_ModROCPlusThree" />
+    <FunctionImportMapping FunctionImportName="SP_MoveCompanyLoadData" FunctionName="LDBTESTModel.Store.SP_MoveCompanyLoadData" />
+    <FunctionImportMapping FunctionImportName="SP_MoveDailyLoadData" FunctionName="LDBTESTModel.Store.SP_MoveDailyLoadData" />
+    <FunctionImportMapping FunctionImportName="SP_MoveDailyLoadDataForNewCompanies" FunctionName="LDBTESTModel.Store.SP_MoveDailyLoadDataForNewCompanies" />
+    <FunctionImportMapping FunctionImportName="SP_MoveDailyLoadDataForNewIndicators" FunctionName="LDBTESTModel.Store.SP_MoveDailyLoadDataForNewIndicators" />
+    <FunctionImportMapping FunctionImportName="sp_MoveDataFromCompanyWeb" FunctionName="LDBTESTModel.Store.sp_MoveDataFromCompanyWeb" />
+    <FunctionImportMapping FunctionImportName="sp_MoveDataFromCompanyWebForNewCOmpany" FunctionName="LDBTESTModel.Store.sp_MoveDataFromCompanyWebForNewCOmpany" />
+    <FunctionImportMapping FunctionImportName="sp_MoveDataFromForecastWeb" FunctionName="LDBTESTModel.Store.sp_MoveDataFromForecastWeb" />
+    <FunctionImportMapping FunctionImportName="sp_MoveDataFromIndicatorWeb" FunctionName="LDBTESTModel.Store.sp_MoveDataFromIndicatorWeb" />
+    <FunctionImportMapping FunctionImportName="sp_MoveDataFromIndicatorWebForNew" FunctionName="LDBTESTModel.Store.sp_MoveDataFromIndicatorWebForNew" />
+    <FunctionImportMapping FunctionImportName="SP_SelectAllCompanies" FunctionName="LDBTESTModel.Store.SP_SelectAllCompanies">
       <ResultMapping>
-        <ComplexTypeMapping TypeName="DatacastModel.SP_SelectAllCompanies_Result">
+        <ComplexTypeMapping TypeName="LDBTESTModel.SP_SelectAllCompanies_Result">
           <ScalarProperty Name="CompanyName" ColumnName="CompanyName" />
           <ScalarProperty Name="MasterMetadataID" ColumnName="MasterMetadataID" />
           <ScalarProperty Name="WorkBook" ColumnName="WorkBook" />
         </ComplexTypeMapping>
       </ResultMapping>
     </FunctionImportMapping>
-    <FunctionImportMapping FunctionImportName="SP_SelectAllIndicators" FunctionName="DatacastModel.Store.SP_SelectAllIndicators">
+    <FunctionImportMapping FunctionImportName="SP_SelectAllIndicators" FunctionName="LDBTESTModel.Store.SP_SelectAllIndicators">
       <ResultMapping>
-        <ComplexTypeMapping TypeName="DatacastModel.SP_SelectAllIndicators_Result">
+        <ComplexTypeMapping TypeName="LDBTESTModel.SP_SelectAllIndicators_Result">
           <ScalarProperty Name="IndicatodName" ColumnName="IndicatodName" />
           <ScalarProperty Name="MasterMetadataID" ColumnName="MasterMetadataID" />
         </ComplexTypeMapping>
       </ResultMapping>
     </FunctionImportMapping>
-    <FunctionImportMapping FunctionImportName="SP_SelectCompanyData" FunctionName="DatacastModel.Store.SP_SelectCompanyData">
+    <FunctionImportMapping FunctionImportName="SP_SelectCompanyData" FunctionName="LDBTESTModel.Store.SP_SelectCompanyData">
       <ResultMapping>
-        <ComplexTypeMapping TypeName="DatacastModel.SP_SelectCompanyData_Result">
+        <ComplexTypeMapping TypeName="LDBTESTModel.SP_SelectCompanyData_Result">
           <ScalarProperty Name="MonthYear" ColumnName="MonthYear" />
           <ScalarProperty Name="RawValue" ColumnName="RawValue" />
           <ScalarProperty Name="AdjValue" ColumnName="AdjValue" />
@@ -1276,9 +1438,9 @@
         </ComplexTypeMapping>
       </ResultMapping>
     </FunctionImportMapping>
-    <FunctionImportMapping FunctionImportName="SP_SelectCompanyData_TestSP" FunctionName="DatacastModel.Store.SP_SelectCompanyData_TestSP">
+    <FunctionImportMapping FunctionImportName="SP_SelectCompanyData_TestSP" FunctionName="LDBTESTModel.Store.SP_SelectCompanyData_TestSP">
       <ResultMapping>
-        <ComplexTypeMapping TypeName="DatacastModel.SP_SelectCompanyData_TestSP_Result">
+        <ComplexTypeMapping TypeName="LDBTESTModel.SP_SelectCompanyData_TestSP_Result">
           <ScalarProperty Name="MonthYear" ColumnName="MonthYear" />
           <ScalarProperty Name="RawValue" ColumnName="RawValue" />
           <ScalarProperty Name="AdjValue" ColumnName="AdjValue" />
@@ -1293,9 +1455,9 @@
         </ComplexTypeMapping>
       </ResultMapping>
     </FunctionImportMapping>
-    <FunctionImportMapping FunctionImportName="SP_SelectCompanyDataForWeb" FunctionName="DatacastModel.Store.SP_SelectCompanyDataForWeb">
+    <FunctionImportMapping FunctionImportName="SP_SelectCompanyDataForWeb" FunctionName="LDBTESTModel.Store.SP_SelectCompanyDataForWeb">
       <ResultMapping>
-        <ComplexTypeMapping TypeName="DatacastModel.SP_SelectCompanyDataForWeb_Result">
+        <ComplexTypeMapping TypeName="LDBTESTModel.SP_SelectCompanyDataForWeb_Result">
           <ScalarProperty Name="MonthYear" ColumnName="MonthYear" />
           <ScalarProperty Name="RawValue" ColumnName="RawValue" />
           <ScalarProperty Name="AdjValue" ColumnName="AdjValue" />
@@ -1309,27 +1471,9 @@
         </ComplexTypeMapping>
       </ResultMapping>
     </FunctionImportMapping>
-    <FunctionImportMapping FunctionImportName="sp_SelectCompanyDataInclusive" FunctionName="DatacastModel.Store.sp_SelectCompanyDataInclusive">
+    <FunctionImportMapping FunctionImportName="sp_SelectCompanyDataInclusive" FunctionName="LDBTESTModel.Store.sp_SelectCompanyDataInclusive">
       <ResultMapping>
-        <ComplexTypeMapping TypeName="DatacastModel.sp_SelectCompanyDataInclusive_Result">
-          <ScalarProperty Name="MonthYear" ColumnName="MonthYear" />
-          <ScalarProperty Name="RawValue" ColumnName="RawValue" />
-          <ScalarProperty Name="AdjValue" ColumnName="AdjValue" />
-          <ScalarProperty Name="C1By12" ColumnName="1By12" />
-          <ScalarProperty Name="C3MMA" ColumnName="3MMA" />
-          <ScalarProperty Name="C3MMT" ColumnName="3MMT" />
-          <ScalarProperty Name="C3BY12" ColumnName="3BY12" />
-          <ScalarProperty Name="C12MMA" ColumnName="12MMA" />
-          <ScalarProperty Name="C12MMT" ColumnName="12MMT" />
-          <ScalarProperty Name="C12BY12" ColumnName="12BY12" />
-          <ScalarProperty Name="MonthYearDate" ColumnName="MonthYearDate" />
-          <ScalarProperty Name="Source" ColumnName="Source" />
-        </ComplexTypeMapping>
-      </ResultMapping>
-    </FunctionImportMapping>
-    <FunctionImportMapping FunctionImportName="sp_SelectCompanyDataInclusive_New" FunctionName="DatacastModel.Store.sp_SelectCompanyDataInclusive_New">
-      <ResultMapping>
-        <ComplexTypeMapping TypeName="DatacastModel.sp_SelectCompanyDataInclusive_New_Result">
+        <ComplexTypeMapping TypeName="LDBTESTModel.sp_SelectCompanyDataInclusive_Result">
           <ScalarProperty Name="MonthYear" ColumnName="MonthYear" />
           <ScalarProperty Name="RawValue" ColumnName="RawValue" />
           <ScalarProperty Name="AdjValue" ColumnName="AdjValue" />
@@ -1345,50 +1489,68 @@
         </ComplexTypeMapping>
       </ResultMapping>
     </FunctionImportMapping>
-    <FunctionImportMapping FunctionImportName="SP_SelectCompanyMetaData" FunctionName="DatacastModel.Store.SP_SelectCompanyMetaData">
+    <FunctionImportMapping FunctionImportName="sp_SelectCompanyDataInclusive_New" FunctionName="LDBTESTModel.Store.sp_SelectCompanyDataInclusive_New">
       <ResultMapping>
-        <ComplexTypeMapping TypeName="DatacastModel.SP_SelectCompanyMetaData_Result">
+        <ComplexTypeMapping TypeName="LDBTESTModel.sp_SelectCompanyDataInclusive_New_Result">
+          <ScalarProperty Name="MonthYear" ColumnName="MonthYear" />
+          <ScalarProperty Name="RawValue" ColumnName="RawValue" />
+          <ScalarProperty Name="AdjValue" ColumnName="AdjValue" />
+          <ScalarProperty Name="C1By12" ColumnName="1By12" />
+          <ScalarProperty Name="C3MMA" ColumnName="3MMA" />
+          <ScalarProperty Name="C3MMT" ColumnName="3MMT" />
+          <ScalarProperty Name="C3BY12" ColumnName="3BY12" />
+          <ScalarProperty Name="C12MMA" ColumnName="12MMA" />
+          <ScalarProperty Name="C12MMT" ColumnName="12MMT" />
+          <ScalarProperty Name="C12BY12" ColumnName="12BY12" />
+          <ScalarProperty Name="MonthYearDate" ColumnName="MonthYearDate" />
+          <ScalarProperty Name="Source" ColumnName="Source" />
+        </ComplexTypeMapping>
+      </ResultMapping>
+    </FunctionImportMapping>
+    <FunctionImportMapping FunctionImportName="SP_SelectCompanyMetaData" FunctionName="LDBTESTModel.Store.SP_SelectCompanyMetaData">
+      <ResultMapping>
+        <ComplexTypeMapping TypeName="LDBTESTModel.SP_SelectCompanyMetaData_Result">
           <ScalarProperty Name="MonthYear" ColumnName="MonthYear" />
           <ScalarProperty Name="Value" ColumnName="Value" />
         </ComplexTypeMapping>
       </ResultMapping>
     </FunctionImportMapping>
-    <FunctionImportMapping FunctionImportName="SP_SelectCompanyShortCodes" FunctionName="DatacastModel.Store.SP_SelectCompanyShortCodes">
+    <FunctionImportMapping FunctionImportName="SP_SelectCompanyShortCodes" FunctionName="LDBTESTModel.Store.SP_SelectCompanyShortCodes">
       <ResultMapping>
-        <ComplexTypeMapping TypeName="DatacastModel.SP_SelectCompanyShortCodes_Result">
+        <ComplexTypeMapping TypeName="LDBTESTModel.SP_SelectCompanyShortCodes_Result">
           <ScalarProperty Name="FileName" ColumnName="FileName" />
           <ScalarProperty Name="MasterMetadataID" ColumnName="MasterMetadataID" />
         </ComplexTypeMapping>
       </ResultMapping>
     </FunctionImportMapping>
-    <FunctionImportMapping FunctionImportName="SP_SelectCompanyUpdateLoadResult" FunctionName="DatacastModel.Store.SP_SelectCompanyUpdateLoadResult">
+    <FunctionImportMapping FunctionImportName="SP_SelectCompanyUpdateLoadResult" FunctionName="LDBTESTModel.Store.SP_SelectCompanyUpdateLoadResult">
       <ResultMapping>
-        <ComplexTypeMapping TypeName="DatacastModel.SP_SelectCompanyUpdateLoadResult_Result">
+        <ComplexTypeMapping TypeName="LDBTESTModel.SP_SelectCompanyUpdateLoadResult_Result">
           <ScalarProperty Name="Company" ColumnName="Company" />
           <ScalarProperty Name="ExcelPath" ColumnName="ExcelPath" />
           <ScalarProperty Name="LoadedRows" ColumnName="LoadedRows" />
         </ComplexTypeMapping>
       </ResultMapping>
     </FunctionImportMapping>
-    <FunctionImportMapping FunctionImportName="SP_SelectCompanyWebShortCodes" FunctionName="DatacastModel.Store.SP_SelectCompanyWebShortCodes">
+    <FunctionImportMapping FunctionImportName="SP_SelectCompanyWebShortCodes" FunctionName="LDBTESTModel.Store.SP_SelectCompanyWebShortCodes">
       <ResultMapping>
-        <ComplexTypeMapping TypeName="DatacastModel.SP_SelectCompanyWebShortCodes_Result">
+        <ComplexTypeMapping TypeName="LDBTESTModel.SP_SelectCompanyWebShortCodes_Result">
           <ScalarProperty Name="MasterMetaDataID" ColumnName="MasterMetaDataID" />
           <ScalarProperty Name="ShortCode" ColumnName="ShortCode" />
         </ComplexTypeMapping>
       </ResultMapping>
     </FunctionImportMapping>
-    <FunctionImportMapping FunctionImportName="SP_SelectCompanyWebShortCodesFOrNewCompany" FunctionName="DatacastModel.Store.SP_SelectCompanyWebShortCodesFOrNewCompany">
+    <FunctionImportMapping FunctionImportName="SP_SelectCompanyWebShortCodesFOrNewCompany" FunctionName="LDBTESTModel.Store.SP_SelectCompanyWebShortCodesFOrNewCompany">
       <ResultMapping>
-        <ComplexTypeMapping TypeName="DatacastModel.SP_SelectCompanyWebShortCodesFOrNewCompany_Result">
+        <ComplexTypeMapping TypeName="LDBTESTModel.SP_SelectCompanyWebShortCodesFOrNewCompany_Result">
           <ScalarProperty Name="MasterMetaDataID" ColumnName="MasterMetaDataID" />
           <ScalarProperty Name="ShortCode" ColumnName="ShortCode" />
         </ComplexTypeMapping>
       </ResultMapping>
     </FunctionImportMapping>
-    <FunctionImportMapping FunctionImportName="SP_SelectCustomerData" FunctionName="DatacastModel.Store.SP_SelectCustomerData">
+    <FunctionImportMapping FunctionImportName="SP_SelectCustomerData" FunctionName="LDBTESTModel.Store.SP_SelectCustomerData">
       <ResultMapping>
-        <ComplexTypeMapping TypeName="DatacastModel.SP_SelectCustomerData_Result">
+        <ComplexTypeMapping TypeName="LDBTESTModel.SP_SelectCustomerData_Result">
           <ScalarProperty Name="MonthYear" ColumnName="MonthYear" />
           <ScalarProperty Name="RawValue" ColumnName="RawValue" />
           <ScalarProperty Name="AdjValue" ColumnName="AdjValue" />
@@ -1404,9 +1566,9 @@
         </ComplexTypeMapping>
       </ResultMapping>
     </FunctionImportMapping>
-    <FunctionImportMapping FunctionImportName="SP_SelectForecastDatabyForecastMetadataID" FunctionName="DatacastModel.Store.SP_SelectForecastDatabyForecastMetadataID">
+    <FunctionImportMapping FunctionImportName="SP_SelectForecastDatabyForecastMetadataID" FunctionName="LDBTESTModel.Store.SP_SelectForecastDatabyForecastMetadataID">
       <ResultMapping>
-        <ComplexTypeMapping TypeName="DatacastModel.SP_SelectForecastDatabyForecastMetadataID_Result">
+        <ComplexTypeMapping TypeName="LDBTESTModel.SP_SelectForecastDatabyForecastMetadataID_Result">
           <ScalarProperty Name="MonthYear" ColumnName="MonthYear" />
           <ScalarProperty Name="LFR12MMA" ColumnName="LFR12MMA" />
           <ScalarProperty Name="Avg12MMA" ColumnName="Avg12MMA" />
@@ -1423,17 +1585,17 @@
         </ComplexTypeMapping>
       </ResultMapping>
     </FunctionImportMapping>
-    <FunctionImportMapping FunctionImportName="SP_SelectForecastDosCodes" FunctionName="DatacastModel.Store.SP_SelectForecastDosCodes">
+    <FunctionImportMapping FunctionImportName="SP_SelectForecastDosCodes" FunctionName="LDBTESTModel.Store.SP_SelectForecastDosCodes">
       <ResultMapping>
-        <ComplexTypeMapping TypeName="DatacastModel.SP_SelectForecastDosCodes_Result">
+        <ComplexTypeMapping TypeName="LDBTESTModel.SP_SelectForecastDosCodes_Result">
           <ScalarProperty Name="ForecastMetaDataID" ColumnName="ForecastMetaDataID" />
           <ScalarProperty Name="DosCode" ColumnName="DosCode" />
         </ComplexTypeMapping>
       </ResultMapping>
     </FunctionImportMapping>
-    <FunctionImportMapping FunctionImportName="sp_SelectForecastStagingWebData" FunctionName="DatacastModel.Store.sp_SelectForecastStagingWebData">
+    <FunctionImportMapping FunctionImportName="sp_SelectForecastStagingWebData" FunctionName="LDBTESTModel.Store.sp_SelectForecastStagingWebData">
       <ResultMapping>
-        <ComplexTypeMapping TypeName="DatacastModel.sp_SelectForecastStagingWebData_Result">
+        <ComplexTypeMapping TypeName="LDBTESTModel.sp_SelectForecastStagingWebData_Result">
           <ScalarProperty Name="ForeCastDataID" ColumnName="ForeCastDataID" />
           <ScalarProperty Name="ForeCastMetaDataID" ColumnName="ForeCastMetaDataID" />
           <ScalarProperty Name="ShortCode" ColumnName="ShortCode" />
@@ -1456,17 +1618,17 @@
         </ComplexTypeMapping>
       </ResultMapping>
     </FunctionImportMapping>
-    <FunctionImportMapping FunctionImportName="SP_SelectForecastWebShortCodes" FunctionName="DatacastModel.Store.SP_SelectForecastWebShortCodes">
+    <FunctionImportMapping FunctionImportName="SP_SelectForecastWebShortCodes" FunctionName="LDBTESTModel.Store.SP_SelectForecastWebShortCodes">
       <ResultMapping>
-        <ComplexTypeMapping TypeName="DatacastModel.SP_SelectForecastWebShortCodes_Result">
+        <ComplexTypeMapping TypeName="LDBTESTModel.SP_SelectForecastWebShortCodes_Result">
           <ScalarProperty Name="ForeCastMetaDataID" ColumnName="ForeCastMetaDataID" />
           <ScalarProperty Name="ShortCode" ColumnName="ShortCode" />
         </ComplexTypeMapping>
       </ResultMapping>
     </FunctionImportMapping>
-    <FunctionImportMapping FunctionImportName="SP_SelectIndicatorData" FunctionName="DatacastModel.Store.SP_SelectIndicatorData">
+    <FunctionImportMapping FunctionImportName="SP_SelectIndicatorData" FunctionName="LDBTESTModel.Store.SP_SelectIndicatorData">
       <ResultMapping>
-        <ComplexTypeMapping TypeName="DatacastModel.SP_SelectIndicatorData_Result">
+        <ComplexTypeMapping TypeName="LDBTESTModel.SP_SelectIndicatorData_Result">
           <ScalarProperty Name="MonthYear" ColumnName="MonthYear" />
           <ScalarProperty Name="RawValue" ColumnName="RawValue" />
           <ScalarProperty Name="AdjValue" ColumnName="AdjValue" />
@@ -1481,9 +1643,9 @@
         </ComplexTypeMapping>
       </ResultMapping>
     </FunctionImportMapping>
-    <FunctionImportMapping FunctionImportName="SP_SelectIndicatorData_TestSp" FunctionName="DatacastModel.Store.SP_SelectIndicatorData_TestSp">
+    <FunctionImportMapping FunctionImportName="SP_SelectIndicatorData_TestSp" FunctionName="LDBTESTModel.Store.SP_SelectIndicatorData_TestSp">
       <ResultMapping>
-        <ComplexTypeMapping TypeName="DatacastModel.SP_SelectIndicatorData_TestSp_Result">
+        <ComplexTypeMapping TypeName="LDBTESTModel.SP_SelectIndicatorData_TestSp_Result">
           <ScalarProperty Name="MonthYear" ColumnName="MonthYear" />
           <ScalarProperty Name="RawValue" ColumnName="RawValue" />
           <ScalarProperty Name="AdjValue" ColumnName="AdjValue" />
@@ -1498,9 +1660,9 @@
         </ComplexTypeMapping>
       </ResultMapping>
     </FunctionImportMapping>
-    <FunctionImportMapping FunctionImportName="SP_SelectIndicatorDataForWeb" FunctionName="DatacastModel.Store.SP_SelectIndicatorDataForWeb">
+    <FunctionImportMapping FunctionImportName="SP_SelectIndicatorDataForWeb" FunctionName="LDBTESTModel.Store.SP_SelectIndicatorDataForWeb">
       <ResultMapping>
-        <ComplexTypeMapping TypeName="DatacastModel.SP_SelectIndicatorDataForWeb_Result">
+        <ComplexTypeMapping TypeName="LDBTESTModel.SP_SelectIndicatorDataForWeb_Result">
           <ScalarProperty Name="MonthYear" ColumnName="MonthYear" />
           <ScalarProperty Name="RawValue" ColumnName="RawValue" />
           <ScalarProperty Name="AdjValue" ColumnName="AdjValue" />
@@ -1514,9 +1676,9 @@
         </ComplexTypeMapping>
       </ResultMapping>
     </FunctionImportMapping>
-    <FunctionImportMapping FunctionImportName="sp_SelectIndicatorOrCompanyforWebapp" FunctionName="DatacastModel.Store.sp_SelectIndicatorOrCompanyforWebapp">
+    <FunctionImportMapping FunctionImportName="sp_SelectIndicatorOrCompanyforWebapp" FunctionName="LDBTESTModel.Store.sp_SelectIndicatorOrCompanyforWebapp">
       <ResultMapping>
-        <ComplexTypeMapping TypeName="DatacastModel.sp_SelectIndicatorOrCompanyforWebapp_Result">
+        <ComplexTypeMapping TypeName="LDBTESTModel.sp_SelectIndicatorOrCompanyforWebapp_Result">
           <ScalarProperty Name="Date" ColumnName="Date" />
           <ScalarProperty Name="Monthly" ColumnName="Monthly" />
           <ScalarProperty Name="C1_12" ColumnName="1/12" />
@@ -1529,51 +1691,51 @@
         </ComplexTypeMapping>
       </ResultMapping>
     </FunctionImportMapping>
-    <FunctionImportMapping FunctionImportName="SP_SelectIndicatorsNonUpdateLoadResult" FunctionName="DatacastModel.Store.SP_SelectIndicatorsNonUpdateLoadResult">
+    <FunctionImportMapping FunctionImportName="SP_SelectIndicatorsNonUpdateLoadResult" FunctionName="LDBTESTModel.Store.SP_SelectIndicatorsNonUpdateLoadResult">
       <ResultMapping>
-        <ComplexTypeMapping TypeName="DatacastModel.SP_SelectIndicatorsNonUpdateLoadResult_Result">
+        <ComplexTypeMapping TypeName="LDBTESTModel.SP_SelectIndicatorsNonUpdateLoadResult_Result">
           <ScalarProperty Name="Indicator" ColumnName="Indicator" />
           <ScalarProperty Name="ExcelPath" ColumnName="ExcelPath" />
           <ScalarProperty Name="NonLoadedRows" ColumnName="NonLoadedRows" />
         </ComplexTypeMapping>
       </ResultMapping>
     </FunctionImportMapping>
-    <FunctionImportMapping FunctionImportName="SP_SelectIndicatorsUpdateLoadResult" FunctionName="DatacastModel.Store.SP_SelectIndicatorsUpdateLoadResult">
+    <FunctionImportMapping FunctionImportName="SP_SelectIndicatorsUpdateLoadResult" FunctionName="LDBTESTModel.Store.SP_SelectIndicatorsUpdateLoadResult">
       <ResultMapping>
-        <ComplexTypeMapping TypeName="DatacastModel.SP_SelectIndicatorsUpdateLoadResult_Result">
+        <ComplexTypeMapping TypeName="LDBTESTModel.SP_SelectIndicatorsUpdateLoadResult_Result">
           <ScalarProperty Name="Indicator" ColumnName="Indicator" />
           <ScalarProperty Name="ExcelPath" ColumnName="ExcelPath" />
           <ScalarProperty Name="LoadedRows" ColumnName="LoadedRows" />
         </ComplexTypeMapping>
       </ResultMapping>
     </FunctionImportMapping>
-    <FunctionImportMapping FunctionImportName="SP_SelectIndicatorWebShortCodes" FunctionName="DatacastModel.Store.SP_SelectIndicatorWebShortCodes">
+    <FunctionImportMapping FunctionImportName="SP_SelectIndicatorWebShortCodes" FunctionName="LDBTESTModel.Store.SP_SelectIndicatorWebShortCodes">
       <ResultMapping>
-        <ComplexTypeMapping TypeName="DatacastModel.SP_SelectIndicatorWebShortCodes_Result">
+        <ComplexTypeMapping TypeName="LDBTESTModel.SP_SelectIndicatorWebShortCodes_Result">
           <ScalarProperty Name="MasterMetaDataID" ColumnName="MasterMetaDataID" />
           <ScalarProperty Name="ShortCode" ColumnName="ShortCode" />
         </ComplexTypeMapping>
       </ResultMapping>
     </FunctionImportMapping>
-    <FunctionImportMapping FunctionImportName="SP_SelectIndicatorWebShortCodesFOrNewIndicators" FunctionName="DatacastModel.Store.SP_SelectIndicatorWebShortCodesFOrNewIndicators">
+    <FunctionImportMapping FunctionImportName="SP_SelectIndicatorWebShortCodesFOrNewIndicators" FunctionName="LDBTESTModel.Store.SP_SelectIndicatorWebShortCodesFOrNewIndicators">
       <ResultMapping>
-        <ComplexTypeMapping TypeName="DatacastModel.SP_SelectIndicatorWebShortCodesFOrNewIndicators_Result">
+        <ComplexTypeMapping TypeName="LDBTESTModel.SP_SelectIndicatorWebShortCodesFOrNewIndicators_Result">
           <ScalarProperty Name="MasterMetaDataID" ColumnName="MasterMetaDataID" />
           <ScalarProperty Name="ShortCode" ColumnName="ShortCode" />
         </ComplexTypeMapping>
       </ResultMapping>
     </FunctionImportMapping>
-    <FunctionImportMapping FunctionImportName="SP_SelectIndustryMetaData" FunctionName="DatacastModel.Store.SP_SelectIndustryMetaData">
+    <FunctionImportMapping FunctionImportName="SP_SelectIndustryMetaData" FunctionName="LDBTESTModel.Store.SP_SelectIndustryMetaData">
       <ResultMapping>
-        <ComplexTypeMapping TypeName="DatacastModel.SP_SelectIndustryMetaData_Result">
+        <ComplexTypeMapping TypeName="LDBTESTModel.SP_SelectIndustryMetaData_Result">
           <ScalarProperty Name="MonthYear" ColumnName="MonthYear" />
           <ScalarProperty Name="Value" ColumnName="Value" />
         </ComplexTypeMapping>
       </ResultMapping>
     </FunctionImportMapping>
-    <FunctionImportMapping FunctionImportName="sp_SelectLatestForecastSummary" FunctionName="DatacastModel.Store.sp_SelectLatestForecastSummary">
+    <FunctionImportMapping FunctionImportName="sp_SelectLatestForecastSummary" FunctionName="LDBTESTModel.Store.sp_SelectLatestForecastSummary">
       <ResultMapping>
-        <ComplexTypeMapping TypeName="DatacastModel.sp_SelectLatestForecastSummary_Result">
+        <ComplexTypeMapping TypeName="LDBTESTModel.sp_SelectLatestForecastSummary_Result">
           <ScalarProperty Name="ForecastStatus" ColumnName="ForecastStatus" />
           <ScalarProperty Name="DataThrough" ColumnName="DataThrough" />
           <ScalarProperty Name="CheckedBy" ColumnName="CheckedBy" />
@@ -1584,18 +1746,18 @@
         </ComplexTypeMapping>
       </ResultMapping>
     </FunctionImportMapping>
-    <FunctionImportMapping FunctionImportName="sp_SelectMetaDataforWebApp" FunctionName="DatacastModel.Store.sp_SelectMetaDataforWebApp">
+    <FunctionImportMapping FunctionImportName="sp_SelectMetaDataforWebApp" FunctionName="LDBTESTModel.Store.sp_SelectMetaDataforWebApp">
       <ResultMapping>
-        <ComplexTypeMapping TypeName="DatacastModel.sp_SelectMetaDataforWebApp_Result">
+        <ComplexTypeMapping TypeName="LDBTESTModel.sp_SelectMetaDataforWebApp_Result">
           <ScalarProperty Name="MMAMMT" ColumnName="MMAMMT" />
           <ScalarProperty Name="Definition" ColumnName="Definition" />
           <ScalarProperty Name="StatPref1" ColumnName="StatPref1" />
         </ComplexTypeMapping>
       </ResultMapping>
     </FunctionImportMapping>
-    <FunctionImportMapping FunctionImportName="SP_SelectShortCodes" FunctionName="DatacastModel.Store.SP_SelectShortCodes">
+    <FunctionImportMapping FunctionImportName="SP_SelectShortCodes" FunctionName="LDBTESTModel.Store.SP_SelectShortCodes">
       <ResultMapping>
-        <ComplexTypeMapping TypeName="DatacastModel.SP_SelectShortCodes_Result">
+        <ComplexTypeMapping TypeName="LDBTESTModel.SP_SelectShortCodes_Result">
           <ScalarProperty Name="MasterMetadataID" ColumnName="MasterMetadataID" />
           <ScalarProperty Name="WorkBook" ColumnName="WorkBook" />
           <ScalarProperty Name="FileName" ColumnName="FileName" />
@@ -1647,9 +1809,9 @@
         </ComplexTypeMapping>
       </ResultMapping>
     </FunctionImportMapping>
-    <FunctionImportMapping FunctionImportName="sp_SelectStagingWebData" FunctionName="DatacastModel.Store.sp_SelectStagingWebData">
+    <FunctionImportMapping FunctionImportName="sp_SelectStagingWebData" FunctionName="LDBTESTModel.Store.sp_SelectStagingWebData">
       <ResultMapping>
-        <ComplexTypeMapping TypeName="DatacastModel.sp_SelectStagingWebData_Result">
+        <ComplexTypeMapping TypeName="LDBTESTModel.sp_SelectStagingWebData_Result">
           <ScalarProperty Name="ShortCode" ColumnName="ShortCode" />
           <ScalarProperty Name="MonthYear" ColumnName="MonthYear" />
           <ScalarProperty Name="RawValue" ColumnName="RawValue" />
@@ -1658,9 +1820,9 @@
         </ComplexTypeMapping>
       </ResultMapping>
     </FunctionImportMapping>
-    <FunctionImportMapping FunctionImportName="sp_SelectStagingWebDataForCompany" FunctionName="DatacastModel.Store.sp_SelectStagingWebDataForCompany">
+    <FunctionImportMapping FunctionImportName="sp_SelectStagingWebDataForCompany" FunctionName="LDBTESTModel.Store.sp_SelectStagingWebDataForCompany">
       <ResultMapping>
-        <ComplexTypeMapping TypeName="DatacastModel.sp_SelectStagingWebDataForCompany_Result">
+        <ComplexTypeMapping TypeName="LDBTESTModel.sp_SelectStagingWebDataForCompany_Result">
           <ScalarProperty Name="ShortCode" ColumnName="ShortCode" />
           <ScalarProperty Name="MonthYear" ColumnName="MonthYear" />
           <ScalarProperty Name="RawValue" ColumnName="RawValue" />
@@ -1669,21 +1831,9 @@
         </ComplexTypeMapping>
       </ResultMapping>
     </FunctionImportMapping>
-    <FunctionImportMapping FunctionImportName="sp_SelectStagingWebDataForNewCompany" FunctionName="DatacastModel.Store.sp_SelectStagingWebDataForNewCompany">
+    <FunctionImportMapping FunctionImportName="sp_SelectStagingWebDataForNewCompany" FunctionName="LDBTESTModel.Store.sp_SelectStagingWebDataForNewCompany">
       <ResultMapping>
-        <ComplexTypeMapping TypeName="DatacastModel.sp_SelectStagingWebDataForNewCompany_Result">
-          <ScalarProperty Name="ShortCode" ColumnName="ShortCode" />
-          <ScalarProperty Name="MonthYear" ColumnName="MonthYear" />
-          <ScalarProperty Name="RawValue" ColumnName="RawValue" />
-          <ScalarProperty Name="AdjValue" ColumnName="AdjValue" />
-          <ScalarProperty Name="CreatedBy" ColumnName="CreatedBy" />
-          <ScalarProperty Name="CreatedDate" ColumnName="CreatedDate" />
-        </ComplexTypeMapping>
-      </ResultMapping>
-    </FunctionImportMapping>
-    <FunctionImportMapping FunctionImportName="sp_SelectStagingWebDataForNewIndicators" FunctionName="DatacastModel.Store.sp_SelectStagingWebDataForNewIndicators">
-      <ResultMapping>
-        <ComplexTypeMapping TypeName="DatacastModel.sp_SelectStagingWebDataForNewIndicators_Result">
+        <ComplexTypeMapping TypeName="LDBTESTModel.sp_SelectStagingWebDataForNewCompany_Result">
           <ScalarProperty Name="ShortCode" ColumnName="ShortCode" />
           <ScalarProperty Name="MonthYear" ColumnName="MonthYear" />
           <ScalarProperty Name="RawValue" ColumnName="RawValue" />
@@ -1693,32 +1843,44 @@
         </ComplexTypeMapping>
       </ResultMapping>
     </FunctionImportMapping>
-    <FunctionImportMapping FunctionImportName="sp_updateDataCastLists" FunctionName="DatacastModel.Store.sp_updateDataCastLists" />
-    <FunctionImportMapping FunctionImportName="sp_UpdateStagingForecastInfo" FunctionName="DatacastModel.Store.sp_UpdateStagingForecastInfo" />
-    <FunctionImportMapping FunctionImportName="SP_UpdateStagingInfo" FunctionName="DatacastModel.Store.SP_UpdateStagingInfo" />
-    <FunctionImportMapping FunctionImportName="TestLocal" FunctionName="DatacastModel.Store.TestLocal" />
-    <FunctionImportMapping FunctionImportName="USP_Update_MasterMetaDataInformationFromPackage" FunctionName="DatacastModel.Store.USP_Update_MasterMetaDataInformationFromPackage" />
-    <FunctionImportMapping FunctionImportName="uspBusinessPhaseLogicImplementation" FunctionName="DatacastModel.Store.uspBusinessPhaseLogicImplementation" />
-    <FunctionImportMapping FunctionImportName="uspBusinessPhaseLogicImplementationForIndicatorWeb" FunctionName="DatacastModel.Store.uspBusinessPhaseLogicImplementationForIndicatorWeb" />
-    <FunctionImportMapping FunctionImportName="uspBusinessPhaseLogicImplementationForNewIndicatorsWeb" FunctionName="DatacastModel.Store.uspBusinessPhaseLogicImplementationForNewIndicatorsWeb" />
-    <FunctionImportMapping FunctionImportName="uspBusinessPhaseLogicImplementationForSingleShortCode" FunctionName="DatacastModel.Store.uspBusinessPhaseLogicImplementationForSingleShortCode" />
-    <FunctionImportMapping FunctionImportName="uspDeleteCompanyDataSet" FunctionName="DatacastModel.Store.uspDeleteCompanyDataSet" />
-    <FunctionImportMapping FunctionImportName="uspDeleteDBWidgetsListByCompanyAndUserID" FunctionName="DatacastModel.Store.uspDeleteDBWidgetsListByCompanyAndUserID" />
-    <FunctionImportMapping FunctionImportName="uspDeleteDuplicateData" FunctionName="DatacastModel.Store.uspDeleteDuplicateData" />
-    <FunctionImportMapping FunctionImportName="uspDeleteFavoriteListByCompanyAndUserID" FunctionName="DatacastModel.Store.uspDeleteFavoriteListByCompanyAndUserID" />
-    <FunctionImportMapping FunctionImportName="uspDeleteIndicatorDataSet" FunctionName="DatacastModel.Store.uspDeleteIndicatorDataSet" />
-    <FunctionImportMapping FunctionImportName="uspForecastBusinessPhaseImplementation" FunctionName="DatacastModel.Store.uspForecastBusinessPhaseImplementation" />
-    <FunctionImportMapping FunctionImportName="uspForecastBusinessPhaseImplementation_Testing" FunctionName="DatacastModel.Store.uspForecastBusinessPhaseImplementation_Testing" />
-    <FunctionImportMapping FunctionImportName="uspInsertDashboardWidgetsList" FunctionName="DatacastModel.Store.uspInsertDashboardWidgetsList" />
-    <FunctionImportMapping FunctionImportName="uspInsertExceptionLog" FunctionName="DatacastModel.Store.uspInsertExceptionLog" />
-    <FunctionImportMapping FunctionImportName="uspInsertFavouriteList" FunctionName="DatacastModel.Store.uspInsertFavouriteList" />
-    <FunctionImportMapping FunctionImportName="uspInsertPopupAccessingDate" FunctionName="DatacastModel.Store.uspInsertPopupAccessingDate" />
-    <FunctionImportMapping FunctionImportName="uspMonthlyYearlyQuarterlyCalculation" FunctionName="DatacastModel.Store.uspMonthlyYearlyQuarterlyCalculation" />
-    <FunctionImportMapping FunctionImportName="uspMonthlyYearlyQuarterlyCalculationForAll" FunctionName="DatacastModel.Store.uspMonthlyYearlyQuarterlyCalculationForAll" />
-    <FunctionImportMapping FunctionImportName="uspMonthlyYearlyQuarterlyCalculationUpdate" FunctionName="DatacastModel.Store.uspMonthlyYearlyQuarterlyCalculationUpdate" />
-    <FunctionImportMapping FunctionImportName="uspSelectAccounts" FunctionName="DatacastModel.Store.uspSelectAccounts">
+    <FunctionImportMapping FunctionImportName="sp_SelectStagingWebDataForNewIndicators" FunctionName="LDBTESTModel.Store.sp_SelectStagingWebDataForNewIndicators">
       <ResultMapping>
-        <ComplexTypeMapping TypeName="DatacastModel.uspSelectAccounts_Result">
+        <ComplexTypeMapping TypeName="LDBTESTModel.sp_SelectStagingWebDataForNewIndicators_Result">
+          <ScalarProperty Name="ShortCode" ColumnName="ShortCode" />
+          <ScalarProperty Name="MonthYear" ColumnName="MonthYear" />
+          <ScalarProperty Name="RawValue" ColumnName="RawValue" />
+          <ScalarProperty Name="AdjValue" ColumnName="AdjValue" />
+          <ScalarProperty Name="CreatedBy" ColumnName="CreatedBy" />
+          <ScalarProperty Name="CreatedDate" ColumnName="CreatedDate" />
+        </ComplexTypeMapping>
+      </ResultMapping>
+    </FunctionImportMapping>
+    <FunctionImportMapping FunctionImportName="sp_updateDataCastLists" FunctionName="LDBTESTModel.Store.sp_updateDataCastLists" />
+    <FunctionImportMapping FunctionImportName="sp_UpdateStagingForecastInfo" FunctionName="LDBTESTModel.Store.sp_UpdateStagingForecastInfo" />
+    <FunctionImportMapping FunctionImportName="SP_UpdateStagingInfo" FunctionName="LDBTESTModel.Store.SP_UpdateStagingInfo" />
+    <FunctionImportMapping FunctionImportName="TestLocal" FunctionName="LDBTESTModel.Store.TestLocal" />
+    <FunctionImportMapping FunctionImportName="USP_Update_MasterMetaDataInformationFromPackage" FunctionName="LDBTESTModel.Store.USP_Update_MasterMetaDataInformationFromPackage" />
+    <FunctionImportMapping FunctionImportName="uspBusinessPhaseLogicImplementation" FunctionName="LDBTESTModel.Store.uspBusinessPhaseLogicImplementation" />
+    <FunctionImportMapping FunctionImportName="uspBusinessPhaseLogicImplementationForIndicatorWeb" FunctionName="LDBTESTModel.Store.uspBusinessPhaseLogicImplementationForIndicatorWeb" />
+    <FunctionImportMapping FunctionImportName="uspBusinessPhaseLogicImplementationForNewIndicatorsWeb" FunctionName="LDBTESTModel.Store.uspBusinessPhaseLogicImplementationForNewIndicatorsWeb" />
+    <FunctionImportMapping FunctionImportName="uspBusinessPhaseLogicImplementationForSingleShortCode" FunctionName="LDBTESTModel.Store.uspBusinessPhaseLogicImplementationForSingleShortCode" />
+    <FunctionImportMapping FunctionImportName="uspDeleteCompanyDataSet" FunctionName="LDBTESTModel.Store.uspDeleteCompanyDataSet" />
+    <FunctionImportMapping FunctionImportName="uspDeleteDBWidgetsListByCompanyAndUserID" FunctionName="LDBTESTModel.Store.uspDeleteDBWidgetsListByCompanyAndUserID" />
+    <FunctionImportMapping FunctionImportName="uspDeleteDuplicateData" FunctionName="LDBTESTModel.Store.uspDeleteDuplicateData" />
+    <FunctionImportMapping FunctionImportName="uspDeleteFavoriteListByCompanyAndUserID" FunctionName="LDBTESTModel.Store.uspDeleteFavoriteListByCompanyAndUserID" />
+    <FunctionImportMapping FunctionImportName="uspDeleteIndicatorDataSet" FunctionName="LDBTESTModel.Store.uspDeleteIndicatorDataSet" />
+    <FunctionImportMapping FunctionImportName="uspForecastBusinessPhaseImplementation" FunctionName="LDBTESTModel.Store.uspForecastBusinessPhaseImplementation" />
+    <FunctionImportMapping FunctionImportName="uspForecastBusinessPhaseImplementation_Testing" FunctionName="LDBTESTModel.Store.uspForecastBusinessPhaseImplementation_Testing" />
+    <FunctionImportMapping FunctionImportName="uspInsertDashboardWidgetsList" FunctionName="LDBTESTModel.Store.uspInsertDashboardWidgetsList" />
+    <FunctionImportMapping FunctionImportName="uspInsertExceptionLog" FunctionName="LDBTESTModel.Store.uspInsertExceptionLog" />
+    <FunctionImportMapping FunctionImportName="uspInsertFavouriteList" FunctionName="LDBTESTModel.Store.uspInsertFavouriteList" />
+    <FunctionImportMapping FunctionImportName="uspInsertPopupAccessingDate" FunctionName="LDBTESTModel.Store.uspInsertPopupAccessingDate" />
+    <FunctionImportMapping FunctionImportName="uspMonthlyYearlyQuarterlyCalculation" FunctionName="LDBTESTModel.Store.uspMonthlyYearlyQuarterlyCalculation" />
+    <FunctionImportMapping FunctionImportName="uspMonthlyYearlyQuarterlyCalculationForAll" FunctionName="LDBTESTModel.Store.uspMonthlyYearlyQuarterlyCalculationForAll" />
+    <FunctionImportMapping FunctionImportName="uspMonthlyYearlyQuarterlyCalculationUpdate" FunctionName="LDBTESTModel.Store.uspMonthlyYearlyQuarterlyCalculationUpdate" />
+    <FunctionImportMapping FunctionImportName="uspSelectAccounts" FunctionName="LDBTESTModel.Store.uspSelectAccounts">
+      <ResultMapping>
+        <ComplexTypeMapping TypeName="LDBTESTModel.uspSelectAccounts_Result">
           <ScalarProperty Name="AccountID" ColumnName="AccountID" />
           <ScalarProperty Name="AccountName" ColumnName="AccountName" />
           <ScalarProperty Name="Company_Name" ColumnName="Company Name" />
@@ -1726,9 +1888,9 @@
         </ComplexTypeMapping>
       </ResultMapping>
     </FunctionImportMapping>
-    <FunctionImportMapping FunctionImportName="uspSelectAllFavouriteListByUserID" FunctionName="DatacastModel.Store.uspSelectAllFavouriteListByUserID">
+    <FunctionImportMapping FunctionImportName="uspSelectAllFavouriteListByUserID" FunctionName="LDBTESTModel.Store.uspSelectAllFavouriteListByUserID">
       <ResultMapping>
-        <ComplexTypeMapping TypeName="DatacastModel.uspSelectAllFavouriteListByUserID_Result">
+        <ComplexTypeMapping TypeName="LDBTESTModel.uspSelectAllFavouriteListByUserID_Result">
           <ScalarProperty Name="CompanyShortCode" ColumnName="CompanyShortCode" />
           <ScalarProperty Name="IndicatorShortCode" ColumnName="IndicatorShortCode" />
           <ScalarProperty Name="UserID" ColumnName="UserID" />
@@ -1740,9 +1902,9 @@
         </ComplexTypeMapping>
       </ResultMapping>
     </FunctionImportMapping>
-    <FunctionImportMapping FunctionImportName="uspSelectCompanyAndIndicatorDateByShordCodes" FunctionName="DatacastModel.Store.uspSelectCompanyAndIndicatorDateByShordCodes">
+    <FunctionImportMapping FunctionImportName="uspSelectCompanyAndIndicatorDateByShordCodes" FunctionName="LDBTESTModel.Store.uspSelectCompanyAndIndicatorDateByShordCodes">
       <ResultMapping>
-        <ComplexTypeMapping TypeName="DatacastModel.uspSelectCompanyAndIndicatorDateByShordCodes_Result">
+        <ComplexTypeMapping TypeName="LDBTESTModel.uspSelectCompanyAndIndicatorDateByShordCodes_Result">
           <ScalarProperty Name="MonthYear" ColumnName="MonthYear" />
           <ScalarProperty Name="Sales" ColumnName="Sales" />
           <ScalarProperty Name="C1By12" ColumnName="1By12" />
@@ -1768,9 +1930,9 @@
         </ComplexTypeMapping>
       </ResultMapping>
     </FunctionImportMapping>
-    <FunctionImportMapping FunctionImportName="uspSelectCompanyAndIndicatorDateByShordCodes_02092018" FunctionName="DatacastModel.Store.uspSelectCompanyAndIndicatorDateByShordCodes_02092018">
+    <FunctionImportMapping FunctionImportName="uspSelectCompanyAndIndicatorDateByShordCodes_02092018" FunctionName="LDBTESTModel.Store.uspSelectCompanyAndIndicatorDateByShordCodes_02092018">
       <ResultMapping>
-        <ComplexTypeMapping TypeName="DatacastModel.uspSelectCompanyAndIndicatorDateByShordCodes_02092018_Result">
+        <ComplexTypeMapping TypeName="LDBTESTModel.uspSelectCompanyAndIndicatorDateByShordCodes_02092018_Result">
           <ScalarProperty Name="MonthYear" ColumnName="MonthYear" />
           <ScalarProperty Name="Sales" ColumnName="Sales" />
           <ScalarProperty Name="C1By12" ColumnName="1By12" />
@@ -1795,9 +1957,9 @@
         </ComplexTypeMapping>
       </ResultMapping>
     </FunctionImportMapping>
-    <FunctionImportMapping FunctionImportName="uspSelectCompanyAndIndicatorDateByShordCodes_02132018" FunctionName="DatacastModel.Store.uspSelectCompanyAndIndicatorDateByShordCodes_02132018">
+    <FunctionImportMapping FunctionImportName="uspSelectCompanyAndIndicatorDateByShordCodes_02132018" FunctionName="LDBTESTModel.Store.uspSelectCompanyAndIndicatorDateByShordCodes_02132018">
       <ResultMapping>
-        <ComplexTypeMapping TypeName="DatacastModel.uspSelectCompanyAndIndicatorDateByShordCodes_02132018_Result">
+        <ComplexTypeMapping TypeName="LDBTESTModel.uspSelectCompanyAndIndicatorDateByShordCodes_02132018_Result">
           <ScalarProperty Name="MonthYear" ColumnName="MonthYear" />
           <ScalarProperty Name="Sales" ColumnName="Sales" />
           <ScalarProperty Name="C1By12" ColumnName="1By12" />
@@ -1822,9 +1984,9 @@
         </ComplexTypeMapping>
       </ResultMapping>
     </FunctionImportMapping>
-    <FunctionImportMapping FunctionImportName="uspSelectCompanyAndIndicatorDateByShordCodes_0619" FunctionName="DatacastModel.Store.uspSelectCompanyAndIndicatorDateByShordCodes_0619">
+    <FunctionImportMapping FunctionImportName="uspSelectCompanyAndIndicatorDateByShordCodes_0619" FunctionName="LDBTESTModel.Store.uspSelectCompanyAndIndicatorDateByShordCodes_0619">
       <ResultMapping>
-        <ComplexTypeMapping TypeName="DatacastModel.uspSelectCompanyAndIndicatorDateByShordCodes_0619_Result">
+        <ComplexTypeMapping TypeName="LDBTESTModel.uspSelectCompanyAndIndicatorDateByShordCodes_0619_Result">
           <ScalarProperty Name="MonthYear" ColumnName="MonthYear" />
           <ScalarProperty Name="Sales" ColumnName="Sales" />
           <ScalarProperty Name="C1By12" ColumnName="1By12" />
@@ -1850,9 +2012,9 @@
         </ComplexTypeMapping>
       </ResultMapping>
     </FunctionImportMapping>
-    <FunctionImportMapping FunctionImportName="uspSelectCompanyAndIndicatorDateByShordCodes_08282017" FunctionName="DatacastModel.Store.uspSelectCompanyAndIndicatorDateByShordCodes_08282017">
+    <FunctionImportMapping FunctionImportName="uspSelectCompanyAndIndicatorDateByShordCodes_08282017" FunctionName="LDBTESTModel.Store.uspSelectCompanyAndIndicatorDateByShordCodes_08282017">
       <ResultMapping>
-        <ComplexTypeMapping TypeName="DatacastModel.uspSelectCompanyAndIndicatorDateByShordCodes_08282017_Result">
+        <ComplexTypeMapping TypeName="LDBTESTModel.uspSelectCompanyAndIndicatorDateByShordCodes_08282017_Result">
           <ScalarProperty Name="MonthYear" ColumnName="MonthYear" />
           <ScalarProperty Name="Sales" ColumnName="Sales" />
           <ScalarProperty Name="C1By12" ColumnName="1By12" />
@@ -1874,9 +2036,9 @@
         </ComplexTypeMapping>
       </ResultMapping>
     </FunctionImportMapping>
-    <FunctionImportMapping FunctionImportName="uspSelectCompanyAndIndicatorDateByShordCodes_new" FunctionName="DatacastModel.Store.uspSelectCompanyAndIndicatorDateByShordCodes_new">
+    <FunctionImportMapping FunctionImportName="uspSelectCompanyAndIndicatorDateByShordCodes_new" FunctionName="LDBTESTModel.Store.uspSelectCompanyAndIndicatorDateByShordCodes_new">
       <ResultMapping>
-        <ComplexTypeMapping TypeName="DatacastModel.uspSelectCompanyAndIndicatorDateByShordCodes_new_Result">
+        <ComplexTypeMapping TypeName="LDBTESTModel.uspSelectCompanyAndIndicatorDateByShordCodes_new_Result">
           <ScalarProperty Name="MonthYear" ColumnName="MonthYear" />
           <ScalarProperty Name="Sales" ColumnName="Sales" />
           <ScalarProperty Name="C1By12" ColumnName="1By12" />
@@ -1897,9 +2059,9 @@
         </ComplexTypeMapping>
       </ResultMapping>
     </FunctionImportMapping>
-    <FunctionImportMapping FunctionImportName="uspSelectCompanyAndIndicatorDateByShordCodes_old" FunctionName="DatacastModel.Store.uspSelectCompanyAndIndicatorDateByShordCodes_old">
+    <FunctionImportMapping FunctionImportName="uspSelectCompanyAndIndicatorDateByShordCodes_old" FunctionName="LDBTESTModel.Store.uspSelectCompanyAndIndicatorDateByShordCodes_old">
       <ResultMapping>
-        <ComplexTypeMapping TypeName="DatacastModel.uspSelectCompanyAndIndicatorDateByShordCodes_old_Result">
+        <ComplexTypeMapping TypeName="LDBTESTModel.uspSelectCompanyAndIndicatorDateByShordCodes_old_Result">
           <ScalarProperty Name="MonthYear" ColumnName="MonthYear" />
           <ScalarProperty Name="Sales" ColumnName="Sales" />
           <ScalarProperty Name="C1By12" ColumnName="1By12" />
@@ -1920,9 +2082,9 @@
         </ComplexTypeMapping>
       </ResultMapping>
     </FunctionImportMapping>
-    <FunctionImportMapping FunctionImportName="uspSelectCompanyAndIndicatorDateByShordCodes03312017" FunctionName="DatacastModel.Store.uspSelectCompanyAndIndicatorDateByShordCodes03312017">
+    <FunctionImportMapping FunctionImportName="uspSelectCompanyAndIndicatorDateByShordCodes03312017" FunctionName="LDBTESTModel.Store.uspSelectCompanyAndIndicatorDateByShordCodes03312017">
       <ResultMapping>
-        <ComplexTypeMapping TypeName="DatacastModel.uspSelectCompanyAndIndicatorDateByShordCodes03312017_Result">
+        <ComplexTypeMapping TypeName="LDBTESTModel.uspSelectCompanyAndIndicatorDateByShordCodes03312017_Result">
           <ScalarProperty Name="MonthYear" ColumnName="MonthYear" />
           <ScalarProperty Name="Sales" ColumnName="Sales" />
           <ScalarProperty Name="C1By12" ColumnName="1By12" />
@@ -1943,9 +2105,9 @@
         </ComplexTypeMapping>
       </ResultMapping>
     </FunctionImportMapping>
-    <FunctionImportMapping FunctionImportName="uspSelectCompanyAndIndicatorDateByShordCodesForAlliance" FunctionName="DatacastModel.Store.uspSelectCompanyAndIndicatorDateByShordCodesForAlliance">
+    <FunctionImportMapping FunctionImportName="uspSelectCompanyAndIndicatorDateByShordCodesForAlliance" FunctionName="LDBTESTModel.Store.uspSelectCompanyAndIndicatorDateByShordCodesForAlliance">
       <ResultMapping>
-        <ComplexTypeMapping TypeName="DatacastModel.uspSelectCompanyAndIndicatorDateByShordCodesForAlliance_Result">
+        <ComplexTypeMapping TypeName="LDBTESTModel.uspSelectCompanyAndIndicatorDateByShordCodesForAlliance_Result">
           <ScalarProperty Name="MonthYear" ColumnName="MonthYear" />
           <ScalarProperty Name="Sales" ColumnName="Sales" />
           <ScalarProperty Name="C1By12" ColumnName="1By12" />
@@ -1970,9 +2132,9 @@
         </ComplexTypeMapping>
       </ResultMapping>
     </FunctionImportMapping>
-    <FunctionImportMapping FunctionImportName="uspSelectCompanyDataForDataTrends" FunctionName="DatacastModel.Store.uspSelectCompanyDataForDataTrends">
+    <FunctionImportMapping FunctionImportName="uspSelectCompanyDataForDataTrends" FunctionName="LDBTESTModel.Store.uspSelectCompanyDataForDataTrends">
       <ResultMapping>
-        <ComplexTypeMapping TypeName="DatacastModel.uspSelectCompanyDataForDataTrends_Result">
+        <ComplexTypeMapping TypeName="LDBTESTModel.uspSelectCompanyDataForDataTrends_Result">
           <ScalarProperty Name="MonthYear" ColumnName="MonthYear" />
           <ScalarProperty Name="Sales" ColumnName="Sales" />
           <ScalarProperty Name="C1By12" ColumnName="1By12" />
@@ -1991,9 +2153,9 @@
         </ComplexTypeMapping>
       </ResultMapping>
     </FunctionImportMapping>
-    <FunctionImportMapping FunctionImportName="uspSelectCompanyDatasetsForInternalRatesOfChange" FunctionName="DatacastModel.Store.uspSelectCompanyDatasetsForInternalRatesOfChange">
+    <FunctionImportMapping FunctionImportName="uspSelectCompanyDatasetsForInternalRatesOfChange" FunctionName="LDBTESTModel.Store.uspSelectCompanyDatasetsForInternalRatesOfChange">
       <ResultMapping>
-        <ComplexTypeMapping TypeName="DatacastModel.uspSelectCompanyDatasetsForInternalRatesOfChange_Result">
+        <ComplexTypeMapping TypeName="LDBTESTModel.uspSelectCompanyDatasetsForInternalRatesOfChange_Result">
           <ScalarProperty Name="MOnthYear" ColumnName="MOnthYear" />
           <ScalarProperty Name="Y1Value" ColumnName="Y1Value" />
           <ScalarProperty Name="Y2Value" ColumnName="Y2Value" />
@@ -2004,9 +2166,9 @@
         </ComplexTypeMapping>
       </ResultMapping>
     </FunctionImportMapping>
-    <FunctionImportMapping FunctionImportName="uspSelectCompanyDataSetsInfoDownloadSection1" FunctionName="DatacastModel.Store.uspSelectCompanyDataSetsInfoDownloadSection1">
+    <FunctionImportMapping FunctionImportName="uspSelectCompanyDataSetsInfoDownloadSection1" FunctionName="LDBTESTModel.Store.uspSelectCompanyDataSetsInfoDownloadSection1">
       <ResultMapping>
-        <ComplexTypeMapping TypeName="DatacastModel.uspSelectCompanyDataSetsInfoDownloadSection1_Result">
+        <ComplexTypeMapping TypeName="LDBTESTModel.uspSelectCompanyDataSetsInfoDownloadSection1_Result">
           <ScalarProperty Name="MonthYear" ColumnName="MonthYear" />
           <ScalarProperty Name="C1By12" ColumnName="1By12" />
           <ScalarProperty Name="C3MMA" ColumnName="3MMA" />
@@ -2019,9 +2181,9 @@
         </ComplexTypeMapping>
       </ResultMapping>
     </FunctionImportMapping>
-    <FunctionImportMapping FunctionImportName="uspSelectCompanyForecastDataByCompanyShortCode" FunctionName="DatacastModel.Store.uspSelectCompanyForecastDataByCompanyShortCode">
+    <FunctionImportMapping FunctionImportName="uspSelectCompanyForecastDataByCompanyShortCode" FunctionName="LDBTESTModel.Store.uspSelectCompanyForecastDataByCompanyShortCode">
       <ResultMapping>
-        <ComplexTypeMapping TypeName="DatacastModel.uspSelectCompanyForecastDataByCompanyShortCode_Result">
+        <ComplexTypeMapping TypeName="LDBTESTModel.uspSelectCompanyForecastDataByCompanyShortCode_Result">
           <ScalarProperty Name="MetaDataID" ColumnName="MetaDataID" />
           <ScalarProperty Name="MonthYear" ColumnName="MonthYear" />
           <ScalarProperty Name="Sales" ColumnName="Sales" />
@@ -2040,65 +2202,77 @@
         </ComplexTypeMapping>
       </ResultMapping>
     </FunctionImportMapping>
-    <FunctionImportMapping FunctionImportName="uspSelectCompanySales" FunctionName="DatacastModel.Store.uspSelectCompanySales" />
-    <FunctionImportMapping FunctionImportName="uspSelectCompanySalesByShortCode" FunctionName="DatacastModel.Store.uspSelectCompanySalesByShortCode" />
-    <FunctionImportMapping FunctionImportName="uspSelectCompanySalesForNewCompany" FunctionName="DatacastModel.Store.uspSelectCompanySalesForNewCompany" />
-    <FunctionImportMapping FunctionImportName="uspSelectCompanySalesForUpdatedCompanies" FunctionName="DatacastModel.Store.uspSelectCompanySalesForUpdatedCompanies" />
-    <FunctionImportMapping FunctionImportName="uspSelectCompanySalesPortal" FunctionName="DatacastModel.Store.uspSelectCompanySalesPortal" />
-    <FunctionImportMapping FunctionImportName="uspSelectCompanySalesPortalByCustomerDataSetID" FunctionName="DatacastModel.Store.uspSelectCompanySalesPortalByCustomerDataSetID" />
-    <FunctionImportMapping FunctionImportName="uspSelectCompanySalesPortalByCustomerDataSetID_Scheduler" FunctionName="DatacastModel.Store.uspSelectCompanySalesPortalByCustomerDataSetID_Scheduler" />
-    <FunctionImportMapping FunctionImportName="uspSelectDatacastCategories" FunctionName="DatacastModel.Store.uspSelectDatacastCategories">
+    <FunctionImportMapping FunctionImportName="uspSelectCompanySales" FunctionName="LDBTESTModel.Store.uspSelectCompanySales" />
+    <FunctionImportMapping FunctionImportName="uspSelectCompanySalesByShortCode" FunctionName="LDBTESTModel.Store.uspSelectCompanySalesByShortCode" />
+    <FunctionImportMapping FunctionImportName="uspSelectCompanySalesForNewCompany" FunctionName="LDBTESTModel.Store.uspSelectCompanySalesForNewCompany" />
+    <FunctionImportMapping FunctionImportName="uspSelectCompanySalesForUpdatedCompanies" FunctionName="LDBTESTModel.Store.uspSelectCompanySalesForUpdatedCompanies" />
+    <FunctionImportMapping FunctionImportName="uspSelectCompanySalesPortal" FunctionName="LDBTESTModel.Store.uspSelectCompanySalesPortal" />
+    <FunctionImportMapping FunctionImportName="uspSelectCompanySalesPortalByCustomerDataSetID" FunctionName="LDBTESTModel.Store.uspSelectCompanySalesPortalByCustomerDataSetID" />
+    <FunctionImportMapping FunctionImportName="uspSelectCompanySalesPortalByCustomerDataSetID_Scheduler" FunctionName="LDBTESTModel.Store.uspSelectCompanySalesPortalByCustomerDataSetID_Scheduler" />
+    <FunctionImportMapping FunctionImportName="uspSelectCurrentMonthPhaseValuesOfDBWidgetsByCompanyId" FunctionName="LDBTESTModel.Store.uspSelectCurrentMonthPhaseValuesOfDBWidgetsByCompanyId">
       <ResultMapping>
-        <ComplexTypeMapping TypeName="DatacastModel.uspSelectDatacastCategories_Result">
+        <ComplexTypeMapping TypeName="LDBTESTModel.uspSelectCurrentMonthPhaseValuesOfDBWidgetsByCompanyId_Result">
+          <ScalarProperty Name="DashboardWidgetsListId" ColumnName="DashboardWidgetsListId" />
+          <ScalarProperty Name="IndicatorName" ColumnName="IndicatorName" />
+          <ScalarProperty Name="IndicatorShortCode" ColumnName="IndicatorShortCode" />
+          <ScalarProperty Name="MonthYear" ColumnName="MonthYear" />
+          <ScalarProperty Name="MY" ColumnName="MY" />
+          <ScalarProperty Name="Phases" ColumnName="Phases" />
+        </ComplexTypeMapping>
+      </ResultMapping>
+    </FunctionImportMapping>
+    <FunctionImportMapping FunctionImportName="uspSelectDatacastCategories" FunctionName="LDBTESTModel.Store.uspSelectDatacastCategories">
+      <ResultMapping>
+        <ComplexTypeMapping TypeName="LDBTESTModel.uspSelectDatacastCategories_Result">
           <ScalarProperty Name="Industry" ColumnName="Industry" />
           <ScalarProperty Name="IndustryID" ColumnName="IndustryID" />
         </ComplexTypeMapping>
       </ResultMapping>
     </FunctionImportMapping>
-    <FunctionImportMapping FunctionImportName="uspSelectDatacastSubCategoriesByCategory" FunctionName="DatacastModel.Store.uspSelectDatacastSubCategoriesByCategory">
+    <FunctionImportMapping FunctionImportName="uspSelectDatacastSubCategoriesByCategory" FunctionName="LDBTESTModel.Store.uspSelectDatacastSubCategoriesByCategory">
       <ResultMapping>
-        <ComplexTypeMapping TypeName="DatacastModel.uspSelectDatacastSubCategoriesByCategory_Result">
+        <ComplexTypeMapping TypeName="LDBTESTModel.uspSelectDatacastSubCategoriesByCategory_Result">
           <ScalarProperty Name="Sector" ColumnName="Sector" />
           <ScalarProperty Name="SectorID" ColumnName="SectorID" />
         </ComplexTypeMapping>
       </ResultMapping>
     </FunctionImportMapping>
-    <FunctionImportMapping FunctionImportName="uspSelectDatacastSubSector2BySubSector1" FunctionName="DatacastModel.Store.uspSelectDatacastSubSector2BySubSector1">
+    <FunctionImportMapping FunctionImportName="uspSelectDatacastSubSector2BySubSector1" FunctionName="LDBTESTModel.Store.uspSelectDatacastSubSector2BySubSector1">
       <ResultMapping>
-        <ComplexTypeMapping TypeName="DatacastModel.uspSelectDatacastSubSector2BySubSector1_Result">
+        <ComplexTypeMapping TypeName="LDBTESTModel.uspSelectDatacastSubSector2BySubSector1_Result">
           <ScalarProperty Name="SubSector2" ColumnName="SubSector2" />
           <ScalarProperty Name="SubSector2ID" ColumnName="SubSector2ID" />
         </ComplexTypeMapping>
       </ResultMapping>
     </FunctionImportMapping>
-    <FunctionImportMapping FunctionImportName="uspSelectDatacastSubSector3BySubSector2" FunctionName="DatacastModel.Store.uspSelectDatacastSubSector3BySubSector2">
+    <FunctionImportMapping FunctionImportName="uspSelectDatacastSubSector3BySubSector2" FunctionName="LDBTESTModel.Store.uspSelectDatacastSubSector3BySubSector2">
       <ResultMapping>
-        <ComplexTypeMapping TypeName="DatacastModel.uspSelectDatacastSubSector3BySubSector2_Result">
+        <ComplexTypeMapping TypeName="LDBTESTModel.uspSelectDatacastSubSector3BySubSector2_Result">
           <ScalarProperty Name="SubSector3" ColumnName="SubSector3" />
           <ScalarProperty Name="SubSector3ID" ColumnName="SubSector3ID" />
         </ComplexTypeMapping>
       </ResultMapping>
     </FunctionImportMapping>
-    <FunctionImportMapping FunctionImportName="uspSelectDatacastSubSectorsBySector" FunctionName="DatacastModel.Store.uspSelectDatacastSubSectorsBySector">
+    <FunctionImportMapping FunctionImportName="uspSelectDatacastSubSectorsBySector" FunctionName="LDBTESTModel.Store.uspSelectDatacastSubSectorsBySector">
       <ResultMapping>
-        <ComplexTypeMapping TypeName="DatacastModel.uspSelectDatacastSubSectorsBySector_Result">
+        <ComplexTypeMapping TypeName="LDBTESTModel.uspSelectDatacastSubSectorsBySector_Result">
           <ScalarProperty Name="SubSector1" ColumnName="SubSector1" />
           <ScalarProperty Name="SubSector1ID" ColumnName="SubSector1ID" />
         </ComplexTypeMapping>
       </ResultMapping>
     </FunctionImportMapping>
-    <FunctionImportMapping FunctionImportName="uspSelectDataSetsByQBaseAccountID" FunctionName="DatacastModel.Store.uspSelectDataSetsByQBaseAccountID">
+    <FunctionImportMapping FunctionImportName="uspSelectDataSetsByQBaseAccountID" FunctionName="LDBTESTModel.Store.uspSelectDataSetsByQBaseAccountID">
       <ResultMapping>
-        <ComplexTypeMapping TypeName="DatacastModel.uspSelectDataSetsByQBaseAccountID_Result">
+        <ComplexTypeMapping TypeName="LDBTESTModel.uspSelectDataSetsByQBaseAccountID_Result">
           <ScalarProperty Name="ShortCode" ColumnName="ShortCode" />
           <ScalarProperty Name="MasterMetaDataID" ColumnName="MasterMetaDataID" />
           <ScalarProperty Name="SeriesName" ColumnName="SeriesName" />
         </ComplexTypeMapping>
       </ResultMapping>
     </FunctionImportMapping>
-    <FunctionImportMapping FunctionImportName="uspSelectDBWidgetsCorrelationListByCompanyID" FunctionName="DatacastModel.Store.uspSelectDBWidgetsCorrelationListByCompanyID">
+    <FunctionImportMapping FunctionImportName="uspSelectDBWidgetsCorrelationListByCompanyID" FunctionName="LDBTESTModel.Store.uspSelectDBWidgetsCorrelationListByCompanyID">
       <ResultMapping>
-        <ComplexTypeMapping TypeName="DatacastModel.uspSelectDBWidgetsCorrelationListByCompanyID_Result">
+        <ComplexTypeMapping TypeName="LDBTESTModel.uspSelectDBWidgetsCorrelationListByCompanyID_Result">
           <ScalarProperty Name="RowNum" ColumnName="RowNum" />
           <ScalarProperty Name="TotalCount" ColumnName="TotalCount" />
           <ScalarProperty Name="iTotalRecords" ColumnName="iTotalRecords" />
@@ -2111,9 +2285,9 @@
         </ComplexTypeMapping>
       </ResultMapping>
     </FunctionImportMapping>
-    <FunctionImportMapping FunctionImportName="uspSelectDBWidgetsListByCompanyID" FunctionName="DatacastModel.Store.uspSelectDBWidgetsListByCompanyID">
+    <FunctionImportMapping FunctionImportName="uspSelectDBWidgetsListByCompanyID" FunctionName="LDBTESTModel.Store.uspSelectDBWidgetsListByCompanyID">
       <ResultMapping>
-        <ComplexTypeMapping TypeName="DatacastModel.uspSelectDBWidgetsListByCompanyID_Result">
+        <ComplexTypeMapping TypeName="LDBTESTModel.uspSelectDBWidgetsListByCompanyID_Result">
           <ScalarProperty Name="DashboardWidgetsListId" ColumnName="DashboardWidgetsListId" />
           <ScalarProperty Name="DashboardWidgetsListName" ColumnName="DashboardWidgetsListName" />
           <ScalarProperty Name="CompanyShortCode" ColumnName="CompanyShortCode" />
@@ -2122,9 +2296,9 @@
         </ComplexTypeMapping>
       </ResultMapping>
     </FunctionImportMapping>
-    <FunctionImportMapping FunctionImportName="uspSelectDivisionsByAccountID" FunctionName="DatacastModel.Store.uspSelectDivisionsByAccountID">
+    <FunctionImportMapping FunctionImportName="uspSelectDivisionsByAccountID" FunctionName="LDBTESTModel.Store.uspSelectDivisionsByAccountID">
       <ResultMapping>
-        <ComplexTypeMapping TypeName="DatacastModel.uspSelectDivisionsByAccountID_Result">
+        <ComplexTypeMapping TypeName="LDBTESTModel.uspSelectDivisionsByAccountID_Result">
           <ScalarProperty Name="AccountID" ColumnName="AccountID" />
           <ScalarProperty Name="AccountName" ColumnName="AccountName" />
           <ScalarProperty Name="DivisionID" ColumnName="DivisionID" />
@@ -2132,9 +2306,9 @@
         </ComplexTypeMapping>
       </ResultMapping>
     </FunctionImportMapping>
-    <FunctionImportMapping FunctionImportName="uspSelectFavouriteListByUserID" FunctionName="DatacastModel.Store.uspSelectFavouriteListByUserID">
+    <FunctionImportMapping FunctionImportName="uspSelectFavouriteListByUserID" FunctionName="LDBTESTModel.Store.uspSelectFavouriteListByUserID">
       <ResultMapping>
-        <ComplexTypeMapping TypeName="DatacastModel.uspSelectFavouriteListByUserID_Result">
+        <ComplexTypeMapping TypeName="LDBTESTModel.uspSelectFavouriteListByUserID_Result">
           <ScalarProperty Name="RowNum" ColumnName="RowNum" />
           <ScalarProperty Name="TotalCount" ColumnName="TotalCount" />
           <ScalarProperty Name="iTotalRecords" ColumnName="iTotalRecords" />
@@ -2148,17 +2322,17 @@
         </ComplexTypeMapping>
       </ResultMapping>
     </FunctionImportMapping>
-    <FunctionImportMapping FunctionImportName="uspSelectFavouritesListByUserID" FunctionName="DatacastModel.Store.uspSelectFavouritesListByUserID">
+    <FunctionImportMapping FunctionImportName="uspSelectFavouritesListByUserID" FunctionName="LDBTESTModel.Store.uspSelectFavouritesListByUserID">
       <ResultMapping>
-        <ComplexTypeMapping TypeName="DatacastModel.uspSelectFavouritesListByUserID_Result">
+        <ComplexTypeMapping TypeName="LDBTESTModel.uspSelectFavouritesListByUserID_Result">
           <ScalarProperty Name="FavouriteListName" ColumnName="FavouriteListName" />
           <ScalarProperty Name="CompanyShortCode" ColumnName="CompanyShortCode" />
         </ComplexTypeMapping>
       </ResultMapping>
     </FunctionImportMapping>
-    <FunctionImportMapping FunctionImportName="uspSelectForecastDataByIndicatorForDownload" FunctionName="DatacastModel.Store.uspSelectForecastDataByIndicatorForDownload">
+    <FunctionImportMapping FunctionImportName="uspSelectForecastDataByIndicatorForDownload" FunctionName="LDBTESTModel.Store.uspSelectForecastDataByIndicatorForDownload">
       <ResultMapping>
-        <ComplexTypeMapping TypeName="DatacastModel.uspSelectForecastDataByIndicatorForDownload_Result">
+        <ComplexTypeMapping TypeName="LDBTESTModel.uspSelectForecastDataByIndicatorForDownload_Result">
           <ScalarProperty Name="ShortCode" ColumnName="ShortCode" />
           <ScalarProperty Name="MonthYear" ColumnName="MonthYear" />
           <ScalarProperty Name="LFR12MMA" ColumnName="LFR12MMA" />
@@ -2176,9 +2350,9 @@
         </ComplexTypeMapping>
       </ResultMapping>
     </FunctionImportMapping>
-    <FunctionImportMapping FunctionImportName="uspSelectIndicatorDataByIndicatorShortCodes" FunctionName="DatacastModel.Store.uspSelectIndicatorDataByIndicatorShortCodes">
+    <FunctionImportMapping FunctionImportName="uspSelectIndicatorDataByIndicatorShortCodes" FunctionName="LDBTESTModel.Store.uspSelectIndicatorDataByIndicatorShortCodes">
       <ResultMapping>
-        <ComplexTypeMapping TypeName="DatacastModel.uspSelectIndicatorDataByIndicatorShortCodes_Result">
+        <ComplexTypeMapping TypeName="LDBTESTModel.uspSelectIndicatorDataByIndicatorShortCodes_Result">
           <ScalarProperty Name="MonthYear" ColumnName="MonthYear" />
           <ScalarProperty Name="Indicator" ColumnName="Indicator" />
           <ScalarProperty Name="Company" ColumnName="Company" />
@@ -2187,9 +2361,9 @@
         </ComplexTypeMapping>
       </ResultMapping>
     </FunctionImportMapping>
-    <FunctionImportMapping FunctionImportName="uspSelectIndicatorForecastDataByIndicatorShortCode" FunctionName="DatacastModel.Store.uspSelectIndicatorForecastDataByIndicatorShortCode">
+    <FunctionImportMapping FunctionImportName="uspSelectIndicatorForecastDataByIndicatorShortCode" FunctionName="LDBTESTModel.Store.uspSelectIndicatorForecastDataByIndicatorShortCode">
       <ResultMapping>
-        <ComplexTypeMapping TypeName="DatacastModel.uspSelectIndicatorForecastDataByIndicatorShortCode_Result">
+        <ComplexTypeMapping TypeName="LDBTESTModel.uspSelectIndicatorForecastDataByIndicatorShortCode_Result">
           <ScalarProperty Name="MetaDataID" ColumnName="MetaDataID" />
           <ScalarProperty Name="MonthYear" ColumnName="MonthYear" />
           <ScalarProperty Name="Sales" ColumnName="Sales" />
@@ -2209,9 +2383,9 @@
         </ComplexTypeMapping>
       </ResultMapping>
     </FunctionImportMapping>
-    <FunctionImportMapping FunctionImportName="uspSelectIndicatorListByCategorySearch" FunctionName="DatacastModel.Store.uspSelectIndicatorListByCategorySearch">
+    <FunctionImportMapping FunctionImportName="uspSelectIndicatorListByCategorySearch" FunctionName="LDBTESTModel.Store.uspSelectIndicatorListByCategorySearch">
       <ResultMapping>
-        <ComplexTypeMapping TypeName="DatacastModel.uspSelectIndicatorListByCategorySearch_Result">
+        <ComplexTypeMapping TypeName="LDBTESTModel.uspSelectIndicatorListByCategorySearch_Result">
           <ScalarProperty Name="RowNum" ColumnName="RowNum" />
           <ScalarProperty Name="TotalCount" ColumnName="TotalCount" />
           <ScalarProperty Name="iTotalRecords" ColumnName="iTotalRecords" />
@@ -2225,15 +2399,15 @@
         </ComplexTypeMapping>
       </ResultMapping>
     </FunctionImportMapping>
-    <FunctionImportMapping FunctionImportName="uspSelectIndicatorSales" FunctionName="DatacastModel.Store.uspSelectIndicatorSales" />
-    <FunctionImportMapping FunctionImportName="uspSelectIndicatorSales_ByShortCodes" FunctionName="DatacastModel.Store.uspSelectIndicatorSales_ByShortCodes" />
-    <FunctionImportMapping FunctionImportName="uspSelectIndicatorSales_ShortCodes" FunctionName="DatacastModel.Store.uspSelectIndicatorSales_ShortCodes" />
-    <FunctionImportMapping FunctionImportName="uspSelectIndicatorSales_TEST" FunctionName="DatacastModel.Store.uspSelectIndicatorSales_TEST" />
-    <FunctionImportMapping FunctionImportName="uspSelectIndicatorSalesForNewIndicators" FunctionName="DatacastModel.Store.uspSelectIndicatorSalesForNewIndicators" />
-    <FunctionImportMapping FunctionImportName="uspSelectIndicatorSalesForUpdatedIndicators" FunctionName="DatacastModel.Store.uspSelectIndicatorSalesForUpdatedIndicators" />
-    <FunctionImportMapping FunctionImportName="uspSelectIndicatorSeriesItemsForDownloadData" FunctionName="DatacastModel.Store.uspSelectIndicatorSeriesItemsForDownloadData">
+    <FunctionImportMapping FunctionImportName="uspSelectIndicatorSales" FunctionName="LDBTESTModel.Store.uspSelectIndicatorSales" />
+    <FunctionImportMapping FunctionImportName="uspSelectIndicatorSales_ByShortCodes" FunctionName="LDBTESTModel.Store.uspSelectIndicatorSales_ByShortCodes" />
+    <FunctionImportMapping FunctionImportName="uspSelectIndicatorSales_ShortCodes" FunctionName="LDBTESTModel.Store.uspSelectIndicatorSales_ShortCodes" />
+    <FunctionImportMapping FunctionImportName="uspSelectIndicatorSales_TEST" FunctionName="LDBTESTModel.Store.uspSelectIndicatorSales_TEST" />
+    <FunctionImportMapping FunctionImportName="uspSelectIndicatorSalesForNewIndicators" FunctionName="LDBTESTModel.Store.uspSelectIndicatorSalesForNewIndicators" />
+    <FunctionImportMapping FunctionImportName="uspSelectIndicatorSalesForUpdatedIndicators" FunctionName="LDBTESTModel.Store.uspSelectIndicatorSalesForUpdatedIndicators" />
+    <FunctionImportMapping FunctionImportName="uspSelectIndicatorSeriesItemsForDownloadData" FunctionName="LDBTESTModel.Store.uspSelectIndicatorSeriesItemsForDownloadData">
       <ResultMapping>
-        <ComplexTypeMapping TypeName="DatacastModel.uspSelectIndicatorSeriesItemsForDownloadData_Result">
+        <ComplexTypeMapping TypeName="LDBTESTModel.uspSelectIndicatorSeriesItemsForDownloadData_Result">
           <ScalarProperty Name="ASeriesName" ColumnName="ASeriesName" />
           <ScalarProperty Name="CorrValue" ColumnName="CorrValue" />
           <ScalarProperty Name="lagValue" ColumnName="lagValue" />
@@ -2242,9 +2416,9 @@
         </ComplexTypeMapping>
       </ResultMapping>
     </FunctionImportMapping>
-    <FunctionImportMapping FunctionImportName="uspSelectLoadCorelationLeadLagByDataSetID" FunctionName="DatacastModel.Store.uspSelectLoadCorelationLeadLagByDataSetID">
+    <FunctionImportMapping FunctionImportName="uspSelectLoadCorelationLeadLagByDataSetID" FunctionName="LDBTESTModel.Store.uspSelectLoadCorelationLeadLagByDataSetID">
       <ResultMapping>
-        <ComplexTypeMapping TypeName="DatacastModel.uspSelectLoadCorelationLeadLagByDataSetID_Result">
+        <ComplexTypeMapping TypeName="LDBTESTModel.uspSelectLoadCorelationLeadLagByDataSetID_Result">
           <ScalarProperty Name="RowNum" ColumnName="RowNum" />
           <ScalarProperty Name="TotalCount" ColumnName="TotalCount" />
           <ScalarProperty Name="iTotalRecords" ColumnName="iTotalRecords" />
@@ -2258,9 +2432,9 @@
         </ComplexTypeMapping>
       </ResultMapping>
     </FunctionImportMapping>
-    <FunctionImportMapping FunctionImportName="uspSelectLoadCorelationLeadLagByDataSetID_04282017" FunctionName="DatacastModel.Store.uspSelectLoadCorelationLeadLagByDataSetID_04282017">
+    <FunctionImportMapping FunctionImportName="uspSelectLoadCorelationLeadLagByDataSetID_04282017" FunctionName="LDBTESTModel.Store.uspSelectLoadCorelationLeadLagByDataSetID_04282017">
       <ResultMapping>
-        <ComplexTypeMapping TypeName="DatacastModel.uspSelectLoadCorelationLeadLagByDataSetID_04282017_Result">
+        <ComplexTypeMapping TypeName="LDBTESTModel.uspSelectLoadCorelationLeadLagByDataSetID_04282017_Result">
           <ScalarProperty Name="ASeriesName" ColumnName="ASeriesName" />
           <ScalarProperty Name="CorrValue" ColumnName="CorrValue" />
           <ScalarProperty Name="lagValue" ColumnName="lagValue" />
@@ -2269,9 +2443,9 @@
         </ComplexTypeMapping>
       </ResultMapping>
     </FunctionImportMapping>
-    <FunctionImportMapping FunctionImportName="uspSelectLoadCorelationLeadLagByDataSetIDForAlliance" FunctionName="DatacastModel.Store.uspSelectLoadCorelationLeadLagByDataSetIDForAlliance">
+    <FunctionImportMapping FunctionImportName="uspSelectLoadCorelationLeadLagByDataSetIDForAlliance" FunctionName="LDBTESTModel.Store.uspSelectLoadCorelationLeadLagByDataSetIDForAlliance">
       <ResultMapping>
-        <ComplexTypeMapping TypeName="DatacastModel.uspSelectLoadCorelationLeadLagByDataSetIDForAlliance_Result">
+        <ComplexTypeMapping TypeName="LDBTESTModel.uspSelectLoadCorelationLeadLagByDataSetIDForAlliance_Result">
           <ScalarProperty Name="RowNum" ColumnName="RowNum" />
           <ScalarProperty Name="TotalCount" ColumnName="TotalCount" />
           <ScalarProperty Name="iTotalRecords" ColumnName="iTotalRecords" />
@@ -2285,9 +2459,9 @@
         </ComplexTypeMapping>
       </ResultMapping>
     </FunctionImportMapping>
-    <FunctionImportMapping FunctionImportName="uspSelectLoadCorelationLeadLagByMultipleDatasetIDS" FunctionName="DatacastModel.Store.uspSelectLoadCorelationLeadLagByMultipleDatasetIDS">
+    <FunctionImportMapping FunctionImportName="uspSelectLoadCorelationLeadLagByMultipleDatasetIDS" FunctionName="LDBTESTModel.Store.uspSelectLoadCorelationLeadLagByMultipleDatasetIDS">
       <ResultMapping>
-        <ComplexTypeMapping TypeName="DatacastModel.uspSelectLoadCorelationLeadLagByMultipleDatasetIDS_Result">
+        <ComplexTypeMapping TypeName="LDBTESTModel.uspSelectLoadCorelationLeadLagByMultipleDatasetIDS_Result">
           <ScalarProperty Name="RowNum" ColumnName="RowNum" />
           <ScalarProperty Name="TotalCount" ColumnName="TotalCount" />
           <ScalarProperty Name="iTotalRecords" ColumnName="iTotalRecords" />
@@ -2299,9 +2473,9 @@
         </ComplexTypeMapping>
       </ResultMapping>
     </FunctionImportMapping>
-    <FunctionImportMapping FunctionImportName="uspSelectLoadCorelationLeadLagByMultipleDatasetIDS_04282017" FunctionName="DatacastModel.Store.uspSelectLoadCorelationLeadLagByMultipleDatasetIDS_04282017">
+    <FunctionImportMapping FunctionImportName="uspSelectLoadCorelationLeadLagByMultipleDatasetIDS_04282017" FunctionName="LDBTESTModel.Store.uspSelectLoadCorelationLeadLagByMultipleDatasetIDS_04282017">
       <ResultMapping>
-        <ComplexTypeMapping TypeName="DatacastModel.uspSelectLoadCorelationLeadLagByMultipleDatasetIDS_04282017_Result">
+        <ComplexTypeMapping TypeName="LDBTESTModel.uspSelectLoadCorelationLeadLagByMultipleDatasetIDS_04282017_Result">
           <ScalarProperty Name="ASeriesName" ColumnName="ASeriesName" />
           <ScalarProperty Name="CorrValue" ColumnName="CorrValue" />
           <ScalarProperty Name="lagValue" ColumnName="lagValue" />
@@ -2310,9 +2484,9 @@
         </ComplexTypeMapping>
       </ResultMapping>
     </FunctionImportMapping>
-    <FunctionImportMapping FunctionImportName="UspSelectMasterMetaData" FunctionName="DatacastModel.Store.UspSelectMasterMetaData">
+    <FunctionImportMapping FunctionImportName="UspSelectMasterMetaData" FunctionName="LDBTESTModel.Store.UspSelectMasterMetaData">
       <ResultMapping>
-        <ComplexTypeMapping TypeName="DatacastModel.UspSelectMasterMetaData_Result">
+        <ComplexTypeMapping TypeName="LDBTESTModel.UspSelectMasterMetaData_Result">
           <ScalarProperty Name="MasterMetadataID" ColumnName="MasterMetadataID" />
           <ScalarProperty Name="WorkBook" ColumnName="WorkBook" />
           <ScalarProperty Name="FileName" ColumnName="FileName" />
@@ -2364,9 +2538,9 @@
         </ComplexTypeMapping>
       </ResultMapping>
     </FunctionImportMapping>
-    <FunctionImportMapping FunctionImportName="uspSelectMasterMetaDataByMetaDataID" FunctionName="DatacastModel.Store.uspSelectMasterMetaDataByMetaDataID">
+    <FunctionImportMapping FunctionImportName="uspSelectMasterMetaDataByMetaDataID" FunctionName="LDBTESTModel.Store.uspSelectMasterMetaDataByMetaDataID">
       <ResultMapping>
-        <ComplexTypeMapping TypeName="DatacastModel.uspSelectMasterMetaDataByMetaDataID_Result">
+        <ComplexTypeMapping TypeName="LDBTESTModel.uspSelectMasterMetaDataByMetaDataID_Result">
           <ScalarProperty Name="MasterMetaDataID" ColumnName="MasterMetaDataID" />
           <ScalarProperty Name="ShortCode" ColumnName="ShortCode" />
           <ScalarProperty Name="UpdateFrequency" ColumnName="UpdateFrequency" />
@@ -2383,9 +2557,9 @@
         </ComplexTypeMapping>
       </ResultMapping>
     </FunctionImportMapping>
-    <FunctionImportMapping FunctionImportName="UspSelectMasterMetaDataByWorkBook" FunctionName="DatacastModel.Store.UspSelectMasterMetaDataByWorkBook">
+    <FunctionImportMapping FunctionImportName="UspSelectMasterMetaDataByWorkBook" FunctionName="LDBTESTModel.Store.UspSelectMasterMetaDataByWorkBook">
       <ResultMapping>
-        <ComplexTypeMapping TypeName="DatacastModel.UspSelectMasterMetaDataByWorkBook_Result">
+        <ComplexTypeMapping TypeName="LDBTESTModel.UspSelectMasterMetaDataByWorkBook_Result">
           <ScalarProperty Name="MonthYear" ColumnName="MonthYear" />
           <ScalarProperty Name="C1By12" ColumnName="1By12" />
           <ScalarProperty Name="C3MMT" ColumnName="3MMT" />
@@ -2405,9 +2579,9 @@
         </ComplexTypeMapping>
       </ResultMapping>
     </FunctionImportMapping>
-    <FunctionImportMapping FunctionImportName="uspSelectMasterMetaDataFields" FunctionName="DatacastModel.Store.uspSelectMasterMetaDataFields">
+    <FunctionImportMapping FunctionImportName="uspSelectMasterMetaDataFields" FunctionName="LDBTESTModel.Store.uspSelectMasterMetaDataFields">
       <ResultMapping>
-        <ComplexTypeMapping TypeName="DatacastModel.uspSelectMasterMetaDataFields_Result">
+        <ComplexTypeMapping TypeName="LDBTESTModel.uspSelectMasterMetaDataFields_Result">
           <ScalarProperty Name="MasterMetaDataID" ColumnName="MasterMetaDataID" />
           <ScalarProperty Name="ShortCode" ColumnName="ShortCode" />
           <ScalarProperty Name="UpdateFrequency" ColumnName="UpdateFrequency" />
@@ -2422,9 +2596,22 @@
         </ComplexTypeMapping>
       </ResultMapping>
     </FunctionImportMapping>
-    <FunctionImportMapping FunctionImportName="uspSelectPhaseValuesOfDBWidgetsByCompanyIdNew" FunctionName="DatacastModel.Store.uspSelectPhaseValuesOfDBWidgetsByCompanyIdNew">
+    <FunctionImportMapping FunctionImportName="uspSelectPhaseValuesOfDBWidgetsByCompanyId" FunctionName="LDBTESTModel.Store.uspSelectPhaseValuesOfDBWidgetsByCompanyId">
       <ResultMapping>
-        <ComplexTypeMapping TypeName="DatacastModel.uspSelectPhaseValuesOfDBWidgetsByCompanyIdNew_Result">
+        <ComplexTypeMapping TypeName="LDBTESTModel.uspSelectPhaseValuesOfDBWidgetsByCompanyId_Result">
+          <ScalarProperty Name="DashboardWidgetsListId" ColumnName="DashboardWidgetsListId" />
+          <ScalarProperty Name="Indicator" ColumnName="Indicator" />
+          <ScalarProperty Name="MonthYear" ColumnName="MonthYear" />
+          <ScalarProperty Name="Phases" ColumnName="Phases" />
+          <ScalarProperty Name="SHORTCODE" ColumnName="SHORTCODE" />
+          <ScalarProperty Name="MY" ColumnName="MY" />
+          <ScalarProperty Name="Timing" ColumnName="Timing" />
+        </ComplexTypeMapping>
+      </ResultMapping>
+    </FunctionImportMapping>
+    <FunctionImportMapping FunctionImportName="uspSelectPhaseValuesOfDBWidgetsByCompanyIdNew" FunctionName="LDBTESTModel.Store.uspSelectPhaseValuesOfDBWidgetsByCompanyIdNew">
+      <ResultMapping>
+        <ComplexTypeMapping TypeName="LDBTESTModel.uspSelectPhaseValuesOfDBWidgetsByCompanyIdNew_Result">
           <ScalarProperty Name="DashboardWidgetsListId" ColumnName="DashboardWidgetsListId" />
           <ScalarProperty Name="Indicator" ColumnName="Indicator" />
           <ScalarProperty Name="SHORTCODE" ColumnName="SHORTCODE" />
@@ -2434,9 +2621,9 @@
         </ComplexTypeMapping>
       </ResultMapping>
     </FunctionImportMapping>
-    <FunctionImportMapping FunctionImportName="uspSelectPhaseValuesOfDBWidgetsByCompanyIdNew_BKP" FunctionName="DatacastModel.Store.uspSelectPhaseValuesOfDBWidgetsByCompanyIdNew_BKP">
+    <FunctionImportMapping FunctionImportName="uspSelectPhaseValuesOfDBWidgetsByCompanyIdNew_BKP" FunctionName="LDBTESTModel.Store.uspSelectPhaseValuesOfDBWidgetsByCompanyIdNew_BKP">
       <ResultMapping>
-        <ComplexTypeMapping TypeName="DatacastModel.uspSelectPhaseValuesOfDBWidgetsByCompanyIdNew_BKP_Result">
+        <ComplexTypeMapping TypeName="LDBTESTModel.uspSelectPhaseValuesOfDBWidgetsByCompanyIdNew_BKP_Result">
           <ScalarProperty Name="DashboardWidgetsListId" ColumnName="DashboardWidgetsListId" />
           <ScalarProperty Name="Indicator" ColumnName="Indicator" />
           <ScalarProperty Name="SHORTCODE" ColumnName="SHORTCODE" />
@@ -2446,9 +2633,9 @@
         </ComplexTypeMapping>
       </ResultMapping>
     </FunctionImportMapping>
-    <FunctionImportMapping FunctionImportName="uspSelectPhaseValuesOfDBWidgetsByCompanyIdNew1" FunctionName="DatacastModel.Store.uspSelectPhaseValuesOfDBWidgetsByCompanyIdNew1">
+    <FunctionImportMapping FunctionImportName="uspSelectPhaseValuesOfDBWidgetsByCompanyIdNew1" FunctionName="LDBTESTModel.Store.uspSelectPhaseValuesOfDBWidgetsByCompanyIdNew1">
       <ResultMapping>
-        <ComplexTypeMapping TypeName="DatacastModel.uspSelectPhaseValuesOfDBWidgetsByCompanyIdNew1_Result">
+        <ComplexTypeMapping TypeName="LDBTESTModel.uspSelectPhaseValuesOfDBWidgetsByCompanyIdNew1_Result">
           <ScalarProperty Name="DashboardWidgetsListId" ColumnName="DashboardWidgetsListId" />
           <ScalarProperty Name="Indicator" ColumnName="Indicator" />
           <ScalarProperty Name="SHORTCODE" ColumnName="SHORTCODE" />
@@ -2458,51 +2645,26 @@
         </ComplexTypeMapping>
       </ResultMapping>
     </FunctionImportMapping>
-    <FunctionImportMapping FunctionImportName="uspSelectTimingValuesOfDBWidgetsByCompanyId" FunctionName="DatacastModel.Store.uspSelectTimingValuesOfDBWidgetsByCompanyId">
+    <FunctionImportMapping FunctionImportName="uspSelectTimingValuesOfDBWidgetsByCompanyId" FunctionName="LDBTESTModel.Store.uspSelectTimingValuesOfDBWidgetsByCompanyId">
       <ResultMapping>
-        <ComplexTypeMapping TypeName="DatacastModel.uspSelectTimingValuesOfDBWidgetsByCompanyId_Result">
+        <ComplexTypeMapping TypeName="LDBTESTModel.uspSelectTimingValuesOfDBWidgetsByCompanyId_Result">
           <ScalarProperty Name="CompanyShortCode" ColumnName="CompanyShortCode" />
           <ScalarProperty Name="IndicatorShortCode" ColumnName="IndicatorShortCode" />
           <ScalarProperty Name="Timing" ColumnName="Timing" />
         </ComplexTypeMapping>
       </ResultMapping>
     </FunctionImportMapping>
-    <FunctionImportMapping FunctionImportName="uspTest" FunctionName="DatacastModel.Store.uspTest" />
-    <FunctionImportMapping FunctionImportName="uspUpdateDashboardWidgetsList" FunctionName="DatacastModel.Store.uspUpdateDashboardWidgetsList" />
-    <FunctionImportMapping FunctionImportName="uspUpdateFavouriteList" FunctionName="DatacastModel.Store.uspUpdateFavouriteList" />
-    <FunctionImportMapping FunctionImportName="uspUpdateFeatureDates" FunctionName="DatacastModel.Store.uspUpdateFeatureDates" />
-    <FunctionImportMapping FunctionImportName="uspUpdateFilePathCompanyWeb" FunctionName="DatacastModel.Store.uspUpdateFilePathCompanyWeb" />
-    <FunctionImportMapping FunctionImportName="uspUpdateFilePathIndicatorList" FunctionName="DatacastModel.Store.uspUpdateFilePathIndicatorList" />
-    <FunctionImportMapping FunctionImportName="uspUpdateFilePathIndicatorWeb" FunctionName="DatacastModel.Store.uspUpdateFilePathIndicatorWeb" />
-    <FunctionImportMapping FunctionImportName="uspUpdateFilePathIndicatorWebSourceLinkDefinition" FunctionName="DatacastModel.Store.uspUpdateFilePathIndicatorWebSourceLinkDefinition" />
-    <FunctionImportMapping FunctionImportName="uspUpdateMasterMetaData" FunctionName="DatacastModel.Store.uspUpdateMasterMetaData" />
-    <FunctionImportMapping FunctionImportName="uspUpdateMasterMetaDataByMasterMetaDataID" FunctionName="DatacastModel.Store.uspUpdateMasterMetaDataByMasterMetaDataID" />
-    <FunctionImportMapping FunctionImportName="uspUpdateMetaDataFRomIndicatorList" FunctionName="DatacastModel.Store.uspUpdateMetaDataFRomIndicatorList" />
-    <FunctionImportMapping FunctionImportName="uspUpdateUIForecastListPath" FunctionName="DatacastModel.Store.uspUpdateUIForecastListPath" />
-    <FunctionImportMapping FunctionImportName="uspSelectPhaseValuesOfDBWidgetsByCompanyId" FunctionName="DatacastModel.Store.uspSelectPhaseValuesOfDBWidgetsByCompanyId">
-      <ResultMapping>
-        <ComplexTypeMapping TypeName="DatacastModel.uspSelectPhaseValuesOfDBWidgetsByCompanyId_Result">
-          <ScalarProperty Name="DashboardWidgetsListId" ColumnName="DashboardWidgetsListId" />
-          <ScalarProperty Name="Indicator" ColumnName="Indicator" />
-          <ScalarProperty Name="MonthYear" ColumnName="MonthYear" />
-          <ScalarProperty Name="Phases" ColumnName="Phases" />
-          <ScalarProperty Name="SHORTCODE" ColumnName="SHORTCODE" />
-          <ScalarProperty Name="MY" ColumnName="MY" />
-          <ScalarProperty Name="Timing" ColumnName="Timing" />
-        </ComplexTypeMapping>
-      </ResultMapping>
-    </FunctionImportMapping>
-    <FunctionImportMapping FunctionImportName="uspSelectCurrentMonthPhaseValuesOfDBWidgetsByCompanyId" FunctionName="DatacastModel.Store.uspSelectCurrentMonthPhaseValuesOfDBWidgetsByCompanyId">
-      <ResultMapping>
-        <ComplexTypeMapping TypeName="DatacastModel.uspSelectCurrentMonthPhaseValuesOfDBWidgetsByCompanyId_Result">
-          <ScalarProperty Name="DashboardWidgetsListId" ColumnName="DashboardWidgetsListId" />
-          <ScalarProperty Name="IndicatorName" ColumnName="IndicatorName" />
-          <ScalarProperty Name="IndicatorShortCode" ColumnName="IndicatorShortCode" />
-          <ScalarProperty Name="MonthYear" ColumnName="MonthYear" />
-          <ScalarProperty Name="MY" ColumnName="MY" />
-          <ScalarProperty Name="Phases" ColumnName="Phases" />
-        </ComplexTypeMapping>
-      </ResultMapping>
-    </FunctionImportMapping>
+    <FunctionImportMapping FunctionImportName="uspTest" FunctionName="LDBTESTModel.Store.uspTest" />
+    <FunctionImportMapping FunctionImportName="uspUpdateDashboardWidgetsList" FunctionName="LDBTESTModel.Store.uspUpdateDashboardWidgetsList" />
+    <FunctionImportMapping FunctionImportName="uspUpdateFavouriteList" FunctionName="LDBTESTModel.Store.uspUpdateFavouriteList" />
+    <FunctionImportMapping FunctionImportName="uspUpdateFeatureDates" FunctionName="LDBTESTModel.Store.uspUpdateFeatureDates" />
+    <FunctionImportMapping FunctionImportName="uspUpdateFilePathCompanyWeb" FunctionName="LDBTESTModel.Store.uspUpdateFilePathCompanyWeb" />
+    <FunctionImportMapping FunctionImportName="uspUpdateFilePathIndicatorList" FunctionName="LDBTESTModel.Store.uspUpdateFilePathIndicatorList" />
+    <FunctionImportMapping FunctionImportName="uspUpdateFilePathIndicatorWeb" FunctionName="LDBTESTModel.Store.uspUpdateFilePathIndicatorWeb" />
+    <FunctionImportMapping FunctionImportName="uspUpdateFilePathIndicatorWebSourceLinkDefinition" FunctionName="LDBTESTModel.Store.uspUpdateFilePathIndicatorWebSourceLinkDefinition" />
+    <FunctionImportMapping FunctionImportName="uspUpdateMasterMetaData" FunctionName="LDBTESTModel.Store.uspUpdateMasterMetaData" />
+    <FunctionImportMapping FunctionImportName="uspUpdateMasterMetaDataByMasterMetaDataID" FunctionName="LDBTESTModel.Store.uspUpdateMasterMetaDataByMasterMetaDataID" />
+    <FunctionImportMapping FunctionImportName="uspUpdateMetaDataFRomIndicatorList" FunctionName="LDBTESTModel.Store.uspUpdateMetaDataFRomIndicatorList" />
+    <FunctionImportMapping FunctionImportName="uspUpdateUIForecastListPath" FunctionName="LDBTESTModel.Store.uspUpdateUIForecastListPath" />
   </EntityContainerMapping>
 </Mapping>

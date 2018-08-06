@@ -1,5 +1,5 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
-<Schema Namespace="DatacastModel" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
+<Schema Namespace="LDBTESTModel" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
   <ComplexType Name="f_split_Result">
     <Property Name="val" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
     <Property Name="seq" Type="Int32" />
@@ -1121,6 +1121,160 @@
     <Property Name="CreatedBy" Type="String" MaxLength="64" FixedLength="false" Unicode="false" />
     <Property Name="CreatedDate" Type="DateTime" Precision="3" />
   </EntityType>
+  <EntityType Name="vwCompanyAVG">
+    <Key>
+      <PropertyRef Name="Range" />
+    </Key>
+    <Property Name="MonthYear" Type="DateTime" Precision="3" />
+    <Property Name="Sales" Type="Decimal" Precision="24" Scale="15" />
+    <Property Name="C1By12" Type="Decimal" Precision="24" Scale="15" />
+    <Property Name="C3MMT" Type="Decimal" Precision="27" Scale="15" />
+    <Property Name="C3BY12" Type="Decimal" Precision="27" Scale="15" />
+    <Property Name="C3MMA" Type="Decimal" Precision="24" Scale="15" />
+    <Property Name="C12MMT" Type="Decimal" Precision="27" Scale="15" />
+    <Property Name="C12BY12" Type="Decimal" Precision="27" Scale="15" />
+    <Property Name="C12MMA" Type="Decimal" Precision="24" Scale="15" />
+    <Property Name="SHORTCODE" Type="String" MaxLength="64" FixedLength="false" Unicode="false" />
+    <Property Name="CompanyName" Type="String" MaxLength="500" FixedLength="false" Unicode="false" />
+    <Property Name="Monthly" Type="Decimal" Precision="24" Scale="15" />
+    <Property Name="Forecast" Type="Boolean" />
+    <Property Name="Range" Type="String" MaxLength="3" FixedLength="false" Unicode="false" Nullable="false" />
+  </EntityType>
+  <EntityType Name="vwCompanyForecast">
+    <Key>
+      <PropertyRef Name="Range" />
+    </Key>
+    <Property Name="MetaDataID" Type="Int32" />
+    <Property Name="MonthYear" Type="DateTime" Precision="3" />
+    <Property Name="Sales" Type="Decimal" Precision="32" Scale="16" />
+    <Property Name="C1By12" Type="Decimal" Precision="32" Scale="16" />
+    <Property Name="C3MMT" Type="Decimal" Precision="32" Scale="16" />
+    <Property Name="C3BY12" Type="Decimal" Precision="32" Scale="16" />
+    <Property Name="C3MMA" Type="Decimal" Precision="32" Scale="16" />
+    <Property Name="C12MMT" Type="Decimal" Precision="32" Scale="16" />
+    <Property Name="C12BY12" Type="Decimal" Precision="32" Scale="16" />
+    <Property Name="C12MMA" Type="Decimal" Precision="32" Scale="16" />
+    <Property Name="SHORTCODE" Type="String" MaxLength="64" FixedLength="false" Unicode="false" />
+    <Property Name="CompanyName" Type="String" MaxLength="500" FixedLength="false" Unicode="false" />
+    <Property Name="Monthly" Type="Decimal" Precision="32" Scale="16" />
+    <Property Name="Forecast" Type="Boolean" />
+    <Property Name="Range" Type="String" MaxLength="3" FixedLength="false" Unicode="false" Nullable="false" />
+  </EntityType>
+  <EntityType Name="vwCustomer">
+    <Key>
+      <PropertyRef Name="DatasetID" />
+    </Key>
+    <Property Name="DatasetID" Type="Int32" Nullable="false" />
+    <Property Name="DatasetShortcode" Type="String" MaxLength="500" FixedLength="false" Unicode="false" />
+    <Property Name="AccountID" Type="Int32" />
+    <Property Name="AccountName" Type="String" MaxLength="512" FixedLength="false" Unicode="false" />
+    <Property Name="DivisionId" Type="Int32" />
+    <Property Name="DivisionName" Type="String" MaxLength="512" FixedLength="false" Unicode="false" />
+  </EntityType>
+  <EntityType Name="vwDataSet">
+    <Key>
+      <PropertyRef Name="DatasetID" />
+    </Key>
+    <Property Name="DatasetID" Type="Int32" Nullable="false" />
+    <Property Name="DatasetShortcode" Type="String" MaxLength="128" FixedLength="false" Unicode="false" />
+    <Property Name="AccountID" Type="Int32" />
+    <Property Name="AccountName" Type="String" MaxLength="255" FixedLength="false" Unicode="false" />
+    <Property Name="DivisionId" Type="Int32" />
+    <Property Name="DivisionName" Type="String" MaxLength="255" FixedLength="false" Unicode="false" />
+  </EntityType>
+  <EntityType Name="vwIndicatorAVG">
+    <Key>
+      <PropertyRef Name="Range" />
+    </Key>
+    <Property Name="MonthYear" Type="DateTime" Precision="3" />
+    <Property Name="Sales" Type="Decimal" Precision="32" Scale="16" />
+    <Property Name="C1By12" Type="Decimal" Precision="32" Scale="16" />
+    <Property Name="C3MMT" Type="Decimal" Precision="32" Scale="16" />
+    <Property Name="C3BY12" Type="Decimal" Precision="32" Scale="16" />
+    <Property Name="C3MMA" Type="Decimal" Precision="32" Scale="16" />
+    <Property Name="C12MMT" Type="Decimal" Precision="32" Scale="16" />
+    <Property Name="C12BY12" Type="Decimal" Precision="32" Scale="16" />
+    <Property Name="C12MMA" Type="Decimal" Precision="32" Scale="16" />
+    <Property Name="SHORTCODE" Type="String" MaxLength="64" FixedLength="false" Unicode="false" />
+    <Property Name="IndicatorName" Type="String" MaxLength="500" FixedLength="false" Unicode="false" />
+    <Property Name="Monthly" Type="Decimal" Precision="32" Scale="16" />
+    <Property Name="Forecast" Type="Boolean" />
+    <Property Name="Range" Type="String" MaxLength="3" FixedLength="false" Unicode="false" Nullable="false" />
+  </EntityType>
+  <EntityType Name="vwIndicatorForecast">
+    <Key>
+      <PropertyRef Name="Range" />
+    </Key>
+    <Property Name="MetaDataID" Type="Int32" />
+    <Property Name="MonthYear" Type="DateTime" Precision="3" />
+    <Property Name="Sales" Type="Decimal" Precision="32" Scale="16" />
+    <Property Name="C1By12" Type="Decimal" Precision="32" Scale="16" />
+    <Property Name="C3MMT" Type="Decimal" Precision="32" Scale="16" />
+    <Property Name="C3BY12" Type="Decimal" Precision="32" Scale="16" />
+    <Property Name="C3MMA" Type="Decimal" Precision="32" Scale="16" />
+    <Property Name="C12MMT" Type="Decimal" Precision="32" Scale="16" />
+    <Property Name="C12BY12" Type="Decimal" Precision="32" Scale="16" />
+    <Property Name="C12MMA" Type="Decimal" Precision="32" Scale="16" />
+    <Property Name="SHORTCODE" Type="String" MaxLength="64" FixedLength="false" Unicode="false" />
+    <Property Name="IndicatorName" Type="String" MaxLength="500" FixedLength="false" Unicode="false" />
+    <Property Name="Monthly" Type="Decimal" Precision="32" Scale="16" />
+    <Property Name="Forecast" Type="Boolean" />
+    <Property Name="Range" Type="String" MaxLength="3" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="Phases" Type="String" MaxLength="8" FixedLength="false" Unicode="false" />
+  </EntityType>
+  <EntityType Name="vwSelectIndicator">
+    <Key>
+      <PropertyRef Name="ProdIndicatorId" />
+    </Key>
+    <Property Name="ProdIndicatorId" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="MonthYear" Type="DateTime" Precision="3" />
+    <Property Name="RawValue" Type="Decimal" Precision="18" Scale="10" />
+    <Property Name="AdjValue" Type="Decimal" Precision="18" Scale="10" />
+    <Property Name="UpdateReason" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
+    <Property Name="ValueStartDate" Type="DateTime" Precision="3" />
+    <Property Name="ValueEndDate" Type="DateTime" Precision="3" />
+    <Property Name="CurrentFlag" Type="String" MaxLength="1" FixedLength="false" Unicode="false" />
+    <Property Name="CreatedBy" Type="String" MaxLength="500" FixedLength="false" Unicode="false" />
+    <Property Name="CreatedDate" Type="DateTime" Precision="3" />
+    <Property Name="ModifiedBy" Type="String" MaxLength="500" FixedLength="false" Unicode="false" />
+    <Property Name="ModifiedDate" Type="DateTime" Precision="3" />
+    <Property Name="MasterMetadataID" Type="Int32" />
+  </EntityType>
+  <EntityType Name="vwTableau">
+    <Key>
+      <PropertyRef Name="DataType" />
+    </Key>
+    <Property Name="DataType" Type="String" MaxLength="9" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="Company_Name" Type="String" MaxLength="500" FixedLength="false" Unicode="false" />
+    <Property Name="DB_AccountID" Type="Int32" />
+    <Property Name="AccountName" Type="String" MaxLength="512" FixedLength="false" Unicode="false" />
+    <Property Name="DB_DivisionID" Type="Int32" />
+    <Property Name="DivisionName" Type="String" MaxLength="512" FixedLength="false" Unicode="false" />
+    <Property Name="Indicator" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
+    <Property Name="Indicator_Name" Type="String" MaxLength="500" FixedLength="false" Unicode="false" />
+    <Property Name="lagValue" Type="Double" />
+    <Property Name="CorrValue" Type="Double" />
+    <Property Name="Date" Type="DateTime" Precision="3" />
+    <Property Name="Sales" Type="Decimal" Precision="32" Scale="16" />
+    <Property Name="C1BY12_Indicator" Type="Decimal" Precision="32" Scale="16" />
+    <Property Name="C3MMT_Indicator" Type="Decimal" Precision="32" Scale="16" />
+    <Property Name="C3BY12_Indicator" Type="Decimal" Precision="32" Scale="16" />
+    <Property Name="C3MMA_Indicator" Type="Decimal" Precision="32" Scale="16" />
+    <Property Name="C12MMT_Indicator" Type="Decimal" Precision="32" Scale="16" />
+    <Property Name="C12BY12_Indicator" Type="Decimal" Precision="32" Scale="16" />
+    <Property Name="C12MMA_Indicator" Type="Decimal" Precision="32" Scale="16" />
+    <Property Name="Monthly_Indicator" Type="Decimal" Precision="32" Scale="16" />
+    <Property Name="C1BY12_Company" Type="Decimal" Precision="32" Scale="16" />
+    <Property Name="C3MMT_Company" Type="Decimal" Precision="32" Scale="16" />
+    <Property Name="C3BY12_Company" Type="Decimal" Precision="32" Scale="16" />
+    <Property Name="C3MMA_Company" Type="Decimal" Precision="32" Scale="16" />
+    <Property Name="C12MMT_Company" Type="Decimal" Precision="32" Scale="16" />
+    <Property Name="C12BY12_Company" Type="Decimal" Precision="32" Scale="16" />
+    <Property Name="C12MMA_Company" Type="Decimal" Precision="32" Scale="16" />
+    <Property Name="Monthly_Company" Type="Decimal" Precision="32" Scale="16" />
+    <Property Name="Forecast" Type="Int32" />
+    <Property Name="Range" Type="String" MaxLength="3" FixedLength="false" Unicode="false" />
+  </EntityType>
   <EntityContainer Name="DatacastEntities" annotation:LazyLoadingEnabled="true">
     <EntitySet Name="Companies" EntityType="Self.Company" />
     <EntitySet Name="CompanyWebs" EntityType="Self.CompanyWeb" />
@@ -1190,11 +1344,19 @@
     <EntitySet Name="SubProducts" EntityType="Self.SubProduct" />
     <EntitySet Name="TEMP_IndicatorReporting_Logic" EntityType="Self.TEMP_IndicatorReporting_Logic" />
     <EntitySet Name="Users" EntityType="Self.User" />
-    <FunctionImport Name="f_split" IsComposable="true" ReturnType="Collection(DatacastModel.f_split_Result)">
+    <EntitySet Name="vwCompanyAVGs" EntityType="Self.vwCompanyAVG" />
+    <EntitySet Name="vwCompanyForecasts" EntityType="Self.vwCompanyForecast" />
+    <EntitySet Name="vwCustomers" EntityType="Self.vwCustomer" />
+    <EntitySet Name="vwDataSets" EntityType="Self.vwDataSet" />
+    <EntitySet Name="vwIndicatorAVGs" EntityType="Self.vwIndicatorAVG" />
+    <EntitySet Name="vwIndicatorForecasts" EntityType="Self.vwIndicatorForecast" />
+    <EntitySet Name="vwSelectIndicators" EntityType="Self.vwSelectIndicator" />
+    <EntitySet Name="vwTableaux" EntityType="Self.vwTableau" />
+    <FunctionImport Name="f_split" IsComposable="true" ReturnType="Collection(LDBTESTModel.f_split_Result)">
       <Parameter Name="param" Mode="In" Type="String" />
       <Parameter Name="delimiter" Mode="In" Type="String" />
     </FunctionImport>
-    <FunctionImport Name="Split" IsComposable="true" ReturnType="Collection(DatacastModel.Split_Result)">
+    <FunctionImport Name="Split" IsComposable="true" ReturnType="Collection(LDBTESTModel.Split_Result)">
       <Parameter Name="Line" Mode="In" Type="String" />
       <Parameter Name="SplitOn" Mode="In" Type="String" />
     </FunctionImport>
@@ -1228,7 +1390,7 @@
       <Parameter Name="show12MMA" Mode="In" Type="String" />
       <Parameter Name="show12MMT" Mode="In" Type="String" />
     </FunctionImport>
-    <FunctionImport Name="sp_CheckLogin" ReturnType="Collection(DatacastModel.sp_CheckLogin_Result)">
+    <FunctionImport Name="sp_CheckLogin" ReturnType="Collection(LDBTESTModel.sp_CheckLogin_Result)">
       <Parameter Name="UserName" Mode="In" Type="String" />
       <Parameter Name="Password" Mode="In" Type="String" />
     </FunctionImport>
@@ -1247,7 +1409,7 @@
     <FunctionImport Name="SP_DataIntegrity_Indicator_CurrentQuarterly" ReturnType="Collection(String)" />
     <FunctionImport Name="SP_DataIntegrity_Indicator_MissingMonths" ReturnType="Collection(String)" />
     <FunctionImport Name="SP_DataIntegrity_Indicator_Noon" ReturnType="Collection(String)" />
-    <FunctionImport Name="sp_deleteFromDataCastLists" ReturnType="Collection(DatacastModel.sp_deleteFromDataCastLists_Result)">
+    <FunctionImport Name="sp_deleteFromDataCastLists" ReturnType="Collection(LDBTESTModel.sp_deleteFromDataCastLists_Result)">
       <Parameter Name="indicator" Mode="In" Type="String" />
     </FunctionImport>
     <FunctionImport Name="sp_DeleteIndicatorOrCompanyByShortcode" ReturnType="Collection(Int32)">
@@ -1386,99 +1548,99 @@
     <FunctionImport Name="sp_MoveDataFromForecastWeb" />
     <FunctionImport Name="sp_MoveDataFromIndicatorWeb" ReturnType="Collection(Int32)" />
     <FunctionImport Name="sp_MoveDataFromIndicatorWebForNew" ReturnType="Collection(Int32)" />
-    <FunctionImport Name="SP_SelectAllCompanies" ReturnType="Collection(DatacastModel.SP_SelectAllCompanies_Result)" />
-    <FunctionImport Name="SP_SelectAllIndicators" ReturnType="Collection(DatacastModel.SP_SelectAllIndicators_Result)" />
-    <FunctionImport Name="SP_SelectCompanyData" ReturnType="Collection(DatacastModel.SP_SelectCompanyData_Result)">
+    <FunctionImport Name="SP_SelectAllCompanies" ReturnType="Collection(LDBTESTModel.SP_SelectAllCompanies_Result)" />
+    <FunctionImport Name="SP_SelectAllIndicators" ReturnType="Collection(LDBTESTModel.SP_SelectAllIndicators_Result)" />
+    <FunctionImport Name="SP_SelectCompanyData" ReturnType="Collection(LDBTESTModel.SP_SelectCompanyData_Result)">
       <Parameter Name="ShortCode" Mode="In" Type="String" />
       <Parameter Name="StartDate" Mode="In" Type="DateTime" />
       <Parameter Name="EndDate" Mode="In" Type="DateTime" />
     </FunctionImport>
-    <FunctionImport Name="SP_SelectCompanyData_TestSP" ReturnType="Collection(DatacastModel.SP_SelectCompanyData_TestSP_Result)">
+    <FunctionImport Name="SP_SelectCompanyData_TestSP" ReturnType="Collection(LDBTESTModel.SP_SelectCompanyData_TestSP_Result)">
       <Parameter Name="ShortCode" Mode="In" Type="String" />
       <Parameter Name="StartDate" Mode="In" Type="DateTime" />
       <Parameter Name="EndDate" Mode="In" Type="DateTime" />
     </FunctionImport>
-    <FunctionImport Name="SP_SelectCompanyDataForWeb" ReturnType="Collection(DatacastModel.SP_SelectCompanyDataForWeb_Result)">
+    <FunctionImport Name="SP_SelectCompanyDataForWeb" ReturnType="Collection(LDBTESTModel.SP_SelectCompanyDataForWeb_Result)">
       <Parameter Name="ShortCode" Mode="In" Type="String" />
       <Parameter Name="StartDate" Mode="In" Type="DateTime" />
       <Parameter Name="EndDate" Mode="In" Type="DateTime" />
     </FunctionImport>
-    <FunctionImport Name="sp_SelectCompanyDataInclusive" ReturnType="Collection(DatacastModel.sp_SelectCompanyDataInclusive_Result)">
+    <FunctionImport Name="sp_SelectCompanyDataInclusive" ReturnType="Collection(LDBTESTModel.sp_SelectCompanyDataInclusive_Result)">
       <Parameter Name="ShortCode" Mode="In" Type="String" />
       <Parameter Name="StartDate" Mode="In" Type="DateTime" />
       <Parameter Name="EndDate" Mode="In" Type="DateTime" />
     </FunctionImport>
-    <FunctionImport Name="sp_SelectCompanyDataInclusive_New" ReturnType="Collection(DatacastModel.sp_SelectCompanyDataInclusive_New_Result)">
+    <FunctionImport Name="sp_SelectCompanyDataInclusive_New" ReturnType="Collection(LDBTESTModel.sp_SelectCompanyDataInclusive_New_Result)">
       <Parameter Name="ShortCode" Mode="In" Type="String" />
       <Parameter Name="StartDate" Mode="In" Type="DateTime" />
       <Parameter Name="EndDate" Mode="In" Type="DateTime" />
     </FunctionImport>
-    <FunctionImport Name="SP_SelectCompanyMetaData" ReturnType="Collection(DatacastModel.SP_SelectCompanyMetaData_Result)">
+    <FunctionImport Name="SP_SelectCompanyMetaData" ReturnType="Collection(LDBTESTModel.SP_SelectCompanyMetaData_Result)">
       <Parameter Name="ShortCode" Mode="In" Type="String" />
       <Parameter Name="StartDate" Mode="In" Type="DateTime" />
       <Parameter Name="EndDate" Mode="In" Type="DateTime" />
     </FunctionImport>
-    <FunctionImport Name="SP_SelectCompanyShortCodes" ReturnType="Collection(DatacastModel.SP_SelectCompanyShortCodes_Result)" />
-    <FunctionImport Name="SP_SelectCompanyUpdateLoadResult" ReturnType="Collection(DatacastModel.SP_SelectCompanyUpdateLoadResult_Result)" />
-    <FunctionImport Name="SP_SelectCompanyWebShortCodes" ReturnType="Collection(DatacastModel.SP_SelectCompanyWebShortCodes_Result)" />
-    <FunctionImport Name="SP_SelectCompanyWebShortCodesFOrNewCompany" ReturnType="Collection(DatacastModel.SP_SelectCompanyWebShortCodesFOrNewCompany_Result)" />
-    <FunctionImport Name="SP_SelectCustomerData" ReturnType="Collection(DatacastModel.SP_SelectCustomerData_Result)">
+    <FunctionImport Name="SP_SelectCompanyShortCodes" ReturnType="Collection(LDBTESTModel.SP_SelectCompanyShortCodes_Result)" />
+    <FunctionImport Name="SP_SelectCompanyUpdateLoadResult" ReturnType="Collection(LDBTESTModel.SP_SelectCompanyUpdateLoadResult_Result)" />
+    <FunctionImport Name="SP_SelectCompanyWebShortCodes" ReturnType="Collection(LDBTESTModel.SP_SelectCompanyWebShortCodes_Result)" />
+    <FunctionImport Name="SP_SelectCompanyWebShortCodesFOrNewCompany" ReturnType="Collection(LDBTESTModel.SP_SelectCompanyWebShortCodesFOrNewCompany_Result)" />
+    <FunctionImport Name="SP_SelectCustomerData" ReturnType="Collection(LDBTESTModel.SP_SelectCustomerData_Result)">
       <Parameter Name="ShortCode" Mode="In" Type="String" />
       <Parameter Name="StartDate" Mode="In" Type="DateTime" />
       <Parameter Name="EndDate" Mode="In" Type="DateTime" />
     </FunctionImport>
-    <FunctionImport Name="SP_SelectForecastDatabyForecastMetadataID" ReturnType="Collection(DatacastModel.SP_SelectForecastDatabyForecastMetadataID_Result)">
+    <FunctionImport Name="SP_SelectForecastDatabyForecastMetadataID" ReturnType="Collection(LDBTESTModel.SP_SelectForecastDatabyForecastMetadataID_Result)">
       <Parameter Name="ForecastMetaDataID" Mode="In" Type="Int32" />
     </FunctionImport>
-    <FunctionImport Name="SP_SelectForecastDosCodes" ReturnType="Collection(DatacastModel.SP_SelectForecastDosCodes_Result)" />
-    <FunctionImport Name="sp_SelectForecastStagingWebData" ReturnType="Collection(DatacastModel.sp_SelectForecastStagingWebData_Result)">
+    <FunctionImport Name="SP_SelectForecastDosCodes" ReturnType="Collection(LDBTESTModel.SP_SelectForecastDosCodes_Result)" />
+    <FunctionImport Name="sp_SelectForecastStagingWebData" ReturnType="Collection(LDBTESTModel.sp_SelectForecastStagingWebData_Result)">
       <Parameter Name="ForecastMetaDataID" Mode="In" Type="Int32" />
     </FunctionImport>
-    <FunctionImport Name="SP_SelectForecastWebShortCodes" ReturnType="Collection(DatacastModel.SP_SelectForecastWebShortCodes_Result)" />
-    <FunctionImport Name="SP_SelectIndicatorData" ReturnType="Collection(DatacastModel.SP_SelectIndicatorData_Result)">
+    <FunctionImport Name="SP_SelectForecastWebShortCodes" ReturnType="Collection(LDBTESTModel.SP_SelectForecastWebShortCodes_Result)" />
+    <FunctionImport Name="SP_SelectIndicatorData" ReturnType="Collection(LDBTESTModel.SP_SelectIndicatorData_Result)">
       <Parameter Name="ShortCode" Mode="In" Type="String" />
       <Parameter Name="StartDate" Mode="In" Type="DateTime" />
       <Parameter Name="EndDate" Mode="In" Type="DateTime" />
     </FunctionImport>
-    <FunctionImport Name="SP_SelectIndicatorData_TestSp" ReturnType="Collection(DatacastModel.SP_SelectIndicatorData_TestSp_Result)">
+    <FunctionImport Name="SP_SelectIndicatorData_TestSp" ReturnType="Collection(LDBTESTModel.SP_SelectIndicatorData_TestSp_Result)">
       <Parameter Name="ShortCode" Mode="In" Type="String" />
       <Parameter Name="StartDate" Mode="In" Type="DateTime" />
       <Parameter Name="EndDate" Mode="In" Type="DateTime" />
     </FunctionImport>
-    <FunctionImport Name="SP_SelectIndicatorDataForWeb" ReturnType="Collection(DatacastModel.SP_SelectIndicatorDataForWeb_Result)">
+    <FunctionImport Name="SP_SelectIndicatorDataForWeb" ReturnType="Collection(LDBTESTModel.SP_SelectIndicatorDataForWeb_Result)">
       <Parameter Name="ShortCode" Mode="In" Type="String" />
       <Parameter Name="StartDate" Mode="In" Type="DateTime" />
       <Parameter Name="EndDate" Mode="In" Type="DateTime" />
     </FunctionImport>
-    <FunctionImport Name="sp_SelectIndicatorOrCompanyforWebapp" ReturnType="Collection(DatacastModel.sp_SelectIndicatorOrCompanyforWebapp_Result)">
+    <FunctionImport Name="sp_SelectIndicatorOrCompanyforWebapp" ReturnType="Collection(LDBTESTModel.sp_SelectIndicatorOrCompanyforWebapp_Result)">
       <Parameter Name="indicator" Mode="In" Type="String" />
     </FunctionImport>
-    <FunctionImport Name="SP_SelectIndicatorsNonUpdateLoadResult" ReturnType="Collection(DatacastModel.SP_SelectIndicatorsNonUpdateLoadResult_Result)" />
-    <FunctionImport Name="SP_SelectIndicatorsUpdateLoadResult" ReturnType="Collection(DatacastModel.SP_SelectIndicatorsUpdateLoadResult_Result)" />
-    <FunctionImport Name="SP_SelectIndicatorWebShortCodes" ReturnType="Collection(DatacastModel.SP_SelectIndicatorWebShortCodes_Result)" />
-    <FunctionImport Name="SP_SelectIndicatorWebShortCodesFOrNewIndicators" ReturnType="Collection(DatacastModel.SP_SelectIndicatorWebShortCodesFOrNewIndicators_Result)" />
-    <FunctionImport Name="SP_SelectIndustryMetaData" ReturnType="Collection(DatacastModel.SP_SelectIndustryMetaData_Result)">
+    <FunctionImport Name="SP_SelectIndicatorsNonUpdateLoadResult" ReturnType="Collection(LDBTESTModel.SP_SelectIndicatorsNonUpdateLoadResult_Result)" />
+    <FunctionImport Name="SP_SelectIndicatorsUpdateLoadResult" ReturnType="Collection(LDBTESTModel.SP_SelectIndicatorsUpdateLoadResult_Result)" />
+    <FunctionImport Name="SP_SelectIndicatorWebShortCodes" ReturnType="Collection(LDBTESTModel.SP_SelectIndicatorWebShortCodes_Result)" />
+    <FunctionImport Name="SP_SelectIndicatorWebShortCodesFOrNewIndicators" ReturnType="Collection(LDBTESTModel.SP_SelectIndicatorWebShortCodesFOrNewIndicators_Result)" />
+    <FunctionImport Name="SP_SelectIndustryMetaData" ReturnType="Collection(LDBTESTModel.SP_SelectIndustryMetaData_Result)">
       <Parameter Name="ShortCode" Mode="In" Type="String" />
       <Parameter Name="StartDate" Mode="In" Type="DateTime" />
       <Parameter Name="EndDate" Mode="In" Type="DateTime" />
     </FunctionImport>
-    <FunctionImport Name="sp_SelectLatestForecastSummary" ReturnType="Collection(DatacastModel.sp_SelectLatestForecastSummary_Result)">
+    <FunctionImport Name="sp_SelectLatestForecastSummary" ReturnType="Collection(LDBTESTModel.sp_SelectLatestForecastSummary_Result)">
       <Parameter Name="shortcode" Mode="In" Type="String" />
     </FunctionImport>
-    <FunctionImport Name="sp_SelectMetaDataforWebApp" ReturnType="Collection(DatacastModel.sp_SelectMetaDataforWebApp_Result)">
+    <FunctionImport Name="sp_SelectMetaDataforWebApp" ReturnType="Collection(LDBTESTModel.sp_SelectMetaDataforWebApp_Result)">
       <Parameter Name="indicator" Mode="In" Type="String" />
     </FunctionImport>
-    <FunctionImport Name="SP_SelectShortCodes" ReturnType="Collection(DatacastModel.SP_SelectShortCodes_Result)" />
-    <FunctionImport Name="sp_SelectStagingWebData" ReturnType="Collection(DatacastModel.sp_SelectStagingWebData_Result)">
+    <FunctionImport Name="SP_SelectShortCodes" ReturnType="Collection(LDBTESTModel.SP_SelectShortCodes_Result)" />
+    <FunctionImport Name="sp_SelectStagingWebData" ReturnType="Collection(LDBTESTModel.sp_SelectStagingWebData_Result)">
       <Parameter Name="MasterMetaDataID" Mode="In" Type="Int32" />
     </FunctionImport>
-    <FunctionImport Name="sp_SelectStagingWebDataForCompany" ReturnType="Collection(DatacastModel.sp_SelectStagingWebDataForCompany_Result)">
+    <FunctionImport Name="sp_SelectStagingWebDataForCompany" ReturnType="Collection(LDBTESTModel.sp_SelectStagingWebDataForCompany_Result)">
       <Parameter Name="MasterMetaDataID" Mode="In" Type="Int32" />
     </FunctionImport>
-    <FunctionImport Name="sp_SelectStagingWebDataForNewCompany" ReturnType="Collection(DatacastModel.sp_SelectStagingWebDataForNewCompany_Result)">
+    <FunctionImport Name="sp_SelectStagingWebDataForNewCompany" ReturnType="Collection(LDBTESTModel.sp_SelectStagingWebDataForNewCompany_Result)">
       <Parameter Name="MasterMetaDataID" Mode="In" Type="Int32" />
     </FunctionImport>
-    <FunctionImport Name="sp_SelectStagingWebDataForNewIndicators" ReturnType="Collection(DatacastModel.sp_SelectStagingWebDataForNewIndicators_Result)">
+    <FunctionImport Name="sp_SelectStagingWebDataForNewIndicators" ReturnType="Collection(LDBTESTModel.sp_SelectStagingWebDataForNewIndicators_Result)">
       <Parameter Name="MasterMetaDataID" Mode="In" Type="Int32" />
     </FunctionImport>
     <FunctionImport Name="sp_updateDataCastLists">
@@ -1553,86 +1715,86 @@
     <FunctionImport Name="uspMonthlyYearlyQuarterlyCalculation" />
     <FunctionImport Name="uspMonthlyYearlyQuarterlyCalculationForAll" />
     <FunctionImport Name="uspMonthlyYearlyQuarterlyCalculationUpdate" />
-    <FunctionImport Name="uspSelectAccounts" ReturnType="Collection(DatacastModel.uspSelectAccounts_Result)" />
-    <FunctionImport Name="uspSelectAllFavouriteListByUserID" ReturnType="Collection(DatacastModel.uspSelectAllFavouriteListByUserID_Result)">
+    <FunctionImport Name="uspSelectAccounts" ReturnType="Collection(LDBTESTModel.uspSelectAccounts_Result)" />
+    <FunctionImport Name="uspSelectAllFavouriteListByUserID" ReturnType="Collection(LDBTESTModel.uspSelectAllFavouriteListByUserID_Result)">
       <Parameter Name="CompanyShortCode" Mode="In" Type="String" />
       <Parameter Name="UserID" Mode="In" Type="Int32" />
       <Parameter Name="FavListName" Mode="In" Type="String" />
     </FunctionImport>
-    <FunctionImport Name="uspSelectCompanyAndIndicatorDateByShordCodes" ReturnType="Collection(DatacastModel.uspSelectCompanyAndIndicatorDateByShordCodes_Result)">
+    <FunctionImport Name="uspSelectCompanyAndIndicatorDateByShordCodes" ReturnType="Collection(LDBTESTModel.uspSelectCompanyAndIndicatorDateByShordCodes_Result)">
       <Parameter Name="CompanyShortCode" Mode="In" Type="String" />
       <Parameter Name="IndicatorShortCode" Mode="In" Type="String" />
       <Parameter Name="InverseOrder" Mode="In" Type="Boolean" />
       <Parameter Name="MoveMonths" Mode="In" Type="Int32" />
       <Parameter Name="CustomerCompanyID" Mode="In" Type="Int32" />
     </FunctionImport>
-    <FunctionImport Name="uspSelectCompanyAndIndicatorDateByShordCodes_02092018" ReturnType="Collection(DatacastModel.uspSelectCompanyAndIndicatorDateByShordCodes_02092018_Result)">
+    <FunctionImport Name="uspSelectCompanyAndIndicatorDateByShordCodes_02092018" ReturnType="Collection(LDBTESTModel.uspSelectCompanyAndIndicatorDateByShordCodes_02092018_Result)">
       <Parameter Name="CompanyShortCode" Mode="In" Type="String" />
       <Parameter Name="IndicatorShortCode" Mode="In" Type="String" />
       <Parameter Name="InverseOrder" Mode="In" Type="Boolean" />
       <Parameter Name="MoveMonths" Mode="In" Type="Int32" />
       <Parameter Name="CustomerCompanyID" Mode="In" Type="Int32" />
     </FunctionImport>
-    <FunctionImport Name="uspSelectCompanyAndIndicatorDateByShordCodes_02132018" ReturnType="Collection(DatacastModel.uspSelectCompanyAndIndicatorDateByShordCodes_02132018_Result)">
+    <FunctionImport Name="uspSelectCompanyAndIndicatorDateByShordCodes_02132018" ReturnType="Collection(LDBTESTModel.uspSelectCompanyAndIndicatorDateByShordCodes_02132018_Result)">
       <Parameter Name="CompanyShortCode" Mode="In" Type="String" />
       <Parameter Name="IndicatorShortCode" Mode="In" Type="String" />
       <Parameter Name="InverseOrder" Mode="In" Type="Boolean" />
       <Parameter Name="MoveMonths" Mode="In" Type="Int32" />
       <Parameter Name="CustomerCompanyID" Mode="In" Type="Int32" />
     </FunctionImport>
-    <FunctionImport Name="uspSelectCompanyAndIndicatorDateByShordCodes_0619" ReturnType="Collection(DatacastModel.uspSelectCompanyAndIndicatorDateByShordCodes_0619_Result)">
+    <FunctionImport Name="uspSelectCompanyAndIndicatorDateByShordCodes_0619" ReturnType="Collection(LDBTESTModel.uspSelectCompanyAndIndicatorDateByShordCodes_0619_Result)">
       <Parameter Name="CompanyShortCode" Mode="In" Type="String" />
       <Parameter Name="IndicatorShortCode" Mode="In" Type="String" />
       <Parameter Name="InverseOrder" Mode="In" Type="Boolean" />
       <Parameter Name="MoveMonths" Mode="In" Type="Int32" />
       <Parameter Name="CustomerCompanyID" Mode="In" Type="Int32" />
     </FunctionImport>
-    <FunctionImport Name="uspSelectCompanyAndIndicatorDateByShordCodes_08282017" ReturnType="Collection(DatacastModel.uspSelectCompanyAndIndicatorDateByShordCodes_08282017_Result)">
+    <FunctionImport Name="uspSelectCompanyAndIndicatorDateByShordCodes_08282017" ReturnType="Collection(LDBTESTModel.uspSelectCompanyAndIndicatorDateByShordCodes_08282017_Result)">
       <Parameter Name="CompanyShortCode" Mode="In" Type="String" />
       <Parameter Name="IndicatorShortCode" Mode="In" Type="String" />
       <Parameter Name="InverseOrder" Mode="In" Type="Boolean" />
       <Parameter Name="MoveMonths" Mode="In" Type="Int32" />
       <Parameter Name="CustomerCompanyID" Mode="In" Type="Int32" />
     </FunctionImport>
-    <FunctionImport Name="uspSelectCompanyAndIndicatorDateByShordCodes_new" ReturnType="Collection(DatacastModel.uspSelectCompanyAndIndicatorDateByShordCodes_new_Result)">
+    <FunctionImport Name="uspSelectCompanyAndIndicatorDateByShordCodes_new" ReturnType="Collection(LDBTESTModel.uspSelectCompanyAndIndicatorDateByShordCodes_new_Result)">
       <Parameter Name="CompanyShortCode" Mode="In" Type="String" />
       <Parameter Name="IndicatorShortCode" Mode="In" Type="String" />
       <Parameter Name="InverseOrder" Mode="In" Type="Boolean" />
       <Parameter Name="MoveMonths" Mode="In" Type="Int32" />
     </FunctionImport>
-    <FunctionImport Name="uspSelectCompanyAndIndicatorDateByShordCodes_old" ReturnType="Collection(DatacastModel.uspSelectCompanyAndIndicatorDateByShordCodes_old_Result)">
+    <FunctionImport Name="uspSelectCompanyAndIndicatorDateByShordCodes_old" ReturnType="Collection(LDBTESTModel.uspSelectCompanyAndIndicatorDateByShordCodes_old_Result)">
       <Parameter Name="CompanyShortCode" Mode="In" Type="String" />
       <Parameter Name="IndicatorShortCode" Mode="In" Type="String" />
       <Parameter Name="InverseOrder" Mode="In" Type="Boolean" />
       <Parameter Name="MoveMonths" Mode="In" Type="Int32" />
     </FunctionImport>
-    <FunctionImport Name="uspSelectCompanyAndIndicatorDateByShordCodes03312017" ReturnType="Collection(DatacastModel.uspSelectCompanyAndIndicatorDateByShordCodes03312017_Result)">
+    <FunctionImport Name="uspSelectCompanyAndIndicatorDateByShordCodes03312017" ReturnType="Collection(LDBTESTModel.uspSelectCompanyAndIndicatorDateByShordCodes03312017_Result)">
       <Parameter Name="CompanyShortCode" Mode="In" Type="String" />
       <Parameter Name="IndicatorShortCode" Mode="In" Type="String" />
       <Parameter Name="InverseOrder" Mode="In" Type="Boolean" />
       <Parameter Name="MoveMonths" Mode="In" Type="Int32" />
     </FunctionImport>
-    <FunctionImport Name="uspSelectCompanyAndIndicatorDateByShordCodesForAlliance" ReturnType="Collection(DatacastModel.uspSelectCompanyAndIndicatorDateByShordCodesForAlliance_Result)">
+    <FunctionImport Name="uspSelectCompanyAndIndicatorDateByShordCodesForAlliance" ReturnType="Collection(LDBTESTModel.uspSelectCompanyAndIndicatorDateByShordCodesForAlliance_Result)">
       <Parameter Name="CompanyShortCode" Mode="In" Type="String" />
       <Parameter Name="IndicatorShortCode" Mode="In" Type="String" />
       <Parameter Name="InverseOrder" Mode="In" Type="Boolean" />
       <Parameter Name="MoveMonths" Mode="In" Type="Int32" />
       <Parameter Name="CustomerCompanyID" Mode="In" Type="Int32" />
     </FunctionImport>
-    <FunctionImport Name="uspSelectCompanyDataForDataTrends" ReturnType="Collection(DatacastModel.uspSelectCompanyDataForDataTrends_Result)">
+    <FunctionImport Name="uspSelectCompanyDataForDataTrends" ReturnType="Collection(LDBTESTModel.uspSelectCompanyDataForDataTrends_Result)">
       <Parameter Name="CompanyShortCode" Mode="In" Type="String" />
       <Parameter Name="CalucaltionType" Mode="In" Type="Int32" />
     </FunctionImport>
-    <FunctionImport Name="uspSelectCompanyDatasetsForInternalRatesOfChange" ReturnType="Collection(DatacastModel.uspSelectCompanyDatasetsForInternalRatesOfChange_Result)">
+    <FunctionImport Name="uspSelectCompanyDatasetsForInternalRatesOfChange" ReturnType="Collection(LDBTESTModel.uspSelectCompanyDatasetsForInternalRatesOfChange_Result)">
       <Parameter Name="FirstCompanyDataSetName" Mode="In" Type="String" />
       <Parameter Name="FirstCompanyCaluclationType" Mode="In" Type="String" />
       <Parameter Name="SecondCompanyDataSetName" Mode="In" Type="String" />
       <Parameter Name="SecondCompanyCaluclationType" Mode="In" Type="String" />
     </FunctionImport>
-    <FunctionImport Name="uspSelectCompanyDataSetsInfoDownloadSection1" ReturnType="Collection(DatacastModel.uspSelectCompanyDataSetsInfoDownloadSection1_Result)">
+    <FunctionImport Name="uspSelectCompanyDataSetsInfoDownloadSection1" ReturnType="Collection(LDBTESTModel.uspSelectCompanyDataSetsInfoDownloadSection1_Result)">
       <Parameter Name="MasterMetaDataIDS" Mode="In" Type="String" />
     </FunctionImport>
-    <FunctionImport Name="uspSelectCompanyForecastDataByCompanyShortCode" ReturnType="Collection(DatacastModel.uspSelectCompanyForecastDataByCompanyShortCode_Result)">
+    <FunctionImport Name="uspSelectCompanyForecastDataByCompanyShortCode" ReturnType="Collection(LDBTESTModel.uspSelectCompanyForecastDataByCompanyShortCode_Result)">
       <Parameter Name="CompanyShortcode" Mode="In" Type="String" />
     </FunctionImport>
     <FunctionImport Name="uspSelectCompanySales" />
@@ -1646,30 +1808,34 @@
       <Parameter Name="CustomerDataSetID" Mode="In" Type="Int32" />
     </FunctionImport>
     <FunctionImport Name="uspSelectCompanySalesPortalByCustomerDataSetID_Scheduler" />
-    <FunctionImport Name="uspSelectDatacastCategories" ReturnType="Collection(DatacastModel.uspSelectDatacastCategories_Result)" />
-    <FunctionImport Name="uspSelectDatacastSubCategoriesByCategory" ReturnType="Collection(DatacastModel.uspSelectDatacastSubCategoriesByCategory_Result)">
+    <FunctionImport Name="uspSelectCurrentMonthPhaseValuesOfDBWidgetsByCompanyId" ReturnType="Collection(LDBTESTModel.uspSelectCurrentMonthPhaseValuesOfDBWidgetsByCompanyId_Result)">
+      <Parameter Name="CompanyShortCode" Mode="In" Type="String" />
+      <Parameter Name="UserID" Mode="In" Type="Int32" />
+    </FunctionImport>
+    <FunctionImport Name="uspSelectDatacastCategories" ReturnType="Collection(LDBTESTModel.uspSelectDatacastCategories_Result)" />
+    <FunctionImport Name="uspSelectDatacastSubCategoriesByCategory" ReturnType="Collection(LDBTESTModel.uspSelectDatacastSubCategoriesByCategory_Result)">
       <Parameter Name="Industry" Mode="In" Type="String" />
     </FunctionImport>
-    <FunctionImport Name="uspSelectDatacastSubSector2BySubSector1" ReturnType="Collection(DatacastModel.uspSelectDatacastSubSector2BySubSector1_Result)">
+    <FunctionImport Name="uspSelectDatacastSubSector2BySubSector1" ReturnType="Collection(LDBTESTModel.uspSelectDatacastSubSector2BySubSector1_Result)">
       <Parameter Name="Industry" Mode="In" Type="String" />
       <Parameter Name="Sector" Mode="In" Type="String" />
       <Parameter Name="SubSector1" Mode="In" Type="String" />
     </FunctionImport>
-    <FunctionImport Name="uspSelectDatacastSubSector3BySubSector2" ReturnType="Collection(DatacastModel.uspSelectDatacastSubSector3BySubSector2_Result)">
+    <FunctionImport Name="uspSelectDatacastSubSector3BySubSector2" ReturnType="Collection(LDBTESTModel.uspSelectDatacastSubSector3BySubSector2_Result)">
       <Parameter Name="Industry" Mode="In" Type="String" />
       <Parameter Name="Sector" Mode="In" Type="String" />
       <Parameter Name="SubSector1" Mode="In" Type="String" />
       <Parameter Name="SubSector2" Mode="In" Type="String" />
     </FunctionImport>
-    <FunctionImport Name="uspSelectDatacastSubSectorsBySector" ReturnType="Collection(DatacastModel.uspSelectDatacastSubSectorsBySector_Result)">
+    <FunctionImport Name="uspSelectDatacastSubSectorsBySector" ReturnType="Collection(LDBTESTModel.uspSelectDatacastSubSectorsBySector_Result)">
       <Parameter Name="Industry" Mode="In" Type="String" />
       <Parameter Name="Sector" Mode="In" Type="String" />
     </FunctionImport>
-    <FunctionImport Name="uspSelectDataSetsByQBaseAccountID" ReturnType="Collection(DatacastModel.uspSelectDataSetsByQBaseAccountID_Result)">
+    <FunctionImport Name="uspSelectDataSetsByQBaseAccountID" ReturnType="Collection(LDBTESTModel.uspSelectDataSetsByQBaseAccountID_Result)">
       <Parameter Name="QBaseAccountID" Mode="In" Type="Int32" />
       <Parameter Name="QBaseDivID" Mode="In" Type="Int32" />
     </FunctionImport>
-    <FunctionImport Name="uspSelectDBWidgetsCorrelationListByCompanyID" ReturnType="Collection(DatacastModel.uspSelectDBWidgetsCorrelationListByCompanyID_Result)">
+    <FunctionImport Name="uspSelectDBWidgetsCorrelationListByCompanyID" ReturnType="Collection(LDBTESTModel.uspSelectDBWidgetsCorrelationListByCompanyID_Result)">
       <Parameter Name="CompanyShortCode" Mode="In" Type="String" />
       <Parameter Name="UserID" Mode="In" Type="Int32" />
       <Parameter Name="DisplayLength" Mode="In" Type="Int32" />
@@ -1678,14 +1844,14 @@
       <Parameter Name="SortCol" Mode="In" Type="Int32" />
       <Parameter Name="SortDir" Mode="In" Type="String" />
     </FunctionImport>
-    <FunctionImport Name="uspSelectDBWidgetsListByCompanyID" ReturnType="Collection(DatacastModel.uspSelectDBWidgetsListByCompanyID_Result)">
+    <FunctionImport Name="uspSelectDBWidgetsListByCompanyID" ReturnType="Collection(LDBTESTModel.uspSelectDBWidgetsListByCompanyID_Result)">
       <Parameter Name="UserID" Mode="In" Type="Int32" />
       <Parameter Name="CompanyShortCode" Mode="In" Type="String" />
     </FunctionImport>
-    <FunctionImport Name="uspSelectDivisionsByAccountID" ReturnType="Collection(DatacastModel.uspSelectDivisionsByAccountID_Result)">
+    <FunctionImport Name="uspSelectDivisionsByAccountID" ReturnType="Collection(LDBTESTModel.uspSelectDivisionsByAccountID_Result)">
       <Parameter Name="AccountName" Mode="In" Type="String" />
     </FunctionImport>
-    <FunctionImport Name="uspSelectFavouriteListByUserID" ReturnType="Collection(DatacastModel.uspSelectFavouriteListByUserID_Result)">
+    <FunctionImport Name="uspSelectFavouriteListByUserID" ReturnType="Collection(LDBTESTModel.uspSelectFavouriteListByUserID_Result)">
       <Parameter Name="CompanyShortCode" Mode="In" Type="String" />
       <Parameter Name="UserID" Mode="In" Type="Int32" />
       <Parameter Name="FavListName" Mode="In" Type="String" />
@@ -1695,22 +1861,22 @@
       <Parameter Name="SortCol" Mode="In" Type="Int32" />
       <Parameter Name="SortDir" Mode="In" Type="String" />
     </FunctionImport>
-    <FunctionImport Name="uspSelectFavouritesListByUserID" ReturnType="Collection(DatacastModel.uspSelectFavouritesListByUserID_Result)">
+    <FunctionImport Name="uspSelectFavouritesListByUserID" ReturnType="Collection(LDBTESTModel.uspSelectFavouritesListByUserID_Result)">
       <Parameter Name="UserID" Mode="In" Type="Int32" />
       <Parameter Name="CompanyShortCode" Mode="In" Type="String" />
     </FunctionImport>
-    <FunctionImport Name="uspSelectForecastDataByIndicatorForDownload" ReturnType="Collection(DatacastModel.uspSelectForecastDataByIndicatorForDownload_Result)">
+    <FunctionImport Name="uspSelectForecastDataByIndicatorForDownload" ReturnType="Collection(LDBTESTModel.uspSelectForecastDataByIndicatorForDownload_Result)">
       <Parameter Name="IndicatorShortCode" Mode="In" Type="String" />
       <Parameter Name="CompanyID" Mode="In" Type="Int32" />
     </FunctionImport>
-    <FunctionImport Name="uspSelectIndicatorDataByIndicatorShortCodes" ReturnType="Collection(DatacastModel.uspSelectIndicatorDataByIndicatorShortCodes_Result)">
+    <FunctionImport Name="uspSelectIndicatorDataByIndicatorShortCodes" ReturnType="Collection(LDBTESTModel.uspSelectIndicatorDataByIndicatorShortCodes_Result)">
       <Parameter Name="IndicatorShortCodes" Mode="In" Type="String" />
       <Parameter Name="CompanyShortCode" Mode="In" Type="String" />
     </FunctionImport>
-    <FunctionImport Name="uspSelectIndicatorForecastDataByIndicatorShortCode" ReturnType="Collection(DatacastModel.uspSelectIndicatorForecastDataByIndicatorShortCode_Result)">
+    <FunctionImport Name="uspSelectIndicatorForecastDataByIndicatorShortCode" ReturnType="Collection(LDBTESTModel.uspSelectIndicatorForecastDataByIndicatorShortCode_Result)">
       <Parameter Name="IndicatorShortCode" Mode="In" Type="String" />
     </FunctionImport>
-    <FunctionImport Name="uspSelectIndicatorListByCategorySearch" ReturnType="Collection(DatacastModel.uspSelectIndicatorListByCategorySearch_Result)">
+    <FunctionImport Name="uspSelectIndicatorListByCategorySearch" ReturnType="Collection(LDBTESTModel.uspSelectIndicatorListByCategorySearch_Result)">
       <Parameter Name="CompanyShortCode" Mode="In" Type="String" />
       <Parameter Name="UserID" Mode="In" Type="Int32" />
       <Parameter Name="Industry" Mode="In" Type="String" />
@@ -1730,10 +1896,10 @@
     <FunctionImport Name="uspSelectIndicatorSales_TEST" />
     <FunctionImport Name="uspSelectIndicatorSalesForNewIndicators" />
     <FunctionImport Name="uspSelectIndicatorSalesForUpdatedIndicators" ReturnType="Collection(Int32)" />
-    <FunctionImport Name="uspSelectIndicatorSeriesItemsForDownloadData" ReturnType="Collection(DatacastModel.uspSelectIndicatorSeriesItemsForDownloadData_Result)">
+    <FunctionImport Name="uspSelectIndicatorSeriesItemsForDownloadData" ReturnType="Collection(LDBTESTModel.uspSelectIndicatorSeriesItemsForDownloadData_Result)">
       <Parameter Name="ShortCode" Mode="In" Type="String" />
     </FunctionImport>
-    <FunctionImport Name="uspSelectLoadCorelationLeadLagByDataSetID" ReturnType="Collection(DatacastModel.uspSelectLoadCorelationLeadLagByDataSetID_Result)">
+    <FunctionImport Name="uspSelectLoadCorelationLeadLagByDataSetID" ReturnType="Collection(LDBTESTModel.uspSelectLoadCorelationLeadLagByDataSetID_Result)">
       <Parameter Name="ShortCode" Mode="In" Type="String" />
       <Parameter Name="DisplayLength" Mode="In" Type="Int32" />
       <Parameter Name="DisplayStart" Mode="In" Type="Int32" />
@@ -1742,10 +1908,10 @@
       <Parameter Name="SortDir" Mode="In" Type="String" />
       <Parameter Name="UserID" Mode="In" Type="Int32" />
     </FunctionImport>
-    <FunctionImport Name="uspSelectLoadCorelationLeadLagByDataSetID_04282017" ReturnType="Collection(DatacastModel.uspSelectLoadCorelationLeadLagByDataSetID_04282017_Result)">
+    <FunctionImport Name="uspSelectLoadCorelationLeadLagByDataSetID_04282017" ReturnType="Collection(LDBTESTModel.uspSelectLoadCorelationLeadLagByDataSetID_04282017_Result)">
       <Parameter Name="ShortCode" Mode="In" Type="String" />
     </FunctionImport>
-    <FunctionImport Name="uspSelectLoadCorelationLeadLagByDataSetIDForAlliance" ReturnType="Collection(DatacastModel.uspSelectLoadCorelationLeadLagByDataSetIDForAlliance_Result)">
+    <FunctionImport Name="uspSelectLoadCorelationLeadLagByDataSetIDForAlliance" ReturnType="Collection(LDBTESTModel.uspSelectLoadCorelationLeadLagByDataSetIDForAlliance_Result)">
       <Parameter Name="ShortCode" Mode="In" Type="String" />
       <Parameter Name="DisplayLength" Mode="In" Type="Int32" />
       <Parameter Name="DisplayStart" Mode="In" Type="Int32" />
@@ -1756,35 +1922,38 @@
       <Parameter Name="QBaseAccountID" Mode="In" Type="Int32" />
       <Parameter Name="QBDivID" Mode="In" Type="Int32" />
     </FunctionImport>
-    <FunctionImport Name="uspSelectLoadCorelationLeadLagByMultipleDatasetIDS" ReturnType="Collection(DatacastModel.uspSelectLoadCorelationLeadLagByMultipleDatasetIDS_Result)">
+    <FunctionImport Name="uspSelectLoadCorelationLeadLagByMultipleDatasetIDS" ReturnType="Collection(LDBTESTModel.uspSelectLoadCorelationLeadLagByMultipleDatasetIDS_Result)">
       <Parameter Name="MasterMetaDataIDS" Mode="In" Type="String" />
       <Parameter Name="DisplayLength" Mode="In" Type="Int32" />
       <Parameter Name="DisplayStart" Mode="In" Type="Int32" />
     </FunctionImport>
-    <FunctionImport Name="uspSelectLoadCorelationLeadLagByMultipleDatasetIDS_04282017" ReturnType="Collection(DatacastModel.uspSelectLoadCorelationLeadLagByMultipleDatasetIDS_04282017_Result)">
+    <FunctionImport Name="uspSelectLoadCorelationLeadLagByMultipleDatasetIDS_04282017" ReturnType="Collection(LDBTESTModel.uspSelectLoadCorelationLeadLagByMultipleDatasetIDS_04282017_Result)">
       <Parameter Name="MasterMetaDataIDS" Mode="In" Type="String" />
     </FunctionImport>
-    <FunctionImport Name="UspSelectMasterMetaData" ReturnType="Collection(DatacastModel.UspSelectMasterMetaData_Result)">
+    <FunctionImport Name="UspSelectMasterMetaData" ReturnType="Collection(LDBTESTModel.UspSelectMasterMetaData_Result)">
       <Parameter Name="ShortCode" Mode="In" Type="String" />
     </FunctionImport>
-    <FunctionImport Name="uspSelectMasterMetaDataByMetaDataID" ReturnType="Collection(DatacastModel.uspSelectMasterMetaDataByMetaDataID_Result)">
+    <FunctionImport Name="uspSelectMasterMetaDataByMetaDataID" ReturnType="Collection(LDBTESTModel.uspSelectMasterMetaDataByMetaDataID_Result)">
       <Parameter Name="MasterMetaDataID" Mode="In" Type="Int32" />
     </FunctionImport>
-    <FunctionImport Name="UspSelectMasterMetaDataByWorkBook" ReturnType="Collection(DatacastModel.UspSelectMasterMetaDataByWorkBook_Result)">
+    <FunctionImport Name="UspSelectMasterMetaDataByWorkBook" ReturnType="Collection(LDBTESTModel.UspSelectMasterMetaDataByWorkBook_Result)">
       <Parameter Name="WorkBook" Mode="In" Type="String" />
     </FunctionImport>
-    <FunctionImport Name="uspSelectMasterMetaDataFields" ReturnType="Collection(DatacastModel.uspSelectMasterMetaDataFields_Result)" />
-    <FunctionImport Name="uspSelectPhaseValuesOfDBWidgetsByCompanyIdNew" ReturnType="Collection(DatacastModel.uspSelectPhaseValuesOfDBWidgetsByCompanyIdNew_Result)">
+    <FunctionImport Name="uspSelectMasterMetaDataFields" ReturnType="Collection(LDBTESTModel.uspSelectMasterMetaDataFields_Result)" />
+    <FunctionImport Name="uspSelectPhaseValuesOfDBWidgetsByCompanyId" ReturnType="Collection(LDBTESTModel.uspSelectPhaseValuesOfDBWidgetsByCompanyId_Result)">
+      <Parameter Name="CompanyShortCode" Mode="In" Type="String" />
+    </FunctionImport>
+    <FunctionImport Name="uspSelectPhaseValuesOfDBWidgetsByCompanyIdNew" ReturnType="Collection(LDBTESTModel.uspSelectPhaseValuesOfDBWidgetsByCompanyIdNew_Result)">
       <Parameter Name="CompanyShortCode" Mode="In" Type="String" />
       <Parameter Name="CompanyID" Mode="In" Type="Int32" />
     </FunctionImport>
-    <FunctionImport Name="uspSelectPhaseValuesOfDBWidgetsByCompanyIdNew_BKP" ReturnType="Collection(DatacastModel.uspSelectPhaseValuesOfDBWidgetsByCompanyIdNew_BKP_Result)">
+    <FunctionImport Name="uspSelectPhaseValuesOfDBWidgetsByCompanyIdNew_BKP" ReturnType="Collection(LDBTESTModel.uspSelectPhaseValuesOfDBWidgetsByCompanyIdNew_BKP_Result)">
       <Parameter Name="CompanyShortCode" Mode="In" Type="String" />
     </FunctionImport>
-    <FunctionImport Name="uspSelectPhaseValuesOfDBWidgetsByCompanyIdNew1" ReturnType="Collection(DatacastModel.uspSelectPhaseValuesOfDBWidgetsByCompanyIdNew1_Result)">
+    <FunctionImport Name="uspSelectPhaseValuesOfDBWidgetsByCompanyIdNew1" ReturnType="Collection(LDBTESTModel.uspSelectPhaseValuesOfDBWidgetsByCompanyIdNew1_Result)">
       <Parameter Name="CompanyShortCode" Mode="In" Type="String" />
     </FunctionImport>
-    <FunctionImport Name="uspSelectTimingValuesOfDBWidgetsByCompanyId" ReturnType="Collection(DatacastModel.uspSelectTimingValuesOfDBWidgetsByCompanyId_Result)">
+    <FunctionImport Name="uspSelectTimingValuesOfDBWidgetsByCompanyId" ReturnType="Collection(LDBTESTModel.uspSelectTimingValuesOfDBWidgetsByCompanyId_Result)">
       <Parameter Name="CompanyShortCode" Mode="In" Type="String" />
     </FunctionImport>
     <FunctionImport Name="uspTest" ReturnType="Collection(Decimal)">
@@ -1861,13 +2030,6 @@
     </FunctionImport>
     <FunctionImport Name="uspUpdateMetaDataFRomIndicatorList" />
     <FunctionImport Name="uspUpdateUIForecastListPath" />
-    <FunctionImport Name="uspSelectPhaseValuesOfDBWidgetsByCompanyId" ReturnType="Collection(DatacastModel.uspSelectPhaseValuesOfDBWidgetsByCompanyId_Result)">
-      <Parameter Name="CompanyShortCode" Mode="In" Type="String" />
-    </FunctionImport>
-    <FunctionImport Name="uspSelectCurrentMonthPhaseValuesOfDBWidgetsByCompanyId" ReturnType="Collection(DatacastModel.uspSelectCurrentMonthPhaseValuesOfDBWidgetsByCompanyId_Result)">
-      <Parameter Name="CompanyShortCode" Mode="In" Type="String" />
-      <Parameter Name="UserID" Mode="In" Type="Int32" />
-    </FunctionImport>
   </EntityContainer>
   <ComplexType Name="sp_CheckLogin_Result">
     <Property Type="String" Name="UserName" Nullable="false" MaxLength="64" />
@@ -2461,6 +2623,14 @@
     <Property Type="Boolean" Name="Forecast" Nullable="true" />
     <Property Type="String" Name="Range" Nullable="false" MaxLength="3" />
   </ComplexType>
+  <ComplexType Name="uspSelectCurrentMonthPhaseValuesOfDBWidgetsByCompanyId_Result">
+    <Property Type="Int32" Name="DashboardWidgetsListId" Nullable="true" />
+    <Property Type="String" Name="IndicatorName" Nullable="true" />
+    <Property Type="String" Name="IndicatorShortCode" Nullable="true" MaxLength="64" />
+    <Property Type="DateTime" Name="MonthYear" Nullable="true" />
+    <Property Type="String" Name="MY" Nullable="true" MaxLength="16" />
+    <Property Type="String" Name="Phases" Nullable="true" MaxLength="8000" />
+  </ComplexType>
   <ComplexType Name="uspSelectDatacastCategories_Result">
     <Property Type="String" Name="Industry" Nullable="true" MaxLength="128" />
     <Property Type="String" Name="IndustryID" Nullable="true" MaxLength="128" />
@@ -2730,6 +2900,15 @@
     <Property Type="String" Name="AccountName" Nullable="true" MaxLength="512" />
     <Property Type="String" Name="DivisionName" Nullable="true" MaxLength="512" />
   </ComplexType>
+  <ComplexType Name="uspSelectPhaseValuesOfDBWidgetsByCompanyId_Result">
+    <Property Type="Int32" Name="DashboardWidgetsListId" Nullable="false" />
+    <Property Type="String" Name="Indicator" Nullable="true" MaxLength="500" />
+    <Property Type="DateTime" Name="MonthYear" Nullable="true" Precision="23" />
+    <Property Type="String" Name="Phases" Nullable="true" MaxLength="8" />
+    <Property Type="String" Name="SHORTCODE" Nullable="false" MaxLength="128" />
+    <Property Type="String" Name="MY" Nullable="true" MaxLength="64" />
+    <Property Type="Double" Name="Timing" Nullable="true" />
+  </ComplexType>
   <ComplexType Name="uspSelectPhaseValuesOfDBWidgetsByCompanyIdNew_Result">
     <Property Type="Int32" Name="DashboardWidgetsListId" Nullable="true" />
     <Property Type="String" Name="Indicator" Nullable="true" />
@@ -2758,22 +2937,5 @@
     <Property Type="String" Name="CompanyShortCode" Nullable="false" MaxLength="128" />
     <Property Type="String" Name="IndicatorShortCode" Nullable="false" MaxLength="128" />
     <Property Type="Double" Name="Timing" Nullable="true" />
-  </ComplexType>
-  <ComplexType Name="uspSelectPhaseValuesOfDBWidgetsByCompanyId_Result">
-    <Property Type="Int32" Name="DashboardWidgetsListId" Nullable="false" />
-    <Property Type="String" Name="Indicator" Nullable="true" MaxLength="500" />
-    <Property Type="DateTime" Name="MonthYear" Nullable="true" Precision="23" />
-    <Property Type="String" Name="Phases" Nullable="true" MaxLength="8" />
-    <Property Type="String" Name="SHORTCODE" Nullable="false" MaxLength="128" />
-    <Property Type="String" Name="MY" Nullable="true" MaxLength="64" />
-    <Property Type="Double" Name="Timing" Nullable="true" />
-  </ComplexType>
-  <ComplexType Name="uspSelectCurrentMonthPhaseValuesOfDBWidgetsByCompanyId_Result">
-    <Property Type="Int32" Name="DashboardWidgetsListId" Nullable="true" />
-    <Property Type="String" Name="IndicatorName" Nullable="true" />
-    <Property Type="String" Name="IndicatorShortCode" Nullable="true" MaxLength="64" />
-    <Property Type="DateTime" Name="MonthYear" Nullable="true" />
-    <Property Type="String" Name="MY" Nullable="true" MaxLength="16" />
-    <Property Type="String" Name="Phases" Nullable="true" MaxLength="8000" />
   </ComplexType>
 </Schema>

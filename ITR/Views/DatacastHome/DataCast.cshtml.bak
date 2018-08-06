@@ -28,11 +28,13 @@
                 </div>
             </div>
         </div>
+
         <div class="tabs">
             <!--Internal Rates of Change Start-->
             <div class="tab">
                 <input type="radio" class="radio" id="tab-2" name="tab-group-1">
                 <label for="tab-2">Internal Rates of Change</label>
+
                 <div class="content">
                     <div class="row">
                         <div class="col-sm-2 pull-right">
@@ -45,8 +47,10 @@
                             <button id="linkPrintPNGIRC" class="btn btn-default" type="button" title="Download Image">
                                 <i class="fa fa-image"></i>
                             </button>
+
                         </div>
                     </div>
+
                     <div id="divPrintIRC">
                         <div style="text-align: center;">
                             <span style="font-family: 'Bell MT'; font-size: 71px; line-height: 79px; color: #3175a4; font-weight: bold;">ITR</span><span style="font-family: 'Arial'; font-size: 48px; line-height: 54px; color: #270076; font-weight: bold;">&nbsp;</span><span style="font-family: &quot; Roboto Black&quot; , Roboto; font-size: 64px; line-height: 72px; color: rgb(7, 166, 132); font-style: italic; font-weight: 900;">Data</span><span style="font-family: &quot; Roboto Light&quot; , Roboto; font-size: 64px; line-height: 72px; color: rgb(7, 166, 132); font-style: italic; font-weight: 300;">Cast</span>
@@ -61,6 +65,7 @@
                                 <span>vs </span>
                                 <br />
                                 <span id="spnIRCDataSet2Name" class="spnIRCDataSet2Name"></span>
+
                                 <br>
                                 <br>
                             </span>
@@ -72,9 +77,11 @@
                     <div class="row" style="background-color: rgb(215, 215, 215); width: 100%; vertical-align: central; margin-left: 0%; height: 300px;">
                         <!--First Div Start-->
                         <div class="col-sm-2" style="padding-left: 25px;">
+
                             <div class="row" style="font-weight: bold;">Chart Legend</div>
                             <div class="row" style="font-weight: bold;"><span style="font-family: 'Wide Latin'; font-size: 16px; line-height: 18px; color: green;">---</span> <span style="font-family: &quot; Roboto Light&quot; , Roboto; font-size: 11px; line-height: 12px; color: rgb(0, 0, 0); font-weight: 300;">Dataset 1</span> </div>
                             <div class="row" style="font-weight: bold;"><span style="font-family: 'Wide Latin'; font-size: 16px; line-height: 18px; color: #3E576F;">---</span> <span style="font-family: &quot; Roboto Light&quot; , Roboto; font-size: 11px; line-height: 12px; color: rgb(0, 0, 0); font-weight: 300;">Dataset 2</span></div>
+
                         </div>
                         <!--First Div End-->
                         <!--Second Div Start-->
@@ -117,9 +124,11 @@
             <div class="tab">
                 <input type="radio" class="radio" id="tab-1" name="tab-group-1">
                 <label for="tab-1">Internal Data Trends</label>
+
                 <div class="content">
                     <div class="row">
                         <div class="col-sm-2 pull-right">
+
                             <button id="linkPrintIDT" class="btn btn-default" type="button" title="Print the chart">
                                 <i class="fa fa-print"></i>
                             </button>
@@ -129,6 +138,7 @@
                             <button id="linkPrintPNGIDT" class="btn btn-default" type="button" title="Download Image">
                                 <i class="fa fa-image"></i>
                             </button>
+
                         </div>
                     </div>
                     <div id="divPrintIDT">
@@ -143,6 +153,7 @@
                                 <span id="spnIDTDataSetName" class="spnIDTDataSetName"></span>
                                 <br>
                                 <span id="spnIDTCaluculationsType" class="spnIDTCaluculationsType"></span>
+
                                 <br>
                                 <div id="divLablesIDT" style="display: none;">
                                     <strong>Calculation Type: <span id="spnIDTCalculationType" class="spnIDTCalculationType"></span></strong>
@@ -195,9 +206,11 @@
             <div class="tab">
                 <input type="radio" class="radio" id="tab-3" name="tab-group-1" checked>
                 <label for="tab-3">Datacast</label>
+
                 <div class="content">
                     <div class="row">
                         <div class="col-sm-2 pull-right">
+
                             <button id="linkPrint" class="btn btn-default" type="button" title="Print the chart">
                                 <i class="fa fa-print"></i>
                             </button>
@@ -207,8 +220,10 @@
                             <button id="linkPrintPNG" class="btn btn-default" type="button" title="Download Image">
                                 <i class="fa fa-image"></i>
                             </button>
+
                         </div>
                     </div>
+
                     <div id="divPrint">
                         <div style="text-align: center;">
                             <span style="font-family: 'Bell MT'; font-size: 71px; line-height: 79px; color: #3175a4; font-weight: bold;">ITR</span><span style="font-family: 'Arial'; font-size: 48px; line-height: 54px; color: #270076; font-weight: bold;">&nbsp;</span><span style="font-family: &quot; Roboto Black&quot; , Roboto; font-size: 64px; line-height: 72px; color: rgb(7, 166, 132); font-style: italic; font-weight: 900;">Data</span><span style="font-family: &quot; Roboto Light&quot; , Roboto; font-size: 64px; line-height: 72px; color: rgb(7, 166, 132); font-style: italic; font-weight: 300;">Cast</span>
@@ -230,6 +245,7 @@
                             </span>
                         </div>
                         <div id="chart"></div>
+
                     </div>
                     <!-- End of DataCast Print Div-->
                     <!--Grid below the chart-->
@@ -248,10 +264,12 @@
                             <div class="row" style="font-weight: bold;"><span style="font-family: 'Wide Latin'; font-size: 19px; line-height: 21px; color: #3E576F; font-weight: bold;">..</span> <span style="font-family: &quot; Roboto Light&quot; , Roboto; font-size: 11px; line-height: 12px; color: rgb(0, 0, 0); font-weight: 300;">Company Forecast </span></div>
                             <div class="row" style="font-weight: bold;"><span style="font-family: 'Wide Latin'; font-size: 16px; line-height: 18px; color: green;">---</span> <span style="font-family: &quot; Roboto Light&quot; , Roboto; font-size: 11px; line-height: 12px; color: rgb(0, 0, 0); font-weight: 300;">Indicator History</span></div>
                             <div class="row" style="font-weight: bold;"><span style="font-family: 'Wide Latin'; font-size: 19px; line-height: 21px; color: green; font-weight: bold;">..</span> <span style="font-family: &quot; Roboto Light&quot; , Roboto; font-size: 11px; line-height: 12px; color: rgb(0, 0, 0); font-weight: 300;">Indicator Forecast  </span></div>
+
                         </div>
                         <!--First Div End-->
                         <!--Second Div Start-->
                         <div class="col-sm-7">
+
                             @*<div class="row">
                                     <div class="col-sm-6" style="font-weight: bold;">Indicator Name - Indicator</div>
                                     <div class="col-sm-3" style="font-weight: bold;">Correlation</div>
@@ -276,6 +294,7 @@
                                         <input type="button" style="font-weight:bold; margin-bottom: 5px;" align="right" value=" Save Dashboard Indicator " id="AddIToDashboard">&nbsp;&nbsp;&nbsp;
                                         <input type="button" style="font-weight:bold; margin-bottom: 5px;" align="right" value=" Clear Dashboard Indicator " id="ClearDBWidgets" />
                                     </td>
+
                                 </tr>
                                 <tr>
                                     <td style="font-weight:bold;" align="center">
@@ -361,6 +380,7 @@
                                         <select id="ddlDataSetsDD" class="multiSelect form-control link_cursor" multiple="multiple"></select>
                                     </div>
                                 </div>
+
                                 <div class="col-sm-6">
                                     <br />
                                     <br />
@@ -431,6 +451,7 @@
                             </div>
                         </div>
                     </div>
+
                     <br />
                     <span style="font-weight: bold; margin-left: 0%;">Indicator Data </span>
                     <div class="row" style="background-color: rgb(215, 215, 215); width: 100%; vertical-align: central; margin-left: 0%; height: 230px;">
@@ -445,6 +466,7 @@
                             <div class="row">
                                 <!--Second Div Start-->
                                 <div class="col-sm-12 downloadsection3">
+
                                     <div class="row">
                                         <div class="col-sm-3" style="font-weight: bold;">MonthYear</div>
                                         <div class="col-sm-3" style="font-weight: bold;">Indicator Full Name</div>
@@ -506,6 +528,7 @@
     </div>
 </div>
 <!--Favorites list popup-->
+
 <div class="modal2" id="FavListModalPopUp" tabindex="-1" role="dialog" aria-hidden="true" style="display:none;">
     <div class="modal-dialog">
         <div class="modal-content" style="width:450px">
@@ -548,31 +571,40 @@
     <!-- /#DefaultModal -->
 </div>
 
+
 <div class="modal2" id="FirstViewPopup" tabindex="-1" role="dialog" aria-hidden="true" style="display:none;">
     <div class="modal-dialog">
         <div class="modal-content" style="width:650px">
             <div class="modal-header">
                 <button id="closeFirstPopup" type="button" class="close" data-dismiss="modal2" aria-hidden="true">&times;</button>
+
             </div>
             <div class="modal-body">
+
                 <div id="dialog-form">
                     <div class="the-box full no-border">
                         <div class="row">
                             <div class="col-sm-12">
                                 <span> *The phases found in DataCast are provided via a mathematical calculation and do not take into account certain nuances that our professional economists would consider when calculating a Phase of the Business Cycle in a consultative program with us.  Please contact a Program Consultant should you prefer to have a deeper understanding of the Phases for your markets or company, and we will be happy to review options in purchasing a consultative program or 1-hour EconChat.</span>
                             </div>
+
                         </div>
                         <br />
                         <div class="row">
                             <div class="col-sm-12" style="text-align:right">
                                 <input type="checkbox" id="chkShowPopup" /> Don't Show this message again
                             </div>
+
                         </div>
                         <br />
 
+
                     </div>
 
+
+
                 </div>
+
 
                 <!-- /.modal-content -->
             </div>
@@ -582,52 +614,66 @@
     </div>
     <!-- /#DefaultModal -->
 </div>
+
 <div class="modal2" id="SearchCategoryPopup" tabindex="-1" role="dialog" aria-hidden="true" style="display:none;">
     <div class="modal-dialog">
         <div class="modal-content" style="width:450px">
             <div class="modal-header">
                 <button id="closecategorypopup" type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
+
             </div>
             <div class="modal-body">
+
                 <div id="dialog-form">
                     <div class="the-box full no-border">
                         <div class="row">
                             <div class="col-sm-12">
+
                                 Category : <select id="ddlCategories" class="form-control link_cursor"></select>
                             </div>
                             <!-- /.table-responsive -->
                         </div>
+
                         <br />
                         <div class="row" style="display:none" id="subcategoryrow">
                             <div class="col-sm-12">
+
                                 Sub Category : <select id="ddlSubCategories" class="form-control link_cursor"></select>
                             </div>
                             <!-- /.table-responsive -->
                         </div>
                         <br />
+
                         <div class="row" style="display:none" id="subsector1row">
                             <div class="col-sm-12">
+
                                 SubSector1 : <select id="ddlSubSectors1" class="form-control link_cursor"></select>
                             </div>
                             <!-- /.table-responsive -->
                         </div>
                         <br />
+
                         <div class="row" style="display:none" id="subsector2row">
                             <div class="col-sm-12">
+
                                 SubSector2 : <select id="ddlSubSectors2" class="form-control link_cursor"></select>
                             </div>
                             <!-- /.table-responsive -->
                         </div>
                         <br />
+
                         <div class="row" style="display:none" id="subsector3row">
                             <div class="col-sm-12">
+
                                 SubSector3 : <select id="ddlSubSectors3" class="form-control link_cursor"></select>
                             </div>
                             <!-- /.table-responsive -->
                         </div>
                         <br />
 
+
                         <div class="row btnprint">
+
                             <div class="col-sm-4">
                                 <button class="btn btn-warning pull-left" id="btnCancelSearchCategoryPopup">Cancel</button>
                             </div>
@@ -637,10 +683,15 @@
                             <div class="col-sm-4">
                                 <button class="btn btn-sucess pull-right" id="btnSearchCategorySubCategory">Search</button>
                             </div>
+
                         </div>
+
                     </div>
 
+
+
                 </div>
+
 
                 <!-- /.modal-content -->
             </div>
@@ -650,75 +701,77 @@
     </div>
     <!-- /#DefaultModal -->
 </div>
+
 @*ADDED BY VIJAYA TO SHOW DASHBOARD WIDGETS IN POPU*@
 @*<div class="modal2" id="DBWidgetsListModalPopUp" tabindex="-1" role="dialog" aria-hidden="true" style="display:none;">
-        <div class="modal-dialog">
-            <div class="modal-content" style="width:550px">
-                <div class="modal-header">
-                    <button id="close" type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
-                </div>
-                <div class="modal-body">
-                    <div id="dialog-form">
-                        <div class="the-box full no-border">
-                            <div class="row">
-                                <div class="col-sm-12">
-                                    <div class="table-responsive">
-                                        <table class="table table-th-block table-dark" id="dtDBWidgetsList">
-                                            <thead>
-                                                <tr>
-                                                    <th>DashboardWidgetsListId</th>
-                                                    <th>Indicator Name</th>
-                                                    <th>Delete</th>
-                                                </tr>
-                                            </thead>
-                                            <tbody></tbody>
-                                        </table>
-                                    </div>
+    <div class="modal-dialog">
+        <div class="modal-content" style="width:550px">
+            <div class="modal-header">
+                <button id="close" type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
+            </div>
+            <div class="modal-body">
+                <div id="dialog-form">
+                    <div class="the-box full no-border">
+                        <div class="row">
+                            <div class="col-sm-12">
+                                <div class="table-responsive">
+                                    <table class="table table-th-block table-dark" id="dtDBWidgetsList">
+                                        <thead>
+                                            <tr>
+                                                <th>DashboardWidgetsListId</th>
+                                                <th>Indicator Name</th>
+                                                <th>Delete</th>
+                                            </tr>
+                                        </thead>
+                                        <tbody></tbody>
+                                    </table>
                                 </div>
-                                <!-- /.table-responsive -->
                             </div>
-                            <br />
-                            <div class="row btnprint">
-                                <div class="col-sm-4">
-                                    <button class="btn btn-warning pull-left" id="btnCancelDBWidgetsPopUP">Cancel</button>
-                                </div>
+                            <!-- /.table-responsive -->
+                        </div>
+                        <br />
+                        <div class="row btnprint">
+                            <div class="col-sm-4">
+                                <button class="btn btn-warning pull-left" id="btnCancelDBWidgetsPopUP">Cancel</button>
                             </div>
                         </div>
                     </div>
-                    <!-- /.modal-content -->
                 </div>
                 <!-- /.modal-content -->
             </div>
-            <!-- /.modal-dialog -->
+            <!-- /.modal-content -->
         </div>
-        <!-- /#DefaultModal -->
-    </div>*@
+        <!-- /.modal-dialog -->
+    </div>
+    <!-- /#DefaultModal -->
+</div>*@
+
 
 @if (Session.Count > 0)
 {
-
+    
     <input type="hidden" id="hdnCompanyID" title="" value="@Session["CompanyID"].ToString()" />
     <input type="hidden" id="hdnDivisionID" title="" value="@Session["DivisonID"].ToString()" />
     <input type="hidden" id="hdnUserID" title="" value="@Session["UserID"].ToString()" />
     <input type="hidden" id="hdnIsDataPortalAdmin" title="" value="@Session["IsDataPortalAdmin"].ToString()" />
     @*<script type="text/javascript" lang="javascript">
+    
+    alert("session count case" + Session.Count);
+    </script>*@
+        }
+    else
+    {
+        <input type="hidden" id="hdnCompanyID" title="" value="" />
+        <input type="hidden" id="hdnDivisionID" title="" value="" />
+        <input type="hidden" id="hdnUserID" title="" value="" />
+        <input type="hidden" id="hdnIsDataPortalAdmin" title="" value="" />
 
-        alert("session count case" + Session.Count);
-        </script>*@
-}
-else
-{
-    <input type="hidden" id="hdnCompanyID" title="" value="" />
-    <input type="hidden" id="hdnDivisionID" title="" value="" />
-    <input type="hidden" id="hdnUserID" title="" value="" />
-    <input type="hidden" id="hdnIsDataPortalAdmin" title="" value="" />
-
-    @*<script src="~/js/jquery.min.js"></script>
+        @*<script src="~/js/jquery.min.js"></script>
         <script type="text/javascript" src="//ajax.googleapis.com/ajax/libs/jquery/1.8.1/jquery.min.js"></script>*@
-    <script src="~/datacastjs/jquery-1.11.1.min.js"></script>
+        <script src="~/datacastjs/jquery-1.11.1.min.js"></script>
     <script type="text/javascript" lang="javascript">
         //   console.log("else case");
-
+       
         var elseCaseCompanyId = window.localStorage.getItem('ECompanyID');
         $("#hdnCompanyID").val(elseCaseCompanyId);
         var elseCaseDivisionID = window.localStorage.getItem('EDivisionID');
@@ -749,12 +802,13 @@ else
                 //console.log(error)
             }
         });
-
-        //$("#hdnCompanyID").val(2301);// 2301) //2301); //2301)
-        //$("#hdnDivisionID").val(0);
-        //$("#hdnUserID").val(1);
+          
+        $("#hdnCompanyID").val(2301);// 2301) //2301); //2301)
+        $("#hdnDivisionID").val(0);
+        $("#hdnUserID").val(1);
     </script>
 }
+
 
 @section PagespecificCss
 {
@@ -762,6 +816,7 @@ else
     <link href="~/datacastdashboard/css/bootstrap.min.css" rel="stylesheet" />
     <link href="~/datacastassets/plugins/datatables/dataTables.min.css" rel="stylesheet" />
     <link href="~/css/style.css" rel="stylesheet" />
+
     <style>
         .bold {
             font-weight: bold;
@@ -933,15 +988,18 @@ else
             font-weight: bold;
         }
     </style>
+
 }
 @section PageSpecificScript
  {
     <script type="text/javascript" src="~/datacastassets/plugins/datatables/jquery.dataTables.js"></script>
     <script type="text/javascript" src="~/datacastassets/plugins/datatables/dataTables.bootstrap.js"></script>
+
     <script src="~/datacastjs/shieldui-all.min.js"></script>
     <script src="~/datacastjs/angular-1.4.8.min.js"></script>
     <script src="~/datacastjs/jspdf.debug.js"></script>
     <script src="~/datacastjs/html2canvas.js"></script>
+
     <script type="text/javascript">
         /***
          *Created By:Vishnuvardhan Reddy Ammana
@@ -1559,7 +1617,7 @@ else
                     //console.log('from paginate');
 
                     $('.CBX').each(function() {
-                        if ($(this)[0].checked) {
+                                           if ($(this)[0].checked) {
                             if (FavList == "")
                                 FavList = $(this).closest('tr').find('td:eq(4)').text() + ",";
                             else {
@@ -1579,7 +1637,7 @@ else
                     //BY VIJAYA
                     $('.CBDB').each(function() {
                         if ($(this)[0].checked) {
-                            // widgetsCount = widgetsCount + 1;
+                           // widgetsCount = widgetsCount + 1;
 
                             if (DBWidgetsList == "")
                                 DBWidgetsList = $(this).closest('tr').find('td:eq(4)').text() + ",";
@@ -1590,7 +1648,7 @@ else
                             }
                         } else {
                             if (DBWidgetsList.indexOf($(this).closest('tr').find('td:eq(4)').text() + ",") >= 0) {
-                                // widgetsCount = widgetsCount - 1;
+                               // widgetsCount = widgetsCount - 1;
                                 DBWidgetsList = DBWidgetsList.replace($(this).closest('tr').find('td:eq(4)').text() + ",", "");
                             }
                         }
@@ -6204,41 +6262,41 @@ else
                    So considering DBWidgetsList Length to get widgetsCount... Need to have the ability to add only 10 indicators...
                 */
 
-
+              
                 //widgetsCount = (DBWidgetsList != "") ? DBWidgetsList.split(',').length - 1 : 0;
 
                 //alert(DBWidgetsList);
                 //alert(widgetsCount);
                 //console.log('DBWidgetsList - ' + DBWidgetsList);
                 //console.log('widgetsCount - ' + widgetsCount);
-
+              
                 var table = $('#CorelationLeadLagList').DataTable();
                 table.search('').columns().search('').draw();
 
                 widgetsCount = (DBWidgetsList != "") ? DBWidgetsList.split(',').length - 1 : 0;
 
+               
+                if (DBWidgetsList != "" && widgetsCount <= 10) {                    
+                        
+                    var url = "InsertDashboardWidgetsList";                      
+                        var d = new Date();
+                        var strDate = d.getFullYear() + "/" + (d.getMonth() + 1) + "/" + d.getDate();
 
-                if (DBWidgetsList != "" && widgetsCount <= 10) {
-
-                    var url = "InsertDashboardWidgetsList";
-                    var d = new Date();
-                    var strDate = d.getFullYear() + "/" + (d.getMonth() + 1) + "/" + d.getDate();
-
-                    var modelobj = {
-                        CompanyShortCode: $("#ddlDataSets").val(),
-                        IndicatorShortCodes: DBWidgetsList,
-                        UserID: $("#hdnUserID").val(), //need to update
-                        FavouriteListName: DBWidgetsListName,
-                        CreatedBY: $("#hdnUserID").val(), //need to update
-                        CreatedDate: strDate
-                    };
-                    var response = SendRequestJSON(url, modelobj);
-
-                    if (response.result == 'Success') {
-                        alert("Dahsboard indicators added successfully.");
-                        //var oTable = $('#CorelationLeadLagList').dataTable();
-                        //oTable.fnDraw();
-                    }
+                        var modelobj = {
+                            CompanyShortCode: $("#ddlDataSets").val(),
+                            IndicatorShortCodes: DBWidgetsList,
+                            UserID: $("#hdnUserID").val(), //need to update
+                            FavouriteListName: DBWidgetsListName,
+                            CreatedBY: $("#hdnUserID").val(), //need to update
+                            CreatedDate: strDate
+                        };
+                        var response = SendRequestJSON(url, modelobj);
+                       
+                        if (response.result == 'Success') {                
+                            alert("Dahsboard indicators added successfully.");
+                            //var oTable = $('#CorelationLeadLagList').dataTable();
+                            //oTable.fnDraw();                          
+                        }                    
                 } else  if (DBWidgetsList == "") {
                     alert("Please select atleast one Indicator.");
                     return false;
@@ -6465,6 +6523,10 @@ else
 
     </script>
 }
+
+
+
+
 
 
 

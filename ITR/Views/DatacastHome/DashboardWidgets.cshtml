@@ -246,9 +246,9 @@ else
                 //console.log(error)
             }
         });
-        $("#hdnCompanyID").val(8224); //8224) //5399); //8224)
-        $("#hdnDivisionID").val(0);
-        $("#hdnUserID").val(1);
+        //$("#hdnCompanyID").val(2301); //2301) //2301); //2301)
+        //$("#hdnDivisionID").val(0);
+        //$("#hdnUserID").val(1);
     </script>
 }
 
@@ -370,7 +370,7 @@ else
         function LoadDataSets() {
             // alert(1);
 
-            var accountid = $("#hdnCompanyID").val(); //8224; // _CompanyId;//8224;// $('#ddlAccounts option:selected').val();//2857;2857;//
+            var accountid = $("#hdnCompanyID").val(); //2301; // _CompanyId;//2301;// $('#ddlAccounts option:selected').val();//2857;2857;//
             var divisionId = 0; //divisionID;//0;// divisionID;  //$('#ddlDivision option:selected').val(); //247;//$("#ddlDivision").val();//247;247;//
 
             if (divisionId == "" || divisionId == null || divisionId == "null") {
@@ -824,7 +824,7 @@ else
             companyCode = $("#ddlDataSets").val(); // 'Timken-1-NA-Industrial Distribution';
             var isInvertedVal = false;
             var moveMonths = 0;
-            var _CompanyId = 5399; //8224;
+            var _CompanyId = $("#hdnCompanyID").val(); //2301;
 
             $("#label_" + count).text(indicatorFullName);
 

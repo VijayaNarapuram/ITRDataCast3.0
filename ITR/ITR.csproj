@@ -1537,6 +1537,30 @@
     <Compile Include="Models\uspSelectTimingValuesOfDBWidgetsByCompanyId_Result.cs">
       <DependentUpon>DatacastEntities.tt</DependentUpon>
     </Compile>
+    <Compile Include="Models\vwCompanyAVG.cs">
+      <DependentUpon>DatacastEntities.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\vwCompanyForecast.cs">
+      <DependentUpon>DatacastEntities.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\vwCustomer.cs">
+      <DependentUpon>DatacastEntities.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\vwDataSet.cs">
+      <DependentUpon>DatacastEntities.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\vwIndicatorAVG.cs">
+      <DependentUpon>DatacastEntities.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\vwIndicatorForecast.cs">
+      <DependentUpon>DatacastEntities.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\vwSelectIndicator.cs">
+      <DependentUpon>DatacastEntities.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\vwTableau.cs">
+      <DependentUpon>DatacastEntities.tt</DependentUpon>
+    </Compile>
     <Compile Include="Models\VWTBL_COMPANY.cs">
       <DependentUpon>DatacastEntities.tt</DependentUpon>
     </Compile>

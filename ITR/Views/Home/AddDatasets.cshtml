@@ -215,11 +215,11 @@
         var isDataPortalAdmin = "";
         $(document).ready(function () {
             //Added By: Vishnnu to Get the Company and divisionids from local storage and set the dropdown value and disable them
-            var companyID = 9689;// $("#hdnCompanyID").val();           //window.localStorage.getItem('CompanyID'); //5916//
-            divisionID = 0;// $("#hdnDivisionID").val();             //window.localStorage.getItem('DivisionID'); //41//
-            var userID = 1;// $("#hdnUserID").val();                 //window.localStorage.getItem('UserID');
-            var userName = 'raghuveer';// $("#hdnUserName").val();
-            var _CompanyId=  9689;//$("#hdnCompanyID").val();          // $("#hdnCompanyID").val();
+            var companyID = $("#hdnCompanyID").val();           //window.localStorage.getItem('CompanyID'); //5916//
+            divisionID =  $("#hdnDivisionID").val();             //window.localStorage.getItem('DivisionID'); //41//
+            var userID = $("#hdnUserID").val();                 //window.localStorage.getItem('UserID');
+            var userName =  $("#hdnUserName").val();
+            var _CompanyId=  $("#hdnCompanyID").val();          // $("#hdnCompanyID").val();
             isDataPortalAdmin =false;// $("#hdnIsDataPortalAdmin").val(); //true;//
 
             if ((isDataPortalAdmin == true || isDataPortalAdmin == "true" || isDataPortalAdmin == "TRUE") && window.localStorage.getItem('CompanyID') != null) {

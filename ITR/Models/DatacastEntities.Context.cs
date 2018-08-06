@@ -96,6 +96,14 @@ namespace ITR.Models
         public DbSet<SubProduct> SubProducts { get; set; }
         public DbSet<TEMP_IndicatorReporting_Logic> TEMP_IndicatorReporting_Logic { get; set; }
         public DbSet<User> Users { get; set; }
+        public DbSet<vwCompanyAVG> vwCompanyAVGs { get; set; }
+        public DbSet<vwCompanyForecast> vwCompanyForecasts { get; set; }
+        public DbSet<vwCustomer> vwCustomers { get; set; }
+        public DbSet<vwDataSet> vwDataSets { get; set; }
+        public DbSet<vwIndicatorAVG> vwIndicatorAVGs { get; set; }
+        public DbSet<vwIndicatorForecast> vwIndicatorForecasts { get; set; }
+        public DbSet<vwSelectIndicator> vwSelectIndicators { get; set; }
+        public DbSet<vwTableau> vwTableaux { get; set; }
     
         [EdmFunction("DatacastEntities", "f_split")]
         public virtual IQueryable<f_split_Result> f_split(string param, string delimiter)
@@ -1764,6 +1772,19 @@ namespace ITR.Models
             return ((IObjectContextAdapter)this).ObjectContext.ExecuteFunction("uspSelectCompanySalesPortalByCustomerDataSetID_Scheduler");
         }
     
+        public virtual ObjectResult<uspSelectCurrentMonthPhaseValuesOfDBWidgetsByCompanyId_Result> uspSelectCurrentMonthPhaseValuesOfDBWidgetsByCompanyId(string companyShortCode, Nullable<int> userID)
+        {
+            var companyShortCodeParameter = companyShortCode != null ?
+                new ObjectParameter("CompanyShortCode", companyShortCode) :
+                new ObjectParameter("CompanyShortCode", typeof(string));
+    
+            var userIDParameter = userID.HasValue ?
+                new ObjectParameter("UserID", userID) :
+                new ObjectParameter("UserID", typeof(int));
+    
+            return ((IObjectContextAdapter)this).ObjectContext.ExecuteFunction<uspSelectCurrentMonthPhaseValuesOfDBWidgetsByCompanyId_Result>("uspSelectCurrentMonthPhaseValuesOfDBWidgetsByCompanyId", companyShortCodeParameter, userIDParameter);
+        }
+    
         public virtual ObjectResult<uspSelectDatacastCategories_Result> uspSelectDatacastCategories()
         {
             return ((IObjectContextAdapter)this).ObjectContext.ExecuteFunction<uspSelectDatacastCategories_Result>("uspSelectDatacastCategories");
@@ -2215,6 +2236,15 @@ namespace ITR.Models
             return ((IObjectContextAdapter)this).ObjectContext.ExecuteFunction<uspSelectMasterMetaDataFields_Result>("uspSelectMasterMetaDataFields");
         }
     
+        public virtual ObjectResult<uspSelectPhaseValuesOfDBWidgetsByCompanyId_Result> uspSelectPhaseValuesOfDBWidgetsByCompanyId(string companyShortCode)
+        {
+            var companyShortCodeParameter = companyShortCode != null ?
+                new ObjectParameter("CompanyShortCode", companyShortCode) :
+                new ObjectParameter("CompanyShortCode", typeof(string));
+    
+            return ((IObjectContextAdapter)this).ObjectContext.ExecuteFunction<uspSelectPhaseValuesOfDBWidgetsByCompanyId_Result>("uspSelectPhaseValuesOfDBWidgetsByCompanyId", companyShortCodeParameter);
+        }
+    
         public virtual ObjectResult<uspSelectPhaseValuesOfDBWidgetsByCompanyIdNew_Result> uspSelectPhaseValuesOfDBWidgetsByCompanyIdNew(string companyShortCode, Nullable<int> companyID)
         {
             var companyShortCodeParameter = companyShortCode != null ?
@@ -2541,28 +2571,6 @@ namespace ITR.Models
         public virtual int uspUpdateUIForecastListPath()
         {
             return ((IObjectContextAdapter)this).ObjectContext.ExecuteFunction("uspUpdateUIForecastListPath");
-        }
-    
-        public virtual ObjectResult<uspSelectPhaseValuesOfDBWidgetsByCompanyId_Result> uspSelectPhaseValuesOfDBWidgetsByCompanyId(string companyShortCode)
-        {
-            var companyShortCodeParameter = companyShortCode != null ?
-                new ObjectParameter("CompanyShortCode", companyShortCode) :
-                new ObjectParameter("CompanyShortCode", typeof(string));
-    
-            return ((IObjectContextAdapter)this).ObjectContext.ExecuteFunction<uspSelectPhaseValuesOfDBWidgetsByCompanyId_Result>("uspSelectPhaseValuesOfDBWidgetsByCompanyId", companyShortCodeParameter);
-        }
-    
-        public virtual ObjectResult<uspSelectCurrentMonthPhaseValuesOfDBWidgetsByCompanyId_Result> uspSelectCurrentMonthPhaseValuesOfDBWidgetsByCompanyId(string companyShortCode, Nullable<int> userID)
-        {
-            var companyShortCodeParameter = companyShortCode != null ?
-                new ObjectParameter("CompanyShortCode", companyShortCode) :
-                new ObjectParameter("CompanyShortCode", typeof(string));
-    
-            var userIDParameter = userID.HasValue ?
-                new ObjectParameter("UserID", userID) :
-                new ObjectParameter("UserID", typeof(int));
-    
-            return ((IObjectContextAdapter)this).ObjectContext.ExecuteFunction<uspSelectCurrentMonthPhaseValuesOfDBWidgetsByCompanyId_Result>("uspSelectCurrentMonthPhaseValuesOfDBWidgetsByCompanyId", companyShortCodeParameter, userIDParameter);
         }
     }
 }
