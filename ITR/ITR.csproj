@@ -799,6 +799,10 @@
     <Content Include="datacastdashboard\my-account.html" />
     <Content Include="datacastjs\angular-1.4.8.min.js" />
     <Content Include="datacastjs\common-scripts-dev.js" />
+    <Content Include="datacastjs\html2canvas.svg.js" />
+    <Content Include="datacastjs\html2canvas_latest.js" />
+    <Content Include="datacastjs\jspdf.min.js" />
+    <Content Include="datacastjs\_html2canvas.js" />
     <Content Include="datacastjs\html2canvas.js" />
     <Content Include="datacastjs\jquery-1.11.1.min.js" />
     <Content Include="datacastjs\jquery.min.js" />

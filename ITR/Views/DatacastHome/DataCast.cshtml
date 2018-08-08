@@ -750,9 +750,9 @@ else
             }
         });
 
-        //$("#hdnCompanyID").val(2301);// 2301) //2301); //2301)
-        //$("#hdnDivisionID").val(0);
-        //$("#hdnUserID").val(1);
+        $("#hdnCompanyID").val(5399);// 2301) //2301); //2301)
+        $("#hdnDivisionID").val(0);
+        $("#hdnUserID").val(1);
     </script>
 }
 
@@ -940,8 +940,19 @@ else
     <script type="text/javascript" src="~/datacastassets/plugins/datatables/dataTables.bootstrap.js"></script>
     <script src="~/datacastjs/shieldui-all.min.js"></script>
     <script src="~/datacastjs/angular-1.4.8.min.js"></script>
-    <script src="~/datacastjs/jspdf.debug.js"></script>
-    <script src="~/datacastjs/html2canvas.js"></script>
+    @*<script src="~/datacastjs/jspdf.debug.js"></script>
+    <script src="~/datacastjs/_html2canvas.js"></script>*@
+
+
+<script src="~/datacastjs/jspdf.min.js"></script>
+<script src="~/datacastjs/jspdf.debug.js"></script>
+<script src="~/datacastjs/html2canvas_latest.js"></script>
+    <script src="~/datacastjs/html2canvas.svg.js"></script>
+   
+@*<script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf/1.2.61/jspdf.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/html2canvas/0.5.0-beta1/html2canvas.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/html2canvas/0.5.0-beta1/html2canvas.svg.js"></script>*@
+
     <script type="text/javascript">
         /***
          *Created By:Vishnuvardhan Reddy Ammana
@@ -5285,10 +5296,10 @@ else
             //);
 
 
-            _CompanyId = $("#hdnCompanyID").val(); //window.localStorage.getItem('CompanyID'); //5916//2857;//
-            divisionID = $("#hdnDivisionID").val(); //window.localStorage.getItem('DivisionID'); //41//247;//
+            _CompanyId =5399;// $("#hdnCompanyID").val(); //window.localStorage.getItem('CompanyID'); //5916//2857;//
+            divisionID =0;// $("#hdnDivisionID").val(); //window.localStorage.getItem('DivisionID'); //41//247;//
 
-            var userID = $("#hdnUserID").val(); //window.localStorage.getItem('UserID');
+            var userID =1;// $("#hdnUserID").val(); //window.localStorage.getItem('UserID');
             isDataPortalAdmin = $("#hdnIsDataPortalAdmin").val(); //true;//
 
 
@@ -5659,19 +5670,70 @@ else
                 }, 4500); //To Avoid Blank page printing in Google Chrome
                 $("#divLables").hide();
             });
-            //Created by Nishanth for downloading Pdf
+          
 
-            //var content = document.querySelectorAll("divToCapture")[0];
-            //setTimeout(function(){screenCap();},0);
 
-            //function screenCap(){
-            //    html2canvas(content, {
-            //        onrendered: function(canvas) {
-            //            callbackFunc(canvas.toDataURL());
-            //        }
-            //    });
-            //}
+            // Raghuveer Start
+            $("#linkPrintPDF").on("click", function() {
+                $("#divLables").show();
+                var div_content = document.querySelectorAll("#divPrint")[0];
+                var name = $("#spnIndicatorName").text();
+                var svgElements = $("#divPrint").find('svg');
 
+                //replace all svgs with a temp canvas
+                svgElements.each(function() {
+                    var canvas, xml;
+
+                    // canvg doesn't cope very well with em font sizes so find the calculated size in pixels and replace it in the element.
+                    $.each($(this).find('[style*=em]'), function(index, el) {
+                        $(this).css('font-size', getStyle(el, 'font-size'));
+                    });
+
+                    canvas = document.createElement("canvas");
+                    canvas.className = "screenShotTempCanvas";
+                    //convert SVG into a XML string
+                    xml = (new XMLSerializer()).serializeToString(this);
+
+                    // Removing the name space as IE throws an error
+                    xml = xml.replace(/xmlns=\"http:\/\/www\.w3\.org\/2000\/svg\"/, '');
+
+                    //draw the SVG onto a canvas
+                    canvg(canvas, xml);
+                    $(canvas).insertAfter(this);
+                    //hide the SVG element
+                    ////this.className = "tempHide";
+                    $(this).attr('class', 'tempHide');
+                    $(this).hide();
+                });
+
+                div_content.style.backgroundColor = "white";
+                html2canvas($("#divPrint"), {
+                    onrendered: function(canvas) {
+                      //  var imgData = canvas.toDataURL('image/png');
+                        //var doc = new jsPDF('l', 'mm');
+                        //doc.addImage(imgData, 'PNG', 10, 10);
+                        //doc.save(name + '.pdf');
+
+                        var image = canvas.toDataURL('image/jpeg');
+                      
+                        var doc = new jsPDF("l", "pt", "a4");
+                        doc.addImage(image, 'JPEG', 0, 50, 850, 500);
+                        doc.save(name + ".pdf");
+                        $("#divLables").hide();
+
+                    }
+                });
+
+                $("#divPrint").find('.screenShotTempCanvas').remove();
+                $("#divPrint").find('.tempHide').show().removeClass('tempHide');
+                $("#divLables").hide();
+            });
+
+
+
+            // Raghuveer End
+
+            /*
             $("#linkPrintPDF").on("click", function() {
                 $("#divLables").show();
                 var name = $("#spnIndicatorName").text();
@@ -5681,6 +5743,7 @@ else
                 html2canvas(div_content).then(function(canvas) {
                     //change the canvas to jpeg image
                     var image = canvas.toDataURL('image/jpeg');
+                    alert("image kind " + image);
                     var doc = new jsPDF("l", "pt", "a4");
                     doc.addImage(image, 'JPEG', 0, 50, 850, 500);
                     doc.save(name + ".pdf");
@@ -5690,8 +5753,65 @@ else
 
 
             });
+
+            */
             //Created by Nishanth for downloading .png
             $("#linkPrintPNG").on("click", function() {
+
+                $("#divLables").show();
+                var div_content    = document.querySelectorAll("#divPrint");
+                var name = $("#spnIndicatorName").text();
+                var svgElements = $("#divPrint").find('svg');
+
+                //replace all svgs with a temp canvas
+                svgElements.each(function() {
+                    var canvas, xml;
+
+                    // canvg doesn't cope very well with em font sizes so find the calculated size in pixels and replace it in the element.
+                    $.each($(this).find('[style*=em]'), function(index, el) {
+                        $(this).css('font-size', getStyle(el, 'font-size'));
+                    });
+
+                    canvas = document.createElement("canvas");
+                    canvas.className = "screenShotTempCanvas";
+                    //convert SVG into a XML string
+                    xml = (new XMLSerializer()).serializeToString(this);
+
+                    // Removing the name space as IE throws an error
+                    xml = xml.replace(/xmlns=\"http:\/\/www\.w3\.org\/2000\/svg\"/, '');
+
+                    //draw the SVG onto a canvas
+                    canvg(canvas, xml);
+                    $(canvas).insertAfter(this);
+                    //hide the SVG element
+                    ////this.className = "tempHide";
+                    $(this).attr('class', 'tempHide');
+                    $(this).hide();
+                });
+
+                
+                div_content[0].style.backgroundColor = "white";
+                html2canvas($("#divPrint"), {
+                    onrendered: function(canvas) {
+                        var imgData = canvas.toDataURL('image/png');
+                        var uri = 'data:application/octet-stream;' + decodeURIComponent(imgData);
+                        var downloadLink = document.createElement("a");
+                        downloadLink.href = uri;
+                        downloadLink.download = name + ".png";
+                        document.body.appendChild(downloadLink);
+                        downloadLink.click();
+                        document.body.removeChild(downloadLink);
+                       
+                    }
+                });
+
+                $("#divPrint").find('.screenShotTempCanvas').remove();
+                $("#divPrint").find('.tempHide').show().removeClass('tempHide');
+                $("#divLables").hide();
+
+
+                /*
+
                 $("#divLables").show();
                 div_content = document.querySelectorAll("#divPrint");
                 div_content[0].style.backgroundColor = "white";
@@ -5710,6 +5830,12 @@ else
                     document.body.removeChild(downloadLink);
                     $("#divLables").hide();
                 });
+                */
+
+
+
+
+
             });
 
             //Created by Nishanth for downloading Pdf
@@ -5725,7 +5851,7 @@ else
                     name = "IRC_" + D1 + " " + D2;
                 }
 
-
+                /*
                 // var name = $("#spnIndicatorName").text();
 
                 //var divContents = $("#divPrint").html();
@@ -5750,13 +5876,72 @@ else
 
                 });
 
+                */
+
+
+
+               
+                var div_content = document.querySelectorAll("#divPrintIRC")[0];
+               
+                var svgElements = $("#divPrintIRC").find('svg');
+
+                //replace all svgs with a temp canvas
+                svgElements.each(function() {
+                    var canvas, xml;
+
+                    // canvg doesn't cope very well with em font sizes so find the calculated size in pixels and replace it in the element.
+                    $.each($(this).find('[style*=em]'), function(index, el) {
+                        $(this).css('font-size', getStyle(el, 'font-size'));
+                    });
+
+                    canvas = document.createElement("canvas");
+                    canvas.className = "screenShotTempCanvas";
+                    //convert SVG into a XML string
+                    xml = (new XMLSerializer()).serializeToString(this);
+
+                    // Removing the name space as IE throws an error
+                    xml = xml.replace(/xmlns=\"http:\/\/www\.w3\.org\/2000\/svg\"/, '');
+
+                    //draw the SVG onto a canvas
+                    canvg(canvas, xml);
+                    $(canvas).insertAfter(this);
+                    //hide the SVG element
+                    ////this.className = "tempHide";
+                    $(this).attr('class', 'tempHide');
+                    $(this).hide();
+                });
+
+                div_content.style.backgroundColor = "white";
+                html2canvas($("#divPrintIRC"), {
+                    onrendered: function(canvas) {
+                        //  var imgData = canvas.toDataURL('image/png');
+                        //var doc = new jsPDF('l', 'mm');
+                        //doc.addImage(imgData, 'PNG', 10, 10);
+                        //doc.save(name + '.pdf');
+
+                        var image = canvas.toDataURL('image/jpeg');
+                      
+                        var doc = new jsPDF("l", "pt", "a4");
+                        doc.addImage(image, 'JPEG', 0, 50, 850, 500);
+                        doc.save(name + ".pdf");
+
+                    }
+                });
+
+                $("#divPrintIRC").find('.screenShotTempCanvas').remove();
+                $("#divPrintIRC").find('.tempHide').show().removeClass('tempHide');
+
+
+
+
 
             });
+
             //Created by Nishnth for downloading .png
             $("#linkPrintPNGIRC").on("click", function() {
                 //  $("#divLables").show();
-                div_content = document.querySelectorAll("#divPrintIRC");
-                div_content[0].style.backgroundColor = "white";
+             var   div_content = document.querySelectorAll("#divPrintIRC");
+                
                 //  var name = $("#spnDataSetName").text();
                 var name = "";
                 //alert($("#spnDataSetName").text());
@@ -5767,6 +5952,9 @@ else
                 } else {
                     name = "IRC_" + D1 + " " + D2;
                 }
+
+
+                /*
                 // var name = $("#spnIndicatorName").text();
                 //make it as html5 canvas
                 html2canvas(div_content).then(function(canvas) {
@@ -5785,7 +5973,64 @@ else
                     document.body.removeChild(downloadLink);
                     $("#divLables").hide();
                 });
+
+
+                */
+
+
+
+
+
+                var svgElements = $("#divPrintIRC").find('svg');
+              
+                //replace all svgs with a temp canvas
+                svgElements.each(function() {
+                    var canvas, xml;
+
+                    // canvg doesn't cope very well with em font sizes so find the calculated size in pixels and replace it in the element.
+                    $.each($(this).find('[style*=em]'), function(index, el) {
+                        $(this).css('font-size', getStyle(el, 'font-size'));
+                    });
+
+                    canvas = document.createElement("canvas");
+                    canvas.className = "screenShotTempCanvas";
+                    //convert SVG into a XML string
+                    xml = (new XMLSerializer()).serializeToString(this);
+
+                    // Removing the name space as IE throws an error
+                    xml = xml.replace(/xmlns=\"http:\/\/www\.w3\.org\/2000\/svg\"/, '');
+
+                    //draw the SVG onto a canvas
+                    canvg(canvas, xml);
+                    $(canvas).insertAfter(this);
+                    //hide the SVG element
+                    ////this.className = "tempHide";
+                    $(this).attr('class', 'tempHide');
+                    $(this).hide();
+                });
+
+                
+                div_content[0].style.backgroundColor = "white";
+                html2canvas($("#divPrintIRC"), {
+                    onrendered: function(canvas) {
+                        var imgData = canvas.toDataURL('image/png');
+                        var uri = 'data:application/octet-stream;' + decodeURIComponent(imgData);
+                        var downloadLink = document.createElement("a");
+                        downloadLink.href = uri;
+                        downloadLink.download = name + ".png";
+                        document.body.appendChild(downloadLink);
+                        downloadLink.click();
+                        document.body.removeChild(downloadLink);
+                        $("#divLables").hide();
+                    }
+                });
+
+                $("#divPrintIRC").find('.screenShotTempCanvas').remove();
+                $("#divPrintIRC").find('.tempHide').show().removeClass('tempHide');
+               
+
             });
+
             //Created by Nishanth for downloading Pdf
             $("#linkPrintPDFIDT").on("click", function() {
                 $("#divLablesIDT").show();
@@ -5808,6 +6053,9 @@ else
                 //var divContents = $("#divPrint").html();
                 div_content = document.querySelectorAll("#divPrintIDT");
                 div_content[0].style.backgroundColor = "white";
+
+
+                /*
                 //make it as html5 canvasotab
                 html2canvas(div_content).then(function(canvas) {
                     //change the canvas to jpeg image
@@ -5827,14 +6075,70 @@ else
                     $("#divLablesIDT").hide();
 
                 });
+                */
+
+
+                var div_content = document.querySelectorAll("#divPrintIDT")[0];
+               
+                var svgElements = $("#divPrintIDT").find('svg');
+
+                //replace all svgs with a temp canvas
+                svgElements.each(function() {
+                    var canvas, xml;
+
+                    // canvg doesn't cope very well with em font sizes so find the calculated size in pixels and replace it in the element.
+                    $.each($(this).find('[style*=em]'), function(index, el) {
+                        $(this).css('font-size', getStyle(el, 'font-size'));
+                    });
+
+                    canvas = document.createElement("canvas");
+                    canvas.className = "screenShotTempCanvas";
+                    //convert SVG into a XML string
+                    xml = (new XMLSerializer()).serializeToString(this);
+
+                    // Removing the name space as IE throws an error
+                    xml = xml.replace(/xmlns=\"http:\/\/www\.w3\.org\/2000\/svg\"/, '');
+
+                    //draw the SVG onto a canvas
+                    canvg(canvas, xml);
+                    $(canvas).insertAfter(this);
+                    //hide the SVG element
+                    ////this.className = "tempHide";
+                    $(this).attr('class', 'tempHide');
+                    $(this).hide();
+                });
+
+                div_content.style.backgroundColor = "white";
+                html2canvas($("#divPrintIDT"), {
+                    onrendered: function(canvas) {
+                        //  var imgData = canvas.toDataURL('image/png');
+                        //var doc = new jsPDF('l', 'mm');
+                        //doc.addImage(imgData, 'PNG', 10, 10);
+                        //doc.save(name + '.pdf');
+
+                        var image = canvas.toDataURL('image/jpeg');
+                      
+                        var doc = new jsPDF("l", "pt", "a4");
+                        doc.addImage(image, 'JPEG', 0, 50, 850, 500);
+                        doc.save(name + ".pdf");
+                        $("#divLablesIDT").hide();
+
+                    }
+                });
+
+                $("#divPrintIDT").find('.screenShotTempCanvas').remove();
+                $("#divPrintIDT").find('.tempHide').show().removeClass('tempHide');
+                $("#divLablesIDT").hide();
+
 
 
             });
+
             //Created by Nishnth for downloading .png
             $("#linkPrintPNGIDT").on("click", function() {
                 $("#divLablesIDT").show();
-                div_content = document.querySelectorAll("#divPrintIDT");
-                div_content[0].style.backgroundColor = "white";
+             var   div_content = document.querySelectorAll("#divPrintIDT");
+               
                 var name = $("#spnDataSetName").text();
                 var months = "";
                 if ($("input[name='radioCaluculationType']:checked").val() == 0 && $(".FIText").attr("title") == "Monthly Moving Total") {
@@ -5844,6 +6148,7 @@ else
                     months = " MMA"
 
                 }
+                /*
                 // var name = $("#spnIndicatorName").text();
                 //make it as html5 canvas
                 html2canvas(div_content).then(function(canvas) {
@@ -5862,7 +6167,63 @@ else
                     document.body.removeChild(downloadLink);
                     $("#divLablesIDT").hide();
                 });
+                */
+
+
+                
+
+                var svgElements = $("#divPrintIDT").find('svg');
+                div_content[0].style.backgroundColor = "white";
+                //replace all svgs with a temp canvas
+                svgElements.each(function() {
+                    var canvas, xml;
+
+                    // canvg doesn't cope very well with em font sizes so find the calculated size in pixels and replace it in the element.
+                    $.each($(this).find('[style*=em]'), function(index, el) {
+                        $(this).css('font-size', getStyle(el, 'font-size'));
+                    });
+
+                    canvas = document.createElement("canvas");
+                    canvas.className = "screenShotTempCanvas";
+                    //convert SVG into a XML string
+                    xml = (new XMLSerializer()).serializeToString(this);
+
+                    // Removing the name space as IE throws an error
+                    xml = xml.replace(/xmlns=\"http:\/\/www\.w3\.org\/2000\/svg\"/, '');
+
+                    //draw the SVG onto a canvas
+                    canvg(canvas, xml);
+                    $(canvas).insertAfter(this);
+                    //hide the SVG element
+                    ////this.className = "tempHide";
+                    $(this).attr('class', 'tempHide');
+                    $(this).hide();
+                });
+
+                
+                div_content[0].style.backgroundColor = "white";
+                html2canvas($("#divPrintIDT"), {
+                    onrendered: function(canvas) {
+                        var imgData = canvas.toDataURL('image/png');
+                        var uri = 'data:application/octet-stream;' + decodeURIComponent(imgData);
+                        var downloadLink = document.createElement("a");
+                        downloadLink.href = uri;
+                        downloadLink.download = name + ".png";
+                        document.body.appendChild(downloadLink);
+                        downloadLink.click();
+                        document.body.removeChild(downloadLink);
+                        $("#divLablesIDT").hide();
+                    }
+                });
+
+                $("#divPrintIDT").find('.screenShotTempCanvas').remove();
+                $("#divPrintIDT").find('.tempHide').show().removeClass('tempHide');
+
+
+
             });
+
+
             // Created By: Vishnuvardhan Ammana, On:16-Feb-2016 for Printing Internal Rates of Change chart
             $("#linkPrintIRC").on("click", function() { //Created By: Vsihnu,Prints page contents with CSS
                 //$("#divLables").show();
