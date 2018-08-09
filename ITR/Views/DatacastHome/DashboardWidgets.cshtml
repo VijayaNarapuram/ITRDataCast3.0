@@ -311,8 +311,15 @@ else
 
     <script src="~/datacastjs/shieldui-all.min.js"></script>
     <script src="~/datacastjs/angular-1.4.8.min.js"></script>
-    <script src="~/datacastjs/jspdf.debug.js"></script>
-    <script src="~/datacastjs/html2canvas.js"></script>
+
+    @*<script src="~/datacastjs/jspdf.debug.js"></script>
+    <script src="~/datacastjs/html2canvas.js"></script>*@
+
+
+<script src="~/datacastjs/jspdf.min.js"></script>
+<script src="~/datacastjs/html2canvas_latest.js"></script>
+<script src="~/datacastjs/html2canvas.svg.js"></script>
+
 
     <script type="text/javascript">
 
@@ -481,10 +488,10 @@ else
         //PRINT PDF FUNCTIONALITY...
         $("#linkPrintPDF").on("click", function () {
             $("#divLables").show();
-           
+
             //var name = $("#spnIndicatorName").text();
             var name = "DBWidgetsData";
-            
+
             var panel_content = document.querySelectorAll("#panel_content");
             var div_content_0 = document.querySelectorAll("#wiget_0");
             var div_content_1 = document.querySelectorAll("#wiget_1");
@@ -496,36 +503,423 @@ else
             var div_content_7 = document.querySelectorAll("#wiget_7");
             var div_content_8 = document.querySelectorAll("#wiget_8");
             var div_content_9 = document.querySelectorAll("#wiget_9");
+
+
+           
           
-            
-          
-       
-            var div_content = [panel_content,div_content_0, div_content_1, div_content_2, div_content_3, div_content_4, div_content_5, div_content_6, div_content_7, div_content_8, div_content_9];
+
+
+
+            var svgElements = $("#wiget_0").find('svg');
+            //replace all svgs with a temp canvas
+            svgElements.each(function () {
+                var canvas, xml;
+
+                // canvg doesn't cope very well with em font sizes so find the calculated size in pixels and replace it in the element.
+                $.each($(this).find('[style*=em]'), function (index, el) {
+                    $(this).css('font-size', getStyle(el, 'font-size'));
+                });
+
+                canvas = document.createElement("canvas");
+                canvas.className = "screenShotTempCanvas";
+                //convert SVG into a XML string
+                xml = (new XMLSerializer()).serializeToString(this);
+
+                // Removing the name space as IE throws an error
+                xml = xml.replace(/xmlns=\"http:\/\/www\.w3\.org\/2000\/svg\"/, '');
+
+                //draw the SVG onto a canvas
+                canvg(canvas, xml);
+                $(canvas).insertBefore(this);
+                //hide the SVG element
+                ////this.className = "tempHide";
+                $(this).attr('class', 'tempHide');
+                $(this).hide();
+            });
+
+
+
+
+            var svgElements1 = $("#wiget_1").find('svg');
+            //replace all svgs with a temp canvas
+            svgElements1.each(function () {
+                var canvas, xml;
+
+                // canvg doesn't cope very well with em font sizes so find the calculated size in pixels and replace it in the element.
+                $.each($(this).find('[style*=em]'), function (index, el) {
+                    $(this).css('font-size', getStyle(el, 'font-size'));
+                });
+
+                canvas = document.createElement("canvas");
+                canvas.className = "screenShotTempCanvas";
+                //convert SVG into a XML string
+                xml = (new XMLSerializer()).serializeToString(this);
+
+                // Removing the name space as IE throws an error
+                xml = xml.replace(/xmlns=\"http:\/\/www\.w3\.org\/2000\/svg\"/, '');
+
+                //draw the SVG onto a canvas
+                canvg(canvas, xml);
+                $(canvas).insertBefore(this);
+                //hide the SVG element
+                ////this.className = "tempHide";
+                $(this).attr('class', 'tempHide');
+                $(this).hide();
+            });
+
+            var svgElements_panel = $("#panel_content").find('svg');
+            //replace all svgs with a temp canvas
+            svgElements_panel.each(function () {
+                var canvas, xml;
+
+                // canvg doesn't cope very well with em font sizes so find the calculated size in pixels and replace it in the element.
+                $.each($(this).find('[style*=em]'), function (index, el) {
+                    $(this).css('font-size', getStyle(el, 'font-size'));
+                });
+
+                canvas = document.createElement("canvas");
+                canvas.className = "screenShotTempCanvas";
+                //convert SVG into a XML string
+                xml = (new XMLSerializer()).serializeToString(this);
+
+                // Removing the name space as IE throws an error
+                xml = xml.replace(/xmlns=\"http:\/\/www\.w3\.org\/2000\/svg\"/, '');
+
+                //draw the SVG onto a canvas
+                canvg(canvas, xml);
+                $(canvas).insertBefore(this);
+                //hide the SVG element
+                ////this.className = "tempHide";
+                $(this).attr('class', 'tempHide');
+                $(this).hide();
+            });
+
+
+            var svgElements2 = $("#wiget_2").find('svg');
+            //replace all svgs with a temp canvas
+            svgElements2.each(function () {
+                var canvas, xml;
+
+                // canvg doesn't cope very well with em font sizes so find the calculated size in pixels and replace it in the element.
+                $.each($(this).find('[style*=em]'), function (index, el) {
+                    $(this).css('font-size', getStyle(el, 'font-size'));
+                });
+
+                canvas = document.createElement("canvas");
+                canvas.className = "screenShotTempCanvas";
+                //convert SVG into a XML string
+                xml = (new XMLSerializer()).serializeToString(this);
+
+                // Removing the name space as IE throws an error
+                xml = xml.replace(/xmlns=\"http:\/\/www\.w3\.org\/2000\/svg\"/, '');
+
+                //draw the SVG onto a canvas
+                canvg(canvas, xml);
+                $(canvas).insertBefore(this);
+                //hide the SVG element
+                ////this.className = "tempHide";
+                $(this).attr('class', 'tempHide');
+                $(this).hide();
+            });
+
+
+
+
+           
+
+            var svgElements3 = $("#wiget_3").find('svg');
+            //replace all svgs with a temp canvas
+            svgElements3.each(function () {
+                var canvas, xml;
+
+                // canvg doesn't cope very well with em font sizes so find the calculated size in pixels and replace it in the element.
+                $.each($(this).find('[style*=em]'), function (index, el) {
+                    $(this).css('font-size', getStyle(el, 'font-size'));
+                });
+
+                canvas = document.createElement("canvas");
+                canvas.className = "screenShotTempCanvas";
+                //convert SVG into a XML string
+                xml = (new XMLSerializer()).serializeToString(this);
+
+                // Removing the name space as IE throws an error
+                xml = xml.replace(/xmlns=\"http:\/\/www\.w3\.org\/2000\/svg\"/, '');
+
+                //draw the SVG onto a canvas
+                canvg(canvas, xml);
+                $(canvas).insertBefore(this);
+                //hide the SVG element
+                ////this.className = "tempHide";
+                $(this).attr('class', 'tempHide');
+                $(this).hide();
+            });
+
+
+            var svgElements4 = $("#wiget_4").find('svg');
+            //replace all svgs with a temp canvas
+            svgElements4.each(function () {
+                var canvas, xml;
+
+                // canvg doesn't cope very well with em font sizes so find the calculated size in pixels and replace it in the element.
+                $.each($(this).find('[style*=em]'), function (index, el) {
+                    $(this).css('font-size', getStyle(el, 'font-size'));
+                });
+
+                canvas = document.createElement("canvas");
+                canvas.className = "screenShotTempCanvas";
+                //convert SVG into a XML string
+                xml = (new XMLSerializer()).serializeToString(this);
+
+                // Removing the name space as IE throws an error
+                xml = xml.replace(/xmlns=\"http:\/\/www\.w3\.org\/2000\/svg\"/, '');
+
+                //draw the SVG onto a canvas
+                canvg(canvas, xml);
+                $(canvas).insertBefore(this);
+                //hide the SVG element
+                ////this.className = "tempHide";
+                $(this).attr('class', 'tempHide');
+                $(this).hide();
+            });
+
+            var svgElements5 = $("#wiget_5").find('svg');
+            //replace all svgs with a temp canvas
+            svgElements5.each(function () {
+                var canvas, xml;
+
+                // canvg doesn't cope very well with em font sizes so find the calculated size in pixels and replace it in the element.
+                $.each($(this).find('[style*=em]'), function (index, el) {
+                    $(this).css('font-size', getStyle(el, 'font-size'));
+                });
+
+                canvas = document.createElement("canvas");
+                canvas.className = "screenShotTempCanvas";
+                //convert SVG into a XML string
+                xml = (new XMLSerializer()).serializeToString(this);
+
+                // Removing the name space as IE throws an error
+                xml = xml.replace(/xmlns=\"http:\/\/www\.w3\.org\/2000\/svg\"/, '');
+
+                //draw the SVG onto a canvas
+                canvg(canvas, xml);
+                $(canvas).insertBefore(this);
+                //hide the SVG element
+                ////this.className = "tempHide";
+                $(this).attr('class', 'tempHide');
+                $(this).hide();
+            });
+
+            var svgElements6 = $("#wiget_6").find('svg');
+            //replace all svgs with a temp canvas
+            svgElements6.each(function () {
+                var canvas, xml;
+
+                // canvg doesn't cope very well with em font sizes so find the calculated size in pixels and replace it in the element.
+                $.each($(this).find('[style*=em]'), function (index, el) {
+                    $(this).css('font-size', getStyle(el, 'font-size'));
+                });
+
+                canvas = document.createElement("canvas");
+                canvas.className = "screenShotTempCanvas";
+                //convert SVG into a XML string
+                xml = (new XMLSerializer()).serializeToString(this);
+
+                // Removing the name space as IE throws an error
+                xml = xml.replace(/xmlns=\"http:\/\/www\.w3\.org\/2000\/svg\"/, '');
+
+                //draw the SVG onto a canvas
+                canvg(canvas, xml);
+                $(canvas).insertBefore(this);
+                //hide the SVG element
+                ////this.className = "tempHide";
+                $(this).attr('class', 'tempHide');
+                $(this).hide();
+            });
+
+            var svgElements7 = $("#wiget_7").find('svg');
+            //replace all svgs with a temp canvas
+            svgElements7.each(function () {
+                var canvas, xml;
+
+                // canvg doesn't cope very well with em font sizes so find the calculated size in pixels and replace it in the element.
+                $.each($(this).find('[style*=em]'), function (index, el) {
+                    $(this).css('font-size', getStyle(el, 'font-size'));
+                });
+
+                canvas = document.createElement("canvas");
+                canvas.className = "screenShotTempCanvas";
+                //convert SVG into a XML string
+                xml = (new XMLSerializer()).serializeToString(this);
+
+                // Removing the name space as IE throws an error
+                xml = xml.replace(/xmlns=\"http:\/\/www\.w3\.org\/2000\/svg\"/, '');
+
+                //draw the SVG onto a canvas
+                canvg(canvas, xml);
+                $(canvas).insertBefore(this);
+                //hide the SVG element
+                ////this.className = "tempHide";
+                $(this).attr('class', 'tempHide');
+                $(this).hide();
+            });
+
+
+
+            var svgElements8 = $("#wiget_8").find('svg');
+            //replace all svgs with a temp canvas
+            svgElements8.each(function () {
+                var canvas, xml;
+
+                // canvg doesn't cope very well with em font sizes so find the calculated size in pixels and replace it in the element.
+                $.each($(this).find('[style*=em]'), function (index, el) {
+                    $(this).css('font-size', getStyle(el, 'font-size'));
+                });
+
+                canvas = document.createElement("canvas");
+                canvas.className = "screenShotTempCanvas";
+                //convert SVG into a XML string
+                xml = (new XMLSerializer()).serializeToString(this);
+
+                // Removing the name space as IE throws an error
+                xml = xml.replace(/xmlns=\"http:\/\/www\.w3\.org\/2000\/svg\"/, '');
+
+                //draw the SVG onto a canvas
+                canvg(canvas, xml);
+                $(canvas).insertBefore(this);
+                //hide the SVG element
+                ////this.className = "tempHide";
+                $(this).attr('class', 'tempHide');
+                $(this).hide();
+            });
+
+            var svgElements9 = $("#wiget_9").find('svg');
+            //replace all svgs with a temp canvas
+            svgElements9.each(function () {
+                var canvas, xml;
+
+                // canvg doesn't cope very well with em font sizes so find the calculated size in pixels and replace it in the element.
+                $.each($(this).find('[style*=em]'), function (index, el) {
+                    $(this).css('font-size', getStyle(el, 'font-size'));
+                });
+
+                canvas = document.createElement("canvas");
+                canvas.className = "screenShotTempCanvas";
+                //convert SVG into a XML string
+                xml = (new XMLSerializer()).serializeToString(this);
+
+                // Removing the name space as IE throws an error
+                xml = xml.replace(/xmlns=\"http:\/\/www\.w3\.org\/2000\/svg\"/, '');
+
+                //draw the SVG onto a canvas
+                canvg(canvas, xml);
+                $(canvas).insertBefore(this);
+                //hide the SVG element
+                ////this.className = "tempHide";
+                $(this).attr('class', 'tempHide');
+                $(this).hide();
+            });
+
+
+           
+
+
+
+            var div_content = [panel_content, div_content_0, div_content_1, div_content_2, div_content_3, div_content_4, div_content_5, div_content_6, div_content_7, div_content_8, div_content_9];
+            var validatecount = 0;
+            for (var i = 0; i < div_content.length; i++) {
+                if (i !== 0) {
+                    if ($("#label_" + i).html() !== '') {
+                        validatecount = validatecount + 1;
+                    }
+                }
+            }
 
             var doc = new jsPDF("l", "pt", "a4");
             var j = 0;
-            for (var i = 0;  i < div_content.length; i++) {
+            for (var i = 0; i < div_content.length; i++) {
+                //    alert('i value' + i);
+
+
                 html2canvas(div_content[i]).then(function (canvas) {
-                    alert(div_content[i].attr('id'))
-                    if ($("#label_" + j).html() !== '' || div_content[i].attr('id')=='panel_content') {
-                        var image1 = canvas.toDataURL('image/jpeg');
-                        doc.addImage(image1, 'JPEG', 0, 50, 950, 500);
-                        doc.addPage();
-                        if (i == j+1) {
+                    //html2canvas(div_content[i], {
+                    //    onrendered: function (canvas) {
+
+
+
+                    if (j == 0) {
+
+                        var image2 = canvas.toDataURL('image/jpeg');
+                        doc.addImage(image2, 'JPEG', 0, 50, 880, 500);
+                        if (!(validatecount == (j + 1))) {
+                            doc.addPage();
+                        }
+                        if (validatecount == (j + 1)) {
                             doc.save("DBWidgetsData" + ".pdf");
                             $("#divLables").hide();
                         }
-                        j = j + 1;
-                    }
-                    
-                   
 
+
+
+                    }
+                    if (j > 0) {
+                        if ($("#label_" + (j - 1)).html() !== '') {
+                            var image1 = canvas.toDataURL('image/jpeg');
+                            doc.addImage(image1, 'JPEG', 0, 50, 880, 500);
+                            if (!(validatecount == (j + 1))) {
+                                doc.addPage();
+                            }
+                            //     alert('i value' + validatecount + ' j value' + j)
+                            if (validatecount == (j + 1)) {
+                                doc.save("DBWidgetsData" + ".pdf");
+                                $("#divLables").hide();
+                            }
+
+                        }
+                        // j = j + 1;
+                    }
+                    j = j + 1;
                 });
                   
             }
 
         });
 
+        /*
+                $("#wiget_0").find('.screenShotTempCanvas').remove();
+                $("#wiget_0").find('.tempHide').show().removeClass('tempHide');
+
+                $("#wiget_1").find('.screenShotTempCanvas').remove();
+                $("#wiget_1").find('.tempHide').show().removeClass('tempHide');
+
+                $("#wiget_2").find('.screenShotTempCanvas').remove();
+                $("#wiget_2").find('.tempHide').show().removeClass('tempHide');
+
+                $("#wiget_3").find('.screenShotTempCanvas').remove();
+                $("#wiget_3").find('.tempHide').show().removeClass('tempHide');
+
+                $("#wiget_4").find('.screenShotTempCanvas').remove();
+                $("#wiget_4").find('.tempHide').show().removeClass('tempHide');
+
+                $("#wiget_5").find('.screenShotTempCanvas').remove();
+                $("#wiget_5").find('.tempHide').show().removeClass('tempHide');
+
+                $("#wiget_6").find('.screenShotTempCanvas').remove();
+                $("#wiget_6").find('.tempHide').show().removeClass('tempHide');
+
+                $("#wiget_7").find('.screenShotTempCanvas').remove();
+                $("#wiget_7").find('.tempHide').show().removeClass('tempHide');
+
+                $("#wiget_8").find('.screenShotTempCanvas').remove();
+                $("#wiget_8").find('.tempHide').show().removeClass('tempHide');
+
+                $("#wiget_9").find('.screenShotTempCanvas').remove();
+                $("#wiget_9").find('.tempHide').show().removeClass('tempHide');
+
+
+            }
+        });
+
+        */
         /*
 
          //PRINT PDF FUNCTIONALITY...
