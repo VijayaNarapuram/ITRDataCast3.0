@@ -58,7 +58,7 @@
                 </div>
             </div>*@
         <div id="divPrint" class="print">
-            <div class="panel">
+            <div class="panel" id="panel_content">
                 <div class="panel-body p-n" style="height:98%;">
                     <h4 class="p-sm text-center text-info" id="tblHeading"></h4>
                     <div class="col-sm-12" id="ACQNINACQS"></div>
@@ -246,9 +246,9 @@ else
                 //console.log(error)
             }
         });
-        //$("#hdnCompanyID").val(2301); //2301) //2301); //2301)
-        //$("#hdnDivisionID").val(0);
-        //$("#hdnUserID").val(1);
+        $("#hdnCompanyID").val(5399); //2301) //2301); //2301)
+        $("#hdnDivisionID").val(0);
+        $("#hdnUserID").val(1);
     </script>
 }
 
@@ -481,9 +481,62 @@ else
         //PRINT PDF FUNCTIONALITY...
         $("#linkPrintPDF").on("click", function () {
             $("#divLables").show();
+           
             //var name = $("#spnIndicatorName").text();
             var name = "DBWidgetsData";
-            var div_content = document.querySelectorAll("#divPrint")[0];
+            
+            var panel_content = document.querySelectorAll("#panel_content");
+            var div_content_0 = document.querySelectorAll("#wiget_0");
+            var div_content_1 = document.querySelectorAll("#wiget_1");
+            var div_content_2 = document.querySelectorAll("#wiget_2");
+            var div_content_3 = document.querySelectorAll("#wiget_3");
+            var div_content_4 = document.querySelectorAll("#wiget_4");
+            var div_content_5 = document.querySelectorAll("#wiget_5");
+            var div_content_6 = document.querySelectorAll("#wiget_6");
+            var div_content_7 = document.querySelectorAll("#wiget_7");
+            var div_content_8 = document.querySelectorAll("#wiget_8");
+            var div_content_9 = document.querySelectorAll("#wiget_9");
+          
+            
+          
+       
+            var div_content = [panel_content,div_content_0, div_content_1, div_content_2, div_content_3, div_content_4, div_content_5, div_content_6, div_content_7, div_content_8, div_content_9];
+
+            var doc = new jsPDF("l", "pt", "a4");
+            var j = 0;
+            for (var i = 0;  i < div_content.length; i++) {
+                html2canvas(div_content[i]).then(function (canvas) {
+                    alert(div_content[i].attr('id'))
+                    if ($("#label_" + j).html() !== '' || div_content[i].attr('id')=='panel_content') {
+                        var image1 = canvas.toDataURL('image/jpeg');
+                        doc.addImage(image1, 'JPEG', 0, 50, 950, 500);
+                        doc.addPage();
+                        if (i == j+1) {
+                            doc.save("DBWidgetsData" + ".pdf");
+                            $("#divLables").hide();
+                        }
+                        j = j + 1;
+                    }
+                    
+                   
+
+                });
+                  
+            }
+
+        });
+
+        /*
+
+         //PRINT PDF FUNCTIONALITY...
+        $("#linkPrintPDF").on("click", function () {
+            $("#divLables").show();
+            //var name = $("#spnIndicatorName").text();
+            var name = "DBWidgetsData";
+    //        var div_content = document.querySelectorAll("#divPrint")[0];
+            var div_content = document.querySelectorAll("#wiget_1")[0];
+
+            var doc = new jsPDF("l", "pt", "a4");
             //console.log(div_content);
             div_content.style.backgroundColor = "white";
             //make it as html5 canvasotab
@@ -492,15 +545,57 @@ else
                 //change the canvas to jpeg image
                 var image = canvas.toDataURL('image/jpeg');
                 //console.log(image);
-                var doc = new jsPDF("l", "pt", "a4");
+               
                 //doc.addImage(image, 'JPEG', 0, 50, 850, 500);
-
+               
                 doc.addImage(image, 'JPEG', 0, 50, 850, 500);
-                doc.save(name + ".pdf");
+                
                 $("#divLables").hide();
             });
+            
+
+            html2canvas(div_content).then(function (canvas) {
+
+                //change the canvas to jpeg image
+                var image1 = canvas.toDataURL('image/jpeg');
+                //console.log(image);
+
+                //doc.addImage(image, 'JPEG', 0, 50, 850, 500);
+
+                doc.addImage(image1, 'JPEG', 0, 50, 850, 500);
+                doc.save(name + ".pdf");
+
+                $("#divLables").hide();
+            });
+
         });
 
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+        */
         //PRINT IMAGE FUNCTIONALITY...
         $("#linkPrintPNG").on("click", function () {
             $("#divLables").show();
