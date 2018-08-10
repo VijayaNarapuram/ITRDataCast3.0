@@ -3,7 +3,6 @@
     Layout = "~/Views/Shared/_Layout.cshtml";
 }
 
-
 <ol class="breadcrumb">
     <li>Home</li>
     <li class="active">Dashboard</li>
@@ -11,7 +10,6 @@
 <div class="page-heading">
     <h1>Dashboard</h1>
 </div>
-
 <div class="container-fluid">
     <div id="page-wrap" ng-app="" class="panel panel-default m-n">
         <div class="panel-heading">
@@ -23,7 +21,6 @@
                 <div class="row">
                     <select class="form-control" id="ddlDataSets"></select>
                 </div>
-
             </div>
             <div>
                 <div class="col-sm-2 pull-right mt-md">
@@ -42,7 +39,6 @@
             <div class="clearfix m-sm"></div>
         </div>
     </div>
-
     <div class="mainCnt">
         @*<div id="divPrint">
                 <div class="row" data-widget-group="group-demo">
@@ -65,18 +61,16 @@
                 </div>
             </div>
 
-           
-
-            <div class="row fs"  style="height:100%;">
+            <div class="row fs" style="height:100%;">
                 @*CHART 0*@
                 <div class="panel item col-md-6 mr-15 widgets" id="wiget_0" style="display:none;">
                     @*<div class="panel-editbox" data-widget-controls=""></div>*@
                     @*<div class="panel-body">
-                <div class="panel-heading">
-                    <h5 id="label_0"></h5>
-                </div>
-                <div id="chart_0" class="charts"></div>
-            </div>*@
+                            <div class="panel-heading">
+                                <h5 id="label_0"></h5>
+                            </div>
+                            <div id="chart_0" class="charts"></div>
+                        </div>*@
                     <div class="panel-heading">
                         <div class="panel1-ctrls button-icon-bg">
                         </div>
@@ -86,7 +80,6 @@
                         <div id="chart_0" class="charts"></div>
                     </div>
                 </div>
-
                 @*CHART 1*@
                 <div class="panel item col-md-6 mr-15 widgets" id="wiget_1" style="display:none;">
                     <div class="panel-heading">
@@ -100,7 +93,6 @@
                     </div>
                 </div>
 
-
                 @*CHART 2*@
                 <div class="panel item col-md-6 mr-15 widgets" id="wiget_2" style="display:none;">
                     <div class="panel-heading">
@@ -112,7 +104,6 @@
                         <div id="chart_2" class="charts"></div>
                     </div>
                 </div>
-
                 @*CHART 3*@
                 <div class="panel item col-md-6 mr-15 widgets" id="wiget_3" style="display:none;">
                     <div class="panel-heading">
@@ -135,7 +126,6 @@
                         <div id="chart_4" class="charts"></div>
                     </div>
                 </div>
-
                 @*CHART 5*@
                 <div class="panel item col-md-6 mr-15 widgets" id="wiget_5" style="display:none;">
                     <div class="panel-heading">
@@ -195,7 +185,6 @@
         </div>
     </div>
 </div>
-
 @if (Session.Count > 0)
 {
     <input type="hidden" id="hdnCompanyID" title="" value="@Session["CompanyID"].ToString()" />
@@ -252,7 +241,6 @@ else
     </script>
 }
 
-
 @section PagespecificCss
     {
     <link href="~/css/light/all.min.css" rel="stylesheet" />
@@ -260,12 +248,9 @@ else
     <link href="~/datacastassets/plugins/datatables/dataTables.min.css" rel="stylesheet" />
     @*<link href="~/css/style.css" rel="stylesheet" />*@
     <link href="~/assets/css/DBWidgetStyles.css" rel="stylesheet" />
-
     <link rel="stylesheet" href="//code.jquery.com/ui/1.12.1/themes/base/jquery-ui.css">
     @*<link rel="stylesheet" href="/resources/demos/style.css">*@
-
     <link rel="stylesheet" type="text/css" href="~/assets/css/dragable.css">
-
     <style>
         .draggable {
             width: 500px;
@@ -289,37 +274,31 @@ else
         body {
             font-family: Times New Roman !important;
         }
+
         .print:last-child {
             page-break-after: auto;
         }
-
     </style>
-
 }
-
 @section PageSpecificScript
 {
     <script src="~/assets/plugins/datatables/jquery.dataTables.js"></script>
     <script src="~/assets/plugins/datatables/dataTables.bootstrap.js"></script>
     <script src="~/assets/demo/demo-datatables.js"></script>
-    
+
     <script src="~/assets/js/jquery-fsortable.js"></script>
     <script src="~/assets/js/dragable.js"></script>
-    
+
     <script type="text/javascript" src="~/datacastassets/plugins/datatables/jquery.dataTables.js"></script>
     <script type="text/javascript" src="~/datacastassets/plugins/datatables/dataTables.bootstrap.js"></script>
-
     <script src="~/datacastjs/shieldui-all.min.js"></script>
     <script src="~/datacastjs/angular-1.4.8.min.js"></script>
-
     @*<script src="~/datacastjs/jspdf.debug.js"></script>
-    <script src="~/datacastjs/html2canvas.js"></script>*@
+        <script src="~/datacastjs/html2canvas.js"></script>*@
 
-
-<script src="~/datacastjs/jspdf.min.js"></script>
-<script src="~/datacastjs/html2canvas_latest.js"></script>
-<script src="~/datacastjs/html2canvas.svg.js"></script>
-
+    <script src="~/datacastjs/jspdf.min.js"></script>
+    <script src="~/datacastjs/html2canvas_latest.js"></script>
+    <script src="~/datacastjs/html2canvas.svg.js"></script>
 
     <script type="text/javascript">
 
@@ -377,8 +356,8 @@ else
         function LoadDataSets() {
             // alert(1);
 
-            var accountid = 5399;// $("#hdnCompanyID").val(); //2301; // _CompanyId;//2301;// $('#ddlAccounts option:selected').val();//2857;2857;//
-            var divisionId = 0; //divisionID;//0;// divisionID;  //$('#ddlDivision option:selected').val(); //247;//$("#ddlDivision").val();//247;247;//
+            var accountid = 5399;   // $("#hdnCompanyID").val(); //2301; // _CompanyId;//2301;// $('#ddlAccounts option:selected').val();//2857;2857;//
+            var divisionId = 0;     //$("#hdnDivisionID").val();//divisionID;//0;// divisionID;  //$('#ddlDivision option:selected').val(); //247;//$("#ddlDivision").val();//247;247;//
 
             if (divisionId == "" || divisionId == null || divisionId == "null") {
                 divisionId = 0;
@@ -487,6 +466,7 @@ else
 
         //PRINT PDF FUNCTIONALITY...
         $("#linkPrintPDF").on("click", function () {
+            ajaxindicatorstart();
             $("#divLables").show();
 
             //var name = $("#spnIndicatorName").text();
@@ -505,8 +485,8 @@ else
             var div_content_9 = document.querySelectorAll("#wiget_9");
 
 
-           
-          
+
+
 
 
 
@@ -530,7 +510,7 @@ else
 
                 //draw the SVG onto a canvas
                 canvg(canvas, xml);
-                $(canvas).insertBefore(this);
+                $(canvas).insertAfter(this);
                 //hide the SVG element
                 ////this.className = "tempHide";
                 $(this).attr('class', 'tempHide');
@@ -560,39 +540,13 @@ else
 
                 //draw the SVG onto a canvas
                 canvg(canvas, xml);
-                $(canvas).insertBefore(this);
+                $(canvas).insertAfter(this);
                 //hide the SVG element
                 ////this.className = "tempHide";
                 $(this).attr('class', 'tempHide');
                 $(this).hide();
             });
 
-            var svgElements_panel = $("#panel_content").find('svg');
-            //replace all svgs with a temp canvas
-            svgElements_panel.each(function () {
-                var canvas, xml;
-
-                // canvg doesn't cope very well with em font sizes so find the calculated size in pixels and replace it in the element.
-                $.each($(this).find('[style*=em]'), function (index, el) {
-                    $(this).css('font-size', getStyle(el, 'font-size'));
-                });
-
-                canvas = document.createElement("canvas");
-                canvas.className = "screenShotTempCanvas";
-                //convert SVG into a XML string
-                xml = (new XMLSerializer()).serializeToString(this);
-
-                // Removing the name space as IE throws an error
-                xml = xml.replace(/xmlns=\"http:\/\/www\.w3\.org\/2000\/svg\"/, '');
-
-                //draw the SVG onto a canvas
-                canvg(canvas, xml);
-                $(canvas).insertBefore(this);
-                //hide the SVG element
-                ////this.className = "tempHide";
-                $(this).attr('class', 'tempHide');
-                $(this).hide();
-            });
 
 
             var svgElements2 = $("#wiget_2").find('svg');
@@ -615,7 +569,7 @@ else
 
                 //draw the SVG onto a canvas
                 canvg(canvas, xml);
-                $(canvas).insertBefore(this);
+                $(canvas).insertAfter(this);
                 //hide the SVG element
                 ////this.className = "tempHide";
                 $(this).attr('class', 'tempHide');
@@ -625,7 +579,7 @@ else
 
 
 
-           
+
 
             var svgElements3 = $("#wiget_3").find('svg');
             //replace all svgs with a temp canvas
@@ -647,7 +601,7 @@ else
 
                 //draw the SVG onto a canvas
                 canvg(canvas, xml);
-                $(canvas).insertBefore(this);
+                $(canvas).insertAfter(this);
                 //hide the SVG element
                 ////this.className = "tempHide";
                 $(this).attr('class', 'tempHide');
@@ -675,7 +629,7 @@ else
 
                 //draw the SVG onto a canvas
                 canvg(canvas, xml);
-                $(canvas).insertBefore(this);
+                $(canvas).insertAfter(this);
                 //hide the SVG element
                 ////this.className = "tempHide";
                 $(this).attr('class', 'tempHide');
@@ -702,7 +656,7 @@ else
 
                 //draw the SVG onto a canvas
                 canvg(canvas, xml);
-                $(canvas).insertBefore(this);
+                $(canvas).insertAfter(this);
                 //hide the SVG element
                 ////this.className = "tempHide";
                 $(this).attr('class', 'tempHide');
@@ -729,7 +683,7 @@ else
 
                 //draw the SVG onto a canvas
                 canvg(canvas, xml);
-                $(canvas).insertBefore(this);
+                $(canvas).insertAfter(this);
                 //hide the SVG element
                 ////this.className = "tempHide";
                 $(this).attr('class', 'tempHide');
@@ -756,7 +710,7 @@ else
 
                 //draw the SVG onto a canvas
                 canvg(canvas, xml);
-                $(canvas).insertBefore(this);
+                $(canvas).insertAfter(this);
                 //hide the SVG element
                 ////this.className = "tempHide";
                 $(this).attr('class', 'tempHide');
@@ -785,7 +739,7 @@ else
 
                 //draw the SVG onto a canvas
                 canvg(canvas, xml);
-                $(canvas).insertBefore(this);
+                $(canvas).insertAfter(this);
                 //hide the SVG element
                 ////this.className = "tempHide";
                 $(this).attr('class', 'tempHide');
@@ -812,7 +766,7 @@ else
 
                 //draw the SVG onto a canvas
                 canvg(canvas, xml);
-                $(canvas).insertBefore(this);
+                $(canvas).insertAfter(this);
                 //hide the SVG element
                 ////this.className = "tempHide";
                 $(this).attr('class', 'tempHide');
@@ -820,7 +774,37 @@ else
             });
 
 
-           
+
+            var svgElements10 = $("#panel_content").find('svg');
+            //replace all svgs with a temp canvas
+            svgElements10.each(function () {
+                var canvas, xml;
+
+                // canvg doesn't cope very well with em font sizes so find the calculated size in pixels and replace it in the element.
+                $.each($(this).find('[style*=em]'), function (index, el) {
+                    $(this).css('font-size', getStyle(el, 'font-size'));
+                });
+
+                canvas = document.createElement("canvas");
+                canvas.className = "screenShotTempCanvas";
+                //convert SVG into a XML string
+                xml = (new XMLSerializer()).serializeToString(this);
+
+                // Removing the name space as IE throws an error
+                xml = xml.replace(/xmlns=\"http:\/\/www\.w3\.org\/2000\/svg\"/, '');
+
+                //draw the SVG onto a canvas
+                canvg(canvas, xml);
+                $(canvas).insertAfter(this);
+                //hide the SVG element
+                ////this.className = "tempHide";
+                $(this).attr('class', 'tempHide');
+                $(this).hide();
+            });
+
+
+
+
 
 
 
@@ -836,8 +820,8 @@ else
 
             var doc = new jsPDF("l", "pt", "a4");
             var j = 0;
+            validatecount = validatecount + 1;
             for (var i = 0; i < div_content.length; i++) {
-                //    alert('i value' + i);
 
 
                 html2canvas(div_content[i]).then(function (canvas) {
@@ -845,7 +829,7 @@ else
                     //    onrendered: function (canvas) {
 
 
-
+                    //                    alert('validatecount  ' + validatecount + '              j  value ' + j)
                     if (j == 0) {
 
                         var image2 = canvas.toDataURL('image/jpeg');
@@ -872,6 +856,7 @@ else
                             if (validatecount == (j + 1)) {
                                 doc.save("DBWidgetsData" + ".pdf");
                                 $("#divLables").hide();
+                                ajaxindicatorstop();
                             }
 
                         }
@@ -879,7 +864,7 @@ else
                     }
                     j = j + 1;
                 });
-                  
+
             }
 
         });
@@ -939,14 +924,14 @@ else
                 //change the canvas to jpeg image
                 var image = canvas.toDataURL('image/jpeg');
                 //console.log(image);
-               
+
                 //doc.addImage(image, 'JPEG', 0, 50, 850, 500);
-               
+
                 doc.addImage(image, 'JPEG', 0, 50, 850, 500);
-                
+
                 $("#divLables").hide();
             });
-            
+
 
             html2canvas(div_content).then(function (canvas) {
 
@@ -1016,7 +1001,7 @@ else
         function LoadPhaseValuesOfDBWidgets1() {
             url = '/DatacastDBWidget/SelectPhaseValuesOfDBWidgetsList/';
             var modelObj = {
-                UserId : $("#hdnUserID").val(),
+                UserId: $("#hdnUserID").val(),
                 CompanyShortCode: $("#ddlDataSets").val(),
                 CompanyId: $("#hdnCompanyID").val()
             };
@@ -1053,7 +1038,7 @@ else
             });
         }
 
-        function SendRequestJSONFromDBWidget(url, modelobj) {          
+        function SendRequestJSONFromDBWidget(url, modelobj) {
             var response;
             $.ajax({
                 type: "POST",
@@ -1437,7 +1422,7 @@ else
                     print: false
                 },
                 axisX: [{
-                    drawWidth: 1,                    
+                    drawWidth: 1,
                     ticksRepeat: 24,
                     categoricalValues: $.map(combinationObject, function (item) {
                         //console.log('combinationObject - ' + combinationObject);
