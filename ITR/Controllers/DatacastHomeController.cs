@@ -373,7 +373,8 @@ namespace ITR.Controllers
                     param.sSearch = "";
                 }
 
-                IEnumerable<uspSelectLoadCorelationLeadLagByDataSetID_Result> filteredEmployees = _homeRepository.SelectLoadCorelationLeadLagByDataSetID(dataSetID, param.iDisplayLength, param.iDisplayStart, param.sSearch, sortColumnIndex, sortDirection, Convert.ToInt32(Session["UserId"]));
+               // IEnumerable<uspSelectLoadCorelationLeadLagByDataSetID_Result> filteredEmployees = _homeRepository.SelectLoadCorelationLeadLagByDataSetID(dataSetID, param.iDisplayLength, param.iDisplayStart, param.sSearch, sortColumnIndex, sortDirection, Convert.ToInt32(Session["UserId"]));
+                IEnumerable<uspSelectLoadCorelationLeadLagByDataSetID_Result> filteredEmployees = _homeRepository.SelectLoadCorelationLeadLagByDataSetID(dataSetID, param.iDisplayLength, param.iDisplayStart, param.sSearch, sortColumnIndex, sortDirection, Convert.ToInt32(userID));
                 IEnumerable<uspSelectLoadCorelationLeadLagByDataSetID_Result> searchEmployess = null;
 
 
@@ -399,7 +400,7 @@ namespace ITR.Controllers
 
                 if (totalcount == 0)// for search  with ZERO records as return case.
                 {
-                    searchEmployess = _homeRepository.SelectLoadCorelationLeadLagByDataSetID(dataSetID, param.iDisplayLength, param.iDisplayStart, param.sSearch, sortColumnIndex, sortDirection, Convert.ToInt32(Session["UserId"]))
+                    searchEmployess = _homeRepository.SelectLoadCorelationLeadLagByDataSetID(dataSetID, param.iDisplayLength, param.iDisplayStart, param.sSearch, sortColumnIndex, sortDirection, Convert.ToInt32(userID))
                     .Where(c => Convert.ToString(c.ASeriesName).Contains(param.sSearch)
                                     ||
                            c.Company.ToLower().Contains(param.sSearch)
@@ -467,7 +468,8 @@ namespace ITR.Controllers
                     param.sSearch = "";
                 }
 
-                IEnumerable<uspSelectLoadCorelationLeadLagByDataSetID_Result> filteredEmployees = _homeRepository.SelectLoadCorelationLeadLagByDataSetID(dataSetID, param.iDisplayLength, param.iDisplayStart, param.sSearch, sortColumnIndex, sortDirection, Convert.ToInt32(Session["UserId"]));
+                //IEnumerable<uspSelectLoadCorelationLeadLagByDataSetID_Result> filteredEmployees = _homeRepository.SelectLoadCorelationLeadLagByDataSetID(dataSetID, param.iDisplayLength, param.iDisplayStart, param.sSearch, sortColumnIndex, sortDirection, Convert.ToInt32(Session["UserId"]));
+                IEnumerable<uspSelectLoadCorelationLeadLagByDataSetID_Result> filteredEmployees = _homeRepository.SelectLoadCorelationLeadLagByDataSetID(dataSetID, param.iDisplayLength, param.iDisplayStart, param.sSearch, sortColumnIndex, sortDirection, Convert.ToInt32(userID));
                 IEnumerable<uspSelectLoadCorelationLeadLagByDataSetID_Result> searchEmployess = null;
 
 
@@ -490,7 +492,7 @@ namespace ITR.Controllers
 
                 if (totalcount == 0)// for search  with ZERO records as return case.
                 {
-                    searchEmployess = _homeRepository.SelectLoadCorelationLeadLagByDataSetID(dataSetID, param.iDisplayLength, param.iDisplayStart, param.sSearch, sortColumnIndex, sortDirection, Convert.ToInt32(Session["UserId"]))
+                    searchEmployess = _homeRepository.SelectLoadCorelationLeadLagByDataSetID(dataSetID, param.iDisplayLength, param.iDisplayStart, param.sSearch, sortColumnIndex, sortDirection, Convert.ToInt32(userID))
                     .Where(c => Convert.ToString(c.ASeriesName).Contains(param.sSearch)
                                     ||
                            c.Company.ToLower().Contains(param.sSearch)
@@ -1492,7 +1494,7 @@ namespace ITR.Controllers
                 param.sSearch = "";
             }
 
-            IEnumerable<uspSelectIndicatorListByCategorySearch_Result> filteredFavorites = _homeRepository.GetIndcatorListByCategorySearch(dataSetID, Convert.ToInt32(Session["UserId"]), IndustryName, SectorName, SubSector1Name, SubSector2Name, SubSector3Name, param.iDisplayLength, param.iDisplayStart, param.sSearch, sortColumnIndex, sortDirection);
+            IEnumerable<uspSelectIndicatorListByCategorySearch_Result> filteredFavorites = _homeRepository.GetIndcatorListByCategorySearch(dataSetID, Convert.ToInt32(userID), IndustryName, SectorName, SubSector1Name, SubSector2Name, SubSector3Name, param.iDisplayLength, param.iDisplayStart, param.sSearch, sortColumnIndex, sortDirection);
             IEnumerable<uspSelectIndicatorListByCategorySearch_Result> searchFavorites = null;
 
 
@@ -1513,7 +1515,7 @@ namespace ITR.Controllers
 
             if (totalcount == 0)// for search  with ZERO records as return case.
             {
-                searchFavorites = _homeRepository.GetIndcatorListByCategorySearch(dataSetID, Convert.ToInt32(Session["UserId"]), IndustryName, SectorName, SubSector1Name, SubSector2Name, SubSector3Name, param.iDisplayLength, param.iDisplayStart, param.sSearch, sortColumnIndex, sortDirection)
+                searchFavorites = _homeRepository.GetIndcatorListByCategorySearch(dataSetID, Convert.ToInt32(userID), IndustryName, SectorName, SubSector1Name, SubSector2Name, SubSector3Name, param.iDisplayLength, param.iDisplayStart, param.sSearch, sortColumnIndex, sortDirection)
                 .Where(c => Convert.ToString(c.ASeriesName).Contains(param.sSearch)
                                 ||
                        c.Company.ToLower().Contains(param.sSearch)
