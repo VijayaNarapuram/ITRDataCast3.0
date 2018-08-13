@@ -764,6 +764,10 @@ namespace ITR.Controllers
                         model.IsDataPortalAdmin = Convert.ToBoolean(isDataPotralAdminVal);
                     }
                 }
+                else
+                {
+                    model.CreatedBy = model.UserID.ToString();
+                }
                 model.CreatedDate = DateTime.Now;
 
                 finalResult = _homeRepository.InsertInsertCustomerDataSet(model);
@@ -2466,7 +2470,7 @@ namespace ITR.Controllers
                         param.sSearch = "";
                     }
 
-                    IEnumerable<uspSelectIndicatorListByCategorySearchPortal_Result> filteredFavorites = _homeRepository.GetIndcatorListByCategorySearch(dataSetID, Convert.ToInt32(Session["UserId"]), IndustryName, SectorName, SubSector1Name, SubSector2Name, SubSector3Name, param.iDisplayLength, param.iDisplayStart, param.sSearch, sortColumnIndex, sortDirection);
+                    IEnumerable<uspSelectIndicatorListByCategorySearchPortal_Result> filteredFavorites = _homeRepository.GetIndcatorListByCategorySearch(dataSetID, Convert.ToInt32(userID), IndustryName, SectorName, SubSector1Name, SubSector2Name, SubSector3Name, param.iDisplayLength, param.iDisplayStart, param.sSearch, sortColumnIndex, sortDirection);
                     IEnumerable<uspSelectIndicatorListByCategorySearchPortal_Result> searchFavorites = null;
 
 
@@ -2487,7 +2491,7 @@ namespace ITR.Controllers
 
                     if (totalcount == 0)// for search  with ZERO records as return case.
                     {
-                        searchFavorites = _homeRepository.GetIndcatorListByCategorySearch(dataSetID, Convert.ToInt32(Session["UserId"]), IndustryName, SectorName, SubSector1Name, SubSector2Name, SubSector3Name, param.iDisplayLength, param.iDisplayStart, param.sSearch, sortColumnIndex, sortDirection)
+                        searchFavorites = _homeRepository.GetIndcatorListByCategorySearch(dataSetID, Convert.ToInt32(userID), IndustryName, SectorName, SubSector1Name, SubSector2Name, SubSector3Name, param.iDisplayLength, param.iDisplayStart, param.sSearch, sortColumnIndex, sortDirection)
                         .Where(c => Convert.ToString(c.ASeriesName).Contains(param.sSearch)
                                         ||
                                c.Company.ToLower().Contains(param.sSearch)
