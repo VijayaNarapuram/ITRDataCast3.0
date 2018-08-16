@@ -5680,40 +5680,52 @@ else
             // Raghuveer Start
             $("#linkPrintPDF").on("click", function() {
                 $("#divLables").show();
-                var div_content = document.querySelectorAll("#divPrint")[0];
-                var name = $("#spnIndicatorName").text();
-                var svgElements = $("#divPrint").find('svg');
 
-                //replace all svgs with a temp canvas
-                svgElements.each(function() {
-                    var canvas, xml;
 
-                    // canvg doesn't cope very well with em font sizes so find the calculated size in pixels and replace it in the element.
-                    $.each($(this).find('[style*=em]'), function(index, el) {
-                        $(this).css('font-size', getStyle(el, 'font-size'));
+
+                var isFirefox = typeof InstallTrigger !== 'undefined';
+               
+                var isChrome = !!window.chrome && !!window.chrome.webstore;
+
+                if(isFirefox)
+                {
+                   
+                    var div_content = document.querySelectorAll("#divPrint")[0];
+                    var name = $("#spnIndicatorName").text();
+                    var svgElements = $("#divPrint").find('svg');
+
+                    //replace all svgs with a temp canvas
+                    svgElements.each(function() {
+                        var canvas, xml;
+
+                        // canvg doesn't cope very well with em font sizes so find the calculated size in pixels and replace it in the element.
+                        $.each($(this).find('[style*=em]'), function(index, el) {
+                            $(this).css('font-size', getStyle(el, 'font-size'));
+                        });
+
+                        canvas = document.createElement("canvas");
+                        canvas.className = "screenShotTempCanvas";
+                        //convert SVG into a XML string
+                        xml = (new XMLSerializer()).serializeToString(this);
+
+                        // Removing the name space as IE throws an error
+                        xml = xml.replace(/xmlns=\"http:\/\/www\.w3\.org\/2000\/svg\"/, '');
+
+                        //draw the SVG onto a canvas
+                        canvg(canvas, xml);
+                        $(canvas).insertAfter(this);
+                        //hide the SVG element
+                        ////this.className = "tempHide";
+                        $(this).attr('class', 'tempHide');
+                        $(this).hide();
                     });
 
-                    canvas = document.createElement("canvas");
-                    canvas.className = "screenShotTempCanvas";
-                    //convert SVG into a XML string
-                    xml = (new XMLSerializer()).serializeToString(this);
+                    div_content.style.backgroundColor = "white";
+                    //html2canvas(div_content, {
+                    //    onrendered: function(canvas) {
+                    html2canvas(div_content).then(function(canvas) {
 
-                    // Removing the name space as IE throws an error
-                    xml = xml.replace(/xmlns=\"http:\/\/www\.w3\.org\/2000\/svg\"/, '');
-
-                    //draw the SVG onto a canvas
-                    canvg(canvas, xml);
-                    $(canvas).insertAfter(this);
-                    //hide the SVG element
-                    ////this.className = "tempHide";
-                    $(this).attr('class', 'tempHide');
-                    $(this).hide();
-                });
-
-                div_content.style.backgroundColor = "white";
-                html2canvas($("#divPrint"), {
-                    onrendered: function(canvas) {
-                      //  var imgData = canvas.toDataURL('image/png');
+                        //  var imgData = canvas.toDataURL('image/png');
                         //var doc = new jsPDF('l', 'mm');
                         //doc.addImage(imgData, 'PNG', 10, 10);
                         //doc.save(name + '.pdf');
@@ -5725,15 +5737,36 @@ else
                         doc.save(name + ".pdf");
                         $("#divLables").hide();
 
-                    }
+                    });
+                  //  });
+
+                    $("#divPrint").find('.screenShotTempCanvas').remove();
+                    $("#divPrint").find('.tempHide').show().removeClass('tempHide');
+                    $("#divLables").hide();
+
+
+                }
+                if(isChrome)
+                {
+                   
+                    var name = $("#spnIndicatorName").text();
+                    var div_content = document.querySelectorAll("#divPrint")[0];
+                    div_content.style.backgroundColor = "white";
+                    //make it as html5 canvasotab
+                    html2canvas(div_content).then(function(canvas) {
+                        //change the canvas to jpeg image
+                        var image = canvas.toDataURL('image/jpeg');
+                       
+                        var doc = new jsPDF("l", "pt", "a4");
+                        doc.addImage(image, 'JPEG', 0, 50, 850, 500);
+                        doc.save(name + ".pdf");
+                        $("#divLables").hide();
+
+                    });
+                }
+
                 });
-
-                $("#divPrint").find('.screenShotTempCanvas').remove();
-                $("#divPrint").find('.tempHide').show().removeClass('tempHide');
-                $("#divLables").hide();
-            });
-
-
+           
 
             // Raghuveer End
 
@@ -5763,78 +5796,87 @@ else
             $("#linkPrintPNG").on("click", function() {
 
                 $("#divLables").show();
-                var div_content    = document.querySelectorAll("#divPrint");
-                var name = $("#spnIndicatorName").text();
-                var svgElements = $("#divPrint").find('svg');
 
-                //replace all svgs with a temp canvas
-                svgElements.each(function() {
-                    var canvas, xml;
+                var isFirefox = typeof InstallTrigger !== 'undefined';
+               
+                var isChrome = !!window.chrome && !!window.chrome.webstore;
 
-                    // canvg doesn't cope very well with em font sizes so find the calculated size in pixels and replace it in the element.
-                    $.each($(this).find('[style*=em]'), function(index, el) {
-                        $(this).css('font-size', getStyle(el, 'font-size'));
+                if(isFirefox)
+                {
+
+                    var div_content    = document.querySelectorAll("#divPrint");
+                    var name = $("#spnIndicatorName").text();
+                    var svgElements = $("#divPrint").find('svg');
+
+                    //replace all svgs with a temp canvas
+                    svgElements.each(function() {
+                        var canvas, xml;
+
+                        // canvg doesn't cope very well with em font sizes so find the calculated size in pixels and replace it in the element.
+                        $.each($(this).find('[style*=em]'), function(index, el) {
+                            $(this).css('font-size', getStyle(el, 'font-size'));
+                        });
+
+                        canvas = document.createElement("canvas");
+                        canvas.className = "screenShotTempCanvas";
+                        //convert SVG into a XML string
+                        xml = (new XMLSerializer()).serializeToString(this);
+
+                        // Removing the name space as IE throws an error
+                        xml = xml.replace(/xmlns=\"http:\/\/www\.w3\.org\/2000\/svg\"/, '');
+
+                        //draw the SVG onto a canvas
+                        canvg(canvas, xml);
+                        $(canvas).insertAfter(this);
+                        //hide the SVG element
+                        ////this.className = "tempHide";
+                        $(this).attr('class', 'tempHide');
+                        $(this).hide();
                     });
 
-                    canvas = document.createElement("canvas");
-                    canvas.className = "screenShotTempCanvas";
-                    //convert SVG into a XML string
-                    xml = (new XMLSerializer()).serializeToString(this);
-
-                    // Removing the name space as IE throws an error
-                    xml = xml.replace(/xmlns=\"http:\/\/www\.w3\.org\/2000\/svg\"/, '');
-
-                    //draw the SVG onto a canvas
-                    canvg(canvas, xml);
-                    $(canvas).insertAfter(this);
-                    //hide the SVG element
-                    ////this.className = "tempHide";
-                    $(this).attr('class', 'tempHide');
-                    $(this).hide();
-                });
-
                 
-                div_content[0].style.backgroundColor = "white";
-                html2canvas($("#divPrint"), {
-                    onrendered: function(canvas) {
-                        var imgData = canvas.toDataURL('image/png');
-                        var uri = 'data:application/octet-stream;' + decodeURIComponent(imgData);
+                    div_content[0].style.backgroundColor = "white";
+                    html2canvas($("#divPrint"), {
+                        onrendered: function(canvas) {
+                            var imgData = canvas.toDataURL('image/png');
+                            var uri = 'data:application/octet-stream;' + decodeURIComponent(imgData);
+                            var downloadLink = document.createElement("a");
+                            downloadLink.href = uri;
+                            downloadLink.download = name + ".png";
+                            document.body.appendChild(downloadLink);
+                            downloadLink.click();
+                            document.body.removeChild(downloadLink);
+                       
+                        }
+                    });
+
+                    $("#divPrint").find('.screenShotTempCanvas').remove();
+                    $("#divPrint").find('.tempHide').show().removeClass('tempHide');
+                    $("#divLables").hide();
+
+                }
+                //crome
+                if(isChrome)
+                {
+                    $("#divLables").show();
+                    div_content = document.querySelectorAll("#divPrint");
+                    div_content[0].style.backgroundColor = "white";
+                    // var name = $("#spnDataSetName").text();
+                    var name = $("#spnIndicatorName").text();
+                    //make it as html5 canvas
+                    html2canvas(div_content).then(function(canvas) {
+                        //change the canvas to jpeg image
+                        var image = canvas.toDataURL('image/jpeg');
+                        var uri = 'data:application/octet-stream;' + decodeURIComponent(image);
                         var downloadLink = document.createElement("a");
                         downloadLink.href = uri;
                         downloadLink.download = name + ".png";
                         document.body.appendChild(downloadLink);
                         downloadLink.click();
                         document.body.removeChild(downloadLink);
-                       
-                    }
-                });
-
-                $("#divPrint").find('.screenShotTempCanvas').remove();
-                $("#divPrint").find('.tempHide').show().removeClass('tempHide');
-                $("#divLables").hide();
-
-
-                /*
-
-                $("#divLables").show();
-                div_content = document.querySelectorAll("#divPrint");
-                div_content[0].style.backgroundColor = "white";
-                // var name = $("#spnDataSetName").text();
-                var name = $("#spnIndicatorName").text();
-                //make it as html5 canvas
-                html2canvas(div_content).then(function(canvas) {
-                    //change the canvas to jpeg image
-                    var image = canvas.toDataURL('image/jpeg');
-                    var uri = 'data:application/octet-stream;' + decodeURIComponent(image);
-                    var downloadLink = document.createElement("a");
-                    downloadLink.href = uri;
-                    downloadLink.download = name + ".png";
-                    document.body.appendChild(downloadLink);
-                    downloadLink.click();
-                    document.body.removeChild(downloadLink);
-                    $("#divLables").hide();
-                });
-                */
+                        $("#divLables").hide();
+                    });
+                }
 
 
 
@@ -5883,60 +5925,96 @@ else
                 */
 
 
-
+                var isFirefox = typeof InstallTrigger !== 'undefined';
                
-                var div_content = document.querySelectorAll("#divPrintIRC")[0];
-               
-                var svgElements = $("#divPrintIRC").find('svg');
+                var isChrome = !!window.chrome && !!window.chrome.webstore;
 
-                //replace all svgs with a temp canvas
-                svgElements.each(function() {
-                    var canvas, xml;
+                if(isChrome)
+                {
+                 //   var name = $("#spnIndicatorName").text();
 
-                    // canvg doesn't cope very well with em font sizes so find the calculated size in pixels and replace it in the element.
-                    $.each($(this).find('[style*=em]'), function(index, el) {
-                        $(this).css('font-size', getStyle(el, 'font-size'));
-                    });
-
-                    canvas = document.createElement("canvas");
-                    canvas.className = "screenShotTempCanvas";
-                    //convert SVG into a XML string
-                    xml = (new XMLSerializer()).serializeToString(this);
-
-                    // Removing the name space as IE throws an error
-                    xml = xml.replace(/xmlns=\"http:\/\/www\.w3\.org\/2000\/svg\"/, '');
-
-                    //draw the SVG onto a canvas
-                    canvg(canvas, xml);
-                    $(canvas).insertAfter(this);
-                    //hide the SVG element
-                    ////this.className = "tempHide";
-                    $(this).attr('class', 'tempHide');
-                    $(this).hide();
-                });
-
-                div_content.style.backgroundColor = "white";
-                html2canvas($("#divPrintIRC"), {
-                    onrendered: function(canvas) {
-                        //  var imgData = canvas.toDataURL('image/png');
-                        //var doc = new jsPDF('l', 'mm');
-                        //doc.addImage(imgData, 'PNG', 10, 10);
-                        //doc.save(name + '.pdf');
+                    //var divContents = $("#divPrint").html();
+                    div_content = document.querySelectorAll("#divPrintIRC");
+                    div_content[0].style.backgroundColor = "white";
+                    //make it as html5 canvasotab
+                    html2canvas(div_content).then(function(canvas) {
+                        //change the canvas to jpeg image
 
                         var image = canvas.toDataURL('image/jpeg');
-                      
+                        //  alert(image);
+                        // window.open(image);
                         var doc = new jsPDF("l", "pt", "a4");
+
+                        // var width = 980;
+                        //  var height = 500;
+                        //   var pdf = new jsPDF("2", "pt", "letter");
+
                         doc.addImage(image, 'JPEG', 0, 50, 850, 500);
                         doc.save(name + ".pdf");
+                        // $("#divLables").hide();
 
-                    }
-                });
-
-                $("#divPrintIRC").find('.screenShotTempCanvas').remove();
-                $("#divPrintIRC").find('.tempHide').show().removeClass('tempHide');
+                    });
+                }
 
 
 
+
+
+                if(isFirefox)
+                {
+               
+                    var div_content = document.querySelectorAll("#divPrintIRC")[0];
+               
+                    var svgElements = $("#divPrintIRC").find('svg');
+
+                    //replace all svgs with a temp canvas
+                    svgElements.each(function() {
+                        var canvas, xml;
+
+                        // canvg doesn't cope very well with em font sizes so find the calculated size in pixels and replace it in the element.
+                        $.each($(this).find('[style*=em]'), function(index, el) {
+                            $(this).css('font-size', getStyle(el, 'font-size'));
+                        });
+
+                        canvas = document.createElement("canvas");
+                        canvas.className = "screenShotTempCanvas";
+                        //convert SVG into a XML string
+                        xml = (new XMLSerializer()).serializeToString(this);
+
+                        // Removing the name space as IE throws an error
+                        xml = xml.replace(/xmlns=\"http:\/\/www\.w3\.org\/2000\/svg\"/, '');
+
+                        //draw the SVG onto a canvas
+                        canvg(canvas, xml);
+                        $(canvas).insertAfter(this);
+                        //hide the SVG element
+                        ////this.className = "tempHide";
+                        $(this).attr('class', 'tempHide');
+                        $(this).hide();
+                    });
+
+                    div_content.style.backgroundColor = "white";
+                    html2canvas($("#divPrintIRC"), {
+                        onrendered: function(canvas) {
+                            //  var imgData = canvas.toDataURL('image/png');
+                            //var doc = new jsPDF('l', 'mm');
+                            //doc.addImage(imgData, 'PNG', 10, 10);
+                            //doc.save(name + '.pdf');
+
+                            var image = canvas.toDataURL('image/jpeg');
+                      
+                            var doc = new jsPDF("l", "pt", "a4");
+                            doc.addImage(image, 'JPEG', 0, 50, 850, 500);
+                            doc.save(name + ".pdf");
+
+                        }
+                    });
+
+                    $("#divPrintIRC").find('.screenShotTempCanvas').remove();
+                    $("#divPrintIRC").find('.tempHide').show().removeClass('tempHide');
+
+
+                }
 
 
             });
@@ -5944,7 +6022,7 @@ else
             //Created by Nishnth for downloading .png
             $("#linkPrintPNGIRC").on("click", function() {
                 //  $("#divLables").show();
-             var   div_content = document.querySelectorAll("#divPrintIRC");
+                var   div_content = document.querySelectorAll("#divPrintIRC");
                 
                 //  var name = $("#spnDataSetName").text();
                 var name = "";
@@ -5981,57 +6059,83 @@ else
 
                 */
 
+                var isFirefox = typeof InstallTrigger !== 'undefined';
+               
+                var isChrome = !!window.chrome && !!window.chrome.webstore;
 
+                if(isChrome)
+                {
 
+            //    var name = $("#spnIndicatorName").text();
+                //make it as html5 canvas
+                html2canvas(div_content).then(function(canvas) {
+                    //change the canvas to jpeg image
 
+                    var image = canvas.toDataURL('image/jpeg');
+                    //    image = image.append('<html><head><title> ITR Economics</title>');
 
-                var svgElements = $("#divPrintIRC").find('svg');
+                    // window.open(image);
+                    var uri = 'data:application/octet-stream;' + decodeURIComponent(image);
+                    var downloadLink = document.createElement("a");
+                    downloadLink.href = uri;
+                    downloadLink.download = name + ".png";
+                    document.body.appendChild(downloadLink);
+                    downloadLink.click();
+                    document.body.removeChild(downloadLink);
+                    $("#divLables").hide();
+                });
+
+            }
+
+                if(isFirefox)
+                {
+                    var svgElements = $("#divPrintIRC").find('svg');
               
-                //replace all svgs with a temp canvas
-                svgElements.each(function() {
-                    var canvas, xml;
+                    //replace all svgs with a temp canvas
+                    svgElements.each(function() {
+                        var canvas, xml;
 
-                    // canvg doesn't cope very well with em font sizes so find the calculated size in pixels and replace it in the element.
-                    $.each($(this).find('[style*=em]'), function(index, el) {
-                        $(this).css('font-size', getStyle(el, 'font-size'));
+                        // canvg doesn't cope very well with em font sizes so find the calculated size in pixels and replace it in the element.
+                        $.each($(this).find('[style*=em]'), function(index, el) {
+                            $(this).css('font-size', getStyle(el, 'font-size'));
+                        });
+
+                        canvas = document.createElement("canvas");
+                        canvas.className = "screenShotTempCanvas";
+                        //convert SVG into a XML string
+                        xml = (new XMLSerializer()).serializeToString(this);
+
+                        // Removing the name space as IE throws an error
+                        xml = xml.replace(/xmlns=\"http:\/\/www\.w3\.org\/2000\/svg\"/, '');
+
+                        //draw the SVG onto a canvas
+                        canvg(canvas, xml);
+                        $(canvas).insertAfter(this);
+                        //hide the SVG element
+                        ////this.className = "tempHide";
+                        $(this).attr('class', 'tempHide');
+                        $(this).hide();
                     });
 
-                    canvas = document.createElement("canvas");
-                    canvas.className = "screenShotTempCanvas";
-                    //convert SVG into a XML string
-                    xml = (new XMLSerializer()).serializeToString(this);
-
-                    // Removing the name space as IE throws an error
-                    xml = xml.replace(/xmlns=\"http:\/\/www\.w3\.org\/2000\/svg\"/, '');
-
-                    //draw the SVG onto a canvas
-                    canvg(canvas, xml);
-                    $(canvas).insertAfter(this);
-                    //hide the SVG element
-                    ////this.className = "tempHide";
-                    $(this).attr('class', 'tempHide');
-                    $(this).hide();
-                });
-
                 
-                div_content[0].style.backgroundColor = "white";
-                html2canvas($("#divPrintIRC"), {
-                    onrendered: function(canvas) {
-                        var imgData = canvas.toDataURL('image/png');
-                        var uri = 'data:application/octet-stream;' + decodeURIComponent(imgData);
-                        var downloadLink = document.createElement("a");
-                        downloadLink.href = uri;
-                        downloadLink.download = name + ".png";
-                        document.body.appendChild(downloadLink);
-                        downloadLink.click();
-                        document.body.removeChild(downloadLink);
-                        $("#divLables").hide();
-                    }
-                });
+                    div_content[0].style.backgroundColor = "white";
+                    html2canvas($("#divPrintIRC"), {
+                        onrendered: function(canvas) {
+                            var imgData = canvas.toDataURL('image/png');
+                            var uri = 'data:application/octet-stream;' + decodeURIComponent(imgData);
+                            var downloadLink = document.createElement("a");
+                            downloadLink.href = uri;
+                            downloadLink.download = name + ".png";
+                            document.body.appendChild(downloadLink);
+                            downloadLink.click();
+                            document.body.removeChild(downloadLink);
+                            $("#divLables").hide();
+                        }
+                    });
 
-                $("#divPrintIRC").find('.screenShotTempCanvas').remove();
-                $("#divPrintIRC").find('.tempHide').show().removeClass('tempHide');
-               
+                    $("#divPrintIRC").find('.screenShotTempCanvas').remove();
+                    $("#divPrintIRC").find('.tempHide').show().removeClass('tempHide');
+                }
 
             });
 
@@ -6058,83 +6162,87 @@ else
                 div_content = document.querySelectorAll("#divPrintIDT");
                 div_content[0].style.backgroundColor = "white";
 
-
-                /*
-                //make it as html5 canvasotab
-                html2canvas(div_content).then(function(canvas) {
-                    //change the canvas to jpeg image
-
-                    var image = canvas.toDataURL('image/jpeg');
-                    //  alert(image);
-                    // window.open(image);
-                    var doc = new jsPDF("l", "pt", "a4");
-
-                    // var width = 980;
-                    //  var height = 500;
-                    //   var pdf = new jsPDF("2", "pt", "letter");
-
-                    doc.addImage(image, 'JPEG', 0, 50, 850, 500);
-                    // alert(name+months);
-                    doc.save("IDT_" + name + months + ".pdf");
-                    $("#divLablesIDT").hide();
-
-                });
-                */
-
-
-                var div_content = document.querySelectorAll("#divPrintIDT")[0];
+                var isFirefox = typeof InstallTrigger !== 'undefined';
                
-                var svgElements = $("#divPrintIDT").find('svg');
+                var isChrome = !!window.chrome && !!window.chrome.webstore;
 
-                //replace all svgs with a temp canvas
-                svgElements.each(function() {
-                    var canvas, xml;
-
-                    // canvg doesn't cope very well with em font sizes so find the calculated size in pixels and replace it in the element.
-                    $.each($(this).find('[style*=em]'), function(index, el) {
-                        $(this).css('font-size', getStyle(el, 'font-size'));
-                    });
-
-                    canvas = document.createElement("canvas");
-                    canvas.className = "screenShotTempCanvas";
-                    //convert SVG into a XML string
-                    xml = (new XMLSerializer()).serializeToString(this);
-
-                    // Removing the name space as IE throws an error
-                    xml = xml.replace(/xmlns=\"http:\/\/www\.w3\.org\/2000\/svg\"/, '');
-
-                    //draw the SVG onto a canvas
-                    canvg(canvas, xml);
-                    $(canvas).insertAfter(this);
-                    //hide the SVG element
-                    ////this.className = "tempHide";
-                    $(this).attr('class', 'tempHide');
-                    $(this).hide();
-                });
-
-                div_content.style.backgroundColor = "white";
-                html2canvas($("#divPrintIDT"), {
-                    onrendered: function(canvas) {
-                        //  var imgData = canvas.toDataURL('image/png');
-                        //var doc = new jsPDF('l', 'mm');
-                        //doc.addImage(imgData, 'PNG', 10, 10);
-                        //doc.save(name + '.pdf');
+                if(isChrome)
+                {
+                    //make it as html5 canvasotab
+                    html2canvas(div_content).then(function(canvas) {
+                        //change the canvas to jpeg image
 
                         var image = canvas.toDataURL('image/jpeg');
-                      
+                        //  alert(image);
+                        // window.open(image);
                         var doc = new jsPDF("l", "pt", "a4");
+
+                        // var width = 980;
+                        //  var height = 500;
+                        //   var pdf = new jsPDF("2", "pt", "letter");
+
                         doc.addImage(image, 'JPEG', 0, 50, 850, 500);
-                        doc.save(name + ".pdf");
+                        // alert(name+months);
+                        doc.save("IDT_" + name + months + ".pdf");
                         $("#divLablesIDT").hide();
 
-                    }
-                });
+                    });
+                }
 
-                $("#divPrintIDT").find('.screenShotTempCanvas').remove();
-                $("#divPrintIDT").find('.tempHide').show().removeClass('tempHide');
-                $("#divLablesIDT").hide();
+                if(isFirefox)
+                {
+                    var div_content = document.querySelectorAll("#divPrintIDT")[0];
+               
+                    var svgElements = $("#divPrintIDT").find('svg');
 
+                    //replace all svgs with a temp canvas
+                    svgElements.each(function() {
+                        var canvas, xml;
 
+                        // canvg doesn't cope very well with em font sizes so find the calculated size in pixels and replace it in the element.
+                        $.each($(this).find('[style*=em]'), function(index, el) {
+                            $(this).css('font-size', getStyle(el, 'font-size'));
+                        });
+
+                        canvas = document.createElement("canvas");
+                        canvas.className = "screenShotTempCanvas";
+                        //convert SVG into a XML string
+                        xml = (new XMLSerializer()).serializeToString(this);
+
+                        // Removing the name space as IE throws an error
+                        xml = xml.replace(/xmlns=\"http:\/\/www\.w3\.org\/2000\/svg\"/, '');
+
+                        //draw the SVG onto a canvas
+                        canvg(canvas, xml);
+                        $(canvas).insertAfter(this);
+                        //hide the SVG element
+                        ////this.className = "tempHide";
+                        $(this).attr('class', 'tempHide');
+                        $(this).hide();
+                    });
+
+                    div_content.style.backgroundColor = "white";
+                    html2canvas($("#divPrintIDT"), {
+                        onrendered: function(canvas) {
+                            //  var imgData = canvas.toDataURL('image/png');
+                            //var doc = new jsPDF('l', 'mm');
+                            //doc.addImage(imgData, 'PNG', 10, 10);
+                            //doc.save(name + '.pdf');
+
+                            var image = canvas.toDataURL('image/jpeg');
+                      
+                            var doc = new jsPDF("l", "pt", "a4");
+                            doc.addImage(image, 'JPEG', 0, 50, 850, 500);
+                            doc.save(name + ".pdf");
+                            $("#divLablesIDT").hide();
+
+                        }
+                    });
+
+                    $("#divPrintIDT").find('.screenShotTempCanvas').remove();
+                    $("#divPrintIDT").find('.tempHide').show().removeClass('tempHide');
+                    $("#divLablesIDT").hide();
+                }
 
             });
 
@@ -6174,54 +6282,85 @@ else
                 */
 
 
+                var isFirefox = typeof InstallTrigger !== 'undefined';
+               
+                var isChrome = !!window.chrome && !!window.chrome.webstore;
+
+
                 
+                if(isFirefox)
+                {
+                    var svgElements = $("#divPrintIDT").find('svg');
+                    div_content[0].style.backgroundColor = "white";
+                    //replace all svgs with a temp canvas
+                    svgElements.each(function() {
+                        var canvas, xml;
 
-                var svgElements = $("#divPrintIDT").find('svg');
-                div_content[0].style.backgroundColor = "white";
-                //replace all svgs with a temp canvas
-                svgElements.each(function() {
-                    var canvas, xml;
+                        // canvg doesn't cope very well with em font sizes so find the calculated size in pixels and replace it in the element.
+                        $.each($(this).find('[style*=em]'), function(index, el) {
+                            $(this).css('font-size', getStyle(el, 'font-size'));
+                        });
 
-                    // canvg doesn't cope very well with em font sizes so find the calculated size in pixels and replace it in the element.
-                    $.each($(this).find('[style*=em]'), function(index, el) {
-                        $(this).css('font-size', getStyle(el, 'font-size'));
+                        canvas = document.createElement("canvas");
+                        canvas.className = "screenShotTempCanvas";
+                        //convert SVG into a XML string
+                        xml = (new XMLSerializer()).serializeToString(this);
+
+                        // Removing the name space as IE throws an error
+                        xml = xml.replace(/xmlns=\"http:\/\/www\.w3\.org\/2000\/svg\"/, '');
+
+                        //draw the SVG onto a canvas
+                        canvg(canvas, xml);
+                        $(canvas).insertAfter(this);
+                        //hide the SVG element
+                        ////this.className = "tempHide";
+                        $(this).attr('class', 'tempHide');
+                        $(this).hide();
                     });
 
-                    canvas = document.createElement("canvas");
-                    canvas.className = "screenShotTempCanvas";
-                    //convert SVG into a XML string
-                    xml = (new XMLSerializer()).serializeToString(this);
-
-                    // Removing the name space as IE throws an error
-                    xml = xml.replace(/xmlns=\"http:\/\/www\.w3\.org\/2000\/svg\"/, '');
-
-                    //draw the SVG onto a canvas
-                    canvg(canvas, xml);
-                    $(canvas).insertAfter(this);
-                    //hide the SVG element
-                    ////this.className = "tempHide";
-                    $(this).attr('class', 'tempHide');
-                    $(this).hide();
-                });
-
                 
-                div_content[0].style.backgroundColor = "white";
-                html2canvas($("#divPrintIDT"), {
-                    onrendered: function(canvas) {
-                        var imgData = canvas.toDataURL('image/png');
-                        var uri = 'data:application/octet-stream;' + decodeURIComponent(imgData);
+                    div_content[0].style.backgroundColor = "white";
+                    html2canvas($("#divPrintIDT"), {
+                        onrendered: function(canvas) {
+                            var imgData = canvas.toDataURL('image/png');
+                            var uri = 'data:application/octet-stream;' + decodeURIComponent(imgData);
+                            var downloadLink = document.createElement("a");
+                            downloadLink.href = uri;
+                            downloadLink.download = name + ".png";
+                            document.body.appendChild(downloadLink);
+                            downloadLink.click();
+                            document.body.removeChild(downloadLink);
+                            $("#divLablesIDT").hide();
+                        }
+                    });
+
+                    $("#divPrintIDT").find('.screenShotTempCanvas').remove();
+                    $("#divPrintIDT").find('.tempHide').show().removeClass('tempHide');
+                }
+
+                if(isChrome)
+                {
+                     var name = $("#spnIndicatorName").text();
+                    //make it as html5 canvas
+                    html2canvas(div_content).then(function(canvas) {
+                        //change the canvas to jpeg image
+
+                        var image = canvas.toDataURL('image/jpeg');
+                        //    image = image.append('<html><head><title> ITR Economics</title>');
+
+                        // window.open(image);
+                        var uri = 'data:application/octet-stream;' + decodeURIComponent(image);
                         var downloadLink = document.createElement("a");
                         downloadLink.href = uri;
-                        downloadLink.download = name + ".png";
+                        downloadLink.download = "IDT_" + name + months + ".png";
                         document.body.appendChild(downloadLink);
                         downloadLink.click();
                         document.body.removeChild(downloadLink);
                         $("#divLablesIDT").hide();
-                    }
-                });
+                    });
 
-                $("#divPrintIDT").find('.screenShotTempCanvas').remove();
-                $("#divPrintIDT").find('.tempHide').show().removeClass('tempHide');
+
+                }
 
 
 
