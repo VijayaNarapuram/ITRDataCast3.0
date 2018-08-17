@@ -750,9 +750,9 @@ else
             }
         });
 
-        $("#hdnCompanyID").val(5399);// 2301) //2301); //2301)
-        $("#hdnDivisionID").val(0);
-        $("#hdnUserID").val(1);
+        //$("#hdnCompanyID").val(5399);// 2301) //2301); //2301)
+        //$("#hdnDivisionID").val(0);
+        //$("#hdnUserID").val(1);
     </script>
 }
 
@@ -941,21 +941,21 @@ else
     <script src="~/datacastjs/shieldui-all.min.js"></script>
     <script src="~/datacastjs/angular-1.4.8.min.js"></script>
     @*<script src="~/datacastjs/jspdf.debug.js"></script>
-    <script src="~/datacastjs/_html2canvas.js"></script>*@
+        <script src="~/datacastjs/_html2canvas.js"></script>*@
 
-<script src="~/datacastjs/jspdf.min.js"></script>
-<script src="~/datacastjs/html2canvas_latest.js"></script>
-<script src="~/datacastjs/html2canvas.svg.js"></script>
+    <script src="~/datacastjs/jspdf.min.js"></script>
+    <script src="~/datacastjs/html2canvas_latest.js"></script>
+    <script src="~/datacastjs/html2canvas.svg.js"></script>
 
 
-@*<script src="~/datacastjs/jspdf.min.js"></script>
-<script src="~/datacastjs/jspdf.debug.js"></script>
-<script src="~/datacastjs/html2canvas_latest.js"></script>
-    <script src="~/datacastjs/html2canvas.svg.js"></script>*@
-   
-@*<script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf/1.2.61/jspdf.min.js"></script>
-<script src="https://cdnjs.cloudflare.com/ajax/libs/html2canvas/0.5.0-beta1/html2canvas.js"></script>
-<script src="https://cdnjs.cloudflare.com/ajax/libs/html2canvas/0.5.0-beta1/html2canvas.svg.js"></script>*@
+    @*<script src="~/datacastjs/jspdf.min.js"></script>
+        <script src="~/datacastjs/jspdf.debug.js"></script>
+        <script src="~/datacastjs/html2canvas_latest.js"></script>
+            <script src="~/datacastjs/html2canvas.svg.js"></script>*@
+
+    @*<script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf/1.2.61/jspdf.min.js"></script>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/html2canvas/0.5.0-beta1/html2canvas.js"></script>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/html2canvas/0.5.0-beta1/html2canvas.svg.js"></script>*@
 
     <script type="text/javascript">
         /***
@@ -3162,40 +3162,42 @@ else
                                 width: 1,
                                 zIndex: 3
                             },
-
-
-                            customPointText: $.map(combinationObject, function(item) {
-                                if (item.Code == "Indicator" && item.Forecast == true) {
-                                    //  alert(item.StatPref1);
-
-                                    if (item.StatPref1 == "1/12") {
-                                        return shield.format(
-                                            '<span><b> Indicator Data Percent Change in 12-Month Moving Average: {value}</b></span>', {
-                                                value: item.C1By12 //point.y
-                                            }
-                                        );
-                                    } else if (item.StatPref1 == "3/12") {
-                                        return shield.format(
-                                            '<span><b> Indicator Data Percent Change in 12-Month Moving Average: {value}</b></span>', {
-                                                value: item.C3BY12 //point.y
-                                            }
-                                        );
-                                    } else if (item.StatPref1 == "Monthly") {
-                                        return shield.format(
-                                            '<span><b> Indicator Data Percent Change in 12-Month Moving Average: {value}</b></span>', {
-                                                value: item.Monthly //point.y
-                                            }
-                                        );
-                                    } else {
-                                        return shield.format(
-                                            '<span><b> Indicator Data Percent Change in 12-Month Moving Average: {value}</b></span>', {
-                                                value: item.C12BY12 //point.y
-                                            }
-                                        );
-                                    }
-                                }
-                            })
                             /*
+
+                                                        customPointText: $.map(combinationObject, function(item) {
+
+                                                            if (item.Code == "Indicator")	{// && item.Forecast == true) {
+                                                                //  alert(item.StatPref1);
+
+                                                                if (item.StatPref1 == "1/12") {
+                                                                    return shield.format(
+                                                                        '<span><b> Indicator Data Percent Change in 12-Month Moving Average: {value}</b></span>', {
+                                                                            value: item.C1By12 //point.y
+                                                                        }
+                                                                    );
+                                                                } else if (item.StatPref1 == "3/12") {
+                                                                    return shield.format(
+                                                                        '<span><b> Indicator Data Percent Change in 12-Month Moving Average: {value}</b></span>', {
+                                                                            value: item.C3BY12 //point.y
+                                                                        }
+                                                                    );
+                                                                } else if (item.StatPref1 == "Monthly") {
+                                                                    return shield.format(
+                                                                        '<span><b> Indicator Data Percent Change in 12-Month Moving Average: {value}</b></span>', {
+                                                                            value: item.Monthly //point.y
+                                                                        }
+                                                                    );
+                                                                } else {
+                                                                    return shield.format(
+                                                                        '<span><b> Indicator Data Percent Change in 12-Month Moving Average: {value}</b></span>', {
+                                                                            value: item.C12BY12 //point.y
+                                                                        }
+                                                                    );
+                                                                }
+                                                            }
+                                                        })
+                                                        */
+
                             customPointText: function (point, chart, text) {
                                 return shield.format(
                                     '<span><b> Company Percent Change in 12-Month Moving Average: {value}</b></span>',
@@ -3204,7 +3206,7 @@ else
                                     }
                                 );
                             }
-                            */
+
                         },
                         collectionAlias: "Company Division Data",
                         data: $.map(combinationObject, function(item) {
@@ -3336,11 +3338,13 @@ else
                                 width: 1,
                                 zIndex: 3
                             },
+                            /*
                             customPointText: $.map(combinationObject, function(item) {
-                                if (item.Code == "Indicator" && item.Forecast == true) {
+                                if (item.Code == "Indicator") && item.Forecast == true) {
 
 
                                     if (item.StatPref1 == "1/12") {
+
                                         return shield.format(
                                             '<span><b> Indicator Data Percent Change in 12-Month Moving Average: {value}</b></span>', {
                                                 value: item.C1By12 //point.y
@@ -3369,9 +3373,15 @@ else
                                     }
                                 }
                             })
+*/
 
-                            /*
+
+
+
+
+
                             customPointText: function (point, chart, text) {
+
                                 return shield.format(
                                     '<span><b> Indicator Data Percent Change in 12-Month Moving Average: {value}</b></span>',
                                     {
@@ -3379,7 +3389,9 @@ else
                                     }
                                 );
                             }
-                            */
+
+
+
                         },
                         pointMark: {
                             enabled: false,
@@ -5300,10 +5312,10 @@ else
             //);
 
 
-            _CompanyId =5399;// $("#hdnCompanyID").val(); //window.localStorage.getItem('CompanyID'); //5916//2857;//
-            divisionID =0;// $("#hdnDivisionID").val(); //window.localStorage.getItem('DivisionID'); //41//247;//
+            _CompanyId = $("#hdnCompanyID").val(); //window.localStorage.getItem('CompanyID'); //5916//2857;//
+            divisionID = $("#hdnDivisionID").val(); //window.localStorage.getItem('DivisionID'); //41//247;//
 
-            var userID =1;// $("#hdnUserID").val(); //window.localStorage.getItem('UserID');
+            var userID = $("#hdnUserID").val(); //window.localStorage.getItem('UserID');
             isDataPortalAdmin = $("#hdnIsDataPortalAdmin").val(); //true;//
 
 
@@ -5674,7 +5686,7 @@ else
                 }, 4500); //To Avoid Blank page printing in Google Chrome
                 $("#divLables").hide();
             });
-          
+
 
 
             // Raghuveer Start
@@ -5684,12 +5696,12 @@ else
 
 
                 var isFirefox = typeof InstallTrigger !== 'undefined';
-               
+
                 var isChrome = !!window.chrome && !!window.chrome.webstore;
 
                 if(isFirefox)
                 {
-                   
+
                     var div_content = document.querySelectorAll("#divPrint")[0];
                     var name = $("#spnIndicatorName").text();
                     var svgElements = $("#divPrint").find('svg');
@@ -5731,14 +5743,14 @@ else
                         //doc.save(name + '.pdf');
 
                         var image = canvas.toDataURL('image/jpeg');
-                      
+
                         var doc = new jsPDF("l", "pt", "a4");
                         doc.addImage(image, 'JPEG', 0, 50, 850, 500);
                         doc.save(name + ".pdf");
                         $("#divLables").hide();
 
                     });
-                  //  });
+                    //  });
 
                     $("#divPrint").find('.screenShotTempCanvas').remove();
                     $("#divPrint").find('.tempHide').show().removeClass('tempHide');
@@ -5748,7 +5760,8 @@ else
                 }
                 if(isChrome)
                 {
-                   
+
+                    $("#divLables").show();
                     var name = $("#spnIndicatorName").text();
                     var div_content = document.querySelectorAll("#divPrint")[0];
                     div_content.style.backgroundColor = "white";
@@ -5756,7 +5769,6 @@ else
                     html2canvas(div_content).then(function(canvas) {
                         //change the canvas to jpeg image
                         var image = canvas.toDataURL('image/jpeg');
-                       
                         var doc = new jsPDF("l", "pt", "a4");
                         doc.addImage(image, 'JPEG', 0, 50, 850, 500);
                         doc.save(name + ".pdf");
@@ -5765,8 +5777,8 @@ else
                     });
                 }
 
-                });
-           
+            });
+
 
             // Raghuveer End
 
@@ -5798,7 +5810,7 @@ else
                 $("#divLables").show();
 
                 var isFirefox = typeof InstallTrigger !== 'undefined';
-               
+
                 var isChrome = !!window.chrome && !!window.chrome.webstore;
 
                 if(isFirefox)
@@ -5834,7 +5846,7 @@ else
                         $(this).hide();
                     });
 
-                
+
                     div_content[0].style.backgroundColor = "white";
                     html2canvas($("#divPrint"), {
                         onrendered: function(canvas) {
@@ -5846,7 +5858,7 @@ else
                             document.body.appendChild(downloadLink);
                             downloadLink.click();
                             document.body.removeChild(downloadLink);
-                       
+
                         }
                     });
 
@@ -5926,12 +5938,12 @@ else
 
 
                 var isFirefox = typeof InstallTrigger !== 'undefined';
-               
+
                 var isChrome = !!window.chrome && !!window.chrome.webstore;
 
                 if(isChrome)
                 {
-                 //   var name = $("#spnIndicatorName").text();
+                    //   var name = $("#spnIndicatorName").text();
 
                     //var divContents = $("#divPrint").html();
                     div_content = document.querySelectorAll("#divPrintIRC");
@@ -5962,9 +5974,9 @@ else
 
                 if(isFirefox)
                 {
-               
+
                     var div_content = document.querySelectorAll("#divPrintIRC")[0];
-               
+
                     var svgElements = $("#divPrintIRC").find('svg');
 
                     //replace all svgs with a temp canvas
@@ -6002,7 +6014,7 @@ else
                             //doc.save(name + '.pdf');
 
                             var image = canvas.toDataURL('image/jpeg');
-                      
+
                             var doc = new jsPDF("l", "pt", "a4");
                             doc.addImage(image, 'JPEG', 0, 50, 850, 500);
                             doc.save(name + ".pdf");
@@ -6023,7 +6035,7 @@ else
             $("#linkPrintPNGIRC").on("click", function() {
                 //  $("#divLables").show();
                 var   div_content = document.querySelectorAll("#divPrintIRC");
-                
+
                 //  var name = $("#spnDataSetName").text();
                 var name = "";
                 //alert($("#spnDataSetName").text());
@@ -6060,37 +6072,37 @@ else
                 */
 
                 var isFirefox = typeof InstallTrigger !== 'undefined';
-               
+
                 var isChrome = !!window.chrome && !!window.chrome.webstore;
 
                 if(isChrome)
                 {
 
-            //    var name = $("#spnIndicatorName").text();
-                //make it as html5 canvas
-                html2canvas(div_content).then(function(canvas) {
-                    //change the canvas to jpeg image
+                    //    var name = $("#spnIndicatorName").text();
+                    //make it as html5 canvas
+                    html2canvas(div_content).then(function(canvas) {
+                        //change the canvas to jpeg image
 
-                    var image = canvas.toDataURL('image/jpeg');
-                    //    image = image.append('<html><head><title> ITR Economics</title>');
+                        var image = canvas.toDataURL('image/jpeg');
+                        //    image = image.append('<html><head><title> ITR Economics</title>');
 
-                    // window.open(image);
-                    var uri = 'data:application/octet-stream;' + decodeURIComponent(image);
-                    var downloadLink = document.createElement("a");
-                    downloadLink.href = uri;
-                    downloadLink.download = name + ".png";
-                    document.body.appendChild(downloadLink);
-                    downloadLink.click();
-                    document.body.removeChild(downloadLink);
-                    $("#divLables").hide();
-                });
+                        // window.open(image);
+                        var uri = 'data:application/octet-stream;' + decodeURIComponent(image);
+                        var downloadLink = document.createElement("a");
+                        downloadLink.href = uri;
+                        downloadLink.download = name + ".png";
+                        document.body.appendChild(downloadLink);
+                        downloadLink.click();
+                        document.body.removeChild(downloadLink);
+                        $("#divLables").hide();
+                    });
 
-            }
+                }
 
                 if(isFirefox)
                 {
                     var svgElements = $("#divPrintIRC").find('svg');
-              
+
                     //replace all svgs with a temp canvas
                     svgElements.each(function() {
                         var canvas, xml;
@@ -6117,7 +6129,7 @@ else
                         $(this).hide();
                     });
 
-                
+
                     div_content[0].style.backgroundColor = "white";
                     html2canvas($("#divPrintIRC"), {
                         onrendered: function(canvas) {
@@ -6163,7 +6175,7 @@ else
                 div_content[0].style.backgroundColor = "white";
 
                 var isFirefox = typeof InstallTrigger !== 'undefined';
-               
+
                 var isChrome = !!window.chrome && !!window.chrome.webstore;
 
                 if(isChrome)
@@ -6192,7 +6204,7 @@ else
                 if(isFirefox)
                 {
                     var div_content = document.querySelectorAll("#divPrintIDT")[0];
-               
+
                     var svgElements = $("#divPrintIDT").find('svg');
 
                     //replace all svgs with a temp canvas
@@ -6230,7 +6242,7 @@ else
                             //doc.save(name + '.pdf');
 
                             var image = canvas.toDataURL('image/jpeg');
-                      
+
                             var doc = new jsPDF("l", "pt", "a4");
                             doc.addImage(image, 'JPEG', 0, 50, 850, 500);
                             doc.save(name + ".pdf");
@@ -6249,8 +6261,8 @@ else
             //Created by Nishnth for downloading .png
             $("#linkPrintPNGIDT").on("click", function() {
                 $("#divLablesIDT").show();
-             var   div_content = document.querySelectorAll("#divPrintIDT");
-               
+                var   div_content = document.querySelectorAll("#divPrintIDT");
+
                 var name = $("#spnDataSetName").text();
                 var months = "";
                 if ($("input[name='radioCaluculationType']:checked").val() == 0 && $(".FIText").attr("title") == "Monthly Moving Total") {
@@ -6283,11 +6295,11 @@ else
 
 
                 var isFirefox = typeof InstallTrigger !== 'undefined';
-               
+
                 var isChrome = !!window.chrome && !!window.chrome.webstore;
 
 
-                
+
                 if(isFirefox)
                 {
                     var svgElements = $("#divPrintIDT").find('svg');
@@ -6318,7 +6330,7 @@ else
                         $(this).hide();
                     });
 
-                
+
                     div_content[0].style.backgroundColor = "white";
                     html2canvas($("#divPrintIDT"), {
                         onrendered: function(canvas) {
@@ -6340,7 +6352,7 @@ else
 
                 if(isChrome)
                 {
-                     var name = $("#spnIndicatorName").text();
+                    var name = $("#spnIndicatorName").text();
                     //make it as html5 canvas
                     html2canvas(div_content).then(function(canvas) {
                         //change the canvas to jpeg image

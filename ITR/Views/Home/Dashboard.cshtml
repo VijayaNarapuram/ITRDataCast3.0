@@ -256,9 +256,9 @@ else
             $("#favdiv").hide();
             //Added By: Vishnu to Get the Company and divisionids from local storage and set the dropdown value and disable them
             // var companyID = $("#hdnCompanyID").val();//window.localStorage.getItem('CompanyID'); //5916//
-            _CompanyId =  5399;//$("#hdnCompanyID").val();; //5399; //2301;//  $("#hdnCompanyID").val();//window.localStorage.getItem('CompanyID'); //5916//
-            divisionID = 0;//$("#hdnDivisionID").val();// $("#hdnDivisionID").val();//window.localStorage.getItem('DivisionID'); //41//
-            var userID =1;//  $("#hdnUserID").val();//$("#hdnUserID").val();//window.localStorage.getItem('UserID');
+            _CompanyId =  $("#hdnCompanyID").val();; //5399; //2301;//  $("#hdnCompanyID").val();//window.localStorage.getItem('CompanyID'); //5916//
+            divisionID = $("#hdnDivisionID").val();// $("#hdnDivisionID").val();//window.localStorage.getItem('DivisionID'); //41//
+            var userID =  $("#hdnUserID").val();//$("#hdnUserID").val();//window.localStorage.getItem('UserID');
             isDataPortalAdmin = $("#hdnIsDataPortalAdmin").val(); //true;//
             $("#btnHideFavourites").hide();
 
@@ -267,7 +267,7 @@ else
             if ((isDataPortalAdmin == true || isDataPortalAdmin == "true" || isDataPortalAdmin == "TRUE") && window.localStorage.getItem('CompanyID') != null) {
                 _CompanyId = window.localStorage.getItem('ECompanyID');
              //   _CompanyId = 2301; // 5399; //2301; //2301;
-                  _CompanyId = 5399;
+             //     _CompanyId = 5399;
                 $("#lblCompanyName").html(_CompanyId);
                 LoadDivisions();
             }
@@ -410,7 +410,7 @@ else
                     window.localStorage.setItem('CompanyID', _CompanyId);
                     //  window.localStorage.setItem('DivisionID', 0);
                     //   window.localStorage.setItem('DivisionID', window.localStorage.getItem('DivisionID'));
-                    window.localStorage.setItem('DivisionID', 0);
+                    window.localStorage.setItem('DivisionID', divisionID);
                 }
                 else {
                     //   localStorage.clear();

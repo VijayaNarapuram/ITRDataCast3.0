@@ -27,9 +27,9 @@
                     <button id="linkPrint" class="btn btn-default" type="button" title="Print the chart">
                         <i class="fa fa-print"></i>
                     </button>
-                    <button id="linkPrintPDF" class="btn btn-default" type="button" title="Download pdf document">
+                    @*<button id="linkPrintPDF" class="btn btn-default" type="button" title="Download pdf document">
                         <i class="fa fa-file"></i>
-                    </button>
+                    </button>*@
                     <button id="linkPrintPNG" class="btn btn-default" type="button" title="Download Image">
                         <i class="fa fa-image"></i>
                     </button>
@@ -235,9 +235,9 @@ else
                 //console.log(error)
             }
         });
-        $("#hdnCompanyID").val(5399); //2301) //2301); //2301)
-        $("#hdnDivisionID").val(0);
-        $("#hdnUserID").val(1);
+        //$("#hdnCompanyID").val(5399); //2301) //2301); //2301)
+        //$("#hdnDivisionID").val(0);
+        //$("#hdnUserID").val(1);
     </script>
 }
 
@@ -977,24 +977,114 @@ else
         */
         //PRINT IMAGE FUNCTIONALITY...
         $("#linkPrintPNG").on("click", function () {
-            $("#divLables").show();
-            div_content = document.querySelectorAll("#divPrint");
-            div_content[0].style.backgroundColor = "white";
-            // var name = $("#spnDataSetName").text();
-            var name = "DBWidgetsData";
-            //make it as html5 canvas
-            html2canvas(div_content).then(function (canvas) {
-                //change the canvas to jpeg image
-                var image = canvas.toDataURL('image/jpeg');
-                var uri = 'data:application/octet-stream;' + decodeURIComponent(image);
-                var downloadLink = document.createElement("a");
-                downloadLink.href = uri;
-                downloadLink.download = name + ".png";
-                document.body.appendChild(downloadLink);
-                downloadLink.click();
-                document.body.removeChild(downloadLink);
-                $("#divLables").hide();
-            });
+
+
+            var div_content;
+
+
+            //$("#divLables").show();
+            //div_content = document.querySelectorAll("#divPrint");
+            //div_content[0].style.backgroundColor = "white";
+            //// var name = $("#spnDataSetName").text();
+            //var name = "DBWidgetsData";
+            ////make it as html5 canvas
+            //html2canvas(div_content).then(function (canvas) {
+            //    //change the canvas to jpeg image
+            //    var image = canvas.toDataURL('image/jpeg');
+            //    var uri = 'data:application/octet-stream;' + decodeURIComponent(image);
+            //    var downloadLink = document.createElement("a");
+            //    downloadLink.href = uri;
+            //    downloadLink.download = name + ".png";
+            //    document.body.appendChild(downloadLink);
+            //    downloadLink.click();
+            //    document.body.removeChild(downloadLink);
+            //    $("#divLables").hide();
+            //});
+
+
+
+
+            var isFirefox = typeof InstallTrigger !== 'undefined';
+
+            var isChrome = !!window.chrome && !!window.chrome.webstore;
+
+            if (isChrome) {
+                $("#divLables").show();
+                div_content = document.querySelectorAll("#divPrint");
+                div_content[0].style.backgroundColor = "white";
+                // var name = $("#spnDataSetName").text();
+                var name = "DBWidgetsData";
+                //make it as html5 canvas
+                html2canvas(div_content).then(function (canvas) {
+                    //change the canvas to jpeg image
+                    var image = canvas.toDataURL('image/jpeg');
+                    var uri = 'data:application/octet-stream;' + decodeURIComponent(image);
+                    var downloadLink = document.createElement("a");
+                    downloadLink.href = uri;
+                    downloadLink.download = name + ".png";
+                    document.body.appendChild(downloadLink);
+                    downloadLink.click();
+                    document.body.removeChild(downloadLink);
+                    $("#divLables").hide();
+                });
+
+
+
+            }
+
+
+
+
+
+            if (isFirefox) {
+                var svgElements = $("#divPrint").find('svg');
+
+                //replace all svgs with a temp canvas
+                svgElements.each(function () {
+                    var canvas, xml;
+
+                    // canvg doesn't cope very well with em font sizes so find the calculated size in pixels and replace it in the element.
+                    $.each($(this).find('[style*=em]'), function (index, el) {
+                        $(this).css('font-size', getStyle(el, 'font-size'));
+                    });
+
+                    canvas = document.createElement("canvas");
+                    canvas.className = "screenShotTempCanvas";
+                    //convert SVG into a XML string
+                    xml = (new XMLSerializer()).serializeToString(this);
+
+                    // Removing the name space as IE throws an error
+                    xml = xml.replace(/xmlns=\"http:\/\/www\.w3\.org\/2000\/svg\"/, '');
+
+                    //draw the SVG onto a canvas
+                    canvg(canvas, xml);
+                    $(canvas).insertAfter(this);
+                    //hide the SVG element
+                    ////this.className = "tempHide";
+                    $(this).attr('class', 'tempHide');
+                    $(this).hide();
+                });
+
+
+                div_content[0].style.backgroundColor = "white";
+                html2canvas($("#divPrint"), {
+                    onrendered: function (canvas) {
+                        var imgData = canvas.toDataURL('image/png');
+                        var uri = 'data:application/octet-stream;' + decodeURIComponent(imgData);
+                        var downloadLink = document.createElement("a");
+                        downloadLink.href = uri;
+                        downloadLink.download = name + ".png";
+                        document.body.appendChild(downloadLink);
+                        downloadLink.click();
+                        document.body.removeChild(downloadLink);
+                        $("#divLables").hide();
+                    }
+                });
+
+
+            }
+
+
         });
 
         //TO LOAD PHASE VALUES OF DB WIDGETS IN DATATABLE...
