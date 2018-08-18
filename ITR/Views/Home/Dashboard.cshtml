@@ -158,7 +158,8 @@
     <!-- /.modal-doalog -->
 </div>
 <!-- /end Modal Delete-->
-@if (Session.Count > 0)
+
+@*@if (Session.Count > 0)
 {
     <input type="hidden" id="hdnCompanyID" title="" value="@Session["CompanyID"].ToString()" />
     <input type="hidden" id="hdnDivisionID" title="" value="@Session["DivisonID"].ToString()" />
@@ -183,6 +184,9 @@ else
         $("#hdnDivisionID").val(elseCaseDivisionID);
         var elseCaseisDataPortalAdmin = window.localStorage.getItem('EisDataPortalAdmin');
         $("#hdnIsDataPortalAdmin").val(elseCaseisDataPortalAdmin);
+        var elseCaseEmailID =  window.localStorage.setItem('EmailID');
+        $("#hdnEmailID").val(elseCaseEmailID);
+       
 
         var sessionObj = {
             CompanyID: window.localStorage.getItem('ECompanyID'),
@@ -192,7 +196,7 @@ else
             Value1: window.localStorage.getItem('EUserName'),
             EmailID :  window.localStorage.getItem('EmailID')
         }
-        var itrIISURL = "http://datacast.itreconomics.com/Home/ITRSessionRequest";
+        var itrIISURL = "https://datacast.itreconomics.com/Home/ITRSessionRequest";
         $.ajax({
             type: "POST",
             async: false,
@@ -211,7 +215,29 @@ else
 
     </script>
 }
+*/*@
 
+<input type="hidden" id="hdnCompanyID" title="" value="" />
+<input type="hidden" id="hdnDivisionID" title="" value="" />
+<input type="hidden" id="hdnUserID" title="" value="" />
+<input type="hidden" id="hdnIsDataPortalAdmin" title="" value="" />
+<input type="hidden" id="hdnEmailID" title="" value="" />
+<script src="~/js/jquery.min.js"></script>
+<script type="text/javascript" src="//ajax.googleapis.com/ajax/libs/jquery/1.8.1/jquery.min.js"></script>
+<script type="text/javascript" lang="javascript">
+    console.log("else case");
+    var elseCaseCompanyId = window.localStorage.getItem('ECompanyID');
+    $("#hdnCompanyID").val(elseCaseCompanyId);
+    var elseCaseDivisionID = window.localStorage.getItem('EDivisionID');
+    $("#hdnDivisionID").val(elseCaseDivisionID);
+    var elseCaseisDataPortalAdmin = window.localStorage.getItem('EisDataPortalAdmin');
+    $("#hdnIsDataPortalAdmin").val(elseCaseisDataPortalAdmin);
+    var elseCaseEmailID =  window.localStorage.getItem('EmailID');
+    $("#hdnEmailID").val(elseCaseEmailID);
+    var elseCaseUserID =  window.localStorage.getItem('EUserID');
+    $("#hdnUserID").val(elseCaseUserID);
+    
+</script>
 
 
 
@@ -250,6 +276,7 @@ else
         var _CompanyId = 0;
         var FavListStringNameForDataSet = "";
         //   $("#hdnUserID").val(1);
+      
         $(document).ready(function () {
 
 
@@ -363,6 +390,7 @@ else
                             DatasetName: encodeURI(dataSetName),
                             Indicator: $("#ddlIndicators").val(),
                             UserID : $("#hdnUserID").val(),
+                            EmailID:$("#hdnEmailID").val(),
                             FavouriteListName : $("#ddlFavourites").val(),
                             ViewStatuses : encodeURI(viewstatuses)
                         };

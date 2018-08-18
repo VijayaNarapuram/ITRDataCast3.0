@@ -52,6 +52,7 @@ namespace ITR.Models
         public int UserID { get; set; }
         public string FavouriteListName { get; set; }
         public string ViewStatuses { get; set; }
+        public string EmailID { get; set; }
 
     }
 

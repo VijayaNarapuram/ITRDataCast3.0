@@ -1093,16 +1093,16 @@ namespace ITR.Controllers
                 //    Session.RemoveAll();
                 //}
 
-                if (model.UserID != null)
-                    Session["UserId"] = model.UserID;
-                if (model.CompanyID != null)
-                    Session["CompanyID"] = model.CompanyID;
-                if (model.DivisonID != null)
-                    Session["DivisonID"] = model.DivisonID;
-                if (model.IsDataPortalAdmin != null)
-                    Session["IsDataPortalAdmin"] = model.IsDataPortalAdmin;
-                if (model.Value1 != null)
-                    Session["UserName"] = model.Value1;
+                //if (model.UserID != null)
+                //    Session["UserId"] = model.UserID;
+                //if (model.CompanyID != null)
+                //    Session["CompanyID"] = model.CompanyID;
+                //if (model.DivisonID != null)
+                //    Session["DivisonID"] = model.DivisonID;
+                //if (model.IsDataPortalAdmin != null)
+                //    Session["IsDataPortalAdmin"] = model.IsDataPortalAdmin;
+                //if (model.Value1 != null)
+                //    Session["UserName"] = model.Value1;
 
                 response = Json(new { result = "Success", url = DomainName + "/Home/DataCast", ComapnyId = model.CompanyID, DivisonID = model.DivisonID, IsDataPortalAdmin = model.IsDataPortalAdmin, UserID = model.UserID, UserName = model.Value1 });
             }
@@ -1163,12 +1163,12 @@ namespace ITR.Controllers
                 //for holding response value of DBCall
                 int intResult = 0;
 
-                if (Session["UserId"] != null && Session["UserId"].ToString() != string.Empty)
-                {
-                    model.CreatedBY = Session["UserId"].ToString();
-                    model.CreatedDate = DateTime.Now;
+                //if (Session["UserId"] != null && Session["UserId"].ToString() != string.Empty)
+                //{
+                //    model.CreatedBY = Session["UserId"].ToString();
+                //    model.CreatedDate = DateTime.Now;
 
-                }
+                //}
 
                 // model.UserID = Convert.ToInt32(Session["UserId"]);
                 //inserts the details to table
@@ -1209,13 +1209,13 @@ namespace ITR.Controllers
                 //for holding response value of DBCall
                 int intResult = 0;
 
-                if (Session["UserId"] != null && Session["UserId"].ToString() != string.Empty)
-                {
-                    model.CreatedBY = Session["UserId"].ToString();
-                    model.CreatedDate = DateTime.Now;
-                    // model.UserID = Session["UserId"].ToString();
+                //if (Session["UserId"] != null && Session["UserId"].ToString() != string.Empty)
+                //{
+                //    model.CreatedBY = Session["UserId"].ToString();
+                //    model.CreatedDate = DateTime.Now;
+                //    // model.UserID = Session["UserId"].ToString();
 
-                }
+                //}
 
 
 
@@ -1596,11 +1596,11 @@ namespace ITR.Controllers
                 //for holding response value of DBCall
                 int intResult = 0;
 
-                if (Session["UserId"] != null && Session["UserId"].ToString() != string.Empty)
-                {
-                    model.CreatedBY = Session["UserId"].ToString();
-                    model.CreatedDate = DateTime.Now;
-                }
+                //if (Session["UserId"] != null && Session["UserId"].ToString() != string.Empty)
+                //{
+                //    model.CreatedBY = Session["UserId"].ToString();
+                //    model.CreatedDate = DateTime.Now;
+                //}
                 
                 //inserts the details to table
                 intResult = _homeRepository.InsertDashboardWidgetsList(model);
@@ -1640,11 +1640,11 @@ namespace ITR.Controllers
                 //for holding response value of DBCall
                 int intResult = 0;
 
-                if (Session["UserId"] != null && Session["UserId"].ToString() != string.Empty)
-                {
-                    model.CreatedBY = Session["UserId"].ToString();
-                    model.CreatedDate = DateTime.Now;
-                }
+                //if (Session["UserId"] != null && Session["UserId"].ToString() != string.Empty)
+                //{
+                //    model.CreatedBY = Session["UserId"].ToString();
+                //    model.CreatedDate = DateTime.Now;
+                //}
 
                 //inserts the details to table
                 intResult = _homeRepository.UpdateDashboardWidgetsList(model);

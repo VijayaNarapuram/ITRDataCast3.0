@@ -37,18 +37,19 @@ namespace ITR
             string Message = exception.InnerException == null ? exception.Message : exception.InnerException.ToString();
             string Soruce = exception.Source;
 
-            string CustomerId = string.Empty;                      
+            string CustomerId = string.Empty;
 
-            if (Session.Count > 0)
-            {
-                if (Session["UserID"] != null && Session["UserID"].ToString() != string.Empty)
-                {
-                    CustomerId = Session["UserID"].ToString();
-                }                
+            //if (Session.Count > 0)
+            //{
+            //    if (Session["UserID"] != null && Session["UserID"].ToString() != string.Empty)
+            //    {
+            //        CustomerId = Session["UserID"].ToString();
+            //        objExcpLog.InsertExceptionLogDetails(CustomerId, Message, url, CustomerId);
+            //    }
 
-            }                  
+            //}
             //Inserting exception details
-            objExcpLog.InsertExceptionLogDetails(CustomerId, Message, url, CustomerId);
+           
 
 
         }

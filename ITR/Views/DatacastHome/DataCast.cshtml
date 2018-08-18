@@ -694,67 +694,31 @@
         <!-- /#DefaultModal -->
     </div>*@
 
-@if (Session.Count > 0)
-{
 
-    <input type="hidden" id="hdnCompanyID" title="" value="@Session["CompanyID"].ToString()" />
-    <input type="hidden" id="hdnDivisionID" title="" value="@Session["DivisonID"].ToString()" />
-    <input type="hidden" id="hdnUserID" title="" value="@Session["UserID"].ToString()" />
-    <input type="hidden" id="hdnIsDataPortalAdmin" title="" value="@Session["IsDataPortalAdmin"].ToString()" />
-    @*<script type="text/javascript" lang="javascript">
 
-        alert("session count case" + Session.Count);
-        </script>*@
-}
-else
-{
-    <input type="hidden" id="hdnCompanyID" title="" value="" />
-    <input type="hidden" id="hdnDivisionID" title="" value="" />
-    <input type="hidden" id="hdnUserID" title="" value="" />
-    <input type="hidden" id="hdnIsDataPortalAdmin" title="" value="" />
+<input type="hidden" id="hdnCompanyID" title="" value="" />
+<input type="hidden" id="hdnDivisionID" title="" value="" />
+<input type="hidden" id="hdnUserID" title="" value="" />
+<input type="hidden" id="hdnIsDataPortalAdmin" title="" value="" />
+<input type="hidden" id="hdnEmailID" title="" value="" />
+<script src="~/js/jquery.min.js"></script>
+<script type="text/javascript" src="//ajax.googleapis.com/ajax/libs/jquery/1.8.1/jquery.min.js"></script>
+<script type="text/javascript" lang="javascript">
+    console.log("else case");
+    var elseCaseCompanyId = window.localStorage.getItem('ECompanyID');
+    $("#hdnCompanyID").val(elseCaseCompanyId);
+    var elseCaseDivisionID = window.localStorage.getItem('EDivisionID');
+    $("#hdnDivisionID").val(elseCaseDivisionID);
+    var elseCaseisDataPortalAdmin = window.localStorage.getItem('EisDataPortalAdmin');
+    $("#hdnIsDataPortalAdmin").val(elseCaseisDataPortalAdmin);
+    var elseCaseEmailID =  window.localStorage.getItem('EmailID');
+    $("#hdnEmailID").val(elseCaseEmailID);
+    var elseCaseUserID =  window.localStorage.getItem('EUserID');
+    $("#hdnUserID").val(elseCaseUserID);
 
-    @*<script src="~/js/jquery.min.js"></script>
-        <script type="text/javascript" src="//ajax.googleapis.com/ajax/libs/jquery/1.8.1/jquery.min.js"></script>*@
-    <script src="~/datacastjs/jquery-1.11.1.min.js"></script>
-    <script type="text/javascript" lang="javascript">
-        //   console.log("else case");
+</script>
 
-        var elseCaseCompanyId = window.localStorage.getItem('ECompanyID');
-        $("#hdnCompanyID").val(elseCaseCompanyId);
-        var elseCaseDivisionID = window.localStorage.getItem('EDivisionID');
-        $("#hdnDivisionID").val(elseCaseDivisionID);
-        var elseCaseisDataPortalAdmin = window.localStorage.getItem('EisDataPortalAdmin');
-        $("#hdnIsDataPortalAdmin").val(elseCaseisDataPortalAdmin);
 
-        var sessionObj = {
-            CompanyID: window.localStorage.getItem('ECompanyID'),
-            DivisonID: window.localStorage.getItem('EDivisionID'),
-            UserID: window.localStorage.getItem('EUserID'),
-            IsDataPortalAdmin: window.localStorage.getItem('EisDataPortalAdmin'),
-            Value1: window.localStorage.getItem('EUserName')
-        }
-        var itrIISURL = "https://datacast-analysis.itreconomics.com/Home/ITRSessionRequest";
-        $.ajax({
-            type: "POST",
-            async: false,
-            url: itrIISURL,
-            crossDomain: true,
-            dataType: "json",
-            data: sessionObj,
-            success: function (res) {
-                //console.log("Step 4 Datacast Else Case");
-                // //console.log(res);
-            },
-            error: function (error) {
-                //console.log(error)
-            }
-        });
-
-        //$("#hdnCompanyID").val(5399);// 2301) //2301); //2301)
-        //$("#hdnDivisionID").val(0);
-        //$("#hdnUserID").val(1);
-    </script>
-}
 
 @section PagespecificCss
 {

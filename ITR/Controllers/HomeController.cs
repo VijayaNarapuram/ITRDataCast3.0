@@ -743,7 +743,8 @@ namespace ITR.Controllers
         {
             int finalResult = 0;
             try
-            {              
+            {         
+                /*
                 if (Session.Count > 0)
                 {
                     if (Session["UserID"] != null && Session["UserID"].ToString() != string.Empty)
@@ -768,6 +769,8 @@ namespace ITR.Controllers
                 {
                     model.CreatedBy = model.UserID.ToString();
                 }
+
+                */
                 model.CreatedDate = DateTime.Now;
 
                 finalResult = _homeRepository.InsertInsertCustomerDataSet(model);
@@ -848,13 +851,13 @@ namespace ITR.Controllers
             if(FavouriteListName == "")
             {
             string customerid = string.Empty;
-            if (Session.Count > 0)
-            {
-                if (Session["UserID"] != null && Session["UserID"].ToString() != string.Empty)
-                {
-                    customerid = Convert.ToString(Session["UserID"].ToString());
-                }
-            }
+            //if (Session.Count > 0)
+            //{
+            //    if (Session["UserID"] != null && Session["UserID"].ToString() != string.Empty)
+            //    {
+            //        customerid = Convert.ToString(Session["UserID"].ToString());
+            //    }
+            //}
 
             var verifyList = _homeRepository.GetDataSetsByCompanyDivision(comapnyId, divisionId, UserID.ToString());
 
@@ -1105,27 +1108,27 @@ namespace ITR.Controllers
             int finalResult = 0;
             try
             {
-                if (Session.Count > 0)
-                {
-                    if (Session["UserID"] != null && Session["UserID"].ToString() != string.Empty)
-                    {
-                        model.CustomerID = Convert.ToString(Session["UserID"].ToString());
-                        model.CreatedBy = Convert.ToString(Session["UserID"].ToString());
-                        model.UserName =  Convert.ToString(Session["UserName"].ToString()) ;
-                        string   isITREmployee = Convert.ToString(Session["IsDataPortalAdmin"].ToString());
-                        int isDataPotralAdminVal = 0;
-                        if (isITREmployee == "true" || isITREmployee == "TRUE")
-                        {
-                            isDataPotralAdminVal = 1;
-                        }
-                        else
-                        {
-                            isDataPotralAdminVal = 0;
-                        }
-                        model.IsDataPortalAdmin = Convert.ToBoolean(isDataPotralAdminVal);
+                //if (Session.Count > 0)
+                //{
+                //    if (Session["UserID"] != null && Session["UserID"].ToString() != string.Empty)
+                //    {
+                //        model.CustomerID = Convert.ToString(Session["UserID"].ToString());
+                //        model.CreatedBy = Convert.ToString(Session["UserID"].ToString());
+                //        model.UserName =  Convert.ToString(Session["UserName"].ToString()) ;
+                //        string   isITREmployee = Convert.ToString(Session["IsDataPortalAdmin"].ToString());
+                //        int isDataPotralAdminVal = 0;
+                //        if (isITREmployee == "true" || isITREmployee == "TRUE")
+                //        {
+                //            isDataPotralAdminVal = 1;
+                //        }
+                //        else
+                //        {
+                //            isDataPotralAdminVal = 0;
+                //        }
+                //        model.IsDataPortalAdmin = Convert.ToBoolean(isDataPotralAdminVal);
 
-                    }
-                }
+                //    }
+                //}
                
                 model.CreatedDate = DateTime.Now;
 
@@ -1255,20 +1258,20 @@ namespace ITR.Controllers
                 //    Session.RemoveAll();
                 //}
 
-                if (model.UserID != null)
-                    Session["UserID"] = model.UserID;
-                if (model.CompanyID != null)
-                    Session["CompanyID"] = model.CompanyID;
-                if (model.DivisonID != null)
-                    Session["DivisonID"] = model.DivisonID;
-                if (model.IsDataPortalAdmin != null)
-                    Session["IsDataPortalAdmin"] = model.IsDataPortalAdmin;
-                if (model.Value1 != null)
-                    Session["UserName"] = model.Value1;
-                if (model.EmailID != null)
-                    Session["EmailID"] = model.EmailID;
+                //if (model.UserID != null)
+                //    Session["UserID"] = model.UserID;
+                //if (model.CompanyID != null)
+                //    Session["CompanyID"] = model.CompanyID;
+                //if (model.DivisonID != null)
+                //    Session["DivisonID"] = model.DivisonID;
+                //if (model.IsDataPortalAdmin != null)
+                //    Session["IsDataPortalAdmin"] = model.IsDataPortalAdmin;
+                //if (model.Value1 != null)
+                //    Session["UserName"] = model.Value1;
+                //if (model.EmailID != null)
+                //    Session["EmailID"] = model.EmailID;
 
-                response = Json(new { result = "Success", url = DomainName + "/Home/Dashboard", ComapnyId = model.CompanyID, DivisonID = model.DivisonID, IsDataPortalAdmin = model.IsDataPortalAdmin, UserID = model.UserID, UserName = model.Value1 });
+                response = Json(new { result = "Success", url = DomainName + "/Home/Dashboard", ComapnyId = model.CompanyID, DivisonID = model.DivisonID, IsDataPortalAdmin = model.IsDataPortalAdmin, UserID = model.UserID, UserName = model.Value1, EmailID = model.EmailID });
             }
             catch (Exception ex)
             {
@@ -1298,8 +1301,8 @@ namespace ITR.Controllers
             //Add the Json object values to Session so that they can be used throughout this application
             if (model.CompanyID != null && model.CompanyID != "" && model.DivisonID != null && model.DivisonID != "")
             {
-                Session["CompanyID"] = model.CompanyID;
-                Session["DivisonID"] = model.DivisonID;
+                //Session["CompanyID"] = model.CompanyID;
+                //Session["DivisonID"] = model.DivisonID;
                 response = Json(new { result = "Success", url = DomainName + "/Home/Dashboard" });
             }
             else
@@ -1353,14 +1356,15 @@ namespace ITR.Controllers
                     }
 
 
-                    if(Session["EmailID"]!=null)
-                    {
-                        Email = Session["EmailID"].ToString();
-                    }
-                    else
-                    {
-                        Email = "";
-                    }
+                    //if(Session["EmailID"]!=null)
+                    //{
+                    //    Email = Session["EmailID"].ToString();
+                    //}
+                    //else
+                    //{
+                    //    Email = "";
+                    //}
+                    Email = model.EmailID.ToString();
                     var rScriptString = "";
                     System.IO.File.Create(filePath).Close();
                     //rScriptString = "RunAnalysis(" + "'" + dataSetNames[i] + "', 'CP', '1990-01-01', '" + String.Format("{0:yyyy-MM-dd}", DateTime.Now.Date) + "', '" + model.Indicator + "')";
