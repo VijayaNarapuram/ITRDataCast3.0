@@ -695,7 +695,6 @@
     </div>*@
 
 
-
 <input type="hidden" id="hdnCompanyID" title="" value="" />
 <input type="hidden" id="hdnDivisionID" title="" value="" />
 <input type="hidden" id="hdnUserID" title="" value="" />
@@ -711,13 +710,12 @@
     $("#hdnDivisionID").val(elseCaseDivisionID);
     var elseCaseisDataPortalAdmin = window.localStorage.getItem('EisDataPortalAdmin');
     $("#hdnIsDataPortalAdmin").val(elseCaseisDataPortalAdmin);
-    var elseCaseEmailID =  window.localStorage.getItem('EmailID');
+    var elseCaseEmailID = window.localStorage.getItem('EmailID');
     $("#hdnEmailID").val(elseCaseEmailID);
     var elseCaseUserID =  window.localStorage.getItem('EUserID');
     $("#hdnUserID").val(elseCaseUserID);
 
 </script>
-
 
 
 @section PagespecificCss
@@ -5663,7 +5661,7 @@
 
                 var isChrome = !!window.chrome && !!window.chrome.webstore;
 
-                if(isFirefox)
+                if(!isChrome)//isFirefox)
                 {
 
                     var div_content = document.querySelectorAll("#divPrint")[0];
@@ -5777,7 +5775,7 @@
 
                 var isChrome = !!window.chrome && !!window.chrome.webstore;
 
-                if(isFirefox)
+                if(!isChrome)//isFirefox)
                 {
 
                     var div_content    = document.querySelectorAll("#divPrint");
@@ -5936,7 +5934,7 @@
 
 
 
-                if(isFirefox)
+                 if(!isChrome)//isFirefox)
                 {
 
                     var div_content = document.querySelectorAll("#divPrintIRC")[0];
@@ -6063,7 +6061,7 @@
 
                 }
 
-                if(isFirefox)
+                 if(!isChrome)//isFirefox)
                 {
                     var svgElements = $("#divPrintIRC").find('svg');
 
@@ -6165,7 +6163,7 @@
                     });
                 }
 
-                if(isFirefox)
+                 if(!isChrome)//isFirefox)
                 {
                     var div_content = document.querySelectorAll("#divPrintIDT")[0];
 
@@ -6264,7 +6262,7 @@
 
 
 
-                if(isFirefox)
+                 if(!isChrome)//isFirefox)
                 {
                     var svgElements = $("#divPrintIDT").find('svg');
                     div_content[0].style.backgroundColor = "white";
