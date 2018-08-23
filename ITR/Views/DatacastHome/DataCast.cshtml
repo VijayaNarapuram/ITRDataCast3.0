@@ -5668,6 +5668,8 @@
                     var name = $("#spnIndicatorName").text();
                     var svgElements = $("#divPrint").find('svg');
 
+					if(name=='')
+						name='Download'
                     //replace all svgs with a temp canvas
                     svgElements.each(function() {
                         var canvas, xml;
@@ -5726,6 +5728,9 @@
                     $("#divLables").show();
                     var name = $("#spnIndicatorName").text();
                     var div_content = document.querySelectorAll("#divPrint")[0];
+					if(name=='')
+						name='Download'
+						
                     div_content.style.backgroundColor = "white";
                     //make it as html5 canvasotab
                     html2canvas(div_content).then(function(canvas) {
@@ -5781,7 +5786,8 @@
                     var div_content    = document.querySelectorAll("#divPrint");
                     var name = $("#spnIndicatorName").text();
                     var svgElements = $("#divPrint").find('svg');
-
+if(name=='')
+						name='Download'
                     //replace all svgs with a temp canvas
                     svgElements.each(function() {
                         var canvas, xml;
@@ -5837,6 +5843,9 @@
                     div_content[0].style.backgroundColor = "white";
                     // var name = $("#spnDataSetName").text();
                     var name = $("#spnIndicatorName").text();
+					
+					if(name=='')
+						name='Download'
                     //make it as html5 canvas
                     html2canvas(div_content).then(function(canvas) {
                         //change the canvas to jpeg image
