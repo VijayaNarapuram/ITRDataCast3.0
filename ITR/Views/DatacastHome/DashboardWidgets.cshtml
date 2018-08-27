@@ -378,8 +378,8 @@ else
         function LoadDataSets() {
             // alert(1);
 
-            var accountid = 5399;   // $("#hdnCompanyID").val(); //2301; // _CompanyId;//2301;// $('#ddlAccounts option:selected').val();//2857;2857;//
-            var divisionId = 0;     //$("#hdnDivisionID").val();//divisionID;//0;// divisionID;  //$('#ddlDivision option:selected').val(); //247;//$("#ddlDivision").val();//247;247;//
+            var accountid =  $("#hdnCompanyID").val(); //2301; // _CompanyId;//2301;// $('#ddlAccounts option:selected').val();//2857;2857;//
+            var divisionId = $("#hdnDivisionID").val();//divisionID;//0;// divisionID;  //$('#ddlDivision option:selected').val(); //247;//$("#ddlDivision").val();//247;247;//
 
             if (divisionId == "" || divisionId == null || divisionId == "null") {
                 divisionId = 0;
@@ -1189,7 +1189,7 @@ else
             var modelobjlocal = {
                 DashboardWidgetsListId: DashboardWidgetsListId,
                 CompanyShortCode: $("#ddlDataSets").val(),
-                UserID: userId
+                UserID: $("#hdnUserID").val()
             };
 
             var txt;
