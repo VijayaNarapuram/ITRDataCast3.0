@@ -4022,7 +4022,9 @@
                                     y: null
                                 }
                         })
-                    }, {
+                    },
+
+/*					{
                         seriesType: 'scatter',
                         axis: 0,
                         tooltipSettings: {
@@ -4074,59 +4076,62 @@
 
                             }
                         })
-                    }, {
-                        seriesType: 'scatter',
-                        axisY: 1,
-                        tooltipSettings: {
-                            enabled: true,
-                            axisMarkers: {
-                                enabled: true,
-                                color: 'red',
-                                width: 1,
-                                zIndex: 3
-                            },
-                            customPointText: function(point, chart, text) {
-                                return shield.format(
-                                    '<span><b> Indicator Forecasted 12-Month Moving Average: {value}</b></span>', {
-                                        value: point.y
-                                    }
-                                );
-                            }
-                        },
-                        pointMark: {
-                            enabled: true,
-                            drawWidth: 0
-                        },
-                        color: 'lightgreen',
-                        collectionAlias: "Indicator Forecast",
-                        // data: [null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, 5.9, 11.0, 20.0, -7.8, 9.0]
-                        data: $.map(combinationObject, function(item) {
-                            //  //console.log(item)
-                            if (item.Code == "Indicator" && item.Forecast == false)
-                                return {
-                                    y: null
-                                }
-                            else if (item.Code == "Indicator" && item.Forecast == true) {
-                                if (item.StatPref1 == "1/12")
-                                    return {
-                                        y: item.C1By12
-                                    }
-                                else if (item.StatPref1 == "3/12")
-                                    return {
-                                        y: item.C3BY12
-                                    }
-                                else if (item.StatPref1 == "Monthly")
-                                    return {
-                                        y: item.Monthly
-                                    }
-                                else
-                                    return {
-                                        y: item.C12BY12
-                                    }
-
-                            }
-                        })
                     }
+					*/
+					 {
+					     seriesType: 'scatter',
+					     axisY: 1,
+					     tooltipSettings: {
+					         enabled: true,
+					         axisMarkers: {
+					             enabled: true,
+					             color: 'red',
+					             width: 1,
+					             zIndex: 3
+					         },
+					         customPointText: function(point, chart, text) {
+					             return shield.format(
+                                     '<span><b> Indicator Forecasted 12-Month Moving Average: {value}</b></span>', {
+                                         value: point.y
+                                     }
+                                 );
+					         }
+					     },
+					     pointMark: {
+					         enabled: true,
+					         drawWidth: 0
+					     },
+					     color: 'lightgreen',
+					     collectionAlias: "Indicator Forecast",
+					     // data: [null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, 5.9, 11.0, 20.0, -7.8, 9.0]
+					     data: $.map(combinationObject, function(item) {
+					         //  //console.log(item)
+					         if (item.Code == "Indicator" && item.Forecast == false)
+					             return {
+					                 y: null
+					             }
+					         else if (item.Code == "Indicator" && item.Forecast == true) {
+					             if (item.StatPref1 == "1/12")
+					                 return {
+					                     y: item.C1By12
+					                 }
+					             else if (item.StatPref1 == "3/12")
+					                 return {
+					                     y: item.C3BY12
+					                 }
+					             else if (item.StatPref1 == "Monthly")
+					                 return {
+					                     y: item.Monthly
+					                 }
+					             else
+					                 return {
+					                     y: item.C12BY12
+					                 }
+
+					         }
+					     })
+					 }
+
                 ],
                 chartLegend: {
                     enabled: true,
@@ -5668,8 +5673,8 @@
                     var name = $("#spnIndicatorName").text();
                     var svgElements = $("#divPrint").find('svg');
 
-					if(name=='')
-						name='Download'
+                    if(name=='')
+                        name= 'Download'
                     //replace all svgs with a temp canvas
                     svgElements.each(function() {
                         var canvas, xml;
@@ -5728,10 +5733,10 @@
                     $("#divLables").show();
                     var name = $("#spnIndicatorName").text();
                     var div_content = document.querySelectorAll("#divPrint")[0];
-					if(name=='')
-						name='Download'
-						
                     div_content.style.backgroundColor = "white";
+                    if(name=='')
+                        name= 'Download'
+
                     //make it as html5 canvasotab
                     html2canvas(div_content).then(function(canvas) {
                         //change the canvas to jpeg image
@@ -5786,8 +5791,8 @@
                     var div_content    = document.querySelectorAll("#divPrint");
                     var name = $("#spnIndicatorName").text();
                     var svgElements = $("#divPrint").find('svg');
-if(name=='')
-						name='Download'
+                    if(name=='')
+                        name= 'Download'
                     //replace all svgs with a temp canvas
                     svgElements.each(function() {
                         var canvas, xml;
@@ -5843,9 +5848,10 @@ if(name=='')
                     div_content[0].style.backgroundColor = "white";
                     // var name = $("#spnDataSetName").text();
                     var name = $("#spnIndicatorName").text();
-					
-					if(name=='')
-						name='Download'
+
+                    if(name=='')
+                        name= 'Download'
+
                     //make it as html5 canvas
                     html2canvas(div_content).then(function(canvas) {
                         //change the canvas to jpeg image
@@ -5943,7 +5949,7 @@ if(name=='')
 
 
 
-                 if(!isChrome)//isFirefox)
+                if(!isChrome)//isFirefox)
                 {
 
                     var div_content = document.querySelectorAll("#divPrintIRC")[0];
@@ -6070,7 +6076,7 @@ if(name=='')
 
                 }
 
-                 if(!isChrome)//isFirefox)
+                if(!isChrome)//isFirefox)
                 {
                     var svgElements = $("#divPrintIRC").find('svg');
 
@@ -6172,7 +6178,7 @@ if(name=='')
                     });
                 }
 
-                 if(!isChrome)//isFirefox)
+                if(!isChrome)//isFirefox)
                 {
                     var div_content = document.querySelectorAll("#divPrintIDT")[0];
 
@@ -6271,7 +6277,7 @@ if(name=='')
 
 
 
-                 if(!isChrome)//isFirefox)
+                if(!isChrome)//isFirefox)
                 {
                     var svgElements = $("#divPrintIDT").find('svg');
                     div_content[0].style.backgroundColor = "white";
