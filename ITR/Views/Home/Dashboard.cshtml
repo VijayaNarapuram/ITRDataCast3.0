@@ -289,7 +289,7 @@ else
             isDataPortalAdmin = $("#hdnIsDataPortalAdmin").val(); //true;//
             $("#btnHideFavourites").hide();
 
-          //  $("#hdnUserID").val(1);
+           // $("#hdnUserID").val(1);
             //To Bind the selected values of AddDataset Page if the uer is dataportal admin
             if ((isDataPortalAdmin == true || isDataPortalAdmin == "true" || isDataPortalAdmin == "TRUE") && window.localStorage.getItem('CompanyID') != null) {
                 _CompanyId = window.localStorage.getItem('ECompanyID');
@@ -360,6 +360,9 @@ else
 
             $("#btnrunanalysis").click(function () {
                 var rowCount = $('#dtDataSetList >tbody >tr').length;
+
+                // Start Row Count
+
                 if (rowCount > 0) {
                     ajaxindicatorstart();
                     var dataSetName = "";
@@ -411,6 +414,7 @@ else
                         ShowPopup();
                     }
                 }
+            // End Row Count
             });
             function LoadDivisions() {
                 var accountid = _CompanyId;//$('#ddlAccounts').val();
@@ -850,20 +854,77 @@ else
         }
 
 
-        //Check all option
-        $('#chkHeader').click(function (e) {
+        ////Check all option
+        //$('#chkHeader').click(function (e) {
+        //    var isFirefox = typeof InstallTrigger !== 'undefined';
 
-            if ($('#chkHeader').prop("checked")) {
-                $('.chkChild').each(function () {
-                    //$(this).attr('checked', 'checked');
-                    $(this).prop('checked', true);
-                });
+        //    var isChrome = !!window.chrome && !!window.chrome.webstore;
+
+        //    if (!isChrome) {
+
+
+        //        if ($('#chkHeader').prop("checked")) {
+        //            $('.chkChild').each(function () {
+        //                //$(this).attr('checked', 'checked');
+        //                $(this).prop('checked', true);
+        //            });
+        //        }
+        //        else {
+        //            $('input', oTable.fnGetNodes()).removeAttr('checked');
+        //        }
+        //    }
+
+
+        //});
+
+
+       
+        $('#dtDataSetList').on('click', 'input[type="checkbox"]', function() {
+          
+            var isChrome = !!window.chrome && !!window.chrome.webstore;
+            
+            var thisis = $(this);
+
+
+            var isChrome = !!window.chrome && !!window.chrome.webstore;
+
+            //if (isChrome) {
+            //    document.getElementById("displayMessage").innerHTML = 'You can choose only one dataset for Run Analysis in Chrome.';
+            //    $('#displayMessage').prepend('<span class="button b-close"><span>X</span></span>');//Prepending Close button to popup
+            //    $('#displayMessage').bPopup({
+            //        autoClose: 3000
+            //    });
+            //}
+
+
+            if($(this).prop("id")=='chkHeader')
+            {
+                if (!isChrome) {
+
+
+                    if ($('#chkHeader').prop("checked")) {
+                        $('.chkChild').each(function () {
+                            //$(this).attr('checked', 'checked');
+                            $(this).prop('checked', true);
+                        });
+                    }
+                    else {
+                        $('input', oTable.fnGetNodes()).removeAttr('checked');
+                    }
+                }
             }
-            else {
-                $('input', oTable.fnGetNodes()).removeAttr('checked');
+            else
+            {
+                $('#chkHeader').prop("checked",false);
+                if (isChrome) {
+                    $('input', oTable.fnGetNodes()).removeAttr('checked');
+                    $(thisis).prop('checked', true);
+                }
             }
 
-        });
+        });  
+
+
 
         // Code added by Raghuveer on July 20 2017
         $("#ddlIndicators").change(function(e){
